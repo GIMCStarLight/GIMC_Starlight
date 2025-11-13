@@ -1,0 +1,15 @@
+{
+  "widgets": {
+    "document": "Documentation",
+    "qa": "Q&A"
+  },
+  "formRules": {
+    "required": "Please enter {0}",
+    "selectRequired": "Please select {0}"
+  },
+  "placeholder": {
+    "input": "Please enter",
+    "select": "Please select",
+    "textarea": "Please enter content"
+  }
+}

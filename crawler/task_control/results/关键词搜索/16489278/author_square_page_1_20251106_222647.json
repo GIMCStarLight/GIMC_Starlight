@@ -1,0 +1,226 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "34",
+        "assign_task_price_list": "[5495,6280]",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "2",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_9f4afc7cbb6ad415134687b5222251a2.jpeg?from=4010531038",
+        "brand_boost_vv": "290711",
+        "city": "郑州市",
+        "content_theme_labels_180d": "[\"美食趣闻\",\"地方美食\",\"水上运动\",\"科技科普\",\"潜水运动\",\"户外运动\",\"极限运动\",\"家居创意\",\"冲浪运动\",\"工具使用技巧\"]",
+        "core_user_id": "60687529743",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "<=10",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "537754",
+        "expected_play_num": "491424",
+        "fans_increment_rate_within_15d": "-0.0017980642606525523",
+        "fans_increment_within_15d": "-781",
+        "fans_increment_within_30d": "545",
+        "follower": "433538",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "6880433383499890695",
+        "interact_rate_within_30d": "0.0026",
+        "interaction_median_30d": "4092.5",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"41\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762173118\",\"item_id\":\"7568475892763701241\",\"item_publish_time\":\"1762173118\",\"item_title\":\"不用擀面杖，这饼竟大得像床单！#手工美食 #巨饼 #烤饼 #科普一下 #民间手艺\",\"like_cnt\":\"437\",\"share_cnt\":\"65\",\"vv\":\"42505\"},{\"comment_cnt\":\"47\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761637321\",\"item_id\":\"7566174665928985905\",\"item_publish_time\":\"1761637321\",\"item_title\":\"他们在现实中玩“贪吃蛇”？！#卡丁车体验 #贪吃蛇对战 #投影互动 #科普一下 #沉浸式游戏\",\"like_cnt\":\"2292\",\"share_cnt\":\"2910\",\"vv\":\"279479\"},{\"comment_cnt\":\"62\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761312399\",\"item_id\":\"7564779143259508005\",\"item_publish_time\":\"1761312399\",\"item_title\":\"国外流行的身体滚轮机，一上去就不想下来～#身体滚轮机 #身体滚动按摩仪 #健身日常 #科普一下 #放松神器\",\"like_cnt\":\"1262\",\"share_cnt\":\"183\",\"vv\":\"107059\"},{\"comment_cnt\":\"450\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760789294\",\"item_id\":\"7562532409815649595\",\"item_publish_time\":\"1760789294\",\"item_title\":\"你以为它在挖沙？其实是在当妈妈！#海龟 #海龟产卵 #海龟筑巢 #科普一下 #沙滩母亲\",\"like_cnt\":\"13152\",\"share_cnt\":\"1390\",\"vv\":\"7108342\"},{\"comment_cnt\":\"33\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760450823\",\"item_id\":\"7561078695009324345\",\"item_publish_time\":\"1760450823\",\"item_title\":\"国外爆火的“鸟臂挑战”，原来是这样做到的！#鸟臂挑战 #视觉错觉 #鸟人错觉 #科普一下 #万万没想到\",\"like_cnt\":\"2248\",\"share_cnt\":\"1144\",\"vv\":\"250634\"},{\"comment_cnt\":\"110\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760110030\",\"item_id\":\"7559614982699601211\",\"item_publish_time\":\"1760110030\",\"item_title\":\"往面团里砸冰块？这居然是门技术！#面包制作 #烘焙 #面包幕后 #科普一下 #幕后制作\",\"like_cnt\":\"7760\",\"share_cnt\":\"324\",\"vv\":\"5216841\"},{\"comment_cnt\":\"2067\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759658506\",\"item_id\":\"7557675715957755195\",\"item_publish_time\":\"1759658506\",\"item_title\":\"不插电，这木桶竟然能自动加热？#自热木桶 #户外生活 #自制浴缸 #科普一下 #自然循环\",\"like_cnt\":\"32048\",\"share_cnt\":\"5928\",\"vv\":\"4030130\"},{\"comment_cnt\":\"630\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759393617\",\"item_id\":\"7556538022402903354\",\"item_publish_time\":\"1759393617\",\"item_title\":\"你以为很浪漫，其实热气球起飞有点“惊险”！#热气球 #浪漫与惊险 #热气球起飞 #科普一下 #万万没想到\",\"like_cnt\":\"18576\",\"share_cnt\":\"7950\",\"vv\":\"4756013\"},{\"comment_cnt\":\"22\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759312491\",\"item_id\":\"7556189604329901372\",\"item_publish_time\":\"1759312491\",\"item_title\":\"比喝醉更容易出糗的啤酒节项目：魔鬼传送带！#慕尼黑啤酒节 #魔鬼传送带 #啤酒节名场面 #游乐设施 #万万没想到\",\"like_cnt\":\"914\",\"share_cnt\":\"79\",\"vv\":\"113135\"},{\"comment_cnt\":\"9\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758708199\",\"item_id\":\"7553594184625360188\",\"item_publish_time\":\"1758708199\",\"item_title\":\"这些“土办法”，背后竟藏着大智慧！#劳动的智慧 #工地日常 #农场日常 #科普一下 #万万没想到\",\"like_cnt\":\"653\",\"share_cnt\":\"51\",\"vv\":\"105951\"}]",
+        "link_convert_index": "52.84",
+        "link_convert_index_by_industry": "52.33",
+        "link_i_cnt_by_industry": "10330985",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "8644066",
+        "link_link_cnt_by_industry": "19047552",
+        "link_n_cnt_by_industry": "72501",
+        "link_recommend_index_by_industry": "92.64",
+        "link_shopping_index": "91.65",
+        "link_spread_index": "89.03",
+        "link_spread_index_by_industry": "89.55",
+        "link_star_index": "76.22",
+        "link_star_index_by_industry": "76.43",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "全球趣事儿",
+        "pic_brand_boost": "true",
+        "pic_brand_boost_vv": "50000",
+        "play_over_rate_within_30d": "0.3316",
+        "price_1_20": "6300",
+        "price_20_60": "7650",
+        "price_60": "7850",
+        "promotion_prospective_1_20_cpm": "13.26",
+        "promotion_prospective_20_60_cpm": "16.1",
+        "promotion_prospective_60_cpm": "16.52",
+        "promotion_prospective_vv": "475258",
+        "prospective_1_20_cpm": "12.8199",
+        "prospective_20_60_cpm": "15.567",
+        "prospective_60_cpm": "15.974",
+        "province": "河南省",
+        "search_after_view_index_by_industry": "78.14",
+        "sn_expected_play_num": "491424",
+        "sn_interact_rate_within_30d": "0.0026",
+        "sn_play_over_rate_within_30d": "0.3316",
+        "sn_prospective_1_20_cpe": "1.3572",
+        "sn_prospective_1_20_cpm": "12.8199",
+        "sn_prospective_20_60_cpe": "1.648",
+        "sn_prospective_20_60_cpm": "15.567",
+        "sn_prospective_60_cpe": "1.6911",
+        "sn_prospective_60_cpm": "15.974",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "19",
+        "star_ecom_video_num_30d": "0",
+        "star_ecom_video_product_num_30d": "0",
+        "star_excellent_author": "0",
+        "star_index": "61.79453196375201",
+        "star_item_count_within_30d": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "2",
+        "star_video_finish_vv_rate_90d": "0.0043",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0012",
+        "star_video_median_vv_90d": "2745024",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"母婴亲子\":[\"亲子互动\"]}",
+        "video_brand_boost": "true",
+        "video_brand_boost_vv": "290711",
+        "vv_median_30d": "237076.5"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7513868670260596026",
+          "video_tag": 3,
+          "vv": 12756560
+        },
+        {
+          "item_id": "7550235339173563708",
+          "video_tag": 3,
+          "vv": 10371543
+        },
+        {
+          "item_id": "7551454868679003451",
+          "video_tag": 4,
+          "vv": 5284824
+        },
+        {
+          "item_id": "7536173113915428153",
+          "video_tag": 5,
+          "vv": 9355460
+        },
+        {
+          "item_id": "7509409386898918716",
+          "video_tag": 5,
+          "vv": 8530939
+        },
+        {
+          "item_id": "7568475892763701241",
+          "video_tag": 6,
+          "vv": 40007
+        },
+        {
+          "item_id": "7566174665928985905",
+          "video_tag": 6,
+          "vv": 270435
+        }
+      ],
+      "star_id": "6880433383499890695",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 7850,
+              "price_extra_info": {},
+              "start_time": "1751439664",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 7650,
+              "price_extra_info": {},
+              "start_time": "1751439664",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 6300,
+              "price_extra_info": {},
+              "start_time": "1751439664",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 34,
+              "price_extra_info": {
+                "ceiling_price": "6750",
+                "floor_price": "900"
+              },
+              "start_time": "1717565896",
+              "task_category": 1,
+              "video_type": 92,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7569617389084868618"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "b84b358152851a025fe21f1726f6661a0ece6b1e"
+}

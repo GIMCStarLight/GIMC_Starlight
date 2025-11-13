@@ -1,0 +1,128 @@
+好的，我先给出一套清晰可落地的四接口方案，贴合你现有调度器与爬虫实现，前端“更新数据”点击即可触发对应模式，并便于后续扩展和观测。
+
+**总体思路**
+- 在 `entrypoints/api_server.py` 增加一个轻量 Web 服务（建议 `FastAPI`），对外提供四个触发接口，统一返回 `job_id`，后台异步执行。
+- 后台执行通过 `MainTaskScheduler.run(config)` 触发现有功能：
+  - 单关键词：直接用 `search_star_id` 或 `search_handle` 进入“关键词搜索模式”。
+  - 批量关键词：将关键词写入临时文件，传入 `keyword_file`，进入“批量关键词模式”（内置逐条处理、间隔控制、汇总统计）。
+- 限制每次批量最多 20 个，串行执行，避免共享资源冲突（cookie、QPS、输出目录）。
+- 建议同时提供作业状态查询接口（不在这四个之内，但强烈推荐配套），以便前端轮询“进度/统计”。
+
+**接口定义**
+- POST `/api/v1/crawl/author-square/search/star-id`
+  - 用途：触发单关键词（星图ID）搜索
+- POST `/api/v1/crawl/author-square/search/handle`
+  - 用途：触发单关键词（抖音号）搜索
+- POST `/api/v1/crawl/author-square/batch/star-id`
+  - 用途：触发批量关键词（星图ID）搜索，最多 20 个
+- POST `/api/v1/crawl/author-square/batch/handle`
+  - 用途：触发批量关键词（抖音号）搜索，最多 20 个
+
+你要求的四个接口到此完整覆盖。
+
+**请求体设计**
+- 单关键词（星图ID）
+  - `star_id: string | number` 必填（必须为纯数字）
+  - `options: object` 可选（见“通用 options 字段”）
+- 单关键词（抖音号）
+  - `handle: string` 必填（必须为 ASCII 合规的抖音号，允许字母/数字/._-，可选以 `TG` 开头）
+  - `options: object` 可选
+- 批量关键词（星图ID）
+  - `star_ids: string[] | number[]` 必填（非空、长度 1–20、每项必须为纯数字）
+  - `dedup: boolean` 可选（默认 `true`，去重）
+  - `options: object` 可选
+- 批量关键词（抖音号）
+  - `handles: string[]` 必填（非空、长度 1–20、每项必须为 ASCII 合规的抖音号）
+  - `dedup: boolean` 可选（默认 `true`，去重）
+  - `options: object` 可选
+
+**通用 options 字段（与调度器参数映射）**
+- 基础与输出
+  - `cookies_file: string` 映射 `cookies_file`（默认 `task_control/cookies.txt`）
+  - `star_id_header: string|number` 映射 `star_id`（用于请求头 `x-tt-possess-star-id`，默认 `1843934177451019`）
+  - `output_dir: string` 映射 `output_dir`（默认 `task_control/results`）
+  - `report_dir: string` 映射 `report_dir`（默认 `task_control/reports`）
+- 分页与过滤
+  - `page: number`，`limit: number`，`min_price: number`，`video_type: string|number`
+- 稳定性与限速
+  - `domain_qps: number`，`qps_window_ms: number`（如 `1` 和 `1000`）
+  - `retry_max: number`，`retry_backoff_ms: number`
+  - `sleep_ms: number`（同页内请求间隔），`sleep_between_keywords_ms: number`（批量关键词间隔，默认 `800–1500`）
+- 入库（可选）
+  - `save_pg: boolean`，`pg_config: string`（存在配置文件时可自动启用入库）
+- 其他
+  - `payload_override: string`（JSON 文件路径，合并覆盖 payload）
+  - `dry_run: boolean`（仅打印 headers/payload）
+
+建议合理默认：
+- `domain_qps: 1`、`qps_window_ms: 1000`、`retry_max: 3`、`retry_backoff_ms: 5000`、`sleep_between_keywords_ms: 1000`
+
+**返回体设计**
+- 统一返回
+  - `job_id: string`（UUID）
+  - `status: string`（`queued` 或 `running`）
+  - `accepted_at: ISO8601 string`
+  - `message: string`（例如“已排队/已开始执行”）
+
+配套（推荐补充）：
+- GET `/api/v1/jobs/{job_id}` 返回 `status/progress/summary/last_logs`
+- POST `/api/v1/jobs/{job_id}/cancel` 可选
+
+**参数到调度器的映射方式**
+- 单关键词（星图ID）
+  - `config = { search_star_id: star_id, search_type: 1, ...options }`
+  - 走 `MainTaskScheduler.run(config)` → `_run_keyword_search_mode()`
+- 单关键词（抖音号）
+  - `config = { search_handle: handle, search_type: 3, ...options }`
+  - 走 `MainTaskScheduler.run(config)` → `_run_keyword_search_mode()`
+- 批量关键词（星图ID）
+  - 将 `star_ids` 写入临时文件（每行一个，纯数字校验），得到 `keyword_file`
+  - `config = { keyword_file, dedup_keywords: dedup, max_keywords: 20, ...options }`
+  - 走 `MainTaskScheduler.run(config)` → `_run_batch_keywords_mode()`
+  - 内部检测到纯数字会自动 `search_type=1`，与你的端口语义一致
+- 批量关键词（抖音号）
+  - 将 `handles` 写入临时文件（每行一个，ASCII/`TG`/字母数字._- 校验），得到 `keyword_file`
+  - `config = { keyword_file, dedup_keywords: dedup, max_keywords: 20, ...options }`
+  - `_run_batch_keywords_mode()` 会根据规则将 ASCII 识别为 `search_type=3`
+
+说明：批量接口不强制外部指定 `search_type`，因为你现有逻辑会在循环内按每条关键词自动识别并覆盖，这与“批量星图ID/抖音号”的语义天然贴合。我们在 API 层通过输入校验“保证一锅里都是同一品类”，避免误判落到 `search_type=2`（昵称）。
+
+**校验与限制**
+- 星图ID：必须全为数字（`^\d+$`）
+- 抖音号：必须 ASCII 且仅允许字母/数字/下划线/连字符/点（或以 `TG` 开头）
+- 批量长度 1–20，默认去重
+- `cookies_file` 必须存在；不存在直接 400 返回
+- 运行并发：使用单工作线程或串行队列，避免资源竞争
+- 输出目录与报表目录不可为空；自动 `os.makedirs`
+
+**执行与状态管理**
+- 使用线程池（建议 `ThreadPoolExecutor(max_workers=1)`）异步执行
+- 作业注册表（内存）：`{ job_id: {status, started_at, finished_at, config_snapshot, summary, last_logs} }`
+- 日志采集：可先劫持 `stdout` 片段或在调度器周围增加轻量回调记录关键节点（后续增强项）
+
+**错误处理与超时对策**
+- 上游 20s `ReadTimeout` 场景：默认配置已包含较保守的 QPS/重试/退避；必要时 options 支持调高 `retry_max`/`retry_backoff_ms`、增大 `sleep_ms`/`sleep_between_keywords_ms`
+- 401/403：依赖现有 `pause_on_401_ms`、`cooldown_429_403_ms` 与重试策略；API 返回 job_id 后由状态接口暴露异常摘要
+
+**安全与部署**
+- 建议内网部署或反向代理限流
+- 开启 `X-API-Key` 校验或 JWT；前端仅内网可访问
+- CORS 白名单（如前后端不在同域）
+
+**示例请求（建议）**
+- 单关键词（星图ID）
+  - POST `/api/v1/crawl/author-square/search/star-id`
+  - Body:
+    - `{ "star_id": "123456789", "options": { "cookies_file": "task_control/cookies.txt", "output_dir": "task_control/results" } }`
+- 单关键词（抖音号）
+  - POST `/api/v1/crawl/author-square/search/handle`
+  - Body:
+    - `{ "handle": "TG1234567", "options": { "sleep_ms": 500 } }`
+- 批量星图ID（<=20）
+  - POST `/api/v1/crawl/author-square/batch/star-id`
+  - Body:
+    - `{ "star_ids": ["123","456", "..."], "dedup": true, "options": { "max_keywords": 20, "sleep_between_keywords_ms": 1000 } }`
+- 批量抖音号（<=20）
+  - POST `/api/v1/crawl/author-square/batch/handle`
+  - Body:
+    - `{ "handles": ["TG123","user_01","..."], "dedup": true, "options": { "max_keywords": 20, "domain_qps": 1 } }`

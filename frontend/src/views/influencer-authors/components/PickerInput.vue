@@ -1,0 +1,165 @@
+<template>
+  <el-popover
+    placement="bottom"
+    :width="popoverWidth"
+    trigger="hover"  :persistent="true" :show-arrow="false" ref="popoverRef"
+    popper-class="picker-input-popper"
+  >
+    <template #reference>
+      <div 
+        class="picker-input-trigger" 
+        :class="{ 'is-active': modelValue !== undefined }"
+        @wheel.prevent="handleTriggerWheel" >
+        <span>{{ displayLabel }}</span>
+        <IconifyIcon icon="lucide:chevrons-up-down" class="trigger-icon" />
+      </div>
+    </template>
+    
+    <template #default>
+      <WheelPicker
+        v-model="internalValue"
+        :options="options"
+        :item-height="30" :visible-items="5"
+        @change="handlePickerChange"
+      />
+    </template>
+  </el-popover>
+</template>
+
+<script setup lang="ts">
+import { ref, computed, type PropType } from 'vue'
+import WheelPicker from './WheelPicker.vue'
+import { IconifyIcon } from '@vben/icons'
+
+interface Option {
+  label: string;
+  value: number | string | undefined;
+}
+
+const props = defineProps({
+  modelValue: {
+    type: [Number, String, undefined],
+    default: undefined
+  },
+  options: {
+    type: Array as PropType<Option[]>,
+    required: true
+  },
+  placeholder: {
+    type: String,
+    default: '请选择'
+  },
+  popoverWidth: {
+    type: Number,
+    default: 180 }
+})
+
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: number | string | undefined): void;
+}>()
+
+const popoverRef = ref<any>(null) // Popover 实例
+
+// 显示在输入框上的标签
+const displayLabel = computed(() => {
+  const selected = props.options.find(opt => opt.value === props.modelValue)
+  return selected ? selected.label : props.placeholder
+})
+
+// 代理 v-model，用于 WheelPicker
+const internalValue = computed({
+  get: () => props.modelValue,
+  set: (val) => {
+    emit('update:modelValue', val)
+  }
+})
+
+// 当滚轮值变化时，不关闭浮层 (因为是 hover)
+const handlePickerChange = (val: number | string | undefined) => {
+  emit('update:modelValue', val)
+  // 悬停模式下不主动关闭
+}
+
+// 关键：在触发器上滚动滚轮时，手动打开浮层
+const handleTriggerWheel = (event: WheelEvent) => {
+  if (popoverRef.value && !popoverRef.value.open) {
+    popoverRef.value.show()
+  }
+  // 注意：WheelPicker 内部自己会处理 wheel 事件，这里只是负责“激活”
+  // 也许我们应该在这里直接处理滚动逻辑？
+  
+  // 优化：直接在这里处理滚动逻辑，即使浮层未打开
+  if (!popoverRef.value.open) {
+     // 找到当前索引
+     let currentIndex = props.options.findIndex(opt => opt.value === props.modelValue);
+     if (currentIndex === -1) {
+       currentIndex = props.options.findIndex(opt => opt.value !== undefined); // 找到第一个非 "不限"
+       if (currentIndex === -1) currentIndex = 0;
+     }
+
+     // 根据滚轮方向计算下一个索引
+     let nextIndex = currentIndex;
+     if (event.deltaY > 0) { // 向下滚动
+       nextIndex = Math.min(props.options.length - 1, currentIndex + 1);
+     } else { // 向上滚动
+       nextIndex = Math.max(0, currentIndex - 1);
+     }
+
+     if (nextIndex !== currentIndex) {
+       emit('update:modelValue', props.options[nextIndex].value);
+     }
+  }
+}
+
+</script>
+
+<style scoped lang="scss">
+.picker-input-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  padding: 0 11px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 13px;
+  color: #9ca3af; // Placeholder color
+  
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  &.is-active {
+    color: #1f2937; // Selected color
+  }
+  
+  &:hover {
+    border-color: #409eff; // 悬停时高亮
+    box-shadow: 0 0 0 1px #409eff;
+  }
+  
+  .trigger-icon {
+    font-size: 14px;
+    color: #9ca3af;
+    flex-shrink: 0;
+    margin-left: 4px;
+  }
+}
+</style>
+
+<style lang="scss">
+/* 浮层样式，使其更像你图中的效果 */
+.picker-input-popper {
+  padding: 6px !important; // 更紧凑的 padding
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px !important;
+}
+</style>

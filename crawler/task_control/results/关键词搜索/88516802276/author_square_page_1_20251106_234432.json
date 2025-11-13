@@ -1,0 +1,160 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "2",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_3e9b320da0624e87185fb13af70ba373.jpeg?from=4010531038",
+        "city": "宁波",
+        "content_theme_labels_180d": "[]",
+        "core_user_id": "4040019119186707",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "1",
+        "expected_play_num": "23840",
+        "fans_increment_rate_within_15d": "-0.004343651410543642",
+        "fans_increment_within_15d": "-475",
+        "fans_increment_within_30d": "4.9",
+        "follower": "108866",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7343151539990560795",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"89\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1719192757\",\"item_id\":\"7383876564649364799\",\"item_publish_time\":\"1719192757\",\"item_title\":\"哪儿来的人间油物 #就很小艾 #夏⽇有元⽓  #夏⽇出逃计划 #kato散粉 #抽象⽣活艺术⼤赏\",\"like_cnt\":\"2186\",\"share_cnt\":\"200\",\"vv\":\"70167\"},{\"comment_cnt\":\"129\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1718948946\",\"item_id\":\"7382829460179127571\",\"item_publish_time\":\"1718948946\",\"item_title\":\"哪儿有这么卖猪油的啊 #就很小艾 #夏⽇有元⽓  #夏⽇出逃计划 #kato散粉  #抽象⽣活艺术⼤赏\",\"like_cnt\":\"4196\",\"share_cnt\":\"569\",\"vv\":\"140076\"},{\"comment_cnt\":\"63\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1714734682\",\"item_id\":\"7364729344469650699\",\"item_publish_time\":\"1714734682\",\"item_title\":\"要是下周我没更新，记得给我带个果篮 #就很小艾 #发疯日常 #二次元土匪 #万万没想到 #1974年第一次在东南亚打自由搏击\",\"like_cnt\":\"3731\",\"share_cnt\":\"223\",\"vv\":\"85546\"},{\"comment_cnt\":\"74\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1714475526\",\"item_id\":\"7363616270354238759\",\"item_publish_time\":\"1714475526\",\"item_title\":\"急死我了，到底哪刮了呀 #就很小艾 #发疯日常 #套路  #万万没想到 #碰瓷\",\"like_cnt\":\"4683\",\"share_cnt\":\"149\",\"vv\":\"107631\"},{\"comment_cnt\":\"25\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1714300104\",\"item_id\":\"7362862849896566070\",\"item_publish_time\":\"1714300104\",\"item_title\":\"对不起伍佰老师，我只能模仿一半 #伍佰打响新一轮模仿大赛 #就很小艾 #伍佰模仿秀 #发疯日常 #骚操作\",\"like_cnt\":\"1998\",\"share_cnt\":\"49\",\"vv\":\"56938\"},{\"comment_cnt\":\"66\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1714040882\",\"item_id\":\"7361749514199256356\",\"item_publish_time\":\"1714040882\",\"item_title\":\"我的四个橘子去哪了 #就很小艾 #奸商 #二次元土匪 #套路 #万万没想到\",\"like_cnt\":\"3013\",\"share_cnt\":\"286\",\"vv\":\"111035\"},{\"comment_cnt\":\"77\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1713524646\",\"item_id\":\"7359532266269232396\",\"item_publish_time\":\"1713524646\",\"item_title\":\"所以小艾是怎么开的锁 #就很小艾 #奸商 #发疯日常 #二次元土匪 #套路\",\"like_cnt\":\"4979\",\"share_cnt\":\"352\",\"vv\":\"128760\"},{\"comment_cnt\":\"109\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1712919411\",\"item_id\":\"7356932822549957929\",\"item_publish_time\":\"1712919411\",\"item_title\":\"所以小艾是怎么上来的 #就很小艾 #奸商 #二次元土匪 #发疯日常 #套路\",\"like_cnt\":\"8469\",\"share_cnt\":\"502\",\"vv\":\"733672\"},{\"comment_cnt\":\"96\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1712663319\",\"item_id\":\"7355832915693014313\",\"item_publish_time\":\"1712663319\",\"item_title\":\"哪有什么#日全食 啊#就很小艾 #发疯日常 #谁能拒绝呆萌的玩偶  #奸商\",\"like_cnt\":\"4119\",\"share_cnt\":\"363\",\"vv\":\"109283\"},{\"comment_cnt\":\"106\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1712207217\",\"item_id\":\"7353873963258301732\",\"item_publish_time\":\"1712207217\",\"item_title\":\"这#土匪 人还怪好的#就很小艾 #发疯日常 #奸商 #弱小可怜又无助\",\"like_cnt\":\"6729\",\"share_cnt\":\"605\",\"vv\":\"227218\"}]",
+        "link_convert_index": "61.73",
+        "link_convert_index_by_industry": "61.73",
+        "link_i_cnt_by_industry": "2514",
+        "link_k_cnt_by_industry": "1",
+        "link_l_cnt_by_industry": "3774",
+        "link_link_cnt_by_industry": "6614",
+        "link_n_cnt_by_industry": "325",
+        "link_recommend_index_by_industry": "66.97",
+        "link_shopping_index": "66.97",
+        "link_spread_index": "53.46",
+        "link_spread_index_by_industry": "53.46",
+        "link_star_index": "65.21",
+        "link_star_index_by_industry": "65.21",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "就很小艾",
+        "price_1_20": "5000",
+        "price_20_60": "6000",
+        "price_60": "9000",
+        "prospective_1_20_cpm": "209.7315",
+        "prospective_20_60_cpm": "251.6779",
+        "prospective_60_cpm": "377.5168",
+        "province": "",
+        "search_after_view_index_by_industry": "31.14",
+        "sn_expected_play_num": "23840",
+        "sn_prospective_1_20_cpe": "6.001",
+        "sn_prospective_1_20_cpm": "209.7315",
+        "sn_prospective_20_60_cpe": "7.2012",
+        "sn_prospective_20_60_cpm": "251.6779",
+        "sn_prospective_60_cpe": "10.8017",
+        "sn_prospective_60_cpm": "377.5168",
+        "star_excellent_author": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"剧情搞笑\":[\"剧情\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7383876564649364799",
+          "video_tag": 4,
+          "vv": 54116
+        }
+      ],
+      "star_id": "7343151539990560795",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 10000,
+              "price_extra_info": {},
+              "start_time": "1709710895",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 5000,
+              "price_extra_info": {},
+              "start_time": "1732982400",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 9000,
+              "price_extra_info": {},
+              "start_time": "1732982400",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 6000,
+              "price_extra_info": {},
+              "start_time": "1732982400",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7569637944764514330"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "7004c27e42ddbfbd4c1910e53cbef1ec9662a502"
+}

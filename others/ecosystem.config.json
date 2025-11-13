@@ -1,0 +1,58 @@
+{
+  "apps": [
+    {
+      "name": "crawler-backend",
+      "script": "./dist/src/main.js",
+      "cwd": "/www/wwwroot/gimcstar_proudction_env/gimcstar/backend",
+      "instances": 4,
+      "exec_mode": "cluster",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": "9000"
+      },
+      "error_file": "/www/wwwroot/gimcstar_proudction_env/gimcstar/logs/backend-error.log",
+      "out_file": "/www/wwwroot/gimcstar_proudction_env/gimcstar/logs/backend-out.log",
+      "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
+      "merge_logs": true,
+      "max_memory_restart": "500M",
+      "min_uptime": "10s",
+      "max_restarts": 10,
+      "autorestart": true,
+      "watch": false,
+      "ignore_watch": [
+        "node_modules",
+        "logs",
+        "uploads"
+      ],
+      "instance_var": "INSTANCE_ID",
+      "kill_timeout": 5000,
+      "listen_timeout": 3000,
+      "wait_ready": true,
+      "shutdown_with_message": true
+    },
+    {
+      "name": "crawler-api",
+      "script": "./entrypoints/restful_api_server.py",
+      "cwd": "/www/wwwroot/gimcstar_proudction_env/gimcstar/task_control",
+      "interpreter": "/www/wwwroot/gimcstar_proudction_env/gimcstar/task_control/venv/bin/python",
+      "instances": 2,
+      "exec_mode": "fork",
+      "env": {
+        "PYTHONUNBUFFERED": "1",
+        "PYTHON_ENV": "production",
+        "WORKERS": "4"
+      },
+      "error_file": "/www/wwwroot/gimcstar_proudction_env/gimcstar/logs/python-api-error.log",
+      "out_file": "/www/wwwroot/gimcstar_proudction_env/gimcstar/logs/python-api-out.log",
+      "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
+      "merge_logs": true,
+      "max_memory_restart": "1G",
+      "min_uptime": "10s",
+      "max_restarts": 10,
+      "autorestart": true,
+      "watch": false,
+      "kill_timeout": 5000,
+      "listen_timeout": 3000
+    }
+  ]
+}

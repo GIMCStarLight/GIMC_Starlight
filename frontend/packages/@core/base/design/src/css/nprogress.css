@@ -1,0 +1,83 @@
+/* Make clicks pass-through */
+#nprogress {
+  /* Tailwind: pointer-events-none */
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  /* Tailwind: fixed left-0 top-0 w-full bg-primary */
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: hsl(var(--primary));
+  /* 不使用 @apply 任意值：z-[1031] h-[2px] */
+  z-index: 1031;
+  height: 2px;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+  /* Tailwind: absolute right-0 block h-full */
+  position: absolute;
+  right: 0;
+  display: block;
+  height: 100%;
+  /* 不使用 @apply 任意值：w-[100px] */
+  width: 100px;
+
+  box-shadow:
+    0 0 10px hsl(var(--primary)),
+    0 0 5px hsl(var(--primary));
+  opacity: 1;
+  transform: rotate(3deg) translate(0, -4px);
+}
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
+  /* Tailwind: fixed right-4 top-4 block */
+  position: fixed;
+  right: 1rem; /* right-4 */
+  top: 1rem;  /* top-4 */
+  display: block;
+  /* 不使用 @apply 任意值：z-[1031] */
+  z-index: 1031;
+}
+
+#nprogress .spinner-icon {
+  /* Tailwind: rounded-full border-solid border-transparent */
+  border-radius: 9999px;
+  border-style: solid;
+  /* 不使用 @apply 任意值：border-[2px] 与 size-4 */
+  border-width: 2px;
+  width: 1rem;
+  height: 1rem;
+  border-color: transparent;
+  /* 等效于 border-t-primary border-l-primary */
+  border-top-color: hsl(var(--primary));
+  border-left-color: hsl(var(--primary));
+
+  animation: nprogress-spinner 400ms linear infinite;
+}
+
+.nprogress-custom-parent {
+  /* Tailwind: relative overflow-hidden */
+  position: relative;
+  overflow: hidden;
+}
+
+.nprogress-custom-parent #nprogress .spinner,
+.nprogress-custom-parent #nprogress .bar {
+  /* Tailwind: absolute */
+  position: absolute;
+}
+
+@keyframes nprogress-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

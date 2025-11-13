@@ -1,0 +1,249 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "4",
+        "assign_task_price_list": "[34000]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L5",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"酥脆\":0.014}",
+        "author_type": "2",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/mosaic-legacy_3b5b000d0aa99027761c.jpeg?from=4010531038",
+        "brand_boost_vv": "630256",
+        "city": "",
+        "content_theme_labels_180d": "[\"英雄对线玩法\",\"王者操作教学\",\"王者英雄玩法\",\"王者玩法攻略\",\"王者英雄攻略\",\"游戏实战教学\",\"王者游戏实战\",\"游戏战术解析\",\"王者战局技巧\",\"三角洲新赛季\"]",
+        "core_user_id": "70367542514",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "2972418",
+        "expected_play_num": "4310951",
+        "fans_increment_rate_within_15d": "0.007083993062572311",
+        "fans_increment_within_15d": "19140",
+        "fans_increment_within_30d": "27745",
+        "follower": "2720962",
+        "game_type": "{\"MOBA\": 1.0}",
+        "gender": "1",
+        "grade": "0",
+        "id": "7033290401364574243",
+        "interact_rate_within_30d": "0.0132",
+        "interaction_median_30d": "48951",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "true",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "1",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"635\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762325028\",\"item_id\":\"7569128317626928384\",\"item_publish_time\":\"1762325028\",\"item_title\":\"妲己对线海月全程教学 #妲己教学 素材提供@王者荣耀梦呓（国服妲己）\",\"like_cnt\":\"14274\",\"share_cnt\":\"2610\",\"vv\":\"1482119\"},{\"comment_cnt\":\"271\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762231181\",\"item_id\":\"7568725258295840019\",\"item_publish_time\":\"1762231181\",\"item_title\":\"亚连对线达摩全程教学 #亚连教学 素材提供@独孤star（国一亚连）\",\"like_cnt\":\"21183\",\"share_cnt\":\"696\",\"vv\":\"1836727\"},{\"comment_cnt\":\"202\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762064929\",\"item_id\":\"7568011190601780534\",\"item_publish_time\":\"1762075800\",\"item_title\":\"嫦娥对线甄姬全程教学 #嫦娥教学 素材提供@梓豪(2W四国服嫦娥)\",\"like_cnt\":\"12473\",\"share_cnt\":\"454\",\"vv\":\"1049962\"},{\"comment_cnt\":\"2872\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762025870\",\"item_id\":\"7567843303928909097\",\"item_publish_time\":\"1762054200\",\"item_title\":\"狂暴芈月对线孙策全程教学 #芈月教学 #狂暴芈月\",\"like_cnt\":\"173774\",\"share_cnt\":\"14567\",\"vv\":\"9552293\"},{\"comment_cnt\":\"31\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761995518\",\"item_id\":\"7567713060148841791\",\"item_publish_time\":\"1761995518\",\"item_title\":\"率土之滨极速开荒教学，随我一起匡扶汉室 #率土之滨联动故宫观唐 #率土十周年 #率土之滨\",\"like_cnt\":\"1661\",\"share_cnt\":\"24\",\"vv\":\"463546\"},{\"comment_cnt\":\"1042\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761847518\",\"item_id\":\"7567077241956420905\",\"item_publish_time\":\"1761881400\",\"item_title\":\"亚连对线曹操全程教学 #亚连教学 素材提供@独孤star（国一亚连）\",\"like_cnt\":\"70263\",\"share_cnt\":\"3044\",\"vv\":\"4993989\"},{\"comment_cnt\":\"372\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761812331\",\"item_id\":\"7566926311625723172\",\"item_publish_time\":\"1761812331\",\"item_title\":\"妲己对线米莱狄全程教学 #妲己教学 素材提供@王者荣耀梦呓（国服妲己）\",\"like_cnt\":\"29542\",\"share_cnt\":\"2098\",\"vv\":\"3373164\"},{\"comment_cnt\":\"1716\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761718375\",\"item_id\":\"7566522780569701675\",\"item_publish_time\":\"1761718375\",\"item_title\":\"嫦娥对线姜子牙全程教学 #嫦娥教学 素材提供@小鑫（国服嫦娥）\",\"like_cnt\":\"99606\",\"share_cnt\":\"9802\",\"vv\":\"7107214\"},{\"comment_cnt\":\"513\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761570293\",\"item_id\":\"7565886731694673206\",\"item_publish_time\":\"1761570293\",\"item_title\":\"杨戬对线李信全程教学 #杨戬教学 素材提供@麦当（国服杨戬）\",\"like_cnt\":\"54115\",\"share_cnt\":\"1696\",\"vv\":\"5432552\"},{\"comment_cnt\":\"616\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761467529\",\"item_id\":\"7565445371552468266\",\"item_publish_time\":\"1761467529\",\"item_title\":\"安琪拉对线金蝉全程教学 #安琪拉教学 素材提供@金玩玩\",\"like_cnt\":\"43994\",\"share_cnt\":\"4725\",\"vv\":\"5854422\"}]",
+        "link_convert_index": "74.16",
+        "link_convert_index_by_industry": "73.77",
+        "link_i_cnt_by_industry": "12543928",
+        "link_k_cnt_by_industry": "37",
+        "link_l_cnt_by_industry": "13378678",
+        "link_link_cnt_by_industry": "38870726",
+        "link_n_cnt_by_industry": "12948083",
+        "link_recommend_index_by_industry": "79.35",
+        "link_shopping_index": "79.92",
+        "link_spread_index": "93.31",
+        "link_spread_index_by_industry": "93.24",
+        "link_star_index": "79.04",
+        "link_star_index_by_industry": "78.81",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "杆哥（国服芈月）",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.1451",
+        "price_1_20": "38800",
+        "price_20_60": "43100",
+        "price_60": "47400",
+        "promotion_prospective_1_20_cpm": "10.98",
+        "promotion_prospective_20_60_cpm": "12.19",
+        "promotion_prospective_60_cpm": "13.41",
+        "promotion_prospective_vv": "3534436",
+        "prospective_1_20_cpm": "9.0003",
+        "prospective_20_60_cpm": "9.9978",
+        "prospective_60_cpm": "10.9953",
+        "province": "",
+        "search_after_view_index_by_industry": "78.79",
+        "sn_expected_play_num": "4310951",
+        "sn_interact_rate_within_30d": "0.0132",
+        "sn_play_over_rate_within_30d": "0.1451",
+        "sn_prospective_1_20_cpe": "0.687",
+        "sn_prospective_1_20_cpm": "9.0003",
+        "sn_prospective_20_60_cpe": "0.7631",
+        "sn_prospective_20_60_cpm": "9.9978",
+        "sn_prospective_60_cpe": "0.8392",
+        "sn_prospective_60_cpm": "10.9953",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "0",
+        "star_ecom_video_num_30d": "0",
+        "star_excellent_author": "1",
+        "star_index": "68.74031397611736",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "2",
+        "star_video_finish_vv_rate_90d": "0.1478",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0217",
+        "star_video_median_vv_90d": "971277",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"游戏\":[\"游戏解说\"]}",
+        "video_brand_boost": "true",
+        "video_brand_boost_vv": "630256",
+        "vv_median_30d": "4252957.5"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7505677665689537818",
+          "video_tag": 3,
+          "vv": 48490670
+        },
+        {
+          "item_id": "7512198881434750208",
+          "video_tag": 3,
+          "vv": 42968813
+        },
+        {
+          "item_id": "7515376535654780214",
+          "video_tag": 4,
+          "vv": 13014144
+        },
+        {
+          "item_id": "7513125446179933480",
+          "video_tag": 4,
+          "vv": 8162361
+        },
+        {
+          "item_id": "7508122939145997620",
+          "video_tag": 5,
+          "vv": 39062672
+        },
+        {
+          "item_id": "7504536978826808603",
+          "video_tag": 5,
+          "vv": 38343479
+        },
+        {
+          "item_id": "7569128317626928384",
+          "video_tag": 6,
+          "vv": 702533
+        },
+        {
+          "item_id": "7568725258295840019",
+          "video_tag": 6,
+          "vv": 1563521
+        }
+      ],
+      "star_id": "7033290401364574243",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 43100,
+              "price_extra_info": {},
+              "start_time": "1759215049",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 38800,
+              "price_extra_info": {},
+              "start_time": "1759215049",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 8,
+              "price_extra_info": {
+                "ceiling_price": "43500",
+                "floor_price": "20000"
+              },
+              "start_time": "1710988635",
+              "task_category": 1,
+              "video_type": 92,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 47400,
+              "price_extra_info": {},
+              "start_time": "1759215049",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 10000,
+              "price_extra_info": {},
+              "start_time": "1666610489",
+              "task_category": 1,
+              "video_type": 90,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 4000,
+              "price_extra_info": {},
+              "start_time": "1666610489",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7569617288254226483"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "58ff8826caca59d046f2712dedd048a69e665cda"
+}

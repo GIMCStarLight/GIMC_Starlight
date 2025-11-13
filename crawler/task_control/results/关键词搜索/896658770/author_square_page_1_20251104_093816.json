@@ -1,0 +1,258 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "10",
+        "assign_task_price_list": "[35000,44100,96000,112000,138000,140000,140000,140000,140000,160000]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L6",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "3",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_9440a9e3f801af52a366d46bbce77e19.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "朝阳区",
+        "content_theme_labels_180d": "[\"用车知识\",\"车辆维修\",\"汽车油耗\",\"SUV测评\",\"新能源汽车资讯\",\"车辆检查\",\"车辆保养\",\"国产汽车\",\"自驾旅行\",\"草原旅游\"]",
+        "core_user_id": "51382821707",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": "3w-20w",
+        "ecom_gpm_30d_range": "400-1000",
+        "ecom_score": "85",
+        "ecom_video_product_num_30d": "0",
+        "ecom_watch_pv_30d": "1.5",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "86296",
+        "expected_play_num": "117882",
+        "fans_increment_rate_within_15d": "0.005148226358264172",
+        "fans_increment_within_15d": "31450",
+        "fans_increment_within_30d": "98585",
+        "follower": "6140470",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6779054899695976461",
+        "interact_rate_within_30d": "0.026",
+        "interaction_median_30d": "42050",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"274\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761808364\",\"item_id\":\"7566909282633944354\",\"item_publish_time\":\"1761808364\",\"item_title\":\"11.98万起的纯电SUV卷王！北京现代EO羿欧现场开箱！#15万内高品质纯电SUV标杆 #北京现代EO羿欧上市\",\"like_cnt\":\"825\",\"share_cnt\":\"36\",\"vv\":\"128801\"},{\"comment_cnt\":\"258\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761537113\",\"item_id\":\"7565744278430289189\",\"item_publish_time\":\"1761537113\",\"item_title\":\"都在悄悄看这台车？沃尔沃XC70重塑豪华SUV价值#沃尔沃XC70\",\"like_cnt\":\"666\",\"share_cnt\":\"28\",\"vv\":\"62077\"},{\"comment_cnt\":\"284\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761114940\",\"item_id\":\"7563931017137311011\",\"item_publish_time\":\"1761114940\",\"item_title\":\"跟着BJ30旅行家玩转神农架#2025北京越野用户大会#来点野路子#10万级轻越野SUV就买BJ30旅行家\",\"like_cnt\":\"1096\",\"share_cnt\":\"54\",\"vv\":\"110621\"},{\"comment_cnt\":\"4529\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760693455\",\"item_id\":\"7562120783623916810\",\"item_publish_time\":\"1760760001\",\"item_title\":\"仪表盘上这个故障灯亮了，抓紧靠边停车先保命！#每天一个汽车知识 #维修保养 #用车知识\",\"like_cnt\":\"77988\",\"share_cnt\":\"10890\",\"vv\":\"3818575\"},{\"comment_cnt\":\"1997\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760452717\",\"item_id\":\"7561086727335562536\",\"item_publish_time\":\"1760500800\",\"item_title\":\"你只要把机油盖一拧开，就能知道你的车出了什么毛病 #每天一个汽车知识 #维修保养 #用车知识 #抖音汽车\",\"like_cnt\":\"58143\",\"share_cnt\":\"18381\",\"vv\":\"3162067\"},{\"comment_cnt\":\"781\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760192362\",\"item_id\":\"7559968566590672138\",\"item_publish_time\":\"1760241600\",\"item_title\":\"雨季来临，车上这几个地方一定要及时清理 #每天一个汽车知识\",\"like_cnt\":\"54999\",\"share_cnt\":\"55115\",\"vv\":\"3825524\"},{\"comment_cnt\":\"651\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759851820\",\"item_id\":\"7558505873425861915\",\"item_publish_time\":\"1759896000\",\"item_title\":\"开哈弗大狗plus自驾1300多公里，只为了当一次延吉公主！#自驾游  #哈弗大狗plus  #延吉\",\"like_cnt\":\"4764\",\"share_cnt\":\"123\",\"vv\":\"208491\"},{\"comment_cnt\":\"508\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759497937\",\"item_id\":\"7556986020919594267\",\"item_publish_time\":\"1759636800\",\"item_title\":\"车上这么多小机关还有人不知道，学会了关键时刻能保命#每天一个汽车知识 #隐藏功能 #抖音汽车\",\"like_cnt\":\"31515\",\"share_cnt\":\"15762\",\"vv\":\"3238642\"},{\"comment_cnt\":\"4886\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759463653\",\"item_id\":\"7556838815130848539\",\"item_publish_time\":\"1759463653\",\"item_title\":\"汽车仪表盘上突然亮了个灯，先别着急去修理厂 #每天一个汽车知识 #维修保养 #用车知识 #抖音汽车\",\"like_cnt\":\"129289\",\"share_cnt\":\"49412\",\"vv\":\"8016055\"},{\"comment_cnt\":\"2867\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1759377364\",\"item_id\":\"7556468162586365236\",\"item_publish_time\":\"1759377364\",\"item_title\":\"轮胎隐藏的五大秘密，学会了跑高速能保命#每天一个汽车知识 #维修保养 #用车知识 #抖音汽车\",\"like_cnt\":\"162658\",\"share_cnt\":\"115686\",\"vv\":\"9102435\"}]",
+        "link_convert_index": "82.92",
+        "link_convert_index_by_industry": "82.92",
+        "link_i_cnt_by_industry": "3385859",
+        "link_k_cnt_by_industry": "1003",
+        "link_l_cnt_by_industry": "10836325",
+        "link_link_cnt_by_industry": "21810030",
+        "link_n_cnt_by_industry": "7586843",
+        "link_recommend_index_by_industry": "78.37",
+        "link_shopping_index": "78.37",
+        "link_spread_index": "97.54",
+        "link_spread_index_by_industry": "97.54",
+        "link_star_index": "80.7",
+        "link_star_index_by_industry": "80.7",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "车圈阿飞",
+        "play_over_rate_within_30d": "0.103",
+        "price_1_20": "70000",
+        "price_20_60": "120000",
+        "price_60": "140000",
+        "promotion_prospective_1_20_cpm": "701.72",
+        "promotion_prospective_20_60_cpm": "1202.95",
+        "promotion_prospective_60_cpm": "1403.44",
+        "promotion_prospective_vv": "99755",
+        "prospective_1_20_cpm": "593.8142",
+        "prospective_20_60_cpm": "1017.9671",
+        "prospective_60_cpm": "1187.6283",
+        "province": "北京市",
+        "search_after_view_index_by_industry": "98.58",
+        "sn_expected_play_num": "117882",
+        "sn_interact_rate_within_30d": "0.026",
+        "sn_play_over_rate_within_30d": "0.103",
+        "sn_prospective_1_20_cpe": "51.6605",
+        "sn_prospective_1_20_cpm": "593.8142",
+        "sn_prospective_20_60_cpe": "88.5609",
+        "sn_prospective_20_60_cpm": "1017.9671",
+        "sn_prospective_60_cpe": "103.321",
+        "sn_prospective_60_cpm": "1187.6283",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "0",
+        "star_ecom_video_num_30d": "2",
+        "star_excellent_author": "0",
+        "star_index": "60.91138471896385",
+        "star_item_count_within_30d": "2",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "8",
+        "star_video_finish_vv_rate_90d": "0.0156",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0228",
+        "star_video_median_vv_90d": "339219",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"汽车\":[\"汽车测评\",\"汽车知识\"]}",
+        "vv_median_30d": "2654136"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7539896705760775475",
+          "video_tag": 3,
+          "vv": 10928654
+        },
+        {
+          "item_id": "7549209084243840302",
+          "video_tag": 3,
+          "vv": 10766615
+        },
+        {
+          "item_id": "7510532617763081512",
+          "video_tag": 4,
+          "vv": 4336876
+        },
+        {
+          "item_id": "7551062685610675499",
+          "video_tag": 4,
+          "vv": 1822326
+        },
+        {
+          "item_id": "7552015085732924682",
+          "video_tag": 5,
+          "vv": 10722035
+        },
+        {
+          "item_id": "7523070187122363691",
+          "video_tag": 5,
+          "vv": 7353891
+        },
+        {
+          "item_id": "7566909282633944354",
+          "video_tag": 6,
+          "vv": 78170
+        },
+        {
+          "item_id": "7565744278430289189",
+          "video_tag": 6,
+          "vv": 47246
+        }
+      ],
+      "star_id": "6779054899695976461",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 50000,
+              "price_extra_info": {},
+              "start_time": "1722441600",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 140000,
+              "price_extra_info": {},
+              "start_time": "1757085153",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 120000,
+              "price_extra_info": {},
+              "start_time": "1735660800",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 70000,
+              "price_extra_info": {},
+              "start_time": "1735660800",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 10,
+              "price_extra_info": {
+                "ceiling_price": "140000",
+                "floor_price": "30000"
+              },
+              "start_time": "1728961724",
+              "task_category": 1,
+              "video_type": 92,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 140000,
+              "price_extra_info": {},
+              "start_time": "1735660800",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 20000,
+              "price_extra_info": {},
+              "start_time": "1722441600",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7568678302962450478"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "13b90557f0b145ece6e14857449de4145c3eb408"
+}

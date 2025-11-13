@@ -1,0 +1,237 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "28",
+        "assign_task_price_list": "[22400,24000,24000]",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"年轻人\":0.20681811515820567,\"液压杆\":0.016}",
+        "author_type": "2",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_49f8ad74127b25949ed097874e88f547.jpeg?from=4010531038",
+        "city": "北京",
+        "content_theme_labels_180d": "[\"新能源汽车资讯\",\"SUV测评\",\"国产汽车\",\"车型对比\",\"用车成本\",\"越野车\",\"用车知识\",\"智能汽车\",\"汽车行情\",\"电动车续航\"]",
+        "core_user_id": "56715909466",
+        "e_commerce_enable": "0",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "15586",
+        "expected_play_num": "22781",
+        "fans_increment_rate_within_15d": "0.0006120432362668387",
+        "fans_increment_within_15d": "607",
+        "fans_increment_within_30d": "-990",
+        "follower": "992336",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7397316757001142298",
+        "interact_rate_within_30d": "0.0448",
+        "interaction_median_30d": "697",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "true",
+        "is_cpm_project_author": "1",
+        "is_excellenct_author": "1",
+        "last_10_items": "[{\"comment_cnt\":\"113\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761905010\",\"item_id\":\"7567324388241509690\",\"item_publish_time\":\"1761905010\",\"item_title\":\"7000块钱的法拉利喜不喜欢？快艾特最好的朋友给你买！！#法拉利 #玩具车 #车 #保时捷 #座驾 @炽影飞车\",\"like_cnt\":\"1326\",\"share_cnt\":\"133\",\"vv\":\"26925\"},{\"comment_cnt\":\"249\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761754694\",\"item_id\":\"7566678753574341937\",\"item_publish_time\":\"1761754694\",\"item_title\":\"这个起售价也太上道了吧？北京现代EO羿欧作为北京现代的首款纯电平台SUV，这次是真的“卷”到实处了！#15万内高品质纯电SUV标杆#北京现代EO羿欧上市\",\"like_cnt\":\"548\",\"share_cnt\":\"12\",\"vv\":\"13458\"},{\"comment_cnt\":\"361\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761649597\",\"item_id\":\"7566227389845392677\",\"item_publish_time\":\"1761649597\",\"item_title\":\"全新的欧拉5更美、更大、更聪明！太懂当代年轻人了~ #欧拉5 #欧拉5年轻人的严选车\",\"like_cnt\":\"1384\",\"share_cnt\":\"47\",\"vv\":\"48109\"},{\"comment_cnt\":\"31\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761301091\",\"item_id\":\"7564730561900088625\",\"item_publish_time\":\"1761301091\",\"item_title\":\"十万预算选家庭SUV，真能续航空间都满足？#埃安霸王龙家庭版\",\"like_cnt\":\"1077\",\"share_cnt\":\"7\",\"vv\":\"8978\"},{\"comment_cnt\":\"19\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760868169\",\"item_id\":\"7562871173295689017\",\"item_publish_time\":\"1760868169\",\"item_title\":\"二手的凌渡到底值不值得买？一条视频告诉你该如何避坑！#大众 #二手车 #二手车领航计划 #大众凌渡 #凌渡 @抖音汽车\",\"like_cnt\":\"1157\",\"share_cnt\":\"7\",\"vv\":\"21735\"},{\"comment_cnt\":\"27\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760694892\",\"item_id\":\"7562126969140251962\",\"item_publish_time\":\"1760694892\",\"item_title\":\"新认识的大块头，纵横G700到底强不强？#纵横G700 #越野车 #没有G700到不了的地方 #纵横G700卖40万值不值\",\"like_cnt\":\"804\",\"share_cnt\":\"7\",\"vv\":\"7955\"},{\"comment_cnt\":\"98\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760618863\",\"item_id\":\"7561800428191862074\",\"item_publish_time\":\"1760618863\",\"item_title\":\"不光国产车卷，合资也来掀桌子！北京现代首款纯电平台SUV简约但不简单！#EO羿欧正式开启预售  #15万级品质纯电SUV标杆\",\"like_cnt\":\"1041\",\"share_cnt\":\"16\",\"vv\":\"9043\"},{\"comment_cnt\":\"35\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760437699\",\"item_id\":\"7561022324251741497\",\"item_publish_time\":\"1760437699\",\"item_title\":\"不懂怎么买车险那你就买这几种！很多人不懂多花了很多冤枉钱，赶紧收藏备用！#车险 #车险小知识 #理赔 #干货 #涨知识 @抖音汽车\",\"like_cnt\":\"936\",\"share_cnt\":\"151\",\"vv\":\"15257\"},{\"comment_cnt\":\"888\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1760411848\",\"item_id\":\"7560911301011148091\",\"item_publish_time\":\"1760411848\",\"item_title\":\"年轻人想赚到第一桶金，不得有个赚钱搭子？ #跨越双星智享未来 #跨越星光 #长安 #长安汽车\",\"like_cnt\":\"212186\",\"share_cnt\":\"2371\",\"vv\":\"3262479\"},{\"comment_cnt\":\"25\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760351699\",\"item_id\":\"7560652963573845308\",\"item_publish_time\":\"1760351699\",\"item_title\":\"北京值得一去的好地方！在汽车博物馆亲眼看到了世界上的第一辆汽车🚗#北京 #汽车博物馆 #奔驰一号 #北京博物馆 #汽车 @抖音汽车\",\"like_cnt\":\"1358\",\"share_cnt\":\"25\",\"vv\":\"14703\"}]",
+        "link_convert_index": "68.54",
+        "link_convert_index_by_industry": "68.54",
+        "link_i_cnt_by_industry": "421623",
+        "link_k_cnt_by_industry": "12",
+        "link_l_cnt_by_industry": "2734911",
+        "link_link_cnt_by_industry": "3267809",
+        "link_n_cnt_by_industry": "111263",
+        "link_recommend_index_by_industry": "81.08",
+        "link_shopping_index": "81.08",
+        "link_spread_index": "76.06",
+        "link_spread_index_by_industry": "76.06",
+        "link_star_index": "73.9",
+        "link_star_index_by_industry": "73.9",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "甜小倩说车",
+        "play_over_rate_within_30d": "0.0649",
+        "price_1_20": "22400",
+        "price_20_60": "28000",
+        "price_60": "38000",
+        "promotion_prospective_1_20_cpm": "1281.76",
+        "promotion_prospective_20_60_cpm": "1602.2",
+        "promotion_prospective_60_cpm": "2174.41",
+        "promotion_prospective_vv": "17476",
+        "prospective_1_20_cpm": "983.2755",
+        "prospective_20_60_cpm": "1229.0944",
+        "prospective_60_cpm": "1668.0567",
+        "province": "",
+        "search_after_view_index_by_industry": "67.96",
+        "sn_expected_play_num": "22781",
+        "sn_interact_rate_within_30d": "0.0448",
+        "sn_play_over_rate_within_30d": "0.0649",
+        "sn_prospective_1_20_cpe": "22.9039",
+        "sn_prospective_1_20_cpm": "983.2755",
+        "sn_prospective_20_60_cpe": "28.6299",
+        "sn_prospective_20_60_cpm": "1229.0944",
+        "sn_prospective_60_cpe": "38.8548",
+        "sn_prospective_60_cpm": "1668.0567",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "0",
+        "star_ecom_video_num_30d": "1",
+        "star_excellent_author": "1",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "3",
+        "star_video_finish_vv_rate_90d": "0.0084",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0467",
+        "star_video_median_vv_90d": "1407008",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"汽车\":[\"汽车测评\"]}",
+        "vv_median_30d": "12626"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7520943936328748348",
+          "video_tag": 3,
+          "vv": 2592325
+        },
+        {
+          "item_id": "7517606930288250172",
+          "video_tag": 3,
+          "vv": 382771
+        },
+        {
+          "item_id": "7560911301011148091",
+          "video_tag": 4,
+          "vv": 3229591
+        },
+        {
+          "item_id": "7542351932624440635",
+          "video_tag": 4,
+          "vv": 1290757
+        },
+        {
+          "item_id": "7509434765117558052",
+          "video_tag": 5,
+          "vv": 267347
+        },
+        {
+          "item_id": "7531715989794671913",
+          "video_tag": 5,
+          "vv": 254559
+        },
+        {
+          "item_id": "7567324388241509690",
+          "video_tag": 6,
+          "vv": 21324
+        },
+        {
+          "item_id": "7566678753574341937",
+          "video_tag": 6,
+          "vv": 9238
+        }
+      ],
+      "star_id": "7397316757001142298",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 20000,
+              "price_extra_info": {},
+              "start_time": "1722324565",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 35000,
+              "price_extra_info": {},
+              "start_time": "1722324565",
+              "task_category": 1,
+              "video_type": 90,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 38000,
+              "price_extra_info": {},
+              "start_time": "1756656000",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 28000,
+              "price_extra_info": {},
+              "start_time": "1756656000",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 22400,
+              "price_extra_info": {},
+              "start_time": "1756656000",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 22400,
+              "price_extra_info": {},
+              "start_time": "1756656000",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7568767192755240987"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "1d47488f1d7e8bd73a5ebc4f76ba2dbf78d81aca"
+}

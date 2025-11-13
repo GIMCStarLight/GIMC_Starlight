@@ -1,0 +1,69 @@
+### 智能达人推荐系统 API 测试文件
+### 使用 VS Code REST Client 插件或其他 HTTP 客户端工具测试
+
+### 变量定义
+@baseUrl = http://localhost:9000/api
+@token = your-jwt-token-here
+
+### 1. 健康检查
+GET {{baseUrl}}/health
+
+### 2. 获取达人列表 (分页)
+GET {{baseUrl}}/v1/influencers?page=1&limit=10
+
+### 3. 搜索达人
+GET {{baseUrl}}/v1/influencers?search=测试&platform=douyin&gender=female
+
+### 4. 获取达人统计信息
+GET {{baseUrl}}/v1/influencers/stats
+
+### 5. 创建新达人
+POST {{baseUrl}}/v1/influencers
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "canonical_name": "测试达人API",
+  "main_platform": "douyin",
+  "gender": "female",
+  "city": "北京",
+  "follower": 1000000,
+  "interact_rate_within_30d": 0.05,
+  "star_index": 85.5,
+  "price_1_20": 5000,
+  "price_20_60": 8000,
+  "price_60": 12000,
+  "is_excellent_author": true
+}
+
+### 6. 获取达人详情 (需要替换实际ID)
+GET {{baseUrl}}/v1/influencers/your-influencer-id-here
+
+### 7. 更新达人信息 (需要替换实际ID)
+PUT {{baseUrl}}/v1/influencers/your-influencer-id-here
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "canonical_name": "更新后的达人名称",
+  "follower": 1200000,
+  "interact_rate_within_30d": 0.06
+}
+
+### 8. 获取推荐达人
+GET {{baseUrl}}/v1/influencers/recommendations?limit=5&platform=douyin
+
+### 9. 搜索达人 (高级搜索)
+GET {{baseUrl}}/search/influencers?keyword=测试&platform=douyin&followerCountMin=100000&engagementRateMin=0.03
+
+### 10. 获取搜索建议
+GET {{baseUrl}}/search/suggestions?keyword=测试
+
+### 11. 批量删除达人 (需要替换实际ID)
+DELETE {{baseUrl}}/influencer-current/batch
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "ids": ["id1", "id2", "id3"]
+}

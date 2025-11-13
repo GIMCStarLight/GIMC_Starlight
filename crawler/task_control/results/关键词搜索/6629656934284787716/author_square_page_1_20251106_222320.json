@@ -1,0 +1,204 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L6",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_89cff3ebcda23e310aad7be5549f5848.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "阜新市",
+        "content_theme_labels_180d": "[\"骑行旅行\",\"环球旅行\",\"海外旅行\",\"海外城市旅行\",\"异国旅行\"]",
+        "core_user_id": "65352876308",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": ">100w",
+        "ecom_gpm_30d_range": "80-400",
+        "ecom_score": "90",
+        "ecom_video_product_num_30d": "0",
+        "ecom_watch_pv_30d": "1.6",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "21895619",
+        "expected_play_num": "32026228",
+        "fans_increment_rate_within_15d": "0.0024961559586128795",
+        "fans_increment_within_15d": "66926",
+        "fans_increment_within_30d": "24205236.9",
+        "follower": "26878190",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "6629656934284787716",
+        "interact_rate_within_30d": "0.0258",
+        "interaction_median_30d": "363676",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "1",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"14511\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761371616\",\"item_id\":\"7565033473217121594\",\"item_publish_time\":\"1761394800\",\"item_title\":\"在一万公里外的加拿大 我收到了一条这样的消息 #湖的环球之旅\",\"like_cnt\":\"373184\",\"share_cnt\":\"21577\",\"vv\":\"15815647\"},{\"comment_cnt\":\"18709\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757726464\",\"item_id\":\"7549377665518603579\",\"item_publish_time\":\"1757766000\",\"item_title\":\"从美国骑自行车到加拿大冲啊 #湖的环球之旅 #交换世界计划\",\"like_cnt\":\"396493\",\"share_cnt\":\"37302\",\"vv\":\"26120400\"},{\"comment_cnt\":\"118919\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755836319\",\"item_id\":\"7541259551087267131\",\"item_publish_time\":\"1755865200\",\"item_title\":\"170天 6500公里 我做到了 兄弟们 #湖的环球之旅 #交换世界计划\",\"like_cnt\":\"2491541\",\"share_cnt\":\"699648\",\"vv\":\"115921743\"},{\"comment_cnt\":\"51724\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1754007662\",\"item_id\":\"7533405524374080826\",\"item_publish_time\":\"1754050800\",\"item_title\":\"骑自行车穿越北美洲 到达华盛顿 #湖的环球之旅 #在拍一种很新的vlog#生活的100种记录方式 #抖音创作者大会#抖in萌宠计划\",\"like_cnt\":\"980638\",\"share_cnt\":\"81891\",\"vv\":\"62962975\"},{\"comment_cnt\":\"91662\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1751081325\",\"item_id\":\"7520837011374624060\",\"item_publish_time\":\"1751081325\",\"item_title\":\"环球骑行第8年 我来到了芝加哥 一座城市两幅面孔 #湖的环球之旅\",\"like_cnt\":\"1358921\",\"share_cnt\":\"148894\",\"vv\":\"67510608\"},{\"comment_cnt\":\"158805\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1747916568\",\"item_id\":\"7507244443713326372\",\"item_publish_time\":\"1747916568\",\"item_title\":\"骑行黄石 直面恐惧 #湖的环球之旅 #骑车去追五月的风 #就这样骑进夏天吧\",\"like_cnt\":\"3332548\",\"share_cnt\":\"628560\",\"vv\":\"125672437\"},{\"comment_cnt\":\"57516\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1746016516\",\"item_id\":\"7499083800300293426\",\"item_publish_time\":\"1746016516\",\"item_title\":\"700公里 10几个日夜 狂风暴雪 盐湖城冲啊 #湖的环球之旅 #交换世界计划 #光芒闪耀的你#野生玩家先享受世界\",\"like_cnt\":\"1873004\",\"share_cnt\":\"157542\",\"vv\":\"83351281\"},{\"comment_cnt\":\"27648\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1742887461\",\"item_id\":\"7485644502464613644\",\"item_publish_time\":\"1742887461\",\"item_title\":\"和泡泡在美国骑行700公里 #湖的环球之旅\",\"like_cnt\":\"491029\",\"share_cnt\":\"31949\",\"vv\":\"22956982\"},{\"comment_cnt\":\"38816\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1741947537\",\"item_id\":\"7481607629643517225\",\"item_publish_time\":\"1741947537\",\"item_title\":\"600公里洛杉矶骑行到拉斯维加斯 #湖的环球之旅\",\"like_cnt\":\"625772\",\"share_cnt\":\"50174\",\"vv\":\"27560698\"},{\"comment_cnt\":\"49181\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1740962654\",\"item_id\":\"7477377549081890089\",\"item_publish_time\":\"1740962654\",\"item_title\":\"环球骑行第三十六国：美国 横穿美国  10000公里 干#湖的环球之旅\",\"like_cnt\":\"640859\",\"share_cnt\":\"44409\",\"vv\":\"36772870\"}]",
+        "link_convert_index": "95.14",
+        "link_convert_index_by_industry": "94.68",
+        "link_i_cnt_by_industry": "5910453",
+        "link_k_cnt_by_industry": "118834",
+        "link_l_cnt_by_industry": "12194393",
+        "link_link_cnt_by_industry": "19929590",
+        "link_n_cnt_by_industry": "1705910",
+        "link_recommend_index_by_industry": "88.07",
+        "link_shopping_index": "97.75",
+        "link_spread_index": "94.17",
+        "link_spread_index_by_industry": "87.66",
+        "link_star_index": "86.14",
+        "link_star_index_by_industry": "82.81",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "湖远行",
+        "play_over_rate_within_30d": "0.0391",
+        "price_1_20": "1000000",
+        "price_20_60": "1500000",
+        "price_60": "2000000",
+        "promotion_prospective_1_20_cpm": "38.08",
+        "promotion_prospective_20_60_cpm": "57.13",
+        "promotion_prospective_60_cpm": "76.17",
+        "promotion_prospective_vv": "26257463",
+        "prospective_1_20_cpm": "31.2244",
+        "prospective_20_60_cpm": "46.8366",
+        "prospective_60_cpm": "62.4488",
+        "province": "辽宁省",
+        "search_after_view_index_by_industry": "99.22",
+        "sn_expected_play_num": "32026228",
+        "sn_interact_rate_within_30d": "0.0258",
+        "sn_play_over_rate_within_30d": "0.0391",
+        "sn_prospective_1_20_cpe": "1.2155",
+        "sn_prospective_1_20_cpm": "31.2244",
+        "sn_prospective_20_60_cpe": "1.8233",
+        "sn_prospective_20_60_cpm": "46.8366",
+        "sn_prospective_60_cpe": "2.431",
+        "sn_prospective_60_cpm": "62.4488",
+        "star_excellent_author": "1",
+        "star_index": "56.00656820742879",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"旅行\":[\"户外生活\"]}",
+        "vv_median_30d": "14074691"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7507244443713326372",
+          "video_tag": 3,
+          "vv": 110891138
+        },
+        {
+          "item_id": "7541259551087267131",
+          "video_tag": 3,
+          "vv": 107211084
+        },
+        {
+          "item_id": "7520837011374624060",
+          "video_tag": 5,
+          "vv": 61302856
+        },
+        {
+          "item_id": "7533405524374080826",
+          "video_tag": 5,
+          "vv": 54801960
+        },
+        {
+          "item_id": "7565033473217121594",
+          "video_tag": 6,
+          "vv": 14074691
+        },
+        {
+          "item_id": "7549377665518603579",
+          "video_tag": 6,
+          "vv": 24646801
+        }
+      ],
+      "star_id": "6629656934284787716",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 100000,
+              "price_extra_info": {},
+              "start_time": "1672502400",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000000,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 2000000,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1500000,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7569617238119530547"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "e4a7ee196e5418dea793a38d6ae330480b84d69c"
+}

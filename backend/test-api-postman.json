@@ -1,0 +1,125 @@
+{
+  "info": {
+    "name": "智能达人推荐系统 API 测试",
+    "description": "快速测试新增接口的Postman集合",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:9000/api",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "your-jwt-token-here",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "健康检查",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "获取达人列表",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/influencer-current?page=1&limit=10",
+          "host": ["{{baseUrl}}"],
+          "path": ["influencer-current"],
+          "query": [
+            {"key": "page", "value": "1"},
+            {"key": "limit", "value": "10"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "搜索达人",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/influencer-current?search=测试&platform=douyin&gender=female",
+          "host": ["{{baseUrl}}"],
+          "path": ["influencer-current"],
+          "query": [
+            {"key": "search", "value": "测试"},
+            {"key": "platform", "value": "douyin"},
+            {"key": "gender", "value": "female"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "创建新达人",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"canonical_name\": \"测试达人API\",\n  \"main_platform\": \"douyin\",\n  \"gender\": \"female\",\n  \"city\": \"北京\",\n  \"follower\": 1000000,\n  \"interact_rate_within_30d\": 0.05,\n  \"star_index\": 85.5,\n  \"price_1_20\": 5000,\n  \"price_20_60\": 8000,\n  \"price_60\": 12000,\n  \"is_excellent_author\": true\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/influencer-current",
+          "host": ["{{baseUrl}}"],
+          "path": ["influencer-current"]
+        }
+      }
+    },
+
+    {
+      "name": "搜索达人 (高级搜索)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/search/influencers?keyword=测试&platform=douyin&followerCountMin=100000&engagementRateMin=0.03",
+          "host": ["{{baseUrl}}"],
+          "path": ["search", "influencers"],
+          "query": [
+            {"key": "keyword", "value": "测试"},
+            {"key": "platform", "value": "douyin"},
+            {"key": "followerCountMin", "value": "100000"},
+            {"key": "engagementRateMin", "value": "0.03"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "获取搜索建议",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/search/suggestions?keyword=测试",
+          "host": ["{{baseUrl}}"],
+          "path": ["search", "suggestions"],
+          "query": [
+            {"key": "keyword", "value": "测试"}
+          ]
+        }
+      }
+    }
+  ]
+}

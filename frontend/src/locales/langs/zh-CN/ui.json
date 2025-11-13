@@ -1,0 +1,15 @@
+{
+  "widgets": {
+    "document": "文档",
+    "qa": "问答"
+  },
+  "formRules": {
+    "required": "请输入{0}",
+    "selectRequired": "请选择{0}"
+  },
+  "placeholder": {
+    "input": "请输入",
+    "select": "请选择",
+    "textarea": "请输入内容"
+  }
+}

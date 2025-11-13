@@ -1,0 +1,131 @@
+{
+  "name": "gimcstar-light-system-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "省广星芒系统 - 前端应用 (GIMCStarLightSystem Frontend)",
+  "keywords": [
+    "gimcstar",
+    "light-system",
+    "省广星芒",
+    "管理系统",
+    "vue",
+    "vue3",
+    "typescript",
+    "admin",
+    "dashboard"
+  ],
+  "homepage": "https://gimcstar.com",
+  "license": "MIT",
+  "author": {
+    "name": "省广星芒开发团队",
+    "email": "dev@gimcstar.com",
+    "url": "https://gimcstar.com"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "pnpm vite build --mode production",
+    "build:analyze": "pnpm vite build --mode analyze",
+    "build:ele": "pnpm run build",
+    "clean": "node ./scripts/clean.mjs",
+    "commit": "czg",
+    "dev": "pnpm vite --mode development",
+    "format": "prettier --write .",
+    "lint": "eslint . --fix",
+    "postinstall": "pnpm -r run build",
+    "preinstall": "npx only-allow pnpm",
+    "preview": "vite preview",
+    "reinstall": "pnpm clean --del-lock && pnpm install",
+    "test:unit": "vitest run --dom",
+    "typecheck": "vue-tsc --noEmit --skipLibCheck",
+    "update:deps": "npx taze -r -w"
+  },
+  "imports": {
+    "#/*": "./src/*"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "catalog:",
+    "@vben/access": "workspace:*",
+    "@vben/common-ui": "workspace:*",
+    "@vben/constants": "workspace:*",
+    "@vben/hooks": "workspace:*",
+    "@vben/icons": "workspace:*",
+    "@vben/layouts": "workspace:*",
+    "@vben/locales": "workspace:*",
+    "@vben/plugins": "workspace:*",
+    "@vben/preferences": "workspace:*",
+    "@vben/request": "workspace:*",
+    "@vben/stores": "workspace:*",
+    "@vben/styles": "workspace:*",
+    "@vben/types": "workspace:*",
+    "@vben/utils": "workspace:*",
+    "@vueuse/core": "catalog:",
+    "dayjs": "catalog:",
+    "echarts": "catalog:",
+    "element-plus": "catalog:",
+    "exceljs": "^4.4.0",
+    "pinia": "catalog:",
+    "vue": "catalog:",
+    "vue-router": "catalog:"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "catalog:",
+    "@changesets/cli": "catalog:",
+    "@playwright/test": "catalog:",
+    "@types/node": "catalog:",
+    "@vben/commitlint-config": "workspace:*",
+    "@vben/eslint-config": "workspace:*",
+    "@vben/prettier-config": "workspace:*",
+    "@vben/stylelint-config": "workspace:*",
+    "@vben/tailwind-config": "workspace:*",
+    "@vben/tsconfig": "workspace:*",
+    "@vben/vite-config": "workspace:*",
+    "@vitejs/plugin-vue": "catalog:",
+    "@vitejs/plugin-vue-jsx": "catalog:",
+    "@vue/test-utils": "catalog:",
+    "autoprefixer": "catalog:",
+    "cross-env": "catalog:",
+    "cspell": "catalog:",
+    "happy-dom": "catalog:",
+    "is-ci": "catalog:",
+    "jiti": "catalog:",
+    "lefthook": "catalog:",
+    "playwright": "catalog:",
+    "rimraf": "catalog:",
+    "tailwindcss": "catalog:",
+    "turbo": "catalog:",
+    "typescript": "catalog:",
+    "unbuild": "catalog:",
+    "unplugin-auto-import": "^20.1.0",
+    "unplugin-element-plus": "catalog:",
+    "unplugin-vue-components": "^29.1.0",
+    "vite": "catalog:",
+    "vitest": "catalog:",
+    "vue": "catalog:",
+    "vue-tsc": "catalog:"
+  },
+  "engines": {
+    "node": ">=20.18.0",
+    "pnpm": ">=9.12.0"
+  },
+  "packageManager": "pnpm@10.14.0",
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "eslint": "*"
+      }
+    },
+    "overrides": {
+      "@ast-grep/napi": "catalog:",
+      "@ctrl/tinycolor": "catalog:",
+      "clsx": "catalog:",
+      "esbuild": "0.25.3",
+      "pinia": "catalog:",
+      "vue": "catalog:",
+      "@nuxt/kit": "3.19.3"
+    },
+    "neverBuiltDependencies": [
+      "canvas",
+      "node-gyp"
+    ]
+  }
+}

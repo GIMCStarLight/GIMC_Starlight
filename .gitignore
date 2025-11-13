@@ -1,0 +1,129 @@
+# 项目根 .gitignore（macOS / Node / Python / 通用）
+
+# 操作系统与编辑器
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+!.vscode/launch.json
+ .history/
+
+# 通用缓存与日志
+*.log
+logs/
+tmp/
+temp/
+.cache/
+.tmp/
+.temp/
+ .prettiercache
+ .pnpm-store/
+ **/.cache/
+ **/coverage/
+ **/dist/
+ **/build/
+ .venv/
+ venv/
+
+# 环境变量与密钥（示例文件除外）
+.env
+.env.*
+!.env.example
+
+# TypeScript 构建
+*.tsbuildinfo
+
+# Node/JS 通用
+node_modules/
+dist/
+build/
+coverage/
+.eslintcache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+turbo/
+ .turbo/
+ *.tgz
+ .vercel/
+
+# 数据库本地文件
+*.sqlite
+*.sqlite3
+*.db
+
+# 后端（NestJS）
+backend/node_modules/
+backend/dist/
+backend/coverage/
+backend/uploads/
+backend/.cache/
+backend/.nyc_output/
+backend/*.log
+backend/.env
+backend/.env.*
+!backend/.env.example
+!backend/.env.local.example
+
+# 前端（Vite/Vue）
+frontend/node_modules/
+frontend/dist/
+frontend/coverage/
+frontend/.vite/
+frontend/.cache/
+frontend/*.log
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+!frontend/.env.development
+!frontend/.env.preview
+!frontend/.env.production
+!frontend/.env.analyze
+
+# 爬虫（Python）
+crawler/__pycache__/
+crawler/.pytest_cache/
+crawler/.ruff_cache/
+crawler/.coverage
+crawler/.mypy_cache/
+crawler/.venv/
+crawler/venv/
+crawler/.env
+crawler/config/.env
+crawler/*.log
+crawler/logs/
+ crawler/**/logs/
+crawler/output/
+crawler/results/
+crawler/reports/
+crawler/.ipynb_checkpoints/
+ 
+ # 爬虫报告与结果目录（顶层与嵌套全部忽略）
+ crawler/report/
+ crawler/result/
+ crawler/reports/
+ crawler/results/
+ crawler/**/report/
+ crawler/**/result/
+ crawler/**/reports/
+ crawler/**/results/
+ *.pyc
+ *.pyo
+ *.pyd
+ htmlcov/
+ coverage.xml
+
+# 其它大型或生成数据
+others/dev-logs/
+others/data/
+others/logs/
+
+# 文档文件（按要求忽略）
+*.md
+*.MD

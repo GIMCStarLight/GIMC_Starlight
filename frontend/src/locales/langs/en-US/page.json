@@ -1,0 +1,225 @@
+{
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "codeLogin": "Code Login",
+    "qrcodeLogin": "Qr Code Login",
+    "forgetPassword": "Forget Password",
+    "resetPassword": "Reset Password"
+  },
+  "home": {
+    "title": "Home"
+  },
+
+  "dashboard": {
+    "title": "Dashboard",
+    "analytics": "Analytics",
+    "workspace": "Workspace"
+  },
+  "system": {
+    "title": "System Management",
+    "role": "Role Management",
+    "permission": "Permission Management",
+    "user": {
+      "title": "User Management",
+      "description": "Manage system users and role assignments",
+      "import": "Import Users",
+      "export": "Export Users",
+      "userInfo": "User Information",
+      "searchPlaceholder": "Enter username or phone number",
+      "role": "Role",
+      "rolePlaceholder": "Please select role",
+      "statusPlaceholder": "Please select status",
+      "status": {
+        "title": "Status",
+        "enabled": "Enabled",
+        "disabled": "Disabled"
+      },
+      "email": "Email",
+      "noRolesAssigned": "No roles assigned",
+      "lastLogin": "Last Login",
+      "neverLoggedIn": "Never logged in",
+      "creationTime": "Creation Time",
+      "actions": "Actions",
+      "selectedUsers": "Selected {count} users",
+      "batchAssignRoles": "Batch Assign Roles",
+      "batchDelete": "Batch Delete",
+      "form": {
+        "name": "Username",
+        "namePlaceholder": "Please enter username",
+        "phone": "Phone",
+        "phonePlaceholder": "Please enter phone number",
+        "email": "Email",
+        "emailPlaceholder": "Please enter email (optional)",
+        "password": "Password",
+        "passwordPlaceholder": "Please enter password",
+        "assignRoles": "Assign Roles",
+        "assignRolesPlaceholder": "Please select roles",
+        "newPasswordPlaceholder": "Please enter new password",
+        "confirmPasswordPlaceholder": "Please confirm new password"
+      },
+      "assignRolesTitle": "Assign Roles",
+      "assignRolesToUser": "Assign roles to user \"{name}\"",
+      "assignRolesDescription": "Please select the roles this user should have",
+      "resetPasswordTitle": "Reset Password",
+      "resetPasswordForUser": "Reset password for user \"{name}\"",
+      "resetPasswordDescription": "Please enter new password",
+      "resetPassword": "Reset Password"
+    },
+    "roleGroup": "Role Group Management",
+    "roleGroupList": "Role Group List",
+    "createRole": "Create Role",
+    "editRole": "Edit Role",
+    "deleteRole": "Delete Role",
+    "assignPermission": "Assign Permission",
+    "assignUser": "Assign User",
+    "roleName": "Role Name",
+    "roleCode": "Role Code",
+    "roleDescription": "Role Description",
+    "roleStatus": "Role Status",
+    "permissionList": "Permission List",
+    "userCount": "User Count",
+    "createdAt": "Created At",
+    "updatedAt": "Updated At",
+    "operations": "Operations",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "save": "Save",
+    "reset": "Reset",
+    "search": "Search",
+    "refresh": "Refresh",
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete",
+    "view": "View",
+    "enable": "Enable",
+    "disable": "Disable",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "pleaseSelect": "Please Select",
+    "pleaseInput": "Please Input",
+    "deleteConfirm": "Are you sure to delete this item?",
+    "deleteSuccess": "Delete Success",
+    "saveSuccess": "Save Success",
+    "saveAssignment": "Save Assignment",
+    "operationSuccess": "Operation Success",
+    "operationFailed": "Operation Failed",
+    "permissionManagement": "Permission Management",
+    "createPermission": "Create Permission",
+    "editPermission": "Edit Permission",
+    "deletePermission": "Delete Permission",
+    "permissionName": "Permission Name",
+    "permissionCode": "Permission Code",
+    "permissionDescription": "Permission Description",
+    "permissionType": "Permission Type",
+    "parentPermission": "Parent Permission",
+    "permissionPath": "Permission Path",
+    "permissionIcon": "Permission Icon",
+    "permissionSort": "Sort",
+    "userManagement": "User Management",
+    "createUser": "Create User",
+    "editUser": "Edit User",
+    "deleteUser": "Delete User",
+    "userName": "User Name",
+    "userEmail": "User Email",
+    "userPhone": "User Phone",
+    "userStatus": "User Status",
+    "userRole": "User Role",
+    "userDepartment": "User Department",
+    "roleManagement": "Role Management"
+  },
+  "tagManagement": {
+    "title": "Tag Management",
+    "description": "Manage system tags and categories"
+  },
+  "influencerAuthors": {
+    "title": "Influencer Data",
+    "description": "View and filter influencer data information"
+  },
+  "influencerManagement": {
+    "title": "Influencer Management", 
+    "description": "Manage influencer data and information maintenance"
+  },
+  "tagManagementDetailed": {
+    "title": "Tag Management",
+    "description": "Manage tag systems for various platforms with hierarchical structure and batch operations",
+    "createTag": "Create Tag",
+    "editTag": "Edit Tag",
+    "deleteTag": "Delete Tag",
+    "importTags": "Import Tags",
+    "exportTags": "Export Tags",
+    "tagName": "Tag Name",
+    "tagCode": "Tag Code",
+    "tagDescription": "Tag Description",
+    "tagPlatform": "Platform",
+    "parentTag": "Parent Tag",
+    "tagLevel": "Tag Level",
+    "tagSort": "Sort Order",
+    "tagStatus": "Tag Status",
+    "platform": {
+      "xintu": "Xintu",
+      "huohuo": "Huohuo",
+      "pugongying": "Pugongying"
+    },
+    "level": {
+      "first": "Level 1",
+      "second": "Level 2",
+      "third": "Level 3",
+      "fourth": "Level 4"
+    },
+    "batchDelete": "Batch Delete",
+    "batchToggleStatus": "Batch Toggle Status",
+    "addChildTag": "Add Child Tag",
+    "selectedTags": "Selected {count} tags",
+    "totalRecords": "Total {total} records",
+    "viewMode": {
+      "table": "Table View",
+      "tree": "Tree View"
+    },
+    "form": {
+      "tagNamePlaceholder": "Please enter tag name",
+      "tagCodePlaceholder": "Please enter tag code (optional)",
+      "tagDescriptionPlaceholder": "Please enter tag description (optional)",
+      "platformPlaceholder": "Please select platform",
+      "parentTagPlaceholder": "Select parent tag (optional)",
+      "searchPlaceholder": "Enter tag name"
+    },
+    "messages": {
+      "deleteConfirm": "Are you sure to delete tag \"{name}\"? This operation cannot be undone.",
+      "batchDeleteConfirm": "Are you sure to delete selected {count} tags? This operation cannot be undone.",
+      "deleteSuccess": "Delete successful",
+      "createSuccess": "Create successful",
+      "updateSuccess": "Update successful",
+      "batchDeleteSuccess": "Batch delete successful",
+      "statusUpdateSuccess": "Status update successful",
+      "loadFailed": "Load failed",
+      "operationFailed": "Operation failed",
+      "pleaseSelectTags": "Please select tags to operate",
+      "maxSelectionReached": "Maximum {max} tags can be selected",
+      "importDevelopment": "Import feature under development",
+      "exportDevelopment": "Export feature under development",
+      "batchStatusDevelopment": "Batch status toggle feature under development"
+    }
+  },
+  "policyManagement": {
+    "title": "Policy Management",
+    "policyVersionManagement": "Policy Version Management"
+  },
+  "financialManagement": {
+    "title": "Financial Management",
+    "rebateManagement": "Rebate Management",
+    "rebatePolicyConfig": "Rebate Policy Configuration"
+  },
+  "aiNumberSelection": {
+    "title": "AI Number Selection",
+    "description": "Intelligent number selection system providing precise number recommendations"
+  },
+  "influencerAuthors": {
+    "title": "Influencer Data",
+    "description": "View and filter influencer data information"
+  },
+  "influencerManagement": {
+    "title": "Influencer Management",
+    "description": "Manage influencer data and information maintenance"
+  }
+}

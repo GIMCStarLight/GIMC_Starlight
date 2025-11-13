@@ -1,0 +1,306 @@
+{
+  "auth": {
+    "login": "登录",
+    "register": "注册",
+    "codeLogin": "验证码登录",
+    "qrcodeLogin": "二维码登录",
+    "forgetPassword": "忘记密码"
+  },
+  "home": {
+    "title": "首页"
+  },
+  "dashboard": {
+    "title": "概览",
+    "analytics": "分析页",
+    "workspace": "工作台"
+  },
+  "system": {
+    "title": "系统管理",
+    "role": "角色管理",
+    "permission": "权限管理",
+    "user": {
+      "title": "用户管理",
+      "description": "管理系统用户和角色分配",
+      "import": "导入用户",
+      "export": "导出用户",
+      "userInfo": "用户信息",
+      "searchPlaceholder": "请输入用户名称或手机号",
+      "role": "角色",
+      "rolePlaceholder": "请选择角色",
+      "statusPlaceholder": "请选择状态",
+      "status": {
+        "title": "状态",
+        "enabled": "启用",
+        "disabled": "禁用"
+      },
+      "email": "邮箱",
+      "noRolesAssigned": "未分配角色",
+      "lastLogin": "最后登录",
+      "neverLoggedIn": "从未登录",
+      "creationTime": "创建时间",
+      "actions": "操作",
+      "selectedUsers": "已选择 {count} 个用户",
+      "batchAssignRoles": "批量分配角色",
+      "batchDelete": "批量删除",
+      "form": {
+        "name": "用户名称",
+        "namePlaceholder": "请输入用户名称",
+        "phone": "手机号",
+        "phonePlaceholder": "请输入手机号",
+        "email": "邮箱",
+        "emailPlaceholder": "请输入邮箱（可选）",
+        "password": "密码",
+        "passwordPlaceholder": "请输入密码",
+        "assignRoles": "分配角色",
+        "assignRolesPlaceholder": "请选择角色",
+        "newPasswordPlaceholder": "请输入新密码",
+        "confirmPasswordPlaceholder": "请确认新密码"
+      },
+      "assignRolesTitle": "分配角色",
+      "assignRolesToUser": "为用户 \"{name}\" 分配角色",
+      "assignRolesDescription": "请选择该用户应该拥有的角色",
+      "resetPasswordTitle": "重置密码",
+      "resetPasswordForUser": "重置用户 \"{name}\" 的密码",
+      "resetPasswordDescription": "请输入新密码",
+      "resetPassword": "重置密码"
+    },
+    "roleGroup": "角色组管理",
+    "roleGroupList": "角色组列表",
+    "createRole": "创建角色",
+    "editRole": "编辑角色",
+    "deleteRole": "删除角色",
+    "assignPermission": "分配权限",
+    "assignUser": "分配用户",
+    "roleName": "角色名称",
+    "roleCode": "角色代码",
+    "roleDescription": "角色描述",
+    "roleStatus": "角色状态",
+    "permissionList": "权限列表",
+    "userCount": "用户数量",
+    "assignRole": "分配角色",
+    "resetPassword": "重置密码",
+    "createdAt": "创建时间",
+    "updatedAt": "更新时间",
+    "operations": "操作",
+    "confirm": "确认",
+    "cancel": "取消",
+    "save": "保存",
+    "reset": "重置",
+    "search": "搜索",
+    "refresh": "刷新",
+    "add": "添加",
+    "edit": "编辑",
+    "delete": "删除",
+    "view": "查看",
+    "enable": "启用",
+    "disable": "禁用",
+    "enabled": "已启用",
+    "disabled": "已禁用",
+    "pleaseSelect": "请选择",
+    "pleaseInput": "请输入",
+    "deleteConfirm": "确认删除此项吗？",
+    "deleteSuccess": "删除成功",
+    "saveSuccess": "保存成功",
+    "saveAssignment": "保存分配",
+    "operationSuccess": "操作成功",
+    "operationFailed": "操作失败",
+    "permissionManagement": "权限管理",
+    "createPermission": "创建权限",
+    "editPermission": "编辑权限",
+    "deletePermission": "删除权限",
+    "permissionName": "权限名称",
+    "permissionCode": "权限代码",
+    "permissionDescription": "权限描述",
+    "permissionType": "权限类型",
+    "parentPermission": "父级权限",
+    "permissionPath": "权限路径",
+    "permissionIcon": "权限图标",
+    "permissionSort": "排序",
+    "userManagement": "用户管理",
+    "createUser": "创建用户",
+    "editUser": "编辑用户",
+    "deleteUser": "删除用户",
+    "userName": "用户名",
+    "userEmail": "用户邮箱",
+    "userPhone": "用户手机",
+    "userStatus": "用户状态",
+    "userRole": "用户角色",
+    "userDepartment": "用户部门",
+    "roleManagement": "角色管理"
+  },
+  "tagManagement": {
+    "title": "标签管理",
+    "description": "管理系统标签和分类",
+    "platform": "平台",
+    "platformPlaceholder": "请选择平台",
+    "name": "标签名称",
+    "namePlaceholder": "请输入标签名称",
+    "code": "标签代码",
+    "codePlaceholder": "请输入标签代码",
+    "description": "描述",
+    "descriptionPlaceholder": "请输入标签描述",
+    "level": "层级",
+    "parentTag": "父级标签",
+    "parentTagPlaceholder": "请选择父级标签",
+    "sort": "排序",
+    "sortPlaceholder": "请输入排序值",
+    "status": {
+      "title": "状态",
+      "active": "启用",
+      "inactive": "禁用"
+    },
+    "actions": "操作",
+    "addTag": "添加标签",
+    "editTag": "编辑标签",
+    "deleteTag": "删除标签",
+    "batchDelete": "批量删除",
+    "export": "导出标签",
+    "import": "导入标签",
+    "expandAll": "展开全部",
+    "collapseAll": "收起全部",
+    "selectedTags": "已选择 {count} 个标签",
+    "form": {
+      "nameRequired": "请输入标签名称",
+      "platformRequired": "请选择平台",
+      "sortNumber": "排序必须为数字"
+    },
+    "messages": {
+      "deleteConfirm": "确定要删除标签 \"{name}\" 吗？",
+      "batchDeleteConfirm": "确定要删除选中的 {count} 个标签吗？",
+      "deleteSuccess": "删除成功",
+      "saveSuccess": "保存成功",
+      "hasChildren": "该标签下有子标签，无法删除"
+    }
+  },
+  "influencerAuthors": {
+    "title": "达人数据",
+    "description": "查看和筛选达人数据信息"
+  },
+  "influencerManagement": {
+    "title": "达人管理",
+    "description": "管理达人数据和信息维护"
+  },
+  "policyManagement": {
+    "title": "政策管理",
+    "policyVersionManagement": "政策版本管理"
+  },
+  "financialManagement": {
+    "title": "财务管理",
+    "rebateManagement": "返利管理",
+    "rebatePolicyConfig": "返利政策配置"
+  },
+  "aiNumberSelection": {
+    "title": "AI选号",
+    "description": "智能选号系统，为您提供精准的号码推荐服务"
+  },
+  "tagFilter": {
+    "title": "标签筛选",
+    "description": "通过多维度筛选条件，精准找到符合需求的标签",
+    "search": {
+      "nickname": "昵称",
+      "douyinId": "抖音号",
+      "xingtuId": "星图ID",
+      "content": "内容",
+      "placeholder": "请输入{type}搜索"
+    },
+    "filter": {
+      "cooperationRequest": {
+        "title": "合作诉求",
+        "contentType": {
+          "title": "题材类型",
+          "shortVideo": "短视频达人",
+          "customDrama": "定制短剧达人",
+          "other": "其它题材"
+        },
+        "industry": {
+          "title": "适配行业",
+          "unlimited": "不限"
+        },
+        "marketingGoal": {
+          "title": "营销目标",
+          "brandExposure": "品牌曝光",
+          "breakCircle": "破圈种草",
+          "actionConversion": "行动转化",
+          "matchingAudience": "匹配人群",
+          "unlimited": "不限",
+          "audience": "八大人群",
+          "customAudience": "自定义人群"
+        }
+      },
+      "matchingDegree": {
+        "title": "匹配度",
+        "talentType": {
+          "title": "达人类型",
+          "unlimited": "不限",
+          "more": "更多"
+        },
+        "talentPersona": {
+          "title": "达人人设",
+          "industrySpecific": "行业特色人设"
+        },
+        "contentTheme": {
+          "title": "内容主题",
+          "unlimited": "不限"
+        },
+        "backgroundInfo": {
+          "title": "背景信息",
+          "gender": "达人性别",
+          "location": "所在地域",
+          "education": "学历",
+          "yellowV": "黄V认证",
+          "celebrity": "明星",
+          "agency": "是否机构达人"
+        },
+        "audienceProfile": {
+          "title": "受众画像",
+          "connectedUsers": "连接用户数",
+          "followers": "粉丝数量",
+          "audiencePersona": "观众画像",
+          "followerPersona": "粉丝画像"
+        }
+      },
+      "costEffectiveness": {
+        "title": "性价比",
+        "cooperationData": {
+          "title": "合作数据",
+          "talentQuote": "达人报价",
+          "xingtuIndex": "星图指数",
+          "expectedPlayback": "预期播放量",
+          "expectedCPM": "预期CPM",
+          "expectedCPE": "预期CPE",
+          "interactionRate": "互动率",
+          "completionRate": "完播率",
+          "ongoingTasks": "进行中的任务数",
+          "viralRate": "爆文率",
+          "followerGrowth": "涨粉量",
+          "searchAfterView": "看后搜率"
+        }
+      },
+      "themeRecommendation": {
+        "title": "主题推荐",
+        "preferred": "优选达人",
+        "starProject": "星图繁星企划",
+        "featured": "抖音精选计划达人",
+        "discounted": "近期降价达人",
+        "newFace": "新面孔达人",
+        "activity": "活动精选",
+        "liveEntertainment": "短直联动娱播达人",
+        "commerce": "带货优势达人",
+        "basketball": "运动圈层达人-篮球",
+        "running": "运动圈层达人-跑步",
+        "outdoor": "运动圈层达人-轻户外",
+        "viewAll": "查看全部"
+      }
+    },
+    "results": {
+      "title": "搜索结果",
+      "count": "共找到 {count} 个标签",
+      "noResults": "暂无搜索结果，请调整筛选条件"
+    },
+    "actions": {
+      "search": "搜索",
+      "reset": "重置",
+      "viewAll": "查看全部"
+    }
+  }
+}
