@@ -17,6 +17,21 @@
 4. `Require linear history`（可选）
 5. `Restrict who can push to matching branches`（可选，通常只允许管理员）
 
+### 必需状态检查（Required status checks）
+
+请在保护规则中勾选以下检查名称（与 CI 中的 Job name 一致）：
+- `Frontend install`
+- `Backend install`
+
+说明：`Crawler checks (optional)` 为可选检查，当前工作流对其设置了 `continue-on-error`，不建议作为必需检查。
+
+### 代码所有者（CODEOWNERS）要求
+
+在保护规则中勾选：
+- `Require pull request reviews before merging`
+- `Require review from Code Owners`（如需强制 CODEOWNERS 审核）
+
+
 ## CODEOWNERS
 
 文件位置：`/.github/CODEOWNERS`

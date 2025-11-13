@@ -1,0 +1,44 @@
+name: Bug 报告
+description: 提交一个缺陷报告，帮助我们定位并修复问题
+title: "bug: "
+labels: [bug]
+assignees: []
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: 问题描述
+      description: 简洁说明你遇到的问题
+      placeholder: 清晰描述问题现象
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 提供可以复现问题的最小步骤
+      placeholder: 1) ... 2) ... 3) ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+      placeholder: 本应出现的结果
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为/日志
+      placeholder: 实际结果与任何相关日志、截图
+    validations:
+      required: false
+  - type: input
+    id: env
+    attributes:
+      label: 环境信息
+      description: 操作系统、Node/Python 版本、浏览器等
+      placeholder: macOS 14, Node 20, Python 3.11, Chrome 129
+    validations:
+      required: false
