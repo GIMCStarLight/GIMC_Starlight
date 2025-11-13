@@ -57,7 +57,7 @@ catalog:
   '@vitejs/plugin-vue': ^6.0.1
   '@vitejs/plugin-vue-jsx': ^5.0.1
   '@vue/reactivity': ^3.5.17
-  '@vue/shared': ^3.5.17
+  '@vue/shared': ^3.5.24
   '@vue/test-utils': ^2.4.6
   '@vueuse/core': ^13.4.0
   '@vueuse/integrations': ^13.4.0
