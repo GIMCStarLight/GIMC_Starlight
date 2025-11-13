@@ -8,7 +8,7 @@ on:
 
 jobs:
   frontend-install:
-    name: Frontend install
+    name: Frontend CI
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,9 +25,11 @@ jobs:
           run_install: false
       - name: Install deps (frontend)
         run: pnpm -C frontend install --frozen-lockfile
+      - name: Build (frontend)
+        run: pnpm -C frontend build
 
   backend-install:
-    name: Backend install
+    name: Backend CI
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -44,6 +46,8 @@ jobs:
           run_install: false
       - name: Install deps (backend)
         run: pnpm -C backend install --frozen-lockfile
+      - name: Build (backend)
+        run: pnpm -C backend build
 
   crawler-checks:
     name: Crawler checks (optional)

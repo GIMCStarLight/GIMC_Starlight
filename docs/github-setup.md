@@ -20,8 +20,8 @@
 ### 必需状态检查（Required status checks）
 
 请在保护规则中勾选以下检查名称（与 CI 中的 Job name 一致）：
-- `Frontend install`
-- `Backend install`
+- `Frontend CI`
+- `Backend CI`
 
 说明：`Crawler checks (optional)` 为可选检查，当前工作流对其设置了 `continue-on-error`，不建议作为必需检查。
 
