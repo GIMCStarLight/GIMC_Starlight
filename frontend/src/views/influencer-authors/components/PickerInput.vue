@@ -86,7 +86,6 @@ const handleTriggerWheel = (event: WheelEvent) => {
     popoverRef.value.show()
   }
   // 注意：WheelPicker 内部自己会处理 wheel 事件，这里只是负责“激活”
-  // 也许我们应该在这里直接处理滚动逻辑？
   
   // 优化：直接在这里处理滚动逻辑，即使浮层未打开
   if (!popoverRef.value.open) {
@@ -118,7 +117,9 @@ const handleTriggerWheel = (event: WheelEvent) => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: auto;  // 改为auto，根据内容自动调整
+  min-width: 80px;  // 最小宽度保证基本可操作
+  max-width: 100%;  // 最大不超过父容器
   height: 32px;
   padding: 0 11px;
   background: #ffffff;  // 改为纯白色背景
@@ -161,7 +162,7 @@ const handleTriggerWheel = (event: WheelEvent) => {
 </style>
 
 <style lang="scss">
-/* 浮层样式，使其更像你图中的效果 */
+/* 浮层样式 */
 .picker-input-popper {
   padding: 6px !important; // 更紧凑的 padding
   background: #ffffff !important;

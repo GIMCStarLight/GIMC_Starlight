@@ -1534,6 +1534,7 @@ watch(() => estimatedCount.value, (newVal) => {
   display: flex;
   align-items: center;  // 改为水平布局
   gap: 12px;  // 增加间距
+  min-width: 0;  // 正字暗示元素能偏缩
 }
 
 .advanced-label {
