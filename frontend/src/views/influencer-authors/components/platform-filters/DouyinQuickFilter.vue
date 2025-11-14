@@ -273,6 +273,119 @@
       </div>
     </div>
 
+    <!-- 第6行:智能场景 -->
+    <div class="filter-row smart-scenarios-row">
+      <span class="filter-label">智能场景</span>
+      <div class="filter-buttons">
+        <el-button
+          v-for="scenario in scenarios"
+          :key="scenario.key"
+          :type="selectedScenario === scenario.key ? 'primary' : ''"
+          size="default"
+          @click="applyScenario(scenario)"
+        >
+          <Icon :icon="scenario.icon" />
+          {{ scenario.label }}
+        </el-button>
+      </div>
+    </div>
+
+    <!-- 第7行:核心指标 -->
+    <div class="filter-row advanced-row">
+      <span class="filter-label">核心指标</span>
+      <div class="filter-content advanced-grid">
+        <div class="advanced-item">
+          <span class="advanced-label">粉丝规模</span>
+          <DiscreteRangePicker
+            v-model="followerRange"
+            :options="FOLLOWER_OPTIONS"
+            @update:model-value="handleAdvancedChange"
+          />
+        </div>
+        <div class="advanced-item">
+          <span class="advanced-label">报价区间</span>
+          <DiscreteRangePicker
+            v-model="priceRange"
+            :options="PRICE_OPTIONS"
+            @update:model-value="handleAdvancedChange"
+          />
+        </div>
+        <div class="advanced-item">
+          <span class="advanced-label">30日GMV</span>
+          <DiscreteRangePicker
+            v-model="gmvRange"
+            :options="GMV_OPTIONS"
+            @update:model-value="handleAdvancedChange"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- 第8行:内容质量指标 -->
+    <div class="filter-row advanced-row">
+      <span class="filter-label">内容质量</span>
+      <div class="filter-content advanced-grid">
+        <div class="advanced-item">
+          <span class="advanced-label">互动率</span>
+          <DiscreteRangePicker
+            v-model="interactRateRange"
+            :options="INTERACT_RATE_OPTIONS"
+            @update:model-value="handleAdvancedChange"
+          />
+        </div>
+        <div class="advanced-item">
+          <span class="advanced-label">完播率</span>
+          <DiscreteRangePicker
+            v-model="playOverRateRange"
+            :options="PLAY_OVER_RATE_OPTIONS"
+            @update:model-value="handleAdvancedChange"
+          />
+        </div>
+        <div class="advanced-item">
+          <span class="advanced-label">30日增长</span>
+          <DiscreteRangePicker
+            v-model="growthRateRange"
+            :options="GROWTH_RATE_OPTIONS"
+            @update:model-value="handleAdvancedChange"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- 第9行:营销指数 -->
+    <div class="filter-row advanced-row">
+      <span class="filter-label">营销指数</span>
+      <div class="filter-content advanced-grid">
+        <div class="advanced-item">
+          <span class="advanced-label">最低转化</span>
+          <PickerInput
+            v-model="advancedFilters.minConvertIndex"
+            :options="MARKETING_INDEX_OPTIONS"
+            placeholder="≥ 不限"
+            @update:model-value="handleAdvancedChange"
+          />
+        </div>
+        <div class="advanced-item">
+          <span class="advanced-label">最低种草</span>
+          <PickerInput
+            v-model="advancedFilters.minShoppingIndex"
+            :options="MARKETING_INDEX_OPTIONS"
+            placeholder="≥ 不限"
+            @update:model-value="handleAdvancedChange"
+          />
+        </div>
+        <div class="advanced-item">
+          <span class="advanced-label">最低传播</span>
+          <PickerInput
+            v-model="advancedFilters.minSpreadIndex"
+            :options="MARKETING_INDEX_OPTIONS"
+            placeholder="≥ 不限"
+            @update:model-value="handleAdvancedChange"
+          />
+        </div>
+      </div>
+    </div>
+
     <!-- 筛选状态总览 -->
     <div v-if="hasActiveFilters" class="filter-summary">
       <div class="summary-content">
@@ -302,8 +415,19 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue'
 import { IconifyIcon as Icon } from '@vben/icons'
-import { getPopularTags, type QuickFilterParams } from '#/api/influencer-filter'
+import { getPopularTags, type QuickFilterParams, type AdvancedFilterParams } from '#/api/influencer-filter'
 import { useDebounceFn } from '@vueuse/core'
+import DiscreteRangePicker from '../DiscreteRangePicker.vue'
+import PickerInput from '../PickerInput.vue'
+import { 
+  FOLLOWER_OPTIONS, 
+  PRICE_OPTIONS, 
+  INTERACT_RATE_OPTIONS,
+  PLAY_OVER_RATE_OPTIONS,
+  GROWTH_RATE_OPTIONS,
+  GMV_OPTIONS,
+  MARKETING_INDEX_OPTIONS
+} from '../../constants/filter-options'
 
 // ========== 数据定义 ==========
 
@@ -665,6 +789,124 @@ const influencerAttrs = ref<{
   certType: undefined
 })
 
+// 智能场景
+const selectedScenario = ref('')
+const scenarios = [
+  { 
+    key: 'ecommerce', 
+    label: '电商带货推荐', 
+    icon: 'lucide:shopping-bag', 
+    filters: { 
+      minFollowers: 100000, 
+      maxFollowers: 1000000, 
+      ecommerceEnabled: true,
+      ecomCapabilityTier: 'high' as const
+    }
+  },
+  { 
+    key: 'brand', 
+    label: '品牌曝光优选', 
+    icon: 'lucide:megaphone', 
+    filters: { 
+      minFollowers: 500000, 
+      minInteractRate: 0.10 
+    }
+  },
+  { 
+    key: 'value', 
+    label: '性价比达人', 
+    icon: 'lucide:trending-up', 
+    filters: { 
+      minFollowers: 50000, 
+      maxFollowers: 500000, 
+      maxPrice20_60: 5000, 
+      minInteractRate: 0.12 
+    }
+  },
+  { 
+    key: 'rising', 
+    label: '新星榜单', 
+    icon: 'lucide:rocket', 
+    filters: { 
+      minFollowers: 10000, 
+      maxFollowers: 100000, 
+      minGrowthRate30d: 0.3 
+    }
+  }
+]
+
+// 高级筛选
+const advancedFilters = ref<AdvancedFilterParams>({
+  minFollowers: undefined, 
+  maxFollowers: undefined, 
+  minGrowthRate30d: undefined, 
+  maxGrowthRate30d: undefined,
+  minInteractRate: undefined, 
+  maxInteractRate: undefined, 
+  minPlayOverRate: undefined, 
+  maxPlayOverRate: undefined,
+  minVvMedian: undefined, 
+  maxVvMedian: undefined,
+  minGmv30d: undefined, 
+  maxGmv30d: undefined, 
+  minConvertIndex: undefined, 
+  minShoppingIndex: undefined,
+  minSpreadIndex: undefined, 
+  minCpmEfficiency: undefined, 
+  maxCpmEfficiency: undefined, 
+  minPrice20_60: undefined,
+  maxPrice20_60: undefined
+})
+
+// 高级筛选范围计算属性
+const followerRange = computed({
+  get: (): [number | undefined, number | undefined] => [advancedFilters.value.minFollowers, advancedFilters.value.maxFollowers],
+  set: (value: [number | undefined, number | undefined]) => {
+    advancedFilters.value.minFollowers = value[0]
+    advancedFilters.value.maxFollowers = value[1]
+  }
+})
+
+const priceRange = computed({
+  get: (): [number | undefined, number | undefined] => [advancedFilters.value.minPrice20_60, advancedFilters.value.maxPrice20_60],
+  set: (value: [number | undefined, number | undefined]) => {
+    advancedFilters.value.minPrice20_60 = value[0]
+    advancedFilters.value.maxPrice20_60 = value[1]
+  }
+})
+
+const interactRateRange = computed({
+  get: (): [number | undefined, number | undefined] => [advancedFilters.value.minInteractRate, advancedFilters.value.maxInteractRate],
+  set: (value: [number | undefined, number | undefined]) => {
+    advancedFilters.value.minInteractRate = value[0]
+    advancedFilters.value.maxInteractRate = value[1]
+  }
+})
+
+const playOverRateRange = computed({
+  get: (): [number | undefined, number | undefined] => [advancedFilters.value.minPlayOverRate, advancedFilters.value.maxPlayOverRate],
+  set: (value: [number | undefined, number | undefined]) => {
+    advancedFilters.value.minPlayOverRate = value[0]
+    advancedFilters.value.maxPlayOverRate = value[1]
+  }
+})
+
+const growthRateRange = computed({
+  get: (): [number | undefined, number | undefined] => [advancedFilters.value.minGrowthRate30d, advancedFilters.value.maxGrowthRate30d],
+  set: (value: [number | undefined, number | undefined]) => {
+    advancedFilters.value.minGrowthRate30d = value[0]
+    advancedFilters.value.maxGrowthRate30d = value[1]
+  }
+})
+
+const gmvRange = computed({
+  get: (): [number | undefined, number | undefined] => [advancedFilters.value.minGmv30d, advancedFilters.value.maxGmv30d],
+  set: (value: [number | undefined, number | undefined]) => {
+    advancedFilters.value.minGmv30d = value[0]
+    advancedFilters.value.maxGmv30d = value[1]
+  }
+})
+
 const estimatedCount = ref(0)
 
 // ========== Emits ==========
@@ -989,6 +1231,50 @@ const handleAttrChange = () => {
   emitFilterChange()
 }
 
+// 智能场景应用
+const applyScenario = (scenario: typeof scenarios[0]) => {
+  if (selectedScenario.value === scenario.key) {
+    // 再次点击同一场景，清空
+    selectedScenario.value = ''
+    resetAdvancedFilters()
+    return
+  }
+  selectedScenario.value = scenario.key
+  // 应用场景筛选
+Object.assign(advancedFilters.value, scenario.filters)
+  emitFilterChange()
+}
+
+// 高级筛选变化
+const handleAdvancedChange = () => {
+  emitFilterChange()
+}
+
+// 重置高级筛选
+const resetAdvancedFilters = () => {
+  advancedFilters.value = {
+    minFollowers: undefined, 
+    maxFollowers: undefined, 
+    minGrowthRate30d: undefined, 
+    maxGrowthRate30d: undefined,
+    minInteractRate: undefined, 
+    maxInteractRate: undefined, 
+    minPlayOverRate: undefined, 
+    maxPlayOverRate: undefined,
+    minVvMedian: undefined, 
+    maxVvMedian: undefined,
+    minGmv30d: undefined, 
+    maxGmv30d: undefined, 
+    minConvertIndex: undefined, 
+    minShoppingIndex: undefined,
+    minSpreadIndex: undefined, 
+    minCpmEfficiency: undefined, 
+    maxCpmEfficiency: undefined, 
+    minPrice20_60: undefined,
+    maxPrice20_60: undefined
+  }
+}
+
 const emitFilterChange = useDebounceFn(() => {
   // 将前端选中的标签转换为中文标签名（与数据库一致）
   const chineseTagNames = selectedTags.value.map(tag => {
@@ -1020,7 +1306,7 @@ const emitFilterChange = useDebounceFn(() => {
   }
   
   // 构建筛选参数 - 只传递有值的字段
-  const params: QuickFilterParams = {
+  const params: any = {
     ...filters.value,
     // 基础信息 - gender需要传递undefined以清除筛选
     ...(basicInfo.value.keyword ? { keyword: basicInfo.value.keyword } : {}),
@@ -1033,7 +1319,14 @@ const emitFilterChange = useDebounceFn(() => {
     // 达人属性 - 只传递非undefined的值
     ...(influencerAttrs.value.ecommerceEnabled !== undefined ? { ecommerceEnabled: influencerAttrs.value.ecommerceEnabled } : {}),
     ...(influencerAttrs.value.ecomCapabilityTier ? { ecomCapabilityTier: influencerAttrs.value.ecomCapabilityTier } : {}),
-    ...certMapping
+    ...certMapping,
+    // 高级筛选参数
+    ...Object.entries(advancedFilters.value).reduce((acc, [key, value]) => {
+      if (value !== undefined && value !== null) {
+        acc[key] = value
+      }
+      return acc
+    }, {} as any)
   }
   
   emit('filterChange', params)
@@ -1082,6 +1375,22 @@ watch(() => estimatedCount.value, (newVal) => {
     padding-bottom: 16px;
     margin-bottom: 20px;
     border-bottom: 2px solid #e5e7eb;
+  }
+  
+  &.smart-scenarios-row {
+    padding: 14px;
+    background: linear-gradient(135deg, #f0f4ff 0%, #f9f5ff 100%);
+    border-radius: 6px;
+    border: 1px solid #e0e7ff;
+    margin-bottom: 16px;
+  }
+  
+  &.advanced-row {
+    padding: 14px;
+    background: #fafbfc;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 12px;
   }
 }
 
@@ -1262,5 +1571,33 @@ watch(() => estimatedCount.value, (newVal) => {
       width: 100%;
     }
   }
+}
+
+/* 高级筛选网格布局 */
+.advanced-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px 20px;
+  max-width: 1300px;
+  
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.advanced-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.advanced-label {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
 }
 </style>
