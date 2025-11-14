@@ -144,7 +144,7 @@
       <!-- 达人列表 - 根据平台动态切换展示组件 -->
       <component
         :is="getGridComponent(currentPlatform)"
-        :key="`grid-${currentPlatform}-${currentPage}-${influencers.length}`"
+        :key="`grid-${currentPlatform}`"
         :view-mode="viewMode"
         :card-size="cardSize"
         :loading="loading"
