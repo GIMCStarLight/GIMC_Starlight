@@ -1347,7 +1347,7 @@ watch(() => estimatedCount.value, (newVal) => {
   flex: 1;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;  // 调整为12px统一间距
 }
 
 .filter-content {
@@ -1416,7 +1416,7 @@ watch(() => estimatedCount.value, (newVal) => {
 .hot-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;  // 调整为12px统一间距
   margin-bottom: 12px;
 }
 
@@ -1429,7 +1429,7 @@ watch(() => estimatedCount.value, (newVal) => {
 .selected-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;  // 调整为12px统一间距
 }
 
 .all-tags-panel {
@@ -1470,7 +1470,7 @@ watch(() => estimatedCount.value, (newVal) => {
 .summary-content {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;  // 调整为12px统一间距
   flex-wrap: wrap;
 }
 
@@ -1518,7 +1518,7 @@ watch(() => estimatedCount.value, (newVal) => {
 .advanced-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px 24px;  // 增加竖直间距到16px，水平间距保持24px
+  gap: 16px 32px;  // 水平间距扩大至32px
   max-width: 1300px;
   
   @media (max-width: 1200px) {
