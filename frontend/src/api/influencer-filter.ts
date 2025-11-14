@@ -64,6 +64,16 @@ export interface AdvancedFilterParams extends QuickFilterParams {
   minShoppingIndex?: number
   minSpreadIndex?: number
   
+  // 预期指标
+  minExpectedPlayNum?: number
+  maxExpectedPlayNum?: number
+  minExpectedCpm?: number
+  maxExpectedCpm?: number
+  minExpectedCpe?: number
+  maxExpectedCpe?: number
+  minBurstRate?: number
+  maxBurstRate?: number
+  
   // 认证标签
   excellentAuthor?: boolean
   blackHorse?: boolean
