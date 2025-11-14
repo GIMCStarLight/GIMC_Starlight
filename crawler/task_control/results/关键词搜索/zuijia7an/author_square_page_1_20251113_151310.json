@@ -1,0 +1,22 @@
+{
+  "authors": [],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "intent_score": 0.9951860308647156,
+    "is_cpm_project_search": false,
+    "is_intent_consistent": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572104510332829723"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 0
+  },
+  "request_payload_hash": "413336101de062690151a7a0074aa4ec036a3e17"
+}

@@ -1,0 +1,3651 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "124",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "2",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813c001_oIQfgAEAs6oPADMfdXMb86zUAveHhQAAQtefQm.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "深圳市",
+        "content_theme_labels_180d": "[\"科技资讯\",\"手机市场资讯\",\"手机配件\"]",
+        "core_user_id": "35653066167308",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "<=10",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_score": "89",
+        "ecom_video_ctr_30d_range": "8%-10%",
+        "ecom_video_mid_click_pv_30d_range": "500以下",
+        "ecom_video_product_num_30d": "13",
+        "ecom_watch_pv_30d": "1.6",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "490",
+        "expected_play_num": "671",
+        "fans_increment_rate_within_15d": "-0.0007260989435619826",
+        "fans_increment_within_15d": "-202",
+        "fans_increment_within_30d": "-226",
+        "follower": "277980",
+        "game_type": "{\"\\u4f11\\u95f2\": 1.0}",
+        "gender": "2",
+        "grade": "0",
+        "id": "7008116820691386375",
+        "interact_rate_within_30d": "0.0034",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762400453\",\"item_id\":\"7569452288713018651\",\"item_publish_time\":\"1762851600\",\"item_title\":\"告别流量焦虑！广电流量卡月享192G高速流量，福利再加首月免月租体验，不限速不卡顿，，信号覆盖广，无合约束缚随时退。 #中国广电192  #广电192  #中国广电流量卡  #不限速流量卡 #通用流量卡\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"104\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762399978\",\"item_id\":\"7569450240604966190\",\"item_publish_time\":\"1762765200\",\"item_title\":\"省钱就选联通卡！每月享80G高速流量，刷剧开黑流畅如飞，100分钟通话随心打。套餐透明无隐藏条款，无合约约束随时退订。学生党专属福利，线上一键办理。#联通大王卡 #联通卡 #联通手机卡 #全国流量卡 #校园卡\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"121\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762399358\",\"item_id\":\"7569447584343821618\",\"item_publish_time\":\"1762678800\",\"item_title\":\"无需蹭WiFi，广电流量卡畅享192G全国高速流量，信号稳定网速流畅，能通话、能开热点，支持自选本地归属地，首月还能免月租使用，真正实惠又灵活。#中国广电 #中国广电卡 #广电升卿卡 #广电流量卡 #全国通用流量卡\",\"like_cnt\":\"1\",\"share_cnt\":\"1\",\"vv\":\"151\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762398940\",\"item_id\":\"7569445786107251995\",\"item_publish_time\":\"1762592400\",\"item_title\":\"什么？首月0月租还能用80G高速流量？电信卡真香！19元月租畅玩所有APP，网速不卡，信号稳定广，再赠170元话费，无套路无隐藏费用，学生上班族闭眼入。#电话卡 #电话卡套餐 #电信星卡 #流量卡推荐 #电信卡\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"141\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762397555\",\"item_id\":\"7569439844624076041\",\"item_publish_time\":\"1762506000\",\"item_title\":\"月初流量就告急？刷视频都要省着用？不如换上移动大流量卡，80G高速流量随心用，还赠1万分钟亲情通话，首月免月租体验。还有机会到手120话费，点击左下角轻松畅享。#移动花卡宝藏版 #移动流量卡 #移动流量卡官方 #大流量卡 #大流量卡推荐\",\"like_cnt\":\"1\",\"share_cnt\":\"0\",\"vv\":\"462\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761795243\",\"item_id\":\"7566852925742435626\",\"item_publish_time\":\"1762333200\",\"item_title\":\"宣传写得天花乱坠，到账却是59元89元？！全新广电卡上线。配有每月192G高速流量，首月还免月租体验，套餐官方可查、正规有保障，无隐形套路。#流量卡套路 #广电电话卡 #中国广电手机卡 #广电大流量卡 #全国通用套餐\",\"like_cnt\":\"0\",\"share_cnt\":\"3\",\"vv\":\"681\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761795108\",\"item_id\":\"7566852353354108201\",\"item_publish_time\":\"1762246800\",\"item_title\":\"总愁流量不够？这张联通卡专为年满16岁备好。月享135G高速流量，还包含每月100分钟通话全国互打，符合条件抓紧入手，每人仅限一张，16 岁以上朋友快领！#联通大王卡 #联通校园卡 #腾讯大王卡 #联通大流量卡 #联通卡\",\"like_cnt\":\"2\",\"share_cnt\":\"2\",\"vv\":\"755\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761794797\",\"item_id\":\"7566851005053259050\",\"item_publish_time\":\"1762160400\",\"item_title\":\"宣传写优惠，到手变59、69元？电信星卡把话说明白:19元月租享80G高速流量，首月免月租，百款APP流畅用，还能有170元话费，套餐官方可查，拒绝虚标只讲真实。#流量卡套路 #流量卡零月租不限速 #电信星卡 #电信手机卡 #中国电信\",\"like_cnt\":\"2\",\"share_cnt\":\"0\",\"vv\":\"711\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761794433\",\"item_id\":\"7566849434504498474\",\"item_publish_time\":\"1762074000\",\"item_title\":\"69元50G实在不划算？不如换张移动流量卡。每月畅享80G高速流量，不限速、不限APP；首月免月租，还有1万分钟亲情通话，立有120元话费，无合约、无隐藏消费，用完还能随时退。#移动花卡 #移动流量卡 #手机卡 #手机卡注销 #流量卡官方正品\",\"like_cnt\":\"1\",\"share_cnt\":\"1\",\"vv\":\"879\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761793045\",\"item_id\":\"7566843485395930404\",\"item_publish_time\":\"1761987600\",\"item_title\":\"不是流量用不起，而是联通卡更超值！年满16岁即可办理，每月80G高速流量，百款热门APP随心畅玩，首月还免月租用；还含8人亲情通话，套餐透明可查，速点左下角，包邮到家！#16岁可办的流量卡 #联通卡 #联通校园卡 #中国联通卡 #流量手机卡\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"360\"}]",
+        "link_convert_index": "73.81",
+        "link_convert_index_by_industry": "73.81",
+        "link_i_cnt_by_industry": "5917",
+        "link_k_cnt_by_industry": "979",
+        "link_l_cnt_by_industry": "40944",
+        "link_link_cnt_by_industry": "54799",
+        "link_n_cnt_by_industry": "6959",
+        "link_recommend_index_by_industry": "35.49",
+        "link_shopping_index": "35.49",
+        "link_spread_index": "46.26",
+        "link_spread_index_by_industry": "46.26",
+        "link_star_index": "59.68",
+        "link_star_index_by_industry": "59.68",
+        "link_user_type_by_industry": "3",
+        "local_lower_threshold_author": "false",
+        "nick_name": "秋葵通信源互动精选",
+        "play_over_rate_within_30d": "0.1531",
+        "price_1_20": "1200",
+        "price_20_60": "1200",
+        "price_60": "1200",
+        "promotion_prospective_1_20_cpm": "2037.35",
+        "promotion_prospective_20_60_cpm": "2037.35",
+        "promotion_prospective_60_cpm": "2037.35",
+        "promotion_prospective_vv": "589",
+        "prospective_1_20_cpm": "1788.3756",
+        "prospective_20_60_cpm": "1788.3756",
+        "prospective_60_cpm": "1788.3756",
+        "province": "广东省",
+        "search_after_view_index_by_industry": "69.06",
+        "sn_expected_play_num": "671",
+        "sn_interact_rate_within_30d": "0.0034",
+        "sn_play_over_rate_within_30d": "0.1531",
+        "sn_prospective_1_20_cpe": "600",
+        "sn_prospective_1_20_cpm": "1788.3756",
+        "sn_prospective_20_60_cpe": "600",
+        "sn_prospective_20_60_cpm": "1788.3756",
+        "sn_prospective_60_cpe": "600",
+        "sn_prospective_60_cpm": "1788.3756",
+        "star_excellent_author": "0",
+        "star_index": "66.3452447221641",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"科技数码\":[\"科技\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7326085334272445711",
+          "products": [
+            {
+              "brand_name": "中国移动",
+              "category_name": "中国移动新号码定制套餐",
+              "hit_tags": "手机卡,移动通信",
+              "product_id": "3640030727514514431",
+              "product_name": "中国移动电话卡135G/月移动卡大流量卡推荐大王卡移动花卡手机卡"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7305331555755396371",
+          "products": [
+            {
+              "category_name": "中国电信新号码定制套餐",
+              "hit_tags": "手机卡,移动通信",
+              "product_id": "3610933754803132455",
+              "product_name": "中国电信星185G/月19元充50送170电信大王卡电信流量卡手机卡"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7328697503480565044",
+          "products": [
+            {
+              "brand_name": "腾讯大王卡",
+              "category_name": "中国联通新号码套餐",
+              "hit_tags": "手机卡,移动通信",
+              "product_id": "3608883259032891190",
+              "product_name": "大王卡联通卡腾讯大王卡免流量卡推荐电话卡手机卡办理联通流量卡"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7321249487052115250",
+          "products": [
+            {
+              "brand_name": "电信星卡",
+              "category_name": "中国电信新号码定制套餐",
+              "hit_tags": "移动通信,手机卡",
+              "product_id": "3617024264391255599",
+              "product_name": "电信星卡19元月185G中国电信流量卡全国通用流量卡推荐电信大王卡"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7326079280209759522",
+          "products": [
+            {
+              "brand_name": "电信星卡",
+              "category_name": "中国电信新号码定制套餐",
+              "hit_tags": "移动通信,手机卡",
+              "product_id": "3617022799874523201",
+              "product_name": "电信流量卡月租19元185G/月电信大王卡大流量卡推荐中国电信星卡"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7300127911946784040",
+          "products": [
+            {
+              "brand_name": "中国移动",
+              "category_name": "中国移动新号码套餐",
+              "hit_tags": "移动通信,手机卡",
+              "product_id": "3606707634725631379",
+              "product_name": "移动流量卡首月0元360G/年移动花卡中国移动手机卡全国通用流量卡"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7312772193912474919",
+          "products": [
+            {
+              "brand_name": "中国移动",
+              "category_name": "中国移动新号码套餐",
+              "hit_tags": "手机卡,移动通信",
+              "product_id": "3616832060402100473",
+              "product_name": "移动卡360G/年仅19元中国移动流量卡官方正品5g流量卡手机电话卡"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7315727600100347171",
+          "products": [
+            {
+              "brand_name": "中国联通",
+              "category_name": "中国联通新号码套餐",
+              "hit_tags": "手机卡,移动通信",
+              "product_id": "3615560747792341516",
+              "product_name": "联通大王卡19元月租中国联通流量卡不限速全国通用手机卡腾讯王卡"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7302369572009561353",
+          "products": [
+            {
+              "brand_name": "中国移动",
+              "category_name": "中国移动新号码定制套餐",
+              "hit_tags": "手机卡,移动通信",
+              "product_id": "3608884018159974296",
+              "product_name": "中国移动流量卡首月免月租29元大王卡移动花卡全国通用流量卡推荐"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7338733975952706856",
+          "products": [
+            {
+              "brand_name": "中国移动",
+              "category_name": "中国移动新号码套餐",
+              "hit_tags": "手机卡,移动通信",
+              "product_id": "3665259372600240350",
+              "product_name": "中国移动流量卡135G/月手机卡电话卡全国通用移动卡官方移动花卡"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "7008116820691386375",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1200,
+              "price_extra_info": {},
+              "start_time": "1698768000",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1200,
+              "price_extra_info": {},
+              "start_time": "1698768000",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1200,
+              "price_extra_info": {},
+              "start_time": "1698768000",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "97",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L2",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"防水\":0}",
+        "author_type": "1",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_54f1cfb11802d554ab7b4fcadb700364.jpeg?from=4010531038",
+        "brand_boost_vv": "5356",
+        "city": "河池市",
+        "content_theme_labels_180d": "[\"湖北旅行\",\"健康养生\",\"地方旅行资讯\",\"自驾旅行\",\"家庭旅行\",\"广西旅行\",\"房车露营\",\"养生美食\",\"健康饮食\",\"旅行特色景点\"]",
+        "core_user_id": "3377355848177741",
+        "e_commerce_enable": "1",
+        "ecom_score": "82",
+        "ecom_video_ctr_30d_range": "2%-4%",
+        "ecom_video_mid_click_pv_30d_range": "500以下",
+        "ecom_video_product_num_30d": "3",
+        "expected_cpa3_level": "2",
+        "expected_natural_play_num": "4055",
+        "expected_play_num": "4973",
+        "fans_increment_rate_within_15d": "-0.0009271177439534821",
+        "fans_increment_within_15d": "-206",
+        "fans_increment_within_30d": "-194",
+        "follower": "221963",
+        "game_type": "{\"\\u7b56\\u7565\": 1.0}",
+        "gender": "1",
+        "grade": "0",
+        "id": "6919825320145059848",
+        "interact_rate_within_30d": "0.0162",
+        "interaction_median_30d": "41",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "true",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762858445\",\"item_id\":\"7571419354899485285\",\"item_publish_time\":\"1762858445\",\"item_title\":\"巴马寿优泉来自大山深处的自涌泉，是弱碱性小分子团水 巴马寿优泉是取自广西巴马大山流出的天然矿泉水，经过厂家过滤、消毒后罐装而成，质量达到国家饮用罐装水标准，可以直接饮用，不会出现闹肚子，保值期为18个月，每个瓶子上都有出厂日期。  巴马山泉水富含多种矿物质和微量元素，如果烧开100度，后出现少量沉淀物，这是很正常的，说明它是真正的山泉水。  巴马山泉水，凉水也可以直接饮用，如果喜欢喝温水的朋友，可以绕开至50-80后饮用，如果泡茶烧至80度左右，泡茶最好，都不会出现沉淀物。不建议将此山泉水绕开至100度以上，那样许多矿物质和维生素会流失。  煮稀饭、蒸米饭，都可以用山泉水，水中的矿物质会融入到食物中，对人体有好处，不用担心。\",\"like_cnt\":\"11\",\"share_cnt\":\"3\",\"vv\":\"790\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762789597\",\"item_id\":\"7571123641431200421\",\"item_publish_time\":\"1762813560\",\"item_title\":\"宁夏大哥20万自改床车，开启候鸟迁徙新生活 #内容过于真实 #房车自驾游#老年人养生 #自改床车\",\"like_cnt\":\"17\",\"share_cnt\":\"3\",\"vv\":\"1615\"},{\"comment_cnt\":\"18\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762694537\",\"item_id\":\"7570715380063634801\",\"item_publish_time\":\"1762694537\",\"item_title\":\"人过五十不青春，独来独往不合群 我并非刻意孤独疏离，只是怕人情未必真挚，莫把匆匆过客当作知己，不如揣着明白装糊涂。日夜为柴米油盐、生计钱财奔波，忙碌半生难得清闲。谁不想安享清福？无奈生活举步维艰。曾经满怀凌云壮志，却让时光与红颜都成了过往。#自驾游旅行 #养生生活 #健康养生 #六零后的我们已不再年轻\",\"like_cnt\":\"99\",\"share_cnt\":\"12\",\"vv\":\"6173\"},{\"comment_cnt\":\"17\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762494365\",\"item_id\":\"7569855642594132849\",\"item_publish_time\":\"1762494365\",\"item_title\":\"广西巴马长寿乡百鸟岩铁兵之家，包吃住每人1500元左右 巴马百鸟岩铁兵之家，坐落于甲篆镇金边屯，距百鸟岩仅1.2公里，推窗即揽盘阳河风光与高负氧离子天然氧吧。住宿有电梯观景房、星空太空舱等，设施齐全拎包入住，依山傍水尽享静谧康养时光。餐饮依托两千亩生态农场，可采摘有机蔬果，主打巴马特色养生餐，融合火麻等长寿食材，鲜醇健康。这里既是“候鸟人”优选旅居地，更以铁道兵情怀营造家的温暖，吃住舒心，是康养度假的理想之选。#原创视频 #强烈推荐 #抖音推广 #我的乡村生活 #宣传正能量\",\"like_cnt\":\"118\",\"share_cnt\":\"21\",\"vv\":\"9170\"},{\"comment_cnt\":\"5\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762421562\",\"item_id\":\"7569542958962270331\",\"item_publish_time\":\"1762421562\",\"item_title\":\"浙江天台县桐柏村，七旬老人的快乐生活 #原创视频 #我的乡村生活 #日常生活 #纪录美好生活 #乡村故事\",\"like_cnt\":\"47\",\"share_cnt\":\"0\",\"vv\":\"2776\"},{\"comment_cnt\":\"9\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762334035\",\"item_id\":\"7569167034781792762\",\"item_publish_time\":\"1762334035\",\"item_title\":\"浙江马站镇中魁村“四季柚”，看170年的柚子树 苍南四季柚是浙江温州苍南县的特产，也是中国国家地理标志产品   。 它原产于苍南县马站镇，因四季常青、四季开花结果而得名   。果实一般在立冬后采收，呈倒卵形，单果重700-1300克，果皮薄，果肉脆嫩多汁，甜酸适口，香气浓郁   。其营养价值高，富含硒、锌等微量元素及多种维生素，具有滋阴养血、清热降火等功效   。苍南四季柚还多次在全国柚类评比中获奖，有“世界奇果”的美誉   。#优质农产品 #原创视频 #新鲜采摘 #快来一起尝个鲜 #现摘新鲜水果\",\"like_cnt\":\"22\",\"share_cnt\":\"2\",\"vv\":\"1660\"},{\"comment_cnt\":\"12\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762253438\",\"item_id\":\"7568820874967630245\",\"item_publish_time\":\"1762253438\",\"item_title\":\"巴马寿优泉来自大山深处的自涌泉，是弱碱性小分子团水 广西巴马长寿乡山泉水是中国国家地理标志产品，更是当地百岁老人扎堆的“长寿密码”之一。水源源自喀斯特地貌深层地下暗河，经岩层千年过滤，水质清澈纯净。它属天然弱碱性小分子团水，pH值7.3-8.2，易被人体吸收，还富含偏硅酸、锶等39种以上有益矿物质，氧化还原电位为负，可帮助清除自由基。巴马百岁老人长期饮用此水，其优质水质为身体代谢提供了良好保障，也让这汪泉水成为承载长寿智慧的天然好水。#原创视频 #水是生命之源 #纪录美好生活\",\"like_cnt\":\"112\",\"share_cnt\":\"24\",\"vv\":\"15059\"},{\"comment_cnt\":\"6\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762230626\",\"item_id\":\"7568722897679172273\",\"item_publish_time\":\"1762230626\",\"item_title\":\"浙江永嘉县楠溪古村 在浙江永嘉的楠溪江流域，藏着一座堪称“活着的宋代建筑标本”的苍坡古村。它以独特的“文房四宝”布局惊艳世人，是楠溪江古村落中规划最具匠心的一处。  踏入古村，鹅卵石铺就的街巷如灵动墨条，串联起整个村落；村中心的池塘似一方砚池，池水清冽，倒映着古建飞檐；那几棵苍劲挺拔的古樟，宛如饱蘸墨汁的毛笔；而长方形的村落轮廓，恰似一张铺开的宣纸。这般布局，是宋代文人对文化意境的极致追求，漫步其中，仿佛能触摸到宋代的文化脉搏。  村内建筑古朴沧桑，老墙斑驳，尽显岁月痕迹。“时光杂货铺”充满复古气息，老式灯笼、公用电话标识，瞬间将人拉回旧时光，是绝佳的打卡地。你还能看到那些保留着宋代风貌的民居、宗祠，木质结构的建筑细节，传递着古人的营造智慧。  在古村的静谧巷陌间闲逛，听风吹过古樟的沙沙声，看村民在老屋里过着平淡的生活，烟火气与历史感交融。这里没有过多的商业喧嚣，只有千年时光沉淀下的悠然与宁静，是一处能让你卸下疲惫，沉浸式感受宋韵古村魅力的世外桃源。#原创视频 #日常生活 #旅行推荐官 #旅居生活 #周边游\",\"like_cnt\":\"25\",\"share_cnt\":\"0\",\"vv\":\"2593\"},{\"comment_cnt\":\"7\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762141216\",\"item_id\":\"7568338863098401723\",\"item_publish_time\":\"1762141216\",\"item_title\":\"福建福鼎市永福农贸市场，驻车地分享 #原创视频 #我的乡村生活 #记录生活 #强烈推荐\",\"like_cnt\":\"46\",\"share_cnt\":\"9\",\"vv\":\"4296\"},{\"comment_cnt\":\"8\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762043112\",\"item_id\":\"7567917471538206321\",\"item_publish_time\":\"1762043112\",\"item_title\":\"浙江温州苍南县马站镇特产“四季柚” 苍南四季柚是浙江温州苍南县的特产，也是中国国家地理标志产品   。 它原产于苍南县马站镇，因四季常青、四季开花结果而得名   。果实一般在立冬后采收，呈倒卵形，单果重700-1300克，果皮薄，果肉脆嫩多汁，甜酸适口，香气浓郁   。其营养价值高，富含硒、锌等微量元素及多种维生素，具有滋阴养血、清热降火等功效   。苍南四季柚还多次在全国柚类评比中获奖，有“世界奇果”的美誉   。#原创视频 #我的乡村生活 #随拍记录真实生活 #优质农产品 #新鲜采摘\",\"like_cnt\":\"36\",\"share_cnt\":\"7\",\"vv\":\"2749\"}]",
+        "link_convert_index": "73.28",
+        "link_convert_index_by_industry": "73.28",
+        "link_i_cnt_by_industry": "62364",
+        "link_k_cnt_by_industry": "82",
+        "link_l_cnt_by_industry": "189575",
+        "link_link_cnt_by_industry": "320676",
+        "link_n_cnt_by_industry": "68655",
+        "link_recommend_index_by_industry": "49.09",
+        "link_shopping_index": "49.09",
+        "link_spread_index": "60.34",
+        "link_spread_index_by_industry": "60.34",
+        "link_star_index": "69.41",
+        "link_star_index_by_industry": "69.41",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "六零后慢生活",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.0635",
+        "price_1_20": "4700",
+        "price_20_60": "6200",
+        "price_60": "9500",
+        "promotion_prospective_1_20_cpm": "1019.97",
+        "promotion_prospective_20_60_cpm": "1345.49",
+        "promotion_prospective_60_cpm": "2061.63",
+        "promotion_prospective_vv": "4608",
+        "prospective_1_20_cpm": "945.1036",
+        "prospective_20_60_cpm": "1246.7324",
+        "prospective_60_cpm": "1910.3157",
+        "province": "广西壮族自治区",
+        "search_after_view_index_by_industry": "63.09",
+        "sn_expected_play_num": "4973",
+        "sn_interact_rate_within_30d": "0.0162",
+        "sn_play_over_rate_within_30d": "0.0635",
+        "sn_prospective_1_20_cpe": "67.1429",
+        "sn_prospective_1_20_cpm": "945.1036",
+        "sn_prospective_20_60_cpe": "88.5714",
+        "sn_prospective_20_60_cpm": "1246.7324",
+        "sn_prospective_60_cpe": "135.7143",
+        "sn_prospective_60_cpm": "1910.3157",
+        "star_excellent_author": "0",
+        "star_qianchuan_high_potential": "1",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"旅行\":[\"户外生活\"]}",
+        "video_brand_boost": "true",
+        "video_brand_boost_vv": "5356",
+        "vv_median_30d": "2306"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7359840159040343315",
+          "products": [
+            {
+              "brand_name": "q格行",
+              "category_name": "4g/5g上网设备",
+              "hit_tags": "移动通信",
+              "product_id": "3660405870585593149",
+              "product_name": "Q格行(设备与流量均全国联保)移动随身无线wifi双网彩屏全国款"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6919825320145059848",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3800,
+              "price_extra_info": {},
+              "start_time": "1668908506",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 9500,
+              "price_extra_info": {},
+              "start_time": "1668908506",
+              "task_category": 1,
+              "video_type": 90,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 9500,
+              "price_extra_info": {},
+              "start_time": "1668908506",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 6200,
+              "price_extra_info": {},
+              "start_time": "1668908506",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 4700,
+              "price_extra_info": {},
+              "start_time": "1668908506",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "48",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"防晒\":0}",
+        "author_type": "3",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813c000-ce_o02A1iRBwvACJzJifAo9EAAyEU85dfI0mtuDYn.jpeg?from=4010531038",
+        "city": "杭州",
+        "content_theme_labels_180d": "[\"国内旅行\",\"海外旅行\",\"旅行特色体验\",\"网红景点种草\",\"旅行特色景点\",\"国内城市旅游\",\"小众旅游推荐\",\"酒店体验\",\"城市旅行攻略\",\"异国旅行\"]",
+        "core_user_id": "4112592416283933",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": "1k-3w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "4979",
+        "expected_play_num": "6782",
+        "fans_increment_rate_within_15d": "-0.0027371578552680916",
+        "fans_increment_within_15d": "-1533",
+        "fans_increment_within_30d": "3775.73",
+        "follower": "558506",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "7158480483704111117",
+        "interact_rate_within_30d": "0.1206",
+        "interaction_median_30d": "691",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "true",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"51\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762611583\",\"item_id\":\"7570359096156638906\",\"item_publish_time\":\"1762611583\",\"item_title\":\"在贡嘎的晨光里，我听到了传统与现代交织的回响！ #来贡嘎斗舞 #甘孜贡嘎艺术季#甘孜文化旅游\",\"like_cnt\":\"645\",\"share_cnt\":\"10\",\"vv\":\"6215\"},{\"comment_cnt\":\"114\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762141824\",\"item_id\":\"7568341464906110635\",\"item_publish_time\":\"1762141824\",\"item_title\":\"姑苏深秋漫游！青砖黛瓦遇银杏，烟火与诗意撞个满怀～ #一朝入苏州满眼是江南#苏州的秋天有多美\",\"like_cnt\":\"758\",\"share_cnt\":\"34\",\"vv\":\"9284\"},{\"comment_cnt\":\"20\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761976947\",\"item_id\":\"7567633342506529701\",\"item_publish_time\":\"1761976947\",\"item_title\":\"解锁苏式潮玩密码！苏州文博B1馆独家文创不返场，故宫、苏博新品首秀，潮玩与茶香一站式拿捏！#国民IP文创在苏州团建啦 #文创让生活更有趣\",\"like_cnt\":\"447\",\"share_cnt\":\"30\",\"vv\":\"3626\"},{\"comment_cnt\":\"47\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761898002\",\"item_id\":\"7567294283662698426\",\"item_publish_time\":\"1761898002\",\"item_title\":\"打卡“西湖边的畲乡”：逛馆品宴看秀，沉浸式畲族之旅！#桐庐旅行 #莪山旅行#西湖边的畲乡\",\"like_cnt\":\"687\",\"share_cnt\":\"28\",\"vv\":\"5039\"},{\"comment_cnt\":\"23\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761897839\",\"item_id\":\"7567293567418676849\",\"item_publish_time\":\"1761897839\",\"item_title\":\"秋意神仙居！山水秘境遇文艺新境，咖啡烟火气伴诗行，打卡解锁浪漫秋韵～#小小神仙居拿下 #来神仙居沾点仙气 #神仙居我仙来了#秋游就来神仙居\",\"like_cnt\":\"397\",\"share_cnt\":\"21\",\"vv\":\"6256\"},{\"comment_cnt\":\"30\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761567792\",\"item_id\":\"7565875994658833265\",\"item_publish_time\":\"1761567792\",\"item_title\":\"数智赋能义乌行！AI珠宝、外骨骼黑科技，解锁数贸新玩法~#义乌新地标 #义乌全球数贸中心\",\"like_cnt\":\"730\",\"share_cnt\":\"24\",\"vv\":\"5407\"},{\"comment_cnt\":\"53\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761567700\",\"item_id\":\"7565875608778633329\",\"item_publish_time\":\"1761567700\",\"item_title\":\"天津音浪，已就位！ #小糊涂仙幸福时光群星演唱会 全城热盼，以声浪致敬经典，就等你来碰杯！声动津门，不见不散! #唱响岁月时光乐动幸福天津 #幸福很简单不如在天津见一面\",\"like_cnt\":\"640\",\"share_cnt\":\"25\",\"vv\":\"6088\"},{\"comment_cnt\":\"18\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761313233\",\"item_id\":\"7564782718623468837\",\"item_publish_time\":\"1761313233\",\"item_title\":\"自驾金寨红岭公路！茶谷、峡谷、云海，解锁秋日限定浪漫~#红韵风华水墨金寨\",\"like_cnt\":\"593\",\"share_cnt\":\"32\",\"vv\":\"5821\"},{\"comment_cnt\":\"34\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761290017\",\"item_id\":\"7564682999281159461\",\"item_publish_time\":\"1761290017\",\"item_title\":\"雪道征服·沈白线：在吉林的粉雪上，写满热血与自由！#浙江和吉林的冬天差异能有多大  #浙个冬天去吉林看看 #这个冬天一定要去趟吉林 #长白天下雪相约在吉林\",\"like_cnt\":\"1330\",\"share_cnt\":\"123\",\"vv\":\"10290\"},{\"comment_cnt\":\"9\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760619029\",\"item_id\":\"7561801133241634106\",\"item_publish_time\":\"1760619029\",\"item_title\":\"从乌鲁木齐到南山草甸，普拉多让霓虹与星野都成日常风景！ #普拉多#普拉多探索版  #新疆南山#普拉多越野\",\"like_cnt\":\"527\",\"share_cnt\":\"17\",\"vv\":\"6071\"}]",
+        "link_convert_index": "71.99",
+        "link_convert_index_by_industry": "71.99",
+        "link_i_cnt_by_industry": "26961",
+        "link_k_cnt_by_industry": "30",
+        "link_l_cnt_by_industry": "104345",
+        "link_link_cnt_by_industry": "140447",
+        "link_n_cnt_by_industry": "9111",
+        "link_recommend_index_by_industry": "49.03",
+        "link_shopping_index": "49.03",
+        "link_spread_index": "54.09",
+        "link_spread_index_by_industry": "54.09",
+        "link_star_index": "62.4",
+        "link_star_index_by_industry": "62.4",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "陈理想旅行日记",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.006",
+        "price_1_20": "20000",
+        "price_20_60": "40000",
+        "price_60": "100000",
+        "promotion_prospective_1_20_cpm": "3281.92",
+        "promotion_prospective_20_60_cpm": "6563.83",
+        "promotion_prospective_60_cpm": "16409.58",
+        "promotion_prospective_vv": "6094",
+        "prospective_1_20_cpm": "2948.9826",
+        "prospective_20_60_cpm": "5897.9652",
+        "prospective_60_cpm": "14744.913",
+        "province": "",
+        "search_after_view_index_by_industry": "75.93",
+        "sn_expected_play_num": "6782",
+        "sn_interact_rate_within_30d": "0.1206",
+        "sn_play_over_rate_within_30d": "0.006",
+        "sn_prospective_1_20_cpe": "27.933",
+        "sn_prospective_1_20_cpm": "2948.9826",
+        "sn_prospective_20_60_cpe": "55.8659",
+        "sn_prospective_20_60_cpm": "5897.9652",
+        "sn_prospective_60_cpe": "139.6648",
+        "sn_prospective_60_cpm": "14744.913",
+        "star_excellent_author": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食探店\"]}",
+        "vv_median_30d": "5499"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7362164847636778275",
+          "products": [
+            {
+              "brand_name": "领存storleadb存储卡cfexpresstypeb",
+              "category_name": "闪存卡",
+              "hit_tags": "手机卡,移动通信",
+              "product_id": "3676390884900995483",
+              "product_name": "领存STORLEADB存储卡 CFexpress TYPE B 相机高速内存卡 128GB "
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "7158480483704111117",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 60000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 8000,
+              "price_extra_info": {},
+              "start_time": "1732982400",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 99000,
+              "price_extra_info": {},
+              "start_time": "1717171200",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 20000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 100000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 40000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "92",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_12e7c43236fe1bff9459b146579e0082.jpeg?from=4010531038",
+        "city": "河池",
+        "content_theme_labels_180d": "[\"汽车用品测评\",\"汽车周边\",\"汽车内饰\",\"礼物推荐\",\"生活好物评测\",\"家居好物\",\"山河风光\",\"特色配饰\",\"车辆改装\",\"旅行美景\"]",
+        "core_user_id": "83376173820",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "1k-3w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_score": "83",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "2",
+        "expected_natural_play_num": "381",
+        "expected_play_num": "446",
+        "fans_increment_rate_within_15d": "-0.0007196763401540496",
+        "fans_increment_within_15d": "-74",
+        "fans_increment_within_30d": "2530.55",
+        "follower": "102753",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6883748443588657152",
+        "interaction_median_30d": "17",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759656494\",\"item_id\":\"7557667065713839375\",\"item_publish_time\":\"1759656494\",\"item_title\":\"银行密码暂时错误取不出钱来#搞笑视频 #逗你一笑烦恼忘掉\",\"like_cnt\":\"19\",\"share_cnt\":\"1\",\"vv\":\"2864\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759554738\",\"item_id\":\"7557230041592565044\",\"item_publish_time\":\"1759554738\",\"item_title\":\"亚洲第一大瀑布，气势磅礴#飞流直下三千尺 #雄伟壮观 #大好河山一起打卡\",\"like_cnt\":\"14\",\"share_cnt\":\"0\",\"vv\":\"1292\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759489864\",\"item_id\":\"7556951408052161826\",\"item_publish_time\":\"1759489864\",\"item_title\":\"这里的猴子泛滥啦！真多🤣🤣🤣#来看猴子#人潮拥挤#人山人海太热闹了 #黔灵山猴子\",\"like_cnt\":\"38\",\"share_cnt\":\"1\",\"vv\":\"4844\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759263404\",\"item_id\":\"7555978722512391476\",\"item_publish_time\":\"1759263404\",\"item_title\":\"堵啊堵啊堵啊堵😂 这回可是真堵#堵车堵车堵得不得了了 #堵车不堵心\",\"like_cnt\":\"17\",\"share_cnt\":\"0\",\"vv\":\"1927\"},{\"comment_cnt\":\"3\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757649967\",\"item_id\":\"7549049113750424847\",\"item_publish_time\":\"1757649967\",\"item_title\":\"长生洞\",\"like_cnt\":\"19\",\"share_cnt\":\"2\",\"vv\":\"2262\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757320470\",\"item_id\":\"7547633926148361487\",\"item_publish_time\":\"1757320470\",\"item_title\":\"车里最需要车载空调被了、一年四季都可用、既可当被子又可当抱枕腰靠！超级实用啊！#抱枕被子两用 #汽车好物 #汽车用品\",\"like_cnt\":\"11\",\"share_cnt\":\"3\",\"vv\":\"541\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757219760\",\"item_id\":\"7547201385613135156\",\"item_publish_time\":\"1757219760\",\"item_title\":\"夏天空调出风口装个水杯架，饮料放上去酷似小冰箱 太方便了～#水杯架 #车载水杯架 #水杯架手机支架 #自用好物分享\",\"like_cnt\":\"10\",\"share_cnt\":\"5\",\"vv\":\"331\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757134611\",\"item_id\":\"7546835674080873728\",\"item_publish_time\":\"1757134611\",\"item_title\":\"车载中控防滑垫、高颜值防滑不留胶、小摆件放在上面非常稳固、可定制专属车标#中控防滑垫 #中控防滑垫子 #车载摆件\",\"like_cnt\":\"8\",\"share_cnt\":\"3\",\"vv\":\"267\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757040359\",\"item_id\":\"7546430860388863247\",\"item_publish_time\":\"1757040359\",\"item_title\":\"汽车座椅挂钩折叠式双挂钩，高端大气上档次 #汽车用品#有车必备 #汽车挂钩 @DOU+小助手\",\"like_cnt\":\"10\",\"share_cnt\":\"3\",\"vv\":\"318\"},{\"comment_cnt\":\"3\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756953960\",\"item_id\":\"7546059780516482339\",\"item_publish_time\":\"1756953960\",\"item_title\":\"买花是顺路、浪漫是日常🌹鲜活的日子里、不要被世俗淹没了你对生活的浪漫！给车里放束花吧、简单的生活也是需要浪漫#车载摆件 #女生的车内饰 #女生的车#花束摆件@DOU+小助手\",\"like_cnt\":\"9\",\"share_cnt\":\"0\",\"vv\":\"251\"}]",
+        "link_convert_index": "71.23",
+        "link_convert_index_by_industry": "71.23",
+        "link_i_cnt_by_industry": "2251",
+        "link_k_cnt_by_industry": "130",
+        "link_l_cnt_by_industry": "21860",
+        "link_link_cnt_by_industry": "25018",
+        "link_n_cnt_by_industry": "777",
+        "link_recommend_index_by_industry": "60.01",
+        "link_shopping_index": "60.01",
+        "link_spread_index": "51.69",
+        "link_spread_index_by_industry": "51.69",
+        "link_star_index": "61.84",
+        "link_star_index_by_industry": "61.84",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "戴戴车品",
+        "pic_expected_play_num": "919",
+        "price_1_20": "6800",
+        "price_20_60": "7300",
+        "price_60": "8800",
+        "promotion_prospective_1_20_cpm": "17708.33",
+        "promotion_prospective_20_60_cpm": "19010.42",
+        "promotion_prospective_60_cpm": "22916.67",
+        "promotion_prospective_vv": "384",
+        "prospective_1_20_cpm": "15246.6368",
+        "prospective_20_60_cpm": "16367.713",
+        "prospective_60_cpm": "19730.9417",
+        "province": "",
+        "search_after_view_index_by_industry": "66.9",
+        "sn_expected_play_num": "446",
+        "sn_prospective_1_20_cpe": "566.6667",
+        "sn_prospective_1_20_cpm": "15246.6368",
+        "sn_prospective_20_60_cpe": "608.3333",
+        "sn_prospective_20_60_cpm": "16367.713",
+        "sn_prospective_60_cpe": "733.3333",
+        "sn_prospective_60_cpm": "19730.9417",
+        "star_excellent_author": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"生活家居\":[\"生活技巧\"]}",
+        "vv_median_30d": "2438"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7351777307230489883",
+          "products": [
+            {
+              "category_name": "停车号码牌",
+              "hit_tags": "移动通信",
+              "product_id": "3649692091409391880",
+              "product_name": "二维码挪车电话牌临时停车静电移车电话号码隐私临时停车牌扫码"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6883748443588657152",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3650,
+              "price_extra_info": {},
+              "start_time": "1685121878",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 8800,
+              "price_extra_info": {},
+              "start_time": "1685121798",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 7300,
+              "price_extra_info": {},
+              "start_time": "1685121798",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 6800,
+              "price_extra_info": {},
+              "start_time": "1685121798",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "55",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813c000-ce_oA9ElFEFAexfAxLOXnkYAPeu9AEAIAg0DoivEw.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "合肥市",
+        "content_theme_labels_180d": "[\"工具使用技巧\",\"装修技巧\",\"装修施工\",\"瓷砖施工\",\"车辆维修\",\"用车知识\",\"动物饲养\",\"家常菜教程\",\"面食制作\",\"手工制作\"]",
+        "core_user_id": "96490004337",
+        "e_commerce_enable": "0",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "18104",
+        "expected_play_num": "20976",
+        "fans_increment_rate_within_15d": "-0.000889879817330165",
+        "fans_increment_within_15d": "-273",
+        "fans_increment_within_30d": "-530",
+        "follower": "326482",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6870165694659428360",
+        "interact_rate_within_30d": "0.0042",
+        "interaction_median_30d": "74",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"4\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761191534\",\"item_id\":\"7564259728466523530\",\"item_publish_time\":\"1761191534\",\"item_title\":\"#\",\"like_cnt\":\"202\",\"share_cnt\":\"5\",\"vv\":\"40053\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761183718\",\"item_id\":\"7564226108222590642\",\"item_publish_time\":\"1761183718\",\"item_title\":\"#\",\"like_cnt\":\"129\",\"share_cnt\":\"12\",\"vv\":\"15813\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761134292\",\"item_id\":\"7564014059667016283\",\"item_publish_time\":\"1761134292\",\"item_title\":\"#\",\"like_cnt\":\"80\",\"share_cnt\":\"1\",\"vv\":\"19011\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761118215\",\"item_id\":\"7563944884609963099\",\"item_publish_time\":\"1761118215\",\"item_title\":\"#\",\"like_cnt\":\"106\",\"share_cnt\":\"5\",\"vv\":\"20780\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761096434\",\"item_id\":\"7563851107967258074\",\"item_publish_time\":\"1761096434\",\"item_title\":\"#\",\"like_cnt\":\"36\",\"share_cnt\":\"0\",\"vv\":\"8154\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761025318\",\"item_id\":\"7563545957809012462\",\"item_publish_time\":\"1761025318\",\"item_title\":\"#\",\"like_cnt\":\"87\",\"share_cnt\":\"0\",\"vv\":\"18374\"},{\"comment_cnt\":\"24\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761013798\",\"item_id\":\"7563496585473032585\",\"item_publish_time\":\"1761013798\",\"item_title\":\"#\",\"like_cnt\":\"148\",\"share_cnt\":\"12\",\"vv\":\"48968\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760968417\",\"item_id\":\"7563301640510495667\",\"item_publish_time\":\"1760968417\",\"item_title\":\"#\",\"like_cnt\":\"45\",\"share_cnt\":\"0\",\"vv\":\"11167\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760947952\",\"item_id\":\"7563213712707676041\",\"item_publish_time\":\"1760947952\",\"item_title\":\"#\",\"like_cnt\":\"123\",\"share_cnt\":\"1\",\"vv\":\"28414\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760934165\",\"item_id\":\"7563154623608868147\",\"item_publish_time\":\"1760934165\",\"item_title\":\"#\",\"like_cnt\":\"42\",\"share_cnt\":\"0\",\"vv\":\"8537\"}]",
+        "link_convert_index": "50.67",
+        "link_convert_index_by_industry": "50.67",
+        "link_i_cnt_by_industry": "78292",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "45446",
+        "link_link_cnt_by_industry": "139065",
+        "link_n_cnt_by_industry": "15327",
+        "link_recommend_index_by_industry": "61.31",
+        "link_shopping_index": "61.31",
+        "link_spread_index": "62.79",
+        "link_spread_index_by_industry": "62.79",
+        "link_star_index": "63.33",
+        "link_star_index_by_industry": "63.33",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "忻明3413",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.3731",
+        "price_1_20": "1000",
+        "price_20_60": "1000",
+        "price_60": "1000",
+        "promotion_prospective_1_20_cpm": "52.19",
+        "promotion_prospective_20_60_cpm": "52.19",
+        "promotion_prospective_60_cpm": "52.19",
+        "promotion_prospective_vv": "19161",
+        "prospective_1_20_cpm": "47.6735",
+        "prospective_20_60_cpm": "47.6735",
+        "prospective_60_cpm": "47.6735",
+        "province": "安徽省",
+        "search_after_view_index_by_industry": "32.21",
+        "sn_expected_play_num": "20976",
+        "sn_interact_rate_within_30d": "0.0042",
+        "sn_play_over_rate_within_30d": "0.3731",
+        "sn_prospective_1_20_cpe": "10",
+        "sn_prospective_1_20_cpm": "47.6735",
+        "sn_prospective_20_60_cpe": "10",
+        "sn_prospective_20_60_cpm": "47.6735",
+        "sn_prospective_60_cpe": "10",
+        "sn_prospective_60_cpm": "47.6735",
+        "star_excellent_author": "0",
+        "star_index": "76.02296401527377",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"生活\":[\"生活记录\"]}",
+        "vv_median_30d": "16906"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7313836389370498358",
+          "products": [
+            {
+              "brand_name": "格行",
+              "category_name": "4g/5g上网设备",
+              "hit_tags": "手机卡,移动通信",
+              "product_id": "3655098551236725616",
+              "product_name": "格行(设备与流量均全国联保)移动随身无线wifi 双网切换彩屏款"
+            },
+            {
+              "brand_name": "q格行",
+              "category_name": "4g/5g上网设备",
+              "hit_tags": "移动通信",
+              "product_id": "3653969043171445609",
+              "product_name": "Q格行(设备与流量均全国联保)移动随身无线wifi双网彩屏全国款"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6870165694659428360",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1609939964",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1609939964",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1609939964",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "50",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"早餐\":0}",
+        "author_type": "1",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_8dae926e6d33685ac464c58d0970ef2d.jpeg?from=4010531038",
+        "city": "濮阳",
+        "content_theme_labels_180d": "[\"欢乐演绎\",\"搞笑剧情\",\"有趣剧情创作\",\"自制美食\",\"家常菜谱\",\"零食测评\",\"健康饮食\",\"养生美食\",\"亲子活动\",\"下饭菜教程\"]",
+        "core_user_id": "2968322454595272",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "<=10",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "21224",
+        "expected_play_num": "25908",
+        "fans_increment_rate_within_15d": "0.00033521388321818734",
+        "fans_increment_within_15d": "100",
+        "fans_increment_within_30d": "-160",
+        "follower": "298372",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7091292358326616104",
+        "interact_rate_within_30d": "0.0247",
+        "interaction_median_30d": "433",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"21\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762772857\",\"item_id\":\"7571051760421830299\",\"item_publish_time\":\"1762772857\",\"item_title\":\"老姐似母\",\"like_cnt\":\"149\",\"share_cnt\":\"1\",\"vv\":\"5090\"},{\"comment_cnt\":\"334\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1762436930\",\"item_id\":\"7569608962854132462\",\"item_publish_time\":\"1762436930\",\"item_title\":\"心态好能活到老\",\"like_cnt\":\"4181\",\"share_cnt\":\"777\",\"vv\":\"195891\"},{\"comment_cnt\":\"46\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762386135\",\"item_id\":\"7569390758153029870\",\"item_publish_time\":\"1762386135\",\"item_title\":\"赌一把，赌赢开路虎，赌输坐着哭。\",\"like_cnt\":\"479\",\"share_cnt\":\"11\",\"vv\":\"32694\"},{\"comment_cnt\":\"70\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761916371\",\"item_id\":\"7567373181528088051\",\"item_publish_time\":\"1761916371\",\"item_title\":\"老姐似亩\",\"like_cnt\":\"662\",\"share_cnt\":\"11\",\"vv\":\"37095\"},{\"comment_cnt\":\"43\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761741606\",\"item_id\":\"7566622560968770931\",\"item_publish_time\":\"1761741606\",\"item_title\":\"我的心情我做主\",\"like_cnt\":\"529\",\"share_cnt\":\"10\",\"vv\":\"17311\"},{\"comment_cnt\":\"71\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761356513\",\"item_id\":\"7564968590354631945\",\"item_publish_time\":\"1761356513\",\"item_title\":\"老姐比母\",\"like_cnt\":\"795\",\"share_cnt\":\"6\",\"vv\":\"36475\"},{\"comment_cnt\":\"45\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760786928\",\"item_id\":\"7562522260192922889\",\"item_publish_time\":\"1760786928\",\"item_title\":\"谁能听懂我的意思\",\"like_cnt\":\"365\",\"share_cnt\":\"5\",\"vv\":\"25208\"},{\"comment_cnt\":\"48\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760750828\",\"item_id\":\"7562367201623313674\",\"item_publish_time\":\"1760750828\",\"item_title\":\"往死里干\",\"like_cnt\":\"335\",\"share_cnt\":\"5\",\"vv\":\"14746\"},{\"comment_cnt\":\"42\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760666807\",\"item_id\":\"7562006335627070730\",\"item_publish_time\":\"1760666807\",\"item_title\":\"雨下的真没法过了\",\"like_cnt\":\"551\",\"share_cnt\":\"3\",\"vv\":\"25786\"},{\"comment_cnt\":\"39\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760615884\",\"item_id\":\"7561787635753422107\",\"item_publish_time\":\"1760615884\",\"item_title\":\"没心没肺活着不累\",\"like_cnt\":\"452\",\"share_cnt\":\"9\",\"vv\":\"14364\"}]",
+        "link_convert_index": "56.57",
+        "link_convert_index_by_industry": "56.57",
+        "link_i_cnt_by_industry": "70623",
+        "link_k_cnt_by_industry": "1",
+        "link_l_cnt_by_industry": "115356",
+        "link_link_cnt_by_industry": "196929",
+        "link_n_cnt_by_industry": "10949",
+        "link_recommend_index_by_industry": "60.16",
+        "link_shopping_index": "60.16",
+        "link_spread_index": "63.9",
+        "link_spread_index_by_industry": "63.9",
+        "link_star_index": "64.99",
+        "link_star_index_by_industry": "64.99",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "咱军姐",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.1391",
+        "price_1_20": "4100",
+        "price_20_60": "4500",
+        "price_60": "6500",
+        "promotion_prospective_1_20_cpm": "174.46",
+        "promotion_prospective_20_60_cpm": "191.48",
+        "promotion_prospective_60_cpm": "276.58",
+        "promotion_prospective_vv": "23501",
+        "prospective_1_20_cpm": "158.2523",
+        "prospective_20_60_cpm": "173.6915",
+        "prospective_60_cpm": "250.8878",
+        "province": "",
+        "search_after_view_index_by_industry": "66.42",
+        "sn_expected_play_num": "25908",
+        "sn_interact_rate_within_30d": "0.0247",
+        "sn_play_over_rate_within_30d": "0.1391",
+        "sn_prospective_1_20_cpe": "7.0812",
+        "sn_prospective_1_20_cpm": "158.2523",
+        "sn_prospective_20_60_cpe": "7.772",
+        "sn_prospective_20_60_cpm": "173.6915",
+        "sn_prospective_60_cpe": "11.2263",
+        "sn_prospective_60_cpm": "250.8878",
+        "star_excellent_author": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"生活\":[\"生活记录\"]}",
+        "vv_median_30d": "20549.5"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7343545799910919434",
+          "products": [
+            {
+              "brand_name": "格行",
+              "category_name": "4g/5g上网设备",
+              "hit_tags": "移动通信,手机卡",
+              "product_id": "3660604471936973556",
+              "product_name": "格行(设备与流量均全国联保)移动随身无线wifi 双网切换彩屏款"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "7091292358326616104",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 4100,
+              "price_extra_info": {},
+              "start_time": "1709222400",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 50,
+              "price_extra_info": {
+                "ceiling_price": "7500",
+                "floor_price": "1000"
+              },
+              "start_time": "1707383704",
+              "task_category": 1,
+              "video_type": 92,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 6500,
+              "price_extra_info": {},
+              "start_time": "1709222400",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 4500,
+              "price_extra_info": {},
+              "start_time": "1709222400",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 2250,
+              "price_extra_info": {},
+              "start_time": "1707383744",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 5000,
+              "price_extra_info": {},
+              "start_time": "1709222400",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "96",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/mosaic-legacy_311b10000b16e79176861.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "大庆市",
+        "content_theme_labels_180d": "[\"零食测评\",\"烧烤\",\"东北美食\",\"美食探店\",\"厨房用品\",\"传统美食\"]",
+        "core_user_id": "52458644609",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "1k-3w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_ctr_30d_range": "2%-4%",
+        "ecom_video_mid_click_pv_30d_range": "500以下",
+        "ecom_video_product_num_30d": "2",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "543",
+        "expected_play_num": "836",
+        "fans_increment_rate_within_15d": "-0.0011560159067788773",
+        "fans_increment_within_15d": "-125",
+        "fans_increment_within_30d": "-224",
+        "follower": "107976",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "6853415210774953999",
+        "interact_rate_within_30d": "0.017",
+        "interaction_median_30d": "80",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762789226\",\"item_id\":\"7571122056600088677\",\"item_publish_time\":\"1762789226\",\"item_title\":\"和合大叔自助烤肉\",\"like_cnt\":\"9\",\"share_cnt\":\"0\",\"vv\":\"75\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762789052\",\"item_id\":\"7571121312627069563\",\"item_publish_time\":\"1762789052\",\"item_title\":\"和合大叔自助烤肉\",\"like_cnt\":\"3\",\"share_cnt\":\"0\",\"vv\":\"146\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762788939\",\"item_id\":\"7571120824540862373\",\"item_publish_time\":\"1762788939\",\"item_title\":\"和合大叔自助烤肉#夜市烟火气\",\"like_cnt\":\"8\",\"share_cnt\":\"0\",\"vv\":\"61\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762788828\",\"item_id\":\"7571120350499791077\",\"item_publish_time\":\"1762788828\",\"item_title\":\"和合大叔自助烤肉#街头随拍\",\"like_cnt\":\"2\",\"share_cnt\":\"0\",\"vv\":\"37\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762788728\",\"item_id\":\"7571119917832814245\",\"item_publish_time\":\"1762788728\",\"item_title\":\"和合大叔自助烤肉#同城美食 #城市里的烟火气 #回头率爆棚\",\"like_cnt\":\"3\",\"share_cnt\":\"0\",\"vv\":\"3560\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762788652\",\"item_id\":\"7571119602692862565\",\"item_publish_time\":\"1762788652\",\"item_title\":\"和合大叔自助烤肉#生活充满仪式感 #生活仪式感 #夜景\",\"like_cnt\":\"2\",\"share_cnt\":\"0\",\"vv\":\"43\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762788472\",\"item_id\":\"7571118792703000549\",\"item_publish_time\":\"1762788472\",\"item_title\":\"和合大叔自助烤肉#餐饮创业 #城市里的烟火气\",\"like_cnt\":\"3\",\"share_cnt\":\"0\",\"vv\":\"72\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762788295\",\"item_id\":\"7571118064864228091\",\"item_publish_time\":\"1762788295\",\"item_title\":\"和合大叔自助烤肉#夜市烟火气 #美食夜市 #夜市里的烟火气\",\"like_cnt\":\"3\",\"share_cnt\":\"0\",\"vv\":\"27\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762788147\",\"item_id\":\"7571117426960542073\",\"item_publish_time\":\"1762788147\",\"item_title\":\"#和合大叔自助烤肉\",\"like_cnt\":\"2\",\"share_cnt\":\"0\",\"vv\":\"21\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762788011\",\"item_id\":\"7571116843097784187\",\"item_publish_time\":\"1762788011\",\"item_title\":\"和合大叔自助烤肉#夜市烟火气 #夜市里的烟火气 #美食夜市 #老街老巷\",\"like_cnt\":\"2\",\"share_cnt\":\"0\",\"vv\":\"2968\"}]",
+        "link_convert_index": "72.34",
+        "link_convert_index_by_industry": "72.34",
+        "link_i_cnt_by_industry": "1085",
+        "link_k_cnt_by_industry": "144",
+        "link_l_cnt_by_industry": "10468",
+        "link_link_cnt_by_industry": "11897",
+        "link_n_cnt_by_industry": "200",
+        "link_recommend_index_by_industry": "64.55",
+        "link_shopping_index": "64.55",
+        "link_spread_index": "50.92",
+        "link_spread_index_by_industry": "50.92",
+        "link_star_index": "66.45",
+        "link_star_index_by_industry": "66.45",
+        "link_user_type_by_industry": "3",
+        "local_lower_threshold_author": "false",
+        "nick_name": "涛哥甄选（和合大叔）",
+        "pic_expected_play_num": "727",
+        "play_over_rate_within_30d": "0.0393",
+        "price_1_20": "1800",
+        "price_20_60": "3200",
+        "price_60": "8775",
+        "promotion_prospective_1_20_cpm": "2359.11",
+        "promotion_prospective_20_60_cpm": "4193.97",
+        "promotion_prospective_60_cpm": "11500.66",
+        "promotion_prospective_vv": "763",
+        "prospective_1_20_cpm": "2153.11",
+        "prospective_20_60_cpm": "3827.7512",
+        "prospective_60_cpm": "10496.4115",
+        "province": "黑龙江省",
+        "search_after_view_index_by_industry": "41.88",
+        "sn_expected_play_num": "836",
+        "sn_interact_rate_within_30d": "0.017",
+        "sn_play_over_rate_within_30d": "0.0393",
+        "sn_prospective_1_20_cpe": "225",
+        "sn_prospective_1_20_cpm": "2153.11",
+        "sn_prospective_20_60_cpe": "400",
+        "sn_prospective_20_60_cpm": "3827.7512",
+        "sn_prospective_60_cpe": "1096.875",
+        "sn_prospective_60_cpm": "10496.4115",
+        "star_excellent_author": "0",
+        "star_index": "51.319800275191696",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"情感\":[\"情感\"]}",
+        "vv_median_30d": "49929"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7354701679238925609",
+          "products": [
+            {
+              "brand_name": "q格行",
+              "category_name": "4g/5g上网设备",
+              "hit_tags": "移动通信",
+              "product_id": "3660604577255918355",
+              "product_name": "Q格行(设备与流量均全国联保)移动随身无线wifi双网彩屏全国款"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6853415210774953999",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 8775,
+              "price_extra_info": {},
+              "start_time": "1752112323",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3200,
+              "price_extra_info": {},
+              "start_time": "1752112323",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1800,
+              "price_extra_info": {},
+              "start_time": "1752112323",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "46",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813_feaf64d8f6c843c78f2eb17a46e2cf17.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "亳州市",
+        "content_theme_labels_180d": "[\"礼物推荐\",\"旅行美景\",\"国内旅行\",\"亲子沟通\",\"珠宝配饰\",\"生活好物评测\",\"健身塑形\",\"体重管理\",\"东北美食\",\"家居好物\"]",
+        "core_user_id": "65609428112503",
+        "e_commerce_enable": "1",
+        "ecom_score": "75",
+        "ecom_video_product_num_30d": "8",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "1788",
+        "expected_play_num": "1872",
+        "fans_increment_rate_within_15d": "-0.001057708047395394",
+        "fans_increment_within_15d": "-252",
+        "fans_increment_within_30d": "5418.66",
+        "follower": "237971",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6877770315011719168",
+        "interact_rate_within_30d": "0.0118",
+        "interaction_median_30d": "35.5",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762599134\",\"item_id\":\"7570305625072201595\",\"item_publish_time\":\"1762599134\",\"item_title\":\"#面部瑜伽 #面部瑜伽器 #葫芦脸 #记录真实生活 #亲测分享\",\"like_cnt\":\"7\",\"share_cnt\":\"2\",\"vv\":\"1414\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762308834\",\"item_id\":\"7569058789325818747\",\"item_publish_time\":\"1762308834\",\"item_title\":\"这首歌唱出了多少美好的爱情#生日礼物 #生日红包\",\"like_cnt\":\"19\",\"share_cnt\":\"0\",\"vv\":\"1806\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761906675\",\"item_id\":\"7567331514238494641\",\"item_publish_time\":\"1761906675\",\"item_title\":\"今年的红包太好看了吧，真的要被这个故宫初雪国风红包美翻了！！每个图案都巨好看！！快艾特能给你这个红包的人#红包#新年红包 #过年红包 #国风#故宫初雪\",\"like_cnt\":\"15\",\"share_cnt\":\"0\",\"vv\":\"1351\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761899712\",\"item_id\":\"7567301613318562937\",\"item_publish_time\":\"1761899712\",\"item_title\":\"真的要被这个故宫初雪国风红包美翻了！！每个图案都巨好看！！过年，订婚，结婚都太太太适合了！艾特能给你这个红包的人！#红包#新年红包 #过年红包 #国风#故宫初雪\",\"like_cnt\":\"8\",\"share_cnt\":\"0\",\"vv\":\"430\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761549636\",\"item_id\":\"7565798045008350501\",\"item_publish_time\":\"1761549636\",\"item_title\":\"自从有了这台烘鞋机冬天再也不怕鞋子晒不干了#烘鞋机 #烘鞋器\",\"like_cnt\":\"8\",\"share_cnt\":\"0\",\"vv\":\"1197\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761524341\",\"item_id\":\"7565689420549164347\",\"item_publish_time\":\"1761524341\",\"item_title\":\"冬天到了，给方向盘套上这个暖暖的方向盘套 #方向盘套推荐 #这个冬天不怕冷#毛绒方向盘套\",\"like_cnt\":\"15\",\"share_cnt\":\"0\",\"vv\":\"1836\"},{\"comment_cnt\":\"5\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761041632\",\"item_id\":\"7563616200115162425\",\"item_publish_time\":\"1761041632\",\"item_title\":\"没出息火遍全网，跟上跟上#没出息\",\"like_cnt\":\"33\",\"share_cnt\":\"1\",\"vv\":\"1776\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761003919\",\"item_id\":\"7563454210642070842\",\"item_publish_time\":\"1761003919\",\"item_title\":\"你那里下雪了吗？有没有没收到朋友送的帕恰狗手套呀#手套 #毛茸茸 #保暖 #帕恰狗 #礼物\",\"like_cnt\":\"6\",\"share_cnt\":\"0\",\"vv\":\"542\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760943378\",\"item_id\":\"7563194203942194490\",\"item_publish_time\":\"1760943378\",\"item_title\":\"是谁还没收到好朋友送的帕恰狗手套呀#手套 #毛茸茸 #保暖 #帕恰狗 #礼物\",\"like_cnt\":\"8\",\"share_cnt\":\"1\",\"vv\":\"545\"},{\"comment_cnt\":\"6\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759651646\",\"item_id\":\"7557646264193322299\",\"item_publish_time\":\"1759651646\",\"item_title\":\"酒这玩意儿，55个民族喝了都载歌载舞，就咱们汉族喝了嘴瓢😂 #散酒 #浓香型白酒 #口粮酒\",\"like_cnt\":\"143\",\"share_cnt\":\"38\",\"vv\":\"20130\"}]",
+        "link_convert_index": "72.76",
+        "link_convert_index_by_industry": "72.76",
+        "link_i_cnt_by_industry": "7738",
+        "link_k_cnt_by_industry": "104",
+        "link_l_cnt_by_industry": "25792",
+        "link_link_cnt_by_industry": "35842",
+        "link_n_cnt_by_industry": "2208",
+        "link_recommend_index_by_industry": "35.66",
+        "link_shopping_index": "35.66",
+        "link_spread_index": "43.48",
+        "link_spread_index_by_industry": "43.48",
+        "link_star_index": "57.66",
+        "link_star_index_by_industry": "57.66",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "橙子",
+        "pic_expected_play_num": "148",
+        "play_over_rate_within_30d": "0.0366",
+        "price_1_20": "1000",
+        "price_20_60": "1000",
+        "price_60": "1000",
+        "promotion_prospective_1_20_cpm": "591.02",
+        "promotion_prospective_20_60_cpm": "591.02",
+        "promotion_prospective_60_cpm": "591.02",
+        "promotion_prospective_vv": "1692",
+        "prospective_1_20_cpm": "534.188",
+        "prospective_20_60_cpm": "534.188",
+        "prospective_60_cpm": "534.188",
+        "province": "安徽省",
+        "search_after_view_index_by_industry": "64.76",
+        "sn_expected_play_num": "1872",
+        "sn_interact_rate_within_30d": "0.0118",
+        "sn_play_over_rate_within_30d": "0.0366",
+        "sn_prospective_1_20_cpe": "55.5556",
+        "sn_prospective_1_20_cpm": "534.188",
+        "sn_prospective_20_60_cpe": "55.5556",
+        "sn_prospective_20_60_cpm": "534.188",
+        "sn_prospective_60_cpe": "55.5556",
+        "sn_prospective_60_cpm": "534.188",
+        "star_excellent_author": "0",
+        "star_index": "74.54819179836971",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"汽车\":[\"汽车测评\",\"汽车知识\"]}",
+        "vv_median_30d": "3154.5"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7335365051039206683",
+          "products": [
+            {
+              "category_name": "停车号码牌",
+              "hit_tags": "移动通信",
+              "product_id": "3649692091409391880",
+              "product_name": "二维码挪车电话牌临时停车静电移车电话号码隐私临时停车牌扫码"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6877770315011719168",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1612746793",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1612746793",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1612746793",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "platform_source": 1,
+              "price": 0,
+              "task_category": 1,
+              "video_type": 68,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "41",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L2",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_6035eeadf04df80c5398892bbc22761b.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "",
+        "content_theme_labels_180d": "[\"生活好物评测\",\"照明科技\",\"家居好物\",\"工具使用技巧\",\"家用电器\",\"家电推荐\",\"节能家电\",\"实用绳结\",\"家居用品评测\",\"萌宠狗狗\"]",
+        "core_user_id": "2427333045925694",
+        "e_commerce_enable": "1",
+        "ecom_video_ctr_30d_range": "6%-8%",
+        "ecom_video_mid_click_pv_30d_range": "500以下",
+        "ecom_video_product_num_30d": "19",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "485",
+        "expected_play_num": "483",
+        "fans_increment_rate_within_15d": "-0.0009435803995574933",
+        "fans_increment_within_15d": "-116",
+        "fans_increment_within_30d": "-235",
+        "follower": "122815",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6876663534034354183",
+        "interact_rate_within_30d": "0.0061",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762852215\",\"item_id\":\"7571392588285079204\",\"item_publish_time\":\"1762852215\",\"item_title\":\"\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"171\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762778753\",\"item_id\":\"7571077087608880484\",\"item_publish_time\":\"1762778753\",\"item_title\":\"\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"32\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762778714\",\"item_id\":\"7571076906750733247\",\"item_publish_time\":\"1762778714\",\"item_title\":\"\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"41\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762778673\",\"item_id\":\"7571076741550160383\",\"item_publish_time\":\"1762778673\",\"item_title\":\"\",\"like_cnt\":\"1\",\"share_cnt\":\"0\",\"vv\":\"112\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762778653\",\"item_id\":\"7571076658548154473\",\"item_publish_time\":\"1762778653\",\"item_title\":\"\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"29\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762777712\",\"item_id\":\"7571072612605666986\",\"item_publish_time\":\"1762777712\",\"item_title\":\"\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"238\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762770013\",\"item_id\":\"7571039539997867433\",\"item_publish_time\":\"1762770013\",\"item_title\":\"\",\"like_cnt\":\"2\",\"share_cnt\":\"0\",\"vv\":\"215\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762659173\",\"item_id\":\"7570563477220805318\",\"item_publish_time\":\"1762659173\",\"item_title\":\"\",\"like_cnt\":\"1\",\"share_cnt\":\"0\",\"vv\":\"486\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762593691\",\"item_id\":\"7570282234969211583\",\"item_publish_time\":\"1762593691\",\"item_title\":\"\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"421\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762593677\",\"item_id\":\"7570282172566610559\",\"item_publish_time\":\"1762593677\",\"item_title\":\"\",\"like_cnt\":\"2\",\"share_cnt\":\"0\",\"vv\":\"208\"}]",
+        "link_convert_index": "73.16",
+        "link_convert_index_by_industry": "73.16",
+        "link_i_cnt_by_industry": "3523",
+        "link_k_cnt_by_industry": "470",
+        "link_l_cnt_by_industry": "33322",
+        "link_link_cnt_by_industry": "39817",
+        "link_n_cnt_by_industry": "2502",
+        "link_recommend_index_by_industry": "51.15",
+        "link_shopping_index": "51.15",
+        "link_spread_index": "51.32",
+        "link_spread_index_by_industry": "51.32",
+        "link_star_index": "67.76",
+        "link_star_index_by_industry": "67.76",
+        "link_user_type_by_industry": "3",
+        "local_lower_threshold_author": "false",
+        "nick_name": "望风柏谬",
+        "pic_expected_play_num": "489",
+        "play_over_rate_within_30d": "0.0324",
+        "price_1_20": "1000",
+        "price_20_60": "1000",
+        "promotion_prospective_1_20_cpm": "2252.25",
+        "promotion_prospective_20_60_cpm": "2252.25",
+        "promotion_prospective_vv": "444",
+        "prospective_1_20_cpm": "2070.3934",
+        "prospective_20_60_cpm": "2070.3934",
+        "province": "",
+        "search_after_view_index_by_industry": "70.35",
+        "sn_expected_play_num": "483",
+        "sn_interact_rate_within_30d": "0.0061",
+        "sn_play_over_rate_within_30d": "0.0324",
+        "sn_prospective_1_20_cpe": "500",
+        "sn_prospective_1_20_cpm": "2070.3934",
+        "sn_prospective_20_60_cpe": "500",
+        "sn_prospective_20_60_cpm": "2070.3934",
+        "star_excellent_author": "0",
+        "star_index": "74.05486147535721",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"生活家居\":[\"生活技巧\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7359454276097248553",
+          "products": [
+            {
+              "category_name": "停车号码牌",
+              "hit_tags": "移动通信",
+              "product_id": "3649692091409391880",
+              "product_name": "二维码挪车电话牌临时停车静电移车电话号码隐私临时停车牌扫码"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6876663534034354183",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1605748739",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1605748739",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "43",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813c001_o8CMjoAJeAQOelJ1AG7PAWE8eIBGLBAgVnAgBH.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "太原",
+        "content_theme_labels_180d": "[\"生活好物评测\",\"礼物推荐\",\"家居创意\",\"家居用品评测\",\"家居好物\"]",
+        "core_user_id": "975996586298352",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "7",
+        "expected_cpa3_level": "2",
+        "expected_natural_play_num": "1530",
+        "expected_play_num": "1693",
+        "fans_increment_rate_within_15d": "-0.0013016064046883994",
+        "fans_increment_within_15d": "-398",
+        "fans_increment_within_30d": "-758",
+        "follower": "305375",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6957516552967028773",
+        "interact_rate_within_30d": "0.006",
+        "interaction_median_30d": "14",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762837453\",\"item_id\":\"7571329193368553663\",\"item_publish_time\":\"1762837453\",\"item_title\":\"#汽车钥匙扣\",\"like_cnt\":\"3\",\"share_cnt\":\"0\",\"vv\":\"830\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762837327\",\"item_id\":\"7571328632191616873\",\"item_publish_time\":\"1762837327\",\"item_title\":\"#车载挂钩\",\"like_cnt\":\"4\",\"share_cnt\":\"1\",\"vv\":\"209\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762642861\",\"item_id\":\"7570493415796919878\",\"item_publish_time\":\"1762642861\",\"item_title\":\"#每日分享 #好东西一起分享\",\"like_cnt\":\"8\",\"share_cnt\":\"0\",\"vv\":\"703\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762642618\",\"item_id\":\"7570492350611942628\",\"item_publish_time\":\"1762642618\",\"item_title\":\"#汽车好物 #防冻玻璃水\",\"like_cnt\":\"4\",\"share_cnt\":\"0\",\"vv\":\"380\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762614984\",\"item_id\":\"7570373697773561316\",\"item_publish_time\":\"1762614984\",\"item_title\":\"\",\"like_cnt\":\"7\",\"share_cnt\":\"1\",\"vv\":\"1624\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762614923\",\"item_id\":\"7570373417746376292\",\"item_publish_time\":\"1762614923\",\"item_title\":\"\",\"like_cnt\":\"4\",\"share_cnt\":\"0\",\"vv\":\"862\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759822730\",\"item_id\":\"7558381059893693759\",\"item_publish_time\":\"1759822730\",\"item_title\":\"\",\"like_cnt\":\"18\",\"share_cnt\":\"0\",\"vv\":\"5257\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1749484886\",\"item_id\":\"7513980348356005180\",\"item_publish_time\":\"1749484886\",\"item_title\":\"#创意打火机 #打火机 #防风打火机 #送男友的礼物 #\",\"like_cnt\":\"12\",\"share_cnt\":\"2\",\"vv\":\"1488\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1749379513\",\"item_id\":\"7513527759618231552\",\"item_publish_time\":\"1749379513\",\"item_title\":\"#创意打火机 #打火机 #送男友的礼物 #防风打火机 #花样打火机\",\"like_cnt\":\"6\",\"share_cnt\":\"1\",\"vv\":\"764\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1749374825\",\"item_id\":\"7513507654119984441\",\"item_publish_time\":\"1749374825\",\"item_title\":\"#创意打火机 #火柴#加长火柴 #好东西一起分享 #实拍原视频\",\"like_cnt\":\"8\",\"share_cnt\":\"0\",\"vv\":\"1794\"}]",
+        "link_convert_index": "49.76",
+        "link_convert_index_by_industry": "49.76",
+        "link_i_cnt_by_industry": "840",
+        "link_k_cnt_by_industry": "5",
+        "link_l_cnt_by_industry": "3569",
+        "link_link_cnt_by_industry": "4651",
+        "link_n_cnt_by_industry": "237",
+        "link_recommend_index_by_industry": "37.49",
+        "link_shopping_index": "37.49",
+        "link_spread_index": "38.41",
+        "link_spread_index_by_industry": "38.41",
+        "link_star_index": "52.17",
+        "link_star_index_by_industry": "52.17",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "田田优选",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.1217",
+        "price_1_20": "4800",
+        "price_20_60": "5000",
+        "price_60": "6900",
+        "promotion_prospective_1_20_cpm": "3354.3",
+        "promotion_prospective_20_60_cpm": "3494.06",
+        "promotion_prospective_60_cpm": "4821.8",
+        "promotion_prospective_vv": "1431",
+        "prospective_1_20_cpm": "2835.2038",
+        "prospective_20_60_cpm": "2953.3373",
+        "prospective_60_cpm": "4075.6054",
+        "province": "",
+        "search_after_view_index_by_industry": "42.82",
+        "sn_expected_play_num": "1693",
+        "sn_interact_rate_within_30d": "0.006",
+        "sn_play_over_rate_within_30d": "0.1217",
+        "sn_prospective_1_20_cpe": "600",
+        "sn_prospective_1_20_cpm": "2835.2038",
+        "sn_prospective_20_60_cpe": "625",
+        "sn_prospective_20_60_cpm": "2953.3373",
+        "sn_prospective_60_cpe": "862.5",
+        "sn_prospective_60_cpm": "4075.6054",
+        "star_excellent_author": "0",
+        "star_index": "50.904521546380266",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"汽车\":[\"汽车测评\",\"汽车知识\"]}",
+        "vv_median_30d": "4323"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7335477991742459151",
+          "products": [
+            {
+              "category_name": "停车号码牌",
+              "hit_tags": "移动通信",
+              "product_id": "3617818154836853856",
+              "product_name": "高档金属汽车临时停车号码牌隐藏式专车载挪车电话牌移车牌停车卡"
+            },
+            {
+              "category_name": "停车号码牌",
+              "hit_tags": "移动通信",
+              "product_id": "3612544839004063965",
+              "product_name": "高档汽车临时停车号码牌金属专车载挪车电话牌移车牌停车卡隐藏式"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7325679245345246504",
+          "products": [
+            {
+              "category_name": "停车号码牌",
+              "hit_tags": "移动通信",
+              "product_id": "3647772732978027074",
+              "product_name": "临时停车手机电话安全锤挪车号码牌摆件车载移车牌汽车用品装饰"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6957516552967028773",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 2700,
+              "price_extra_info": {},
+              "start_time": "1669824000",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 4800,
+              "price_extra_info": {},
+              "start_time": "1669824000",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 6900,
+              "price_extra_info": {},
+              "start_time": "1669824000",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 5000,
+              "price_extra_info": {},
+              "start_time": "1669824000",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "46",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_e8796b180b05bde7966dad9396f5d255.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "潍坊",
+        "content_theme_labels_180d": "[\"汽车周边\",\"汽车用品测评\",\"汽车内饰\",\"礼物推荐\",\"国产汽车\",\"家居好物\",\"用车知识\",\"生活好物评测\",\"奥迪资讯\"]",
+        "core_user_id": "95117790186",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "1k-3w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_score": "72",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "1883",
+        "expected_play_num": "1945",
+        "fans_increment_rate_within_15d": "-0.001453213461611207",
+        "fans_increment_within_15d": "-461",
+        "fans_increment_within_30d": "2454.22",
+        "follower": "316727",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7019529652314046477",
+        "interaction_median_30d": "20",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758892627\",\"item_id\":\"7554386297521442105\",\"item_publish_time\":\"1758892627\",\"item_title\":\"如果信仰有颜色 那一定是中国红 国庆节快到了，红旗小摆件赶紧安排起来，放在车里家里办公室都合适#车载摆件 #创意摆件 #国庆#汽车装饰#汽车摆件\",\"like_cnt\":\"29\",\"share_cnt\":\"1\",\"vv\":\"6205\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757329296\",\"item_id\":\"7547671843843493178\",\"item_publish_time\":\"1757329296\",\"item_title\":\"如果信仰有颜色 那一定是中国红 国庆节快到了，红旗小摆件赶紧安排起来，放在车里家里办公室都合适#车载摆件 #创意摆件 #国庆#汽车装饰#汽车摆件\",\"like_cnt\":\"29\",\"share_cnt\":\"1\",\"vv\":\"7516\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757311072\",\"item_id\":\"7547593572259384635\",\"item_publish_time\":\"1757311072\",\"item_title\":\"我们捷途原车车门锁是裸露的原生钢，关门震动声音大时间长了，容易引起车门内饰件异响下雨还会生锈，快来安排这个专用的门锁硅胶防护垫缓冲减震，外观也好看了很多#捷途 #车门减震垫 #汽车用品 #有车必备#汽车好物\",\"like_cnt\":\"10\",\"share_cnt\":\"0\",\"vv\":\"960\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757301354\",\"item_id\":\"7547551824467955004\",\"item_publish_time\":\"1757301354\",\"item_title\":\"#红旗反光贴 #反光贴#五星红旗迎风飘扬 #车贴 #汽车好物\",\"like_cnt\":\"9\",\"share_cnt\":\"5\",\"vv\":\"2960\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757169222\",\"item_id\":\"7546984330729819452\",\"item_publish_time\":\"1757169222\",\"item_title\":\"五星红旗迎风飘扬、瞬间档次提升，我爱你祖国 #车贴 #五星红旗反光贴#红旗贴#反光贴#汽车装饰\",\"like_cnt\":\"18\",\"share_cnt\":\"5\",\"vv\":\"4233\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757061260\",\"item_id\":\"7546520633775426876\",\"item_publish_time\":\"1757061260\",\"item_title\":\"如果信仰有颜色，那一定是中国红这款熊猫小红旗放在车里家里办公室太好看了#五星红旗🇨🇳 #我爱我的祖国 #红旗摆件#汽车装饰#汽车好物\",\"like_cnt\":\"20\",\"share_cnt\":\"5\",\"vv\":\"3329\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756997711\",\"item_id\":\"7546247693972442426\",\"item_publish_time\":\"1756997711\",\"item_title\":\"国庆节快到了，红旗小摆件安排起来，放在车里家里办公室都合适#车载摆件 #创意摆件 #国庆#汽车装饰 #汽车摆件\",\"like_cnt\":\"11\",\"share_cnt\":\"3\",\"vv\":\"1455\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756951289\",\"item_id\":\"7546048310194310460\",\"item_publish_time\":\"1756951289\",\"item_title\":\"#红旗反光贴 #反光贴#五星红旗迎风飘扬 #车贴 #汽车好物\",\"like_cnt\":\"42\",\"share_cnt\":\"4\",\"vv\":\"9940\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756007812\",\"item_id\":\"7541996116792200506\",\"item_publish_time\":\"1756007812\",\"item_title\":\"愿你一生，平安喜乐#汽车挂件 #挂饰挂件 #汽车装饰 #汽车用品#汽车好物\",\"like_cnt\":\"11\",\"share_cnt\":\"0\",\"vv\":\"952\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755958003\",\"item_id\":\"7541782180995157305\",\"item_publish_time\":\"1755958003\",\"item_title\":\"你我都要平安才好，一款温柔又精致的平安喜乐汽车挂件，快给爱车安排上#汽车挂件 #挂饰挂件 #汽车装饰#汽车好物 #汽车用品\",\"like_cnt\":\"6\",\"share_cnt\":\"0\",\"vv\":\"804\"}]",
+        "link_convert_index": "66.42",
+        "link_convert_index_by_industry": "66.42",
+        "link_i_cnt_by_industry": "427",
+        "link_k_cnt_by_industry": "41",
+        "link_l_cnt_by_industry": "8446",
+        "link_link_cnt_by_industry": "9137",
+        "link_n_cnt_by_industry": "223",
+        "link_recommend_index_by_industry": "57.51",
+        "link_shopping_index": "57.51",
+        "link_spread_index": "47.21",
+        "link_spread_index_by_industry": "47.21",
+        "link_star_index": "61.72",
+        "link_star_index_by_industry": "61.72",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "柚子车品",
+        "pic_expected_play_num": "0",
+        "price_1_20": "1000",
+        "price_20_60": "2500",
+        "price_60": "4000",
+        "promotion_prospective_1_20_cpm": "565.93",
+        "promotion_prospective_20_60_cpm": "1414.83",
+        "promotion_prospective_60_cpm": "2263.72",
+        "promotion_prospective_vv": "1767",
+        "prospective_1_20_cpm": "514.1388",
+        "prospective_20_60_cpm": "1285.347",
+        "prospective_60_cpm": "2056.5553",
+        "province": "",
+        "search_after_view_index_by_industry": "62.59",
+        "sn_expected_play_num": "1945",
+        "sn_prospective_1_20_cpe": "76.9231",
+        "sn_prospective_1_20_cpm": "514.1388",
+        "sn_prospective_20_60_cpe": "192.3077",
+        "sn_prospective_20_60_cpm": "1285.347",
+        "sn_prospective_60_cpe": "307.6923",
+        "sn_prospective_60_cpm": "2056.5553",
+        "star_excellent_author": "0",
+        "star_index": "62.17350399136233",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"汽车\":[\"汽车测评\",\"汽车知识\"]}",
+        "vv_median_30d": "4560"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7346010647395618084",
+          "products": [
+            {
+              "category_name": "停车号码牌",
+              "hit_tags": "移动通信",
+              "product_id": "3660447886145123510",
+              "product_name": "汽车用品车载临时停车号码牌创意滚轮挪车电话牌移车挪车号码牌"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7342041646734773523",
+          "products": [
+            {
+              "category_name": "停车号码牌",
+              "hit_tags": "移动通信",
+              "product_id": "3649692091409391880",
+              "product_name": "二维码挪车电话牌临时停车静电移车电话号码隐私临时停车牌扫码"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7343507382963588371",
+          "products": [
+            {
+              "category_name": "停车号码牌",
+              "hit_tags": "移动通信",
+              "product_id": "3614995128617465776",
+              "product_name": "新款汽车临时停车号码牌金属专车载挪车电话牌移车牌停车卡隐藏式"
+            },
+            {
+              "category_name": "停车号码牌",
+              "hit_tags": "移动通信",
+              "product_id": "3612544839004063965",
+              "product_name": "高档汽车临时停车号码牌金属专车载挪车电话牌移车牌停车卡隐藏式"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "7019529652314046477",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1600,
+              "price_extra_info": {},
+              "start_time": "1657443130",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1657443130",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 4000,
+              "price_extra_info": {},
+              "start_time": "1657443130",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 2500,
+              "price_extra_info": {},
+              "start_time": "1657443130",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813c001_oE15EvfrAYCtx4miAAzAIGkLesygYCAAATh4Ns.jpeg?from=4010531038",
+        "city": "惠州市",
+        "content_theme_labels_180d": "[]",
+        "core_user_id": "1234118075755437",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "12568",
+        "expected_play_num": "13004",
+        "fans_increment_rate_within_15d": "-0.0015358224986773972",
+        "fans_increment_within_15d": "-479",
+        "fans_increment_within_30d": "-907",
+        "follower": "311399",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "7266095033294520375",
+        "interaction_median_30d": "110",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759178514\",\"item_id\":\"7555614127482653987\",\"item_publish_time\":\"1759178514\",\"item_title\":\"#上热门 #解说 #全球看点 #热点新闻事件\",\"like_cnt\":\"51\",\"share_cnt\":\"0\",\"vv\":\"10441\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759177125\",\"item_id\":\"7555608028197932328\",\"item_publish_time\":\"1759177125\",\"item_title\":\"#上热门 #解说 #全球看点 #热点新闻事件\",\"like_cnt\":\"206\",\"share_cnt\":\"3\",\"vv\":\"24827\"},{\"comment_cnt\":\"3\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759078935\",\"item_id\":\"7555186470794808636\",\"item_publish_time\":\"1759078935\",\"item_title\":\"#上热门 #解说 #全球看点 #热点新闻事件\",\"like_cnt\":\"186\",\"share_cnt\":\"1\",\"vv\":\"22909\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759078551\",\"item_id\":\"7555184818133978425\",\"item_publish_time\":\"1759078551\",\"item_title\":\"#上热门 #解说 #全球看点 #热点新闻事件\",\"like_cnt\":\"76\",\"share_cnt\":\"0\",\"vv\":\"12761\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759078123\",\"item_id\":\"7555182968806493499\",\"item_publish_time\":\"1759078123\",\"item_title\":\"#上热门 #解说 #全球看点 #热点新闻事件\",\"like_cnt\":\"34\",\"share_cnt\":\"0\",\"vv\":\"7268\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758989165\",\"item_id\":\"7554800884791840034\",\"item_publish_time\":\"1758989165\",\"item_title\":\"#上热门 #解说 #全球看点 #热点新闻事件\",\"like_cnt\":\"164\",\"share_cnt\":\"3\",\"vv\":\"30526\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758988657\",\"item_id\":\"7554798735445970176\",\"item_publish_time\":\"1758988657\",\"item_title\":\"#上热门 #解说 #全球看点 #热点新闻事件今日\",\"like_cnt\":\"32\",\"share_cnt\":\"1\",\"vv\":\"6549\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758911584\",\"item_id\":\"7554467647129160960\",\"item_publish_time\":\"1758911584\",\"item_title\":\"#上热门 #解说 #全球看点 #热点新闻事件\",\"like_cnt\":\"136\",\"share_cnt\":\"1\",\"vv\":\"16501\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758911031\",\"item_id\":\"7554465277137587508\",\"item_publish_time\":\"1758911031\",\"item_title\":\"#上热门 #解说 #全球看点 #热点新闻事件\",\"like_cnt\":\"53\",\"share_cnt\":\"2\",\"vv\":\"9427\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758814447\",\"item_id\":\"7554050499919695139\",\"item_publish_time\":\"1758814447\",\"item_title\":\"#上热门 #解说 #全球看点 #热点新闻事件\",\"like_cnt\":\"80\",\"share_cnt\":\"3\",\"vv\":\"13572\"}]",
+        "link_convert_index": "37.95",
+        "link_convert_index_by_industry": "37.95",
+        "link_i_cnt_by_industry": "3064",
+        "link_k_cnt_by_industry": "1",
+        "link_l_cnt_by_industry": "7736",
+        "link_link_cnt_by_industry": "10905",
+        "link_n_cnt_by_industry": "104",
+        "link_recommend_index_by_industry": "38.82",
+        "link_shopping_index": "38.82",
+        "link_spread_index": "42.14",
+        "link_spread_index_by_industry": "42.14",
+        "link_star_index": "52.19",
+        "link_star_index_by_industry": "52.19",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "小宋谈局势",
+        "pic_expected_play_num": "0",
+        "price_1_20": "1000",
+        "price_20_60": "1500",
+        "price_60": "3000",
+        "promotion_prospective_1_20_cpm": "84.65",
+        "promotion_prospective_20_60_cpm": "126.98",
+        "promotion_prospective_60_cpm": "253.96",
+        "promotion_prospective_vv": "11813",
+        "prospective_1_20_cpm": "76.8994",
+        "prospective_20_60_cpm": "115.3491",
+        "prospective_60_cpm": "230.6982",
+        "province": "广东省",
+        "search_after_view_index_by_industry": "67.46",
+        "sn_expected_play_num": "13004",
+        "sn_prospective_1_20_cpe": "10.5263",
+        "sn_prospective_1_20_cpm": "76.8994",
+        "sn_prospective_20_60_cpe": "15.7895",
+        "sn_prospective_20_60_cpm": "115.3491",
+        "sn_prospective_60_cpe": "31.5789",
+        "sn_prospective_60_cpm": "230.6982",
+        "star_excellent_author": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"教育培训\":[\"个人管理\"]}",
+        "vv_median_30d": "15444"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7324017557822901531",
+          "products": [
+            {
+              "category_name": "中国移动新号码套餐",
+              "hit_tags": "移动通信",
+              "product_id": "3629241945886461682",
+              "product_name": "移动电话卡移动手机卡流量卡电话号码卡大流量全国通用—彗星卡"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7358745256633978152",
+          "products": [
+            {
+              "brand_name": "移动",
+              "category_name": "中国移动新号码套餐",
+              "hit_tags": "移动通信",
+              "product_id": "3642055680493542162",
+              "product_name": "移动本地电话卡29元135g手机卡流量卡电话号码卡大流量全国推荐"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7349893960980106547",
+          "products": [
+            {
+              "brand_name": "中国联通",
+              "category_name": "中国联通新号码套餐",
+              "hit_tags": "手机卡,移动通信",
+              "product_id": "3640224388000947296",
+              "product_name": "中国联通29元135g手机卡低月租大流量全国通用流量卡不限速大流量"
+            },
+            {
+              "brand_name": "电信",
+              "category_name": "中国电信新号码套餐",
+              "hit_tags": "手机卡,移动通信",
+              "product_id": "3664112102982970650",
+              "product_name": "电信流量卡可选号码靓号电话卡手机卡校园卡"
+            },
+            {
+              "brand_name": "电信",
+              "category_name": "中国电信新号码套餐",
+              "hit_tags": "移动通信,手机卡",
+              "product_id": "3640912276070002619",
+              "product_name": "电信卡流量卡全国通用不限速上网卡手机卡电话卡4g5g流量上网卡 "
+            },
+            {
+              "brand_name": "联通",
+              "category_name": "中国联通新号码套餐",
+              "hit_tags": "移动通信,手机卡",
+              "product_id": "3657491022017119468",
+              "product_name": "中国联通19元135g手机卡低月租大流量全国通用流量卡不限速大流量"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "7266095033294520375",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 750,
+              "price_extra_info": {},
+              "start_time": "1725120000",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1725120000",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3000,
+              "price_extra_info": {},
+              "start_time": "1725120000",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1500,
+              "price_extra_info": {},
+              "start_time": "1725120000",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 5000,
+              "price_extra_info": {},
+              "start_time": "1709131548",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "48",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813_8dd6b532f6e946ee9e34443f442cfc8d.jpeg?from=4010531038",
+        "city": "平顶山",
+        "content_theme_labels_180d": "[\"动物养殖\",\"动物幼崽\",\"鸟类科普\",\"农场动物生活\"]",
+        "core_user_id": "2348180458190916",
+        "e_commerce_enable": "0",
+        "ecom_avg_order_value_30d_range": "<=10",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "1629",
+        "expected_play_num": "1750",
+        "fans_increment_rate_within_15d": "-0.0007077940168816403",
+        "fans_increment_within_15d": "-94",
+        "fans_increment_within_30d": "-187",
+        "follower": "132707",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7092869568858685451",
+        "interact_rate_within_30d": "0.0158",
+        "interaction_median_30d": "74",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"9\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762816684\",\"item_id\":\"7571239954832163498\",\"item_publish_time\":\"1762816684\",\"item_title\":\"#养殖 #养歼助农 #优 质鸡鸭鹅\",\"like_cnt\":\"19\",\"share_cnt\":\"1\",\"vv\":\"648\"},{\"comment_cnt\":\"4\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762733191\",\"item_id\":\"7570881328310611620\",\"item_publish_time\":\"1762733191\",\"item_title\":\"#助农 #养殖 #养殖人加油\",\"like_cnt\":\"14\",\"share_cnt\":\"0\",\"vv\":\"1100\"},{\"comment_cnt\":\"5\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762664045\",\"item_id\":\"7570584402905308150\",\"item_publish_time\":\"1762664045\",\"item_title\":\"#养殖 #镇兴农业#优质鸡鸭鹅\",\"like_cnt\":\"22\",\"share_cnt\":\"1\",\"vv\":\"1421\"},{\"comment_cnt\":\"3\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762644978\",\"item_id\":\"7570502493139199615\",\"item_publish_time\":\"1762644978\",\"item_title\":\"，#镇兴农村#养值 #助力三农\",\"like_cnt\":\"18\",\"share_cnt\":\"0\",\"vv\":\"826\"},{\"comment_cnt\":\"6\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762600642\",\"item_id\":\"7570312090377478763\",\"item_publish_time\":\"1762600642\",\"item_title\":\"#养值 #助力三农\",\"like_cnt\":\"21\",\"share_cnt\":\"0\",\"vv\":\"1629\"},{\"comment_cnt\":\"3\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762560015\",\"item_id\":\"7570137582883013220\",\"item_publish_time\":\"1762560015\",\"item_title\":\"#农业种植 #助力三农\",\"like_cnt\":\"14\",\"share_cnt\":\"1\",\"vv\":\"1096\"},{\"comment_cnt\":\"3\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762554816\",\"item_id\":\"7570115236600423529\",\"item_publish_time\":\"1762554816\",\"item_title\":\"#农业 #养殖\",\"like_cnt\":\"12\",\"share_cnt\":\"0\",\"vv\":\"1810\"},{\"comment_cnt\":\"8\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762507558\",\"item_id\":\"7569912302184231862\",\"item_publish_time\":\"1762507558\",\"item_title\":\"#养值 #农业\",\"like_cnt\":\"16\",\"share_cnt\":\"0\",\"vv\":\"1070\"},{\"comment_cnt\":\"3\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762471225\",\"item_id\":\"7569756218539318698\",\"item_publish_time\":\"1762471225\",\"item_title\":\"#三农 #养值\",\"like_cnt\":\"30\",\"share_cnt\":\"7\",\"vv\":\"2113\"},{\"comment_cnt\":\"8\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761991011\",\"item_id\":\"7567693731899895658\",\"item_publish_time\":\"1761991011\",\"item_title\":\"#鸡群健康，防疫到位\",\"like_cnt\":\"22\",\"share_cnt\":\"0\",\"vv\":\"1440\"}]",
+        "link_convert_index": "31.74",
+        "link_convert_index_by_industry": "31.74",
+        "link_i_cnt_by_industry": "1904",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "5388",
+        "link_link_cnt_by_industry": "7369",
+        "link_n_cnt_by_industry": "77",
+        "link_recommend_index_by_industry": "31.87",
+        "link_shopping_index": "31.87",
+        "link_spread_index": "36.65",
+        "link_spread_index_by_industry": "36.65",
+        "link_star_index": "47.92",
+        "link_star_index_by_industry": "47.92",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "鲁山宗庄，专业卖大鸡苗，鸭苗鹅苗，鸳鸯",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.0651",
+        "price_1_20": "12200",
+        "price_20_60": "12500",
+        "promotion_prospective_1_20_cpm": "7984.29",
+        "promotion_prospective_20_60_cpm": "8180.63",
+        "promotion_prospective_vv": "1528",
+        "prospective_1_20_cpm": "6971.4286",
+        "prospective_20_60_cpm": "7142.8571",
+        "province": "",
+        "search_after_view_index_by_industry": "62.32",
+        "sn_expected_play_num": "1750",
+        "sn_interact_rate_within_30d": "0.0158",
+        "sn_play_over_rate_within_30d": "0.0651",
+        "sn_prospective_1_20_cpe": "369.697",
+        "sn_prospective_1_20_cpm": "6971.4286",
+        "sn_prospective_20_60_cpe": "378.7879",
+        "sn_prospective_20_60_cpm": "7142.8571",
+        "star_excellent_author": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"影视娱乐\":[\"影视解说\"]}",
+        "vv_median_30d": "3098"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7338276675521744165",
+          "products": [
+            {
+              "category_name": "中国移动新号码套餐",
+              "hit_tags": "移动通信",
+              "product_id": "3629241945886461682",
+              "product_name": "移动电话卡移动手机卡流量卡电话号码卡大流量全国通用—彗星卡"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "7092869568858685451",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 12200,
+              "price_extra_info": {},
+              "start_time": "1687745191",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 12500,
+              "price_extra_info": {},
+              "start_time": "1687745191",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "62",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813_32d839e4c56b48f2a7d5bef521227b39.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "",
+        "content_theme_labels_180d": "[]",
+        "core_user_id": "110024302356",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "3112",
+        "expected_play_num": "3177",
+        "fans_increment_rate_within_15d": "-0.0014256771966684174",
+        "fans_increment_within_15d": "-209",
+        "fans_increment_within_30d": "8.88",
+        "follower": "146387",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6853589393349804039",
+        "interaction_median_30d": "23",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1747811361\",\"item_id\":\"7506792575282646306\",\"item_publish_time\":\"1747811361\",\"item_title\":\"说的挺快，来的挺及时，你信吗#好物\",\"like_cnt\":\"14\",\"share_cnt\":\"0\",\"vv\":\"9722\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1747811182\",\"item_id\":\"7506791855384808764\",\"item_publish_time\":\"1747811182\",\"item_title\":\"没事可以把玩的黄铜小刀#好物推荐🔥\",\"like_cnt\":\"41\",\"share_cnt\":\"0\",\"vv\":\"33553\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1747634449\",\"item_id\":\"7506032774843796776\",\"item_publish_time\":\"1747634449\",\"item_title\":\"快看看你有没有看错#好物\",\"like_cnt\":\"10\",\"share_cnt\":\"0\",\"vv\":\"3287\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1747629595\",\"item_id\":\"7506011889928015104\",\"item_publish_time\":\"1747629595\",\"item_title\":\"车里家里都能用的#好物\",\"like_cnt\":\"4\",\"share_cnt\":\"0\",\"vv\":\"2684\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1747629455\",\"item_id\":\"7506011314113400099\",\"item_publish_time\":\"1747629455\",\"item_title\":\"有车的都可以在车里面放一个#好物\",\"like_cnt\":\"6\",\"share_cnt\":\"0\",\"vv\":\"3177\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1747629140\",\"item_id\":\"7506009976273833276\",\"item_publish_time\":\"1747629140\",\"item_title\":\"福禄寿喜\",\"like_cnt\":\"3\",\"share_cnt\":\"0\",\"vv\":\"1464\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1737378863\",\"item_id\":\"7461985222880546048\",\"item_publish_time\":\"1737378863\",\"item_title\":\"过年了，贴起来 #新春祝福 #新年新气象 #\",\"like_cnt\":\"5\",\"share_cnt\":\"0\",\"vv\":\"2895\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1737347395\",\"item_id\":\"7461850084989275444\",\"item_publish_time\":\"1737347395\",\"item_title\":\"过年了！！！ #新春祝福\",\"like_cnt\":\"10\",\"share_cnt\":\"0\",\"vv\":\"7243\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1737347148\",\"item_id\":\"7461848991395761408\",\"item_publish_time\":\"1737347148\",\"item_title\":\"过新年，贴一贴 #生活好物分享\",\"like_cnt\":\"8\",\"share_cnt\":\"0\",\"vv\":\"2705\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1722943803\",\"item_id\":\"7399987259019250955\",\"item_publish_time\":\"1722943803\",\"item_title\":\"车上有玻璃用它试试 #汽车用品 #抖音商城浪漫七夕节 #生活好物分享 #汽车好物\",\"like_cnt\":\"23\",\"share_cnt\":\"3\",\"vv\":\"10168\"}]",
+        "link_convert_index": "38.16",
+        "link_convert_index_by_industry": "38.16",
+        "link_i_cnt_by_industry": "114",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "976",
+        "link_link_cnt_by_industry": "1142",
+        "link_n_cnt_by_industry": "52",
+        "link_recommend_index_by_industry": "50.31",
+        "link_shopping_index": "50.31",
+        "link_spread_index": "40.74",
+        "link_spread_index_by_industry": "40.74",
+        "link_star_index": "54.21",
+        "link_star_index_by_industry": "54.21",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "橘子优品",
+        "pic_expected_play_num": "1298",
+        "price_1_20": "2300",
+        "price_20_60": "2900",
+        "price_60": "2900",
+        "promotion_prospective_1_20_cpm": "796.95",
+        "promotion_prospective_20_60_cpm": "1004.85",
+        "promotion_prospective_60_cpm": "1004.85",
+        "promotion_prospective_vv": "2886",
+        "prospective_1_20_cpm": "723.9534",
+        "prospective_20_60_cpm": "912.8108",
+        "prospective_60_cpm": "912.8108",
+        "province": "北京市",
+        "search_after_view_index_by_industry": "47.08",
+        "sn_expected_play_num": "3177",
+        "sn_prospective_1_20_cpe": "383.3333",
+        "sn_prospective_1_20_cpm": "723.9534",
+        "sn_prospective_20_60_cpe": "483.3333",
+        "sn_prospective_20_60_cpm": "912.8108",
+        "sn_prospective_60_cpe": "483.3333",
+        "sn_prospective_60_cpm": "912.8108",
+        "star_excellent_author": "0",
+        "star_index": "76.02564630648659",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"汽车\":[\"汽车测评\",\"汽车知识\"]}",
+        "vv_median_30d": "19173.5"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7359098133491485971",
+          "products": [
+            {
+              "category_name": "停车号码牌",
+              "hit_tags": "移动通信",
+              "product_id": "3612544839004063965",
+              "product_name": "高档汽车临时停车号码牌金属专车载挪车电话牌移车牌停车卡隐藏式"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6853589393349804039",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 2300,
+              "price_extra_info": {},
+              "start_time": "1654012800",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 2900,
+              "price_extra_info": {},
+              "start_time": "1654012800",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 2900,
+              "price_extra_info": {},
+              "start_time": "1654012800",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1100,
+              "price_extra_info": {},
+              "start_time": "1654012800",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "68",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L2",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813c001_ooF97AGRmAutBXeAEpeaD71Ea7MfIOoABlkAED.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "邢台市",
+        "content_theme_labels_180d": "[\"床上用品\",\"家居好物\",\"家居用品选购\",\"礼物推荐\",\"家纺手工\",\"婚庆置办\",\"房间布置\",\"家居防虫\",\"家具沙发指南\",\"家居创意\"]",
+        "core_user_id": "3988644472560407",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": "1k-3w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_score": "88",
+        "ecom_video_ctr_30d_range": "6%-8%",
+        "ecom_video_mid_click_pv_30d_range": "500以下",
+        "ecom_video_product_num_30d": "107",
+        "ecom_watch_pv_30d": "1.1",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "231",
+        "expected_play_num": "238",
+        "fans_increment_rate_within_15d": "-0.0004576659038901602",
+        "fans_increment_within_15d": "-82",
+        "fans_increment_within_30d": "12230.29",
+        "follower": "179077",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6881615459066576907",
+        "interact_rate_within_30d": "0.0231",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762853480\",\"item_id\":\"7571398015183271662\",\"item_publish_time\":\"1762853480\",\"item_title\":\"#赫本风床盖款四件套 #牛奶绒四件套 #加绒加厚四件套 #保暖珊瑚绒四件套 #床单被套三件套\",\"like_cnt\":\"4\",\"share_cnt\":\"0\",\"vv\":\"60\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762847060\",\"item_id\":\"7571370441601213682\",\"item_publish_time\":\"1762847060\",\"item_title\":\"#双层纱四件套 #纯色四件套 A类全棉秋冬美拉德色织四#双层纱四件套 #床上四件套\",\"like_cnt\":\"4\",\"share_cnt\":\"0\",\"vv\":\"70\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762845882\",\"item_id\":\"7571365387885199026\",\"item_publish_time\":\"1762845882\",\"item_title\":\"#仿兔兔绒四件套 #加厚牛奶绒四件套 #冬季保暖四件套 #床上用品 #精美四件套\",\"like_cnt\":\"2\",\"share_cnt\":\"0\",\"vv\":\"109\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762834259\",\"item_id\":\"7571315465948660134\",\"item_publish_time\":\"1762834259\",\"item_title\":\"#加绒加厚四件套 #牛奶绒四件套 #双面绒四件套 #好产品一起分享 #床上用品\",\"like_cnt\":\"4\",\"share_cnt\":\"0\",\"vv\":\"296\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762823211\",\"item_id\":\"7571268019272784330\",\"item_publish_time\":\"1762823211\",\"item_title\":\"秋冬新款加厚全棉磨毛刺绣四件套轻奢纯:/ 色克里斯床品礼盒 #精美四件套 #全棉四件套 #磨毛四件套 #刺绣四件套\",\"like_cnt\":\"2\",\"share_cnt\":\"0\",\"vv\":\"135\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762814333\",\"item_id\":\"7571229860787619914\",\"item_publish_time\":\"1762814333\",\"item_title\":\"#A类牛奶绒四件套 #加厚加绒四件套 #床盖款四件套 梦幻千玺系列粉色\",\"like_cnt\":\"7\",\"share_cnt\":\"1\",\"vv\":\"627\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762769767\",\"item_id\":\"7571038486880342683\",\"item_publish_time\":\"1762769767\",\"item_title\":\"#记录生活 #纯色四件套 #宽边四件套  #提花四件套 #床上用品\",\"like_cnt\":\"9\",\"share_cnt\":\"1\",\"vv\":\"295\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762760350\",\"item_id\":\"7570998022265190630\",\"item_publish_time\":\"1762760350\",\"item_title\":\"#韩版加厚四件套  #小清新四件套 #牛奶绒四件套 #公主风四件套 #床品四套件\",\"like_cnt\":\"8\",\"share_cnt\":\"1\",\"vv\":\"372\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762735642\",\"item_id\":\"7570891911587384713\",\"item_publish_time\":\"1762735642\",\"item_title\":\"#牛奶绒四件套 #加厚加绒四件套 #双面绒四件套 #床裙四件套 #加绒保暖床品\",\"like_cnt\":\"4\",\"share_cnt\":\"0\",\"vv\":\"127\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762734279\",\"item_id\":\"7570886057512868745\",\"item_publish_time\":\"1762734279\",\"item_title\":\"#加厚牛奶绒四件套 #床盖刺绣款四件套 #双面绒四件套 #床盖款四件套 #健康睡眠\",\"like_cnt\":\"7\",\"share_cnt\":\"0\",\"vv\":\"204\"}]",
+        "link_convert_index": "70.54",
+        "link_convert_index_by_industry": "70.54",
+        "link_i_cnt_by_industry": "2681",
+        "link_k_cnt_by_industry": "55",
+        "link_l_cnt_by_industry": "23170",
+        "link_link_cnt_by_industry": "28388",
+        "link_n_cnt_by_industry": "2482",
+        "link_recommend_index_by_industry": "39.95",
+        "link_shopping_index": "39.95",
+        "link_spread_index": "46.06",
+        "link_spread_index_by_industry": "46.06",
+        "link_star_index": "62.86",
+        "link_star_index_by_industry": "62.86",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "刘姐床品",
+        "pic_expected_play_num": "8",
+        "play_over_rate_within_30d": "0.0287",
+        "price_1_20": "1000",
+        "price_20_60": "1000",
+        "price_60": "1000",
+        "promotion_prospective_1_20_cpm": "4566.21",
+        "promotion_prospective_20_60_cpm": "4566.21",
+        "promotion_prospective_60_cpm": "4566.21",
+        "promotion_prospective_vv": "219",
+        "prospective_1_20_cpm": "4201.6807",
+        "prospective_20_60_cpm": "4201.6807",
+        "prospective_60_cpm": "4201.6807",
+        "province": "河北省",
+        "search_after_view_index_by_industry": "53.7",
+        "sn_expected_play_num": "238",
+        "sn_interact_rate_within_30d": "0.0231",
+        "sn_play_over_rate_within_30d": "0.0287",
+        "sn_prospective_1_20_cpe": "166.6667",
+        "sn_prospective_1_20_cpm": "4201.6807",
+        "sn_prospective_20_60_cpe": "166.6667",
+        "sn_prospective_20_60_cpm": "4201.6807",
+        "sn_prospective_60_cpe": "166.6667",
+        "sn_prospective_60_cpm": "4201.6807",
+        "star_excellent_author": "0",
+        "star_index": "73.72252485150108",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"生活家居\":[\"软装\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7346469200187100467",
+          "products": [
+            {
+              "category_name": "停车号码牌",
+              "hit_tags": "移动通信",
+              "product_id": "3649692091409391880",
+              "product_name": "二维码挪车电话牌临时停车静电移车电话号码隐私临时停车牌扫码"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6881615459066576907",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1661587663",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1661587663",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1661587663",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "75",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_a47c9410dc1cc54b1802f84311f6d10f.jpeg?from=4010531038",
+        "brand_boost_vv": "16271",
+        "city": "汉中",
+        "content_theme_labels_180d": "[\"电子产品测评\",\"数码周边\",\"充电宝测评\",\"数码开箱\",\"充电技术\",\"夏日饮品\",\"生活好物评测\",\"饮品制作\",\"科技资讯\",\"科技科普\"]",
+        "core_user_id": "4174203184495784",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "1k-3w",
+        "ecom_gpm_30d_range": "400-1000",
+        "ecom_score": "72",
+        "ecom_video_product_num_30d": "4",
+        "ecom_watch_pv_30d": "1.5",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "1150",
+        "expected_play_num": "1381",
+        "fans_increment_rate_within_15d": "-0.0018675565624712979",
+        "fans_increment_within_15d": "-244",
+        "fans_increment_within_30d": "-487",
+        "follower": "130391",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "7139704037175197703",
+        "interact_rate_within_30d": "0.0163",
+        "interaction_median_30d": "38",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761989821\",\"item_id\":\"7567688624180063167\",\"item_publish_time\":\"1761989821\",\"item_title\":\"融合电镓 一个充电器搞定你的全家桶设备#数码 #氮化镓快充 #高科技\",\"like_cnt\":\"4\",\"share_cnt\":\"0\",\"vv\":\"384\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761989685\",\"item_id\":\"7567688045115188905\",\"item_publish_time\":\"1761989685\",\"item_title\":\"外接电池 来自睿步仕的一款外接电池，真正意义上优先消耗充电宝的电量#数码科技 #睿步仕\",\"like_cnt\":\"3\",\"share_cnt\":\"0\",\"vv\":\"649\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761988965\",\"item_id\":\"7567684956118476138\",\"item_publish_time\":\"1761988965\",\"item_title\":\"无界max 出门在外就一个充电器搞定你的全家桶#数码科技 #数码 #科技改变生活\",\"like_cnt\":\"4\",\"share_cnt\":\"0\",\"vv\":\"467\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761828076\",\"item_id\":\"7566993930325350470\",\"item_publish_time\":\"1761828076\",\"item_title\":\"外接电池 来自于睿步仕外接电池#数码 #外接电池#睿步仕外接电池\",\"like_cnt\":\"5\",\"share_cnt\":\"0\",\"vv\":\"668\"},{\"comment_cnt\":\"3\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761827754\",\"item_id\":\"7566992561761745350\",\"item_publish_time\":\"1761827754\",\"item_title\":\"全协议充电宝 来自ZKMK的全协议大功率充电宝#ZKMK充电宝#3c数码 #手机数码\",\"like_cnt\":\"7\",\"share_cnt\":\"0\",\"vv\":\"605\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761827365\",\"item_id\":\"7566990894361948772\",\"item_publish_time\":\"1761827365\",\"item_title\":\"ZKM无界max 非常硬核的一款充电器#氮化镓快充 #无界max#3c数码\",\"like_cnt\":\"5\",\"share_cnt\":\"0\",\"vv\":\"278\"},{\"comment_cnt\":\"4\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761207384\",\"item_id\":\"7564328087439559999\",\"item_publish_time\":\"1761207384\",\"item_title\":\"超级快充需要满足哪些条件 要想实现超级快充，需要满足哪些条件呢？#数码科技 #手机数码 #科技创新\",\"like_cnt\":\"29\",\"share_cnt\":\"0\",\"vv\":\"2012\"},{\"comment_cnt\":\"16\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761140477\",\"item_id\":\"7564040737085312299\",\"item_publish_time\":\"1761140477\",\"item_title\":\"吃灰的数码产品 买来大概率会吃灰的数码产品，你中了几个#数码科技 #科技创新 #数码\",\"like_cnt\":\"11\",\"share_cnt\":\"0\",\"vv\":\"1187\"},{\"comment_cnt\":\"3\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761033410\",\"item_id\":\"7563580890044288295\",\"item_publish_time\":\"1761033410\",\"item_title\":\"Windows10正式停服 你门会更新Windows11还是会继续使用Windows10系统呢#数码科技 #科技创新 #数码科技\",\"like_cnt\":\"12\",\"share_cnt\":\"0\",\"vv\":\"1213\"},{\"comment_cnt\":\"21\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760706867\",\"item_id\":\"7562178392272489747\",\"item_publish_time\":\"1760706867\",\"item_title\":\"成都小米su7起火 真的是车的问题吗？#科技改变生活 #小米汽车 #成都小米su7#数码\",\"like_cnt\":\"73\",\"share_cnt\":\"1\",\"vv\":\"3526\"}]",
+        "link_convert_index": "73.39",
+        "link_convert_index_by_industry": "73.39",
+        "link_i_cnt_by_industry": "41410",
+        "link_k_cnt_by_industry": "101",
+        "link_l_cnt_by_industry": "99387",
+        "link_link_cnt_by_industry": "164979",
+        "link_n_cnt_by_industry": "24081",
+        "link_recommend_index_by_industry": "52.55",
+        "link_shopping_index": "52.55",
+        "link_spread_index": "58.54",
+        "link_spread_index_by_industry": "58.54",
+        "link_star_index": "65.11",
+        "link_star_index_by_industry": "65.11",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "拜托了顾泽",
+        "play_over_rate_within_30d": "0.0318",
+        "price_1_20": "1000",
+        "price_20_60": "1500",
+        "price_60": "3000",
+        "promotion_prospective_1_20_cpm": "763.94",
+        "promotion_prospective_20_60_cpm": "1145.91",
+        "promotion_prospective_60_cpm": "2291.83",
+        "promotion_prospective_vv": "1309",
+        "prospective_1_20_cpm": "724.113",
+        "prospective_20_60_cpm": "1086.1694",
+        "prospective_60_cpm": "2172.3389",
+        "province": "",
+        "search_after_view_index_by_industry": "70.86",
+        "sn_expected_play_num": "1381",
+        "sn_interact_rate_within_30d": "0.0163",
+        "sn_play_over_rate_within_30d": "0.0318",
+        "sn_prospective_1_20_cpe": "55.5556",
+        "sn_prospective_1_20_cpm": "724.113",
+        "sn_prospective_20_60_cpe": "83.3333",
+        "sn_prospective_20_60_cpm": "1086.1694",
+        "sn_prospective_60_cpe": "166.6667",
+        "sn_prospective_60_cpm": "2172.3389",
+        "star_excellent_author": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"生活家居\":[\"生活技巧\"]}",
+        "video_brand_boost": "true",
+        "video_brand_boost_vv": "16271",
+        "vv_median_30d": "2212"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7358067120652946703",
+          "products": [
+            {
+              "brand_name": "格行",
+              "category_name": "4g/5g上网设备",
+              "hit_tags": "移动通信",
+              "product_id": "3648744962838903800",
+              "product_name": "格行(设备与流量均全国联保)移动随身无线wifi 三网切换彩屏款"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "7139704037175197703",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1500,
+              "price_extra_info": {},
+              "start_time": "1675173098",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1675173098",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3000,
+              "price_extra_info": {},
+              "start_time": "1675173098",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "112",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_3ab187d4fe56a5fbd88e349c542bc03d.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "",
+        "content_theme_labels_180d": "[\"亲子沟通\",\"家庭生活记录\",\"个人成长\"]",
+        "core_user_id": "3435304536249107",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "859",
+        "expected_play_num": "876",
+        "fans_increment_rate_within_15d": "-0.002136706019467766",
+        "fans_increment_within_15d": "-297",
+        "fans_increment_within_30d": "-267",
+        "follower": "138677",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "7097117556992901134",
+        "interact_rate_within_30d": "0.0104",
+        "interaction_median_30d": "30",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762839343\",\"item_id\":\"7571337302704021422\",\"item_publish_time\":\"1762839343\",\"item_title\":\"感情无缘无故的消失\",\"like_cnt\":\"3\",\"share_cnt\":\"0\",\"vv\":\"673\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762750194\",\"item_id\":\"7570954409489822363\",\"item_publish_time\":\"1762750194\",\"item_title\":\"水清则无鱼\",\"like_cnt\":\"7\",\"share_cnt\":\"0\",\"vv\":\"702\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762665445\",\"item_id\":\"7570590432486283850\",\"item_publish_time\":\"1762665445\",\"item_title\":\"男人娶错毁三代，女人嫁错毁一生\",\"like_cnt\":\"15\",\"share_cnt\":\"0\",\"vv\":\"1012\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762642521\",\"item_id\":\"7570491941692213358\",\"item_publish_time\":\"1762642521\",\"item_title\":\"又和牛子干了一夜\",\"like_cnt\":\"3\",\"share_cnt\":\"0\",\"vv\":\"327\"},{\"comment_cnt\":\"3\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762408415\",\"item_id\":\"7569486487126815987\",\"item_publish_time\":\"1762408415\",\"item_title\":\"离婚\",\"like_cnt\":\"17\",\"share_cnt\":\"2\",\"vv\":\"1950\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762353835\",\"item_id\":\"7569252074602327946\",\"item_publish_time\":\"1762353835\",\"item_title\":\"夫妻还是夫妻\",\"like_cnt\":\"14\",\"share_cnt\":\"1\",\"vv\":\"1526\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762321370\",\"item_id\":\"7569112617524966619\",\"item_publish_time\":\"1762321370\",\"item_title\":\"亏妻者百财不入下一句\",\"like_cnt\":\"4\",\"share_cnt\":\"1\",\"vv\":\"746\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762259462\",\"item_id\":\"7568846746937257958\",\"item_publish_time\":\"1762259462\",\"item_title\":\"实名都是给谁实名的\",\"like_cnt\":\"4\",\"share_cnt\":\"0\",\"vv\":\"623\"},{\"comment_cnt\":\"5\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762174995\",\"item_id\":\"7568483959974714459\",\"item_publish_time\":\"1762174995\",\"item_title\":\"彩票帮助了多少人财富自由\",\"like_cnt\":\"33\",\"share_cnt\":\"0\",\"vv\":\"3156\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761819527\",\"item_id\":\"7566957217032071561\",\"item_publish_time\":\"1761819527\",\"item_title\":\"你们注意工地最神奇的地方是什么了吗\",\"like_cnt\":\"7\",\"share_cnt\":\"0\",\"vv\":\"612\"}]",
+        "link_convert_index": "42.7",
+        "link_convert_index_by_industry": "42.7",
+        "link_i_cnt_by_industry": "406429",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "728505",
+        "link_link_cnt_by_industry": "1140941",
+        "link_n_cnt_by_industry": "6007",
+        "link_recommend_index_by_industry": "65.31",
+        "link_shopping_index": "65.31",
+        "link_spread_index": "65.53",
+        "link_spread_index_by_industry": "65.53",
+        "link_star_index": "63.06",
+        "link_star_index_by_industry": "63.06",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "四十出头【赵】",
+        "pic_expected_play_num": "36",
+        "play_over_rate_within_30d": "0.0911",
+        "price_1_20": "5800",
+        "price_20_60": "6000",
+        "price_60": "7700",
+        "promotion_prospective_1_20_cpm": "7351.08",
+        "promotion_prospective_20_60_cpm": "7604.56",
+        "promotion_prospective_60_cpm": "9759.19",
+        "promotion_prospective_vv": "789",
+        "prospective_1_20_cpm": "6621.0046",
+        "prospective_20_60_cpm": "6849.3151",
+        "prospective_60_cpm": "8789.9543",
+        "province": "",
+        "search_after_view_index_by_industry": "51.7",
+        "sn_expected_play_num": "876",
+        "sn_interact_rate_within_30d": "0.0104",
+        "sn_play_over_rate_within_30d": "0.0911",
+        "sn_prospective_1_20_cpe": "828.5714",
+        "sn_prospective_1_20_cpm": "6621.0046",
+        "sn_prospective_20_60_cpe": "857.1429",
+        "sn_prospective_20_60_cpm": "6849.3151",
+        "sn_prospective_60_cpe": "1100",
+        "sn_prospective_60_cpm": "8789.9543",
+        "star_excellent_author": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"情感\":[\"情感\"]}",
+        "vv_median_30d": "4552"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7299705764975873307",
+          "products": [
+            {
+              "category_name": "停车号码牌",
+              "hit_tags": "移动通信",
+              "product_id": "3639819361721653126",
+              "product_name": "临时停车手机电话安全锤挪车号码牌摆件车载移车牌汽车用品装饰"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "7097117556992901134",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 5800,
+              "price_extra_info": {},
+              "start_time": "1702740616",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 7700,
+              "price_extra_info": {},
+              "start_time": "1702740616",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 6000,
+              "price_extra_info": {},
+              "start_time": "1702740616",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 8800,
+              "price_extra_info": {},
+              "start_time": "1678357168",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "124",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "2",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813_175dcf0b482a4c45830e624790ddff5b.jpeg?from=4010531038",
+        "city": "广州",
+        "content_theme_labels_180d": "[\"数码周边\"]",
+        "core_user_id": "822083001790142",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "<=10",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_score": "89",
+        "ecom_video_product_num_30d": "2",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "368",
+        "expected_play_num": "435",
+        "fans_increment_rate_within_15d": "-0.0003456298893984354",
+        "fans_increment_within_15d": "-164",
+        "fans_increment_within_30d": "9.45",
+        "follower": "474349",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7208431006938824765",
+        "interact_rate_within_30d": "0.0117",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762398809\",\"item_id\":\"7569445223374310702\",\"item_publish_time\":\"1762592400\",\"item_title\":\"不是流量用不起，而是这张电信卡更懂你。月享80G全国流量，首月免月租体验。还赠120元话费，并且无合约随时可注销。#电信流量卡 #中国电信流量卡 #电信大流量卡 #手机卡 #低月租套餐\",\"like_cnt\":\"4\",\"share_cnt\":\"0\",\"vv\":\"196\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762397382\",\"item_id\":\"7569439104908250395\",\"item_publish_time\":\"1762506000\",\"item_title\":\"还在为月底流量发愁吗？这张移动卡每月包含80G高速流量，并且首月免月租。还有1万分钟亲情通话拨打，现在更能赠120元话费，消费透明无套路。立即点击左下角领取。#移动花卡 #移动流量 #流量卡开通 #移动大流量卡 #无套路流量卡\",\"like_cnt\":\"2\",\"share_cnt\":\"0\",\"vv\":\"235\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761791482\",\"item_id\":\"7566836765516893494\",\"item_publish_time\":\"1761901201\",\"item_title\":\"1分钱拿下80G高速流量？我没开玩笑！现在办理移动手机卡更有首月免月租用，附赠1万分钟亲情通话，还有120元话费，这样的卡早该人手一张。#中国移动 #移动手机卡 #移动大王卡 #手机卡 #流量卡官方正品\",\"like_cnt\":\"5\",\"share_cnt\":\"1\",\"vv\":\"510\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761271431\",\"item_id\":\"7564603165681765682\",\"item_publish_time\":\"1761469200\",\"item_title\":\"别家卡流量少、福利差，这张移动流量卡却能满足日常所需。它每月包含80G全国流量，1万分钟亲情通话够和家人常聊；首月还是免月租，办理再给120元话费，爱刷直播、常和家人通话的别错过。#移动大王卡 #大流量手机卡 #大流量套餐 #移动卡 #大王卡\",\"like_cnt\":\"3\",\"share_cnt\":\"1\",\"vv\":\"404\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761187799\",\"item_id\":\"7564243975784140086\",\"item_publish_time\":\"1761382800\",\"item_title\":\"想办卡，求靠谱推荐？这张电信星卡超合适！每月给到80G全国流量，刷剧玩游戏加载都快.首月免月租就能体验；再赠120元话费，安全有保障，怕踩坑的选它，准能放心用！#电信星卡 #中国电信 #电信手机卡 #电信卡套餐 #手机卡套路\",\"like_cnt\":\"3\",\"share_cnt\":\"0\",\"vv\":\"268\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760669806\",\"item_id\":\"7562019198436740404\",\"item_publish_time\":\"1761296400\",\"item_title\":\"你知道吗？选择流量卡真的有门道！你选移动流量卡，不仅有每月80G全国流量随便刷，还享首月免月租；它包含1万分钟亲情通话，现在下单更有120元话费，抓紧办理开启大流量生活。#移动电话卡 #中国移动流量卡 #中国移动大流量卡 #流量卡怎么选 #流量套餐\",\"like_cnt\":\"3\",\"share_cnt\":\"1\",\"vv\":\"241\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760670203\",\"item_id\":\"7562020897587006760\",\"item_publish_time\":\"1761210001\",\"item_title\":\"怕被网上的卡套路？别在交至少是了！移动流量卡更靠谱，80G每月的全国流量，无虚标无套路。首月还免月租，包含1万分钟亲情通话，再赠120元话费礼包。#移动花卡 #移动卡 #移动花卡19元 #靠谱流量卡\",\"like_cnt\":\"3\",\"share_cnt\":\"1\",\"vv\":\"237\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760669620\",\"item_id\":\"7562018414819118370\",\"item_publish_time\":\"1761123601\",\"item_title\":\"警惕流量卡陷阱！电信卡真实80G每月流量，首月免月租体验，还赠120元话费，全程高速不限速，官方售后有保障，立即行动享受超值福利。#电信星卡 #电信大王卡 #电信流量卡 #流量卡避坑指南 #电信大流量卡\",\"like_cnt\":\"3\",\"share_cnt\":\"5\",\"vv\":\"255\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760669329\",\"item_id\":\"7562017153856130356\",\"item_publish_time\":\"1761123600\",\"item_title\":\"国庆返乡堵高速怕无聊？手机转圈卡顿扫兴致？别慌，电信官方为你备卡，每月80G大流量，全程不限速；首月免月租，再赠50元话费，用它路上不无聊、通话无顾虑。#中国电信 #电信流量卡 #电信大流量卡 #电信卡 #不限速流量卡\",\"like_cnt\":\"3\",\"share_cnt\":\"1\",\"vv\":\"295\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760669048\",\"item_id\":\"7562015947326803215\",\"item_publish_time\":\"1761033600\",\"item_title\":\"别再被直播间套路骗了！电信卡真实兑现80G高速流量，还享首月免月租，百款APP畅玩不卡顿，办理再赠120元话费，，这才是靠谱的流量自由新选择！#电信星卡 #电信电话卡 #流量卡套餐 #流量卡套路 #电信大流量卡\",\"like_cnt\":\"3\",\"share_cnt\":\"0\",\"vv\":\"231\"}]",
+        "link_convert_index": "74.46",
+        "link_convert_index_by_industry": "74.46",
+        "link_i_cnt_by_industry": "6270",
+        "link_k_cnt_by_industry": "782",
+        "link_l_cnt_by_industry": "36476",
+        "link_link_cnt_by_industry": "49337",
+        "link_n_cnt_by_industry": "5809",
+        "link_recommend_index_by_industry": "50.7",
+        "link_shopping_index": "50.7",
+        "link_spread_index": "52.73",
+        "link_spread_index_by_industry": "52.73",
+        "link_star_index": "58.71",
+        "link_star_index_by_industry": "58.71",
+        "link_user_type_by_industry": "3",
+        "local_lower_threshold_author": "false",
+        "nick_name": "懂卡帝",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.0172",
+        "price_1_20": "1500",
+        "price_20_60": "1700",
+        "price_60": "1900",
+        "promotion_prospective_1_20_cpm": "3797.47",
+        "promotion_prospective_20_60_cpm": "4303.8",
+        "promotion_prospective_60_cpm": "4810.13",
+        "promotion_prospective_vv": "395",
+        "prospective_1_20_cpm": "3448.2759",
+        "prospective_20_60_cpm": "3908.046",
+        "prospective_60_cpm": "4367.8161",
+        "province": "",
+        "search_after_view_index_by_industry": "68.04",
+        "sn_expected_play_num": "435",
+        "sn_interact_rate_within_30d": "0.0117",
+        "sn_play_over_rate_within_30d": "0.0172",
+        "sn_prospective_1_20_cpe": "300",
+        "sn_prospective_1_20_cpm": "3448.2759",
+        "sn_prospective_20_60_cpe": "340",
+        "sn_prospective_20_60_cpm": "3908.046",
+        "sn_prospective_60_cpe": "380",
+        "sn_prospective_60_cpm": "4367.8161",
+        "star_excellent_author": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"科技数码\":[\"科技\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7330972170409053440",
+          "products": [
+            {
+              "category_name": "中国联通新号码套餐",
+              "hit_tags": "手机卡,移动通信",
+              "product_id": "3651186029379094561",
+              "product_name": "联通大王卡电话卡中国联通流量卡推荐腾讯大王卡联通卡手机卡办理"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7328703296602918179",
+          "products": [
+            {
+              "brand_name": "电信星卡",
+              "category_name": "中国电信新号码套餐",
+              "hit_tags": "手机卡,移动通信",
+              "product_id": "3618692724187897664",
+              "product_name": "电信星卡电话卡手机卡办理电信流量卡全国通用流量卡电信卡大王卡"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7312776406079966476",
+          "products": [
+            {
+              "category_name": "中国联通新号码套餐",
+              "hit_tags": "移动通信,手机卡",
+              "product_id": "3618690437226870437",
+              "product_name": "联通电话卡中国联通流量卡推荐腾讯大王卡联通卡免流量手机卡办理"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7323139890798005513",
+          "products": [
+            {
+              "category_name": "中国电信新号码套餐",
+              "hit_tags": "手机卡,移动通信",
+              "product_id": "3618690915964714797",
+              "product_name": "电信流量卡19元月租电信星卡电信大王卡电话卡手机卡办理官方正品"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7305339350600912139",
+          "products": [
+            {
+              "brand_name": "中国移动",
+              "category_name": "中国移动新号码套餐",
+              "hit_tags": "手机卡,移动通信",
+              "product_id": "3631343960787691579",
+              "product_name": "移动花卡中国移动流量卡推荐移动电话卡移动卡大王卡手机卡办理"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7344304395632299276",
+          "products": [
+            {
+              "brand_name": "电信星卡",
+              "category_name": "中国电信新号码套餐",
+              "hit_tags": "手机卡,移动通信",
+              "product_id": "3623289902705326688",
+              "product_name": "电信星卡电信流量卡推荐大王卡免流量手机卡办理中国电信卡电话卡"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7352120776193101068",
+          "products": [
+            {
+              "brand_name": "中国移动",
+              "category_name": "中国移动新号码套餐",
+              "hit_tags": "手机卡,移动通信",
+              "product_id": "3618685016877496980",
+              "product_name": "移动大王卡中国移动流量卡手机卡办理4g5g流量卡推荐电话卡移动卡"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "7208431006938824765",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1900,
+              "price_extra_info": {},
+              "start_time": "1698768000",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1700,
+              "price_extra_info": {},
+              "start_time": "1698768000",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1500,
+              "price_extra_info": {},
+              "start_time": "1698768000",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "46",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_77a85de3175cfcceff1de944fd1f083c.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "杭州",
+        "content_theme_labels_180d": "[\"新能源汽车资讯\",\"国产汽车\",\"智能汽车\",\"汽车行业资讯\",\"泡面\",\"汽车设计\",\"汽车安全测试\",\"美食探店\",\"汽车油耗\",\"民族风情\"]",
+        "core_user_id": "4441638414321591",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "2063",
+        "expected_play_num": "2642",
+        "fans_increment_rate_within_15d": "-0.0005286506192942514",
+        "fans_increment_within_15d": "-212",
+        "fans_increment_within_30d": "-418",
+        "follower": "400801",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7065227151812853767",
+        "interact_rate_within_30d": "0.1546",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"94\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761475228\",\"item_id\":\"7565478487571893563\",\"item_publish_time\":\"1761475228\",\"item_title\":\"闯关打卡赢茄皇杯面，好玩好吃还好拍！ #茄皇番茄面大会#茄皇番茄面大会华东站#茄皇番茄面大会苏州站\",\"like_cnt\":\"236\",\"share_cnt\":\"22\",\"vv\":\"1051\"},{\"comment_cnt\":\"59\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760766475\",\"item_id\":\"7562434403470921018\",\"item_publish_time\":\"1760766475\",\"item_title\":\"胡彦斌演唱会氛围感穿搭，海宁皮革城帮你轻松拿捏 #胡彦斌 #海宁中国皮革城 #皮草 @海宁中国皮革城\",\"like_cnt\":\"297\",\"share_cnt\":\"21\",\"vv\":\"3778\"},{\"comment_cnt\":\"43\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757901779\",\"item_id\":\"7550130635052010812\",\"item_publish_time\":\"1757901779\",\"item_title\":\"人生绕不过一台7系，至境 L7正在等你来探 #别克至境L7 #增程豪华轿车标杆\",\"like_cnt\":\"1220\",\"share_cnt\":\"31\",\"vv\":\"3115\"},{\"comment_cnt\":\"25\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756807019\",\"item_id\":\"7545428680161348924\",\"item_publish_time\":\"1756807019\",\"item_title\":\"跟着我解锁不一样的全新博越 #全新博越上市交付 #中国星事业部浙闽战区 #至好臻品挚爱共鉴\",\"like_cnt\":\"78\",\"share_cnt\":\"17\",\"vv\":\"878\"},{\"comment_cnt\":\"107\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1754205358\",\"item_id\":\"7534254639903001915\",\"item_publish_time\":\"1754205358\",\"item_title\":\"带你走近德格农特的文化盛宴 #德格 #非遗 #文旅\",\"like_cnt\":\"1073\",\"share_cnt\":\"21\",\"vv\":\"7615\"},{\"comment_cnt\":\"23\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1753942769\",\"item_id\":\"7533126825153776953\",\"item_publish_time\":\"1753942769\",\"item_title\":\"奇瑞，这哪是黑马？分明是耐力爆表的千里马！ #世界500强奇瑞跃升152位增速全球车企第一\",\"like_cnt\":\"1025\",\"share_cnt\":\"22\",\"vv\":\"4511\"},{\"comment_cnt\":\"56\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1753783891\",\"item_id\":\"7532444443234209082\",\"item_publish_time\":\"1753783891\",\"item_title\":\"捷达 VS8在安全上，真下了硬功夫 #什么是检验安全的唯一标准 #捷达VS8\",\"like_cnt\":\"675\",\"share_cnt\":\"18\",\"vv\":\"2663\"},{\"comment_cnt\":\"37\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1752488452\",\"item_id\":\"7526880578491321660\",\"item_publish_time\":\"1752488452\",\"item_title\":\"炎炎夏日快来加入奇瑞烟火烧烤节吧 #第三届奇瑞粉丝烟火烧烤节 #奇瑞金陵烟火趴 #快乐体验\",\"like_cnt\":\"1167\",\"share_cnt\":\"14\",\"vv\":\"5376\"},{\"comment_cnt\":\"49\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1751507499\",\"item_id\":\"7522667418033032505\",\"item_publish_time\":\"1751507499\",\"item_title\":\"银河 a7亮眼的表现，狠狠心动 #吉利银河A7#中国车油耗已经nextlevel了#2l闯全球\",\"like_cnt\":\"1044\",\"share_cnt\":\"40\",\"vv\":\"7551\"},{\"comment_cnt\":\"61\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1751357222\",\"item_id\":\"7522021980414037306\",\"item_publish_time\":\"1751357222\",\"item_title\":\"科技与美学的相遇，就是它了 eπ007 #AI上奕派 AI上eπ007 东风奕派2025款eπ007嘉兴区域上市品鉴会#东风奕派 #奕派007#好玩好开的潮流座驾\",\"like_cnt\":\"1016\",\"share_cnt\":\"1128\",\"vv\":\"11608\"}]",
+        "link_convert_index": "37.24",
+        "link_convert_index_by_industry": "37.24",
+        "link_i_cnt_by_industry": "607",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "2623",
+        "link_link_cnt_by_industry": "3493",
+        "link_n_cnt_by_industry": "263",
+        "link_recommend_index_by_industry": "31.08",
+        "link_shopping_index": "31.08",
+        "link_spread_index": "33.77",
+        "link_spread_index_by_industry": "33.77",
+        "link_star_index": "46.42",
+        "link_star_index_by_industry": "46.42",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "苏格sugarsweety(银运）",
+        "pic_expected_play_num": "606",
+        "play_over_rate_within_30d": "0.0128",
+        "price_1_20": "18000",
+        "price_20_60": "25000",
+        "price_60": "40000",
+        "promotion_prospective_1_20_cpm": "7544.01",
+        "promotion_prospective_20_60_cpm": "10477.79",
+        "promotion_prospective_60_cpm": "16764.46",
+        "promotion_prospective_vv": "2386",
+        "prospective_1_20_cpm": "6813.0204",
+        "prospective_20_60_cpm": "9462.5284",
+        "prospective_60_cpm": "15140.0454",
+        "province": "",
+        "search_after_view_index_by_industry": "53.56",
+        "sn_expected_play_num": "2642",
+        "sn_interact_rate_within_30d": "0.1546",
+        "sn_play_over_rate_within_30d": "0.0128",
+        "sn_prospective_1_20_cpe": "34.8837",
+        "sn_prospective_1_20_cpm": "6813.0204",
+        "sn_prospective_20_60_cpe": "48.4496",
+        "sn_prospective_20_60_cpm": "9462.5284",
+        "sn_prospective_60_cpe": "77.5194",
+        "sn_prospective_60_cpm": "15140.0454",
+        "star_excellent_author": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"汽车\":[\"汽车测评\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7312455614456663333",
+          "products": [
+            {
+              "brand_name": "fttr咨询",
+              "category_name": "有线宽带办理",
+              "hit_tags": "移动通信",
+              "product_id": "3635551295995269356",
+              "product_name": "FTTR咨询链接2000兆 全光组网光纤到屋全新组网方式两千兆光Wi-Fi"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "7065227151812853767",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 40000,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 25000,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 18000,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 10000,
+              "price_extra_info": {},
+              "start_time": "1685533059",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "38",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_b7dcc092195a16ad4e7b34ce4e0f6ad6.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "宿迁市",
+        "content_theme_labels_180d": "[\"游戏体验展示\",\"热门游戏评测\",\"电脑科技\",\"金铲铲攻略\",\"无畏契约探索\",\"游戏建造模拟\",\"游戏史低推荐\",\"游戏皮肤介绍\",\"绝地求生对抗\",\"游戏解说讲解\"]",
+        "core_user_id": "75374832620",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": "1k-3w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_score": "76",
+        "ecom_video_ctr_30d_range": "10%以上",
+        "ecom_video_mid_click_pv_30d_range": "500以下",
+        "ecom_video_product_num_30d": "69",
+        "expected_cpa3_level": "3",
+        "expected_natural_play_num": "266",
+        "expected_play_num": "412",
+        "fans_increment_rate_within_15d": "-0.0014096877283361995",
+        "fans_increment_within_15d": "-191",
+        "fans_increment_within_30d": "-391",
+        "follower": "135292",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "6934912725898231816",
+        "interact_rate_within_30d": "0.0028",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762827451\",\"item_id\":\"7571286220514772138\",\"item_publish_time\":\"1762838160\",\"item_title\":\"合金昆虫变形机器人，锻炼孩子动手动脑能力，3-6岁儿童玩具#昆虫 #变形玩具 #玩具推荐\",\"like_cnt\":\"1\",\"share_cnt\":\"0\",\"vv\":\"402\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762821752\",\"item_id\":\"7571261732087039158\",\"item_publish_time\":\"1762821752\",\"item_title\":\"啊！有蟑螂出没啊！要小心#昆虫世界 #蟑螂 #儿童玩具\",\"like_cnt\":\"8\",\"share_cnt\":\"6\",\"vv\":\"2371\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762741533\",\"item_id\":\"7570917215941051306\",\"item_publish_time\":\"1762741533\",\"item_title\":\"电动旋转顶球压玩具，色彩鲜艳，吸引宝宝注意。旋转顶球设计促进手眼协调，适合一到三岁儿童早教，男女宝宝皆宜，带来欢乐同时助力成长。#宝宝玩具 #顶球小黄鸭 #电动玩具\",\"like_cnt\":\"1\",\"share_cnt\":\"0\",\"vv\":\"685\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762647938\",\"item_id\":\"7570515206254973427\",\"item_publish_time\":\"1762673100\",\"item_title\":\"炫酷的变形机器人，一键启动可以自由变形切换#玩具车 #儿童玩具 #变形玩具\",\"like_cnt\":\"2\",\"share_cnt\":\"0\",\"vv\":\"873\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762646890\",\"item_id\":\"7570510734925254522\",\"item_publish_time\":\"1762646890\",\"item_title\":\"远程安装系统重装Windows10/11/7专业版电脑蓝屏卡顿WIN10大师#数码科技 #电脑系统 #干货分享\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"200\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762566706\",\"item_id\":\"7570166351693112454\",\"item_publish_time\":\"1762583340\",\"item_title\":\"应该没有哪个小朋友能拒绝会跳舞的章鱼吧？扭动的触角加上动感声光音效，这也太解压了，不但可以站立跳舞，还可以躺着蠕动爬行，遇到障碍物还能感应后退，真的太有趣了！#儿童玩具 #章鱼 #玩具推荐\",\"like_cnt\":\"7\",\"share_cnt\":\"1\",\"vv\":\"1804\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762565268\",\"item_id\":\"7570160163852822271\",\"item_publish_time\":\"1762565268\",\"item_title\":\"按压就跑的皮卡车不要电池#儿童玩具 #按压玩具 #玩具车\",\"like_cnt\":\"24\",\"share_cnt\":\"0\",\"vv\":\"6069\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762477709\",\"item_id\":\"7569784081308772435\",\"item_publish_time\":\"1762484880\",\"item_title\":\"金铲铲之战，代充点卷，轻松便捷，无需烦恼！支付渠道畅通无阻，官方正版合作，品质保障，让你的游戏道具瞬间升级，无论是金币、钻石还是其它珍贵物品，都能通过我们的服务快速获取，让你的游戏之旅更加精彩纷呈。快来体验我们的金铲铲之战！代充点卷吧！#金铲铲之战 #一起玩游戏 #游戏日常分享\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"197\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762476556\",\"item_id\":\"7569779142872675987\",\"item_publish_time\":\"1762476556\",\"item_title\":\"还在为你的网易游戏充值发愁吗？好消息是现在可以使用网易一卡通月付功能进行充值了，它不仅方便快捷，而且再也不用担心游戏账户余额不足的问题了。无论你是上班族还是学生党，都可以随时随地的进行游戏充值，让你的游戏之旅更加顺畅。快来试试吧！##玩游戏 #网易一点通#\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"716\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762410361\",\"item_id\":\"7569494842041492907\",\"item_publish_time\":\"1762410361\",\"item_title\":\"儿童仿真遥控乌龟🐢，爬行旋转不在话下#神奇动物在抖音 #乌龟 #儿童玩具\",\"like_cnt\":\"2\",\"share_cnt\":\"0\",\"vv\":\"1686\"}]",
+        "link_convert_index": "71.58",
+        "link_convert_index_by_industry": "71.58",
+        "link_i_cnt_by_industry": "6628",
+        "link_k_cnt_by_industry": "38",
+        "link_l_cnt_by_industry": "61718",
+        "link_link_cnt_by_industry": "71825",
+        "link_n_cnt_by_industry": "3441",
+        "link_recommend_index_by_industry": "38.24",
+        "link_shopping_index": "38.24",
+        "link_spread_index": "46.59",
+        "link_spread_index_by_industry": "46.59",
+        "link_star_index": "61.8",
+        "link_star_index_by_industry": "61.8",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "亿京玩具",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.1445",
+        "price_1_20": "7600",
+        "price_20_60": "8500",
+        "price_60": "9200",
+        "promotion_prospective_1_20_cpm": "23241.59",
+        "promotion_prospective_20_60_cpm": "25993.88",
+        "promotion_prospective_60_cpm": "28134.56",
+        "promotion_prospective_vv": "327",
+        "prospective_1_20_cpm": "18446.6019",
+        "prospective_20_60_cpm": "20631.068",
+        "prospective_60_cpm": "22330.0971",
+        "province": "江苏省",
+        "search_after_view_index_by_industry": "64.58",
+        "sn_expected_play_num": "412",
+        "sn_interact_rate_within_30d": "0.0028",
+        "sn_play_over_rate_within_30d": "0.1445",
+        "sn_prospective_1_20_cpe": "7600",
+        "sn_prospective_1_20_cpm": "18446.6019",
+        "sn_prospective_20_60_cpe": "8500",
+        "sn_prospective_20_60_cpm": "20631.068",
+        "sn_prospective_60_cpe": "9200",
+        "sn_prospective_60_cpm": "22330.0971",
+        "star_excellent_author": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"母婴亲子\":[\"亲子互动\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7352825837504187689",
+          "products": [
+            {
+              "brand_name": "飞机大厨国际服",
+              "category_name": "办公设备配件及相关服务",
+              "hit_tags": "移动通信",
+              "product_id": "3661351220695674750",
+              "product_name": "飞机大厨国际服安卓苹果 Airplane Chefs ios手机/ipad苹果游戏"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6934912725898231816",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 7600,
+              "price_extra_info": {},
+              "start_time": "1696089600",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 9200,
+              "price_extra_info": {},
+              "start_time": "1696089600",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 8500,
+              "price_extra_info": {},
+              "start_time": "1696089600",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 4250,
+              "price_extra_info": {},
+              "start_time": "1694604175",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1694604209",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572093189231181875"
+  },
+  "pagination": {
+    "has_more": true,
+    "limit": 20,
+    "page": 7,
+    "total_count": 161
+  },
+  "request_payload_hash": "70c5b76bb3bc09921912ae30ae32895ed78e981e"
+}

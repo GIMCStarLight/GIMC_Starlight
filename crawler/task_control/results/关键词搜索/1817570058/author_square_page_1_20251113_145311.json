@@ -1,0 +1,235 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "25",
+        "assign_task_price_list": "[24560,25000,25000,25600,28640,32300,33440,37280,37280,37620,38000,38000,41600,41600,41600,41600,43000,44200,44200,46600,46600,46600,49600,50830,52000,52000,52000,52000]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L2",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"早餐\":0.9722857142857146,\"服帖\":0.02,\"清爽\":0.43685714285714283,\"绵密\":0.4105000000000001,\"蛋白质\":30.514999999999972,\"酥脆\":0.5184666666666667,\"防晒\":0.02}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_acbd7020193aa39ffffb0cc02a0bb804.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "burst_text_rate": "0.6667",
+        "city": "郑州市",
+        "content_theme_labels_180d": "[\"自制美食\",\"糕点教程\",\"夏日饮品\",\"蛋糕制作\",\"饮品制作\",\"早餐美食\",\"食材保存\",\"美食吃播\",\"辣味美食\",\"深夜美食\"]",
+        "core_user_id": "83902293342",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": "1k-3w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "1730746",
+        "expected_play_num": "2919270",
+        "fans_increment_rate_within_15d": "0.025197674669582924",
+        "fans_increment_within_15d": "42027",
+        "fans_increment_within_30d": "14002.74",
+        "follower": "1709864",
+        "game_item_count_90d": "1",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7040317081337741319",
+        "interact_rate_within_30d": "0.0401",
+        "interaction_median_30d": "758160",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "1",
+        "is_excellenct_author": "1",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"13820\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762740393\",\"item_id\":\"7570912318851459441\",\"item_publish_time\":\"1762740393\",\"item_title\":\"卷了根轮胎饭团 #饭团 #寿司\",\"like_cnt\":\"244514\",\"share_cnt\":\"1406284\",\"vv\":\"9278455\"},{\"comment_cnt\":\"1365\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762597392\",\"item_id\":\"7570298134364431281\",\"item_publish_time\":\"1762597392\",\"item_title\":\"冻了一冰箱厚切杨枝甘露龙眼酸奶冻 谁渴了给你挖一碗#固体版杨枝甘露 #冻水果 #闺蜜\",\"like_cnt\":\"89843\",\"share_cnt\":\"87994\",\"vv\":\"2310515\"},{\"comment_cnt\":\"15297\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762502543\",\"item_id\":\"7569890760013029797\",\"item_publish_time\":\"1762502543\",\"item_title\":\"夹了个烧饼 #烧饼 #闺蜜 #百雀羚 #百雀羚胶原炮次抛油霜\",\"like_cnt\":\"176307\",\"share_cnt\":\"1404758\",\"vv\":\"9234711\"},{\"comment_cnt\":\"9766\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1762333634\",\"item_id\":\"7569165306275907515\",\"item_publish_time\":\"1762333634\",\"item_title\":\"冻了一冰箱水果酸奶冻和水果巧克力 天冷冷的吃冰才幸福🧊#冻水果#沪上阿姨车厘子#车厘子红宝石发光瓶\",\"like_cnt\":\"550395\",\"share_cnt\":\"776944\",\"vv\":\"20594260\"},{\"comment_cnt\":\"19054\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762265006\",\"item_id\":\"7568870552708079333\",\"item_publish_time\":\"1762265006\",\"item_title\":\"冻了一冰箱固体版杨枝甘露和冰沙糖葫芦～ #固体版杨枝甘露#糖葫芦 #海尔小红花冰箱 #海尔541双系统 #哪个天才研究的固体版杨枝甘露\",\"like_cnt\":\"136354\",\"share_cnt\":\"163728\",\"vv\":\"3394954\"},{\"comment_cnt\":\"23090\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762140020\",\"item_id\":\"7568333731200240113\",\"item_publish_time\":\"1762140020\",\"item_title\":\"做了个中式毛巾卷 #卷饼 #瓜子二手车\",\"like_cnt\":\"300912\",\"share_cnt\":\"1837219\",\"vv\":\"11314559\"},{\"comment_cnt\":\"4235\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761809651\",\"item_id\":\"7566914822596606897\",\"item_publish_time\":\"1761809651\",\"item_title\":\"给闺蜜预制了一个月的早餐 #早餐 #闺蜜 #冷冻#百雀羚胶原水光面膜 #百雀羚面膜\",\"like_cnt\":\"82525\",\"share_cnt\":\"201322\",\"vv\":\"5474428\"},{\"comment_cnt\":\"14154\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761736515\",\"item_id\":\"7566600697144873969\",\"item_publish_time\":\"1761736515\",\"item_title\":\"蒸了一本馒头书 #馒头 #潘婷3分钟奇迹护发素\",\"like_cnt\":\"216934\",\"share_cnt\":\"1331036\",\"vv\":\"11175606\"},{\"comment_cnt\":\"2174\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761556642\",\"item_id\":\"7565828106582550971\",\"item_publish_time\":\"1761556642\",\"item_title\":\"冷萃奶皮子糖葫芦吃上了！ #申请成为奶皮子主理人#糖葫芦#空刻冲泡意面 #空刻天官赐福\",\"like_cnt\":\"140135\",\"share_cnt\":\"172930\",\"vv\":\"4107174\"},{\"comment_cnt\":\"17433\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761544582\",\"item_id\":\"7565776357138140473\",\"item_publish_time\":\"1761544582\",\"item_title\":\"想吃谁做的黑芝麻豹豹就艾特谁～ #海豹#BARF霸弗#霸弗猫粮#霸弗烘焙粮\",\"like_cnt\":\"346323\",\"share_cnt\":\"410995\",\"vv\":\"9328945\"}]",
+        "link_convert_index": "90.08",
+        "link_convert_index_by_industry": "90.08",
+        "link_i_cnt_by_industry": "39763990",
+        "link_k_cnt_by_industry": "8883",
+        "link_l_cnt_by_industry": "55941317",
+        "link_link_cnt_by_industry": "97609451",
+        "link_n_cnt_by_industry": "1895261",
+        "link_recommend_index_by_industry": "92.54",
+        "link_shopping_index": "92.54",
+        "link_spread_index": "94.88",
+        "link_spread_index_by_industry": "94.88",
+        "link_star_index": "85.97",
+        "link_star_index_by_industry": "85.97",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "median_game_item_component_click_90_days": "4162",
+        "median_game_item_component_click_range": "3000-5000",
+        "median_game_item_cpc_90_days_range": "12-14",
+        "median_game_item_cpc_range": "10-12",
+        "median_game_item_ctr_90_days": "0",
+        "nick_name": "赵哈哈",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.0505",
+        "price_1_20": "31800",
+        "price_20_60": "45800",
+        "price_60": "59800",
+        "promotion_prospective_1_20_cpm": "4.59",
+        "promotion_prospective_20_60_cpm": "6.61",
+        "promotion_prospective_60_cpm": "8.63",
+        "promotion_prospective_vv": "6927202",
+        "prospective_1_20_cpm": "10.8931",
+        "prospective_20_60_cpm": "15.6889",
+        "prospective_60_cpm": "20.4846",
+        "province": "河南省",
+        "search_after_view_index_by_industry": "92.19",
+        "sn_expected_play_num": "2919270",
+        "sn_interact_rate_within_30d": "0.0401",
+        "sn_play_over_rate_within_30d": "0.0505",
+        "sn_prospective_1_20_cpe": "0.2698",
+        "sn_prospective_1_20_cpm": "10.8931",
+        "sn_prospective_20_60_cpe": "0.3886",
+        "sn_prospective_20_60_cpm": "15.6889",
+        "sn_prospective_60_cpe": "0.5074",
+        "sn_prospective_60_cpm": "20.4846",
+        "star_component_download_ctr_90d": "0.0009154716281748744",
+        "star_component_install_cpa_90d": "3041.6470588235293",
+        "star_component_install_finish_cnt_90d": "17",
+        "star_component_install_pvr_90d": "0.0000029779980250617805",
+        "star_component_link_click_cnt_90d": "31569",
+        "star_ecom_video_num_30d": "14",
+        "star_ecom_video_product_num_30d": "0",
+        "star_excellent_author": "1",
+        "star_index": "67.13220268640315",
+        "star_item_count_within_30d": "15",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "34",
+        "star_video_finish_vv_rate_90d": "0.0387",
+        "star_video_install_ge_1_cnt_90d": "1",
+        "star_video_interact_rate_90d": "0.1066",
+        "star_video_median_vv_90d": "7335459",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食教程\"]}",
+        "vv_median_30d": "8228144"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7518636895363321148",
+          "video_tag": 3,
+          "vv": 76971101
+        },
+        {
+          "item_id": "7538100492132502844",
+          "video_tag": 3,
+          "vv": 65601989
+        },
+        {
+          "item_id": "7532067299731361083",
+          "video_tag": 4,
+          "vv": 92350218
+        },
+        {
+          "item_id": "7555438667628678459",
+          "video_tag": 4,
+          "vv": 46343814
+        },
+        {
+          "item_id": "7521329114605014330",
+          "video_tag": 5,
+          "vv": 46375259
+        },
+        {
+          "item_id": "7559792491235773755",
+          "video_tag": 5,
+          "vv": 43017400
+        },
+        {
+          "item_id": "7570912318851459441",
+          "video_tag": 6,
+          "vv": 9772577
+        },
+        {
+          "item_id": "7570298134364431281",
+          "video_tag": 6,
+          "vv": 2324376
+        }
+      ],
+      "star_id": "7040317081337741319",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 59800,
+              "price_extra_info": {},
+              "start_time": "1761715459",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 45800,
+              "price_extra_info": {},
+              "start_time": "1761715459",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 31800,
+              "price_extra_info": {},
+              "start_time": "1761715459",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 59800,
+              "price_extra_info": {},
+              "start_time": "1761715459",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572099392069451827"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "a7873fb14b68f308c7c641c2548f618495eef818"
+}

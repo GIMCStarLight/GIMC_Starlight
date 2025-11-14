@@ -1,0 +1,246 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "18",
+        "assign_task_price_list": "[78400,86400,86400]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L6",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"早餐\":2.8533333333333233,\"清爽\":0.018,\"聚会\":0.5910000000000001,\"酥脆\":1.1530000000000007}",
+        "author_type": "2",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_aa0d1bc1a188d2e65ec744ad477b8b3c.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "",
+        "content_theme_labels_180d": "[\"美食趣闻\",\"地方美食\",\"辣味美食\",\"云南美食\",\"传统美食\",\"美食吃播\",\"广东美食\",\"国内旅行\",\"家庭幽默演绎\",\"游乐园游玩\"]",
+        "core_user_id": "59620450233",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "<=10",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "324072",
+        "expected_play_num": "610278",
+        "fans_increment_rate_within_15d": "-0.0004951681048912328",
+        "fans_increment_within_15d": "-6242",
+        "fans_increment_within_30d": "114.58",
+        "follower": "12600414",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6629660222564663300",
+        "interact_rate_within_30d": "0.0351",
+        "interaction_median_30d": "48511.5",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "true",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "1",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"376\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762484448\",\"item_id\":\"7569813041467692431\",\"item_publish_time\":\"1762484448\",\"item_title\":\"你们最喜欢吃的下饭菜是什么呢？#美食#内容过于真实#抖音美食推荐官\",\"like_cnt\":\"23645\",\"share_cnt\":\"978\",\"vv\":\"590790\"},{\"comment_cnt\":\"4192\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761335621\",\"item_id\":\"7564878682632817947\",\"item_publish_time\":\"1761361200\",\"item_title\":\"折耳根原来是救命稻草…#我爱我的祖国 #铭记历史 #折耳根\",\"like_cnt\":\"61757\",\"share_cnt\":\"7596\",\"vv\":\"2874902\"},{\"comment_cnt\":\"339\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760932078\",\"item_id\":\"7563145664692079924\",\"item_publish_time\":\"1760932078\",\"item_title\":\"你们能说出几个“胡番洋西”的食物？#番茄#茄皇#茄皇番茄丰收季第二季#茄皇季节限定新品\",\"like_cnt\":\"40990\",\"share_cnt\":\"1434\",\"vv\":\"1475122\"},{\"comment_cnt\":\"5456\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1760585227\",\"item_id\":\"7561655937578601780\",\"item_publish_time\":\"1760585227\",\"item_title\":\"《中国零食百年图鉴》，美食赛道申请出战 #祖国请听我表白 （灵感来自@垫底辣孩 ）\",\"like_cnt\":\"231477\",\"share_cnt\":\"21769\",\"vv\":\"7195163\"},{\"comment_cnt\":\"2326\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759864476\",\"item_id\":\"7558560157869935926\",\"item_publish_time\":\"1759892400\",\"item_title\":\"你们喜欢吃生鱼吗？#抖音美食推荐官 #美食 #鱼\",\"like_cnt\":\"82566\",\"share_cnt\":\"5415\",\"vv\":\"2558004\"},{\"comment_cnt\":\"499\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759573183\",\"item_id\":\"7557309240243735847\",\"item_publish_time\":\"1759573183\",\"item_title\":\"下期你们想看我投喂什么？#路人#郭襄峨眉山随机投喂路人#山上有个峨眉派#峨眉山张无忌好帅\",\"like_cnt\":\"43183\",\"share_cnt\":\"1791\",\"vv\":\"1682055\"},{\"comment_cnt\":\"332\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759225533\",\"item_id\":\"7555816099842542848\",\"item_publish_time\":\"1759225533\",\"item_title\":\"你们喜欢哪种妈妈呢？#伊利欣活#中老年奶粉推荐#欣活有方匠心好礼#伊利欣活纾糖奶粉\",\"like_cnt\":\"31644\",\"share_cnt\":\"1060\",\"vv\":\"2192700\"},{\"comment_cnt\":\"203\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758014785\",\"item_id\":\"7550615995447004468\",\"item_publish_time\":\"1758014785\",\"item_title\":\"研墨下笔，直接送我四个大字。下一句你们接！#泰嗨巅峰音乐节#聚在一起嗨出泰度#激发潜能共创美好未来\",\"like_cnt\":\"27034\",\"share_cnt\":\"308\",\"vv\":\"1461883\"},{\"comment_cnt\":\"961\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757301336\",\"item_id\":\"7547551743262444815\",\"item_publish_time\":\"1757301336\",\"item_title\":\"#心动榜 #心动榜餐厅 #氛围餐厅 当我假装百万博主去探店 #东方美学藏进了餐厅里\",\"like_cnt\":\"51925\",\"share_cnt\":\"2644\",\"vv\":\"3415607\"},{\"comment_cnt\":\"4886\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755885988\",\"item_id\":\"7541472613579738431\",\"item_publish_time\":\"1755918000\",\"item_title\":\"我敢吃你敢看吗！你们还喜欢吃哪里的小动物？#美食#夜宵推荐#吃货#抖音美食创作者\",\"like_cnt\":\"74757\",\"share_cnt\":\"15336\",\"vv\":\"3730978\"}]",
+        "link_convert_index": "65.76",
+        "link_convert_index_by_industry": "65.76",
+        "link_i_cnt_by_industry": "3281454",
+        "link_k_cnt_by_industry": "4",
+        "link_l_cnt_by_industry": "3601529",
+        "link_link_cnt_by_industry": "7500274",
+        "link_n_cnt_by_industry": "617287",
+        "link_recommend_index_by_industry": "72.75",
+        "link_shopping_index": "72.75",
+        "link_spread_index": "76.18",
+        "link_spread_index_by_industry": "76.18",
+        "link_star_index": "73.11",
+        "link_star_index_by_industry": "73.11",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "琪怪儿",
+        "pic_expected_play_num": "298587",
+        "play_over_rate_within_30d": "0.1411",
+        "price_1_20": "98000",
+        "price_20_60": "98000",
+        "price_60": "108000",
+        "promotion_prospective_1_20_cpm": "64.82",
+        "promotion_prospective_20_60_cpm": "64.82",
+        "promotion_prospective_60_cpm": "71.43",
+        "promotion_prospective_vv": "1511905",
+        "prospective_1_20_cpm": "160.5826",
+        "prospective_20_60_cpm": "160.5826",
+        "prospective_60_cpm": "176.9685",
+        "province": "广东省",
+        "search_after_view_index_by_industry": "92.5",
+        "sn_expected_play_num": "610278",
+        "sn_interact_rate_within_30d": "0.0351",
+        "sn_play_over_rate_within_30d": "0.1411",
+        "sn_prospective_1_20_cpe": "2.5031",
+        "sn_prospective_1_20_cpm": "160.5826",
+        "sn_prospective_20_60_cpe": "2.5031",
+        "sn_prospective_20_60_cpm": "160.5826",
+        "sn_prospective_60_cpe": "2.7586",
+        "sn_prospective_60_cpm": "176.9685",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "89",
+        "star_ecom_video_num_30d": "0",
+        "star_excellent_author": "1",
+        "star_index": "78.41542780738173",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "3",
+        "star_video_finish_vv_rate_90d": "0.0147",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0201",
+        "star_video_median_vv_90d": "1479468",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"剧情搞笑\":[\"剧情\"]}",
+        "vv_median_30d": "1985547.5"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7561655937578601780",
+          "video_tag": 3,
+          "vv": 6496682
+        },
+        {
+          "item_id": "7509852396709743909",
+          "video_tag": 3,
+          "vv": 3042882
+        },
+        {
+          "item_id": "7521587102170287418",
+          "video_tag": 4,
+          "vv": 3102110
+        },
+        {
+          "item_id": "7555816099842542848",
+          "video_tag": 4,
+          "vv": 2116815
+        },
+        {
+          "item_id": "7533308439582248243",
+          "video_tag": 5,
+          "vv": 2993126
+        },
+        {
+          "item_id": "7510263818472131891",
+          "video_tag": 5,
+          "vv": 2708408
+        },
+        {
+          "item_id": "7569813041467692431",
+          "video_tag": 6,
+          "vv": 488447
+        },
+        {
+          "item_id": "7564878682632817947",
+          "video_tag": 6,
+          "vv": 2589803
+        }
+      ],
+      "star_id": "6629660222564663300",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 18,
+              "price_extra_info": {
+                "ceiling_price": "151500",
+                "floor_price": "20200"
+              },
+              "start_time": "1701065954",
+              "task_category": 1,
+              "video_type": 92,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 108000,
+              "price_extra_info": {},
+              "start_time": "1743436800",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 98000,
+              "price_extra_info": {},
+              "start_time": "1743436800",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 98000,
+              "price_extra_info": {},
+              "start_time": "1743436800",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 108000,
+              "price_extra_info": {},
+              "start_time": "1727712000",
+              "task_category": 1,
+              "video_type": 90,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 108000,
+              "price_extra_info": {},
+              "start_time": "1727712000",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572103873411268618"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "15988c1b9b5659936839dde10acd87f544a09e5d"
+}

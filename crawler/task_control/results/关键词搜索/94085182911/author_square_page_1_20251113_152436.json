@@ -1,0 +1,241 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "54",
+        "assign_task_price_list": "[20880,25600,27300,29000,32000,39000,46020]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "2",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_c9315971d9f83343bfa9d5d65b786611.jpeg?from=4010531038",
+        "brand_boost_vv": "167308",
+        "city": "",
+        "content_theme_labels_180d": "[\"电子产品测评\",\"科技科普\",\"手机评测\",\"科技资讯\",\"新能源汽车资讯\",\"智能汽车\",\"智能穿戴体验\",\"汽车内饰\",\"智能家居\"]",
+        "core_user_id": "1697290789591389",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "223419",
+        "expected_play_num": "72423",
+        "fans_increment_rate_within_15d": "-0.0009240487605391154",
+        "fans_increment_within_15d": "-531",
+        "fans_increment_within_30d": "-1075",
+        "follower": "574072",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "7162094708234125324",
+        "interact_rate_within_30d": "0.0473",
+        "interaction_median_30d": "10374",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"273\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761891405\",\"item_id\":\"7567265944561782025\",\"item_publish_time\":\"1761891405\",\"item_title\":\"趁着双十一，用AI眼镜开启全新科技生活吧~#Rokid乐奇#Rokid#AI眼镜#RokidAI眼镜#乐奇眼镜\",\"like_cnt\":\"13118\",\"share_cnt\":\"50\",\"vv\":\"282714\"},{\"comment_cnt\":\"207\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761312543\",\"item_id\":\"7564779758459686181\",\"item_publish_time\":\"1761312543\",\"item_title\":\"除了超值价格，nova 14 活力版究竟有何魅力？#nova14活力版活力全开#华为nova14\",\"like_cnt\":\"8902\",\"share_cnt\":\"59\",\"vv\":\"638682\"},{\"comment_cnt\":\"216\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761208854\",\"item_id\":\"7564334406031969585\",\"item_publish_time\":\"1761208854\",\"item_title\":\"打印机怎么选？看它是不是理想型#惠普激光打印机实力好印#惠普激光打印机#惠普战系列激光一体机#激光多功能一体机\",\"like_cnt\":\"10419\",\"share_cnt\":\"63\",\"vv\":\"310824\"},{\"comment_cnt\":\"173\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757907148\",\"item_id\":\"7550153689459428646\",\"item_publish_time\":\"1757907148\",\"item_title\":\"从年轻人的健康到老年人陪护，这张健康守护网真的让人很有安全感！#江苏移动#智慧康养#协同创新论坛\",\"like_cnt\":\"821\",\"share_cnt\":\"137\",\"vv\":\"333243\"},{\"comment_cnt\":\"153\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757901706\",\"item_id\":\"7550130300764966190\",\"item_publish_time\":\"1757901706\",\"item_title\":\"#别克至境L7重新定义豪华舒适！#增程豪华轿车标杆#至境L7定义新能源时代的豪华轿车#AI间首次跨物种对话\",\"like_cnt\":\"271\",\"share_cnt\":\"1041\",\"vv\":\"1326806\"},{\"comment_cnt\":\"63\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756817448\",\"item_id\":\"7545473473599917372\",\"item_publish_time\":\"1756817448\",\"item_title\":\"千元机到底有多耐用，vivo Y500给你答案！#vivoY500 #国民神机\",\"like_cnt\":\"1146\",\"share_cnt\":\"210\",\"vv\":\"183128\"},{\"comment_cnt\":\"256\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756649887\",\"item_id\":\"7544753801031683354\",\"item_publish_time\":\"1756649887\",\"item_title\":\"烟机都说自己能净烟，只有小米净烟机是真净烟真风量#米家智能净烟机#净烟机和油烟机的区别#小米#小米净烟机T1\",\"like_cnt\":\"4640\",\"share_cnt\":\"82\",\"vv\":\"519350\"},{\"comment_cnt\":\"469\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755265665\",\"item_id\":\"7538808614221270298\",\"item_publish_time\":\"1755313230\",\"item_title\":\"颜值与实力并存！还得是#华为MatePadAir有AI更快了#华为全新AI平板抢先上手#开箱我的AI平板新搭子\",\"like_cnt\":\"9029\",\"share_cnt\":\"267\",\"vv\":\"637247\"},{\"comment_cnt\":\"84\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1754451520\",\"item_id\":\"7535311855988837647\",\"item_publish_time\":\"1754451520\",\"item_title\":\"和我一起走进科技世界吧~ #AR眼镜 #rokid\",\"like_cnt\":\"471\",\"share_cnt\":\"24\",\"vv\":\"106728\"},{\"comment_cnt\":\"334\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1752322195\",\"item_id\":\"7526166511594655035\",\"item_publish_time\":\"1752322195\",\"item_title\":\"又被三星颠覆认知，Galaxy Z Fold7 真的太强了#三星超轻薄折叠旗舰#三星ZFold7#展开人生轻单\",\"like_cnt\":\"350\",\"share_cnt\":\"37\",\"vv\":\"161864\"}]",
+        "link_convert_index": "46.38",
+        "link_convert_index_by_industry": "46.38",
+        "link_i_cnt_by_industry": "349547",
+        "link_k_cnt_by_industry": "1",
+        "link_l_cnt_by_industry": "1489158",
+        "link_link_cnt_by_industry": "1840560",
+        "link_n_cnt_by_industry": "1854",
+        "link_recommend_index_by_industry": "41.75",
+        "link_shopping_index": "41.75",
+        "link_spread_index": "63.62",
+        "link_spread_index_by_industry": "63.62",
+        "link_star_index": "59.27",
+        "link_star_index_by_industry": "59.27",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "小A的精致生活",
+        "play_over_rate_within_30d": "0.7607",
+        "price_1_20": "28000",
+        "price_20_60": "35000",
+        "price_60": "47000",
+        "promotion_prospective_1_20_cpm": "104.52",
+        "promotion_prospective_20_60_cpm": "130.65",
+        "promotion_prospective_60_cpm": "175.44",
+        "promotion_prospective_vv": "267894",
+        "prospective_1_20_cpm": "386.6175",
+        "prospective_20_60_cpm": "483.2719",
+        "prospective_60_cpm": "648.9651",
+        "province": "",
+        "search_after_view_index_by_industry": "66.92",
+        "sn_expected_play_num": "72423",
+        "sn_interact_rate_within_30d": "0.0473",
+        "sn_play_over_rate_within_30d": "0.7607",
+        "sn_prospective_1_20_cpe": "40.0572",
+        "sn_prospective_1_20_cpm": "386.6175",
+        "sn_prospective_20_60_cpe": "50.0715",
+        "sn_prospective_20_60_cpm": "483.2719",
+        "sn_prospective_60_cpe": "67.2389",
+        "sn_prospective_60_cpm": "648.9651",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "15",
+        "star_ecom_video_num_30d": "3",
+        "star_ecom_video_product_num_30d": "0",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "3",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "7",
+        "star_video_finish_vv_rate_90d": "0.038",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0174",
+        "star_video_median_vv_90d": "333243",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"萌宠\":[\"日常宠物\"]}",
+        "video_brand_boost": "true",
+        "video_brand_boost_vv": "167308",
+        "vv_median_30d": "243188"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7550130300764966190",
+          "video_tag": 3,
+          "vv": 1326302
+        },
+        {
+          "item_id": "7506001737629125938",
+          "video_tag": 3,
+          "vv": 135757
+        },
+        {
+          "item_id": "7538808614221270298",
+          "video_tag": 4,
+          "vv": 531543
+        },
+        {
+          "item_id": "7513440267178609930",
+          "video_tag": 4,
+          "vv": 518561
+        },
+        {
+          "item_id": "7564779758459686181",
+          "video_tag": 5,
+          "vv": 328511
+        },
+        {
+          "item_id": "7567265944561782025",
+          "video_tag": 5,
+          "vv": 243188
+        },
+        {
+          "item_id": "7564334406031969585",
+          "video_tag": 6,
+          "vv": 36057
+        },
+        {
+          "item_id": "7550153689459428646",
+          "video_tag": 6,
+          "vv": 22043
+        }
+      ],
+      "star_id": "7162094708234125324",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 47000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 35000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 28000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 70000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 28000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 35000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572107422660411419"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "c4e57bc89a10ff1b013e051166a6850cb2f93d9f"
+}

@@ -1,0 +1,209 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "88",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "3",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_2a3d8587108a071e44bd5f1fd2bccfbf.jpeg?from=4010531038",
+        "brand_boost_vv": "24472",
+        "city": "南昌市",
+        "content_theme_labels_180d": "[\"旅行美景\",\"地方文化旅游\",\"自驾旅行\",\"环球旅行\",\"酒店体验\",\"古镇旅游\",\"海外旅行\",\"湖南旅行\",\"小众旅游推荐\",\"旅行特色景点\"]",
+        "core_user_id": "81336406429",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "34817",
+        "expected_play_num": "148033",
+        "fans_increment_rate_within_15d": "-0.0013786430747062598",
+        "fans_increment_within_15d": "-664",
+        "fans_increment_within_30d": "-1461",
+        "follower": "480943",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "6856173535367266311",
+        "interaction_median_30d": "3030",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"557\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759993805\",\"item_id\":\"7559115815917391144\",\"item_publish_time\":\"1759993805\",\"item_title\":\"一座当阳城，半部三国书，这里是中国义城-湖北当阳！#义城当阳推荐官#960万平方公里的辽阔远方 #把我的国庆远行拍成旅综 #交换旅行新灵感  @当阳融媒 @当阳文旅\",\"like_cnt\":\"3352\",\"share_cnt\":\"272\",\"vv\":\"83597\"},{\"comment_cnt\":\"313\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759673678\",\"item_id\":\"7557740884315491641\",\"item_publish_time\":\"1759673678\",\"item_title\":\"为了这座被严重低估的南洋古镇，我特意去了一趟广东赤坎！#2025赤坎正当红 #赤坎度假区 #在广东赤坎过国庆的含金量\",\"like_cnt\":\"3839\",\"share_cnt\":\"2084\",\"vv\":\"239944\"},{\"comment_cnt\":\"481\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1754924805\",\"item_id\":\"7537344634801442048\",\"item_publish_time\":\"1754924805\",\"item_title\":\"香格里拉，一个接近天堂的地方，缺氧却不缺信仰，神圣而令人向往#真的很summer #骑行真的很summer  #勇闯前人未至之境第4季 #台铃长续航电动车 #正宗长续航长江溯源\",\"like_cnt\":\"3550\",\"share_cnt\":\"73\",\"vv\":\"41616\"},{\"comment_cnt\":\"791\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1753780866\",\"item_id\":\"7532431450659278132\",\"item_publish_time\":\"1753780866\",\"item_title\":\"我在赣粤闽三省交界处，找到了一处避暑圣地-赣州三百山  #寻找中国最美城市 #大自然对中国城市的偏爱 #江西避暑天花板竟在三百山 #雨后三百山堪比人间瑶池 #大湾区避暑圣地安远三百山\",\"like_cnt\":\"9719\",\"share_cnt\":\"922\",\"vv\":\"113661\"},{\"comment_cnt\":\"404\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1751963728\",\"item_id\":\"7524626890805579023\",\"item_publish_time\":\"1751963728\",\"item_title\":\"这里不是新疆阿勒泰，也不是呼伦贝尔大草原，这里是距离北京3小时车程的丰宁坝上草原百里天路#百里天路 #真的很summer #夏日避暑好去处\",\"like_cnt\":\"18598\",\"share_cnt\":\"651\",\"vv\":\"295343\"},{\"comment_cnt\":\"182\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1751427999\",\"item_id\":\"7522325952416845091\",\"item_publish_time\":\"1751427999\",\"item_title\":\"马尔代夫其实并没有想象中那么贵，没想到五天四晚人均一万就可以住进马尔代夫的豪华水屋#交换世界计划 #环球旅行1995 #属于我的圣地巡礼 #悦宜湾 #mantaair @RIU悦宜湾酒店及度假村集团\",\"like_cnt\":\"1406\",\"share_cnt\":\"264\",\"vv\":\"15629\"},{\"comment_cnt\":\"119\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1748779559\",\"item_id\":\"7510950991211777332\",\"item_publish_time\":\"1748779559\",\"item_title\":\"中国龙舟看江西，江西村舟在分宜#江西村舟在分宜 #各地有自己的赛龙舟 #交换世界计划 #交换旅行新灵感 #江西村舟\",\"like_cnt\":\"761\",\"share_cnt\":\"507\",\"vv\":\"24402\"},{\"comment_cnt\":\"458\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1746684665\",\"item_id\":\"7501953474043104570\",\"item_publish_time\":\"1746684665\",\"item_title\":\"花一个月的工资坐着1.5m大床房火车跨国旅行，是一种什么样的体验#交换世界计划 #野生玩家先享受世界 #五一就要去撒野 #万物皆可种草搜索\",\"like_cnt\":\"11313\",\"share_cnt\":\"4722\",\"vv\":\"182701\"},{\"comment_cnt\":\"620\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1745827320\",\"item_id\":\"7498271172816899368\",\"item_publish_time\":\"1745827320\",\"item_title\":\"在北纬30°，我找到了4.6亿年前的海底旷世奇观——恩施梭布垭石林#野生玩家 #为了这个镜头五一出发了一趟  #交换世界计划 #是撒野之旅也是人生之旅 #梭布垭石林\",\"like_cnt\":\"10500\",\"share_cnt\":\"1805\",\"vv\":\"134328\"},{\"comment_cnt\":\"192\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1745555351\",\"item_id\":\"7497103097806818594\",\"item_publish_time\":\"1745555351\",\"item_title\":\"五一总要去一趟新晋网红城市南昌吧！走进南昌乡村，找回治愈系的慢生活#发现南昌宝藏八园新鲜式 #五一出游攻略来了#春日好风光  #万物皆可种草搜  @南昌文旅\",\"like_cnt\":\"5100\",\"share_cnt\":\"751\",\"vv\":\"44688\"}]",
+        "link_convert_index": "51.39",
+        "link_convert_index_by_industry": "51.39",
+        "link_i_cnt_by_industry": "7620",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "29212",
+        "link_link_cnt_by_industry": "40245",
+        "link_n_cnt_by_industry": "3413",
+        "link_recommend_index_by_industry": "51.17",
+        "link_shopping_index": "51.17",
+        "link_spread_index": "51.54",
+        "link_spread_index_by_industry": "51.54",
+        "link_star_index": "58.11",
+        "link_star_index_by_industry": "58.11",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "小袁宝辞职旅行记",
+        "pic_expected_play_num": "0",
+        "price_1_20": "20000",
+        "price_20_60": "49999",
+        "price_60": "59999",
+        "promotion_prospective_1_20_cpm": "551.94",
+        "promotion_prospective_20_60_cpm": "1379.82",
+        "promotion_prospective_60_cpm": "1655.78",
+        "promotion_prospective_vv": "36236",
+        "prospective_1_20_cpm": "135.105",
+        "prospective_20_60_cpm": "337.7558",
+        "prospective_60_cpm": "405.3083",
+        "province": "江西省",
+        "search_after_view_index_by_industry": "74.25",
+        "sn_expected_play_num": "148033",
+        "sn_prospective_1_20_cpe": "4.1051",
+        "sn_prospective_1_20_cpm": "135.105",
+        "sn_prospective_20_60_cpe": "10.2625",
+        "sn_prospective_20_60_cpm": "337.7558",
+        "sn_prospective_60_cpe": "12.3151",
+        "sn_prospective_60_cpm": "405.3083",
+        "star_excellent_author": "0",
+        "star_index": "52.62875490813856",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"旅行\":[\"旅行推荐\",\"户外生活\"]}",
+        "video_brand_boost": "true",
+        "video_brand_boost_vv": "24472",
+        "vv_median_30d": "66170"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7557740884315491641",
+          "video_tag": 3,
+          "vv": 235659
+        },
+        {
+          "item_id": "7524626890805579023",
+          "video_tag": 3,
+          "vv": 113292
+        },
+        {
+          "item_id": "7537344634801442048",
+          "video_tag": 4,
+          "vv": 30400
+        },
+        {
+          "item_id": "7532431450659278132",
+          "video_tag": 5,
+          "vv": 93972
+        },
+        {
+          "item_id": "7559115815917391144",
+          "video_tag": 5,
+          "vv": 66492
+        },
+        {
+          "item_id": "7522325952416845091",
+          "video_tag": 6,
+          "vv": 14041
+        }
+      ],
+      "star_id": "6856173535367266311",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 15000,
+              "price_extra_info": {},
+              "start_time": "1663061675",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 59999,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 49999,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 20000,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 13900,
+              "price_extra_info": {},
+              "start_time": "1669824000",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572103375774187530"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "2294bac381e0cd14fd2438fec4e2b8711dff4d4f"
+}

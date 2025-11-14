@@ -1,0 +1,177 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "46",
+        "assign_task_price_list": "[23200,29000,29000,29000,29040,36300]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"军训\":0,\"年轻人\":0.066,\"清爽\":0,\"祛痘\":0,\"美白\":0.0006666666666666666,\"酥脆\":0,\"防晒\":0}",
+        "author_type": "2",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_81d68c78a49680d44868b0854c54bd3a.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "渝北区",
+        "content_theme_labels_180d": "[]",
+        "core_user_id": "2964747185296443",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "53696",
+        "expected_play_num": "101911",
+        "fans_increment_rate_within_15d": "-0.002572748437391698",
+        "fans_increment_within_15d": "-631",
+        "fans_increment_within_30d": "-1288",
+        "follower": "244589",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7088311738377961512",
+        "interaction_median_30d": "3515",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"242\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1748610446\",\"item_id\":\"7510224660262554939\",\"item_publish_time\":\"1748610446\",\"item_title\":\"吃过亏才发现的信息差！学会开挂 #毕业季#花呗毕业季#花呗额度#花呗怎么用\",\"like_cnt\":\"5694\",\"share_cnt\":\"220\",\"vv\":\"707267\"},{\"comment_cnt\":\"176\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1747894350\",\"item_id\":\"7507149044713082169\",\"item_publish_time\":\"1747894350\",\"item_title\":\"吃过亏才学会的套话小技巧 #UlikePro10s脱毛仪#Ulike#脱毛\",\"like_cnt\":\"5179\",\"share_cnt\":\"610\",\"vv\":\"487590\"},{\"comment_cnt\":\"33\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1745995358\",\"item_id\":\"7498992886806023434\",\"item_publish_time\":\"1745995358\",\"item_title\":\"我们或许不够强大，但职场妈妈的守护是，再忙也记得给为孩子留一把伞...#信息差#职场妈妈#健康福百万少儿 #好险我有蚂蚁保\",\"like_cnt\":\"1090\",\"share_cnt\":\"123\",\"vv\":\"150416\"},{\"comment_cnt\":\"418\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1745986372\",\"item_id\":\"7498954335050173723\",\"item_publish_time\":\"1745986372\",\"item_title\":\"人类对旅游小技巧的开发程度不足1% #五一#实用小技巧#生活小妙招#美团外卖必点榜\",\"like_cnt\":\"16693\",\"share_cnt\":\"5323\",\"vv\":\"1842449\"},{\"comment_cnt\":\"114\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1745738780\",\"item_id\":\"7497890901709802802\",\"item_publish_time\":\"1745738780\",\"item_title\":\"那些吃过亏才学会的人情世故 #职场干货#为人处事#鸿蒙5大有不同#HarmonyOS5#华为PuraX\",\"like_cnt\":\"2116\",\"share_cnt\":\"52\",\"vv\":\"24390\"},{\"comment_cnt\":\"99\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1745312710\",\"item_id\":\"7496060987246841098\",\"item_publish_time\":\"1745312710\",\"item_title\":\"吃过亏才学会的一些人情世故 #为人处事#人情世故#00后#0糖0脂好吃轻负担@阿尔卑斯 Alpenliebe\",\"like_cnt\":\"5381\",\"share_cnt\":\"91\",\"vv\":\"286038\"},{\"comment_cnt\":\"39355\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1743158699\",\"item_id\":\"7486809558598438154\",\"item_publish_time\":\"1743158699\",\"item_title\":\"注意：这不是短视频！是你的预告片！ #信息差 #中奖 #00后 #恭喜你中奖了 #内容过于真实\",\"like_cnt\":\"102913\",\"share_cnt\":\"16617\",\"vv\":\"803730\"},{\"comment_cnt\":\"194\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1742368940\",\"item_id\":\"7483417509639572746\",\"item_publish_time\":\"1742368940\",\"item_title\":\"当公司实行买断员工子孙制 #办公室#搞笑#爱他美 #爱他美卓傲 #新生儿奶粉推荐\",\"like_cnt\":\"11172\",\"share_cnt\":\"387\",\"vv\":\"407739\"},{\"comment_cnt\":\"22\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1740995165\",\"item_id\":\"7477517259653582131\",\"item_publish_time\":\"1740995165\",\"item_title\":\"吃过亏才学会的人情世故！ #职场那些事儿 #职场干货 #打工人 #信息差 #内容过于真实\",\"like_cnt\":\"6105\",\"share_cnt\":\"441\",\"vv\":\"337472\"},{\"comment_cnt\":\"157\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1740104650\",\"item_id\":\"7473692283385253129\",\"item_publish_time\":\"1740104650\",\"item_title\":\"父母不会教你的省钱小技巧，学会直接开挂！ #省钱小技巧#信息差#花呗攻略#花呗青春版#花呗95折\",\"like_cnt\":\"6359\",\"share_cnt\":\"180\",\"vv\":\"483235\"}]",
+        "link_convert_index": "44.81",
+        "link_convert_index_by_industry": "44.81",
+        "link_i_cnt_by_industry": "27391",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "46651",
+        "link_link_cnt_by_industry": "75651",
+        "link_n_cnt_by_industry": "1609",
+        "link_recommend_index_by_industry": "62.98",
+        "link_shopping_index": "62.98",
+        "link_spread_index": "57.51",
+        "link_spread_index_by_industry": "57.51",
+        "link_star_index": "61.86",
+        "link_star_index_by_industry": "61.86",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "糯米高压锅",
+        "price_1_20": "23200",
+        "price_20_60": "29000",
+        "price_60": "36300",
+        "promotion_prospective_1_20_cpm": "42.74",
+        "promotion_prospective_20_60_cpm": "53.43",
+        "promotion_prospective_60_cpm": "66.88",
+        "promotion_prospective_vv": "542764",
+        "prospective_1_20_cpm": "227.6496",
+        "prospective_20_60_cpm": "284.562",
+        "prospective_60_cpm": "356.1931",
+        "province": "重庆市",
+        "search_after_view_index_by_industry": "74.1",
+        "sn_expected_play_num": "101911",
+        "sn_prospective_1_20_cpe": "21.3825",
+        "sn_prospective_1_20_cpm": "227.6496",
+        "sn_prospective_20_60_cpe": "26.7281",
+        "sn_prospective_20_60_cpm": "284.562",
+        "sn_prospective_60_cpe": "33.4562",
+        "sn_prospective_60_cpm": "356.1931",
+        "star_excellent_author": "0",
+        "star_index": "74.63260648160332",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"剧情搞笑\":[\"剧情\"]}",
+        "vv_median_30d": "50970"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7510224660262554939",
+          "video_tag": 4,
+          "vv": 541711
+        },
+        {
+          "item_id": "7507149044713082169",
+          "video_tag": 4,
+          "vv": 468472
+        }
+      ],
+      "star_id": "7088311738377961512",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 36300,
+              "price_extra_info": {},
+              "start_time": "1743436800",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 23200,
+              "price_extra_info": {},
+              "start_time": "1743436800",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 36300,
+              "price_extra_info": {},
+              "start_time": "1743436800",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 29000,
+              "price_extra_info": {},
+              "start_time": "1743436800",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572115096449908746"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "b09cfc88027531ac89b63e218e47248b701e1ab0"
+}

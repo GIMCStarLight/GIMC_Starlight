@@ -1,0 +1,244 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "34",
+        "assign_task_price_list": "[72000,72000,81000]",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"自动清洁\":12330.731999999924}",
+        "author_type": "1",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813_6cf7bd6014744e5195c34045e5dd4cb6.jpeg?from=4010531038",
+        "brand_boost_vv": "1000000",
+        "burst_text_rate": "1",
+        "city": "成都市",
+        "content_theme_labels_180d": "[]",
+        "core_user_id": "2629663872257335",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "4280641",
+        "expected_play_num": "11800667",
+        "fans_increment_rate_within_15d": "0.028210891416705648",
+        "fans_increment_within_15d": "24726",
+        "fans_increment_within_30d": "32204",
+        "follower": "901215",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "6997976783567978504",
+        "interact_rate_within_30d": "0.0124",
+        "interaction_median_30d": "202421",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "1",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"8048\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761813764\",\"item_id\":\"7566932475918716206\",\"item_publish_time\":\"1761813764\",\"item_title\":\"3000买的报废水泡车，我花半个月时间将它恢复！ #老车翻新 #沉浸式洗车 #解压视频 #一只鱼抗菌防臭袜\",\"like_cnt\":\"135401\",\"share_cnt\":\"55260\",\"vv\":\"13145854\"},{\"comment_cnt\":\"8890\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761304337\",\"item_id\":\"7564744488518782258\",\"item_publish_time\":\"1761304337\",\"item_title\":\"花6000接手了一辆车主出国停地下停车场10年的车！ #吉列剃须刀 #老车翻新 #沉浸式洗车 #解压视频\",\"like_cnt\":\"149821\",\"share_cnt\":\"47680\",\"vv\":\"13881663\"},{\"comment_cnt\":\"24935\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758692230\",\"item_id\":\"7553525597004107044\",\"item_publish_time\":\"1758692230\",\"item_title\":\"我花3500买来的报废宝马，洗干净还能再开10年！ #博朗剃须刀 #老车翻新 #沉浸式洗车 #解压视频\",\"like_cnt\":\"356323\",\"share_cnt\":\"178669\",\"vv\":\"46523691\"},{\"comment_cnt\":\"4413\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755580440\",\"item_id\":\"7540160524567186728\",\"item_publish_time\":\"1755580440\",\"item_title\":\"带你沉浸式体验6千买来的宝马7系水泡车清洗！ #老车翻新 #沉浸式洗车 #嘉实多 #嘉实多磁护\",\"like_cnt\":\"80067\",\"share_cnt\":\"12967\",\"vv\":\"21723365\"},{\"comment_cnt\":\"6224\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1752667771\",\"item_id\":\"7527650612436012328\",\"item_publish_time\":\"1752667771\",\"item_title\":\"老婆想游泳，我将车改成了无边泳池！ #夏日必备 #游泳池 #汽车改装  #瓜子二手车\",\"like_cnt\":\"171338\",\"share_cnt\":\"56185\",\"vv\":\"16208957\"},{\"comment_cnt\":\"23552\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1745725618\",\"item_id\":\"7497833814840970559\",\"item_publish_time\":\"1745725618\",\"item_title\":\"没想到我8千买的豪车，洗干净竟然是堆废铁！ #沉浸式洗车 #水泡车清洗 #清扬控油洗发水 #清扬男士控油蓬松\",\"like_cnt\":\"296964\",\"share_cnt\":\"150025\",\"vv\":\"72751846\"},{\"comment_cnt\":\"3320\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1744093325\",\"item_id\":\"7490823111013633295\",\"item_publish_time\":\"1744093325\",\"item_title\":\"被抛弃7年，我想再干净一次！ #老车翻新 #沉浸式洗车 #内饰深度清洁 #解压视频\",\"like_cnt\":\"52654\",\"share_cnt\":\"15867\",\"vv\":\"5252470\"},{\"comment_cnt\":\"2036\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1740418512\",\"item_id\":\"7475040511548460323\",\"item_publish_time\":\"1740418512\",\"item_title\":\"“美女一手车”究竟是什么车！ #老车翻新 #沉浸式洗车 #内饰深度清洁 #解压视频#瓜子二手车\",\"like_cnt\":\"25265\",\"share_cnt\":\"9239\",\"vv\":\"2732416\"},{\"comment_cnt\":\"4447\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1736067256\",\"item_id\":\"7456351494405655858\",\"item_publish_time\":\"1736067256\",\"item_title\":\"5800买的报废泡水车，没想到洗干净还能开！ #沉浸式洗车 #泡水车清洗 #老车翻新复活 #解压视频\",\"like_cnt\":\"42515\",\"share_cnt\":\"11378\",\"vv\":\"5015089\"},{\"comment_cnt\":\"3763\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1731508921\",\"item_id\":\"7436772494792576266\",\"item_publish_time\":\"1731508921\",\"item_title\":\"看看我3000捡漏的二手车，洗干净你觉得值吗？ #沉浸式洗车 #老车翻新复活 #内饰深度清洁 #二手车翻新\",\"like_cnt\":\"54805\",\"share_cnt\":\"18310\",\"vv\":\"3401758\"}]",
+        "link_convert_index": "73.84",
+        "link_convert_index_by_industry": "73.84",
+        "link_i_cnt_by_industry": "8132617",
+        "link_k_cnt_by_industry": "99",
+        "link_l_cnt_by_industry": "25987589",
+        "link_link_cnt_by_industry": "44655209",
+        "link_n_cnt_by_industry": "10534904",
+        "link_recommend_index_by_industry": "96.72",
+        "link_shopping_index": "96.72",
+        "link_spread_index": "98.64",
+        "link_spread_index_by_industry": "98.64",
+        "link_star_index": "82.47",
+        "link_star_index_by_industry": "82.47",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "张哥的汽车Vlog",
+        "play_over_rate_within_30d": "0.0706",
+        "price_1_20": "42000",
+        "price_20_60": "55000",
+        "price_60": "90000",
+        "promotion_prospective_1_20_cpm": "2.58",
+        "promotion_prospective_20_60_cpm": "3.38",
+        "promotion_prospective_60_cpm": "5.53",
+        "promotion_prospective_vv": "16267131",
+        "prospective_1_20_cpm": "3.5591",
+        "prospective_20_60_cpm": "4.6608",
+        "prospective_60_cpm": "7.6267",
+        "province": "四川省",
+        "search_after_view_index_by_industry": "98.82",
+        "sn_expected_play_num": "11800667",
+        "sn_interact_rate_within_30d": "0.0124",
+        "sn_play_over_rate_within_30d": "0.0706",
+        "sn_prospective_1_20_cpe": "0.3281",
+        "sn_prospective_1_20_cpm": "3.5591",
+        "sn_prospective_20_60_cpe": "0.4296",
+        "sn_prospective_20_60_cpm": "4.6608",
+        "sn_prospective_60_cpe": "0.703",
+        "sn_prospective_60_cpm": "7.6267",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "0",
+        "star_ecom_video_num_30d": "2",
+        "star_excellent_author": "1",
+        "star_index": "66.68035473075251",
+        "star_item_count_within_30d": "2",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "4",
+        "star_video_finish_vv_rate_90d": "0.0504",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0112",
+        "star_video_median_vv_90d": "17834047",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"汽车\":[\"汽车测评\",\"汽车知识\"]}",
+        "video_brand_boost": "true",
+        "video_brand_boost_vv": "1000000",
+        "vv_median_30d": "13635894.5"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7553525597004107044",
+          "video_tag": 4,
+          "vv": 45981604
+        },
+        {
+          "item_id": "7540160524567186728",
+          "video_tag": 4,
+          "vv": 21262424
+        },
+        {
+          "item_id": "7527650612436012328",
+          "video_tag": 5,
+          "vv": 14835619
+        },
+        {
+          "item_id": "7564744488518782258",
+          "video_tag": 5,
+          "vv": 13851767
+        },
+        {
+          "item_id": "7566932475918716206",
+          "video_tag": 6,
+          "vv": 13420022
+        }
+      ],
+      "star_id": "6997976783567978504",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3200,
+              "price_extra_info": {},
+              "start_time": "1650943032",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 55000,
+              "price_extra_info": {},
+              "start_time": "1756656000",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 42000,
+              "price_extra_info": {},
+              "start_time": "1756656000",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 34,
+              "price_extra_info": {
+                "ceiling_price": "75000",
+                "floor_price": "10000"
+              },
+              "start_time": "1747664288",
+              "task_category": 1,
+              "video_type": 92,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 90000,
+              "price_extra_info": {},
+              "start_time": "1756656000",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 90000,
+              "price_extra_info": {},
+              "start_time": "1756543613",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 24500,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572103468127977522"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "ee4fe3b5f73a3551bc079336c5a6b352a2f5fab1"
+}

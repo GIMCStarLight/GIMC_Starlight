@@ -23,13 +23,44 @@
       </div>
     </div>
 
-    <!-- 优化后的快速筛选 -->
-    <QuickFiltersOptimized
+    <!-- 平台切换Tab栏 -->
+    <div class="platform-tabs-wrapper">
+      <el-tabs v-model="currentPlatform" @tab-change="handlePlatformChange" class="platform-tabs">
+        <el-tab-pane 
+          v-for="platform in platforms" 
+          :key="platform.value" 
+          :label="platform.label" 
+          :name="platform.value"
+        >
+          <template #label>
+            <div class="platform-tab-label">
+              <div class="platform-icon">
+                <img v-if="platform.icon.startsWith('http') || platform.icon.startsWith('data:')" :src="platform.icon" :alt="platform.label" />
+                <Icon v-else :icon="platform.icon" />
+              </div>
+              <span>{{ platform.label }}</span>
+              <el-badge 
+                v-if="platform.count !== undefined" 
+                :value="platform.count" 
+                :max="9999" 
+                class="platform-count-badge"
+              />
+            </div>
+          </template>
+        </el-tab-pane>
+      </el-tabs>
+    </div>
+
+    <!-- 根据平台动态显示筛选组件 -->
+    <component 
+      :is="getQuickFilterComponent(currentPlatform)"
+      :key="`quick-filter-${currentPlatform}`"
       @filter-change="handleQuickFilterChange"
     />
 
-    <!-- 优化后的高级筛选 -->
-    <AdvancedFiltersOptimized
+    <component 
+      :is="getAdvancedFilterComponent(currentPlatform)"
+      :key="`advanced-filter-${currentPlatform}`"
       ref="advancedFiltersRef"
       @filter-change="handleAdvancedFilterChange"
     />
@@ -96,12 +127,14 @@
         </div>
       </div>
 
-      <!-- 达人列表 -->
-      <InfluencerGrid
-        :key="`grid-${currentPage}-${influencers.length}`"
+      <!-- 达人列表 - 根据平台动态切换展示组件 -->
+      <component
+        :is="getGridComponent(currentPlatform)"
+        :key="`grid-${currentPlatform}-${currentPage}-${influencers.length}`"
         :view-mode="viewMode"
         :card-size="cardSize"
         :loading="loading"
+        :platform="currentPlatform"
         @update-data="updateInfluencerData"
         @evaluate="handleEvaluate"
       />
@@ -131,12 +164,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, markRaw } from 'vue'
 import { IconifyIcon as Icon } from '@vben/icons'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import QuickFiltersOptimized from './components/QuickFiltersOptimized.vue'
-import AdvancedFiltersOptimized from './components/AdvancedFiltersCompact.vue'
-import InfluencerGrid from './components/InfluencerGrid.vue'
 import EvaluateDialog from '#/components/EvaluateDialog/index.vue'
 import { useInfluencerSquareStore } from '#/store/influencer-square'
 import { storeToRefs } from 'pinia'
@@ -146,6 +176,47 @@ import {
   type AdvancedFilterParams
 } from '#/api/influencer-filter'
 import { createCrawlJob, pollCrawlJobStatus, type CrawlJobStatus, type CrawlJobDetailResponse } from '#/api/crawler'
+
+// 平台特色筛选组件
+import AllPlatformsQuickFilter from './components/platform-filters/AllPlatformsQuickFilter.vue'
+import DouyinQuickFilter from './components/platform-filters/DouyinQuickFilter.vue' // 抖音平台的快速筛选组件
+import XiaohongshuQuickFilter from './components/platform-filters/XiaohongshuQuickFilter.vue'
+import WeiboQuickFilter from './components/platform-filters/WeiboQuickFilter.vue'
+import BilibiliQuickFilter from './components/platform-filters/BilibiliQuickFilter.vue'
+import KuaishouQuickFilter from './components/platform-filters/KuaishouQuickFilter.vue'
+import WechatQuickFilter from './components/platform-filters/WechatQuickFilter.vue'
+
+// 平台高级筛选组件
+import DouyinAdvancedFilter from './components/platform-filters/DouyinAdvancedFilter.vue' // 抖音平台的高级筛选组件
+
+// 平台展示组件
+import AllPlatformsGrid from './components/platform-grids/AllPlatformsGrid.vue'
+import DouyinGrid from './components/platform-grids/DouyinGrid.vue' // 抖音平台的展示组件
+import XiaohongshuGrid from './components/platform-grids/XiaohongshuGrid.vue'
+import WeiboGrid from './components/platform-grids/WeiboGrid.vue'
+import BilibiliGrid from './components/platform-grids/BilibiliGrid.vue'
+import KuaishouGrid from './components/platform-grids/KuaishouGrid.vue'
+import WechatGrid from './components/platform-grids/WechatGrid.vue'
+
+// 平台配置
+interface PlatformConfig {
+  value: string
+  label: string
+  icon: string
+  count?: number
+}
+
+const platforms = ref<PlatformConfig[]>([
+  { value: 'all', label: '全部平台', icon: 'lucide:globe', count: undefined },
+  { value: 'douyin', label: '抖音', icon: 'https://th.bing.com/th/id/ODF.6ZkCjv2hR5s6SR35yaulqQ?w=32&h=32&qlt=90&pcl=fffffc&o=6&cb=ucfimg1&pid=1.2&ucfimg=1', count: undefined },
+  { value: 'xiaohongshu', label: '小红书', icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAIBSURBVDhPpZPLS5RhFIfnX9CERJE0G2dGiLLMCS98c4mQNlHwFV6qTYEJZZEhXqiggoSuFilhakkhRSphYFBRUUQJ5SyaFi5c5CJq2QUSPE/n/d6ZbBUDszi8F87vOe93fufzscZxpSzylbII4neWdC//Dc3xco1GtT4JRBYIxKw4Q4AHMRrV+vTSXiiVQDSzWH7tkgFYciAqBGN/E7zVnNN7s5qzhs23OgswYr8DKzfaxJAmFm22UVwDhVWwuhbyK21OaR1SXJMCqFiKwkJ5HE5eBL8C8irAbYWmNog3wp6jUOdCxzno7IUN25CtzV5hn5TUimxpFNyDkPgEOw6AswvevIfrozA6Dr8XFXIE3s3Cz1/w6Bly4kIKkF8pMvZQuHEXJh7D7QdwcwxevoXp59BwyK71e2E2CfOf4cs3pKlNZFW1Asy3TL8Qus/D1FMYuANXhuDSIB40stsmFVy9E5Jz8HoGrt1CZhIiwVgKcLpPOHUZPny0FXv74ckr6BuGe1Pw/Qds3w9XRzT0bt8xJJEUCcUVYFwo1CYa4fGzULBJG9dgxS1dMKifM3IfWnu0qYdtL9rPIC1dYopbFxTiWWZsCqrnJWrdivUKU/ty10HOWrUyvGytFpGCqlQTzQvSs/Dv4KSHyqwhtdjsvXMUCWpRE94cZD3K2f5M2f3OjvsHKgyYDgVwnokAAAAASUVORK5CYII=', count: undefined },
+  { value: 'weibo', label: '微博', icon: 'https://th.bing.com/th/id/ODF.qJ-ykoFwP262TObc-fcbNQ?w=32&h=32&qlt=90&pcl=fffffa&o=6&cb=ucfimg1&pid=1.2&ucfimg=1', count: undefined },
+  { value: 'bilibili', label: 'B站', icon: 'https://th.bing.com/th/id/ODF.HcIfqnk4n-lbffGcaqDC2w?w=32&h=32&qlt=97&pcl=fffffa&o=6&cb=ucfimg1&pid=1.2&ucfimg=1', count: undefined },
+  { value: 'kuaishou', label: '快手', icon: 'https://th.bing.com/th/id/ODF.gZu0GMZwmj-vdqhMRZZODQ?w=32&h=32&qlt=90&pcl=fffffa&o=6&cb=ucfimg1&pid=1.2&ucfimg=1', count: undefined },
+  { value: 'wechat', label: '微信', icon: 'https://th.bing.com/th/id/ODF.BvtHqZTl6qLypPDIASUGoA?w=32&h=32&qlt=90&pcl=fffffa&o=6&cb=ucfimg1&pid=1.2&ucfimg=1', count: undefined },
+])
+
+const currentPlatform = ref('all')
 
 console.log('🎯 [index-v3] 页面组件初始化')
 
@@ -176,6 +247,60 @@ const currentEvaluateAuthorId = ref('')
 const currentFilters = ref<AdvancedFilterParams>({})
 // 仅展示已匹配达人开关
 const matchedOnly = ref(false)
+
+// 平台切换处理
+const handlePlatformChange = (platformValue: string) => {
+  console.log('🔄 平台切换:', platformValue)
+  currentPlatform.value = platformValue
+  
+  // 清空筛选条件
+  currentFilters.value = {}
+  
+  // 根据平台设置筛选条件
+  if (platformValue !== 'all') {
+    currentFilters.value.platform = platformValue
+  }
+  
+  // 重新加载数据
+  store.setFilters(currentFilters.value)
+  store.setCurrentPage(1)
+  store.loadInfluencers()
+}
+
+// 根据平台获取对应的筛选组件
+const getQuickFilterComponent = (platform: string) => {
+  const filterMap: Record<string, any> = {
+    'all': AllPlatformsQuickFilter,      // 全部平台 - 待补充
+    'douyin': DouyinQuickFilter,          // 抖音 - 当前已有实现
+    'xiaohongshu': XiaohongshuQuickFilter, // 小红书 - 待补充
+    'weibo': WeiboQuickFilter,            // 微博 - 待补充
+    'bilibili': BilibiliQuickFilter,      // B站 - 待补充
+    'kuaishou': KuaishouQuickFilter,      // 快手 - 待补充
+    'wechat': WechatQuickFilter,          // 微信 - 待补充
+  }
+  return markRaw(filterMap[platform] || AllPlatformsQuickFilter)
+}
+
+const getAdvancedFilterComponent = (platform: string) => {
+  // 抖音使用专属的高级筛选组件，其他平台暂时使用抖音的组件（待各平台补充专属组件）
+  const filterMap: Record<string, any> = {
+    'douyin': DouyinAdvancedFilter,  // 抖音 - 专属高级筛选
+  }
+  return markRaw(filterMap[platform] || DouyinAdvancedFilter)
+}
+
+const getGridComponent = (platform: string) => {
+  const gridMap: Record<string, any> = {
+    'all': AllPlatformsGrid,              // 全部平台 - 待补充
+    'douyin': DouyinGrid,                 // 抖音 - 当前已有实现
+    'xiaohongshu': XiaohongshuGrid,       // 小红书 - 待补充
+    'weibo': WeiboGrid,                   // 微博 - 待补充
+    'bilibili': BilibiliGrid,             // B站 - 待补充
+    'kuaishou': KuaishouGrid,             // 快手 - 待补充
+    'wechat': WechatGrid,                 // 微信 - 待补充
+  }
+  return markRaw(gridMap[platform] || AllPlatformsGrid)
+}
 
 // 监听store状态变化
 watch(
@@ -344,7 +469,9 @@ const handleSizeChange = (size: number) => {
 // 处理快速筛选变化
 const handleQuickFilterChange = (filters: AdvancedFilterParams) => {
   console.log('🛠️ 快速筛选变化:', filters)
-  currentFilters.value = { ...currentFilters.value, ...filters, matchedOnly: matchedOnly.value }
+  // 保留平台筛选
+  const platformFilter = currentPlatform.value !== 'all' ? { platform: currentPlatform.value } : {}
+  currentFilters.value = { ...currentFilters.value, ...filters, ...platformFilter, matchedOnly: matchedOnly.value }
   // 更新store的筛选条件并重新加载数据
   store.setFilters(currentFilters.value)
   store.setCurrentPage(1)
@@ -354,7 +481,9 @@ const handleQuickFilterChange = (filters: AdvancedFilterParams) => {
 // 处理高级筛选变化
 const handleAdvancedFilterChange = (filters: AdvancedFilterParams) => {
   console.log('⚙️ 高级筛选变化:', filters)
-  currentFilters.value = { ...currentFilters.value, ...filters, matchedOnly: matchedOnly.value }
+  // 保留平台筛选
+  const platformFilter = currentPlatform.value !== 'all' ? { platform: currentPlatform.value } : {}
+  currentFilters.value = { ...currentFilters.value, ...filters, ...platformFilter, matchedOnly: matchedOnly.value }
   // 更新store的筛选条件并重新加载数据
   store.setFilters(currentFilters.value)
   store.setCurrentPage(1)
@@ -364,7 +493,9 @@ const handleAdvancedFilterChange = (filters: AdvancedFilterParams) => {
 // 处理"仅展示已匹配"切换
 const handleMatchedOnlyToggle = () => {
   console.log('🔄 [匹配筛选] 开关状态:', matchedOnly.value)
-  currentFilters.value = { ...currentFilters.value, matchedOnly: matchedOnly.value }
+  // 保留平台筛选
+  const platformFilter = currentPlatform.value !== 'all' ? { platform: currentPlatform.value } : {}
+  currentFilters.value = { ...currentFilters.value, ...platformFilter, matchedOnly: matchedOnly.value }
   store.setFilters(currentFilters.value)
   store.setCurrentPage(1)
   store.loadInfluencers()
@@ -565,6 +696,83 @@ if (typeof window !== 'undefined') {
     .header-right {
       display: flex;
       gap: 12px;
+    }
+  }
+
+  /* 平台切换Tab栏 */
+  .platform-tabs-wrapper {
+    margin-bottom: 20px;
+    background: var(--el-bg-color);
+    border-radius: 8px;
+    padding: 16px 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    .platform-tabs {
+      :deep(.el-tabs__header) {
+        margin-bottom: 0;
+        border-bottom: 2px solid var(--el-border-color-light);
+      }
+
+      :deep(.el-tabs__nav-wrap) {
+        &::after {
+          display: none;
+        }
+      }
+
+      :deep(.el-tabs__item) {
+        padding: 0 20px;
+        height: 48px;
+        line-height: 48px;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--el-text-color-regular);
+        transition: all 0.3s;
+
+        &:hover {
+          color: var(--el-color-primary);
+        }
+
+        &.is-active {
+          color: var(--el-color-primary);
+          font-weight: 600;
+        }
+      }
+
+      :deep(.el-tabs__active-bar) {
+        height: 3px;
+        background: var(--el-color-primary);
+      }
+
+      .platform-tab-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .platform-icon {
+          font-size: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          
+          /* 处理图标为URL时的显示 */
+          :deep(img) {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+          }
+        }
+
+        .platform-count-badge {
+          :deep(.el-badge__content) {
+            background-color: var(--el-color-primary);
+            border: none;
+            font-size: 11px;
+            height: 18px;
+            line-height: 18px;
+            padding: 0 6px;
+          }
+        }
+      }
     }
   }
   

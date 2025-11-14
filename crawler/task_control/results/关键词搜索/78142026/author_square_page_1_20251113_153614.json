@@ -1,0 +1,210 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "47",
+        "assign_task_price_list": "[40000,40000,52000,60000,65000,65000]",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"年轻人\":0.03466666666666667}",
+        "author_type": "2",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_74bd18135402203739508629c5ce2668.jpeg?from=4010531038",
+        "brand_boost_vv": "10802",
+        "city": "南京",
+        "content_theme_labels_180d": "[\"新能源汽车资讯\",\"国产汽车\",\"智能汽车\",\"电动车续航\",\"用车成本\",\"超跑测评\",\"家庭旅行\",\"消费体验\",\"剧情反转\",\"汽车油耗\"]",
+        "core_user_id": "69566084962",
+        "e_commerce_enable": "0",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "227799",
+        "expected_play_num": "524918",
+        "fans_increment_rate_within_15d": "-0.0021312015558882",
+        "fans_increment_within_15d": "-1727",
+        "fans_increment_within_30d": "-3703",
+        "follower": "808686",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "7405141770851336218",
+        "interact_rate_within_30d": "0.0097",
+        "interaction_median_30d": "5293",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"875\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760412699\",\"item_id\":\"7560914956925848875\",\"item_publish_time\":\"1760412699\",\"item_title\":\"问界M9 ADS 4实测，这次OTA实力太强了#问界M9#问界智游山河#问界M9五十万级销冠\",\"like_cnt\":\"6830\",\"share_cnt\":\"129\",\"vv\":\"779607\"},{\"comment_cnt\":\"133\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760346248\",\"item_id\":\"7560629529136434474\",\"item_publish_time\":\"1760346248\",\"item_title\":\"2025车险新规，怎么买不被坑#蚂蚁保车险#好险我有蚂蚁保\",\"like_cnt\":\"18781\",\"share_cnt\":\"85\",\"vv\":\"512529\"},{\"comment_cnt\":\"445\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758546280\",\"item_id\":\"7552898668915887399\",\"item_publish_time\":\"1758546280\",\"item_title\":\"强强联合，2026款阿维塔07，平权不将就！#2026款阿维塔07上市#阿维塔07#满配生活如7而至\",\"like_cnt\":\"10682\",\"share_cnt\":\"102\",\"vv\":\"883320\"},{\"comment_cnt\":\"323\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758525564\",\"item_id\":\"7552809763680095527\",\"item_publish_time\":\"1758525564\",\"item_title\":\"全新一代速腾L，这实际体验真的太全面了！#全新一代速腾L #一汽大众\",\"like_cnt\":\"57861\",\"share_cnt\":\"646\",\"vv\":\"1519036\"},{\"comment_cnt\":\"137\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1757505436\",\"item_id\":\"7548428308657065257\",\"item_publish_time\":\"1757505436\",\"item_title\":\"重生之我是鸿蒙智行销冠？全新问界M7卖爆了？#全新问界M7#全新问界M7幸福旗舰#全新问界M7到店大揭秘\",\"like_cnt\":\"10152\",\"share_cnt\":\"40\",\"vv\":\"6071575\"},{\"comment_cnt\":\"119\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756647407\",\"item_id\":\"7544743069376073006\",\"item_publish_time\":\"1756731600\",\"item_title\":\"自驾最怕续航掉太快？看看这台深蓝S05 #15万内续航新标杆#深蓝S05 #成都车展\",\"like_cnt\":\"1813\",\"share_cnt\":\"45\",\"vv\":\"1605038\"},{\"comment_cnt\":\"143\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756617597\",\"item_id\":\"7544615092181011731\",\"item_publish_time\":\"1756617597\",\"item_title\":\"悔！给车买险积极，自己摔了没人管，幸好找到兜底的 #自驾游 #意外\",\"like_cnt\":\"9453\",\"share_cnt\":\"52\",\"vv\":\"1921064\"},{\"comment_cnt\":\"220\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756191636\",\"item_id\":\"7542785616191229220\",\"item_publish_time\":\"1756191636\",\"item_title\":\"零跑B01一周卖2000台！小鹏M03难顶了？#最值得买的销冠车#零跑B01#小鹏M03\",\"like_cnt\":\"1472\",\"share_cnt\":\"234\",\"vv\":\"1950252\"},{\"comment_cnt\":\"95\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755338792\",\"item_id\":\"7539122700963794236\",\"item_publish_time\":\"1755338792\",\"item_title\":\"下个努力目标！ #汽车共创人计划    #豪华车 #汽车卡点\",\"like_cnt\":\"2863\",\"share_cnt\":\"39\",\"vv\":\"1654306\"},{\"comment_cnt\":\"195\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1754969031\",\"item_id\":\"7537534548507168041\",\"item_publish_time\":\"1754969031\",\"item_title\":\"5年狂卖170多万台！这辆3万小车竟有人开去结婚？#宏光MINIEV五周年#宏光MINIEV四门版\",\"like_cnt\":\"11340\",\"share_cnt\":\"46\",\"vv\":\"1444234\"}]",
+        "link_convert_index": "56.22",
+        "link_convert_index_by_industry": "56.22",
+        "link_i_cnt_by_industry": "87615",
+        "link_k_cnt_by_industry": "3",
+        "link_l_cnt_by_industry": "940075",
+        "link_link_cnt_by_industry": "1029333",
+        "link_n_cnt_by_industry": "1640",
+        "link_recommend_index_by_industry": "55.11",
+        "link_shopping_index": "55.11",
+        "link_spread_index": "63.6",
+        "link_spread_index_by_industry": "63.6",
+        "link_star_index": "63.72",
+        "link_star_index_by_industry": "63.72",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "阿源说车",
+        "play_over_rate_within_30d": "0.5664",
+        "price_1_20": "40000",
+        "price_20_60": "50000",
+        "price_60": "60000",
+        "promotion_prospective_1_20_cpm": "55.1",
+        "promotion_prospective_20_60_cpm": "68.87",
+        "promotion_prospective_60_cpm": "82.64",
+        "promotion_prospective_vv": "726002",
+        "prospective_1_20_cpm": "76.2024",
+        "prospective_20_60_cpm": "95.253",
+        "prospective_60_cpm": "114.3036",
+        "province": "",
+        "search_after_view_index_by_industry": "73.69",
+        "sn_expected_play_num": "524918",
+        "sn_interact_rate_within_30d": "0.0097",
+        "sn_play_over_rate_within_30d": "0.5664",
+        "sn_prospective_1_20_cpe": "11.6448",
+        "sn_prospective_1_20_cpm": "76.2024",
+        "sn_prospective_20_60_cpe": "14.556",
+        "sn_prospective_20_60_cpm": "95.253",
+        "sn_prospective_60_cpe": "17.4672",
+        "sn_prospective_60_cpm": "114.3036",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "72",
+        "star_ecom_video_num_30d": "1",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "6",
+        "star_video_finish_vv_rate_90d": "0.65",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.01",
+        "star_video_median_vv_90d": "1201224",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"二次元\":[\"二次元\"]}",
+        "video_brand_boost": "true",
+        "video_brand_boost_vv": "10802",
+        "vv_median_30d": "661194"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7530942499214183738",
+          "video_tag": 3,
+          "vv": 3045493
+        },
+        {
+          "item_id": "7542785616191229220",
+          "video_tag": 3,
+          "vv": 1778625
+        },
+        {
+          "item_id": "7548428308657065257",
+          "video_tag": 4,
+          "vv": 6014929
+        },
+        {
+          "item_id": "7526850661678402835",
+          "video_tag": 4,
+          "vv": 5611910
+        },
+        {
+          "item_id": "7544615092181011731",
+          "video_tag": 5,
+          "vv": 1826025
+        },
+        {
+          "item_id": "7513175259298696486",
+          "video_tag": 5,
+          "vv": 1695238
+        },
+        {
+          "item_id": "7560914956925848875",
+          "video_tag": 6,
+          "vv": 661194
+        },
+        {
+          "item_id": "7560629529136434474",
+          "video_tag": 6,
+          "vv": 435778
+        }
+      ],
+      "star_id": "7405141770851336218",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 60000,
+              "price_extra_info": {},
+              "start_time": "1759248000",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 50000,
+              "price_extra_info": {},
+              "start_time": "1759248000",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 40000,
+              "price_extra_info": {},
+              "start_time": "1759248000",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572110415205793838"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "7c48d7bfdb29b0d276f2265f1e68fbcfdb71b231"
+}

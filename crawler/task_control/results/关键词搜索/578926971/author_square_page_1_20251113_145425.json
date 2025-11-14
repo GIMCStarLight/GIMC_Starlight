@@ -1,0 +1,237 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "19",
+        "assign_task_price_list": "[7200,7200,7200,7200]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"聚会\":0,\"酥脆\":0}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_f3491a167ce3166fb2df74259169af9d.jpeg?from=4010531038",
+        "brand_boost_vv": "145414",
+        "city": "重庆",
+        "content_theme_labels_180d": "[\"荤菜教程\",\"家常菜教程\",\"海鲜烹饪\",\"自制美食\",\"下饭菜教程\",\"辣味美食\",\"家常菜谱\",\"海鲜美食\",\"糕点教程\",\"面食制作\"]",
+        "core_user_id": "92363211174",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "1k-3w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "enroll_task_price_list": "[3000,3000,4968]",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "104221",
+        "expected_play_num": "133298",
+        "fans_increment_rate_within_15d": "0.0032494870791380556",
+        "fans_increment_within_15d": "1096",
+        "fans_increment_within_30d": "2537.53",
+        "follower": "338372",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7047094656466681864",
+        "interact_rate_within_30d": "0.056",
+        "interaction_median_30d": "4493",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"64\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762866042\",\"item_id\":\"7571451983728430435\",\"item_publish_time\":\"1762866042\",\"item_title\":\"麻辣香肠整的锅巴土豆焖饭也太绝了吧！！流口水～ #锅巴 #焖饭 #家常菜 #美食\",\"like_cnt\":\"525\",\"share_cnt\":\"657\",\"vv\":\"40632\"},{\"comment_cnt\":\"316\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762248789\",\"item_id\":\"7568800904682559055\",\"item_publish_time\":\"1762248789\",\"item_title\":\"川渝漂亮饭：笋丝葱葱无刺鲫鱼 加 火爆毛肚儿～ #无刺鲫鱼 #双立人钛金刀套组 #双立人银光抗锈钛铁炒锅\",\"like_cnt\":\"3697\",\"share_cnt\":\"1130\",\"vv\":\"276958\"},{\"comment_cnt\":\"138\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1761906429\",\"item_id\":\"7567330469243702656\",\"item_publish_time\":\"1761906429\",\"item_title\":\"酥脆！爆汁！还得是老式脆皮蒜香排骨 #蒜香排骨 #胡姬花舞落花生香 #胡姬花古法小榨花生油\",\"like_cnt\":\"8679\",\"share_cnt\":\"11376\",\"vv\":\"1161168\"},{\"comment_cnt\":\"1027\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761743148\",\"item_id\":\"7566629183423149952\",\"item_publish_time\":\"1761743148\",\"item_title\":\"就随便吃个 鱿鱼须小龙虾干锅吧～ #干锅 #鱿鱼须 #小龙虾 #下饭神器 #无辣不欢美食\",\"like_cnt\":\"28947\",\"share_cnt\":\"70074\",\"vv\":\"1216501\"},{\"comment_cnt\":\"209\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761569710\",\"item_id\":\"7565884237380323904\",\"item_publish_time\":\"1761569710\",\"item_title\":\"天冷～吃泡椒笋子牛肉也太幸福了吧！！ 还可以拿来下面！#下饭菜 #家常菜 #泡椒牛肉\",\"like_cnt\":\"5142\",\"share_cnt\":\"5998\",\"vv\":\"314018\"},{\"comment_cnt\":\"88\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761224520\",\"item_id\":\"7564401690914327860\",\"item_publish_time\":\"1761224520\",\"item_title\":\"吃呱呱！飘香麻麻儿～小呱呱！流口水没得？ #蛙蛙  #无辣不欢 #下饭菜 #下饭神器\",\"like_cnt\":\"1387\",\"share_cnt\":\"1248\",\"vv\":\"121548\"},{\"comment_cnt\":\"86\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761052049\",\"item_id\":\"7563660951879191843\",\"item_publish_time\":\"1761052049\",\"item_title\":\"一口一个鲜脆小鱿鱼真的太爽了！记得买有膏的！ #火爆 #鱿鱼 #下饭菜 #天儿冷吃点啥\",\"like_cnt\":\"2130\",\"share_cnt\":\"1837\",\"vv\":\"144671\"},{\"comment_cnt\":\"149\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759755944\",\"item_id\":\"7558094218108734755\",\"item_publish_time\":\"1759755944\",\"item_title\":\"有你喜欢吃的吗？来看小卷卷中秋做了什么菜 #中秋节快乐 #中秋 #国庆 #梭子蟹\",\"like_cnt\":\"3625\",\"share_cnt\":\"1896\",\"vv\":\"220409\"},{\"comment_cnt\":\"61\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759238549\",\"item_id\":\"7555872024465542435\",\"item_publish_time\":\"1759238549\",\"item_title\":\"脆皮霸王鸡翅！确实霸道！！ #27天烧不坏 #锅坚强 #爱仕达铁锅\",\"like_cnt\":\"2380\",\"share_cnt\":\"1626\",\"vv\":\"116584\"},{\"comment_cnt\":\"50\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758535773\",\"item_id\":\"7552853613980486952\",\"item_publish_time\":\"1758535773\",\"item_title\":\"中秋大餐！一箱全搞定～ #凯度TDmax蒸烤一体机 #凯度双热风TDmax\",\"like_cnt\":\"1109\",\"share_cnt\":\"173\",\"vv\":\"113949\"}]",
+        "link_convert_index": "74.81",
+        "link_convert_index_by_industry": "74.81",
+        "link_i_cnt_by_industry": "644267",
+        "link_k_cnt_by_industry": "56",
+        "link_l_cnt_by_industry": "2252189",
+        "link_link_cnt_by_industry": "2945297",
+        "link_n_cnt_by_industry": "48785",
+        "link_recommend_index_by_industry": "76.64",
+        "link_shopping_index": "76.64",
+        "link_spread_index": "73.18",
+        "link_spread_index_by_industry": "73.18",
+        "link_star_index": "76.93",
+        "link_star_index_by_industry": "76.93",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "Ar小卷卷",
+        "play_over_rate_within_30d": "0.0767",
+        "price_1_20": "6000",
+        "price_20_60": "7200",
+        "price_60": "7200",
+        "promotion_prospective_1_20_cpm": "47.33",
+        "promotion_prospective_20_60_cpm": "55.22",
+        "promotion_prospective_60_cpm": "56.79",
+        "promotion_prospective_vv": "126773",
+        "prospective_1_20_cpm": "45.0119",
+        "prospective_20_60_cpm": "54.0143",
+        "prospective_60_cpm": "54.0143",
+        "province": "",
+        "search_after_view_index_by_industry": "76.97",
+        "sn_expected_play_num": "133298",
+        "sn_interact_rate_within_30d": "0.056",
+        "sn_play_over_rate_within_30d": "0.0767",
+        "sn_prospective_1_20_cpe": "1.7306",
+        "sn_prospective_1_20_cpm": "45.0119",
+        "sn_prospective_20_60_cpe": "2.0767",
+        "sn_prospective_20_60_cpm": "54.0143",
+        "sn_prospective_60_cpe": "2.0767",
+        "sn_prospective_60_cpm": "54.0143",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "959",
+        "star_ecom_video_num_30d": "3",
+        "star_ecom_video_product_num_30d": "0",
+        "star_excellent_author": "0",
+        "star_index": "55.362169458107125",
+        "star_item_count_within_30d": "2",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "4",
+        "star_video_finish_vv_rate_90d": "0.0384",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0164",
+        "star_video_median_vv_90d": "539101",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食教程\"]}",
+        "video_brand_boost": "true",
+        "video_brand_boost_vv": "145414",
+        "vv_median_30d": "243235"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7505770462249651490",
+          "video_tag": 3,
+          "vv": 1412813
+        },
+        {
+          "item_id": "7542878743980543266",
+          "video_tag": 3,
+          "vv": 1170661
+        },
+        {
+          "item_id": "7567330469243702656",
+          "video_tag": 4,
+          "vv": 1125900
+        },
+        {
+          "item_id": "7551738457606114595",
+          "video_tag": 4,
+          "vv": 619420
+        },
+        {
+          "item_id": "7515047523313913103",
+          "video_tag": 5,
+          "vv": 1031217
+        },
+        {
+          "item_id": "7566629183423149952",
+          "video_tag": 5,
+          "vv": 980000
+        },
+        {
+          "item_id": "7571451983728430435",
+          "video_tag": 6,
+          "vv": 59485
+        },
+        {
+          "item_id": "7568800904682559055",
+          "video_tag": 6,
+          "vv": 376388
+        }
+      ],
+      "star_id": "7047094656466681864",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 7000,
+              "price_extra_info": {},
+              "start_time": "1762918498",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 4800,
+              "price_extra_info": {},
+              "start_time": "1667232000",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 7200,
+              "price_extra_info": {},
+              "start_time": "1762918498",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 6000,
+              "price_extra_info": {},
+              "start_time": "1762918498",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 7200,
+              "price_extra_info": {},
+              "start_time": "1762918498",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572099674813464585"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "a66447d7f7e9c2eb838a50443b461576ec0841dc"
+}

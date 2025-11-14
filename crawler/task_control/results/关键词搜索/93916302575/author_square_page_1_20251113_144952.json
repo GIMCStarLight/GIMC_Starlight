@@ -1,0 +1,249 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "9",
+        "assign_task_price_list": "[6000,6000,6000,8640,10240,10500,12000,15000]",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"早餐\":36.88199999999991}",
+        "author_type": "1",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_33c6bca9f6711749ead45ff4d8e804d8.jpeg?from=4010531038",
+        "burst_text_rate": "1",
+        "city": "济南",
+        "content_theme_labels_180d": "[\"辣味美食\",\"美食吃播\",\"海鲜美食\",\"烧烤\",\"美食挑战\",\"泡面\",\"雪糕测评\",\"零食测评\"]",
+        "core_user_id": "3857542532835699",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "enroll_task_price_list": "[10000,10000]",
+        "expected_cpa3_level": "3",
+        "expected_natural_play_num": "1759241",
+        "expected_play_num": "2224919",
+        "fans_increment_rate_within_15d": "0.01755977609357523",
+        "fans_increment_within_15d": "28007",
+        "fans_increment_within_30d": "57681",
+        "follower": "1622851",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "7212649876599865381",
+        "interact_rate_within_30d": "0.0158",
+        "interaction_median_30d": "36012",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "1",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"1004\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762430179\",\"item_id\":\"7569579963680064457\",\"item_publish_time\":\"1762430179\",\"item_title\":\"辣椒火鸡面鳗鱼龙虾#妈呀太香了 #火鸡面 #辣椒 #龙虾 #无辣不欢\",\"like_cnt\":\"15367\",\"share_cnt\":\"1873\",\"vv\":\"1263435\"},{\"comment_cnt\":\"2883\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761652798\",\"item_id\":\"7566241142300233006\",\"item_publish_time\":\"1761652798\",\"item_title\":\"八爪鱼鲍鱼无骨鸡爪鳗鱼#妈呀太香了 #八爪鱼 #无骨鸡爪 #鲍鱼 #无辣不欢\",\"like_cnt\":\"33177\",\"share_cnt\":\"5117\",\"vv\":\"3084832\"},{\"comment_cnt\":\"2783\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761134179\",\"item_id\":\"7564013695409556786\",\"item_publish_time\":\"1761134179\",\"item_title\":\"辣椒火鸡面脆皮五花肉鲍鱼粉耗子#妈呀太香了 #火鸡面 #辣椒 #鲍鱼 #无辣不欢\",\"like_cnt\":\"38004\",\"share_cnt\":\"7127\",\"vv\":\"3778742\"},{\"comment_cnt\":\"2796\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761132991\",\"item_id\":\"7564008588185865523\",\"item_publish_time\":\"1761132991\",\"item_title\":\"火鸡面粉耗子三文鱼脆皮五花肉#妈呀太香了 #火鸡面 #花小钱拼好饭  #脆皮五花肉 #无辣不欢\",\"like_cnt\":\"44024\",\"share_cnt\":\"7352\",\"vv\":\"1522580\"},{\"comment_cnt\":\"1744\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760011738\",\"item_id\":\"7559192841558215963\",\"item_publish_time\":\"1760011738\",\"item_title\":\"鬼椒面鲍鱼脆皮五花肉雪糕#妈呀太香了 #鲍鱼 #脆皮五花肉 #雪糕 #无辣不欢\",\"like_cnt\":\"24069\",\"share_cnt\":\"3898\",\"vv\":\"2582484\"},{\"comment_cnt\":\"1762\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759579064\",\"item_id\":\"7557334512331640074\",\"item_publish_time\":\"1759579064\",\"item_title\":\"八爪鱼辣椒火鸡面脆皮五花肉#妈呀太香了 #辣椒 #火鸡面 #脆皮五花肉 #无辣不欢\",\"like_cnt\":\"15528\",\"share_cnt\":\"1692\",\"vv\":\"1483930\"},{\"comment_cnt\":\"11943\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1759053101\",\"item_id\":\"7555075534422560051\",\"item_publish_time\":\"1759053101\",\"item_title\":\"鲍鱼烤生蚝金针菇爆辣无骨鸡爪#妈呀太香了 #鲍鱼 #金针菇 #无骨鸡爪 #无辣不欢\",\"like_cnt\":\"189498\",\"share_cnt\":\"265744\",\"vv\":\"12828343\"},{\"comment_cnt\":\"2394\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758600870\",\"item_id\":\"7553133216681741614\",\"item_publish_time\":\"1758600870\",\"item_title\":\"辣椒烤羊蛋烤羊腿脆皮五花肉#妈呀太香了  #RIO强爽 #强爽茉莉青提新口味  #烤羊腿 #无辣不欢\",\"like_cnt\":\"32633\",\"share_cnt\":\"4221\",\"vv\":\"3504682\"},{\"comment_cnt\":\"3752\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758094279\",\"item_id\":\"7550957414792187174\",\"item_publish_time\":\"1758094279\",\"item_title\":\"辣椒鬼椒面鱿鱼#妈呀太香了 #辣椒 #鬼椒面 #鱿鱼 #无辣不欢\",\"like_cnt\":\"49241\",\"share_cnt\":\"6252\",\"vv\":\"4954252\"},{\"comment_cnt\":\"1630\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757678104\",\"item_id\":\"7549169954084818202\",\"item_publish_time\":\"1757678104\",\"item_title\":\"火鸡面八爪鱼烤鱿鱼脆皮五花肉#妈呀太香了 #饭扫光坚果油辣子#山姆坚果油辣子 #脆皮五花肉 #无辣不欢\",\"like_cnt\":\"23562\",\"share_cnt\":\"3097\",\"vv\":\"2673404\"}]",
+        "link_convert_index": "73.5",
+        "link_convert_index_by_industry": "73.5",
+        "link_i_cnt_by_industry": "3576245",
+        "link_k_cnt_by_industry": "41",
+        "link_l_cnt_by_industry": "5072984",
+        "link_link_cnt_by_industry": "9688085",
+        "link_n_cnt_by_industry": "1038815",
+        "link_recommend_index_by_industry": "87.19",
+        "link_shopping_index": "87.19",
+        "link_spread_index": "86.81",
+        "link_spread_index_by_industry": "86.81",
+        "link_star_index": "80.96",
+        "link_star_index_by_industry": "80.96",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "璐一哲Cy",
+        "pic_expected_play_num": "44343",
+        "play_over_rate_within_30d": "0.106",
+        "price_1_20": "15900",
+        "price_20_60": "17600",
+        "price_60": "19400",
+        "promotion_prospective_1_20_cpm": "7.94",
+        "promotion_prospective_20_60_cpm": "8.79",
+        "promotion_prospective_60_cpm": "9.69",
+        "promotion_prospective_vv": "2002922",
+        "prospective_1_20_cpm": "7.1463",
+        "prospective_20_60_cpm": "7.9104",
+        "prospective_60_cpm": "8.7194",
+        "province": "",
+        "search_after_view_index_by_industry": "75.79",
+        "sn_expected_play_num": "2224919",
+        "sn_interact_rate_within_30d": "0.0158",
+        "sn_play_over_rate_within_30d": "0.106",
+        "sn_prospective_1_20_cpe": "0.3838",
+        "sn_prospective_1_20_cpm": "7.1463",
+        "sn_prospective_20_60_cpe": "0.4248",
+        "sn_prospective_20_60_cpm": "7.9104",
+        "sn_prospective_60_cpe": "0.4682",
+        "sn_prospective_60_cpm": "8.7194",
+        "star_component_download_ctr_90d": "0.006437933611745679",
+        "star_component_install_cpa_90d": "2100",
+        "star_component_install_finish_cnt_90d": "3",
+        "star_component_install_pvr_90d": "0.0000015834878113664867",
+        "star_component_link_click_cnt_90d": "15094",
+        "star_ecom_video_num_30d": "1",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "8",
+        "star_video_finish_vv_rate_90d": "0.0704",
+        "star_video_install_ge_1_cnt_90d": "1",
+        "star_video_interact_rate_90d": "0.0211",
+        "star_video_median_vv_90d": "4614609",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食产品测评\"]}",
+        "vv_median_30d": "1895883.5"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7540634792111721737",
+          "video_tag": 3,
+          "vv": 14637489
+        },
+        {
+          "item_id": "7507604839942802725",
+          "video_tag": 3,
+          "vv": 14290209
+        },
+        {
+          "item_id": "7555075534422560051",
+          "video_tag": 4,
+          "vv": 11209205
+        },
+        {
+          "item_id": "7549049712809266441",
+          "video_tag": 4,
+          "vv": 4445343
+        },
+        {
+          "item_id": "7531729754836307251",
+          "video_tag": 5,
+          "vv": 12102042
+        },
+        {
+          "item_id": "7505378864135933193",
+          "video_tag": 5,
+          "vv": 10996222
+        },
+        {
+          "item_id": "7569579963680064457",
+          "video_tag": 6,
+          "vv": 1032891
+        },
+        {
+          "item_id": "7566241142300233006",
+          "video_tag": 6,
+          "vv": 2668016
+        }
+      ],
+      "star_id": "7212649876599865381",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 21800,
+              "price_extra_info": {},
+              "start_time": "1761967122",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 15900,
+              "price_extra_info": {},
+              "start_time": "1761967122",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 9,
+              "price_extra_info": {
+                "ceiling_price": "7500",
+                "floor_price": "1000"
+              },
+              "start_time": "1702314551",
+              "task_category": 1,
+              "video_type": 92,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 19400,
+              "price_extra_info": {},
+              "start_time": "1761967122",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 17600,
+              "price_extra_info": {},
+              "start_time": "1761967122",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 8000,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572098472908800051"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "30c89aec4a731801eca7cc55b2c386865446545f"
+}

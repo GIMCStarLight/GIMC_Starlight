@@ -1,0 +1,218 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_task_price_list": "[12000]",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"美白\":0.003}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_0c6a65c801454ed40b76c4629467467e.jpeg?from=4010531038",
+        "avg_sale_amount_range": "0",
+        "city": "福州",
+        "content_item_count_90d": "1",
+        "content_theme_labels_180d": "[\"恋爱演绎\",\"搞笑剧情\",\"恋爱剧情\",\"珠宝配饰\",\"搞笑挑战\",\"节日穿搭\",\"亲子旅行\",\"家电推荐\",\"国内旅行\",\"恋爱故事\"]",
+        "core_user_id": "61790614864",
+        "e_commerce_enable": "1",
+        "ecom_gpm_30days_range": "0",
+        "ecom_video_product_num_30d": "1",
+        "enroll_task_price_list": "[2000,2000,2600,3000]",
+        "expected_cpa3_level": "2",
+        "expected_natural_play_num": "9033",
+        "expected_play_num": "8078",
+        "fans_increment_rate_within_15d": "-0.005869217009037659",
+        "fans_increment_within_15d": "-502",
+        "fans_increment_within_30d": "-927",
+        "follower": "85023",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7239597198361493562",
+        "interact_rate_within_30d": "0.0843",
+        "interaction_median_30d": "1369",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "true",
+        "is_cpm_project_author": "1",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"80\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762513194\",\"item_id\":\"7569936514870187131\",\"item_publish_time\":\"1762513194\",\"item_title\":\"浪漫不了一点… #情侣日常 #内容过于真实 #万万想不到 #搞笑\",\"like_cnt\":\"1381\",\"share_cnt\":\"2430\",\"vv\":\"33568\"},{\"comment_cnt\":\"18\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762253487\",\"item_id\":\"7568821073451811451\",\"item_publish_time\":\"1762253487\",\"item_title\":\"差点给我打面条里去了… #情侣日常 #内容过于真实 #搞笑 #万万没想到 #纪录美好生活\",\"like_cnt\":\"593\",\"share_cnt\":\"74\",\"vv\":\"14148\"},{\"comment_cnt\":\"7\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761649435\",\"item_id\":\"7566226698815999281\",\"item_publish_time\":\"1761735613\",\"item_title\":\"会解决问题的男生真的很加分 #罗技G巅峰赏金赛  #罗技g316x客制化键盘 #罗技g502 #情侣日常 #搞笑\",\"like_cnt\":\"62\",\"share_cnt\":\"21\",\"vv\":\"2737\"},{\"comment_cnt\":\"32\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760956525\",\"item_id\":\"7563250665981562170\",\"item_publish_time\":\"1760956525\",\"item_title\":\"千防万防，还是防不胜防。 #情侣日常 #搞笑 #内容过于真实 #万万没想到\",\"like_cnt\":\"1665\",\"share_cnt\":\"749\",\"vv\":\"36759\"},{\"comment_cnt\":\"38\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759990309\",\"item_id\":\"7559100761797414203\",\"item_publish_time\":\"1759990309\",\"item_title\":\"谈恋爱不犯贱多没意思啊～ #情侣日常 #搞笑 #insmile美白牙膜 #牙齿美白\",\"like_cnt\":\"1985\",\"share_cnt\":\"46\",\"vv\":\"16417\"},{\"comment_cnt\":\"941\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1758526096\",\"item_id\":\"7552812053419085116\",\"item_publish_time\":\"1758526096\",\"item_title\":\"恋爱怎么可能和谁谈都一样 #情侣日常 #罗技创享日 #罗技k75m #罗技琥珀系列 #解锁谐修上班的100种方式\",\"like_cnt\":\"14327\",\"share_cnt\":\"82309\",\"vv\":\"3046433\"},{\"comment_cnt\":\"16\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756376616\",\"item_id\":\"7543580113246915899\",\"item_publish_time\":\"1756549800\",\"item_title\":\"我们就多余闭眼… #情侣日常 #同时睁眼挑战 #内容过于真实 #阿宽一根粉耗子 #抽象美食一根粉耗子\",\"like_cnt\":\"1531\",\"share_cnt\":\"76\",\"vv\":\"66829\"},{\"comment_cnt\":\"16\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756457645\",\"item_id\":\"7543928131108965692\",\"item_publish_time\":\"1756457645\",\"item_title\":\"现在的小说都癫成这样了嘛？ #情侣日常 #搞笑 #抽象 #番茄小说\",\"like_cnt\":\"874\",\"share_cnt\":\"32\",\"vv\":\"23238\"},{\"comment_cnt\":\"365\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1756282803\",\"item_id\":\"7543177187068874044\",\"item_publish_time\":\"1756282803\",\"item_title\":\"哪还需要去看日出啊，凌晨一点我就能看到太阳 #情侣日常 #内容过于真实 #搞笑 #极萌大排灯\",\"like_cnt\":\"44975\",\"share_cnt\":\"5549\",\"vv\":\"2773240\"},{\"comment_cnt\":\"52\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756119001\",\"item_id\":\"7542473669566680379\",\"item_publish_time\":\"1756119001\",\"item_title\":\"什么睁眼闭眼的，全是心眼子！ #听到就睁眼全民挑战 #情侣日常 #搞笑\",\"like_cnt\":\"2430\",\"share_cnt\":\"277\",\"vv\":\"44857\"}]",
+        "link_convert_index": "0",
+        "link_convert_index_by_industry": "0",
+        "link_recommend_index_by_industry": "25.95",
+        "link_shopping_index": "25.95",
+        "link_spread_index": "27.57",
+        "link_spread_index_by_industry": "27.57",
+        "link_star_index": "21.65",
+        "link_star_index_by_industry": "21.65",
+        "local_lower_threshold_author": "false",
+        "median_content_item_component_click_range": "500以下",
+        "nick_name": "啾咪康",
+        "play_over_rate_within_30d": "0.2314",
+        "price_1_20": "2650",
+        "price_20_60": "4300",
+        "price_60": "5550",
+        "promotion_prospective_1_20_cpm": "177.08",
+        "promotion_prospective_20_60_cpm": "287.34",
+        "promotion_prospective_60_cpm": "370.87",
+        "promotion_prospective_vv": "14965",
+        "prospective_1_20_cpm": "328.0515",
+        "prospective_20_60_cpm": "532.31",
+        "prospective_60_cpm": "687.0513",
+        "province": "",
+        "sn_expected_play_num": "8078",
+        "sn_interact_rate_within_30d": "0.0843",
+        "sn_play_over_rate_within_30d": "0.2314",
+        "sn_prospective_1_20_cpe": "6.7775",
+        "sn_prospective_1_20_cpm": "328.0515",
+        "sn_prospective_20_60_cpe": "10.9974",
+        "sn_prospective_20_60_cpm": "532.31",
+        "sn_prospective_60_cpe": "14.1944",
+        "sn_prospective_60_cpm": "687.0513",
+        "star_component_download_ctr_90d": "0.06574168785953585",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_install_pvr_90d": "0",
+        "star_component_link_click_cnt_90d": "146",
+        "star_ecom_main_price_30days": "549",
+        "star_ecom_video_num_30d": "1",
+        "star_ecom_video_product_num_30d": "1",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "2",
+        "star_video_finish_vv_rate_90d": "0.0311",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0152",
+        "star_video_median_vv_90d": "59764",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"生活\":[\"生活记录\"]}",
+        "vv_median_30d": "19129"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7530605533905456443",
+          "video_tag": 3,
+          "vv": 4583035
+        },
+        {
+          "item_id": "7514645339748699452",
+          "video_tag": 3,
+          "vv": 122987
+        },
+        {
+          "item_id": "7529557906695015739",
+          "video_tag": 4,
+          "vv": 6233944
+        },
+        {
+          "item_id": "7552812053419085116",
+          "video_tag": 4,
+          "vv": 3033616
+        },
+        {
+          "item_id": "7543177187068874044",
+          "video_tag": 5,
+          "vv": 2762653
+        },
+        {
+          "item_id": "7537968570824740155",
+          "video_tag": 5,
+          "vv": 298008
+        },
+        {
+          "item_id": "7569936514870187131",
+          "video_tag": 6,
+          "vv": 26555
+        },
+        {
+          "item_id": "7568821073451811451",
+          "video_tag": 6,
+          "vv": 11703
+        }
+      ],
+      "star_id": "7239597198361493562",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 2650,
+              "price_extra_info": {},
+              "start_time": "1761640970",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 5550,
+              "price_extra_info": {},
+              "start_time": "1761640970",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 4300,
+              "price_extra_info": {},
+              "start_time": "1761640970",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3500,
+              "price_extra_info": {},
+              "start_time": "1761640970",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572104902034538523"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "0009db8e3024769c680d90c1ced4645530c7c4db"
+}

@@ -1,0 +1,185 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "39",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "2",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_e2c9756912ac2c86565ebdb0ee37fee2.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "",
+        "content_item_count_90d": "15",
+        "content_theme_labels_180d": "[\"情感短剧\",\"恋爱剧情\",\"情感复仇\",\"剧情反转\",\"亲情剧集\",\"短剧豪门恩怨\",\"有趣剧情创作\",\"感人短剧\",\"恋爱故事\",\"职场趣闻\"]",
+        "core_user_id": "105347761455",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "2",
+        "expected_natural_play_num": "177",
+        "fans_increment_rate_within_15d": "-0.0015737965085522835",
+        "fans_increment_within_15d": "-714",
+        "fans_increment_within_30d": "-1464",
+        "follower": "453035",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6700789381193531405",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1756089928\",\"item_id\":\"7542348750233111849\",\"item_publish_time\":\"1756089928\",\"item_title\":\"#因为一个短剧看了整部剧#短剧推荐#短剧#百亿剧好看计划#夫人她专治不服\",\"like_cnt\":\"259\",\"share_cnt\":\"18\",\"vv\":\"91526\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756089337\",\"item_id\":\"7542346219452927274\",\"item_publish_time\":\"1756089337\",\"item_title\":\"#因为一个短剧看了整部剧#短剧推荐#短剧#百亿剧好看计划#夫人她专治不服\",\"like_cnt\":\"18\",\"share_cnt\":\"2\",\"vv\":\"2100\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756088702\",\"item_id\":\"7542343509018185002\",\"item_publish_time\":\"1756088702\",\"item_title\":\"#因为一个短剧看了整部剧#短剧推荐#短剧#百亿剧好看计划#夫人她专治不服\",\"like_cnt\":\"19\",\"share_cnt\":\"2\",\"vv\":\"1207\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756088095\",\"item_id\":\"7542340895505485097\",\"item_publish_time\":\"1756088095\",\"item_title\":\"#因为一个短剧看了整部剧#短剧推荐#短剧#百亿剧好看计划#夫人她专治不服\",\"like_cnt\":\"3\",\"share_cnt\":\"0\",\"vv\":\"442\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756087424\",\"item_id\":\"7542338006078803263\",\"item_publish_time\":\"1756087424\",\"item_title\":\"#因为一个短剧看了整部剧#短剧推荐#短剧#百亿剧好看计划#夫人她专治不服\",\"like_cnt\":\"39\",\"share_cnt\":\"4\",\"vv\":\"3794\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756012873\",\"item_id\":\"7542017825032899867\",\"item_publish_time\":\"1756012873\",\"item_title\":\"#因为一个短剧看了整部剧#短剧推荐#短剧#百亿剧好看计划#清欢人间路\",\"like_cnt\":\"1\",\"share_cnt\":\"2\",\"vv\":\"259\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756012697\",\"item_id\":\"7542017037355257139\",\"item_publish_time\":\"1756012697\",\"item_title\":\"#因为一个短剧看了整部剧#短剧推荐#短剧#百亿剧好看计划#清欢人间路\",\"like_cnt\":\"2\",\"share_cnt\":\"2\",\"vv\":\"368\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756012468\",\"item_id\":\"7542016082274422062\",\"item_publish_time\":\"1756012468\",\"item_title\":\"#因为一个短剧看了整部剧#短剧推荐#短剧#百亿剧好看计划#清欢人间路\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"165\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756012149\",\"item_id\":\"7542014711043231022\",\"item_publish_time\":\"1756012149\",\"item_title\":\"#因为一个短剧看了整部剧#短剧推荐#短剧#剧有力量计划#今天也很可爱的猫\",\"like_cnt\":\"1\",\"share_cnt\":\"0\",\"vv\":\"80\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756011441\",\"item_id\":\"7542011675512180019\",\"item_publish_time\":\"1756011441\",\"item_title\":\"#因为一个短剧看了整部剧#短剧推荐#短剧#百亿剧好看计划#霍先生五份萌娃订单请签收\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"422\"}]",
+        "link_convert_index": "54.23",
+        "link_convert_index_by_industry": "54.23",
+        "link_i_cnt_by_industry": "26326",
+        "link_k_cnt_by_industry": "6",
+        "link_l_cnt_by_industry": "43854",
+        "link_link_cnt_by_industry": "70351",
+        "link_n_cnt_by_industry": "165",
+        "link_recommend_index_by_industry": "60.52",
+        "link_shopping_index": "60.52",
+        "link_spread_index": "56.72",
+        "link_spread_index_by_industry": "56.72",
+        "link_star_index": "61.72",
+        "link_star_index_by_industry": "61.72",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "median_content_item_component_click_range": "500以下",
+        "median_content_item_cpc_range": "0",
+        "nick_name": "爱上一分",
+        "price_1_20": "6000",
+        "price_20_60": "8000",
+        "price_60": "12000",
+        "province": "",
+        "search_after_view_index_by_industry": "34.03",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "0",
+        "star_excellent_author": "0",
+        "star_index": "47.495650207543946",
+        "star_qianchuan_high_potential": "0",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食探店\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7540929339215383834",
+          "video_tag": 4,
+          "vv": 69602
+        },
+        {
+          "item_id": "7542348750233111849",
+          "video_tag": 4,
+          "vv": 65011
+        },
+        {
+          "item_id": "7528601024324439296",
+          "video_tag": 5,
+          "vv": 43179
+        },
+        {
+          "item_id": "7538027755326278966",
+          "video_tag": 5,
+          "vv": 21583
+        },
+        {
+          "item_id": "7542346219452927274",
+          "video_tag": 6,
+          "vv": 192
+        },
+        {
+          "item_id": "7542343509018185002",
+          "video_tag": 6,
+          "vv": 165
+        }
+      ],
+      "star_id": "6700789381193531405",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3200,
+              "price_extra_info": {},
+              "start_time": "1631961391",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 8000,
+              "price_extra_info": {},
+              "start_time": "1708147711",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 6000,
+              "price_extra_info": {},
+              "start_time": "1708147711",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 12000,
+              "price_extra_info": {},
+              "start_time": "1708147711",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572091327473565706"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "7cfb31891ceae025ac8861830f079620fcf93ac1"
+}

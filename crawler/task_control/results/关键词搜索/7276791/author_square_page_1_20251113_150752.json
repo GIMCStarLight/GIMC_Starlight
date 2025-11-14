@@ -1,0 +1,244 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "6",
+        "assign_task_price_list": "[40000,45000,45000,47619,48000,48000,53300,57000,60000,60000]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"祛痘\":0.054000000000000006}",
+        "author_type": "2",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_8ef955d7a8c6306eda1d610637df9813.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "burst_text_rate": "0.6",
+        "city": "广州市",
+        "content_theme_labels_180d": "[\"搞笑剧情\",\"家庭幽默演绎\",\"有趣剧情创作\",\"生活喜剧情节\",\"职场趣闻\",\"友情故事\",\"游戏趣闻\",\"社恐演绎\",\"亲子教育\",\"亲情剧集\"]",
+        "core_user_id": "15473644369",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "1340573",
+        "expected_play_num": "2066731",
+        "fans_increment_rate_within_15d": "0.01739611313003634",
+        "fans_increment_within_15d": "18717",
+        "fans_increment_within_30d": "44217",
+        "follower": "1094697",
+        "game_item_count_90d": "4",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "6751055743073386510",
+        "interact_rate_within_30d": "0.0591",
+        "interaction_median_30d": "90132",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "1",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"327\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762862534\",\"item_id\":\"7571436907582934912\",\"item_publish_time\":\"1762862534\",\"item_title\":\"女生：我喷了怎么没有这个效果？\",\"like_cnt\":\"26648\",\"share_cnt\":\"18260\",\"vv\":\"1209910\"},{\"comment_cnt\":\"1028\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762603120\",\"item_id\":\"7570322747256405748\",\"item_publish_time\":\"1762603120\",\"item_title\":\"我帮妈你出头，结果你....\",\"like_cnt\":\"140462\",\"share_cnt\":\"70682\",\"vv\":\"4079561\"},{\"comment_cnt\":\"731\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762249044\",\"item_id\":\"7568801997349545379\",\"item_publish_time\":\"1762249044\",\"item_title\":\"谁不想有这种老爸！ #美的洗地机 #美的洗地机征集隐身管家 #14天不发臭\",\"like_cnt\":\"73307\",\"share_cnt\":\"22677\",\"vv\":\"1575090\"},{\"comment_cnt\":\"746\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761913843\",\"item_id\":\"7567362322315136271\",\"item_publish_time\":\"1761913843\",\"item_title\":\"这下父母没空理我了！ #腾讯微保 #微保车险\",\"like_cnt\":\"66870\",\"share_cnt\":\"22767\",\"vv\":\"1649250\"},{\"comment_cnt\":\"627\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761731532\",\"item_id\":\"7566579297739345152\",\"item_publish_time\":\"1761731532\",\"item_title\":\"当我想出去玩，结果我妈…\",\"like_cnt\":\"38205\",\"share_cnt\":\"7057\",\"vv\":\"1465611\"},{\"comment_cnt\":\"1026\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761314550\",\"item_id\":\"7564788381679439138\",\"item_publish_time\":\"1761314550\",\"item_title\":\"你们是哪种父母？ #赤坎古镇 #广东赤坎过万圣还是太超前了  #2025赤坎怪诞夜\",\"like_cnt\":\"54543\",\"share_cnt\":\"22104\",\"vv\":\"1291262\"},{\"comment_cnt\":\"528\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760781018\",\"item_id\":\"7562496866820443432\",\"item_publish_time\":\"1760781018\",\"item_title\":\"是不是所有父母都这样？ #美团拼好饭、#花小钱拼好饭\",\"like_cnt\":\"43444\",\"share_cnt\":\"11844\",\"vv\":\"1287350\"},{\"comment_cnt\":\"15593\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1760529695\",\"item_id\":\"7561417439955717376\",\"item_publish_time\":\"1760529695\",\"item_title\":\"奇怪，当时明明说得很清楚啊！\",\"like_cnt\":\"985870\",\"share_cnt\":\"918716\",\"vv\":\"29319885\"},{\"comment_cnt\":\"1820\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759984369\",\"item_id\":\"7559075281282632994\",\"item_publish_time\":\"1759984369\",\"item_title\":\"当混血朋友来我家找我玩！ #王牌竞速\",\"like_cnt\":\"163867\",\"share_cnt\":\"64456\",\"vv\":\"3918557\"},{\"comment_cnt\":\"7066\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759752617\",\"item_id\":\"7558079930690751759\",\"item_publish_time\":\"1759752617\",\"item_title\":\"为什么5岁后突然就有了意识？\",\"like_cnt\":\"366845\",\"share_cnt\":\"177283\",\"vv\":\"10843442\"}]",
+        "link_convert_index": "67.19",
+        "link_convert_index_by_industry": "67.19",
+        "link_i_cnt_by_industry": "13715350",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "12802810",
+        "link_link_cnt_by_industry": "27633934",
+        "link_n_cnt_by_industry": "1115774",
+        "link_recommend_index_by_industry": "94.15",
+        "link_shopping_index": "94.15",
+        "link_spread_index": "89.92",
+        "link_spread_index_by_industry": "89.92",
+        "link_star_index": "80.52",
+        "link_star_index_by_industry": "80.52",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "median_game_item_component_click_90_days": "3787",
+        "median_game_item_component_click_range": "3000-5000",
+        "median_game_item_cpc_90_days_range": "14-16",
+        "median_game_item_cpc_range": "6-8",
+        "median_game_item_ctr_90_days": "0",
+        "median_tool_item_component_click_range": "500-1000",
+        "median_tool_item_cpc_range": "48-50",
+        "nick_name": "海嘴王",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.361",
+        "price_1_20": "22000",
+        "price_20_60": "50000",
+        "price_60": "60000",
+        "promotion_prospective_1_20_cpm": "11.54",
+        "promotion_prospective_20_60_cpm": "26.23",
+        "promotion_prospective_60_cpm": "31.47",
+        "promotion_prospective_vv": "1906315",
+        "prospective_1_20_cpm": "10.6448",
+        "prospective_20_60_cpm": "24.1928",
+        "prospective_60_cpm": "29.0314",
+        "province": "广东省",
+        "search_after_view_index_by_industry": "86.45",
+        "sn_expected_play_num": "2066731",
+        "sn_interact_rate_within_30d": "0.0591",
+        "sn_play_over_rate_within_30d": "0.361",
+        "sn_prospective_1_20_cpe": "0.3557",
+        "sn_prospective_1_20_cpm": "10.6448",
+        "sn_prospective_20_60_cpe": "0.8083",
+        "sn_prospective_20_60_cpm": "24.1928",
+        "sn_prospective_60_cpe": "0.97",
+        "sn_prospective_60_cpm": "29.0314",
+        "star_component_download_ctr_90d": "0.0012551676484710787",
+        "star_component_install_cpa_90d": "2054.3478260869565",
+        "star_component_install_finish_cnt_90d": "23",
+        "star_component_install_pvr_90d": "0.000006734046166278239",
+        "star_component_link_click_cnt_90d": "1751",
+        "star_ecom_video_num_30d": "4",
+        "star_excellent_author": "1",
+        "star_index": "64.19469293724545",
+        "star_item_count_within_30d": "5",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "11",
+        "star_video_finish_vv_rate_90d": "0.1662",
+        "star_video_install_ge_1_cnt_90d": "1",
+        "star_video_interact_rate_90d": "0.0509",
+        "star_video_median_vv_90d": "2118047",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"剧情搞笑\":[\"剧情\"]}",
+        "tool_item_count_90d": "1",
+        "vv_median_30d": "1550832"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7528017288714816807",
+          "video_tag": 3,
+          "vv": 52733165
+        },
+        {
+          "item_id": "7561417439955717376",
+          "video_tag": 3,
+          "vv": 26442134
+        },
+        {
+          "item_id": "7532772426992700714",
+          "video_tag": 4,
+          "vv": 8746908
+        },
+        {
+          "item_id": "7548157469932408127",
+          "video_tag": 4,
+          "vv": 6912854
+        },
+        {
+          "item_id": "7519854060695162124",
+          "video_tag": 5,
+          "vv": 18132716
+        },
+        {
+          "item_id": "7529877096228261183",
+          "video_tag": 5,
+          "vv": 16673400
+        },
+        {
+          "item_id": "7571436907582934912",
+          "video_tag": 6,
+          "vv": 2140020
+        },
+        {
+          "item_id": "7570322747256405748",
+          "video_tag": 6,
+          "vv": 3804173
+        }
+      ],
+      "star_id": "6751055743073386510",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 8950,
+              "price_extra_info": {},
+              "start_time": "1713356466",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 9999,
+              "price_extra_info": {},
+              "start_time": "1714492800",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 50000,
+              "price_extra_info": {},
+              "start_time": "1759998516",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 22000,
+              "price_extra_info": {},
+              "start_time": "1759998516",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 60000,
+              "price_extra_info": {},
+              "start_time": "1759998516",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572103071452069934"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "0ad25010650d1fe2b6dff2473967e0150f5268ec"
+}

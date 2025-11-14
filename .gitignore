@@ -127,3 +127,8 @@ others/logs/
 # 文档文件（按要求忽略）
 *.md
 *.MD
+
+# whitelist project docs (override md ignore)
+!README.md
+!docs/github-setup.md
+!.github/pull_request_template.md

@@ -1,0 +1,233 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "54",
+        "assign_task_price_list": "[30400,30400,38000,47500]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L2",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"定妆\":1.6666666666666665,\"服帖\":0.036000000000000004,\"洁面\":0.37333416994812163,\"清爽\":0.22700000000000004,\"玻色因\":0,\"祛痘\":3.903514917529788,\"绵密\":0.02,\"美白\":1.5217222222222222,\"胶原成分\":0,\"遮瑕\":0.06,\"防晒\":0.042,\"防水\":0}",
+        "author_type": "2",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_923b71fba38ed6dfd87ab2d8405d3a0d.jpeg?from=4010531038",
+        "city": "渝北区",
+        "content_theme_labels_180d": "[\"家庭生活记录\",\"家政服务\",\"恋爱故事\",\"家庭育儿\",\"恋爱演绎\",\"家常菜谱\",\"家常菜教程\",\"妆前技巧\",\"有趣剧情创作\",\"底妆测评\"]",
+        "core_user_id": "2401797209859051",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "3w-20w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_score": "75",
+        "ecom_video_product_num_30d": "1",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "77318",
+        "expected_play_num": "121593",
+        "fans_increment_rate_within_15d": "-0.0019235302437414549",
+        "fans_increment_within_15d": "-816",
+        "fans_increment_within_30d": "53356.87",
+        "follower": "423320",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7127496433409720334",
+        "interact_rate_within_30d": "0.0635",
+        "interaction_median_30d": "100813",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"3030\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762599400\",\"item_id\":\"7570306768640948691\",\"item_publish_time\":\"1762599400\",\"item_title\":\"看了监控我才知道…原创 @五个门牙   #宠物监控 #生活的烟火气息 #出差 #真实的样子\",\"like_cnt\":\"34161\",\"share_cnt\":\"115134\",\"vv\":\"2985590\"},{\"comment_cnt\":\"2406\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762511741\",\"item_id\":\"7569930273258358116\",\"item_publish_time\":\"1762511741\",\"item_title\":\"已婚男人的巅峰时刻！ #男人的家庭地位#夫妻日常 #宠物监控 #宠老婆 #已婚男人的高光时刻\",\"like_cnt\":\"29940\",\"share_cnt\":\"73417\",\"vv\":\"2399642\"},{\"comment_cnt\":\"3001\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761132155\",\"item_id\":\"7564004987858324755\",\"item_publish_time\":\"1761132155\",\"item_title\":\"出个片有那么难吗？男朋友骂一骂还能骂… #拍照 #情侣拍照姿势 #拌嘴夫妇 #恋爱日常 #骂男友\",\"like_cnt\":\"23804\",\"share_cnt\":\"82102\",\"vv\":\"931842\"},{\"comment_cnt\":\"320\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761043797\",\"item_id\":\"7563625494739635498\",\"item_publish_time\":\"1761043797\",\"item_title\":\"我请问 拍个照就这么难吗？！ #情侣日常#塑料情侣#欠揍的男人#拍照#恋爱期间的心眼子\",\"like_cnt\":\"10782\",\"share_cnt\":\"497\",\"vv\":\"83089\"},{\"comment_cnt\":\"1126\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760619803\",\"item_id\":\"7561804470091517247\",\"item_publish_time\":\"1760619803\",\"item_title\":\"30岁宝妈“水光肌”秘诀，轻松躺赢白！ #宝妈日常 #高效护肤 #年龄焦虑 #变白 #olay小白瓶\",\"like_cnt\":\"12283\",\"share_cnt\":\"69\",\"vv\":\"261272\"},{\"comment_cnt\":\"530\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759575443\",\"item_id\":\"7557318961579953443\",\"item_publish_time\":\"1759575443\",\"item_title\":\"不知道闺蜜第二天醒是啥反应… #正能量 #在拍一种很新的vlog #助眠#日常 #vlog\",\"like_cnt\":\"4984\",\"share_cnt\":\"5113\",\"vv\":\"1166897\"},{\"comment_cnt\":\"5012\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757673913\",\"item_id\":\"7549151959094742313\",\"item_publish_time\":\"1757673913\",\"item_title\":\"不知道闺蜜醒来是啥反应…… #正能量 #在拍一种很新的vlog  #助眠 #日常 #vlog\",\"like_cnt\":\"98169\",\"share_cnt\":\"109637\",\"vv\":\"9027358\"},{\"comment_cnt\":\"1211\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757508796\",\"item_id\":\"7548442785340099894\",\"item_publish_time\":\"1757508796\",\"item_title\":\"宝妈美白真相！养出来的白才是真的白。 #佰草集大白泥 #妈妈护肤 #美白#面膜#七白方不止白七日\",\"like_cnt\":\"23042\",\"share_cnt\":\"967\",\"vv\":\"9098711\"},{\"comment_cnt\":\"8128\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1757329534\",\"item_id\":\"7547672850581818660\",\"item_publish_time\":\"1757329534\",\"item_title\":\"闺蜜到现在还没醒…… #正能量 #在拍一种很新的vlog #助眠 #日常 #vlog\",\"like_cnt\":\"92594\",\"share_cnt\":\"128435\",\"vv\":\"16162232\"},{\"comment_cnt\":\"314\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756539990\",\"item_id\":\"7544281791482744106\",\"item_publish_time\":\"1756539990\",\"item_title\":\"看到住家保姆变成这样真让人着急，我也会把最好的给她 #半亩花田#身体乳#00后保姆#护肤#日常\",\"like_cnt\":\"8121\",\"share_cnt\":\"43\",\"vv\":\"203524\"}]",
+        "link_convert_index": "84.84",
+        "link_convert_index_by_industry": "84.84",
+        "link_i_cnt_by_industry": "2671007",
+        "link_k_cnt_by_industry": "1759",
+        "link_l_cnt_by_industry": "9444122",
+        "link_link_cnt_by_industry": "12818840",
+        "link_n_cnt_by_industry": "701952",
+        "link_recommend_index_by_industry": "83",
+        "link_shopping_index": "83",
+        "link_spread_index": "80.74",
+        "link_spread_index_by_industry": "80.74",
+        "link_star_index": "78.92",
+        "link_star_index_by_industry": "78.92",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "精分小滕（辣妈版）",
+        "play_over_rate_within_30d": "0.1862",
+        "price_1_20": "30400",
+        "price_20_60": "38000",
+        "price_60": "47500",
+        "promotion_prospective_1_20_cpm": "46.77",
+        "promotion_prospective_20_60_cpm": "58.46",
+        "promotion_prospective_60_cpm": "73.08",
+        "promotion_prospective_vv": "649980",
+        "prospective_1_20_cpm": "250.0144",
+        "prospective_20_60_cpm": "312.518",
+        "prospective_60_cpm": "390.6475",
+        "province": "重庆市",
+        "search_after_view_index_by_industry": "84.19",
+        "sn_expected_play_num": "121593",
+        "sn_interact_rate_within_30d": "0.0635",
+        "sn_play_over_rate_within_30d": "0.1862",
+        "sn_prospective_1_20_cpe": "38.9245",
+        "sn_prospective_1_20_cpm": "250.0144",
+        "sn_prospective_20_60_cpe": "48.6556",
+        "sn_prospective_20_60_cpm": "312.518",
+        "sn_prospective_60_cpe": "60.8195",
+        "sn_prospective_60_cpm": "390.6475",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "59",
+        "star_ecom_video_num_30d": "1",
+        "star_ecom_video_product_num_30d": "0",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "5",
+        "star_video_finish_vv_rate_90d": "0.0207",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0059",
+        "star_video_median_vv_90d": "261272",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"母婴亲子\":[\"萌娃日常\"]}",
+        "vv_median_30d": "777806"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7547672850581818660",
+          "video_tag": 3,
+          "vv": 15456874
+        },
+        {
+          "item_id": "7549151959094742313",
+          "video_tag": 3,
+          "vv": 7001972
+        },
+        {
+          "item_id": "7548442785340099894",
+          "video_tag": 4,
+          "vv": 8973923
+        },
+        {
+          "item_id": "7510520862580378907",
+          "video_tag": 4,
+          "vv": 1097167
+        },
+        {
+          "item_id": "7531171711086693673",
+          "video_tag": 5,
+          "vv": 2455798
+        },
+        {
+          "item_id": "7570306768640948691",
+          "video_tag": 5,
+          "vv": 2377496
+        },
+        {
+          "item_id": "7569930273258358116",
+          "video_tag": 6,
+          "vv": 2250997
+        },
+        {
+          "item_id": "7564004987858324755",
+          "video_tag": 6,
+          "vv": 777806
+        }
+      ],
+      "star_id": "7127496433409720334",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 41040,
+              "price_extra_info": {},
+              "start_time": "1743436800",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 47500,
+              "price_extra_info": {},
+              "start_time": "1743436800",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 47500,
+              "price_extra_info": {},
+              "start_time": "1743436800",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 38000,
+              "price_extra_info": {},
+              "start_time": "1743436800",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 30400,
+              "price_extra_info": {},
+              "start_time": "1743436800",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572116237661929498"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "aa8bdd6801551895bab28b7bf2d9a0a2ee15a27c"
+}

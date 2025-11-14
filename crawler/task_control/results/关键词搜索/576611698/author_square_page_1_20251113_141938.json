@@ -1,0 +1,166 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "27",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"早餐\":0}",
+        "author_type": "2",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_0104ed2d4ecc614b120fd0631b0fd3bf.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "南京市",
+        "content_theme_labels_180d": "[]",
+        "core_user_id": "94656276845",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_play_num": "49852",
+        "fans_increment_rate_within_15d": "-0.003846046498646348",
+        "fans_increment_within_15d": "-4134",
+        "fans_increment_within_30d": "-9430",
+        "follower": "1070476",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6639151846931824647",
+        "interaction_median_30d": "1562",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"156\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1744441368\",\"item_id\":\"7492318519359524130\",\"item_publish_time\":\"1744441368\",\"item_title\":\"在北京要排队7小时才能吃上的麻辣烤鱼，终于开到南京景枫了！！不愧是川渝人认证的烤鱼，绝！#烤匠烤鱼南京新店开业 #一场舌尖上的巴蜀盛宴 #北京排队王来南京啦#南京烤匠#烤匠南京首店\",\"like_cnt\":\"1419\",\"share_cnt\":\"809\",\"vv\":\"55318\"},{\"comment_cnt\":\"12\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1743683802\",\"item_id\":\"7489064878003457340\",\"item_publish_time\":\"1743683802\",\"item_title\":\"宿迁三台山国家森林公园的梨兰会，仿佛走进了童话世界～ #第一江山春好处赏花品酒游宿迁#三台山梨兰会#春天就要去三台山#宿迁春日最佳机位@宿迁文旅（畅游宿迁） @江苏三台山国家森林公园\",\"like_cnt\":\"229\",\"share_cnt\":\"159\",\"vv\":\"17894\"},{\"comment_cnt\":\"163\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1733988743\",\"item_id\":\"7447424783916076327\",\"item_publish_time\":\"1733988743\",\"item_title\":\"南京你真的太超前了！！！连马斯克都崇拜的顶流艺术家Beeple，全球头一个展就在南京！ #beeple全球首展 #抖音艺术打卡地图#抖音数字艺术召集令 #南京搞艺术已经toplevel了@beeple_crap\",\"like_cnt\":\"1807\",\"share_cnt\":\"99\",\"vv\":\"48604\"},{\"comment_cnt\":\"165\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1729853342\",\"item_id\":\"7429663480174628137\",\"item_publish_time\":\"1729853342\",\"item_title\":\"挑战吃遍全国头一个BRUNCH WORLD生活节！看看要花多少钱~ 法国星厨现场制作的班尼迪克蛋，好惊艳！！#南京漂亮饭 #班尼迪克蛋 #南京brunch #brunch生活节 @BrunchWorld生活节\",\"like_cnt\":\"3094\",\"share_cnt\":\"196\",\"vv\":\"35209\"},{\"comment_cnt\":\"18\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1729423851\",\"item_id\":\"7427818762994306363\",\"item_publish_time\":\"1729423851\",\"item_title\":\"全国首个BRUNCH WORLD生活节来啦！米其林大厨现场制作限量brunch！还有畅享市集、百事互动挑战区、超大气模IP等你来！#南京brunch #班尼迪克蛋 #brunch生活节 #南京漂亮饭 @BrunchWorld生活节 生活节\",\"like_cnt\":\"727\",\"share_cnt\":\"14\",\"vv\":\"79614\"},{\"comment_cnt\":\"37\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1727093743\",\"item_id\":\"7417811091968773433\",\"item_publish_time\":\"1727093743\",\"item_title\":\"江浙沪周边宝藏赏秋地～解锁竹海温泉的N种玩法！#天目湖 #南山竹海 #江浙沪周边游 #御水温泉\",\"like_cnt\":\"3274\",\"share_cnt\":\"83\",\"vv\":\"26788\"},{\"comment_cnt\":\"175\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1720694642\",\"item_id\":\"7390327171807513865\",\"item_publish_time\":\"1720694642\",\"item_title\":\"该不会还有人在家看球吧，来COMMUNE啊~放肆呐喊也不用怕邻居投诉，氛围感拉满！#嘉士伯一举进球 #看球标配 #南京美食 @嘉士伯啤酒 @COMMUNE幻师\",\"like_cnt\":\"3681\",\"share_cnt\":\"22\",\"vv\":\"85221\"},{\"comment_cnt\":\"92\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1720600024\",\"item_id\":\"7389920752532770099\",\"item_publish_time\":\"1720600024\",\"item_title\":\"说这家奶茶是苏州之光，在奶茶云海里很突出！喝完三杯我的感受是…#南京美食 #拾柴手作 #仙女都在喝什么\",\"like_cnt\":\"3498\",\"share_cnt\":\"15\",\"vv\":\"25013\"},{\"comment_cnt\":\"29\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1717491773\",\"item_id\":\"7376570929935109414\",\"item_publish_time\":\"1717491773\",\"item_title\":\"全南京最傻的老板，自己把自己剪成了地中海？#南京\",\"like_cnt\":\"2104\",\"share_cnt\":\"63\",\"vv\":\"37744\"},{\"comment_cnt\":\"361\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1716535174\",\"item_id\":\"7372462371673050406\",\"item_publish_time\":\"1716535174\",\"item_title\":\"在南京！60秒带你逛内地第一家带有加油站的开市客！#开市客南京会员店 #Costco开市客 #南京开市客 #南京开市客开业\",\"like_cnt\":\"6343\",\"share_cnt\":\"4902\",\"vv\":\"518878\"}]",
+        "link_convert_index": "59.05",
+        "link_convert_index_by_industry": "59.05",
+        "link_i_cnt_by_industry": "4962",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "17274",
+        "link_link_cnt_by_industry": "23300",
+        "link_n_cnt_by_industry": "1064",
+        "link_recommend_index_by_industry": "53.72",
+        "link_shopping_index": "53.72",
+        "link_spread_index": "49.56",
+        "link_spread_index_by_industry": "49.56",
+        "link_star_index": "59.96",
+        "link_star_index_by_industry": "59.96",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "TOP金陵",
+        "price_1_20": "12000",
+        "price_20_60": "18000",
+        "price_60": "20000",
+        "prospective_1_20_cpm": "240.7125",
+        "prospective_20_60_cpm": "361.0688",
+        "prospective_60_cpm": "401.1875",
+        "province": "江苏省",
+        "search_after_view_index_by_industry": "57.24",
+        "sn_expected_play_num": "49852",
+        "sn_prospective_1_20_cpe": "5.5223",
+        "sn_prospective_1_20_cpm": "240.7125",
+        "sn_prospective_20_60_cpe": "8.2835",
+        "sn_prospective_20_60_cpm": "361.0688",
+        "sn_prospective_60_cpe": "9.2039",
+        "sn_prospective_60_cpm": "401.1875",
+        "star_excellent_author": "0",
+        "star_index": "58.31911436685818",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食探店\"]}",
+        "vv_median_30d": "19602"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7492318519359524130",
+          "video_tag": 3,
+          "vv": 46440
+        }
+      ],
+      "star_id": "6639151846931824647",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 6000,
+              "price_extra_info": {},
+              "start_time": "1614528000",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 18000,
+              "price_extra_info": {},
+              "start_time": "1735904952",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 12000,
+              "price_extra_info": {},
+              "start_time": "1735904952",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 20000,
+              "price_extra_info": {},
+              "start_time": "1735904952",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572090632874311726"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "9699df4d3b3ed6dd4cb430fcaa0b9422bd25b5bf"
+}

@@ -432,8 +432,7 @@ const showSpecialCapabilities = computed(() => {
 // 格式化函数
 const formatFollower = (count: number): string => {
   if (!count) return '0'
-  if (count >= 10000000) return `${(count / 10000000).toFixed(1)}千万`
-  if (count >= 10000) return `${(count / 10000).toFixed(1)}万`
+  // 显示原始数值，使用千分位分隔符
   return count.toLocaleString()
 }
 

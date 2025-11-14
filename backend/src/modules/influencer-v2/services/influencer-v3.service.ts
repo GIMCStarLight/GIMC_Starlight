@@ -386,57 +386,251 @@ export class InfluencerV3Service {
     }
   }
 
+  /**
+   * 应用智能排序算法
+   * 
+   * 设计思路：
+   * 1. 分层评分：私域价值分 + 平台质量分 + 用户偏好分
+   * 2. 动态权重：根据用户选择的sortBy调整权重比例
+   * 3. SQL计算：在数据库层完成评分，性能优秀
+   * 
+   * 评分范围：
+   * - 私域价值分：0-100（机构价值40 + 政策等级30 + 独家15 + 返点10 + 年框5）
+   * - 平台质量分：0-100（认证25 + 粉丝30 + 互动20 + 增长15 + 星图10）
+   * - 用户偏好分：动态计算，根据sortBy而定
+   */
   private applySorting(
     queryBuilder: SelectQueryBuilder<AuthorCore>,
     query: InfluencerV3QueryDto,
   ): void {
+    // ========== 关联必要的表 ==========
+    
+    // 私域数据表（用于计算业务价值分）
+    queryBuilder.leftJoin(
+      'kol_list',
+      'kol',
+      `kol.matched_author_id = author.author_id 
+       AND kol.platform = '抖音' 
+       AND kol.match_status = 'matched'`,
+    );
+
+    // 营销指标表（星图指数等）
+    queryBuilder.leftJoin(
+      'authors_marketing_indices',
+      'marketing',
+      'marketing.author_id = author.author_id',
+    );
+
+    // 互动指标表（互动率、完播率等）
+    queryBuilder.leftJoin(
+      'authors_engagement_metrics',
+      'engage',
+      'engage.author_id = author.author_id',
+    );
+
+    // 粉丝增长指标表
+    queryBuilder.leftJoin(
+      'authors_fans_metrics',
+      'fans',
+      'fans.author_id = author.author_id',
+    );
+
+    // 价格信息表
+    queryBuilder.leftJoin(
+      'authors_pricing',
+      'pricing',
+      'pricing.author_id = author.author_id',
+    );
+
+    // ========== 分层评分计算 ==========
+
+    // 【1. 私域价值分 (0-100)】
+    // 评估私域资源的商业价值
+    const businessScoreSQL = `
+      COALESCE(
+        -- 1.1 机构价值 (0-40分)
+        CASE 
+          WHEN kol.org_name IN ('星链计划', '省广星媒') THEN 40
+          ELSE 0
+        END +
+        -- 1.2 政策等级 (0-30分)
+        CASE kol.policy_level
+          WHEN 'S' THEN 30
+          WHEN 'A' THEN 24
+          WHEN 'B' THEN 18
+          WHEN 'C' THEN 12
+          WHEN 'D' THEN 6
+          ELSE 0
+        END +
+        -- 1.3 独家资源 (0-15分)
+        CASE WHEN kol.is_exclusive = 1 THEN 15 ELSE 0 END +
+        -- 1.4 返点优惠 (0-10分)
+        -- 从rebate_range提取平均返点率，如"25%-30%"取27.5%
+        CASE 
+          WHEN kol.rebate_range ~ '[0-9]+-[0-9]+%?' THEN
+            LEAST(
+              (
+                CAST(SUBSTRING(kol.rebate_range FROM '[0-9]+') AS DECIMAL) +
+                CAST(SUBSTRING(kol.rebate_range FROM '-([0-9]+)') AS DECIMAL)
+              ) / 2 / 3,
+              10
+            )
+          ELSE 0
+        END +
+        -- 1.5 年框合作 (0-5分)
+        CASE WHEN kol.annual_contract_org IS NOT NULL THEN 5 ELSE 0 END,
+        0
+      )
+    `;
+
+    // 【2. 平台质量分 (0-100)】
+    // 评估达人在抖音平台的综合质量
+    const qualityScoreSQL = `
+      (
+        -- 2.1 官方认证 (0-25分)
+        CASE 
+          WHEN author.star_excellent_author = true THEN 25
+          WHEN author.is_black_horse_author = true THEN 20
+          WHEN author.star_qianchuan_high_potential = true THEN 15
+          ELSE 0
+        END +
+        -- 2.2 粉丝规模 (0-30分) - 对数增长，避免大号碾压
+        -- 10万粉=15分，100万粉=18分，1000万粉=21分，1亿粉=24分
+        LEAST(LOG10(GREATEST(author.follower, 1)) * 3, 30) +
+        -- 2.3 互动质量 (0-20分) - 互动率反映粉丝活跃度
+        -- 5%互动率=10分，10%=20分（封顶）
+        LEAST(COALESCE(engage.interact_rate_30d, 0) * 200, 20) +
+        -- 2.4 粉丝增长 (0-15分) - 增长率代表上升潜力
+        -- 10%增长=10分，15%+=15分（封顶）
+        LEAST(GREATEST(COALESCE(fans.fans_increment_rate_30d, 0) * 100, 0), 15) +
+        -- 2.5 星图指数 (0-10分) - 平台官方评分
+        -- 假设星图指数0-100，标准化到0-10分
+        LEAST(COALESCE(marketing.star_index, 0) / 10, 10)
+      )
+    `;
+
+    // 【3. 用户偏好分 & 动态权重】
+    // 根据用户选择的sortBy，动态计算偏好分和调整权重
+    let userPreferenceSQL = '0';
+    let businessWeight = 0.4; // 私域价值权重
+    let qualityWeight = 0.6; // 平台质量权重
+    let preferenceWeight = 0; // 用户偏好权重
+
     switch (query.sortBy) {
       case 'follower_desc':
-        queryBuilder.orderBy('author.follower', 'DESC');
+        // 用户选择按粉丝数排序
+        // 策略：大幅降低私域权重，提升粉丝数影响力
+        userPreferenceSQL = 'LOG10(GREATEST(author.follower, 1)) * 10';
+        businessWeight = 0.15;
+        qualityWeight = 0.25;
+        preferenceWeight = 0.6;
         break;
+
       case 'star_index_desc':
-        queryBuilder
-          .leftJoin(
-            AuthorMarketingIndices,
-            'marketing',
-            'marketing.author_id = author.author_id',
-          )
-          .orderBy('marketing.star_index', 'DESC');
+        // 用户选择按星图指数排序
+        // 策略：星图指数NULL的达人得负分，排到最后
+        userPreferenceSQL = `
+          CASE 
+            WHEN marketing.star_index IS NULL OR marketing.star_index = 0 THEN -1000
+            ELSE marketing.star_index
+          END
+        `;
+        businessWeight = 0.15;
+        qualityWeight = 0.25;
+        preferenceWeight = 0.6;
         break;
+
       case 'interact_rate_desc':
-        queryBuilder
-          .leftJoin(
-            AuthorEngagementMetrics,
-            'engage',
-            'engage.author_id = author.author_id',
-          )
-          .orderBy('engage.interact_rate_30d', 'DESC');
+        // 用户选择按互动率排序
+        // 互动率通常0-0.2，乘以500标准化到0-100
+        userPreferenceSQL = 'COALESCE(engage.interact_rate_30d, 0) * 500';
+        businessWeight = 0.15;
+        qualityWeight = 0.25;
+        preferenceWeight = 0.6;
         break;
+
       case 'price_asc':
-        queryBuilder
-          .leftJoin(
-            AuthorPricing,
-            'pricing',
-            'pricing.author_id = author.author_id',
-          )
-          .orderBy('pricing.price_20_60', 'ASC');
+        // 用户选择价格升序（低价优先）
+        // 策略：价格越低得分越高
+        userPreferenceSQL = `
+          CASE 
+            WHEN COALESCE(pricing.price_20_60, kol.star_quote_21_60s) IS NULL THEN 0
+            ELSE GREATEST(
+              100 - LEAST(
+                COALESCE(pricing.price_20_60, kol.star_quote_21_60s, 999999) / 1000,
+                100
+              ),
+              0
+            )
+          END
+        `;
+        businessWeight = 0.2;
+        qualityWeight = 0.2;
+        preferenceWeight = 0.6;
         break;
+
       case 'price_desc':
-        queryBuilder
-          .leftJoin(
-            AuthorPricing,
-            'pricing',
-            'pricing.author_id = author.author_id',
-          )
-          .orderBy('pricing.price_20_60', 'DESC');
+        // 用户选择价格降序（高价优先）
+        // 策略：价格NULL的达人得负分，排到最后
+        userPreferenceSQL = `
+          CASE 
+            WHEN COALESCE(pricing.price_20_60, kol.star_quote_21_60s) IS NULL THEN -1000
+            ELSE LEAST(
+              COALESCE(pricing.price_20_60, kol.star_quote_21_60s, 0) / 1000,
+              100
+            )
+          END
+        `;
+        businessWeight = 0.2;
+        qualityWeight = 0.2;
+        preferenceWeight = 0.6;
         break;
+
       case 'recommended':
       default:
-        // 综合推荐排序：优质 > 粉丝数
-        queryBuilder
-          .orderBy('author.star_excellent_author', 'DESC')
-          .addOrderBy('author.follower', 'DESC');
+        // 综合推荐（默认）
+        // 策略：平衡私域价值和平台质量，不额外加用户偏好分
+        userPreferenceSQL = '0';
+        businessWeight = 0.4;
+        qualityWeight = 0.6;
+        preferenceWeight = 0;
         break;
+    }
+
+    // ========== 计算综合得分 ==========
+    const totalScoreSQL = `
+      (
+        (${businessScoreSQL}) * ${businessWeight} +
+        (${qualityScoreSQL}) * ${qualityWeight} +
+        (${userPreferenceSQL}) * ${preferenceWeight}
+      )
+    `;
+
+    // 调试日志
+    this.logger.debug(`=== 排序算法调试信息 ===`);
+    this.logger.debug(`sortBy: ${query.sortBy}`);
+    this.logger.debug(`权重: business=${businessWeight}, quality=${qualityWeight}, preference=${preferenceWeight}`);
+    this.logger.debug(`userPreferenceSQL: ${userPreferenceSQL}`);
+
+    // 添加计算字段（可用于调试）
+    queryBuilder.addSelect(totalScoreSQL, 'total_score');
+    queryBuilder.addSelect(businessScoreSQL, 'business_score');
+    queryBuilder.addSelect(qualityScoreSQL, 'quality_score');
+    queryBuilder.addSelect(userPreferenceSQL, 'user_preference_score');
+
+    // ========== 排序逻辑 ==========
+    
+    // 主排序：按综合得分降序
+    queryBuilder.orderBy('total_score', 'DESC');
+
+    // 次级排序：相同得分时的稳定排序
+    queryBuilder.addOrderBy('author.updated_at', 'DESC'); // 优先展示最近更新的
+    queryBuilder.addOrderBy('author.author_id', 'ASC'); // 最终保证顺序稳定
+
+    // 输出SQL调试（仅development环境）
+    if (process.env.NODE_ENV === 'development') {
+      this.logger.debug(`=== SQL预览 ===`);
+      this.logger.debug(queryBuilder.getSql());
     }
   }
 

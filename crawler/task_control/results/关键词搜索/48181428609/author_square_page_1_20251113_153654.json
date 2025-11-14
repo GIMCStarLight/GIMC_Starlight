@@ -1,0 +1,213 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_task_price_list": "[136000,152000,190000]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L5",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"成膜速度快\":0.07200000000000001,\"清爽\":0.05200000000000001,\"玻色因\":0.12966666666666668,\"绵密\":0.07200000000000001,\"美白\":0.34324999999999983,\"胶原成分\":0.3719999999999997,\"防晒\":0.1386,\"防水\":0.07200000000000001}",
+        "author_type": "3",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_66a0830b71245e39cbfbcbecdb52f099.jpeg?from=4010531038",
+        "burst_text_rate": "1",
+        "city": "广州",
+        "content_theme_labels_180d": "[\"家庭生活记录\",\"家庭美食\",\"家庭亲子生活\",\"自制美食\",\"情感短剧\",\"感人短剧\",\"恋爱剧情\",\"健康养生\",\"螺蛳粉\",\"露营生活\"]",
+        "core_user_id": "717322149179917",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": ">100w",
+        "ecom_gpm_30d_range": "400-1000",
+        "ecom_score": "76",
+        "ecom_video_product_num_30d": "0",
+        "ecom_watch_pv_30d": "1.7",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "3502679",
+        "expected_play_num": "3722313",
+        "fans_increment_rate_within_15d": "-0.0014750456046849875",
+        "fans_increment_within_15d": "-4229",
+        "fans_increment_within_30d": "23293",
+        "follower": "2862862",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7307151965610311730",
+        "interact_rate_within_30d": "0.0188",
+        "interaction_median_30d": "65340",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "1",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"1813\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762720729\",\"item_id\":\"7570827748949634939\",\"item_publish_time\":\"1762738200\",\"item_title\":\"今天关关在家里自制了网上很火的奶皮子糖葫芦 简直太好吃了 对了姐妹们 你们觉得今天来试工的保姆怎么样 给点建议呗#记录真实生活 #vlog日常 #保姆 #谢宝悦#奶皮子糖葫芦\",\"like_cnt\":\"44794\",\"share_cnt\":\"2036\",\"vv\":\"1955650\"},{\"comment_cnt\":\"2562\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762547905\",\"item_id\":\"7570085492843575481\",\"item_publish_time\":\"1762565400\",\"item_title\":\"书上说“天下没有不散的宴席”但书上又说“人生何处不相逢”这不是分别是为了下次更好的遇见 祝你未来一切顺遂 平安快乐#记录真实生活 #vlog日常 #保姆#谢宝悦\",\"like_cnt\":\"82647\",\"share_cnt\":\"2321\",\"vv\":\"4037428\"},{\"comment_cnt\":\"1285\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762379973\",\"item_id\":\"7569364086618688820\",\"item_publish_time\":\"1762392600\",\"item_title\":\"今天天气不错 想着带全家人一起出去骑马露营放松一下 没想到周姐女儿却和我提出这个要求…唉#记录真实生活 #vlog日常 #保姆 #谢宝悦\",\"like_cnt\":\"54857\",\"share_cnt\":\"1658\",\"vv\":\"2763811\"},{\"comment_cnt\":\"2221\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762090190\",\"item_id\":\"7568119661775113472\",\"item_publish_time\":\"1762133400\",\"item_title\":\"今天本来和老公商量了要给周姐续约 没想到周姐还是决定要离职 近两年的相处让我有太多不舍 但人与人之间终会有分别的那一日吧#记录真实生活 #vlog日常 #保姆 #谢宝悦\",\"like_cnt\":\"86820\",\"share_cnt\":\"2926\",\"vv\":\"5115763\"},{\"comment_cnt\":\"1571\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761913116\",\"item_id\":\"7567359160199679232\",\"item_publish_time\":\"1761960600\",\"item_title\":\"今天00后保姆在家自制古法烧仙草 没想到能这么好吃 但是周姐最后和我说的这事 让我陷入深思 姐妹们 你们说我该怎么办好…#记录真实生活 #vlog日常 #保姆 #烧仙草 #谢宝悦\",\"like_cnt\":\"67590\",\"share_cnt\":\"2710\",\"vv\":\"3992981\"},{\"comment_cnt\":\"2184\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761748779\",\"item_id\":\"7566653350666620186\",\"item_publish_time\":\"1761787800\",\"item_title\":\"今天给家里保姆开工资 结果关关却给我买了很多礼物 还被借走了一万多 唉这孩子什么时候才能多长点心呢#记录真实生活 #vlog日常 #保姆 #黄金 #谢宝悦\",\"like_cnt\":\"59938\",\"share_cnt\":\"1988\",\"vv\":\"3079121\"},{\"comment_cnt\":\"2581\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761573510\",\"item_id\":\"7565900537242094898\",\"item_publish_time\":\"1761615000\",\"item_title\":\"今天家里两位保姆去山姆采购 没想到被助理前女友欺负了 真的让我太生气了#记录真实生活 #vlog日常 #保姆 #山姆超市 #谢宝悦\",\"like_cnt\":\"91559\",\"share_cnt\":\"3661\",\"vv\":\"6421864\"},{\"comment_cnt\":\"2342\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761335824\",\"item_id\":\"7564879527084674354\",\"item_publish_time\":\"1761348600\",\"item_title\":\"今天是关关的生日 我们给她准备了从小到大的生日礼物 希望她每每被过去困扰时 都能被现在的美好所覆盖#记录真实生活 #vlog日常 #保姆 #生日惊喜 #谢宝悦\",\"like_cnt\":\"80766\",\"share_cnt\":\"3006\",\"vv\":\"3891749\"},{\"comment_cnt\":\"1878\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761160800\",\"item_id\":\"7564127995657506058\",\"item_publish_time\":\"1761183000\",\"item_title\":\"爱与被爱同时发生 爱才会变的有意义 你们说对吗#记录真实生活 #vlog日常 #保姆 #夫妻日常 #谢宝悦\",\"like_cnt\":\"95871\",\"share_cnt\":\"3477\",\"vv\":\"4755324\"},{\"comment_cnt\":\"2977\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760968713\",\"item_id\":\"7563302889343520000\",\"item_publish_time\":\"1761010200\",\"item_title\":\"今天关关居然没花一分钱做出了20道菜 真的太厉害了 姐妹们 你们觉得今天这顿饭打几分#记录真实生活 #vlog日常 #保姆 #美食 #谢宝悦\",\"like_cnt\":\"74743\",\"share_cnt\":\"3930\",\"vv\":\"4564631\"}]",
+        "link_convert_index": "95.27",
+        "link_convert_index_by_industry": "95.27",
+        "link_i_cnt_by_industry": "2524707",
+        "link_k_cnt_by_industry": "21508",
+        "link_l_cnt_by_industry": "5123492",
+        "link_link_cnt_by_industry": "11383136",
+        "link_n_cnt_by_industry": "3713429",
+        "link_recommend_index_by_industry": "83.75",
+        "link_shopping_index": "83.75",
+        "link_spread_index": "94.23",
+        "link_spread_index_by_industry": "94.23",
+        "link_star_index": "83.94",
+        "link_star_index_by_industry": "83.94",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "谢宝悦🍃",
+        "pic_expected_play_num": "223864",
+        "play_over_rate_within_30d": "0.1573",
+        "price_1_20": "170000",
+        "price_20_60": "180000",
+        "price_60": "190000",
+        "promotion_prospective_1_20_cpm": "48.3",
+        "promotion_prospective_20_60_cpm": "51.14",
+        "promotion_prospective_60_cpm": "53.99",
+        "promotion_prospective_vv": "3519473",
+        "prospective_1_20_cpm": "45.6705",
+        "prospective_20_60_cpm": "48.357",
+        "prospective_60_cpm": "51.0435",
+        "province": "",
+        "search_after_view_index_by_industry": "97.98",
+        "sn_expected_play_num": "3722313",
+        "sn_interact_rate_within_30d": "0.0188",
+        "sn_play_over_rate_within_30d": "0.1573",
+        "sn_prospective_1_20_cpe": "2.416",
+        "sn_prospective_1_20_cpm": "45.6705",
+        "sn_prospective_20_60_cpe": "2.5582",
+        "sn_prospective_20_60_cpm": "48.357",
+        "sn_prospective_60_cpe": "2.7003",
+        "sn_prospective_60_cpm": "51.0435",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "2247",
+        "star_ecom_video_num_30d": "1",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "3",
+        "star_video_finish_vv_rate_90d": "0.1519",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0155",
+        "star_video_median_vv_90d": "3481883",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食产品测评\"]}",
+        "vv_median_30d": "3265220"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7530697787504217354",
+          "video_tag": 3,
+          "vv": 10250213
+        },
+        {
+          "item_id": "7514024562300849423",
+          "video_tag": 3,
+          "vv": 8144651
+        },
+        {
+          "item_id": "7561780518095899962",
+          "video_tag": 4,
+          "vv": 9173758
+        },
+        {
+          "item_id": "7509405383259311420",
+          "video_tag": 4,
+          "vv": 9150194
+        },
+        {
+          "item_id": "7546273922329758985",
+          "video_tag": 5,
+          "vv": 8137999
+        },
+        {
+          "item_id": "7514743739324189993",
+          "video_tag": 5,
+          "vv": 7292319
+        },
+        {
+          "item_id": "7571569419324401061",
+          "video_tag": 6,
+          "vv": 1537702
+        },
+        {
+          "item_id": "7570827748949634939",
+          "video_tag": 6,
+          "vv": 1771156
+        }
+      ],
+      "star_id": "7307151965610311730",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 190000,
+              "price_extra_info": {},
+              "start_time": "1740758400",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 180000,
+              "price_extra_info": {},
+              "start_time": "1740758400",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 170000,
+              "price_extra_info": {},
+              "start_time": "1740758400",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572110575711846446"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "941d939a8eb93462955e250724f10b90c064f75e"
+}

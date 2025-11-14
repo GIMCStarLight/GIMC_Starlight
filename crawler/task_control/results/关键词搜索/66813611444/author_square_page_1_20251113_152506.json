@@ -1,0 +1,231 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "55",
+        "assign_task_price_list": "[16800,20800,24000,24000,25600,25600,35000,35000,35000,42000]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"健身\":0,\"年轻人\":0.001,\"清爽\":0,\"聚会\":1.0439999999999998}",
+        "author_type": "2",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_d419c8fca882226c9a45e26efa6242b5.jpeg?from=4010531038",
+        "avg_sale_amount_range": "0",
+        "city": "",
+        "content_theme_labels_180d": "[\"编程应用\",\"手机评测\",\"AI应用\",\"智能影音设备\",\"科技科普\",\"家电推荐\",\"科技资讯\",\"电脑科技\",\"充电技术\",\"电子产品测评\"]",
+        "core_user_id": "1992740623625976",
+        "e_commerce_enable": "1",
+        "ecom_gpm_30days_range": "0",
+        "ecom_video_product_num_30d": "1",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "131674",
+        "expected_play_num": "134632",
+        "fans_increment_rate_within_15d": "-0.0006299045599151644",
+        "fans_increment_within_15d": "-297",
+        "fans_increment_within_30d": "220",
+        "follower": "471183",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "7270847008217235516",
+        "interact_rate_within_30d": "0.0595",
+        "interaction_median_30d": "5294",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "1",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"257\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762315611\",\"item_id\":\"7569087883513810810\",\"item_publish_time\":\"1762315611\",\"item_title\":\"三星S25U VS 荣耀Magic8，双十一换机到底怎么选！ #三星S25U #双11电商大促\",\"like_cnt\":\"5037\",\"share_cnt\":\"39\",\"vv\":\"272135\"},{\"comment_cnt\":\"229\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762257331\",\"item_id\":\"7568837571591150949\",\"item_publish_time\":\"1762257331\",\"item_title\":\"双十一换手机纠结疯？荣耀Magic8 系列直接封神！#荣耀Magic8@荣耀手机 #荣耀Magic8巅峰旗舰\",\"like_cnt\":\"6015\",\"share_cnt\":\"31\",\"vv\":\"155090\"},{\"comment_cnt\":\"216\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761819656\",\"item_id\":\"7566957778792910143\",\"item_publish_time\":\"1761819656\",\"item_title\":\"一块能充N个设备？南孚传应45W三合一磁吸充电宝！#南孚传应磁吸充电宝#我的双11必买清单#双11手机购买指南\",\"like_cnt\":\"4640\",\"share_cnt\":\"27\",\"vv\":\"302332\"},{\"comment_cnt\":\"260\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761706478\",\"item_id\":\"7566471690873802011\",\"item_publish_time\":\"1761706478\",\"item_title\":\"三星玄龙骑士G75F电竞办公双能屏：21:9带鱼屏+180Hz高刷，双十一电竞党必冲的全能神器！#三星显示器G75F#显示器推荐\",\"like_cnt\":\"4280\",\"share_cnt\":\"60\",\"vv\":\"96386\"},{\"comment_cnt\":\"200\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761642380\",\"item_id\":\"7566196386480295177\",\"item_publish_time\":\"1761642380\",\"item_title\":\"扫地机选择困难？追求省心+干净，看这篇！#扫地机器人#大疆扫地机器人#大疆ROMO扫地机器人\",\"like_cnt\":\"3953\",\"share_cnt\":\"28\",\"vv\":\"256597\"},{\"comment_cnt\":\"172\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761555119\",\"item_id\":\"7565821598990519615\",\"item_publish_time\":\"1761555119\",\"item_title\":\"打“硬”实力看得见？立马拆！#打印机推荐#惠普激光打印机实力好印 #惠普新一代捷系列 #惠普激光打印机\",\"like_cnt\":\"5920\",\"share_cnt\":\"27\",\"vv\":\"98753\"},{\"comment_cnt\":\"225\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761025632\",\"item_id\":\"7563547477115735337\",\"item_publish_time\":\"1761025632\",\"item_title\":\"旗舰性能超清画质，华为智慧屏 MateTV巨幕震撼来袭，重新定义家庭娱乐#华为MateTV #大Mate大不同 #数博会 #智慧大屏惊现2025数博会\",\"like_cnt\":\"5426\",\"share_cnt\":\"639\",\"vv\":\"268771\"},{\"comment_cnt\":\"272\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760686224\",\"item_id\":\"7562089729925451067\",\"item_publish_time\":\"1760686224\",\"item_title\":\"花少团人均摄影师？全靠它#花少同款旅拍神器#华为Pura80#Pura80追星神器#Pura80绝代双焦#花少\",\"like_cnt\":\"19362\",\"share_cnt\":\"140\",\"vv\":\"531712\"},{\"comment_cnt\":\"905\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1759031223\",\"item_id\":\"7554981561884970298\",\"item_publish_time\":\"1759031223\",\"item_title\":\"云米昆仑4Pro弱碱矿泉净水器！在家实现矿泉水自由！#云米昆仑4 #云米昆仑4弱碱矿泉净水器\",\"like_cnt\":\"3633\",\"share_cnt\":\"334\",\"vv\":\"676853\"},{\"comment_cnt\":\"80\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757919415\",\"item_id\":\"7550206388769787195\",\"item_publish_time\":\"1757919415\",\"item_title\":\"原来这就是陈年仁喜欢的科技眼镜！#CIOF2025  #眼镜 #智能眼镜 #AI音频眼镜 #科技爱好者\",\"like_cnt\":\"450\",\"share_cnt\":\"127\",\"vv\":\"110660\"}]",
+        "link_convert_index": "45.77",
+        "link_convert_index_by_industry": "45.77",
+        "link_i_cnt_by_industry": "112146",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "1022469",
+        "link_link_cnt_by_industry": "1155426",
+        "link_n_cnt_by_industry": "20811",
+        "link_recommend_index_by_industry": "61.89",
+        "link_shopping_index": "61.89",
+        "link_spread_index": "62.4",
+        "link_spread_index_by_industry": "62.4",
+        "link_star_index": "62.83",
+        "link_star_index_by_industry": "62.83",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "陈年仁de玩物",
+        "play_over_rate_within_30d": "0.6462",
+        "price_1_20": "22400",
+        "price_20_60": "28000",
+        "price_60": "38000",
+        "promotion_prospective_1_20_cpm": "170.23",
+        "promotion_prospective_20_60_cpm": "212.79",
+        "promotion_prospective_60_cpm": "288.79",
+        "promotion_prospective_vv": "131585",
+        "prospective_1_20_cpm": "166.3795",
+        "prospective_20_60_cpm": "207.9743",
+        "prospective_60_cpm": "282.2509",
+        "province": "",
+        "search_after_view_index_by_industry": "71.49",
+        "sn_expected_play_num": "134632",
+        "sn_interact_rate_within_30d": "0.0595",
+        "sn_play_over_rate_within_30d": "0.6462",
+        "sn_prospective_1_20_cpe": "33.0383",
+        "sn_prospective_1_20_cpm": "166.3795",
+        "sn_prospective_20_60_cpe": "41.2979",
+        "sn_prospective_20_60_cpm": "207.9743",
+        "sn_prospective_60_cpe": "56.0472",
+        "sn_prospective_60_cpm": "282.2509",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "23",
+        "star_ecom_main_price_30days": "13199",
+        "star_ecom_video_num_30d": "7",
+        "star_ecom_video_product_num_30d": "1",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "7",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "10",
+        "star_video_finish_vv_rate_90d": "0.0484",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0229",
+        "star_video_median_vv_90d": "272284",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"科技数码\":[\"科技\"]}",
+        "vv_median_30d": "48359"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7568837571591150949",
+          "video_tag": 3,
+          "vv": 71704
+        },
+        {
+          "item_id": "7550206388769787195",
+          "video_tag": 3,
+          "vv": 17037
+        },
+        {
+          "item_id": "7519856865343671612",
+          "video_tag": 4,
+          "vv": 4004028
+        },
+        {
+          "item_id": "7554981561884970298",
+          "video_tag": 4,
+          "vv": 660559
+        },
+        {
+          "item_id": "7562089729925451067",
+          "video_tag": 5,
+          "vv": 288632
+        },
+        {
+          "item_id": "7510172736174574885",
+          "video_tag": 5,
+          "vv": 268092
+        },
+        {
+          "item_id": "7569087883513810810",
+          "video_tag": 6,
+          "vv": 66760
+        },
+        {
+          "item_id": "7566957778792910143",
+          "video_tag": 6,
+          "vv": 29958
+        }
+      ],
+      "star_id": "7270847008217235516",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 22400,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 28000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 38000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 28000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 22400,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572107596976963593"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "94c67e6423fbcc9120a28f8b4c5031127cfbdacd"
+}

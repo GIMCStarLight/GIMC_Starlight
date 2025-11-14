@@ -1,0 +1,227 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_task_price_list": "[14600,17600,22000]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"健身\":0.19600000000000004,\"早餐\":0,\"洁面\":0.018000000000000002,\"清爽\":0.069,\"祛痘\":0.12500000000000003,\"蛋白质\":0,\"遮瑕\":0}",
+        "author_type": "1",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/douyin-user-image-file_9c557a363b93236a84e3bdab899b6c4a.jpeg?from=4010531038",
+        "city": "杭州",
+        "content_theme_labels_180d": "[\"恋爱故事\",\"恋爱演绎\",\"情侣趣事\",\"恋爱剧情\",\"家庭生活记录\",\"洗发水测评\",\"外卖测评\",\"环球旅行\",\"男性妆容\",\"夫妻情感\"]",
+        "core_user_id": "1673904077675304",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "2",
+        "expected_natural_play_num": "41455",
+        "expected_play_num": "98813",
+        "fans_increment_rate_within_15d": "-0.004270364099123564",
+        "fans_increment_within_15d": "-802",
+        "fans_increment_within_30d": "289.5",
+        "follower": "187001",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "7269686819900358711",
+        "interact_rate_within_30d": "0.0137",
+        "interaction_median_30d": "1025",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "1",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"34\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762862289\",\"item_id\":\"7571435862186274010\",\"item_publish_time\":\"1762862289\",\"item_title\":\"再次见面你还认得出我吗 #反差 #逆袭 #爆改\",\"like_cnt\":\"1336\",\"share_cnt\":\"175\",\"vv\":\"88080\"},{\"comment_cnt\":\"18\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762255182\",\"item_id\":\"7568828354763130290\",\"item_publish_time\":\"1762255182\",\"item_title\":\"这就是男生出门见女朋友的最高礼仪 #情侣日常 #日常vlog\",\"like_cnt\":\"611\",\"share_cnt\":\"26\",\"vv\":\"19205\"},{\"comment_cnt\":\"13\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761734700\",\"item_id\":\"7566592904392740134\",\"item_publish_time\":\"1761734700\",\"item_title\":\"懂事的男人要自己学会阅读理解 #日常vlog #奶皮子糖葫芦\",\"like_cnt\":\"595\",\"share_cnt\":\"50\",\"vv\":\"30674\"},{\"comment_cnt\":\"45\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761390224\",\"item_id\":\"7565113394162289970\",\"item_publish_time\":\"1761390224\",\"item_title\":\"只要肯为她花心思，陪她出门那不简简单单 #日常vlog #男生化妆 #变帅\",\"like_cnt\":\"2033\",\"share_cnt\":\"175\",\"vv\":\"333284\"},{\"comment_cnt\":\"61\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759293310\",\"item_id\":\"7556107215654292736\",\"item_publish_time\":\"1759293310\",\"item_title\":\"旅行第一天女朋友就给了我一巴掌…… #情侣日常 #旅行 #旅行转场\",\"like_cnt\":\"2182\",\"share_cnt\":\"818\",\"vv\":\"133181\"},{\"comment_cnt\":\"51\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759228867\",\"item_id\":\"7555830434015350056\",\"item_publish_time\":\"1759228867\",\"item_title\":\"地球online好玩爱玩下次还来地球玩 旅行转场终于拍上啦！ #情侣日常 #旅行大玩家 #旅行转场 #转场\",\"like_cnt\":\"6248\",\"share_cnt\":\"2336\",\"vv\":\"260198\"},{\"comment_cnt\":\"42\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759139897\",\"item_id\":\"7555448320421580032\",\"item_publish_time\":\"1759139897\",\"item_title\":\"当对象喂我吃东西 #Duck不必等快乐吃思念#思念食品#与秋日共赴热爱\",\"like_cnt\":\"2975\",\"share_cnt\":\"543\",\"vv\":\"274190\"},{\"comment_cnt\":\"91\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758354813\",\"item_id\":\"7552076385982041378\",\"item_publish_time\":\"1758354813\",\"item_title\":\"一直一直走下去！ #情侣日常#免醒小玖局 #炫一个小彩条儿\",\"like_cnt\":\"3906\",\"share_cnt\":\"291\",\"vv\":\"654037\"},{\"comment_cnt\":\"575\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1757396655\",\"item_id\":\"7547961153419382073\",\"item_publish_time\":\"1757396655\",\"item_title\":\"重生之为爱爆改 #情侣日常 #逆袭 #海洋至尊男士控油洗发水 #夏日闪光派对\",\"like_cnt\":\"29127\",\"share_cnt\":\"4569\",\"vv\":\"6523370\"},{\"comment_cnt\":\"23\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756452538\",\"item_id\":\"7543906193640197428\",\"item_publish_time\":\"1756452538\",\"item_title\":\"好玩到扇耳光都不放手！！ #情侣日常#LiberLive新品C2#再次定义无弦吉他\",\"like_cnt\":\"5898\",\"share_cnt\":\"69\",\"vv\":\"264318\"}]",
+        "link_convert_index": "62.73",
+        "link_convert_index_by_industry": "62.73",
+        "link_i_cnt_by_industry": "849134",
+        "link_k_cnt_by_industry": "3",
+        "link_l_cnt_by_industry": "1914114",
+        "link_link_cnt_by_industry": "2839599",
+        "link_n_cnt_by_industry": "76348",
+        "link_recommend_index_by_industry": "74.21",
+        "link_shopping_index": "74.21",
+        "link_spread_index": "72.09",
+        "link_spread_index_by_industry": "72.09",
+        "link_star_index": "73.29",
+        "link_star_index_by_industry": "73.29",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "金海佑",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.3084",
+        "price_1_20": "10000",
+        "price_20_60": "14600",
+        "price_60": "22000",
+        "promotion_prospective_1_20_cpm": "117.81",
+        "promotion_prospective_20_60_cpm": "172",
+        "promotion_prospective_60_cpm": "259.17",
+        "promotion_prospective_vv": "84885",
+        "prospective_1_20_cpm": "101.2013",
+        "prospective_20_60_cpm": "147.7538",
+        "prospective_60_cpm": "222.6428",
+        "province": "",
+        "search_after_view_index_by_industry": "74.56",
+        "sn_expected_play_num": "98813",
+        "sn_interact_rate_within_30d": "0.0137",
+        "sn_play_over_rate_within_30d": "0.3084",
+        "sn_prospective_1_20_cpe": "4.995",
+        "sn_prospective_1_20_cpm": "101.2013",
+        "sn_prospective_20_60_cpe": "7.2927",
+        "sn_prospective_20_60_cpm": "147.7538",
+        "sn_prospective_60_cpe": "10.989",
+        "sn_prospective_60_cpm": "222.6428",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "196",
+        "star_ecom_video_num_30d": "0",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "7",
+        "star_video_finish_vv_rate_90d": "0.1256",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0124",
+        "star_video_median_vv_90d": "276831",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"生活\":[\"生活记录\"]}",
+        "vv_median_30d": "55575"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7519108040479722786",
+          "video_tag": 3,
+          "vv": 12969929
+        },
+        {
+          "item_id": "7513169771346414883",
+          "video_tag": 3,
+          "vv": 3054187
+        },
+        {
+          "item_id": "7547961153419382073",
+          "video_tag": 4,
+          "vv": 6518442
+        },
+        {
+          "item_id": "7539140561699474734",
+          "video_tag": 4,
+          "vv": 1506227
+        },
+        {
+          "item_id": "7538335112086261027",
+          "video_tag": 5,
+          "vv": 491806
+        },
+        {
+          "item_id": "7512033452645223732",
+          "video_tag": 5,
+          "vv": 452628
+        },
+        {
+          "item_id": "7571435862186274010",
+          "video_tag": 6,
+          "vv": 251147
+        },
+        {
+          "item_id": "7568828354763130290",
+          "video_tag": 6,
+          "vv": 26329
+        }
+      ],
+      "star_id": "7269686819900358711",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 6150,
+              "price_extra_info": {},
+              "start_time": "1712127273",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3000,
+              "price_extra_info": {},
+              "start_time": "1712127295",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 10000,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 22000,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 14600,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572100260400316425"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "bbff6cd31dbcee70143221d83d01363bce13c3e3"
+}

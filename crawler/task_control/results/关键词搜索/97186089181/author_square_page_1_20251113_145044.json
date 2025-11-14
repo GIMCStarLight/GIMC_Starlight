@@ -1,0 +1,234 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_task_price_list": "[12000,14500,14736,17900,18000,18210,18300,25200,26000,28000,28500]",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"定妆\":18.140439879279782,\"年轻人\":0.10400000000000001,\"成膜速度快\":0.015,\"服帖\":1.938000000000001,\"清爽\":0.17250000000000004,\"玻色因\":0.027000000000000007,\"美白\":1.938000000000001,\"胶原成分\":0.21600000000000008,\"防晒\":145.92390220226633,\"防水\":2.2783333333333275}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813c001_oMAAWXypASeVhgcAfqABVEIzdgKCrApCUDNb8K.jpeg?from=4010531038",
+        "avg_search_after_view_rate_30d": "0.0058",
+        "burst_text_rate": "0.25",
+        "city": "开封",
+        "content_theme_labels_180d": "[\"情侣趣事\",\"相亲探讨\",\"美食探索\",\"搞笑剧情\",\"剧情反转\",\"祈福旅行\",\"家庭生活记录\",\"登山活动\",\"恋爱演绎\",\"洛阳旅行\"]",
+        "core_user_id": "2861356822310713",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "1k-3w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "3",
+        "expected_natural_play_num": "761064",
+        "expected_play_num": "843252",
+        "fans_increment_rate_within_15d": "0.0022755722894489136",
+        "fans_increment_within_15d": "469",
+        "fans_increment_within_30d": "1963.07",
+        "follower": "206557",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7378092542379687974",
+        "interact_rate_within_30d": "0.0142",
+        "interaction_median_30d": "13497",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "1",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"726\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762837428\",\"item_id\":\"7571329087454607970\",\"item_publish_time\":\"1762851660\",\"item_title\":\"相亲男生带我吃完泡面后给我转了两千，这波操作没太懂#相亲记 #日常vlog #反转 #小点子\",\"like_cnt\":\"5535\",\"share_cnt\":\"1539\",\"vv\":\"479611\"},{\"comment_cnt\":\"797\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762619044\",\"item_id\":\"7570391107520497064\",\"item_publish_time\":\"1762646400\",\"item_title\":\"寻夫日记｜听说洛阳白马寺扶正缘 我来了 #姻缘 #正能量 #旅行推荐官 #小点子 #爱情\",\"like_cnt\":\"7276\",\"share_cnt\":\"2047\",\"vv\":\"742106\"},{\"comment_cnt\":\"1744\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762408329\",\"item_id\":\"7569486109559444879\",\"item_publish_time\":\"1762420740\",\"item_title\":\"这个男生给我一种拿捏不住的感觉，是因为舞蹈老师气场太强大了吗#搞笑 #相亲记 #vlog十亿流量扶持计划 #小点子 #一定要看到最后\",\"like_cnt\":\"15749\",\"share_cnt\":\"3917\",\"vv\":\"1434582\"},{\"comment_cnt\":\"954\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762149154\",\"item_id\":\"7568372961746324195\",\"item_publish_time\":\"1762149154\",\"item_title\":\"男生各方面都不错，但是他工作我还是需要进一步再了解了解#相亲记#爱情#小点子#vlog十亿流量扶持计划\",\"like_cnt\":\"12831\",\"share_cnt\":\"2126\",\"vv\":\"1098883\"},{\"comment_cnt\":\"1071\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762017221\",\"item_id\":\"7567806247887304674\",\"item_publish_time\":\"1762045200\",\"item_title\":\"约定虽然没有实现 但相逢一程已是感激万分#热门 #小点子  #我们的故事 #vlog十亿流量扶持计划 #户外\",\"like_cnt\":\"13163\",\"share_cnt\":\"2559\",\"vv\":\"1153021\"},{\"comment_cnt\":\"937\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761659614\",\"item_id\":\"7566270418643389748\",\"item_publish_time\":\"1761659614\",\"item_title\":\"相亲挺顺利的，最后男生约我爬泰山要去吗？#相亲记#脱单#花西子粉饼#内容过于真实\",\"like_cnt\":\"8352\",\"share_cnt\":\"1172\",\"vv\":\"1628460\"},{\"comment_cnt\":\"880\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761276355\",\"item_id\":\"7564624326642486580\",\"item_publish_time\":\"1761276355\",\"item_title\":\"第二次见面后，感觉遇到了对的搭子@中国劲酒 #相亲记#和对的搭子好好吃饭 #劲酒配美食食养两相宜#食养江湖开局啦#遗憾\",\"like_cnt\":\"9999\",\"share_cnt\":\"2180\",\"vv\":\"835954\"},{\"comment_cnt\":\"1687\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761125420\",\"item_id\":\"7563976059437157647\",\"item_publish_time\":\"1761125420\",\"item_title\":\"我说先去一下彩票店，他直接拿出来一张刮刮乐，这算不算合拍呢？#相亲记 #合拍 #vlog十亿流量扶持计划 #小点子\",\"like_cnt\":\"10229\",\"share_cnt\":\"1871\",\"vv\":\"901999\"},{\"comment_cnt\":\"811\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760929928\",\"item_id\":\"7563136417771359540\",\"item_publish_time\":\"1760929928\",\"item_title\":\"和男生聊天很愉快，初次见面能聊得来已经很幸运了#相亲记#柳丝木隔离#情感#vlog十亿流量扶持计划#小点子\",\"like_cnt\":\"9963\",\"share_cnt\":\"2914\",\"vv\":\"1426350\"},{\"comment_cnt\":\"2480\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760806478\",\"item_id\":\"7562606189503876367\",\"item_publish_time\":\"1760835600\",\"item_title\":\"等你毕业论文写完 我们还会再见吗#相亲记 #情感 #遗憾 #小点子 #vlog十亿流量扶持计划\",\"like_cnt\":\"28016\",\"share_cnt\":\"8623\",\"vv\":\"2403182\"}]",
+        "link_convert_index": "73.01",
+        "link_convert_index_by_industry": "73.01",
+        "link_i_cnt_by_industry": "1721679",
+        "link_k_cnt_by_industry": "42",
+        "link_l_cnt_by_industry": "3805546",
+        "link_link_cnt_by_industry": "6847029",
+        "link_n_cnt_by_industry": "1319762",
+        "link_recommend_index_by_industry": "87.72",
+        "link_shopping_index": "87.72",
+        "link_spread_index": "85.45",
+        "link_spread_index_by_industry": "85.45",
+        "link_star_index": "80.11",
+        "link_star_index_by_industry": "80.11",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "小点子(一点都不特别)",
+        "pic_expected_play_num": "1202539",
+        "play_over_rate_within_30d": "0.1443",
+        "price_1_20": "19000",
+        "price_20_60": "22800",
+        "price_60": "29800",
+        "promotion_prospective_1_20_cpm": "16.49",
+        "promotion_prospective_20_60_cpm": "19.79",
+        "promotion_prospective_60_cpm": "25.87",
+        "promotion_prospective_vv": "1152061",
+        "prospective_1_20_cpm": "22.5318",
+        "prospective_20_60_cpm": "27.0382",
+        "prospective_60_cpm": "35.3394",
+        "province": "",
+        "search_after_view_index_by_industry": "65.69",
+        "sn_expected_play_num": "843252",
+        "sn_interact_rate_within_30d": "0.0142",
+        "sn_play_over_rate_within_30d": "0.1443",
+        "sn_prospective_1_20_cpe": "1.9147",
+        "sn_prospective_1_20_cpm": "22.5318",
+        "sn_prospective_20_60_cpe": "2.2977",
+        "sn_prospective_20_60_cpm": "27.0382",
+        "sn_prospective_60_cpe": "3.0031",
+        "sn_prospective_60_cpm": "35.3394",
+        "star_component_download_ctr_90d": "0.0005479636259728035",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_install_pvr_90d": "0",
+        "star_component_link_click_cnt_90d": "653",
+        "star_ecom_video_num_30d": "4",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "4",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "10",
+        "star_video_finish_vv_rate_90d": "0.096",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.01",
+        "star_video_median_vv_90d": "1515568",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食产品测评\"]}",
+        "vv_median_30d": "1164050"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7520922511224818984",
+          "video_tag": 3,
+          "vv": 10457824
+        },
+        {
+          "item_id": "7556949575950716195",
+          "video_tag": 3,
+          "vv": 9099369
+        },
+        {
+          "item_id": "7540947802932415744",
+          "video_tag": 4,
+          "vv": 6412133
+        },
+        {
+          "item_id": "7529840684719951138",
+          "video_tag": 4,
+          "vv": 6297101
+        },
+        {
+          "item_id": "7522766125303024911",
+          "video_tag": 5,
+          "vv": 6325561
+        },
+        {
+          "item_id": "7537931527843269923",
+          "video_tag": 5,
+          "vv": 4919208
+        },
+        {
+          "item_id": "7571329087454607970",
+          "video_tag": 6,
+          "vv": 640516
+        },
+        {
+          "item_id": "7570391107520497064",
+          "video_tag": 6,
+          "vv": 698141
+        }
+      ],
+      "star_id": "7378092542379687974",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "1764518399",
+              "platform_source": 1,
+              "price": 29800,
+              "price_extra_info": {},
+              "start_time": "1761316448",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 22800,
+              "price_extra_info": {
+                "price_discount_range": "23",
+                "price_last_month": "29800",
+                "price_margin_last": "7000"
+              },
+              "start_time": "1762226347",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 19000,
+              "price_extra_info": {
+                "price_last_month": "19000"
+              },
+              "start_time": "1762226347",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 29800,
+              "price_extra_info": {
+                "price_discount_range": "21",
+                "price_last_month": "38200",
+                "price_margin_last": "8400"
+              },
+              "start_time": "1762226347",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572098663708442670"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "98c997b81ef4e29f43f891a9247602f5a0dce128"
+}

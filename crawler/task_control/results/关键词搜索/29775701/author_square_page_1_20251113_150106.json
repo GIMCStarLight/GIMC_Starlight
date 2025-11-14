@@ -1,0 +1,233 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_task_price_list": "[32000,36000,50000]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L6",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"酥脆\":0.9545000000000002,\"防晒\":0.003}",
+        "author_type": "3",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_7c9fde1e8bbc57055ccff49862811379.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "黄浦区",
+        "content_theme_labels_180d": "[\"自制美食\",\"房间改造\",\"热门小吃\",\"搞笑剧情\",\"蛋糕制作\",\"零食测评\",\"萌宠乐趣\",\"摆摊经营\",\"海鲜美食\",\"美食吃播\"]",
+        "core_user_id": "62573861754",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": "1k-3w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "974507",
+        "expected_play_num": "1437479",
+        "fans_increment_rate_within_15d": "-0.0016798328010776203",
+        "fans_increment_within_15d": "-15420",
+        "fans_increment_within_30d": "-27772",
+        "follower": "9169616",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6676703809642692622",
+        "interact_rate_within_30d": "0.0301",
+        "interaction_median_30d": "59247.5",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"173\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762667255\",\"item_id\":\"7570598189562439338\",\"item_publish_time\":\"1762667255\",\"item_title\":\"我咋又离婚了， 吓得丁哥一夜之间胡子都长出来了\",\"like_cnt\":\"12390\",\"share_cnt\":\"485\",\"vv\":\"704937\"},{\"comment_cnt\":\"320\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761826722\",\"item_id\":\"7566988140867685668\",\"item_publish_time\":\"1761876000\",\"item_title\":\"你们要的上铺分享版来啦！ #宿舍改造#上下铺#抖音商城#双11必冲好东西 #双11冲刺吧\",\"like_cnt\":\"63420\",\"share_cnt\":\"2304\",\"vv\":\"1188783\"},{\"comment_cnt\":\"1898\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761127763\",\"item_id\":\"7563986130094787883\",\"item_publish_time\":\"1761127763\",\"item_title\":\"全自动干发机哈哈哈哈\",\"like_cnt\":\"36916\",\"share_cnt\":\"73556\",\"vv\":\"4855213\"},{\"comment_cnt\":\"1288\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760781244\",\"item_id\":\"7562497830947900711\",\"item_publish_time\":\"1760781244\",\"item_title\":\"上铺改造终于来啦啊啊，建议收藏，太好看啦 #姐馋就吃太平咔咔脆 #太平咔咔脆  #追剧零食 #健康零食#宿舍改造\",\"like_cnt\":\"57493\",\"share_cnt\":\"13090\",\"vv\":\"6136691\"},{\"comment_cnt\":\"4688\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759837755\",\"item_id\":\"7558445589546814761\",\"item_publish_time\":\"1759837755\",\"item_title\":\"建议收藏，以后你会用上的哈哈哈，太好看啦\",\"like_cnt\":\"154271\",\"share_cnt\":\"36047\",\"vv\":\"3684402\"},{\"comment_cnt\":\"1941\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1759297773\",\"item_id\":\"7556126387674746154\",\"item_publish_time\":\"1759297773\",\"item_title\":\"床上游泳池，太太太太太太太舒服了\",\"like_cnt\":\"146097\",\"share_cnt\":\"108515\",\"vv\":\"9764913\"},{\"comment_cnt\":\"116\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758876517\",\"item_id\":\"7554317104158641451\",\"item_publish_time\":\"1758876517\",\"item_title\":\"浪浪山的小妖怪们来啦，这也太好看了吧 #问童子 #浪浪山小妖怪 #玩偶\",\"like_cnt\":\"6975\",\"share_cnt\":\"785\",\"vv\":\"257045\"},{\"comment_cnt\":\"905\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758771639\",\"item_id\":\"7553866642415176999\",\"item_publish_time\":\"1758771639\",\"item_title\":\"鸡排哥已经累的说不出话了 #美食\",\"like_cnt\":\"81409\",\"share_cnt\":\"15986\",\"vv\":\"3071260\"},{\"comment_cnt\":\"1235\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758455769\",\"item_id\":\"7552510004025756991\",\"item_publish_time\":\"1758455769\",\"item_title\":\"这样布置电脑桌真好看 #陶瓷花#罗技超级品牌日 #京东又好又便宜#罗技G趣玩日#罗技闪逸龙G316X\",\"like_cnt\":\"6737\",\"share_cnt\":\"541\",\"vv\":\"1512273\"},{\"comment_cnt\":\"141\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758335550\",\"item_id\":\"7551993658460146986\",\"item_publish_time\":\"1758335550\",\"item_title\":\"以后出门去可以不用说话了 #出门在外帽子是我最强嘴替 #玩个很新的东西 #帽子一戴谁都不爱\",\"like_cnt\":\"11258\",\"share_cnt\":\"89\",\"vv\":\"338445\"}]",
+        "link_convert_index": "70.63",
+        "link_convert_index_by_industry": "70.63",
+        "link_i_cnt_by_industry": "5685533",
+        "link_k_cnt_by_industry": "14",
+        "link_l_cnt_by_industry": "6884118",
+        "link_link_cnt_by_industry": "12832737",
+        "link_n_cnt_by_industry": "263072",
+        "link_recommend_index_by_industry": "74.04",
+        "link_shopping_index": "74.04",
+        "link_spread_index": "74.32",
+        "link_spread_index_by_industry": "74.32",
+        "link_star_index": "73.01",
+        "link_star_index_by_industry": "73.01",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "叫我coco啦",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.2314",
+        "price_1_20": "40000",
+        "price_20_60": "45000",
+        "price_60": "50000",
+        "promotion_prospective_1_20_cpm": "26.77",
+        "promotion_prospective_20_60_cpm": "30.12",
+        "promotion_prospective_60_cpm": "33.46",
+        "promotion_prospective_vv": "1494249",
+        "prospective_1_20_cpm": "27.8265",
+        "prospective_20_60_cpm": "31.3048",
+        "prospective_60_cpm": "34.7831",
+        "province": "上海市",
+        "search_after_view_index_by_industry": "83.89",
+        "sn_expected_play_num": "1437479",
+        "sn_interact_rate_within_30d": "0.0301",
+        "sn_play_over_rate_within_30d": "0.2314",
+        "sn_prospective_1_20_cpe": "0.9224",
+        "sn_prospective_1_20_cpm": "27.8265",
+        "sn_prospective_20_60_cpe": "1.0377",
+        "sn_prospective_20_60_cpm": "31.3048",
+        "sn_prospective_60_cpe": "1.153",
+        "sn_prospective_60_cpm": "34.7831",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "55",
+        "star_ecom_video_num_30d": "1",
+        "star_ecom_video_product_num_30d": "0",
+        "star_excellent_author": "0",
+        "star_index": "77.40282120040649",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "3",
+        "star_video_finish_vv_rate_90d": "0.055",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0099",
+        "star_video_median_vv_90d": "1512612",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食产品测评\"]}",
+        "vv_median_30d": "2180131.5"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7524661779483168063",
+          "video_tag": 3,
+          "vv": 31233728
+        },
+        {
+          "item_id": "7520894543039401270",
+          "video_tag": 3,
+          "vv": 18253128
+        },
+        {
+          "item_id": "7562497830947900711",
+          "video_tag": 4,
+          "vv": 6052250
+        },
+        {
+          "item_id": "7552510004025756991",
+          "video_tag": 4,
+          "vv": 679721
+        },
+        {
+          "item_id": "7513115223155494207",
+          "video_tag": 5,
+          "vv": 14858744
+        },
+        {
+          "item_id": "7525007192249847081",
+          "video_tag": 5,
+          "vv": 14400631
+        },
+        {
+          "item_id": "7570598189562439338",
+          "video_tag": 6,
+          "vv": 612749
+        },
+        {
+          "item_id": "7566988140867685668",
+          "video_tag": 6,
+          "vv": 411973
+        }
+      ],
+      "star_id": "6676703809642692622",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 50000,
+              "price_extra_info": {},
+              "start_time": "1756656000",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 48000,
+              "price_extra_info": {},
+              "start_time": "1672502400",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 50000,
+              "price_extra_info": {},
+              "start_time": "1756656000",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 45000,
+              "price_extra_info": {},
+              "start_time": "1756656000",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 40000,
+              "price_extra_info": {},
+              "start_time": "1756656000",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572101362169970726"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "c57630de86d9b3f38e049832646a69f38609d734"
+}

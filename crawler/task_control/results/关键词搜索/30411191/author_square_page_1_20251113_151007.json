@@ -1,0 +1,233 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "17",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_e5093bdd1c4787f0d46db9c00d184bfd.jpeg?from=4010531038",
+        "brand_boost_vv": "112841",
+        "city": "杭州",
+        "content_theme_labels_180d": "[\"恋爱演绎\",\"恋爱剧情\",\"恋爱故事\",\"情侣趣事\",\"夫妻情感\",\"搞笑剧情\",\"国产汽车\",\"家务整理\",\"用车知识\",\"家庭幽默演绎\"]",
+        "core_user_id": "62665130791",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "2",
+        "expected_natural_play_num": "44565",
+        "expected_play_num": "54702",
+        "fans_increment_rate_within_15d": "-0.005546986755082698",
+        "fans_increment_within_15d": "-1586",
+        "fans_increment_within_30d": "-2979",
+        "follower": "284288",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7065937947018657806",
+        "interact_rate_within_30d": "0.0368",
+        "interaction_median_30d": "1813",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"22\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762768044\",\"item_id\":\"7571031087054254159\",\"item_publish_time\":\"1762768044\",\"item_title\":\"嘴干不是这意思吗？#vlog日常 #我们俩 #情侣拍照姿势 #拍出电影感\",\"like_cnt\":\"1053\",\"share_cnt\":\"171\",\"vv\":\"36506\"},{\"comment_cnt\":\"26\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762666846\",\"item_id\":\"7570596439215260660\",\"item_publish_time\":\"1762666846\",\"item_title\":\"没办法 被疼爱的感觉就是这样#vlog日常 #生活vlog #恋爱日常 #强制爱 #白羊白羊\",\"like_cnt\":\"979\",\"share_cnt\":\"105\",\"vv\":\"35209\"},{\"comment_cnt\":\"233\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762580928\",\"item_id\":\"7570227423015570019\",\"item_publish_time\":\"1762580928\",\"item_title\":\"快@你身边的西北女孩儿！##vlog十亿流量扶持计划 #西北 #宁夏 #日常唠嗑 #日常vlog\",\"like_cnt\":\"2160\",\"share_cnt\":\"403\",\"vv\":\"73584\"},{\"comment_cnt\":\"58\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762418890\",\"item_id\":\"7569531476904195304\",\"item_publish_time\":\"1762418890\",\"item_title\":\"你过来闻闻什么味儿#情侣日常 #强制爱 #白羊白羊 #我们俩\",\"like_cnt\":\"2680\",\"share_cnt\":\"530\",\"vv\":\"69581\"},{\"comment_cnt\":\"11\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762249296\",\"item_id\":\"7568803063403799522\",\"item_publish_time\":\"1762249296\",\"item_title\":\"你说你把教练咋的了？？？#秦PLUSEV\",\"like_cnt\":\"518\",\"share_cnt\":\"10\",\"vv\":\"23819\"},{\"comment_cnt\":\"117\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762057875\",\"item_id\":\"7567980916451664552\",\"item_publish_time\":\"1762057875\",\"item_title\":\"我qq肠呢！#白羊白羊#我们俩 #强制爱\",\"like_cnt\":\"2922\",\"share_cnt\":\"1021\",\"vv\":\"80414\"},{\"comment_cnt\":\"56\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761732128\",\"item_id\":\"7566581789088451956\",\"item_publish_time\":\"1761732128\",\"item_title\":\"吧啦啦能量：#vlog日常 #生活vlog #恋爱日常 #白羊白羊 #我们俩\",\"like_cnt\":\"1419\",\"share_cnt\":\"387\",\"vv\":\"56558\"},{\"comment_cnt\":\"34\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761566198\",\"item_id\":\"7565869161155962698\",\"item_publish_time\":\"1761566198\",\"item_title\":\"你拍哪呢 我问你你拍哪呢 #vlog日常 #情侣日常 #白羊白羊 #我们俩 #恋爱日常\",\"like_cnt\":\"2577\",\"share_cnt\":\"415\",\"vv\":\"86567\"},{\"comment_cnt\":\"23\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761474191\",\"item_id\":\"7565474009723571496\",\"item_publish_time\":\"1761474191\",\"item_title\":\"酒精喷花臂 越大越用力#vlog日常 #情侣日常 #白羊白羊#恋爱日常 #洁癖\",\"like_cnt\":\"1319\",\"share_cnt\":\"81\",\"vv\":\"62734\"},{\"comment_cnt\":\"27\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761384795\",\"item_id\":\"7565090065828449588\",\"item_publish_time\":\"1761384795\",\"item_title\":\"行囊羞涩都无恨 难得夫妻是少年#vlog日常 #情侣日常 #恋爱日常 #白羊白羊 #我们俩\",\"like_cnt\":\"1219\",\"share_cnt\":\"152\",\"vv\":\"32604\"}]",
+        "link_convert_index": "73.68",
+        "link_convert_index_by_industry": "73.68",
+        "link_i_cnt_by_industry": "672441",
+        "link_k_cnt_by_industry": "70",
+        "link_l_cnt_by_industry": "1271617",
+        "link_link_cnt_by_industry": "1987671",
+        "link_n_cnt_by_industry": "43543",
+        "link_recommend_index_by_industry": "88.66",
+        "link_shopping_index": "88.66",
+        "link_spread_index": "79.66",
+        "link_spread_index_by_industry": "79.66",
+        "link_star_index": "78.34",
+        "link_star_index_by_industry": "78.34",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "刚子的哔哔机",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.2485",
+        "price_1_20": "11000",
+        "price_20_60": "14500",
+        "price_60": "15000",
+        "promotion_prospective_1_20_cpm": "206.96",
+        "promotion_prospective_20_60_cpm": "272.81",
+        "promotion_prospective_60_cpm": "282.21",
+        "promotion_prospective_vv": "53151",
+        "prospective_1_20_cpm": "201.0895",
+        "prospective_20_60_cpm": "265.0726",
+        "prospective_60_cpm": "274.213",
+        "province": "",
+        "search_after_view_index_by_industry": "80.44",
+        "sn_expected_play_num": "54702",
+        "sn_interact_rate_within_30d": "0.0368",
+        "sn_play_over_rate_within_30d": "0.2485",
+        "sn_prospective_1_20_cpe": "9.5652",
+        "sn_prospective_1_20_cpm": "201.0895",
+        "sn_prospective_20_60_cpe": "12.6087",
+        "sn_prospective_20_60_cpm": "265.0726",
+        "sn_prospective_60_cpe": "13.0435",
+        "sn_prospective_60_cpm": "274.213",
+        "star_component_link_click_cnt_90d": "0",
+        "star_excellent_author": "0",
+        "star_index": "71.81712003824842",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "1",
+        "star_video_finish_vv_rate_90d": "0.0545",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0224",
+        "star_video_median_vv_90d": "24341",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"剧情搞笑\":[\"剧情\"]}",
+        "video_brand_boost": "true",
+        "video_brand_boost_vv": "112841",
+        "vv_median_30d": "60984"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7558025291072359718",
+          "video_tag": 3,
+          "vv": 12194280
+        },
+        {
+          "item_id": "7521314369776405811",
+          "video_tag": 3,
+          "vv": 4322961
+        },
+        {
+          "item_id": "7533809613997706546",
+          "video_tag": 4,
+          "vv": 224243
+        },
+        {
+          "item_id": "7568803063403799522",
+          "video_tag": 4,
+          "vv": 23842
+        },
+        {
+          "item_id": "7545030262364081458",
+          "video_tag": 5,
+          "vv": 380172
+        },
+        {
+          "item_id": "7535778496746278194",
+          "video_tag": 5,
+          "vv": 350584
+        },
+        {
+          "item_id": "7571031087054254159",
+          "video_tag": 6,
+          "vv": 43158
+        },
+        {
+          "item_id": "7570596439215260660",
+          "video_tag": 6,
+          "vv": 37451
+        }
+      ],
+      "star_id": "7065937947018657806",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 6200,
+              "price_extra_info": {},
+              "start_time": "1677600000",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 14500,
+              "price_extra_info": {},
+              "start_time": "1698768000",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 11000,
+              "price_extra_info": {},
+              "start_time": "1698768000",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 80,
+              "price_extra_info": {
+                "ceiling_price": "19421",
+                "floor_price": "1942"
+              },
+              "start_time": "1693047961",
+              "task_category": 1,
+              "video_type": 92,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 15000,
+              "price_extra_info": {},
+              "start_time": "1698768000",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572103730519392282"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "f90f0a3bee093cc7c90342ac223412e351980980"
+}

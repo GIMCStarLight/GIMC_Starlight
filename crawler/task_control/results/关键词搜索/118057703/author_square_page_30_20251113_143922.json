@@ -1,0 +1,3192 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "75",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L2",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"防水\":0.36}",
+        "author_type": "1",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813c000-ce_o8P07QeBAwBO52lihaiQeEAHECAmIwE2zPAeqA.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "桂林市",
+        "content_theme_labels_180d": "[\"秋冬穿搭\",\"保暖穿搭\",\"女性穿搭\",\"冬装穿搭\",\"特色配饰\",\"简约气质穿搭\",\"羽绒服穿搭\",\"旅行美景\",\"流行穿搭\",\"家居好物\"]",
+        "core_user_id": "70518358618",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": "3w-20w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_score": "83",
+        "ecom_video_ctr_30d_range": "4%-6%",
+        "ecom_video_mid_click_pv_30d_range": "500以下",
+        "ecom_video_product_num_30d": "248",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "237",
+        "expected_play_num": "292",
+        "fans_increment_rate_within_15d": "-0.000690557970840439",
+        "fans_increment_within_15d": "-115",
+        "fans_increment_within_30d": "56635.84",
+        "follower": "166420",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6911509443637149711",
+        "interact_rate_within_30d": "0.0347",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762876038\",\"item_id\":\"7571494905387154597\",\"item_publish_time\":\"1762876038\",\"item_title\":\"特大码胖MM欧洲站冬季宽松棉衣小个子假两件拼接立领保暖面包服\",\"like_cnt\":\"1\",\"share_cnt\":\"2\",\"vv\":\"7\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762873173\",\"item_id\":\"7571482609643080869\",\"item_publish_time\":\"1762873173\",\"item_title\":\"颖儿实穿主义3.0天鹅绒级皮草外套女貂皮秋冬挽袖款\",\"like_cnt\":\"4\",\"share_cnt\":\"1\",\"vv\":\"51\"},{\"comment_cnt\":\"3\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762868616\",\"item_id\":\"7571463047942005425\",\"item_publish_time\":\"1762868616\",\"item_title\":\"黑钻雪镜短款V领环保外套光泽宝嘉美级别外套\",\"like_cnt\":\"6\",\"share_cnt\":\"2\",\"vv\":\"60\"},{\"comment_cnt\":\"5\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762793916\",\"item_id\":\"7571142155403264763\",\"item_publish_time\":\"1762793916\",\"item_title\":\"加绒遮垮显瘦高腰窄版阔腿裤直筒百搭宽松女士皮裤\",\"like_cnt\":\"17\",\"share_cnt\":\"2\",\"vv\":\"563\"},{\"comment_cnt\":\"3\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762790349\",\"item_id\":\"7571126872915515577\",\"item_publish_time\":\"1762790349\",\"item_title\":\"复古提花立领开衫费尔岛花纹，软糯质感打造秋冬复古穿搭\",\"like_cnt\":\"8\",\"share_cnt\":\"0\",\"vv\":\"71\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762785907\",\"item_id\":\"7571107813838233977\",\"item_publish_time\":\"1762785907\",\"item_title\":\"时尚设计宽松显瘦三件套装女秋冬季新款肌理感围巾棉服外套半身裙\",\"like_cnt\":\"10\",\"share_cnt\":\"2\",\"vv\":\"65\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762784088\",\"item_id\":\"7571099995513873649\",\"item_publish_time\":\"1762784088\",\"item_title\":\"时尚设计宽松显瘦三件套装女秋冬季新款肌理感围巾棉服外套半身裙\",\"like_cnt\":\"8\",\"share_cnt\":\"2\",\"vv\":\"79\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762779549\",\"item_id\":\"7571080504260317883\",\"item_publish_time\":\"1762779549\",\"item_title\":\"早秋新款复古提花半高领羊毛针织背心毛衣女士宽松无袖坎肩上衣\",\"like_cnt\":\"8\",\"share_cnt\":\"1\",\"vv\":\"106\"},{\"comment_cnt\":\"3\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762769350\",\"item_id\":\"7571036688006766710\",\"item_publish_time\":\"1762769350\",\"item_title\":\"秋冬新款半身裙女复古松紧腰显瘦休闲时尚碎花A字大版裙\",\"like_cnt\":\"9\",\"share_cnt\":\"1\",\"vv\":\"91\"},{\"comment_cnt\":\"3\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762703366\",\"item_id\":\"7570753276393973754\",\"item_publish_time\":\"1762703366\",\"item_title\":\"渲渲推荐冬季气质加绒羊毛裤\",\"like_cnt\":\"14\",\"share_cnt\":\"0\",\"vv\":\"140\"}]",
+        "link_convert_index": "74.57",
+        "link_convert_index_by_industry": "74.57",
+        "link_i_cnt_by_industry": "5464",
+        "link_k_cnt_by_industry": "501",
+        "link_l_cnt_by_industry": "96052",
+        "link_link_cnt_by_industry": "107828",
+        "link_n_cnt_by_industry": "5811",
+        "link_recommend_index_by_industry": "58.93",
+        "link_shopping_index": "58.93",
+        "link_spread_index": "56.36",
+        "link_spread_index_by_industry": "56.36",
+        "link_star_index": "70.56",
+        "link_star_index_by_industry": "70.56",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "欣媛",
+        "pic_expected_play_num": "284",
+        "play_over_rate_within_30d": "0.0071",
+        "price_1_20": "1000",
+        "price_20_60": "1000",
+        "price_60": "1000",
+        "promotion_prospective_1_20_cpm": "3546.1",
+        "promotion_prospective_20_60_cpm": "3546.1",
+        "promotion_prospective_60_cpm": "3546.1",
+        "promotion_prospective_vv": "282",
+        "prospective_1_20_cpm": "3424.6575",
+        "prospective_20_60_cpm": "3424.6575",
+        "prospective_60_cpm": "3424.6575",
+        "province": "广西壮族自治区",
+        "search_after_view_index_by_industry": "65.53",
+        "sn_expected_play_num": "292",
+        "sn_interact_rate_within_30d": "0.0347",
+        "sn_play_over_rate_within_30d": "0.0071",
+        "sn_prospective_1_20_cpe": "71.4286",
+        "sn_prospective_1_20_cpm": "3424.6575",
+        "sn_prospective_20_60_cpe": "71.4286",
+        "sn_prospective_20_60_cpm": "3424.6575",
+        "sn_prospective_60_cpe": "71.4286",
+        "sn_prospective_60_cpm": "3424.6575",
+        "star_excellent_author": "0",
+        "star_index": "77.69086128912959",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"时尚\":[\"穿搭\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7343913504254004534",
+          "products": [
+            {
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3671601938333565334",
+              "product_name": "【春季爆款主推】男女同款迷彩鞋女男休闲鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6911509443637149711",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1616400871",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1616400871",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1616400871",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "65",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L3",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"早餐\":0,\"洁面\":0,\"祛痘\":1,\"绵密\":0,\"蛋白质\":0,\"贴合腰部\":0.003}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_8ef25711eb78c8cead59980b06a2a78b.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "开封",
+        "content_theme_labels_180d": "[\"户外运动\",\"健康养生\",\"装修选购\",\"体育运动\",\"自行车骑行\",\"家居选购\",\"登山活动\",\"运动穿搭\"]",
+        "core_user_id": "93010474210",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": "20w-100w",
+        "ecom_gpm_30d_range": "1000-3000",
+        "ecom_video_product_num_30d": "0",
+        "ecom_watch_pv_30d": "2.9",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "30143",
+        "expected_play_num": "36660",
+        "fans_increment_rate_within_15d": "-0.004386980321371814",
+        "fans_increment_within_15d": "-1118",
+        "fans_increment_within_30d": "289881.97",
+        "follower": "253720",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6892589204396572686",
+        "interact_rate_within_30d": "0.0053",
+        "interaction_median_30d": "206",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"16\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761486162\",\"item_id\":\"7565525454619659577\",\"item_publish_time\":\"1761486162\",\"item_title\":\"徒步衡山顶：祝融峰⛰️ 耗时5小时，难度比泰山小，轻松拿捏。 这次体验和之前不一样之处是，大都是野路线，而且途中路线标识缺少，问了几次路。至于景色和黄山泰山相比逊色不少，不过体验大于看景。 计划在自己50岁前，尽可能的把国内有名的山都爬一遍#衡山 #徒步登山 #人生百味自己体会 #日常 #穿衣搭配\",\"like_cnt\":\"65\",\"share_cnt\":\"1\",\"vv\":\"17396\"},{\"comment_cnt\":\"33\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760784074\",\"item_id\":\"7562509984879578410\",\"item_publish_time\":\"1760784074\",\"item_title\":\"心态好，情绪好，身体好，运气才好！那就好好坚持吧！✊✊#运动穿搭 #心情愉悦 #身体健康 #穿搭vlog #心态要乐观\",\"like_cnt\":\"243\",\"share_cnt\":\"5\",\"vv\":\"57915\"},{\"comment_cnt\":\"49\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760611409\",\"item_id\":\"7561768391851511103\",\"item_publish_time\":\"1760611409\",\"item_title\":\"这幅画我快选崩溃了！ 真是太难了，沙发画拖了一两个月都没敲定，对于选择困难症的我真的太难了，姐妹们谁能“渡”我🤔#日常vlog #农村自建房 #80后老阿姨 #阳光明媚的一天 #穿搭\",\"like_cnt\":\"196\",\"share_cnt\":\"3\",\"vv\":\"37638\"},{\"comment_cnt\":\"24\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760332498\",\"item_id\":\"7560570487283256630\",\"item_publish_time\":\"1760332498\",\"item_title\":\"时隔一年 终于收尾了！屋内差不多完工了，只有院子还没整好。🌞天感觉晴起来吧，连续阴天下雨都有一个月了，院子植物迟迟未种。呵呵，老公说这个像扫地僧的扫把🧹，我先感受一下！#日常vlog #农村生活 #小院生活 #生活的烟火气息 #穿搭\",\"like_cnt\":\"215\",\"share_cnt\":\"10\",\"vv\":\"49063\"},{\"comment_cnt\":\"14\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760180669\",\"item_id\":\"7559918398516612393\",\"item_publish_time\":\"1760180669\",\"item_title\":\"不同年纪，不同取舍，人生百味，随意就好！#愿望实现 #生活随意 #心态好就是最大的财富 #休闲 #运动\",\"like_cnt\":\"98\",\"share_cnt\":\"0\",\"vv\":\"26845\"},{\"comment_cnt\":\"17\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760007853\",\"item_id\":\"7559176157107588406\",\"item_publish_time\":\"1760007853\",\"item_title\":\"亲爱的“中年少女”只要皱纹不长在心里，我们永远年轻，永远风华正茂。#少女心 #通透女人 #生活碎片 #潇洒 #心态要乐观\",\"like_cnt\":\"123\",\"share_cnt\":\"4\",\"vv\":\"31677\"},{\"comment_cnt\":\"19\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759833861\",\"item_id\":\"7558428854286650687\",\"item_publish_time\":\"1759833861\",\"item_title\":\"18岁很好，28岁也不错，38岁以后会更好，人生没有标准答案，如果还有一件事必须做，那就是好好爱自己！#生活感悟 #洒脱随性 #好好爱自己 #明媚的阳光 #心态要洒脱\",\"like_cnt\":\"120\",\"share_cnt\":\"3\",\"vv\":\"22902\"},{\"comment_cnt\":\"21\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759660564\",\"item_id\":\"7557684561996877095\",\"item_publish_time\":\"1759660564\",\"item_title\":\"缓缓前行，前路有风光，身后有暖阳。#心情愉悦 #人生感悟 #心态决定状态 #阳光正好🌞 #好好爱自已❤❤\",\"like_cnt\":\"99\",\"share_cnt\":\"0\",\"vv\":\"19648\"},{\"comment_cnt\":\"22\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759487733\",\"item_id\":\"7556942253513362731\",\"item_publish_time\":\"1759487733\",\"item_title\":\"风来听风，雨来听雨，把心放宽，心态好一切都好。#心态好就是最大的财富 #健康在于运动 #骑行随拍 #心情愉悦 #心态决定状态\",\"like_cnt\":\"179\",\"share_cnt\":\"9\",\"vv\":\"23380\"},{\"comment_cnt\":\"37\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759314564\",\"item_id\":\"7556198501631446308\",\"item_publish_time\":\"1759314564\",\"item_title\":\"一岁有一岁味道，一站有一站风景。愿生活里的我们都能拥有前进一尺的勇气，还有后退一尺的从容。#生活感悟 #心情日记 #生活不会辜负每一个努力的人 #清净 #健康在于运动\",\"like_cnt\":\"211\",\"share_cnt\":\"5\",\"vv\":\"45131\"}]",
+        "link_convert_index": "79.69",
+        "link_convert_index_by_industry": "79.69",
+        "link_i_cnt_by_industry": "27257",
+        "link_k_cnt_by_industry": "1660",
+        "link_l_cnt_by_industry": "109553",
+        "link_link_cnt_by_industry": "155982",
+        "link_n_cnt_by_industry": "17512",
+        "link_recommend_index_by_industry": "61.61",
+        "link_shopping_index": "61.61",
+        "link_spread_index": "60.05",
+        "link_spread_index_by_industry": "60.05",
+        "link_star_index": "68.73",
+        "link_star_index_by_industry": "68.73",
+        "link_user_type_by_industry": "3",
+        "local_lower_threshold_author": "false",
+        "nick_name": "周姐家",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.1674",
+        "price_1_20": "1000",
+        "price_20_60": "1000",
+        "price_60": "3000",
+        "promotion_prospective_1_20_cpm": "30.63",
+        "promotion_prospective_20_60_cpm": "30.63",
+        "promotion_prospective_60_cpm": "91.89",
+        "promotion_prospective_vv": "32649",
+        "prospective_1_20_cpm": "27.2777",
+        "prospective_20_60_cpm": "27.2777",
+        "prospective_60_cpm": "81.8331",
+        "province": "",
+        "search_after_view_index_by_industry": "66.35",
+        "sn_expected_play_num": "36660",
+        "sn_interact_rate_within_30d": "0.0053",
+        "sn_play_over_rate_within_30d": "0.1674",
+        "sn_prospective_1_20_cpe": "4.386",
+        "sn_prospective_1_20_cpm": "27.2777",
+        "sn_prospective_20_60_cpe": "4.386",
+        "sn_prospective_20_60_cpm": "27.2777",
+        "sn_prospective_60_cpe": "13.1579",
+        "sn_prospective_60_cpm": "81.8331",
+        "star_excellent_author": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"生活家居\":[\"生活技巧\"]}",
+        "vv_median_30d": "37394.5"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7322301117398830362",
+          "products": [
+            {
+              "brand_name": "朴西香蕉船",
+              "category_name": "居家凉拖/凉鞋",
+              "hit_tags": "鞋靴",
+              "product_id": "3658575561380485631",
+              "product_name": "【周姐专属】朴西香蕉船凉拖鞋女室内家居夏浴室居家防滑情侣拖鞋男"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7357142634944679220",
+          "products": [
+            {
+              "brand_name": "朴西",
+              "category_name": "居家凉拖/凉鞋",
+              "hit_tags": "鞋靴",
+              "product_id": "3678412717082935568",
+              "product_name": "【周姐专属】朴西踩屎感香蕉拖鞋女夏防滑居家厚底情侣外穿防臭凉拖"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7361711698899750154",
+          "products": [
+            {
+              "brand_name": "百搭",
+              "category_name": "单鞋",
+              "hit_tags": "鞋靴",
+              "product_id": "3673015427086286947",
+              "product_name": "软皮软底皮鞋女士2024舒适百搭新款平底防滑圆头鞋休闲单鞋777"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7303722689875676468",
+          "products": [
+            {
+              "brand_name": "朴西丛丛",
+              "category_name": "居家凉拖/凉鞋",
+              "hit_tags": "鞋靴",
+              "product_id": "3637396119664869288",
+              "product_name": "朴西丛丛草原情侣可外穿毛绒拖鞋秋冬居家室内保暖棉拖鞋女主"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7356399039228742912",
+          "products": [
+            {
+              "brand_name": "ins矮子乐",
+              "category_name": "一字拖",
+              "hit_tags": "鞋靴",
+              "product_id": "3669407639592370393",
+              "product_name": "时尚厚底拖鞋女夏季外穿凉鞋女海边沙滩鞋增高凉拖防滑ins矮子乐"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7344694211775712527",
+          "products": [
+            {
+              "brand_name": "短视频",
+              "category_name": "居家凉拖/凉鞋",
+              "hit_tags": "鞋靴",
+              "product_id": "3670077993751019943",
+              "product_name": "【短视频专属】气囊凉拖鞋室内居家防滑高级感拖鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7341726656689605888",
+          "products": [
+            {
+              "brand_name": "朴西小芝士拖鞋女居家夏季浴室防滑洗澡情侣厚底eva",
+              "category_name": "居家凉拖/凉鞋",
+              "hit_tags": "鞋靴",
+              "product_id": "3657841950784124133",
+              "product_name": "朴西小芝士拖鞋女居家夏季浴室防滑洗澡情侣厚底eva软底凉拖鞋男"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7362476262885002506",
+          "products": [
+            {
+              "brand_name": "朴西",
+              "category_name": "居家凉拖/凉鞋",
+              "hit_tags": "鞋靴",
+              "product_id": "3676576238518010237",
+              "product_name": "【新品】朴西2024南雪情侣外穿人字拖时尚沙滩夏季男女士夹脚PS6805"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7361776072754498826",
+          "products": [
+            {
+              "brand_name": "朴西香蕉船",
+              "category_name": "居家凉拖/凉鞋",
+              "hit_tags": "流行男鞋,鞋靴",
+              "product_id": "3591022840310302262",
+              "product_name": "朴西香蕉船男士凉拖鞋室内家居夏浴室防滑洗澡居家高级感拖鞋女男"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7365113889786268966",
+          "products": [
+            {
+              "brand_name": "老北京",
+              "category_name": "布鞋",
+              "hit_tags": "鞋靴",
+              "product_id": "3626534722856986082",
+              "product_name": "春秋新款老北京民族风布鞋女软底舒适中老年绣花鞋平底防滑妈妈鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6892589204396572686",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1200,
+              "price_extra_info": {},
+              "start_time": "1654142410",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3000,
+              "price_extra_info": {},
+              "start_time": "1654142410",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1654142410",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1654142410",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "61",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "3",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_ed48660d436a25317ba969ca331c2f45.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "",
+        "content_theme_labels_180d": "[]",
+        "core_user_id": "108087580177",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "1",
+        "expected_play_num": "818",
+        "fans_increment_rate_within_15d": "-0.001822708277762959",
+        "fans_increment_within_15d": "-287",
+        "fans_increment_within_30d": "-604",
+        "follower": "157164",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "6870168308432240647",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1740666568\",\"item_id\":\"7476105940765297947\",\"item_publish_time\":\"1740666568\",\"item_title\":\"天热了给孩子买了两双德尔惠的休闲网鞋 这个季节就非常合适#儿童运动鞋 #高品质时尚童鞋 #童鞋\",\"like_cnt\":\"7\",\"share_cnt\":\"20\",\"vv\":\"848\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1740323253\",\"item_id\":\"7474631318253341979\",\"item_publish_time\":\"1740323253\",\"item_title\":\"几杯奶茶钱就买到叮当小黄鸭童鞋 太划算了#儿童运动鞋 #高品质时尚童鞋 #童鞋 #宝妈推荐\",\"like_cnt\":\"6\",\"share_cnt\":\"1\",\"vv\":\"479\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1740227563\",\"item_id\":\"7474220414969892146\",\"item_publish_time\":\"1740227563\",\"item_title\":\"我居然花小两位数的钱就给我家宝宝抢到平常店里卖100多的品牌鞋#儿童运动鞋 #高品质时尚童鞋 #童鞋 #便宜又好穿 #宝妈推荐\",\"like_cnt\":\"11\",\"share_cnt\":\"1\",\"vv\":\"4136\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1740149557\",\"item_id\":\"7473885374662577435\",\"item_publish_time\":\"1740149557\",\"item_title\":\"趁便宜搂了两双好看百搭春夏季运动鞋 宝宝穿上开心的不得了#儿童运动鞋 #高品质时尚童鞋 #童鞋 #时尚童鞋 #品质童鞋\",\"like_cnt\":\"4\",\"share_cnt\":\"0\",\"vv\":\"402\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1740060323\",\"item_id\":\"7473502142926507301\",\"item_publish_time\":\"1740060323\",\"item_title\":\"天气越来越暖和了 这款运动鞋趁便宜入手哦#儿童运动鞋 #童鞋 #高品质时尚童鞋 #时尚童鞋\",\"like_cnt\":\"4\",\"share_cnt\":\"0\",\"vv\":\"271\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1740008329\",\"item_id\":\"7473278676851789065\",\"item_publish_time\":\"1740008329\",\"item_title\":\"大牌品质那叫一个好 现在便宜就果断下手买了两双 正适合春夏季节穿 小朋友踏个青怎么蹦哒都没事 款式太喜欢了#儿童运动鞋 #高品质时尚童鞋 #开春搭配 #童鞋 #时尚童鞋\",\"like_cnt\":\"5\",\"share_cnt\":\"1\",\"vv\":\"349\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1739979975\",\"item_id\":\"7473156917544635674\",\"item_publish_time\":\"1739979975\",\"item_title\":\"这个价能买到大牌童鞋太划算了 春夏款正适合爱蹦哒的宝宝穿#儿童运动鞋 #童鞋 #高品质时尚童鞋 #开春搭配 #时尚童鞋\",\"like_cnt\":\"3\",\"share_cnt\":\"0\",\"vv\":\"303\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1739932251\",\"item_id\":\"7472952006743837962\",\"item_publish_time\":\"1739932251\",\"item_title\":\"春天孩子喜欢蹦蹦跳跳快来看看这双鞋子就非常适合#童鞋 #儿童运动鞋 #高品质时尚童鞋 #开春搭配 #时尚童鞋\",\"like_cnt\":\"2\",\"share_cnt\":\"1\",\"vv\":\"664\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1739885924\",\"item_id\":\"7472753091633253682\",\"item_publish_time\":\"1739885924\",\"item_title\":\"天气开始变暖了快来看看这款春夏款洋气十足的儿童鞋吧#童鞋 #高品质时尚童鞋 #好鞋推荐 #时尚童鞋 #软底软面穿上超舒服\",\"like_cnt\":\"4\",\"share_cnt\":\"0\",\"vv\":\"1339\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1739666920\",\"item_id\":\"7471812369283321139\",\"item_publish_time\":\"1739666920\",\"item_title\":\"这双鞋款式洋气百搭正合适这个春天来穿#好鞋推荐 #开春搭配 #好穿不累脚 #童鞋 #高品质时尚童鞋\",\"like_cnt\":\"5\",\"share_cnt\":\"0\",\"vv\":\"872\"}]",
+        "link_convert_index": "34.27",
+        "link_convert_index_by_industry": "34.27",
+        "link_i_cnt_by_industry": "4",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "53",
+        "link_link_cnt_by_industry": "63",
+        "link_n_cnt_by_industry": "6",
+        "link_recommend_index_by_industry": "33.21",
+        "link_shopping_index": "33.21",
+        "link_spread_index": "31.53",
+        "link_spread_index_by_industry": "31.53",
+        "link_star_index": "48.1",
+        "link_star_index_by_industry": "48.1",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "涛帮童行",
+        "price_1_20": "1000",
+        "price_20_60": "1000",
+        "price_60": "3800",
+        "prospective_1_20_cpm": "1222.4939",
+        "prospective_20_60_cpm": "1222.4939",
+        "prospective_60_cpm": "4645.4768",
+        "province": "上海市",
+        "search_after_view_index_by_industry": "55.16",
+        "sn_expected_play_num": "818",
+        "sn_prospective_1_20_cpe": "38.4615",
+        "sn_prospective_1_20_cpm": "1222.4939",
+        "sn_prospective_20_60_cpe": "38.4615",
+        "sn_prospective_20_60_cpm": "1222.4939",
+        "sn_prospective_60_cpe": "146.1538",
+        "sn_prospective_60_cpm": "4645.4768",
+        "star_excellent_author": "0",
+        "star_index": "72.07394874580214",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食教程\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7298346585769921811",
+          "products": [
+            {
+              "category_name": "网面鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3607949221740818344",
+              "product_name": "春季新款透气男鞋休闲网鞋防臭网面运动鞋防滑百搭黑色鞋子工作鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7297974671352335627",
+          "products": [
+            {
+              "category_name": "休闲板鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3639495119641665112",
+              "product_name": "2023秋季新款男士休闲鞋一脚蹬防水皮面板鞋百搭厚底增高运动潮鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6870168308432240647",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3800,
+              "price_extra_info": {},
+              "start_time": "1631182987",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1631182987",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1631182987",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1500,
+              "price_extra_info": {},
+              "start_time": "1631182987",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "7",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L5",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/mosaic-legacy_315d4000d250ffd1f14a5.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "杭州市",
+        "content_theme_labels_180d": "[]",
+        "core_user_id": "2752811752760008",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "2",
+        "expected_play_num": "103142",
+        "fans_increment_rate_within_15d": "-0.0029940961106562016",
+        "fans_increment_within_15d": "-12253",
+        "fans_increment_within_30d": "-24902",
+        "follower": "4079980",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6849979573774319623",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"148\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1708047505\",\"item_id\":\"7336007999233838362\",\"item_publish_time\":\"1708047505\",\"item_title\":\"#源头工厂 #内裤 #好穿\",\"like_cnt\":\"986\",\"share_cnt\":\"191\",\"vv\":\"438975\"},{\"comment_cnt\":\"14\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1707989458\",\"item_id\":\"7335758692844915977\",\"item_publish_time\":\"1707989458\",\"item_title\":\"#纸巾 #源头工厂直发 #生活用纸\",\"like_cnt\":\"331\",\"share_cnt\":\"64\",\"vv\":\"140763\"},{\"comment_cnt\":\"19\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1707982943\",\"item_id\":\"7335730742422523173\",\"item_publish_time\":\"1707982943\",\"item_title\":\"#纯棉卫衣 #源头工厂 #工厂直发\",\"like_cnt\":\"278\",\"share_cnt\":\"74\",\"vv\":\"112142\"},{\"comment_cnt\":\"11\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1707980410\",\"item_id\":\"7335719880928382259\",\"item_publish_time\":\"1707980410\",\"item_title\":\"#纯棉t恤 #源头工厂 #工厂直发\",\"like_cnt\":\"227\",\"share_cnt\":\"172\",\"vv\":\"139271\"},{\"comment_cnt\":\"77\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1703313966\",\"item_id\":\"7315677570593312027\",\"item_publish_time\":\"1703313966\",\"item_title\":\"#抖音商城双旦好礼季 #平价好物 #居家好物 加厚拖鞋来啦\",\"like_cnt\":\"370\",\"share_cnt\":\"63\",\"vv\":\"162392\"},{\"comment_cnt\":\"27\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1700293629\",\"item_id\":\"7302705470102310144\",\"item_publish_time\":\"1700293629\",\"item_title\":\"天气降温了，手也变得干干的，护手霜来啦#好物推荐🔥 #平价好物 #护手霜\",\"like_cnt\":\"575\",\"share_cnt\":\"46\",\"vv\":\"463297\"},{\"comment_cnt\":\"36\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1700292479\",\"item_id\":\"7302700519351455010\",\"item_publish_time\":\"1700292479\",\"item_title\":\"#零食 #零食推荐 #追剧小零食\",\"like_cnt\":\"347\",\"share_cnt\":\"32\",\"vv\":\"292921\"},{\"comment_cnt\":\"5\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1700026276\",\"item_id\":\"7301557135924677888\",\"item_publish_time\":\"1700026276\",\"item_title\":\"#拖鞋 #平价好物\",\"like_cnt\":\"429\",\"share_cnt\":\"69\",\"vv\":\"286477\"},{\"comment_cnt\":\"21\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1699954302\",\"item_id\":\"7301248061861301556\",\"item_publish_time\":\"1699954302\",\"item_title\":\"#棉拖鞋 #平价好物\",\"like_cnt\":\"363\",\"share_cnt\":\"25\",\"vv\":\"236726\"},{\"comment_cnt\":\"217\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1699945534\",\"item_id\":\"7301210395279133986\",\"item_publish_time\":\"1699945534\",\"item_title\":\"每个女孩子少不了这么一双袜子，冬天穿上它幸福感爆棚#购物分享 #平价好物 #秋冬保暖溯源好物\",\"like_cnt\":\"3910\",\"share_cnt\":\"213\",\"vv\":\"173266\"}]",
+        "link_convert_index": "65.91",
+        "link_convert_index_by_industry": "65.91",
+        "link_i_cnt_by_industry": "657",
+        "link_k_cnt_by_industry": "5",
+        "link_l_cnt_by_industry": "1637",
+        "link_link_cnt_by_industry": "3646",
+        "link_n_cnt_by_industry": "1347",
+        "link_recommend_index_by_industry": "35.66",
+        "link_shopping_index": "35.66",
+        "link_spread_index": "39.21",
+        "link_spread_index_by_industry": "39.21",
+        "link_star_index": "55.65",
+        "link_star_index_by_industry": "55.65",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "郑香香",
+        "pic_expected_play_num": "13182",
+        "price_1_20": "1800",
+        "price_20_60": "4500",
+        "price_60": "4900",
+        "prospective_1_20_cpm": "17.4516",
+        "prospective_20_60_cpm": "43.629",
+        "prospective_60_cpm": "47.5071",
+        "province": "浙江省",
+        "search_after_view_index_by_industry": "57.83",
+        "sn_expected_play_num": "103142",
+        "sn_prospective_1_20_cpe": "5.2632",
+        "sn_prospective_1_20_cpm": "17.4516",
+        "sn_prospective_20_60_cpe": "13.1579",
+        "sn_prospective_20_60_cpm": "43.629",
+        "sn_prospective_60_cpe": "14.3275",
+        "sn_prospective_60_cpm": "47.5071",
+        "star_excellent_author": "0",
+        "star_index": "48.83884279258338",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"时尚\":[\"穿搭\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7301557135924677888",
+          "products": [
+            {
+              "category_name": "居家棉拖",
+              "hit_tags": "鞋靴",
+              "product_id": "3640424632261176805",
+              "product_name": "防水棉拖鞋女冬季2023新款居家室内踩屎感包跟保暖棉鞋男款冬外穿"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7301248061861301556",
+          "products": [
+            {
+              "brand_name": "2023款新品反季大卖拖鞋居家",
+              "category_name": "居家棉拖",
+              "hit_tags": "流行男鞋,鞋靴",
+              "product_id": "3615866208013918844",
+              "product_name": "2023款新品反季大卖拖鞋居家厚底防滑棉拖鞋保暖秋冬冬季情侣情侣"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7300179076994665763",
+          "products": [
+            {
+              "brand_name": "福利在逃公主",
+              "category_name": "居家棉拖",
+              "hit_tags": "鞋靴",
+              "product_id": "3645956328620448411",
+              "product_name": "福利在逃公主蝴蝶结棉拖鞋少女心防滑加厚情侣防水居家厚底毛绒暖"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7315677570593312027",
+          "products": [
+            {
+              "category_name": "居家棉拖",
+              "hit_tags": "鞋靴",
+              "product_id": "3657686880956382128",
+              "product_name": "2023新款棉拖鞋秋冬季女士室内家居保暖防滑男家用毛毛拖加绒情侣"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6849979573774319623",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1800,
+              "price_extra_info": {},
+              "start_time": "1627042813",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 4900,
+              "price_extra_info": {},
+              "start_time": "1627042813",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 4500,
+              "price_extra_info": {},
+              "start_time": "1627042813",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1900,
+              "price_extra_info": {},
+              "start_time": "1627042813",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "122",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_fe3033d92a34fc7e33ca8f564ed21f71.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "厦门市",
+        "content_theme_labels_180d": "[]",
+        "core_user_id": "60315786304",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "<=10",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "586",
+        "fans_increment_rate_within_15d": "-0.0016103588799789667",
+        "fans_increment_within_15d": "-294",
+        "fans_increment_within_30d": "186.7",
+        "follower": "182255",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "6960857969768529935",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "link_convert_index": "35.21",
+        "link_convert_index_by_industry": "35.21",
+        "link_i_cnt_by_industry": "3",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "6",
+        "link_link_cnt_by_industry": "30",
+        "link_n_cnt_by_industry": "21",
+        "link_recommend_index_by_industry": "51.05",
+        "link_shopping_index": "51.05",
+        "link_spread_index": "38.24",
+        "link_spread_index_by_industry": "38.24",
+        "link_star_index": "52.62",
+        "link_star_index_by_industry": "52.62",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "湖远行（乘风破浪）",
+        "pic_expected_play_num": "394",
+        "price_1_20": "1600",
+        "price_20_60": "1900",
+        "price_60": "2500",
+        "province": "福建省",
+        "search_after_view_index_by_industry": "54.78",
+        "star_excellent_author": "0",
+        "star_index": "74.15721133070218",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"其他\":[\"其他\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7330269540254829864",
+          "products": [
+            {
+              "brand_name": "暴力熊",
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3619267500434443862",
+              "product_name": "暴力熊时尚潮流轻奢情侣休闲鞋8889.SSS"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7358802664991378751",
+          "products": [
+            {
+              "brand_name": "暴力熊",
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3622820108453469766",
+              "product_name": "暴力熊夏季限量发行潮流夜光透气网面百搭情侣鞋6688.SSS"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6960857969768529935",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 2500,
+              "price_extra_info": {},
+              "start_time": "1640966400",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1900,
+              "price_extra_info": {},
+              "start_time": "1640966400",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1600,
+              "price_extra_info": {},
+              "start_time": "1640966400",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1640966400",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "48",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L3",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "3",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813c001_d6b21205e0a3463aa3446e0008b30a5c.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "嘉兴市",
+        "content_theme_labels_180d": "[\"服饰测评\",\"床上用品\",\"女性穿搭\",\"特色服饰穿搭\",\"零食测评\",\"保暖穿搭\",\"家居选购\",\"家居用品选购\",\"消费体验\",\"洗衣用品推荐\"]",
+        "core_user_id": "96332647710",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": ">200",
+        "ecom_gmv_30d_range": "20w-100w",
+        "ecom_gpm_30d_range": "1000-3000",
+        "ecom_score": "84",
+        "ecom_video_ctr_30d_range": "6%-8%",
+        "ecom_video_mid_click_pv_30d_range": "500以下",
+        "ecom_video_product_num_30d": "80",
+        "ecom_watch_pv_30d": "3.2",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "490",
+        "expected_play_num": "501",
+        "fans_increment_rate_within_15d": "-0.0007875049219057619",
+        "fans_increment_within_15d": "-222",
+        "fans_increment_within_30d": "653359.28",
+        "follower": "281632",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "6854129692778168335",
+        "interact_rate_within_30d": "0.0049",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762851936\",\"item_id\":\"7571391390756880969\",\"item_publish_time\":\"1762851936\",\"item_title\":\"\",\"like_cnt\":\"1\",\"share_cnt\":\"0\",\"vv\":\"125\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762850421\",\"item_id\":\"7571384888366155081\",\"item_publish_time\":\"1762850421\",\"item_title\":\"\",\"like_cnt\":\"2\",\"share_cnt\":\"0\",\"vv\":\"167\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762845295\",\"item_id\":\"7571362862972399022\",\"item_publish_time\":\"1762845295\",\"item_title\":\"\",\"like_cnt\":\"5\",\"share_cnt\":\"0\",\"vv\":\"595\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762832302\",\"item_id\":\"7571307063688348742\",\"item_publish_time\":\"1762832302\",\"item_title\":\"\",\"like_cnt\":\"2\",\"share_cnt\":\"0\",\"vv\":\"395\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762832209\",\"item_id\":\"7571306662364951716\",\"item_publish_time\":\"1762832209\",\"item_title\":\"\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"359\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762830219\",\"item_id\":\"7571298134895709934\",\"item_publish_time\":\"1762830219\",\"item_title\":\"\",\"like_cnt\":\"2\",\"share_cnt\":\"0\",\"vv\":\"117\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762830168\",\"item_id\":\"7571297898539185842\",\"item_publish_time\":\"1762830168\",\"item_title\":\"\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"95\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762828424\",\"item_id\":\"7571290415443656922\",\"item_publish_time\":\"1762828424\",\"item_title\":\"\",\"like_cnt\":\"2\",\"share_cnt\":\"0\",\"vv\":\"462\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762828077\",\"item_id\":\"7571288902268416969\",\"item_publish_time\":\"1762828077\",\"item_title\":\"\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"134\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762828045\",\"item_id\":\"7571288791119193266\",\"item_publish_time\":\"1762828045\",\"item_title\":\"\",\"like_cnt\":\"1\",\"share_cnt\":\"0\",\"vv\":\"313\"}]",
+        "link_convert_index": "76.55",
+        "link_convert_index_by_industry": "76.55",
+        "link_i_cnt_by_industry": "19837",
+        "link_k_cnt_by_industry": "1373",
+        "link_l_cnt_by_industry": "88612",
+        "link_link_cnt_by_industry": "123080",
+        "link_n_cnt_by_industry": "13258",
+        "link_recommend_index_by_industry": "67.22",
+        "link_shopping_index": "67.22",
+        "link_spread_index": "61.77",
+        "link_spread_index_by_industry": "61.77",
+        "link_star_index": "73.52",
+        "link_star_index_by_industry": "73.52",
+        "link_user_type_by_industry": "3",
+        "local_lower_threshold_author": "false",
+        "nick_name": "孤品大叔服饰",
+        "pic_expected_play_num": "347",
+        "play_over_rate_within_30d": "0.0656",
+        "price_1_20": "1000",
+        "price_20_60": "2000",
+        "price_60": "2000",
+        "promotion_prospective_1_20_cpm": "2197.8",
+        "promotion_prospective_20_60_cpm": "4395.6",
+        "promotion_prospective_60_cpm": "4395.6",
+        "promotion_prospective_vv": "455",
+        "prospective_1_20_cpm": "1996.008",
+        "prospective_20_60_cpm": "3992.016",
+        "prospective_60_cpm": "3992.016",
+        "province": "浙江省",
+        "search_after_view_index_by_industry": "69.25",
+        "sn_expected_play_num": "501",
+        "sn_interact_rate_within_30d": "0.0049",
+        "sn_play_over_rate_within_30d": "0.0656",
+        "sn_prospective_1_20_cpe": "500",
+        "sn_prospective_1_20_cpm": "1996.008",
+        "sn_prospective_20_60_cpe": "1000",
+        "sn_prospective_20_60_cpm": "3992.016",
+        "sn_prospective_60_cpe": "1000",
+        "sn_prospective_60_cpm": "3992.016",
+        "star_excellent_author": "0",
+        "star_qianchuan_high_potential": "1",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"时尚\":[\"穿搭\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7351666989267488012",
+          "products": [
+            {
+              "brand_name": "sk6",
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3675822658597028103",
+              "product_name": "2024年新款时尚休闲男士潮鞋厚底百搭春季男鞋 sk6616"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6854129692778168335",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 2000,
+              "price_extra_info": {},
+              "start_time": "1689327334",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 2000,
+              "price_extra_info": {},
+              "start_time": "1689327334",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1689327334",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "113",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_f196a6150ee82a6bde0337b439f81601.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "厦门市",
+        "content_theme_labels_180d": "[]",
+        "core_user_id": "2005122490318109",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "1",
+        "fans_increment_rate_within_15d": "-0.0017787012987012987",
+        "fans_increment_within_15d": "-428",
+        "fans_increment_within_30d": "-865",
+        "follower": "240200",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "6959101798044925960",
+        "interaction_median_30d": "9",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "link_convert_index": "66.82",
+        "link_convert_index_by_industry": "66.82",
+        "link_i_cnt_by_industry": "0",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "2",
+        "link_link_cnt_by_industry": "53",
+        "link_n_cnt_by_industry": "51",
+        "link_recommend_index_by_industry": "50",
+        "link_shopping_index": "50",
+        "link_spread_index": "39.06",
+        "link_spread_index_by_industry": "39.06",
+        "link_star_index": "59.47",
+        "link_star_index_by_industry": "59.47",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "骑行",
+        "price_1_20": "2000",
+        "price_20_60": "2000",
+        "price_60": "3000",
+        "province": "福建省",
+        "search_after_view_index_by_industry": "61.96",
+        "star_excellent_author": "0",
+        "star_index": "73.08685781282446",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"其他\":[\"其他\"]}",
+        "vv_median_30d": "3873"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7306178852353608998",
+          "products": [
+            {
+              "brand_name": "暴力熊",
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3619267500434443862",
+              "product_name": "暴力熊时尚潮流轻奢情侣休闲鞋8889.SSS"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6959101798044925960",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1200,
+              "price_extra_info": {},
+              "start_time": "1630425600",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 2000,
+              "price_extra_info": {},
+              "start_time": "1630425600",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 2000,
+              "price_extra_info": {},
+              "start_time": "1630425600",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3000,
+              "price_extra_info": {},
+              "start_time": "1630425600",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "42",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_2912b8b1c720003e35782b8f09816cfa.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "太原市",
+        "content_theme_labels_180d": "[]",
+        "core_user_id": "3812750423241972",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "12",
+        "expected_play_num": "13",
+        "fans_increment_rate_within_15d": "-0.0010229687076495327",
+        "fans_increment_within_15d": "-117",
+        "fans_increment_within_30d": "-240",
+        "follower": "114263",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6855084675749117967",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1740195853\",\"item_id\":\"7474084233082916156\",\"item_publish_time\":\"1740195853\",\"item_title\":\"#春季新款 #男鞋推荐 #软底软面穿上超舒服 #爆款热卖中\",\"like_cnt\":\"13\",\"share_cnt\":\"5\",\"vv\":\"1447\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1733622791\",\"item_id\":\"7445853136943729980\",\"item_publish_time\":\"1733622791\",\"item_title\":\"#爆款热卖中 #男鞋推荐 #秋冬新款\",\"like_cnt\":\"5\",\"share_cnt\":\"1\",\"vv\":\"1082\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1731738878\",\"item_id\":\"7437761805155339579\",\"item_publish_time\":\"1731738878\",\"item_title\":\"#男鞋推荐 #热门小助手 @电商小助手 #爆款热卖中 #秋冬新款 #好穿不累脚\",\"like_cnt\":\"6\",\"share_cnt\":\"8\",\"vv\":\"1249\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1715757028\",\"item_id\":\"7369120269237030163\",\"item_publish_time\":\"1715757028\",\"item_title\":\"一直在路上\",\"like_cnt\":\"10\",\"share_cnt\":\"0\",\"vv\":\"1983\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1711789995\",\"item_id\":\"7352081984014912809\",\"item_publish_time\":\"1711789995\",\"item_title\":\"#只做高品质#男鞋推荐 #爆款热卖中 #好鞋推荐 #新品上新\",\"like_cnt\":\"4\",\"share_cnt\":\"3\",\"vv\":\"550\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1711272737\",\"item_id\":\"7349860389561093415\",\"item_publish_time\":\"1711272737\",\"item_title\":\"#只做高品质 #男鞋 #软底软面穿上超舒服 #爆款热卖中\",\"like_cnt\":\"19\",\"share_cnt\":\"0\",\"vv\":\"5885\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1710677711\",\"item_id\":\"7347304798003137828\",\"item_publish_time\":\"1710677711\",\"item_title\":\"#只做高品质 #软底软面穿上超舒服 #春季新款\",\"like_cnt\":\"4\",\"share_cnt\":\"0\",\"vv\":\"1423\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1710474567\",\"item_id\":\"7346432283915652388\",\"item_publish_time\":\"1710474567\",\"item_title\":\"#软底软面穿上超舒服 #只做高品质 #男鞋 #春季新款 #爆款热卖中\",\"like_cnt\":\"4\",\"share_cnt\":\"4\",\"vv\":\"643\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1708759104\",\"item_id\":\"7339064431533493558\",\"item_publish_time\":\"1708759104\",\"item_title\":\"#只做高品质 #男鞋 #软底软面穿上超舒服\",\"like_cnt\":\"5\",\"share_cnt\":\"1\",\"vv\":\"3236\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1706793224\",\"item_id\":\"7330621030890786074\",\"item_publish_time\":\"1706793224\",\"item_title\":\"#软底软面穿上超舒服\",\"like_cnt\":\"6\",\"share_cnt\":\"1\",\"vv\":\"1283\"}]",
+        "link_convert_index": "34.25",
+        "link_convert_index_by_industry": "34.25",
+        "link_i_cnt_by_industry": "10",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "110",
+        "link_link_cnt_by_industry": "142",
+        "link_n_cnt_by_industry": "22",
+        "link_recommend_index_by_industry": "49.67",
+        "link_shopping_index": "49.67",
+        "link_spread_index": "38.45",
+        "link_spread_index_by_industry": "38.45",
+        "link_star_index": "48.19",
+        "link_star_index_by_industry": "48.19",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "也秀潮男鞋行",
+        "pic_expected_play_num": "5",
+        "price_1_20": "2200",
+        "price_20_60": "2400",
+        "price_60": "2500",
+        "promotion_prospective_1_20_cpm": "200000",
+        "promotion_prospective_20_60_cpm": "218181.82",
+        "promotion_prospective_60_cpm": "227272.73",
+        "promotion_prospective_vv": "11",
+        "prospective_1_20_cpm": "169230.7692",
+        "prospective_20_60_cpm": "184615.3846",
+        "prospective_60_cpm": "192307.6923",
+        "province": "山西省",
+        "search_after_view_index_by_industry": "50.45",
+        "sn_expected_play_num": "13",
+        "sn_prospective_1_20_cpm": "169230.7692",
+        "sn_prospective_20_60_cpm": "184615.3846",
+        "sn_prospective_60_cpm": "192307.6923",
+        "star_excellent_author": "0",
+        "star_index": "71.39096218760554",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"时尚\":[\"穿搭\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7304992936003931429",
+          "products": [
+            {
+              "brand_name": "也秀",
+              "category_name": "休闲皮鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3475256498534414165",
+              "product_name": "广州高品新款压花时尚休闲百搭男士板鞋7886"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7307481789684092169",
+          "products": [
+            {
+              "brand_name": "也秀",
+              "category_name": "休闲皮鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3445945222650056006",
+              "product_name": "高品质浮雕压花休闲男鞋鲨8024"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6855084675749117967",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1631199944",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 2500,
+              "price_extra_info": {},
+              "start_time": "1631199944",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 2400,
+              "price_extra_info": {},
+              "start_time": "1631199944",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 2200,
+              "price_extra_info": {},
+              "start_time": "1631199944",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "124",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813_oIs9npEF1AoeiMCPADp8N2gIDfAmFAAiFCAmhQ.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "北京",
+        "content_theme_labels_180d": "[]",
+        "core_user_id": "857256712747725",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "581",
+        "expected_play_num": "618",
+        "fans_increment_rate_within_15d": "-0.0012103581173622687",
+        "fans_increment_within_15d": "-114",
+        "fans_increment_within_30d": "34.9",
+        "follower": "94061",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6990365167095644174",
+        "interact_rate_within_30d": "0.0731",
+        "interaction_median_30d": "39",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"11\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761618470\",\"item_id\":\"7566093685276822838\",\"item_publish_time\":\"1761618470\",\"item_title\":\"每个人都有自己的南墙 ，不撞南墙不回头，只因为南墙太美了。#自拍自乐 #自拍自乐 #快乐生活每一天\",\"like_cnt\":\"14\",\"share_cnt\":\"0\",\"vv\":\"594\"},{\"comment_cnt\":\"14\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761548104\",\"item_id\":\"7565791474152410422\",\"item_publish_time\":\"1761548104\",\"item_title\":\"人间朝暮，一叶知秋，蓦然回首，又是一季，岁月以相同的方式经历每个人，每个人却以不同的方式经过了岁月。愿这个秋天，所有的美好如约而至！#公园随拍 #自拍自乐 #记录美好生活每一天\",\"like_cnt\":\"18\",\"share_cnt\":\"0\",\"vv\":\"404\"},{\"comment_cnt\":\"11\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758978190\",\"item_id\":\"7554753792814796095\",\"item_publish_time\":\"1758978190\",\"item_title\":\"\",\"like_cnt\":\"13\",\"share_cnt\":\"0\",\"vv\":\"527\"},{\"comment_cnt\":\"5\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758272778\",\"item_id\":\"7551724054455471414\",\"item_publish_time\":\"1758272778\",\"item_title\":\"#抖音ai特效#定格美好瞬间\",\"like_cnt\":\"21\",\"share_cnt\":\"0\",\"vv\":\"531\"},{\"comment_cnt\":\"8\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757828856\",\"item_id\":\"7549817427794857255\",\"item_publish_time\":\"1757828856\",\"item_title\":\"#抖音ai创作 浅秋是夏天的告别信，写满温柔的叹息。\",\"like_cnt\":\"15\",\"share_cnt\":\"0\",\"vv\":\"759\"},{\"comment_cnt\":\"16\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756642323\",\"item_id\":\"7544721311394925863\",\"item_publish_time\":\"1756642323\",\"item_title\":\"夜幕下的长安街，任何文案都不及看它一眼的震撼 ！        #这盛世如你所愿#祝国家繁荣昌盛国泰民安\",\"like_cnt\":\"18\",\"share_cnt\":\"0\",\"vv\":\"826\"},{\"comment_cnt\":\"12\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756424570\",\"item_id\":\"7543786071730015527\",\"item_publish_time\":\"1756424570\",\"item_title\":\"火焰山 只有借不到的芭蕉扇，没有过不去的火焰山 #火焰山#西游记 #看世界 #不一样的风景\",\"like_cnt\":\"18\",\"share_cnt\":\"0\",\"vv\":\"1199\"},{\"comment_cnt\":\"13\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756383529\",\"item_id\":\"7543609812233227563\",\"item_publish_time\":\"1756383529\",\"item_title\":\"生活可以繁花似锦，也可以粗茶淡饭，活着有喜有乐，以美好心过日子，轻拥岁月，笑对流年， 携一缕阳光，微笑向暖开心每一天福#吐鲁番的葡萄熟了 #纪录美好生活 #定格美好瞬间\",\"like_cnt\":\"16\",\"share_cnt\":\"0\",\"vv\":\"1081\"},{\"comment_cnt\":\"11\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755516125\",\"item_id\":\"7539884315178962217\",\"item_publish_time\":\"1755516125\",\"item_title\":\"把生活调到喜欢的频道，每一段时光都藏着不可复制的美好。伊犁那拉提去了才懂什么叫“视觉盛宴”！养蜂女在那拉提大草原，期待着你来听她倾诉凄美动人的爱情故事。#美丽的草原风光无限 #蓝天白云绿草地 #美丽的草原风光无限 #蓝天白云绿草地 #旅行随拍\",\"like_cnt\":\"24\",\"share_cnt\":\"0\",\"vv\":\"2098\"},{\"comment_cnt\":\"16\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755255653\",\"item_id\":\"7538765613184421163\",\"item_publish_time\":\"1755255653\",\"item_title\":\"赛里木湖到底有多美？“看你一眼，记你一世”--赛里木湖牌子上的话；它是大西洋最后的一滴眼泪，人人向往的诗和远方。#赛里木湖 #赛里木湖风景 #记录快乐之旅留下美好回忆 #不一样的感觉\",\"like_cnt\":\"20\",\"share_cnt\":\"0\",\"vv\":\"1145\"}]",
+        "link_convert_index": "0",
+        "link_convert_index_by_industry": "0",
+        "link_i_cnt_by_industry": "10252",
+        "link_k_cnt_by_industry": "59",
+        "link_l_cnt_by_industry": "785196",
+        "link_link_cnt_by_industry": "804798",
+        "link_n_cnt_by_industry": "9291",
+        "link_recommend_index_by_industry": "22.06",
+        "link_shopping_index": "22.06",
+        "link_spread_index": "18.51",
+        "link_spread_index_by_industry": "18.51",
+        "link_star_index": "16.98",
+        "link_star_index_by_industry": "16.98",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "畅响百货",
+        "pic_expected_play_num": "549",
+        "play_over_rate_within_30d": "0.0788",
+        "price_1_20": "1000",
+        "price_20_60": "1500",
+        "price_60": "3000",
+        "promotion_prospective_1_20_cpm": "1792.11",
+        "promotion_prospective_20_60_cpm": "2688.17",
+        "promotion_prospective_60_cpm": "5376.34",
+        "promotion_prospective_vv": "558",
+        "prospective_1_20_cpm": "1618.123",
+        "prospective_20_60_cpm": "2427.1845",
+        "prospective_60_cpm": "4854.3689",
+        "province": "",
+        "search_after_view_index_by_industry": "63.48",
+        "sn_expected_play_num": "618",
+        "sn_interact_rate_within_30d": "0.0731",
+        "sn_play_over_rate_within_30d": "0.0788",
+        "sn_prospective_1_20_cpe": "41.6667",
+        "sn_prospective_1_20_cpm": "1618.123",
+        "sn_prospective_20_60_cpe": "62.5",
+        "sn_prospective_20_60_cpm": "2427.1845",
+        "sn_prospective_60_cpe": "125",
+        "sn_prospective_60_cpm": "4854.3689",
+        "star_excellent_author": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"科技数码\":[\"科技\"]}",
+        "vv_median_30d": "2052"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7323248899395751218",
+          "products": [
+            {
+              "brand_name": "啄木鸟",
+              "category_name": "高帮休闲鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3659922869175093443",
+              "product_name": "啄木鸟正品男鞋冬季高帮加绒加厚休闲鞋男士防滑软底皮面保暖棉鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7320082305270238474",
+          "products": [
+            {
+              "brand_name": "361度",
+              "category_name": "板鞋/休闲鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3656210715452285491",
+              "product_name": "361度男鞋运动鞋冬季2023新款皮面高帮板鞋防水加绒保暖休闲棉鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7328379418777226522",
+          "products": [
+            {
+              "brand_name": "龙年",
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3663372945662844483",
+              "product_name": "2024龙年加绒新春款男鞋减震防滑软底软面加绒加厚百搭休闲潮流鞋"
+            },
+            {
+              "brand_name": "龙年",
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "男士休闲鞋,流行男鞋",
+              "product_id": "3659835625470844863",
+              "product_name": "2024龙年单里新春款男鞋减震防滑软底软面加绒加厚百搭休闲情侣鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7355509440482692390",
+          "products": [
+            {
+              "category_name": "跑步鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3676184717956350161",
+              "product_name": "夏季透气潮鞋子男冰丝薄款网鞋网面防臭运动鞋软底跑鞋学生休闲鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7351029532192820489",
+          "products": [
+            {
+              "brand_name": "老人头",
+              "category_name": "网面鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3602922889160067034",
+              "product_name": "老人头夏季男鞋网面夏天休闲鞋透气爸爸鞋软底薄款网鞋防臭鞋子男"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7358771385751063817",
+          "products": [
+            {
+              "brand_name": "海澜之家",
+              "category_name": "网面鞋",
+              "hit_tags": "男士休闲鞋,流行男鞋",
+              "product_id": "3674368706831581488",
+              "product_name": "海澜之家男鞋夏季软底飞织网面运动鞋男士2024新款潮鞋百搭休闲鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7341714246620744987",
+          "products": [
+            {
+              "brand_name": "领航骆驼",
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3644442292779151311",
+              "product_name": "【★领航骆驼】新款百搭舒适男士休闲鞋软底防滑健步鞋户外透气轻便"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7363905453719407923",
+          "products": [
+            {
+              "category_name": "网面鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3606485347418168991",
+              "product_name": "夏季透气网面男鞋中老年男鞋爸爸鞋软底鞋休闲运动鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6990365167095644174",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1500,
+              "price_extra_info": {},
+              "start_time": "1672413452",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1672413452",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3000,
+              "price_extra_info": {},
+              "start_time": "1672413452",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "50",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L2",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_2362fb9abdaeef821ffcdc8358cd90d6.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "黔东南苗族侗族自治州",
+        "content_theme_labels_180d": "[\"简约气质穿搭\",\"女性穿搭\",\"流行穿搭\",\"小个子穿搭\",\"东方美学穿搭\",\"通勤穿搭\",\"慵懒风穿搭\",\"复古穿搭\",\"日常穿搭\",\"季节性穿搭\"]",
+        "core_user_id": "171113855852003",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": ">200",
+        "ecom_gmv_30d_range": "1k-3w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_score": "85",
+        "ecom_video_ctr_30d_range": "6%-8%",
+        "ecom_video_mid_click_pv_30d_range": "500以下",
+        "ecom_video_product_num_30d": "42",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "2778",
+        "expected_play_num": "3004",
+        "fans_increment_rate_within_15d": "0.007451974467825184",
+        "fans_increment_within_15d": "1708",
+        "fans_increment_within_30d": "4496",
+        "follower": "230876",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7107107526629392417",
+        "interact_rate_within_30d": "0.0443",
+        "interaction_median_30d": "140",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"6\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762839121\",\"item_id\":\"7571336349484280932\",\"item_publish_time\":\"1762839121\",\"item_title\":\"#品质女装 #套装#高级感穿搭 #优雅气质 #秋冬穿搭\",\"like_cnt\":\"26\",\"share_cnt\":\"5\",\"vv\":\"719\"},{\"comment_cnt\":\"32\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762752474\",\"item_id\":\"7570964206650342314\",\"item_publish_time\":\"1762752474\",\"item_title\":\"#品质女装 #大衣#高级感穿搭 #优雅气质 #秋冬穿搭\",\"like_cnt\":\"98\",\"share_cnt\":\"15\",\"vv\":\"2502\"},{\"comment_cnt\":\"21\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762675991\",\"item_id\":\"7570635716972070500\",\"item_publish_time\":\"1762675991\",\"item_title\":\"#品质女装 #外套#优雅气质 #时尚穿搭 #秋冬穿搭\",\"like_cnt\":\"60\",\"share_cnt\":\"10\",\"vv\":\"1618\"},{\"comment_cnt\":\"15\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762640250\",\"item_id\":\"7570482085351299014\",\"item_publish_time\":\"1762640250\",\"item_title\":\"#品质女装 #套装#优雅气质 #这也太好看了 #高级穿搭\",\"like_cnt\":\"89\",\"share_cnt\":\"113\",\"vv\":\"4477\"},{\"comment_cnt\":\"31\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762580397\",\"item_id\":\"7570225147068726761\",\"item_publish_time\":\"1762580397\",\"item_title\":\"#品质女装 #外套#高级感穿搭 #优雅气质 #好身材好气质\",\"like_cnt\":\"87\",\"share_cnt\":\"6\",\"vv\":\"2367\"},{\"comment_cnt\":\"15\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762492785\",\"item_id\":\"7569848856692333161\",\"item_publish_time\":\"1762492785\",\"item_title\":\"#品质女装 #套装#优雅气质 #高级感穿搭 #秋冬穿搭\",\"like_cnt\":\"57\",\"share_cnt\":\"7\",\"vv\":\"1421\"},{\"comment_cnt\":\"22\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762397609\",\"item_id\":\"7569440058605841577\",\"item_publish_time\":\"1762397609\",\"item_title\":\"#品质女装 #半身裙#高级感穿搭 #好身材好气质 #优雅气质\",\"like_cnt\":\"93\",\"share_cnt\":\"24\",\"vv\":\"2892\"},{\"comment_cnt\":\"25\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762386724\",\"item_id\":\"7569393313511321195\",\"item_publish_time\":\"1762386724\",\"item_title\":\"#品质女装 #套装#高级感穿搭 #美出高级感 #这也太好看了\",\"like_cnt\":\"148\",\"share_cnt\":\"23\",\"vv\":\"4278\"},{\"comment_cnt\":\"30\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762317547\",\"item_id\":\"7569096201535168070\",\"item_publish_time\":\"1762317547\",\"item_title\":\"#品质女装 #套装#优雅气质 #高级感穿搭 #秋冬穿搭\",\"like_cnt\":\"112\",\"share_cnt\":\"14\",\"vv\":\"2672\"},{\"comment_cnt\":\"45\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762226321\",\"item_id\":\"7568704395124485227\",\"item_publish_time\":\"1762226321\",\"item_title\":\"#品质女装 #套装#优雅气质 #优雅知性 #气质范\",\"like_cnt\":\"178\",\"share_cnt\":\"12\",\"vv\":\"4959\"}]",
+        "link_convert_index": "70.57",
+        "link_convert_index_by_industry": "70.57",
+        "link_i_cnt_by_industry": "3720",
+        "link_k_cnt_by_industry": "20",
+        "link_l_cnt_by_industry": "21249",
+        "link_link_cnt_by_industry": "49611",
+        "link_n_cnt_by_industry": "24622",
+        "link_recommend_index_by_industry": "53.04",
+        "link_shopping_index": "53.04",
+        "link_spread_index": "57.82",
+        "link_spread_index_by_industry": "57.82",
+        "link_star_index": "65.27",
+        "link_star_index_by_industry": "65.27",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "小雨好物",
+        "pic_expected_play_num": "2669",
+        "play_over_rate_within_30d": "0.1013",
+        "price_1_20": "1000",
+        "price_20_60": "1500",
+        "price_60": "3000",
+        "promotion_prospective_1_20_cpm": "369",
+        "promotion_prospective_20_60_cpm": "553.51",
+        "promotion_prospective_60_cpm": "1107.01",
+        "promotion_prospective_vv": "2710",
+        "prospective_1_20_cpm": "332.8895",
+        "prospective_20_60_cpm": "499.3342",
+        "prospective_60_cpm": "998.6684",
+        "province": "贵州省",
+        "search_after_view_index_by_industry": "69.09",
+        "sn_expected_play_num": "3004",
+        "sn_interact_rate_within_30d": "0.0443",
+        "sn_play_over_rate_within_30d": "0.1013",
+        "sn_prospective_1_20_cpe": "8.0645",
+        "sn_prospective_1_20_cpm": "332.8895",
+        "sn_prospective_20_60_cpe": "12.0968",
+        "sn_prospective_20_60_cpm": "499.3342",
+        "sn_prospective_60_cpe": "24.1935",
+        "sn_prospective_60_cpm": "998.6684",
+        "star_excellent_author": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"时尚\":[\"穿搭\"]}",
+        "vv_median_30d": "3194"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7353438556875935014",
+          "products": [
+            {
+              "brand_name": "卡帝乐鳄鱼",
+              "category_name": "沙滩鞋",
+              "hit_tags": "流行男鞋",
+              "product_id": "3603497703977416801",
+              "product_name": "CARTELO/卡帝乐鳄鱼百搭凉鞋夏季厚底网红时尚休闲潮流软底凉拖鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7347836138301689114",
+          "products": [
+            {
+              "brand_name": "回力",
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "男士休闲鞋,流行男鞋",
+              "product_id": "3671633856450134161",
+              "product_name": "回力男鞋夏季透气网面休闲运动鞋男士潮流百搭网红爆款老爹潮鞋子"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7348242211546500389",
+          "products": [
+            {
+              "brand_name": "东方骆驼",
+              "category_name": "人字拖",
+              "hit_tags": "流行男鞋",
+              "product_id": "3671202633001074710",
+              "product_name": "东方骆驼男士时尚户外拖鞋人字拖鞋夏季软底个性防滑夹脚人字拖鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7357559570056645914",
+          "products": [
+            {
+              "brand_name": "木林森",
+              "category_name": "乐福鞋/豆豆鞋",
+              "hit_tags": "流行男鞋",
+              "product_id": "3676001314262876206",
+              "product_name": "木林森2024夏季新款男士一脚蹬商务百搭乐福鞋软皮软底透气休闲鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7352287660729306418",
+          "products": [
+            {
+              "brand_name": "卡帝乐鳄鱼",
+              "category_name": "沙滩鞋",
+              "hit_tags": "流行男鞋",
+              "product_id": "3613668205828126311",
+              "product_name": "卡帝乐鳄鱼男款凉鞋夏季男士沙滩百搭外穿防滑休闲两用拖鞋沙滩鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7344161531615005979",
+          "products": [
+            {
+              "brand_name": "cartelo/卡帝乐鳄鱼",
+              "category_name": "乐福鞋/豆豆鞋",
+              "hit_tags": "男士休闲鞋,流行男鞋",
+              "product_id": "3562073033529250025",
+              "product_name": "CARTELO/卡帝乐鳄鱼新款四季男士一脚蹬软面防滑透气软底乐福鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7357923374258998555",
+          "products": [
+            {
+              "brand_name": "dickies",
+              "category_name": "帆布鞋",
+              "hit_tags": "流行男鞋",
+              "product_id": "3619593039493904412",
+              "product_name": "Dickies夏季半拖男情侣款时尚一脚蹬潮鞋休闲透气增高帆布鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7360891771032800549",
+          "products": [
+            {
+              "brand_name": "群狼·世家",
+              "category_name": "休闲皮鞋",
+              "hit_tags": "男士休闲鞋,流行男鞋",
+              "product_id": "3677717565989323054",
+              "product_name": "群狼·世家休闲男皮鞋2024夏季新款网面透气小白鞋镂空厚底潮男鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7328299672810966282",
+          "products": [
+            {
+              "brand_name": "龙年",
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "男士休闲鞋,流行男鞋",
+              "product_id": "3659835625470844863",
+              "product_name": "2024龙年单里新春款男鞋减震防滑软底软面加绒加厚百搭休闲情侣鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7337494349237832987",
+          "products": [
+            {
+              "category_name": "乐福鞋/豆豆鞋",
+              "hit_tags": "男士休闲鞋,流行男鞋",
+              "product_id": "3566518011206742997",
+              "product_name": "红蜻蜓秋季新品男鞋单里一脚蹬懒人休闲皮鞋真牛皮软底防滑豆豆鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "7107107526629392417",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 2000,
+              "price_extra_info": {},
+              "start_time": "1672670917",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 750,
+              "price_extra_info": {},
+              "start_time": "1672670823",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3000,
+              "price_extra_info": {},
+              "start_time": "1672670775",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1500,
+              "price_extra_info": {},
+              "start_time": "1672670775",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1672670775",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "47",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_0c763b7eceaf5a264557ae5c04199785.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "",
+        "content_theme_labels_180d": "[]",
+        "core_user_id": "96092763605",
+        "e_commerce_enable": "0",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "16881",
+        "expected_play_num": "21765",
+        "fans_increment_rate_within_15d": "-0.002634951309937433",
+        "fans_increment_within_15d": "-769",
+        "fans_increment_within_30d": "-1261",
+        "follower": "291058",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6681311326968479748",
+        "interaction_median_30d": "35",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"22\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1745854750\",\"item_id\":\"7498389004334157108\",\"item_publish_time\":\"1745854750\",\"item_title\":\"\",\"like_cnt\":\"52\",\"share_cnt\":\"1\",\"vv\":\"22489\"},{\"comment_cnt\":\"6\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1745665800\",\"item_id\":\"7497577505235307833\",\"item_publish_time\":\"1745665800\",\"item_title\":\"\",\"like_cnt\":\"29\",\"share_cnt\":\"4\",\"vv\":\"19890\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1744515553\",\"item_id\":\"7492637106112646438\",\"item_publish_time\":\"1744515553\",\"item_title\":\"\",\"like_cnt\":\"19\",\"share_cnt\":\"3\",\"vv\":\"9499\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1744450786\",\"item_id\":\"7492358976764480819\",\"item_publish_time\":\"1744450786\",\"item_title\":\"\",\"like_cnt\":\"8\",\"share_cnt\":\"1\",\"vv\":\"4118\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1744450774\",\"item_id\":\"7492358947450506522\",\"item_publish_time\":\"1744450774\",\"item_title\":\"\",\"like_cnt\":\"7\",\"share_cnt\":\"0\",\"vv\":\"3696\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1744450752\",\"item_id\":\"7492358828797840690\",\"item_publish_time\":\"1744450752\",\"item_title\":\"\",\"like_cnt\":\"3\",\"share_cnt\":\"1\",\"vv\":\"1830\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1743991125\",\"item_id\":\"7490384792266018106\",\"item_publish_time\":\"1743991125\",\"item_title\":\"\",\"like_cnt\":\"19\",\"share_cnt\":\"0\",\"vv\":\"6246\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1743991095\",\"item_id\":\"7490384676712926524\",\"item_publish_time\":\"1743991095\",\"item_title\":\"\",\"like_cnt\":\"28\",\"share_cnt\":\"1\",\"vv\":\"10902\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1743734203\",\"item_id\":\"7489281289338539299\",\"item_publish_time\":\"1743734203\",\"item_title\":\"\",\"like_cnt\":\"34\",\"share_cnt\":\"0\",\"vv\":\"19338\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1743691270\",\"item_id\":\"7489096931365473595\",\"item_publish_time\":\"1743691270\",\"item_title\":\"#好鞋推荐 #软底软面穿上超舒服\",\"like_cnt\":\"5\",\"share_cnt\":\"0\",\"vv\":\"1450\"}]",
+        "link_convert_index": "41.63",
+        "link_convert_index_by_industry": "41.63",
+        "link_i_cnt_by_industry": "375",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "2208",
+        "link_link_cnt_by_industry": "2857",
+        "link_n_cnt_by_industry": "274",
+        "link_recommend_index_by_industry": "41.67",
+        "link_shopping_index": "41.67",
+        "link_spread_index": "39.6",
+        "link_spread_index_by_industry": "39.6",
+        "link_star_index": "52",
+        "link_star_index_by_industry": "52",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "TK-潮物*",
+        "pic_expected_play_num": "0",
+        "price_1_20": "1000",
+        "price_20_60": "1500",
+        "prospective_1_20_cpm": "45.9453",
+        "prospective_20_60_cpm": "68.918",
+        "province": "",
+        "search_after_view_index_by_industry": "50.07",
+        "sn_expected_play_num": "21765",
+        "sn_prospective_1_20_cpe": "14.4928",
+        "sn_prospective_1_20_cpm": "45.9453",
+        "sn_prospective_20_60_cpe": "21.7391",
+        "sn_prospective_20_60_cpm": "68.918",
+        "star_excellent_author": "0",
+        "star_index": "61.98864713065527",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"时尚\":[\"穿搭\"]}",
+        "vv_median_30d": "15066"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7307162383812726057",
+          "products": [
+            {
+              "brand_name": "小众",
+              "category_name": "老爹鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3653580690483717871",
+              "product_name": "老爹鞋男鞋2023新款冬季百搭小众原创皮面休闲板鞋厚底运动鞋男款"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7308029768211909942",
+          "products": [
+            {
+              "category_name": "老爹鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3653589707750785760",
+              "product_name": "男鞋2023鞋子男冬季新款增高皮面拼接潮男鞋休闲时尚老爹鞋厚底鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7306427313938238739",
+          "products": [
+            {
+              "brand_name": "欧洲站",
+              "category_name": "老爹鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3651305317817573548",
+              "product_name": "老爹鞋男鞋2023秋冬新款厚底欧洲站潮鞋百搭轻便运动加绒时尚休闲"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7307193662499245351",
+          "products": [
+            {
+              "category_name": "老爹鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3653591335467883376",
+              "product_name": "男鞋2023鞋子男冬季新款增高皮面拼接潮男鞋休闲时尚老爹鞋厚底鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6681311326968479748",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1596211200",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1500,
+              "price_extra_info": {},
+              "start_time": "1596211200",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "44",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_90232cf8549447feedba2b27c2c0bed7.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "福州市",
+        "content_theme_labels_180d": "[]",
+        "core_user_id": "2607679111182702",
+        "e_commerce_enable": "1",
+        "ecom_score": "81",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "1",
+        "fans_increment_rate_within_15d": "-0.0024779621735711624",
+        "fans_increment_within_15d": "-479",
+        "fans_increment_within_30d": "-1048",
+        "follower": "192792",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "6718951714856108043",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "link_convert_index": "39.29",
+        "link_convert_index_by_industry": "39.29",
+        "link_i_cnt_by_industry": "0",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "5",
+        "link_link_cnt_by_industry": "11",
+        "link_n_cnt_by_industry": "6",
+        "link_recommend_index_by_industry": "38.48",
+        "link_shopping_index": "38.48",
+        "link_spread_index": "32.76",
+        "link_spread_index_by_industry": "32.76",
+        "link_star_index": "46.81",
+        "link_star_index_by_industry": "46.81",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "庆明优选百货",
+        "price_1_20": "1000",
+        "price_20_60": "1200",
+        "province": "福建省",
+        "search_after_view_index_by_industry": "37.27",
+        "star_excellent_author": "0",
+        "star_index": "70.9200341293487",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"时尚\":[\"穿搭\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7306396215648783679",
+          "products": [
+            {
+              "brand_name": "阿甘鞋",
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3652488132298991248",
+              "product_name": "【设计师款】阿甘鞋2023年秋冬新款休闲潮流运动软底百搭时尚男鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7303090792363478335",
+          "products": [
+            {
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3651543518809330198",
+              "product_name": "【设计师款】阿甘鞋2023冬季新款休闲潮流运动软底百搭时尚男鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7308984577417170203",
+          "products": [
+            {
+              "brand_name": "阿甘鞋",
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3654135048380240931",
+              "product_name": "【设计师款】阿甘鞋2023年冬季新款休闲潮流运动软底百搭时尚男鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6718951714856108043",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1200,
+              "price_extra_info": {},
+              "start_time": "1578229444",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1578229444",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "38",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813_eee2b3da42084d1f8d4167f1316d9c1a.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "",
+        "content_theme_labels_180d": "[\"箱包鞋靴穿搭\",\"鞋靴推荐\",\"保暖穿搭\",\"季节性穿搭\"]",
+        "core_user_id": "1129946466228647",
+        "e_commerce_enable": "1",
+        "ecom_video_ctr_30d_range": "4%-6%",
+        "ecom_video_mid_click_pv_30d_range": "500以下",
+        "ecom_video_product_num_30d": "39",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "92",
+        "expected_play_num": "109",
+        "fans_increment_rate_within_15d": "-0.0010237988325101032",
+        "fans_increment_within_15d": "-114",
+        "fans_increment_within_30d": "1714",
+        "follower": "111237",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6796645035774312455",
+        "interact_rate_within_30d": "0.0074",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762859615\",\"item_id\":\"7571424377717210027\",\"item_publish_time\":\"1762859615\",\"item_title\":\"冬季加绒保暖休闲男鞋真皮男士皮鞋 #男鞋推荐 #好鞋推荐 #男士皮鞋 #冬季加绒保暖棉鞋 #男鞋皮鞋\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"38\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762841574\",\"item_id\":\"7571346870846531014\",\"item_publish_time\":\"1762841574\",\"item_title\":\"冬季新款商务休闲皮鞋加绒保暖男鞋 #男士皮鞋 #男鞋推荐 #好鞋推荐 #旋转扣男鞋 #商务休闲皮鞋\",\"like_cnt\":\"1\",\"share_cnt\":\"0\",\"vv\":\"86\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762777418\",\"item_id\":\"7571071348228336042\",\"item_publish_time\":\"1762777418\",\"item_title\":\"冬季加绒保暖一脚蹬懒人皮鞋商务休闲鞋 #冬季加绒保暖棉鞋 #一脚蹬休闲鞋 #男鞋推荐 #商务休闲皮鞋\",\"like_cnt\":\"2\",\"share_cnt\":\"0\",\"vv\":\"104\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762768463\",\"item_id\":\"7571032880438457791\",\"item_publish_time\":\"1762768463\",\"item_title\":\"冬季加绒保暖男士板鞋 #男鞋推荐 #好穿不累脚 #男士板鞋 #软底软面穿上超舒服 #冬季啊加绒保暖男鞋\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"429\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762689510\",\"item_id\":\"7570693787358636964\",\"item_publish_time\":\"1762689510\",\"item_title\":\"#牛皮男鞋 #冬季新款保暖男鞋 #男鞋潮款 #好鞋推荐 #潮流男鞋搭配\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"217\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762689385\",\"item_id\":\"7570693248017532918\",\"item_publish_time\":\"1762689385\",\"item_title\":\"#男鞋推荐 #冬季加绒保暖棉鞋 #软底软面穿上超舒服 #户外运动男鞋\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"97\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762689289\",\"item_id\":\"7570692826306042815\",\"item_publish_time\":\"1762689289\",\"item_title\":\"冬季加绒保暖棉鞋 #男鞋穿搭 #男鞋推荐 #男鞋 #冬季保暖棉鞋\",\"like_cnt\":\"1\",\"share_cnt\":\"0\",\"vv\":\"33\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762687498\",\"item_id\":\"7570685151438843334\",\"item_publish_time\":\"1762687498\",\"item_title\":\"秋冬新款休闲男鞋真皮男士皮鞋 #男士休闲鞋 #男鞋推荐 #好穿不累脚 #时尚穿搭 #男鞋潮款\",\"like_cnt\":\"1\",\"share_cnt\":\"0\",\"vv\":\"47\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762571531\",\"item_id\":\"7570187076713443748\",\"item_publish_time\":\"1762571531\",\"item_title\":\"冬季新款加绒保暖棉鞋真皮男鞋 #好物推荐🔥 #男鞋推荐 #原创视频 #好穿不累脚 #潮流男鞋搭配\",\"like_cnt\":\"2\",\"share_cnt\":\"0\",\"vv\":\"107\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762565232\",\"item_id\":\"7570160000011265956\",\"item_publish_time\":\"1762565232\",\"item_title\":\"#好物推荐🔥 #实物拍摄 #好鞋推荐 #真皮男鞋\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"131\"}]",
+        "link_convert_index": "41.86",
+        "link_convert_index_by_industry": "41.86",
+        "link_i_cnt_by_industry": "430",
+        "link_k_cnt_by_industry": "3",
+        "link_l_cnt_by_industry": "6529",
+        "link_link_cnt_by_industry": "7247",
+        "link_n_cnt_by_industry": "285",
+        "link_recommend_index_by_industry": "41.22",
+        "link_shopping_index": "41.22",
+        "link_spread_index": "40.72",
+        "link_spread_index_by_industry": "40.72",
+        "link_star_index": "53.08",
+        "link_star_index_by_industry": "53.08",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "敬敬潮男鞋",
+        "pic_expected_play_num": "11",
+        "play_over_rate_within_30d": "0.0357",
+        "price_1_20": "1000",
+        "price_20_60": "1000",
+        "promotion_prospective_1_20_cpm": "10101.01",
+        "promotion_prospective_20_60_cpm": "10101.01",
+        "promotion_prospective_vv": "99",
+        "prospective_1_20_cpm": "9174.3119",
+        "prospective_20_60_cpm": "9174.3119",
+        "province": "北京市",
+        "search_after_view_index_by_industry": "37.72",
+        "sn_expected_play_num": "109",
+        "sn_interact_rate_within_30d": "0.0074",
+        "sn_play_over_rate_within_30d": "0.0357",
+        "sn_prospective_1_20_cpm": "9174.3119",
+        "sn_prospective_20_60_cpm": "9174.3119",
+        "star_excellent_author": "0",
+        "star_index": "60.22240198158046",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"时尚\":[\"穿搭\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7339673847379053824",
+          "products": [
+            {
+              "brand_name": "木子鞋店",
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3440607510309010506",
+              "product_name": "【按皮鞋码拍】休闲男鞋鲨8930"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7333371608314154292",
+          "products": [
+            {
+              "brand_name": "广州",
+              "category_name": "休闲皮鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3638203839888423336",
+              "product_name": "新款广州男鞋6131161透气潮休闲鞋轻便厚底鳄鱼纹运动鞋男士皮鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7330072558030589236",
+          "products": [
+            {
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3634515616079183989",
+              "product_name": "春新款厚底老爹鞋红色青年潮鞋68019百搭休闲运动鞋轻便透气布鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7330424060842691840",
+          "products": [
+            {
+              "category_name": "乐福鞋/豆豆鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3629873256636535726",
+              "product_name": "乐福豆豆鞋50835夏新款男鞋真皮男士平跟软底一脚蹬懒人休闲皮鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7324120107901390115",
+          "products": [
+            {
+              "brand_name": "欧洲站",
+              "category_name": "休闲皮鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3643426760328149669",
+              "product_name": "2023冬季新款真皮男鞋3022软牛皮皮鞋轻便透气欧洲站厚底板鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7328578765418761506",
+          "products": [
+            {
+              "brand_name": "阿甘鞋",
+              "category_name": "休闲皮鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3637816339005091134",
+              "product_name": "春新款时尚透气轻便皮鞋复古厚底阿甘鞋真皮圆头运动休闲男鞋3102"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7338992524620516623",
+          "products": [
+            {
+              "brand_name": "24039",
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3664208190108770914",
+              "product_name": " 春季新款男鞋24039男士潮鞋网面透气休闲鞋潮流青年软底运动鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7322758484544589091",
+          "products": [
+            {
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3605941139846362876",
+              "product_name": "潮流新款休闲男鞋3066轻便软底真皮拼色阿甘鞋百搭时尚高端运动鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7330095184421621026",
+          "products": [
+            {
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3611676289234251466",
+              "product_name": "男鞋秋冬新款皮面加绒保暖透气休闲运动鞋2391防滑软底轻便百搭鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7300174141171174708",
+          "products": [
+            {
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "男士休闲鞋",
+              "product_id": "3601852211577153334",
+              "product_name": "透气网鞋潮款轻便厚底休闲鞋系带软底平跟百搭男鞋春秋新款老爹鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "6796645035774312455",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1588289942",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1588289942",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "48",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"清爽\":0,\"蛋白质\":0}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_914798813f892455d3b48a2cb1277cb6.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "太原市",
+        "content_theme_labels_180d": "[\"夏日饮品\",\"零食测评\",\"生活好物评测\",\"早餐美食\",\"健康饮食\",\"辣味美食\",\"奶制品测评\",\"儿童用品\",\"家居好物\",\"卫生用品测评\"]",
+        "core_user_id": "71289501022",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_score": "80",
+        "ecom_video_ctr_30d_range": "4%-6%",
+        "ecom_video_mid_click_pv_30d_range": "500以下",
+        "ecom_video_product_num_30d": "33",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "223",
+        "expected_play_num": "257",
+        "fans_increment_rate_within_15d": "-0.0014469641774467197",
+        "fans_increment_within_15d": "-284",
+        "fans_increment_within_30d": "-591",
+        "follower": "195971",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7076280563304235022",
+        "interact_rate_within_30d": "0.0044",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762859078\",\"item_id\":\"7571422073391552591\",\"item_publish_time\":\"1762859078\",\"item_title\":\"可爱小狗硅藻泥地垫，7.99元买一张送一张，特别厚实#硅藻泥软垫 #地垫\",\"like_cnt\":\"1\",\"share_cnt\":\"0\",\"vv\":\"92\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762837749\",\"item_id\":\"7571330463186352634\",\"item_publish_time\":\"1762837749\",\"item_title\":\"洁棉宝家湿厕纸，家里有小宝宝的，趁着现在划算赶紧冲#湿厕纸 #洁棉宝湿厕纸\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"113\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762787818\",\"item_id\":\"7571116002449658617\",\"item_publish_time\":\"1762787818\",\"item_title\":\"立冬了，你们热水壶都准备了么#保温壶 #热水壶 #大容量\",\"like_cnt\":\"1\",\"share_cnt\":\"0\",\"vv\":\"153\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762776906\",\"item_id\":\"7571069151012533096\",\"item_publish_time\":\"1762776906\",\"item_title\":\"这地垫也太好看了，米奇加大尺寸地垫#地垫 #地垫门垫 #米奇 #硅藻泥地垫\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"193\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762752994\",\"item_id\":\"7570966452770430565\",\"item_publish_time\":\"1762752994\",\"item_title\":\"儿童保温杯316不锈钢材质#保温杯 #316不锈钢#儿童保温杯 #多喝水\",\"like_cnt\":\"1\",\"share_cnt\":\"0\",\"vv\":\"115\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762693117\",\"item_id\":\"7570709286738462117\",\"item_publish_time\":\"1762693117\",\"item_title\":\"贝因美湿厕纸也太好用了吧#贝因美 #贝因美湿厕纸 #湿厕纸\",\"like_cnt\":\"1\",\"share_cnt\":\"0\",\"vv\":\"148\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762613348\",\"item_id\":\"7570366668229101797\",\"item_publish_time\":\"1762613348\",\"item_title\":\"一口惊艳的薄荷话梅，太好吃了#薄荷话梅 #话梅 #薄荷 #嘴馋\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"187\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762598887\",\"item_id\":\"7570304568178002639\",\"item_publish_time\":\"1762598887\",\"item_title\":\"9.99元到手这么好的一个地垫#地垫 #硅藻泥软垫 #吸水性强\",\"like_cnt\":\"2\",\"share_cnt\":\"1\",\"vv\":\"542\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762587781\",\"item_id\":\"7570256822830150370\",\"item_publish_time\":\"1762587781\",\"item_title\":\"德国这个维他命糖真的绝，很多人嘴巴里有味道但是自己不知道，约会的时候更尴尬。#亲测分享 #这也太好吃了\",\"like_cnt\":\"1\",\"share_cnt\":\"0\",\"vv\":\"158\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762529809\",\"item_id\":\"7570007876816269288\",\"item_publish_time\":\"1762529809\",\"item_title\":\"子初厨房湿巾三包更划算#子初 #子初厨房湿巾 #厨房湿巾 #不连抽\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"209\"}]",
+        "link_convert_index": "53.55",
+        "link_convert_index_by_industry": "53.55",
+        "link_i_cnt_by_industry": "397",
+        "link_k_cnt_by_industry": "11",
+        "link_l_cnt_by_industry": "3367",
+        "link_link_cnt_by_industry": "4054",
+        "link_n_cnt_by_industry": "279",
+        "link_recommend_index_by_industry": "59.25",
+        "link_shopping_index": "59.25",
+        "link_spread_index": "46.54",
+        "link_spread_index_by_industry": "46.54",
+        "link_star_index": "63.1",
+        "link_star_index_by_industry": "63.1",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "叫我欣蕊",
+        "pic_expected_play_num": "23",
+        "play_over_rate_within_30d": "0.0207",
+        "price_1_20": "1000",
+        "price_20_60": "1000",
+        "price_60": "3000",
+        "promotion_prospective_1_20_cpm": "4347.83",
+        "promotion_prospective_20_60_cpm": "4347.83",
+        "promotion_prospective_60_cpm": "13043.48",
+        "promotion_prospective_vv": "230",
+        "prospective_1_20_cpm": "3891.0506",
+        "prospective_20_60_cpm": "3891.0506",
+        "prospective_60_cpm": "11673.1518",
+        "province": "山西省",
+        "search_after_view_index_by_industry": "66.42",
+        "sn_expected_play_num": "257",
+        "sn_interact_rate_within_30d": "0.0044",
+        "sn_play_over_rate_within_30d": "0.0207",
+        "sn_prospective_1_20_cpe": "1000",
+        "sn_prospective_1_20_cpm": "3891.0506",
+        "sn_prospective_20_60_cpe": "1000",
+        "sn_prospective_20_60_cpm": "3891.0506",
+        "sn_prospective_60_cpe": "3000",
+        "sn_prospective_60_cpm": "11673.1518",
+        "star_excellent_author": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食产品测评\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7312647375678491923",
+          "products": [
+            {
+              "brand_name": "迪士尼",
+              "category_name": "雪地靴",
+              "hit_tags": "鞋靴",
+              "product_id": "3649655013099311677",
+              "product_name": "2023年冬季亲子款迪士尼雪地靴舒适保暖雪地靴26-39码DS5486802TZ"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7316014810716458294",
+          "products": [
+            {
+              "brand_name": "2023年经典亲子款低帮流行纯色百搭",
+              "category_name": "雪地靴",
+              "hit_tags": "鞋靴",
+              "product_id": "3650619342342718170",
+              "product_name": "2023年经典亲子款低帮流行纯色百搭休闲雪地靴尺码标准26-39码TY"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7320941084761247017",
+          "products": [
+            {
+              "brand_name": "大嘴猴",
+              "category_name": "休闲板鞋",
+              "hit_tags": "鞋靴",
+              "product_id": "3656166194081347750",
+              "product_name": "大嘴猴2023新款平底小白鞋女潮秋冬透气学生运动休闲百搭板鞋-db"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7299742657511722255",
+          "products": [
+            {
+              "category_name": "马丁靴",
+              "hit_tags": "鞋靴",
+              "product_id": "3640908294970819800",
+              "product_name": " 一双鞋过冬！品牌力荐 真软皮加绒马丁靴百搭妈妈鞋舒适百搭秋冬"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7302601726547283211",
+          "products": [
+            {
+              "category_name": "棉鞋",
+              "hit_tags": "鞋靴",
+              "product_id": "3637768347082446828",
+              "product_name": "2023新品爆款棉鞋5cm增高厚底防水外穿潮款雪地靴"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7311528455894519081",
+          "products": [
+            {
+              "category_name": "时尚雪地靴",
+              "hit_tags": "鞋靴",
+              "product_id": "3643552107136696525",
+              "product_name": "鮀品经典雪地靴2023年冬季加厚休闲百搭保暖外穿雪地靴"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7303705672770653459",
+          "products": [
+            {
+              "brand_name": "远港",
+              "category_name": "居家棉拖",
+              "hit_tags": "鞋靴",
+              "product_id": "3632761703671927858",
+              "product_name": "远港褶皱棉拖鞋女2023新款秋冬季室内家居防水保暖居家加绒皮拖男"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7336756403283021097",
+          "products": [
+            {
+              "brand_name": "paolpgrimm",
+              "category_name": "骑行鞋",
+              "hit_tags": "男士休闲鞋,流行男鞋,鞋靴",
+              "product_id": "3661346943034128785",
+              "product_name": "专柜2680！ PAOLP&GRIMM 轻奢运动 超软防滑减震情侣运动鞋骑行鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7306720803477835027",
+          "products": [
+            {
+              "brand_name": "乔丹",
+              "category_name": "时尚休闲鞋",
+              "hit_tags": "鞋靴",
+              "product_id": "3649873901602917867",
+              "product_name": "乔丹女鞋2023年秋冬新款百搭老爹鞋防滑软底休闲鞋增高时尚运动鞋"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7353480794423282982",
+          "products": [
+            {
+              "brand_name": "ins矮子乐",
+              "category_name": "一字拖",
+              "hit_tags": "鞋靴",
+              "product_id": "3669407639592370393",
+              "product_name": "时尚厚底拖鞋女夏季外穿凉鞋女海边沙滩鞋增高凉拖防滑ins矮子乐"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "7076280563304235022",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1200,
+              "price_extra_info": {},
+              "start_time": "1649999918",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3000,
+              "price_extra_info": {},
+              "start_time": "1649999918",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1649999918",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1649999918",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "48",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L6",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"年轻人\":1.508375,\"桑蚕丝\":0.0017083333333333334,\"清爽\":0,\"聚会\":0,\"防晒\":0.00005882352941176471,\"防水\":5.520448434031518}",
+        "author_type": "3",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813_79c14144fd3b4a08846c4258536776ff.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "中山市",
+        "content_theme_labels_180d": "[\"服饰测评\",\"创业经历\",\"消费体验\",\"保暖穿搭\",\"工厂探秘\",\"夹克穿搭\",\"秋冬穿搭\",\"冲锋衣穿搭\",\"家庭生活记录\",\"羽绒服穿搭\"]",
+        "core_user_id": "553774186508383",
+        "e_commerce_enable": "1",
+        "ecom_score": "100",
+        "ecom_video_ctr_30d_range": "2%-4%",
+        "ecom_video_mid_click_pv_30d_range": "1000-3000",
+        "ecom_video_product_num_30d": "11",
+        "expected_cpa3_level": "3",
+        "expected_natural_play_num": "52878",
+        "expected_play_num": "59431",
+        "fans_increment_rate_within_15d": "0.011389618356214385",
+        "fans_increment_within_15d": "53919",
+        "fans_increment_within_30d": "143104623.22",
+        "follower": "4788193",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "1680180260861965",
+        "interact_rate_within_30d": "0.0035",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"7\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762852498\",\"item_id\":\"7571393810510419881\",\"item_publish_time\":\"1762866600\",\"item_title\":\"#霞湖世家 双十一活动来了！大咖#猴哥说车 助阵，力度你懂得！#三合一鹅绒冲锋衣 ，一件从南到北，+20°c穿到-20°c！#霞湖世家拒水鹅绒\",\"like_cnt\":\"58\",\"share_cnt\":\"9\",\"vv\":\"20024\"},{\"comment_cnt\":\"11\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762860027\",\"item_id\":\"7571426144685226473\",\"item_publish_time\":\"1762860027\",\"item_title\":\"感谢贵人们的相助！#霞湖世家 一定不会辜负大家的期待。买完就会买第二次，用好而不贵的产品感动每一位用户。#霞湖世家拒水鹅绒 #陈光标\",\"like_cnt\":\"127\",\"share_cnt\":\"4\",\"vv\":\"19470\"},{\"comment_cnt\":\"19\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762848150\",\"item_id\":\"7571375128270534079\",\"item_publish_time\":\"1762848150\",\"item_title\":\"#霞湖世家 双十一活动来了！大咖#猴哥说车 助阵，力度你懂得！#三合一鹅绒冲锋衣 ，一件从南到北，+20°c穿到-20°c！#霞湖世家拒水鹅绒\",\"like_cnt\":\"156\",\"share_cnt\":\"2\",\"vv\":\"38651\"},{\"comment_cnt\":\"5\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762837086\",\"item_id\":\"7571327616763709523\",\"item_publish_time\":\"1762837086\",\"item_title\":\"#霞湖世家 双十一活动来了！大咖#猴哥说车 助阵，力度你懂得！#三合一鹅绒冲锋衣 ，一件从南到北，+20°c穿到-20°c！#霞湖世家拒水鹅绒\",\"like_cnt\":\"81\",\"share_cnt\":\"1\",\"vv\":\"20089\"},{\"comment_cnt\":\"11\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762832171\",\"item_id\":\"7571306500054097521\",\"item_publish_time\":\"1762832171\",\"item_title\":\"#猴哥说车 和老郭冰天雪地实地测试完#三合一鹅绒冲锋衣 ，又马不停蹄在直播间开炸了！快进直播间，力度你懂得！#霞湖世家拒水鹅绒\",\"like_cnt\":\"161\",\"share_cnt\":\"5\",\"vv\":\"36012\"},{\"comment_cnt\":\"269\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762824986\",\"item_id\":\"7571275647805646459\",\"item_publish_time\":\"1762824986\",\"item_title\":\"#霞湖世家 双十一活动来了！大咖#猴哥说车 助阵，力度你懂得！11点直播间不见不散！#霞湖世家拒水鹅绒\",\"like_cnt\":\"1269\",\"share_cnt\":\"39\",\"vv\":\"601619\"},{\"comment_cnt\":\"55\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762814728\",\"item_id\":\"7571231563490151909\",\"item_publish_time\":\"1762814728\",\"item_title\":\"#猴哥说车 再次助阵#霞湖世家 ，双十一力度拉满，11点直播间不见不散！#霞湖世家拒水鹅绒\",\"like_cnt\":\"176\",\"share_cnt\":\"9\",\"vv\":\"37569\"},{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762788487\",\"item_id\":\"7571118644659442600\",\"item_publish_time\":\"1762788487\",\"item_title\":\"霞湖世家匈牙利鹅绒夹克断码清仓，保暖帅气可机洗\",\"like_cnt\":\"0\",\"share_cnt\":\"0\",\"vv\":\"0\"},{\"comment_cnt\":\"143\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762783060\",\"item_id\":\"7571095582057676409\",\"item_publish_time\":\"1762783060\",\"item_title\":\"#霞湖世家 又有大咖助阵了！#猴哥说车 再次莅临，不说车，改当模特了？上午11点，来直播间一探究竟！#双十一 #霞湖世家拒水鹅绒\",\"like_cnt\":\"279\",\"share_cnt\":\"26\",\"vv\":\"87060\"},{\"comment_cnt\":\"39\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762770317\",\"item_id\":\"7571040851552860411\",\"item_publish_time\":\"1762770317\",\"item_title\":\"南方总裁们别错过的轻量化#鹅绒服 ，轻盈不压身，#保暖不臃肿 ！#高级感穿搭\",\"like_cnt\":\"153\",\"share_cnt\":\"1\",\"vv\":\"29410\"}]",
+        "link_convert_index": "98.82",
+        "link_convert_index_by_industry": "98.82",
+        "link_i_cnt_by_industry": "2913968",
+        "link_k_cnt_by_industry": "250167",
+        "link_l_cnt_by_industry": "5914037",
+        "link_link_cnt_by_industry": "12341205",
+        "link_n_cnt_by_industry": "3263033",
+        "link_recommend_index_by_industry": "86.25",
+        "link_shopping_index": "86.25",
+        "link_spread_index": "91.34",
+        "link_spread_index_by_industry": "91.34",
+        "link_star_index": "88.75",
+        "link_star_index_by_industry": "88.75",
+        "link_user_type_by_industry": "4",
+        "local_lower_threshold_author": "false",
+        "nick_name": "霞湖世家官方旗舰店",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.046",
+        "price_1_20": "16200",
+        "price_20_60": "22000",
+        "price_60": "36000",
+        "promotion_prospective_1_20_cpm": "298.35",
+        "promotion_prospective_20_60_cpm": "405.16",
+        "promotion_prospective_60_cpm": "663",
+        "promotion_prospective_vv": "54299",
+        "prospective_1_20_cpm": "272.585",
+        "prospective_20_60_cpm": "370.1772",
+        "prospective_60_cpm": "605.7445",
+        "province": "广东省",
+        "search_after_view_index_by_industry": "84.63",
+        "sn_expected_play_num": "59431",
+        "sn_interact_rate_within_30d": "0.0035",
+        "sn_play_over_rate_within_30d": "0.046",
+        "sn_prospective_1_20_cpe": "50.4673",
+        "sn_prospective_1_20_cpm": "272.585",
+        "sn_prospective_20_60_cpe": "68.5358",
+        "sn_prospective_20_60_cpm": "370.1772",
+        "sn_prospective_60_cpe": "112.1495",
+        "sn_prospective_60_cpm": "605.7445",
+        "star_excellent_author": "0",
+        "star_index": "76.59522188787676",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"时尚\":[\"穿搭\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "2_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "is_star_item": false,
+          "item_id": "7348532709960060170",
+          "products": [
+            {
+              "brand_name": "霞湖世家",
+              "category_name": "休闲皮鞋",
+              "hit_tags": "流行男鞋",
+              "product_id": "3644494592612664580",
+              "product_name": "霞湖世家 休闲皮鞋男鞋 意大利进口XL鞋底  时尚百搭商务 825147"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        },
+        {
+          "is_star_item": false,
+          "item_id": "7341652741506239781",
+          "products": [
+            {
+              "brand_name": "鞋霞湖世家",
+              "category_name": "网面鞋",
+              "hit_tags": "男士休闲鞋,流行男鞋",
+              "product_id": "3648954636867639268",
+              "product_name": "【免提鞋】霞湖世家 不用手就能穿的鞋 绑带/一脚蹬休闲鞋 W001/2"
+            }
+          ],
+          "reason": 6,
+          "score": 0,
+          "video_tag": 1
+        }
+      ],
+      "star_id": "1680180260861965",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 36000,
+              "price_extra_info": {},
+              "start_time": "1740549283",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 22000,
+              "price_extra_info": {},
+              "start_time": "1740549283",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 16200,
+              "price_extra_info": {},
+              "start_time": "1740549283",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572095813439242286"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 30,
+    "total_count": 595
+  },
+  "request_payload_hash": "a40155e07293ce3e04596da48405e29b2b2f1cd9"
+}

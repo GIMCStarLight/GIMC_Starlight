@@ -1,0 +1,246 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "15",
+        "assign_task_price_list": "[46400,52200,58000,58000,58000]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L4",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"早餐\":0.9160000000000006,\"酥脆\":0.24500000000000013}",
+        "author_type": "3",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_8dcbe7bd3c7321ed0487b98dcd68b7a8.jpeg?from=4010531038",
+        "burst_text_rate": "1",
+        "city": "哈尔滨",
+        "content_theme_labels_180d": "[\"搞笑剧情\",\"家庭幽默演绎\",\"生活喜剧情节\",\"欢乐演绎\",\"有趣剧情创作\",\"乡村演绎\",\"深夜美食\",\"东北美食\",\"亲子旅行\",\"夫妻演绎\"]",
+        "core_user_id": "3562894770059760",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": ">100w",
+        "ecom_gpm_30d_range": "1000-3000",
+        "ecom_score": "84",
+        "ecom_video_product_num_30d": "0",
+        "ecom_watch_pv_30d": "1.7",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "1841257",
+        "expected_play_num": "2456083",
+        "fans_increment_rate_within_15d": "0.025455387787312808",
+        "fans_increment_within_15d": "35385",
+        "fans_increment_within_30d": "1969364.3",
+        "follower": "1425439",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7165490959793258504",
+        "interact_rate_within_30d": "0.0142",
+        "interaction_median_30d": "43328",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "1",
+        "is_excellenct_author": "1",
+        "last_10_items": "[{\"comment_cnt\":\"646\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762860190\",\"item_id\":\"7571426852129931176\",\"item_publish_time\":\"1762860190\",\"item_title\":\"进口柿子\",\"like_cnt\":\"14632\",\"share_cnt\":\"4931\",\"vv\":\"2279714\"},{\"comment_cnt\":\"3735\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762687176\",\"item_id\":\"7570683767406170082\",\"item_publish_time\":\"1762687176\",\"item_title\":\"立冬吃饺子 #李彩虹挠杆子\",\"like_cnt\":\"59289\",\"share_cnt\":\"4485\",\"vv\":\"5166036\"},{\"comment_cnt\":\"2013\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762425752\",\"item_id\":\"7569560952484677007\",\"item_publish_time\":\"1762425752\",\"item_title\":\"祝彩虹生日快乐 #李彩虹挠杆子\",\"like_cnt\":\"66539\",\"share_cnt\":\"2743\",\"vv\":\"4254313\"},{\"comment_cnt\":\"698\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762419288\",\"item_id\":\"7569533187568021861\",\"item_publish_time\":\"1762419288\",\"item_title\":\"还是去住宾馆了 #李彩虹挠杆子#三棵树听雨石艺术漆#心动的房子\",\"like_cnt\":\"33830\",\"share_cnt\":\"1598\",\"vv\":\"2685213\"},{\"comment_cnt\":\"8861\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762166723\",\"item_id\":\"7568448435658096035\",\"item_publish_time\":\"1762166723\",\"item_title\":\"藏猫猫呢 #李彩虹挠杆子 #小美玉\",\"like_cnt\":\"132017\",\"share_cnt\":\"22617\",\"vv\":\"10464766\"},{\"comment_cnt\":\"1144\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761812876\",\"item_id\":\"7566928635769387688\",\"item_publish_time\":\"1761812876\",\"item_title\":\"大全该吃药了 #李彩虹挠杆子#vivoY300GT\",\"like_cnt\":\"40007\",\"share_cnt\":\"2844\",\"vv\":\"2828150\"},{\"comment_cnt\":\"12800\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761470844\",\"item_id\":\"7565459588917508322\",\"item_publish_time\":\"1761470844\",\"item_title\":\"全三的一天 #李彩虹挠杆子\",\"like_cnt\":\"67572\",\"share_cnt\":\"36415\",\"vv\":\"5612184\"},{\"comment_cnt\":\"1429\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761222755\",\"item_id\":\"7564393853354181032\",\"item_publish_time\":\"1761222755\",\"item_title\":\"你搁哪拉来的 #李彩虹挠杆子 #小美玉\",\"like_cnt\":\"47320\",\"share_cnt\":\"1961\",\"vv\":\"4399393\"},{\"comment_cnt\":\"1004\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760958693\",\"item_id\":\"7563259791162772864\",\"item_publish_time\":\"1760958693\",\"item_title\":\"你不来我早好了 #李彩虹挠杆子 #小美玉\",\"like_cnt\":\"46364\",\"share_cnt\":\"6849\",\"vv\":\"4200776\"},{\"comment_cnt\":\"1021\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760872623\",\"item_id\":\"7562890311237979449\",\"item_publish_time\":\"1760872623\",\"item_title\":\"还指着我呢 #李彩虹挠杆子 #小美玉\",\"like_cnt\":\"58063\",\"share_cnt\":\"5565\",\"vv\":\"4898983\"}]",
+        "link_convert_index": "95.44",
+        "link_convert_index_by_industry": "95.44",
+        "link_i_cnt_by_industry": "9906482",
+        "link_k_cnt_by_industry": "20536",
+        "link_l_cnt_by_industry": "9024230",
+        "link_link_cnt_by_industry": "22329433",
+        "link_n_cnt_by_industry": "3378185",
+        "link_recommend_index_by_industry": "84.17",
+        "link_shopping_index": "84.17",
+        "link_spread_index": "89.07",
+        "link_spread_index_by_industry": "89.07",
+        "link_star_index": "84.19",
+        "link_star_index_by_industry": "84.19",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "大全先生14号早上7点陕西富平流心冰柿",
+        "play_over_rate_within_30d": "0.2324",
+        "price_1_20": "40000",
+        "price_20_60": "48000",
+        "price_60": "58000",
+        "promotion_prospective_1_20_cpm": "18.22",
+        "promotion_prospective_20_60_cpm": "21.87",
+        "promotion_prospective_60_cpm": "26.42",
+        "promotion_prospective_vv": "2195008",
+        "prospective_1_20_cpm": "16.2861",
+        "prospective_20_60_cpm": "19.5433",
+        "prospective_60_cpm": "23.6148",
+        "province": "",
+        "search_after_view_index_by_industry": "93.65",
+        "sn_expected_play_num": "2456083",
+        "sn_interact_rate_within_30d": "0.0142",
+        "sn_play_over_rate_within_30d": "0.2324",
+        "sn_prospective_1_20_cpe": "1.2619",
+        "sn_prospective_1_20_cpm": "16.2861",
+        "sn_prospective_20_60_cpe": "1.5142",
+        "sn_prospective_20_60_cpm": "19.5433",
+        "sn_prospective_60_cpe": "1.8297",
+        "sn_prospective_60_cpm": "23.6148",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "6386",
+        "star_ecom_video_num_30d": "2",
+        "star_excellent_author": "1",
+        "star_item_count_within_30d": "2",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "5",
+        "star_video_finish_vv_rate_90d": "0.1478",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0083",
+        "star_video_median_vv_90d": "2796628",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"剧情搞笑\":[\"剧情\"]}",
+        "vv_median_30d": "3268716"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7546860514769915187",
+          "video_tag": 3,
+          "vv": 22751319
+        },
+        {
+          "item_id": "7548036174066339132",
+          "video_tag": 3,
+          "vv": 15738406
+        },
+        {
+          "item_id": "7559485292782472488",
+          "video_tag": 4,
+          "vv": 16481964
+        },
+        {
+          "item_id": "7569533187568021861",
+          "video_tag": 4,
+          "vv": 2348013
+        },
+        {
+          "item_id": "7549890530311245115",
+          "video_tag": 5,
+          "vv": 10856594
+        },
+        {
+          "item_id": "7507978430735158588",
+          "video_tag": 5,
+          "vv": 10313741
+        },
+        {
+          "item_id": "7571804671849899897",
+          "video_tag": 6,
+          "vv": 249958
+        },
+        {
+          "item_id": "7571426852129931176",
+          "video_tag": 6,
+          "vv": 2804657
+        }
+      ],
+      "star_id": "7165490959793258504",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 10000,
+              "price_extra_info": {},
+              "start_time": "1677600000",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 30000,
+              "price_extra_info": {},
+              "start_time": "1730390400",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 40000,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 15,
+              "price_extra_info": {
+                "ceiling_price": "100000",
+                "floor_price": "40000"
+              },
+              "start_time": "1730185003",
+              "task_category": 1,
+              "video_type": 92,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 58000,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 48000,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572103311212380186"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "78f665440a7512b4c52ca3cd793cb4461343a6de"
+}

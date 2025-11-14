@@ -1,0 +1,220 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_task_price_list": "[22400,22400]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"防晒\":0.16}",
+        "author_type": "2",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_a8851ee4c3f7a804928155193d578951.jpeg?from=4010531038",
+        "city": "",
+        "content_theme_labels_180d": "[\"美食吃播\",\"出行准备\",\"消费体验\",\"有趣剧情创作\",\"家庭生活记录\",\"交通换乘\",\"健康养生\",\"健康饮食\",\"蔬菜美食\",\"跑车驾驶经验\"]",
+        "core_user_id": "87112514987",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "<=10",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "197011",
+        "expected_play_num": "229812",
+        "fans_increment_rate_within_15d": "0.012842454394693201",
+        "fans_increment_within_15d": "1936",
+        "fans_increment_within_30d": "5343",
+        "follower": "152697",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7156846648134467592",
+        "interact_rate_within_30d": "0.0345",
+        "interaction_median_30d": "8508",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"490\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762852405\",\"item_id\":\"7571393413032343019\",\"item_publish_time\":\"1762852405\",\"item_title\":\"我做白人饭的时候就这样哄自己 #颅内高潮 #留子做饭 #留子至暗时刻\",\"like_cnt\":\"1515\",\"share_cnt\":\"153\",\"vv\":\"65796\"},{\"comment_cnt\":\"204\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762328534\",\"item_id\":\"7569143380945853907\",\"item_publish_time\":\"1762335600\",\"item_title\":\"沉浸式会澳洲当牛马be like.#商务舱 #澳洲\",\"like_cnt\":\"2568\",\"share_cnt\":\"59\",\"vv\":\"167000\"},{\"comment_cnt\":\"656\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762056509\",\"item_id\":\"7567975046905390500\",\"item_publish_time\":\"1762056509\",\"item_title\":\"你怎么知道我吃上了奶皮子糖葫芦？ 其实也就一般吧 害 不必特别去吃 说真的 我一点都不想吃 要不是为了拍视频 我才不会吃这种东西呢 其实也没什么 很普通的糖葫芦加奶皮子而已 也就是为了拍个视频买了4串 一般吧 真的  但你要是买了不想吃的话 可以给我 #奶皮子糖葫芦\",\"like_cnt\":\"6637\",\"share_cnt\":\"2066\",\"vv\":\"331433\"},{\"comment_cnt\":\"327\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761815271\",\"item_id\":\"7566938941429912054\",\"item_publish_time\":\"1761815271\",\"item_title\":\"我真的很喜欢吃白人饭 #留子 #白人饭 #澳洲\",\"like_cnt\":\"2026\",\"share_cnt\":\"170\",\"vv\":\"143440\"},{\"comment_cnt\":\"215\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761632627\",\"item_id\":\"7566154496301321508\",\"item_publish_time\":\"1761632627\",\"item_title\":\"每天对自己说一遍：你配得上一切美好的事物 #当我和豆包谈心#豆包aii#配得感#自卑#豆包语音活人感太强了\",\"like_cnt\":\"14387\",\"share_cnt\":\"295\",\"vv\":\"256879\"},{\"comment_cnt\":\"2110\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761211272\",\"item_id\":\"7564344775647333695\",\"item_publish_time\":\"1761211272\",\"item_title\":\"咱们留子就是主打一个回国吃饭！ #吃饭 #吃饭香香身体棒棒\",\"like_cnt\":\"27622\",\"share_cnt\":\"2010\",\"vv\":\"1334841\"},{\"comment_cnt\":\"5481\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761037281\",\"item_id\":\"7563597507461647659\",\"item_publish_time\":\"1761037281\",\"item_title\":\"留子回国就只干一件事情 吃饭饭饭饭饭饭！！！！！ #吃饭\",\"like_cnt\":\"22350\",\"share_cnt\":\"3080\",\"vv\":\"1257156\"},{\"comment_cnt\":\"19496\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1760854540\",\"item_id\":\"7562812634794822954\",\"item_publish_time\":\"1760854540\",\"item_title\":\"留子回国吃饭现状be like #回国 #吃饭\",\"like_cnt\":\"170233\",\"share_cnt\":\"32813\",\"vv\":\"5521860\"},{\"comment_cnt\":\"385\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760439518\",\"item_id\":\"7561030151480331583\",\"item_publish_time\":\"1760439518\",\"item_title\":\"历时20小时 留子沉浸式回国be like #留子 #回国 #坐飞机\",\"like_cnt\":\"4902\",\"share_cnt\":\"118\",\"vv\":\"339522\"},{\"comment_cnt\":\"666\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759675256\",\"item_id\":\"7557747653510597907\",\"item_publish_time\":\"1759713000\",\"item_title\":\"留子回国后的早饭be like #留子 #吃饭\",\"like_cnt\":\"7861\",\"share_cnt\":\"240\",\"vv\":\"572355\"}]",
+        "link_convert_index": "70.26",
+        "link_convert_index_by_industry": "70.26",
+        "link_i_cnt_by_industry": "2080386",
+        "link_k_cnt_by_industry": "7",
+        "link_l_cnt_by_industry": "2538905",
+        "link_link_cnt_by_industry": "5844217",
+        "link_n_cnt_by_industry": "1224919",
+        "link_recommend_index_by_industry": "76.19",
+        "link_shopping_index": "76.19",
+        "link_spread_index": "78.44",
+        "link_spread_index_by_industry": "78.44",
+        "link_star_index": "74.38",
+        "link_star_index_by_industry": "74.38",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "菜鸡罢了",
+        "play_over_rate_within_30d": "0.2451",
+        "price_1_20": "20800",
+        "price_20_60": "26000",
+        "price_60": "28000",
+        "promotion_prospective_1_20_cpm": "95.33",
+        "promotion_prospective_20_60_cpm": "119.17",
+        "promotion_prospective_60_cpm": "128.33",
+        "promotion_prospective_vv": "218182",
+        "prospective_1_20_cpm": "90.5088",
+        "prospective_20_60_cpm": "113.136",
+        "prospective_60_cpm": "121.8387",
+        "province": "",
+        "search_after_view_index_by_industry": "83.81",
+        "sn_expected_play_num": "229812",
+        "sn_interact_rate_within_30d": "0.0345",
+        "sn_play_over_rate_within_30d": "0.2451",
+        "sn_prospective_1_20_cpe": "4.053",
+        "sn_prospective_1_20_cpm": "90.5088",
+        "sn_prospective_20_60_cpe": "5.0663",
+        "sn_prospective_20_60_cpm": "113.136",
+        "sn_prospective_60_cpe": "5.456",
+        "sn_prospective_60_cpm": "121.8387",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "0",
+        "star_ecom_video_num_30d": "0",
+        "star_ecom_video_product_num_30d": "0",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "4",
+        "star_video_finish_vv_rate_90d": "0.0443",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0487",
+        "star_video_median_vv_90d": "386962",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"教育培训\":[\"语言教学\"]}",
+        "vv_median_30d": "276091"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7510170990183222540",
+          "video_tag": 3,
+          "vv": 17779453
+        },
+        {
+          "item_id": "7517929665023364406",
+          "video_tag": 3,
+          "vv": 11409226
+        },
+        {
+          "item_id": "7545744855667068199",
+          "video_tag": 4,
+          "vv": 434431
+        },
+        {
+          "item_id": "7538680102261148970",
+          "video_tag": 4,
+          "vv": 356504
+        },
+        {
+          "item_id": "7562812634794822954",
+          "video_tag": 5,
+          "vv": 4395524
+        },
+        {
+          "item_id": "7531302061519768875",
+          "video_tag": 5,
+          "vv": 4203698
+        },
+        {
+          "item_id": "7571393413032343019",
+          "video_tag": 6,
+          "vv": 60816
+        },
+        {
+          "item_id": "7569143380945853907",
+          "video_tag": 6,
+          "vv": 147132
+        }
+      ],
+      "star_id": "7156846648134467592",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 20800,
+              "price_extra_info": {},
+              "start_time": "1753928453",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 28000,
+              "price_extra_info": {},
+              "start_time": "1753928453",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 26000,
+              "price_extra_info": {},
+              "start_time": "1753928453",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 28000,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572115145629581358"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "0b62380b2e17d8f5252ed4e16de4adcb5b1795da"
+}

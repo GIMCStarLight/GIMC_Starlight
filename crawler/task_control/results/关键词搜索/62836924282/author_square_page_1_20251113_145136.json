@@ -1,0 +1,208 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "13",
+        "assign_task_price_list": "[17000,17500]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"定妆\":0.004,\"成膜速度快\":0.006,\"早餐\":0,\"清爽\":0.005,\"祛痘\":0.002,\"美白\":0.10200000000000001,\"聚会\":0,\"蛋白质\":0.2578570521576851,\"遮瑕\":0,\"酥脆\":0.04057142857142858,\"防晒\":0.063,\"防水\":0.006}",
+        "author_type": "1",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813_a86c07f4f56f42369bb21225224d6634.jpeg?from=4010531038",
+        "city": "北京",
+        "content_theme_labels_180d": "[\"美食探店\",\"地方美食\",\"辣味美食\",\"火锅\",\"美食吃播\",\"美食挑战\",\"云南美食\",\"美食之旅\",\"深夜美食\",\"下饭菜教程\"]",
+        "core_user_id": "3362733381910764",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "297611",
+        "expected_play_num": "419764",
+        "fans_increment_rate_within_15d": "-0.0002759139850113316",
+        "fans_increment_within_15d": "-173",
+        "fans_increment_within_30d": "263.21",
+        "follower": "626778",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7235442078350573607",
+        "interact_rate_within_30d": "0.0298",
+        "interaction_median_30d": "7455",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"59\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762578375\",\"item_id\":\"7570216468244185829\",\"item_publish_time\":\"1762578375\",\"item_title\":\"\",\"like_cnt\":\"1139\",\"share_cnt\":\"8\",\"vv\":\"126649\"},{\"comment_cnt\":\"482\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762340677\",\"item_id\":\"7569195554753269745\",\"item_publish_time\":\"1762340677\",\"item_title\":\"大馋丫头在武汉，吃到了超好吃的新加坡小食，看看都有哪些 #美食 #小红馆#甜品#武汉美食#美食特种兵\",\"like_cnt\":\"5545\",\"share_cnt\":\"892\",\"vv\":\"229520\"},{\"comment_cnt\":\"429\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761908695\",\"item_id\":\"7567340212968918298\",\"item_publish_time\":\"1761908695\",\"item_title\":\"大馋丫头回京和闺蜜吃宵夜聚会，吃烤鱼喝8➕1，快乐很简单 #烤匠麻辣烤鱼#烤匠#来烤匠吃夜宵#美食#烤匠排队\",\"like_cnt\":\"7448\",\"share_cnt\":\"1859\",\"vv\":\"413656\"},{\"comment_cnt\":\"386\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761555626\",\"item_id\":\"7565823785036549402\",\"item_publish_time\":\"1761555626\",\"item_title\":\"大馋丫头勇闯武汉，打卡热门甜品陈苏苏，怒炫一本儿要花多少 #陈苏苏 #江汉路美食 #武汉美食#美食特种兵 #甜品\",\"like_cnt\":\"5616\",\"share_cnt\":\"970\",\"vv\":\"216696\"},{\"comment_cnt\":\"822\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761474902\",\"item_id\":\"7565477081342709002\",\"item_publish_time\":\"1761474902\",\"item_title\":\"大馋丫头勇闯呼和浩特，落地炫一本儿漂亮饭，要花多少 #need创意韩国料理#美食#美食vlog #呼和浩特美食\",\"like_cnt\":\"18362\",\"share_cnt\":\"13201\",\"vv\":\"857293\"},{\"comment_cnt\":\"512\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761189419\",\"item_id\":\"7564250880016682266\",\"item_publish_time\":\"1761189419\",\"item_title\":\"潮汕的鱼丸有多好吃？一条视频告诉你。 大馋丫头又来潮汕吃美食了#美食#谢氏盛兴墨鱼丸 #潮汕美食 #美食vlog\",\"like_cnt\":\"7656\",\"share_cnt\":\"1264\",\"vv\":\"252779\"},{\"comment_cnt\":\"344\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760951942\",\"item_id\":\"7563230975037558075\",\"item_publish_time\":\"1760951942\",\"item_title\":\"大馋丫头在西安，狂炫十几个景德镇辣菜，是什么体验 #美食#下饭菜#景德镇美食#西安美食\",\"like_cnt\":\"9901\",\"share_cnt\":\"5010\",\"vv\":\"461820\"},{\"comment_cnt\":\"532\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760517450\",\"item_id\":\"7561364831531470130\",\"item_publish_time\":\"1760517450\",\"item_title\":\"在上海吃一顿湘菜，一口气怒炫8个菜，要花多少 #美食 #湘菜#下饭菜 #下饭神器 #上海美食\",\"like_cnt\":\"10060\",\"share_cnt\":\"4095\",\"vv\":\"614204\"},{\"comment_cnt\":\"1043\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759396395\",\"item_id\":\"7556549957928750374\",\"item_publish_time\":\"1759396395\",\"item_title\":\"大馋丫头勇闯成都，2天吃了10多家店，美食攻略 #美食  #成都美食 #无辣不欢 #下饭菜 #美食volg\",\"like_cnt\":\"18157\",\"share_cnt\":\"16164\",\"vv\":\"1367290\"},{\"comment_cnt\":\"686\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758877507\",\"item_id\":\"7554321361775889691\",\"item_publish_time\":\"1758877507\",\"item_title\":\"大馋丫头勇闯上海版中固大饭店，看看能不能吃完，要花多少钱 #美食 #地方特色美食 #上海美食\",\"like_cnt\":\"16575\",\"share_cnt\":\"4445\",\"vv\":\"781386\"}]",
+        "link_convert_index": "70.12",
+        "link_convert_index_by_industry": "70.12",
+        "link_i_cnt_by_industry": "512946",
+        "link_k_cnt_by_industry": "11",
+        "link_l_cnt_by_industry": "1055284",
+        "link_link_cnt_by_industry": "1727854",
+        "link_n_cnt_by_industry": "159613",
+        "link_recommend_index_by_industry": "66.97",
+        "link_shopping_index": "66.97",
+        "link_spread_index": "68.35",
+        "link_spread_index_by_industry": "68.35",
+        "link_star_index": "69.74",
+        "link_star_index_by_industry": "69.74",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "小饭熊不正常",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.054",
+        "price_1_20": "20000",
+        "price_20_60": "30000",
+        "price_60": "42000",
+        "promotion_prospective_1_20_cpm": "52.57",
+        "promotion_prospective_20_60_cpm": "78.85",
+        "promotion_prospective_60_cpm": "110.39",
+        "promotion_prospective_vv": "380457",
+        "prospective_1_20_cpm": "47.6458",
+        "prospective_20_60_cpm": "71.4687",
+        "prospective_60_cpm": "100.0562",
+        "province": "",
+        "search_after_view_index_by_industry": "83.98",
+        "sn_expected_play_num": "419764",
+        "sn_interact_rate_within_30d": "0.0298",
+        "sn_play_over_rate_within_30d": "0.054",
+        "sn_prospective_1_20_cpe": "1.6912",
+        "sn_prospective_1_20_cpm": "47.6458",
+        "sn_prospective_20_60_cpe": "2.5368",
+        "sn_prospective_20_60_cpm": "71.4687",
+        "sn_prospective_60_cpe": "3.5515",
+        "sn_prospective_60_cpm": "100.0562",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "0",
+        "star_ecom_video_num_30d": "1",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "2",
+        "star_video_finish_vv_rate_90d": "0.0334",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0336",
+        "star_video_median_vv_90d": "493612",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食探店\"]}",
+        "vv_median_30d": "280725.5"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7525432479927242044",
+          "video_tag": 3,
+          "vv": 20025736
+        },
+        {
+          "item_id": "7545038319559265574",
+          "video_tag": 3,
+          "vv": 4478620
+        },
+        {
+          "item_id": "7540477760717114670",
+          "video_tag": 4,
+          "vv": 618529
+        },
+        {
+          "item_id": "7564250880016682266",
+          "video_tag": 4,
+          "vv": 213538
+        },
+        {
+          "item_id": "7523215379730402620",
+          "video_tag": 5,
+          "vv": 4109851
+        },
+        {
+          "item_id": "7533566016523423034",
+          "video_tag": 5,
+          "vv": 3474906
+        },
+        {
+          "item_id": "7570216468244185829",
+          "video_tag": 6,
+          "vv": 122700
+        },
+        {
+          "item_id": "7569195554753269745",
+          "video_tag": 6,
+          "vv": 188806
+        }
+      ],
+      "star_id": "7235442078350573607",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 42000,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 30000,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 20000,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572098975191072794"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "73642505085579681304aa02953a178bb3962c55"
+}

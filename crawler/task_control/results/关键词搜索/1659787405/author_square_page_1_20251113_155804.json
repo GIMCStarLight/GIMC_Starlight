@@ -1,0 +1,219 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_task_price_list": "[25600,38400]",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"早餐\":0.006,\"清爽\":0.08125,\"玻色因\":0,\"胶原成分\":1.3149999999999997}",
+        "author_type": "2",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_37ea03c45e4a568ec15b4f5e364598a2.jpeg?from=4010531038",
+        "city": "上海",
+        "content_theme_labels_180d": "[\"家庭生活记录\",\"恋爱演绎\",\"恋爱故事\",\"情侣趣事\",\"有趣剧情创作\",\"家庭美食\",\"个人成长\",\"城市旅行攻略\",\"深夜美食\",\"情感演绎\"]",
+        "core_user_id": "105472512080",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "110285",
+        "expected_play_num": "175514",
+        "fans_increment_rate_within_15d": "0.008589069568406896",
+        "fans_increment_within_15d": "562",
+        "fans_increment_within_30d": "1299",
+        "follower": "65998",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7402189521330110491",
+        "interact_rate_within_30d": "0.0262",
+        "interaction_median_30d": "6268",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "1",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"19\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762854512\",\"item_id\":\"7571402460444812529\",\"item_publish_time\":\"1762854512\",\"item_title\":\"一生气就失眠到2点... “做饭”瘾又犯了 #闺蜜#沉浸式打扫#洁癖#美食#解构苹果\",\"like_cnt\":\"769\",\"share_cnt\":\"40\",\"vv\":\"34843\"},{\"comment_cnt\":\"138\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761644292\",\"item_id\":\"7566204609656835365\",\"item_publish_time\":\"1761644292\",\"item_title\":\"在上海用30元让闺蜜体验沪上公主餐食 #vlog#上海#沪币#闺蜜#做饭\",\"like_cnt\":\"3314\",\"share_cnt\":\"638\",\"vv\":\"186272\"},{\"comment_cnt\":\"813\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761380575\",\"item_id\":\"7565071946578283825\",\"item_publish_time\":\"1761380575\",\"item_title\":\"趁crush睡着偷偷牵手，被发现了... #vlog#剧情演绎#crush#蕉内女士内裤 #蕉内纯棉内裤\",\"like_cnt\":\"24703\",\"share_cnt\":\"657\",\"vv\":\"365079\"},{\"comment_cnt\":\"191\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760951476\",\"item_id\":\"7563228980826230073\",\"item_publish_time\":\"1760951476\",\"item_title\":\"和“闺蜜”吵架？直接让情绪知道谁才是主人 #vlog#做饭#日常生活 #生活不会辜负每一个努力的人 #生活vlog\",\"like_cnt\":\"6804\",\"share_cnt\":\"1917\",\"vv\":\"435038\"},{\"comment_cnt\":\"283\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760527988\",\"item_id\":\"7561410126541606202\",\"item_publish_time\":\"1760527988\",\"item_title\":\"抛媚眼给crush看 可惜crush是瞎子 #剧情演绎#vlog#crush#吃醋#薇诺娜特护霜\",\"like_cnt\":\"7913\",\"share_cnt\":\"346\",\"vv\":\"424128\"},{\"comment_cnt\":\"143\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760261343\",\"item_id\":\"7560264889915477306\",\"item_publish_time\":\"1760261343\",\"item_title\":\"凌晨 宵夜 平平淡淡就好了 #vlog #三餐四季#恋家\",\"like_cnt\":\"3775\",\"share_cnt\":\"1118\",\"vv\":\"256800\"},{\"comment_cnt\":\"1941\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1759492040\",\"item_id\":\"7556960758383988027\",\"item_publish_time\":\"1759492040\",\"item_title\":\"0成本在家预制8天环球旅行朋友圈 #拍照教程#居家拍照#vlog#预制朋友圈#环球旅行\",\"like_cnt\":\"32920\",\"share_cnt\":\"69254\",\"vv\":\"5320888\"},{\"comment_cnt\":\"41\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759226846\",\"item_id\":\"7555821749008846137\",\"item_publish_time\":\"1759226846\",\"item_title\":\"对抗路“闺蜜” 吵架 默契这一块/. #纯恨#吵架#日常生活#抽象#vlog\",\"like_cnt\":\"2123\",\"share_cnt\":\"202\",\"vv\":\"199044\"},{\"comment_cnt\":\"247\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758348032\",\"item_id\":\"7552047274537667897\",\"item_publish_time\":\"1758348032\",\"item_title\":\"当对抗路双胞胎拍转场 #记录美好的瞬间 #转场 #日常分享\",\"like_cnt\":\"62637\",\"share_cnt\":\"6689\",\"vv\":\"1534489\"},{\"comment_cnt\":\"629\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757141620\",\"item_id\":\"7546865787403849018\",\"item_publish_time\":\"1757161200\",\"item_title\":\"我和TA | 重游故地就像刻舟求剑 #爱本身无解#vlog#情感#前任#遗憾\",\"like_cnt\":\"22184\",\"share_cnt\":\"5607\",\"vv\":\"2466545\"}]",
+        "link_convert_index": "0",
+        "link_convert_index_by_industry": "0",
+        "link_recommend_index_by_industry": "26.09",
+        "link_shopping_index": "26.09",
+        "link_spread_index": "27.6",
+        "link_spread_index_by_industry": "27.6",
+        "link_star_index": "21.93",
+        "link_star_index_by_industry": "21.93",
+        "local_lower_threshold_author": "false",
+        "nick_name": "舒舒zizi",
+        "play_over_rate_within_30d": "0.102",
+        "price_1_20": "30400",
+        "price_20_60": "33700",
+        "price_60": "38400",
+        "promotion_prospective_1_20_cpm": "130.51",
+        "promotion_prospective_20_60_cpm": "144.68",
+        "promotion_prospective_60_cpm": "164.85",
+        "promotion_prospective_vv": "232933",
+        "prospective_1_20_cpm": "173.2056",
+        "prospective_20_60_cpm": "192.0075",
+        "prospective_60_cpm": "218.786",
+        "province": "",
+        "sn_expected_play_num": "175514",
+        "sn_interact_rate_within_30d": "0.0262",
+        "sn_play_over_rate_within_30d": "0.102",
+        "sn_prospective_1_20_cpe": "7.7295",
+        "sn_prospective_1_20_cpm": "173.2056",
+        "sn_prospective_20_60_cpe": "8.5685",
+        "sn_prospective_20_60_cpm": "192.0075",
+        "sn_prospective_60_cpe": "9.7635",
+        "sn_prospective_60_cpm": "218.786",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "119",
+        "star_ecom_video_num_30d": "2",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "2",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "2",
+        "star_video_finish_vv_rate_90d": "0.0418",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.044",
+        "star_video_median_vv_90d": "394603",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食产品测评\"]}",
+        "vv_median_30d": "301882"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7556960758383988027",
+          "video_tag": 3,
+          "vv": 4663893
+        },
+        {
+          "item_id": "7546865787403849018",
+          "video_tag": 3,
+          "vv": 2133706
+        },
+        {
+          "item_id": "7535459126416772410",
+          "video_tag": 4,
+          "vv": 7842999
+        },
+        {
+          "item_id": "7532089135163575612",
+          "video_tag": 4,
+          "vv": 1471326
+        },
+        {
+          "item_id": "7506099787889167676",
+          "video_tag": 5,
+          "vv": 1568390
+        },
+        {
+          "item_id": "7552047274537667897",
+          "video_tag": 5,
+          "vv": 1373343
+        },
+        {
+          "item_id": "7571402460444812529",
+          "video_tag": 6,
+          "vv": 31779
+        },
+        {
+          "item_id": "7566204609656835365",
+          "video_tag": 6,
+          "vv": 153511
+        }
+      ],
+      "star_id": "7402189521330110491",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 38400,
+              "price_extra_info": {},
+              "start_time": "1758782261",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 38400,
+              "price_extra_info": {},
+              "start_time": "1761892931",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 33700,
+              "price_extra_info": {},
+              "start_time": "1761892931",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 30400,
+              "price_extra_info": {},
+              "start_time": "1761892930",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 38400,
+              "price_extra_info": {},
+              "start_time": "1761892931",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572116041590308873"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "86ad7d3627d943166038d233c5e6d10ab02bf290"
+}

@@ -1,0 +1,246 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "55",
+        "assign_task_price_list": "[12640]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "2",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813_ogAK0WDkzIDGtiDgARfADsewGCNZyAAEhugDAc.jpeg?from=4010531038",
+        "avg_search_after_view_rate_30d": "0",
+        "city": "珠海市",
+        "content_item_count_90d": "1",
+        "content_theme_labels_180d": "[\"家居好物\",\"家居收纳\",\"亲子活动\",\"生活好物评测\",\"特色配饰\",\"儿童用品\",\"通勤穿搭\"]",
+        "core_user_id": "3791565852251275",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "enroll_task_price_list": "[6160]",
+        "expected_cpa3_level": "3",
+        "expected_natural_play_num": "37442",
+        "expected_play_num": "6853",
+        "fans_increment_rate_within_15d": "-0.0010928590053169178",
+        "fans_increment_within_15d": "-482",
+        "fans_increment_within_30d": "-1151",
+        "follower": "440518",
+        "game_type": "",
+        "gender": "0",
+        "grade": "0",
+        "id": "7198088169353379900",
+        "interact_rate_within_30d": "0.0022",
+        "interaction_median_30d": "582.5",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"37\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761911169\",\"item_id\":\"7567350829818262458\",\"item_publish_time\":\"1761911169\",\"item_title\":\"秋冬溜娃新地标！在童话乐园里娃都玩疯了#舒肤佳#meland#舒肤佳秋冬健康守护#健康守护欢乐玩耍#健康传中国\",\"like_cnt\":\"1175\",\"share_cnt\":\"18\",\"vv\":\"71833\"},{\"comment_cnt\":\"172\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760597132\",\"item_id\":\"7561707074493615386\",\"item_publish_time\":\"1760597132\",\"item_title\":\"租房党必入的好物，免打孔超方便！#租房好物#好物分享🔥#浴室\",\"like_cnt\":\"480\",\"share_cnt\":\"16\",\"vv\":\"517951\"},{\"comment_cnt\":\"39\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759111834\",\"item_id\":\"7555327762253352219\",\"item_publish_time\":\"1759111834\",\"item_title\":\"短剧爱好者速速入坑，一起来看玄学大佬的逆袭之旅吧。#你的短剧搭子#短剧\",\"like_cnt\":\"1090\",\"share_cnt\":\"102\",\"vv\":\"3730\"},{\"comment_cnt\":\"32\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757665724\",\"item_id\":\"7549116764425129225\",\"item_publish_time\":\"1757665724\",\"item_title\":\"壁挂式拖把夹，极致利用好浴室空间#好物推荐分享#生活好帮手#居家好物\",\"like_cnt\":\"1795\",\"share_cnt\":\"70\",\"vv\":\"45616\"},{\"comment_cnt\":\"4\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756088853\",\"item_id\":\"7542344163149221158\",\"item_publish_time\":\"1756088853\",\"item_title\":\"夏天带娃游泳，选对泳镜很重要#好物分享#儿童泳镜#户外运动\",\"like_cnt\":\"85\",\"share_cnt\":\"4\",\"vv\":\"41009\"},{\"comment_cnt\":\"25\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1754880237\",\"item_id\":\"7537153177494244618\",\"item_publish_time\":\"1754880237\",\"item_title\":\"今日遛娃vlog#亲子时光#萌娃#照片里的时光\",\"like_cnt\":\"241\",\"share_cnt\":\"1\",\"vv\":\"4795\"},{\"comment_cnt\":\"85\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1752487446\",\"item_id\":\"7526876244126747942\",\"item_publish_time\":\"1752487446\",\"item_title\":\"徒手3秒就能搞定的门后隐形挂钩，租房党狂喜！#收纳#租房神器\",\"like_cnt\":\"431\",\"share_cnt\":\"3\",\"vv\":\"529810\"},{\"comment_cnt\":\"367\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1752042951\",\"item_id\":\"7524967143910198566\",\"item_publish_time\":\"1752042951\",\"item_title\":\"夏日救星！会\\\"呼吸\\\"的大王光之羽，让宝宝告别红屁屁烦恼！ #人类幼崽#大王光之羽#大王纸尿裤#大王拉拉裤\",\"like_cnt\":\"13630\",\"share_cnt\":\"221\",\"vv\":\"1015272\"},{\"comment_cnt\":\"22\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1747903012\",\"item_id\":\"7507185553822027043\",\"item_publish_time\":\"1747903012\",\"item_title\":\"这手链简直美到我心上了，闺蜜都追着要链接#手链#饰品搭配#通勤搭配\",\"like_cnt\":\"1446\",\"share_cnt\":\"4\",\"vv\":\"11494\"},{\"comment_cnt\":\"80\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1744716239\",\"item_id\":\"7493499139058158906\",\"item_publish_time\":\"1744716239\",\"item_title\":\"从阅读分心到主动学习，是什么让宝宝改变？#叫叫阅读#叫叫阅读365天阅读计划\",\"like_cnt\":\"198\",\"share_cnt\":\"15\",\"vv\":\"11706\"}]",
+        "link_convert_index": "43.02",
+        "link_convert_index_by_industry": "43.02",
+        "link_i_cnt_by_industry": "2448",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "568650",
+        "link_link_cnt_by_industry": "572732",
+        "link_n_cnt_by_industry": "1634",
+        "link_recommend_index_by_industry": "34.23",
+        "link_shopping_index": "34.23",
+        "link_spread_index": "56.98",
+        "link_spread_index_by_industry": "56.98",
+        "link_star_index": "55.37",
+        "link_star_index_by_industry": "55.37",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "median_content_item_component_click_range": "0",
+        "nick_name": "小小克礼",
+        "play_over_rate_within_30d": "0.9825",
+        "price_1_20": "5300",
+        "price_20_60": "8800",
+        "price_60": "15800",
+        "promotion_prospective_1_20_cpm": "74.78",
+        "promotion_prospective_20_60_cpm": "124.17",
+        "promotion_prospective_60_cpm": "222.93",
+        "promotion_prospective_vv": "70873",
+        "prospective_1_20_cpm": "773.3839",
+        "prospective_20_60_cpm": "1284.1091",
+        "prospective_60_cpm": "2305.5596",
+        "province": "广东省",
+        "search_after_view_index_by_industry": "57.28",
+        "sn_expected_play_num": "6853",
+        "sn_interact_rate_within_30d": "0.0022",
+        "sn_play_over_rate_within_30d": "0.9825",
+        "sn_prospective_1_20_cpe": "7.4126",
+        "sn_prospective_1_20_cpm": "773.3839",
+        "sn_prospective_20_60_cpe": "12.3077",
+        "sn_prospective_20_60_cpm": "1284.1091",
+        "sn_prospective_60_cpe": "22.0979",
+        "sn_prospective_60_cpm": "2305.5596",
+        "star_component_download_ctr_90d": "0",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_install_pvr_90d": "0",
+        "star_component_link_click_cnt_90d": "0",
+        "star_ecom_video_num_30d": "1",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "1",
+        "star_video_finish_vv_rate_90d": "0.0018",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0171",
+        "star_video_median_vv_90d": "71833",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"母婴亲子\":[\"育儿科普\"]}",
+        "vv_median_30d": "286921"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7526876244126747942",
+          "video_tag": 3,
+          "vv": 506114
+        },
+        {
+          "item_id": "7561707074493615386",
+          "video_tag": 3,
+          "vv": 502734
+        },
+        {
+          "item_id": "7524967143910198566",
+          "video_tag": 4,
+          "vv": 1011980
+        },
+        {
+          "item_id": "7567350829818262458",
+          "video_tag": 4,
+          "vv": 71108
+        },
+        {
+          "item_id": "7542344163149221158",
+          "video_tag": 5,
+          "vv": 6389
+        },
+        {
+          "item_id": "7507185553822027043",
+          "video_tag": 5,
+          "vv": 4719
+        },
+        {
+          "item_id": "7555327762253352219",
+          "video_tag": 6,
+          "vv": 3157
+        },
+        {
+          "item_id": "7549116764425129225",
+          "video_tag": 6,
+          "vv": 3334
+        }
+      ],
+      "star_id": "7198088169353379900",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 8800,
+              "price_extra_info": {},
+              "start_time": "1756457942",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 15800,
+              "price_extra_info": {},
+              "start_time": "1746028800",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 5300,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 15800,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 8800,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 9800,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572113021352083506"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "436209bfc6e24cea5f7c3126f8734bf506e35351"
+}

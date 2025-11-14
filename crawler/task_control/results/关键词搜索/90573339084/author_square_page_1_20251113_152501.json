@@ -1,0 +1,241 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "54",
+        "assign_task_price_list": "[24000,30000,30000,30000]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "2",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_7af7e113a06b3a3ac0f180401e860e6e.jpeg?from=4010531038",
+        "city": "长沙",
+        "content_theme_labels_180d": "[\"笔记本测评\",\"电子产品测评\",\"手机评测\",\"办公神器\",\"AI应用\",\"平板电脑\",\"电脑科技\",\"家电推荐\",\"国产汽车\",\"打印机\"]",
+        "core_user_id": "2344620605315288",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "20836",
+        "expected_play_num": "27129",
+        "fans_increment_rate_within_15d": "-0.0009807929255796284",
+        "fans_increment_within_15d": "-679",
+        "fans_increment_within_30d": "307",
+        "follower": "691583",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7211343340897894437",
+        "interact_rate_within_30d": "0.1398",
+        "interaction_median_30d": "5269",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"112\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761914605\",\"item_id\":\"7567365587762398449\",\"item_publish_time\":\"1761914605\",\"item_title\":\"双十一平板选择困难？iQ00 Pad5e就是答案！ 一边查资料一边记笔记，屏幕总不够用的问题终于解决！ 双十一挖到的宝藏平板—1Q00 Pad5e，妥妥的“全科生”！ 核心战力直接拉满！第三代骁龙 8s芯片，搭配LPDDR5X 内存+至高UFS 4.1 闪存，多任务切换、大型游戏加载都超丝滑。10000mAh 超大电池，连续开会能撑 13.3小时、离线追剧12.6小时，彻底告别续航焦虑~ 游戏党必冲！八大游戏技术加持，超分技术让画面更清晰，光线追踪带来PC级光影，玩《和平精英》时敌人的脚步声、草丛的窸窣声都能精准捕捉。还支持 2.8K 60 帧直播，搭配散热背夹开启Monster +模式性能直接拉满！ 学习办公也超给力！12.1英寸 2.8K 144Hz 护眼屏，长时间看网课也不累眼。内置PC级 WPS、定制 CAJViewer，跨设备传文件也超方便。 重点！现在双十一福利太绝了！喜欢的朋友赶紧冲！ #iQOOPad5e#iQ00平板#学生党平板平板推荐#双十一平板#平板选购攻略\",\"like_cnt\":\"345\",\"share_cnt\":\"3\",\"vv\":\"2587\"},{\"comment_cnt\":\"560\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761620878\",\"item_id\":\"7566104025528896831\",\"item_publish_time\":\"1761703200\",\"item_title\":\"双11别瞎买！2000元左右性价比高的手机我只推荐它#2000元左右性价比高的手机 #性价比高的手机 #荣耀400\",\"like_cnt\":\"3850\",\"share_cnt\":\"75\",\"vv\":\"71170\"},{\"comment_cnt\":\"171\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761564399\",\"item_id\":\"7565861462201617707\",\"item_publish_time\":\"1761564399\",\"item_title\":\"双11冲什么？这款智能手表真香了#华为watch#鸿蒙ai智能手表#华为双11智慧享好礼#华为手表\",\"like_cnt\":\"5188\",\"share_cnt\":\"8\",\"vv\":\"185568\"},{\"comment_cnt\":\"163\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761557887\",\"item_id\":\"7565833499363003667\",\"item_publish_time\":\"1761557887\",\"item_title\":\"350Hz高刷+QHD高清！这台显示器才是物理真外挂#三星显示器#G60F#OLED\",\"like_cnt\":\"7972\",\"share_cnt\":\"93\",\"vv\":\"138842\"},{\"comment_cnt\":\"257\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761034104\",\"item_id\":\"7563583864652762394\",\"item_publish_time\":\"1761034104\",\"item_title\":\"vivo X300 上手深度体验！这小直屏旗舰，真的顶！#vivoX300\",\"like_cnt\":\"5562\",\"share_cnt\":\"261\",\"vv\":\"650628\"},{\"comment_cnt\":\"166\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757985431\",\"item_id\":\"7550489875179425064\",\"item_publish_time\":\"1757985431\",\"item_title\":\"我的办公好搭子，思必驰#思必驰 #办公本\",\"like_cnt\":\"298\",\"share_cnt\":\"12\",\"vv\":\"4109\"},{\"comment_cnt\":\"16\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756981242\",\"item_id\":\"7546176939090840884\",\"item_publish_time\":\"1756981242\",\"item_title\":\"他又来了！#刘德华又来华为发布会了 #刘德华把发布会开成了演唱会 #刘德华现身华为发布会 #刘德华一个动作诠释人生的开合\",\"like_cnt\":\"420\",\"share_cnt\":\"658\",\"vv\":\"1206044\"},{\"comment_cnt\":\"124\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755746809\",\"item_id\":\"7540875093572898063\",\"item_publish_time\":\"1755746809\",\"item_title\":\"科技的意义是让我们的工作更加的高效便捷#AI #笔记本\",\"like_cnt\":\"294\",\"share_cnt\":\"14\",\"vv\":\"4673\"},{\"comment_cnt\":\"509\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1755523166\",\"item_id\":\"7539914583352347955\",\"item_publish_time\":\"1755594048\",\"item_title\":\"你的智慧办公全能拍档#华为MatePad#华为平板#华为MatePadAir有AI更快了\",\"like_cnt\":\"18184\",\"share_cnt\":\"492\",\"vv\":\"4669516\"},{\"comment_cnt\":\"130\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1754647243\",\"item_id\":\"7536152494729202944\",\"item_publish_time\":\"1754722800\",\"item_title\":\"我拿到了一款来自未来的眼镜#rokid #AR\",\"like_cnt\":\"391\",\"share_cnt\":\"23\",\"vv\":\"9659\"}]",
+        "link_convert_index": "48.2",
+        "link_convert_index_by_industry": "48.2",
+        "link_i_cnt_by_industry": "260480",
+        "link_k_cnt_by_industry": "2",
+        "link_l_cnt_by_industry": "1522572",
+        "link_link_cnt_by_industry": "1786408",
+        "link_n_cnt_by_industry": "3354",
+        "link_recommend_index_by_industry": "65.62",
+        "link_shopping_index": "65.62",
+        "link_spread_index": "74.2",
+        "link_spread_index_by_industry": "74.2",
+        "link_star_index": "66.38",
+        "link_star_index_by_industry": "66.38",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "小音说科技",
+        "play_over_rate_within_30d": "1",
+        "price_1_20": "24000",
+        "price_20_60": "30000",
+        "price_60": "40000",
+        "promotion_prospective_1_20_cpm": "982.16",
+        "promotion_prospective_20_60_cpm": "1227.7",
+        "promotion_prospective_60_cpm": "1636.93",
+        "promotion_prospective_vv": "24436",
+        "prospective_1_20_cpm": "884.6622",
+        "prospective_20_60_cpm": "1105.8277",
+        "prospective_60_cpm": "1474.4369",
+        "province": "",
+        "search_after_view_index_by_industry": "85.4",
+        "sn_expected_play_num": "27129",
+        "sn_interact_rate_within_30d": "0.1398",
+        "sn_play_over_rate_within_30d": "1",
+        "sn_prospective_1_20_cpe": "41.958",
+        "sn_prospective_1_20_cpm": "884.6622",
+        "sn_prospective_20_60_cpe": "52.4476",
+        "sn_prospective_20_60_cpm": "1105.8277",
+        "sn_prospective_60_cpe": "69.9301",
+        "sn_prospective_60_cpm": "1474.4369",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "13",
+        "star_ecom_video_num_30d": "3",
+        "star_ecom_video_product_num_30d": "0",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "3",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "4",
+        "star_video_finish_vv_rate_90d": "0.0141",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0069",
+        "star_video_median_vv_90d": "418098",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"萌宠\":[\"日常宠物\"]}",
+        "vv_median_30d": "18119"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7546176939090840884",
+          "video_tag": 3,
+          "vv": 1205169
+        },
+        {
+          "item_id": "7566104025528896831",
+          "video_tag": 3,
+          "vv": 16990
+        },
+        {
+          "item_id": "7539914583352347955",
+          "video_tag": 4,
+          "vv": 4524925
+        },
+        {
+          "item_id": "7563583864652762394",
+          "video_tag": 4,
+          "vv": 476030
+        },
+        {
+          "item_id": "7510139433635646730",
+          "video_tag": 5,
+          "vv": 238949
+        },
+        {
+          "item_id": "7509441080090168636",
+          "video_tag": 5,
+          "vv": 66131
+        },
+        {
+          "item_id": "7567365587762398449",
+          "video_tag": 6,
+          "vv": 2349
+        },
+        {
+          "item_id": "7565861462201617707",
+          "video_tag": 6,
+          "vv": 18119
+        }
+      ],
+      "star_id": "7211343340897894437",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 60000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 24000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 40000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 30000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 24000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 30000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572107554533294090"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "9b9f016481a032a4d3404858a5363617e8bda702"
+}
