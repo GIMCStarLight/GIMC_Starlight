@@ -136,12 +136,6 @@
       </div>
 
       <div class="filter-footer">
-        <div class="footer-left">
-          <span class="estimated-count" v-if="props.estimatedCount >= 0">
-            <el-icon v-if="props.loading" class="is-loading"><IconifyIcon icon="lucide:loader-2" /></el-icon>
-            <template v-else>预计 <strong>{{ props.estimatedCount }}</strong> 位达人</template>
-          </span>
-        </div>
         <div class="footer-right">
           <el-button @click="handleReset" :disabled="!hasActiveFilters">清空筛选</el-button>
           <el-button type="primary" @click="handleApply">应用筛选</el-button>
@@ -152,7 +146,6 @@
 </template>
 
 <script setup lang="ts">
-// --- 脚本部分完全没有改动 ---
 import { ref, computed, type PropType } from 'vue'
 import { IconifyIcon } from '@vben/icons'
 import type { AdvancedFilterParams } from '#/api/influencer-filter'
@@ -168,14 +161,6 @@ import {
   MARKETING_INDEX_OPTIONS
 } from '../../constants/filter-options'
 
-interface FilterProps {
-  estimatedCount?: number
-  loading?: boolean
-}
-const props = withDefaults(defineProps<FilterProps>(), {
-  estimatedCount: -1,
-  loading: false
-})
 const emit = defineEmits<{
   filterChange: [filters: AdvancedFilterParams]
 }>()
@@ -639,26 +624,8 @@ defineExpose({ reset: handleReset })
   border-top: 1px solid #e5e7eb;
   border-radius: 0 0 8px 8px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-}
-
-.footer-left {
-  .estimated-count {
-    font-size: 14px;
-    color: #6b7280;
-    
-    strong {
-      font-size: 18px;
-      font-weight: 600;
-      color: #409eff;
-      margin: 0 4px;
-    }
-  }
-}
-
-.footer-right {
-  display: flex;
   gap: 12px;
 }
 </style>

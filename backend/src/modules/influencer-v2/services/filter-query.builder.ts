@@ -23,6 +23,26 @@ export class FilterQueryBuilder {
     queryBuilder: SelectQueryBuilder<any>,
     filters: AuthorFilterQueryDto,
   ): void {
+    // 如果需要机构筛选,添加kol_list表JOIN
+    if (filters.orgName) {
+      queryBuilder.leftJoin(
+        'kol_list',
+        'kol_filter',
+        `kol_filter.matched_author_id = mv.author_id 
+         AND kol_filter.platform = '抖音' 
+         AND kol_filter.match_status = 'matched'`,
+      );
+    }
+
+    // 如果需要爆文率筛选,添加authors_engagement_metrics表JOIN
+    if (filters.minBurstRate !== undefined || filters.maxBurstRate !== undefined) {
+      queryBuilder.leftJoin(
+        'authors_engagement_metrics',
+        'engagement',
+        'engagement.author_id = mv.author_id',
+      );
+    }
+
     // ========== 快速筛选维度 ==========
 
     // 内容质量分层
@@ -61,9 +81,9 @@ export class FilterQueryBuilder {
       }
     }
 
-    // 内容标签 (使用GIN索引)
+    // 内容标签 (使用GIN索引) - 并集查询：满足任一标签即可
     if (filters.primaryTags && filters.primaryTags.length > 0) {
-      queryBuilder.andWhere('mv.primary_tags @> :primaryTags', {
+      queryBuilder.andWhere('mv.primary_tags && :primaryTags', {
         primaryTags: filters.primaryTags,
       });
     }
@@ -82,14 +102,14 @@ export class FilterQueryBuilder {
     }
 
     if (filters.province) {
-      queryBuilder.andWhere('mv.province = :province', {
-        province: filters.province,
+      queryBuilder.andWhere('mv.province ILIKE :province', {
+        province: `%${filters.province}%`,
       });
     }
 
     if (filters.city) {
-      queryBuilder.andWhere('mv.city = :city', {
-        city: filters.city,
+      queryBuilder.andWhere('mv.city ILIKE :city', {
+        city: `%${filters.city}%`,
       });
     }
 
@@ -243,6 +263,13 @@ export class FilterQueryBuilder {
       });
     }
 
+    // 机构筛选 - 使用kol_list表JOIN(已在buildFilters开头添加)
+    if (filters.orgName) {
+      queryBuilder.andWhere('kol_filter.org_name = :orgName', {
+        orgName: filters.orgName,
+      });
+    }
+
     // 认证标签
     if (filters.excellentAuthor) {
       queryBuilder.andWhere('mv.star_excellent_author = true');
@@ -258,6 +285,56 @@ export class FilterQueryBuilder {
 
     if (filters.highPotential) {
       queryBuilder.andWhere('mv.star_qianchuan_high_potential = true');
+    }
+
+    // 预期指标维度
+    if (filters.minExpectedPlayNum !== undefined) {
+      queryBuilder.andWhere('mv.expected_play_num >= :minExpectedPlay', {
+        minExpectedPlay: filters.minExpectedPlayNum,
+      });
+    }
+
+    if (filters.maxExpectedPlayNum !== undefined) {
+      queryBuilder.andWhere('mv.expected_play_num <= :maxExpectedPlay', {
+        maxExpectedPlay: filters.maxExpectedPlayNum,
+      });
+    }
+
+    if (filters.minExpectedCpm !== undefined) {
+      queryBuilder.andWhere('mv.promotion_prospective_20_60_cpm >= :minExpectedCpm', {
+        minExpectedCpm: filters.minExpectedCpm,
+      });
+    }
+
+    if (filters.maxExpectedCpm !== undefined) {
+      queryBuilder.andWhere('mv.promotion_prospective_20_60_cpm <= :maxExpectedCpm', {
+        maxExpectedCpm: filters.maxExpectedCpm,
+      });
+    }
+
+    if (filters.minExpectedCpe !== undefined) {
+      queryBuilder.andWhere('mv.sn_prospective_20_60_cpe >= :minExpectedCpe', {
+        minExpectedCpe: filters.minExpectedCpe,
+      });
+    }
+
+    if (filters.maxExpectedCpe !== undefined) {
+      queryBuilder.andWhere('mv.sn_prospective_20_60_cpe <= :maxExpectedCpe', {
+        maxExpectedCpe: filters.maxExpectedCpe,
+      });
+    }
+
+    // 爆文率 - 使用JOIN的engagement表
+    if (filters.minBurstRate !== undefined) {
+      queryBuilder.andWhere('engagement.burst_text_rate >= :minBurstRate', {
+        minBurstRate: filters.minBurstRate,
+      });
+    }
+
+    if (filters.maxBurstRate !== undefined) {
+      queryBuilder.andWhere('engagement.burst_text_rate <= :maxBurstRate', {
+        maxBurstRate: filters.maxBurstRate,
+      });
     }
   }
 

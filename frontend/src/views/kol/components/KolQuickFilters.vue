@@ -94,9 +94,11 @@
             @change="handleFilterChange"
           >
             <el-radio-button :value="undefined">不限</el-radio-button>
+            <el-radio-button value="S">S级</el-radio-button>
             <el-radio-button value="A">A级</el-radio-button>
             <el-radio-button value="B">B级</el-radio-button>
             <el-radio-button value="C">C级</el-radio-button>
+            <el-radio-button value="D">D级</el-radio-button>
           </el-radio-group>
         </div>
       </div>
@@ -108,7 +110,7 @@
       <div class="filter-content">
         <el-input 
           v-model="localFilters.category" 
-          placeholder="如: 美妆、母婴、汽车等" 
+          placeholder="如: 美妆、汽车等" 
           clearable 
           size="default"
           @input="handleFilterChange"

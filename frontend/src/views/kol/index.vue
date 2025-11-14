@@ -3,7 +3,7 @@
     <!-- 顶部操作栏 -->
     <div class="top-bar">
       <div class="bar-left">
-        <h1 class="page-title">机构达人管理</h1>
+        <h1 class="page-title">省广达人库</h1>
       </div>
       <div class="bar-right">
         <el-button @click="navigateToImportHistory" class="action-btn">

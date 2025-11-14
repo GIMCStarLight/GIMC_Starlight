@@ -27,8 +27,8 @@ const routes: RouteRecordRaw[] = [
     component: () => import('#/views/kol/index.vue'),
     meta: {
       icon: ElUserFilledIcon,
-      title: '机构达人',
-      order: 2,  // 机构达人，排序第2
+      title: '省广达人库',
+      order: 2,  // 省广达人库，排序第2
       // hideInMenu: true, // 显示在菜单中
       // permissions: ['resource:influencer:management:view'],
     },

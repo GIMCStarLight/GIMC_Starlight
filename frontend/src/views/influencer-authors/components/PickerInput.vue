@@ -1,8 +1,12 @@
 <template>
   <el-popover
+    v-model:visible="popoverVisible"
     placement="bottom"
     :width="popoverWidth"
-    trigger="hover"  :persistent="true" :show-arrow="false" ref="popoverRef"
+    trigger="hover"
+    :persistent="true"
+    :show-arrow="false"
+    ref="popoverRef"
     popper-class="picker-input-popper"
   >
     <template #reference>
@@ -38,7 +42,7 @@ interface Option {
 
 const props = defineProps({
   modelValue: {
-    type: [Number, String, undefined],
+    type: [Number, String] as PropType<number | string | undefined>,
     default: undefined
   },
   options: {
@@ -59,6 +63,7 @@ const emit = defineEmits<{
 }>()
 
 const popoverRef = ref<any>(null) // Popover 实例
+const popoverVisible = ref(false) // 控制 popover 显示状态
 
 // 显示在输入框上的标签
 const displayLabel = computed(() => {
@@ -82,13 +87,14 @@ const handlePickerChange = (val: number | string | undefined) => {
 
 // 关键：在触发器上滚动滚轮时，手动打开浮层
 const handleTriggerWheel = (event: WheelEvent) => {
-  if (popoverRef.value && !popoverRef.value.open) {
-    popoverRef.value.show()
+  // 如果浮层未打开，则打开它
+  if (!popoverVisible.value) {
+    popoverVisible.value = true
   }
-  // 注意：WheelPicker 内部自己会处理 wheel 事件，这里只是负责“激活”
+  // 注意：WheelPicker 内部自己会处理 wheel 事件，这里只是负责"激活"
   
   // 优化：直接在这里处理滚动逻辑，即使浮层未打开
-  if (!popoverRef.value.open) {
+  if (!popoverVisible.value) {
      // 找到当前索引
      let currentIndex = props.options.findIndex(opt => opt.value === props.modelValue);
      if (currentIndex === -1) {

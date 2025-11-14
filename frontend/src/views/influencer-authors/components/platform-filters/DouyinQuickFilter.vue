@@ -16,13 +16,6 @@
           </el-input>
         </div>
         <div class="basic-item">
-          <el-radio-group v-model="basicInfo.gender" size="default" @change="handleBasicInfoChange">
-            <el-radio-button :value="undefined">不限性别</el-radio-button>
-            <el-radio-button value="M">男</el-radio-button>
-            <el-radio-button value="F">女</el-radio-button>
-          </el-radio-group>
-        </div>
-        <div class="basic-item">
           <el-input 
             v-model="basicInfo.province" 
             placeholder="省份(如: 北京)" 
@@ -43,6 +36,13 @@
           >
             <template #prefix><Icon icon="lucide:map" /></template>
           </el-input>
+        </div>
+        <div class="basic-item">
+          <el-radio-group v-model="basicInfo.gender" size="default" @change="handleBasicInfoChange">
+            <el-radio-button :value="undefined">不限性别</el-radio-button>
+            <el-radio-button value="M">男</el-radio-button>
+            <el-radio-button value="F">女</el-radio-button>
+          </el-radio-group>
         </div>
       </div>
     </div>
@@ -183,7 +183,7 @@
           size="default"
           @click="influencerAttrs.certType = 'xingliandaren'; handleAttrChange()"
         >
-          星链达人
+          星链计划
         </el-button>
         <el-button
           :type="influencerAttrs.certType === 'excellentAuthor' ? 'primary' : ''"
@@ -377,11 +377,6 @@
         <el-button link type="primary" size="small" @click="clearAllFilters">
           清空全部
         </el-button>
-      </div>
-      <div class="summary-stats">
-        <span class="stats-text">
-          预计 <strong class="stats-number">{{ estimatedCount }}</strong> 位达人
-        </span>
       </div>
     </div>
   </div>
@@ -923,7 +918,6 @@ const estimatedCount = ref(0)
 
 const emit = defineEmits<{
   filterChange: [filters: QuickFilterParams]
-  estimatedCountChange: [count: number]
 }>()
 
 // ========== 计算属性 ==========
@@ -942,35 +936,36 @@ const hasActiveFilters = computed(() => {
 const activeFilterTags = computed(() => {
   const tags: { key: string; label: string }[] = []
   
+  // 1. 基础信息
   if (basicInfo.value.keyword) {
     tags.push({ key: 'keyword', label: `关键词: ${basicInfo.value.keyword}` })
   }
-  
   if (basicInfo.value.gender) {
     const genderLabel = basicInfo.value.gender === 'M' ? '男' : basicInfo.value.gender === 'F' ? '女' : '未知'
     tags.push({ key: 'gender', label: `性别: ${genderLabel}` })
   }
-  
   if (basicInfo.value.province) {
     tags.push({ key: 'province', label: `省份: ${basicInfo.value.province}` })
   }
-  
   if (basicInfo.value.city) {
     tags.push({ key: 'city', label: `城市: ${basicInfo.value.city}` })
   }
   
+  // 2. 合作类型
   if (selectedCooperation.value) {
     const type = cooperationTypes.find(t => t.value === selectedCooperation.value)
     tags.push({ key: 'cooperation', label: `合作: ${type?.label}` })
   }
   
+  // 3. 内容标签
   if (selectedTags.value.length > 0) {
-    tags.push({ key: 'tags', label: `标签: ${selectedTags.value.join(', ')}` })
+    tags.push({ key: 'tags', label: `标签: ${selectedTags.value.map(t => getTagDisplayName(t)).join(', ')}` })
   }
   
+  // 4. 认证类型
   const certLabels = { 
     shenguangxingmei: '省广星媒',
-    xingliandaren: '星链达人',
+    xingliandaren: '星链计划',
     excellentAuthor: '优质达人', 
     risingStart: '新星达人', 
     highPotential: '高潜达人', 
@@ -978,6 +973,110 @@ const activeFilterTags = computed(() => {
   }
   if (influencerAttrs.value.certType) {
     tags.push({ key: 'certType', label: `认证: ${certLabels[influencerAttrs.value.certType]}` })
+  }
+  
+  // 5. 场景推荐
+  if (selectedScenario.value) {
+    const scenario = scenarios.find(s => s.key === selectedScenario.value)
+    tags.push({ key: 'scenario', label: `场景: ${scenario?.label}` })
+  }
+  
+  // 6. 核心指标
+  const formatRange = (min: number | undefined, max: number | undefined, unit = '') => {
+    if (min !== undefined && max !== undefined) return `${min}${unit} ~ ${max}${unit}`
+    if (min !== undefined) return `≥ ${min}${unit}`
+    if (max !== undefined) return `≤ ${max}${unit}`
+    return ''
+  }
+  
+  if (advancedFilters.value.minFollowers !== undefined || advancedFilters.value.maxFollowers !== undefined) {
+    tags.push({ 
+      key: 'followers', 
+      label: `粉丝: ${formatRange(advancedFilters.value.minFollowers, advancedFilters.value.maxFollowers)}` 
+    })
+  }
+  
+  if (advancedFilters.value.minPrice20_60 !== undefined || advancedFilters.value.maxPrice20_60 !== undefined) {
+    tags.push({ 
+      key: 'price', 
+      label: `报价: ${formatRange(advancedFilters.value.minPrice20_60, advancedFilters.value.maxPrice20_60, '元')}` 
+    })
+  }
+  
+  if (advancedFilters.value.minGmv30d !== undefined || advancedFilters.value.maxGmv30d !== undefined) {
+    tags.push({ 
+      key: 'gmv', 
+      label: `GMV: ${formatRange(advancedFilters.value.minGmv30d, advancedFilters.value.maxGmv30d)}` 
+    })
+  }
+  
+  if (advancedFilters.value.minExpectedPlayNum !== undefined || advancedFilters.value.maxExpectedPlayNum !== undefined) {
+    tags.push({ 
+      key: 'expectedPlay', 
+      label: `预期播放: ${formatRange(advancedFilters.value.minExpectedPlayNum, advancedFilters.value.maxExpectedPlayNum)}` 
+    })
+  }
+  
+  if (advancedFilters.value.minExpectedCpm !== undefined || advancedFilters.value.maxExpectedCpm !== undefined) {
+    tags.push({ 
+      key: 'expectedCpm', 
+      label: `预期CPM: ${formatRange(advancedFilters.value.minExpectedCpm, advancedFilters.value.maxExpectedCpm)}` 
+    })
+  }
+  
+  if (advancedFilters.value.minExpectedCpe !== undefined || advancedFilters.value.maxExpectedCpe !== undefined) {
+    tags.push({ 
+      key: 'expectedCpe', 
+      label: `预期CPE: ${formatRange(advancedFilters.value.minExpectedCpe, advancedFilters.value.maxExpectedCpe)}` 
+    })
+  }
+  
+  if (advancedFilters.value.minBurstRate !== undefined || advancedFilters.value.maxBurstRate !== undefined) {
+    const min = advancedFilters.value.minBurstRate !== undefined ? (advancedFilters.value.minBurstRate * 100).toFixed(1) : undefined
+    const max = advancedFilters.value.maxBurstRate !== undefined ? (advancedFilters.value.maxBurstRate * 100).toFixed(1) : undefined
+    tags.push({ 
+      key: 'burstRate', 
+      label: `爆文率: ${formatRange(min ? Number(min) : undefined, max ? Number(max) : undefined, '%')}` 
+    })
+  }
+  
+  // 7. 内容质量
+  if (advancedFilters.value.minInteractRate !== undefined || advancedFilters.value.maxInteractRate !== undefined) {
+    const min = advancedFilters.value.minInteractRate !== undefined ? (advancedFilters.value.minInteractRate * 100).toFixed(1) : undefined
+    const max = advancedFilters.value.maxInteractRate !== undefined ? (advancedFilters.value.maxInteractRate * 100).toFixed(1) : undefined
+    tags.push({ 
+      key: 'interactRate', 
+      label: `互动率: ${formatRange(min ? Number(min) : undefined, max ? Number(max) : undefined, '%')}` 
+    })
+  }
+  
+  if (advancedFilters.value.minPlayOverRate !== undefined || advancedFilters.value.maxPlayOverRate !== undefined) {
+    const min = advancedFilters.value.minPlayOverRate !== undefined ? (advancedFilters.value.minPlayOverRate * 100).toFixed(1) : undefined
+    const max = advancedFilters.value.maxPlayOverRate !== undefined ? (advancedFilters.value.maxPlayOverRate * 100).toFixed(1) : undefined
+    tags.push({ 
+      key: 'playOverRate', 
+      label: `完播率: ${formatRange(min ? Number(min) : undefined, max ? Number(max) : undefined, '%')}` 
+    })
+  }
+  
+  if (advancedFilters.value.minGrowthRate30d !== undefined || advancedFilters.value.maxGrowthRate30d !== undefined) {
+    const min = advancedFilters.value.minGrowthRate30d !== undefined ? (advancedFilters.value.minGrowthRate30d * 100).toFixed(1) : undefined
+    const max = advancedFilters.value.maxGrowthRate30d !== undefined ? (advancedFilters.value.maxGrowthRate30d * 100).toFixed(1) : undefined
+    tags.push({ 
+      key: 'growthRate', 
+      label: `增长率: ${formatRange(min ? Number(min) : undefined, max ? Number(max) : undefined, '%')}` 
+    })
+  }
+  
+  // 8. 营销指数
+  if (advancedFilters.value.minConvertIndex !== undefined) {
+    tags.push({ key: 'convertIndex', label: `转化指数: ≥ ${advancedFilters.value.minConvertIndex}` })
+  }
+  if (advancedFilters.value.minShoppingIndex !== undefined) {
+    tags.push({ key: 'shoppingIndex', label: `种草指数: ≥ ${advancedFilters.value.minShoppingIndex}` })
+  }
+  if (advancedFilters.value.minSpreadIndex !== undefined) {
+    tags.push({ key: 'spreadIndex', label: `传播指数: ≥ ${advancedFilters.value.minSpreadIndex}` })
   }
   
   return tags
@@ -1145,6 +1244,59 @@ const removeFilter = (key: string) => {
     case 'certType':
       influencerAttrs.value.certType = undefined
       break
+    case 'scenario':
+      selectedScenario.value = ''
+      resetAdvancedFilters()
+      break
+    case 'followers':
+      advancedFilters.value.minFollowers = undefined
+      advancedFilters.value.maxFollowers = undefined
+      break
+    case 'price':
+      advancedFilters.value.minPrice20_60 = undefined
+      advancedFilters.value.maxPrice20_60 = undefined
+      break
+    case 'gmv':
+      advancedFilters.value.minGmv30d = undefined
+      advancedFilters.value.maxGmv30d = undefined
+      break
+    case 'expectedPlay':
+      advancedFilters.value.minExpectedPlayNum = undefined
+      advancedFilters.value.maxExpectedPlayNum = undefined
+      break
+    case 'expectedCpm':
+      advancedFilters.value.minExpectedCpm = undefined
+      advancedFilters.value.maxExpectedCpm = undefined
+      break
+    case 'expectedCpe':
+      advancedFilters.value.minExpectedCpe = undefined
+      advancedFilters.value.maxExpectedCpe = undefined
+      break
+    case 'burstRate':
+      advancedFilters.value.minBurstRate = undefined
+      advancedFilters.value.maxBurstRate = undefined
+      break
+    case 'interactRate':
+      advancedFilters.value.minInteractRate = undefined
+      advancedFilters.value.maxInteractRate = undefined
+      break
+    case 'playOverRate':
+      advancedFilters.value.minPlayOverRate = undefined
+      advancedFilters.value.maxPlayOverRate = undefined
+      break
+    case 'growthRate':
+      advancedFilters.value.minGrowthRate30d = undefined
+      advancedFilters.value.maxGrowthRate30d = undefined
+      break
+    case 'convertIndex':
+      advancedFilters.value.minConvertIndex = undefined
+      break
+    case 'shoppingIndex':
+      advancedFilters.value.minShoppingIndex = undefined
+      break
+    case 'spreadIndex':
+      advancedFilters.value.minSpreadIndex = undefined
+      break
   }
   emitFilterChange()
 }
@@ -1256,34 +1408,74 @@ const emitFilterChange = useDebounceFn(() => {
     // 如果是机构筛选,映射到orgName参数
     if (influencerAttrs.value.certType === 'shenguangxingmei') {
       certMapping.orgName = '省广星媒'
+      // 清除其他认证标签
+      certMapping.excellentAuthor = undefined
+      certMapping.blackHorse = undefined
+      certMapping.risingStart = undefined
+      certMapping.highPotential = undefined
     } else if (influencerAttrs.value.certType === 'xingliandaren') {
-      certMapping.orgName = '星链达人'
+      certMapping.orgName = '星链计划'
+      // 清除其他认证标签
+      certMapping.excellentAuthor = undefined
+      certMapping.blackHorse = undefined
+      certMapping.risingStart = undefined
+      certMapping.highPotential = undefined
     } else {
-      // 其他认证类型保持原有逻辑
-      certMapping[influencerAttrs.value.certType] = true
+      // 其他认证类型，仅设置当前选中的为true，其他为undefined
+      certMapping.orgName = undefined
+      certMapping.excellentAuthor = influencerAttrs.value.certType === 'excellentAuthor' ? true : undefined
+      certMapping.blackHorse = influencerAttrs.value.certType === 'blackHorse' ? true : undefined
+      certMapping.risingStart = influencerAttrs.value.certType === 'risingStart' ? true : undefined
+      certMapping.highPotential = influencerAttrs.value.certType === 'highPotential' ? true : undefined
     }
+  } else {
+    // 如果没有选中认证类型,清除所有认证标签
+    certMapping.orgName = undefined
+    certMapping.excellentAuthor = undefined
+    certMapping.blackHorse = undefined
+    certMapping.risingStart = undefined
+    certMapping.highPotential = undefined
   }
   
-  // 构建筛选参数 - 只传递有值的字段
+  // 构建筛选参数 - 直接构建完整状态，保留undefined以通知父组件清除
   const params: any = {
-    ...filters.value,
-    // 基础信息 - gender需要传递undefined以清除筛选
-    ...(basicInfo.value.keyword ? { keyword: basicInfo.value.keyword } : {}),
-    // gender: 总是传递（包括undefined），这样能清除之前的筛选
-    ...(basicInfo.value.gender !== undefined ? { gender: basicInfo.value.gender as 'M' | 'F' | 'U' } : { gender: undefined }),
-    ...(basicInfo.value.province ? { province: basicInfo.value.province } : {}),
-    ...(basicInfo.value.city ? { city: basicInfo.value.city } : {}),
+    // 基础信息
+    keyword: basicInfo.value.keyword || undefined,
+    gender: basicInfo.value.gender,
+    province: basicInfo.value.province || undefined,
+    city: basicInfo.value.city || undefined,
     // 标签
     primaryTags: chineseTagNames.length > 0 ? chineseTagNames : undefined,
-    // 达人属性 - 仅保留特殊认证
+    // 达人属性 - 认证标签
     ...certMapping,
-    // 高级筛选参数
-    ...Object.entries(advancedFilters.value).reduce((acc, [key, value]) => {
-      if (value !== undefined && value !== null) {
-        acc[key] = value
-      }
-      return acc
-    }, {} as any)
+    // 高级筛选参数 - 包含undefined，确保清除操作生效
+    minFollowers: advancedFilters.value.minFollowers,
+    maxFollowers: advancedFilters.value.maxFollowers,
+    minGrowthRate30d: advancedFilters.value.minGrowthRate30d,
+    maxGrowthRate30d: advancedFilters.value.maxGrowthRate30d,
+    minInteractRate: advancedFilters.value.minInteractRate,
+    maxInteractRate: advancedFilters.value.maxInteractRate,
+    minPlayOverRate: advancedFilters.value.minPlayOverRate,
+    maxPlayOverRate: advancedFilters.value.maxPlayOverRate,
+    minVvMedian: advancedFilters.value.minVvMedian,
+    maxVvMedian: advancedFilters.value.maxVvMedian,
+    minGmv30d: advancedFilters.value.minGmv30d,
+    maxGmv30d: advancedFilters.value.maxGmv30d,
+    minConvertIndex: advancedFilters.value.minConvertIndex,
+    minShoppingIndex: advancedFilters.value.minShoppingIndex,
+    minSpreadIndex: advancedFilters.value.minSpreadIndex,
+    minCpmEfficiency: advancedFilters.value.minCpmEfficiency,
+    maxCpmEfficiency: advancedFilters.value.maxCpmEfficiency,
+    minPrice20_60: advancedFilters.value.minPrice20_60,
+    maxPrice20_60: advancedFilters.value.maxPrice20_60,
+    minExpectedPlayNum: advancedFilters.value.minExpectedPlayNum,
+    maxExpectedPlayNum: advancedFilters.value.maxExpectedPlayNum,
+    minExpectedCpm: advancedFilters.value.minExpectedCpm,
+    maxExpectedCpm: advancedFilters.value.maxExpectedCpm,
+    minExpectedCpe: advancedFilters.value.minExpectedCpe,
+    maxExpectedCpe: advancedFilters.value.maxExpectedCpe,
+    minBurstRate: advancedFilters.value.minBurstRate,
+    maxBurstRate: advancedFilters.value.maxBurstRate
   }
   
   emit('filterChange', params)
@@ -1303,11 +1495,6 @@ const loadHotTags = async () => {
 
 onMounted(() => {
   loadHotTags()
-})
-
-// 监听预估数量变化
-watch(() => estimatedCount.value, (newVal) => {
-  emit('estimatedCountChange', newVal)
 })
 </script>
 
@@ -1362,8 +1549,8 @@ watch(() => estimatedCount.value, (newVal) => {
   
   &.basic-info-grid {
     display: grid;
-    grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr;
-    gap: 12px;
+    grid-template-columns: 0.5fr 0.35fr 0.35fr 1.5fr;
+    gap: 18px;
     align-items: center;
   }
   
@@ -1479,22 +1666,6 @@ watch(() => estimatedCount.value, (newVal) => {
   color: #606266;
 }
 
-.summary-stats {
-  white-space: nowrap;
-}
-
-.stats-text {
-  font-size: 14px;
-  color: #606266;
-}
-
-.stats-number {
-  font-size: 18px;
-  color: #409eff;
-  font-weight: 600;
-  margin: 0 4px;
-}
-
 /* 二级标签下拉菜单样式 */
 .el-dropdown-menu__item {
   &.is-active {
@@ -1518,8 +1689,8 @@ watch(() => estimatedCount.value, (newVal) => {
 .advanced-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px 20px;  // 缩小水平间距至20px,使筛选项更紧凑
-  max-width: 1300px;
+  gap: 16px 20px;  
+  max-width: 1000px;
   
   @media (max-width: 1200px) {
     grid-template-columns: repeat(2, 1fr);

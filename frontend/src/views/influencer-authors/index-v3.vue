@@ -31,6 +31,7 @@
           :key="platform.value" 
           :label="platform.label" 
           :name="platform.value"
+          :disabled="platform.value !== 'douyin'"
         >
           <template #label>
             <div class="platform-tab-label">
@@ -38,7 +39,7 @@
                 <img v-if="platform.icon.startsWith('http') || platform.icon.startsWith('data:')" :src="platform.icon" :alt="platform.label" />
                 <Icon v-else :icon="platform.icon" />
               </div>
-              <span>{{ platform.label }}</span>
+              <span class="platform-name">{{ platform.label }}</span>
               <el-badge 
                 v-if="platform.count !== undefined" 
                 :value="platform.count" 
@@ -68,55 +69,75 @@
           </span>
         </div>
         
-        <div class="toolbar-center">
-          <!-- 排序选择 -->
-          <el-select
-            v-model="sortBy"
-            placeholder="排序方式"
-            style="width: 150px"
-            @change="handleSortChange"
-          >
-            <el-option label="综合推荐" value="recommended" />
-            <el-option label="粉丝数↓" value="follower_desc" />
-            <el-option label="星图指数↓" value="star_index_desc" />
-            <el-option label="互动率↓" value="interact_rate_desc" />
-            <el-option label="价格↑" value="price_asc" />
-            <el-option label="价格↓" value="price_desc" />
-          </el-select>
-        </div>
-
         <div class="toolbar-right">
-          <!-- 仅展示已匹配达人开关 -->
-          <el-tooltip content="仅显示已匹配到作者的达人" placement="top">
-            <div style="display: inline-flex; align-items: center; gap: 8px;">
-              <span style="font-size: 13px; color: var(--el-text-color-secondary)">仅展示已建联</span>
-              <el-switch v-model="matchedOnly" @change="handleMatchedOnlyToggle" />
-            </div>
-          </el-tooltip>
+          <!-- 排序选择 -->
+          <div class="toolbar-group">
+            <span class="group-label">排序</span>
+            <el-select
+              v-model="sortBy"
+              size="default"
+              style="width: 140px"
+              @change="handleSortChange"
+            >
+              <el-option label="综合推荐" value="recommended" />
+              <el-option label="粉丝数↓" value="follower_desc" />
+              <el-option label="星图指数↓" value="star_index_desc" />
+              <el-option label="互动率↓" value="interact_rate_desc" />
+              <el-option label="价格↑" value="price_asc" />
+              <el-option label="价格↓" value="price_desc" />
+            </el-select>
+          </div>
+
+          <!-- 筛选控制 -->
+          <div class="toolbar-group">
+            <span class="group-label">筛选</span>
+            <el-select
+              v-model="matchedOnly"
+              size="default"
+              style="width: 120px"
+              @change="handleMatchedOnlyToggle"
+            >
+              <el-option label="全部达人" :value="false" />
+              <el-option label="已建联" :value="true" />
+            </el-select>
+          </div>
 
           <!-- 视图切换 -->
-          <el-radio-group v-model="viewMode" size="default">
-            <el-radio-button value="card">
-              <Icon icon="lucide:layout-grid" />
-              卡片
-            </el-radio-button>
-            <el-radio-button value="table">
-              <Icon icon="lucide:layout-list" />
-              列表
-            </el-radio-button>
-          </el-radio-group>
+          <div class="toolbar-group">
+            <span class="group-label">视图</span>
+            <el-select
+              v-model="viewMode"
+              size="default"
+              style="width: 100px"
+            >
+              <el-option label="卡片" value="card">
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <Icon icon="lucide:layout-grid" />
+                  <span>卡片</span>
+                </div>
+              </el-option>
+              <el-option label="列表" value="table">
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <Icon icon="lucide:layout-list" />
+                  <span>列表</span>
+                </div>
+              </el-option>
+            </el-select>
+          </div>
 
           <!-- 卡片尺寸选择 (仅卡片视图) -->
-          <el-select
-            v-if="viewMode === 'card'"
-            v-model="cardSize"
-            placeholder="卡片尺寸"
-            style="width: 120px; margin-left: 12px"
-          >
-            <el-option label="紧凑" value="compact" />
-            <el-option label="标准" value="standard" />
-            <el-option label="详细" value="detailed" />
-          </el-select>
+          <div v-if="viewMode === 'card'" class="toolbar-group">
+            <span class="group-label">尺寸</span>
+            <el-select
+              v-model="cardSize"
+              size="default"
+              style="width: 100px"
+            >
+              <el-option label="紧凑" value="compact" />
+              <el-option label="标准" value="standard" />
+              <el-option label="详细" value="detailed" />
+            </el-select>
+          </div>
         </div>
       </div>
 
@@ -206,7 +227,7 @@ const platforms = ref<PlatformConfig[]>([
   { value: 'wechat', label: '微信', icon: 'https://th.bing.com/th/id/ODF.BvtHqZTl6qLypPDIASUGoA?w=32&h=32&qlt=90&pcl=fffffa&o=6&cb=ucfimg1&pid=1.2&ucfimg=1', count: undefined },
 ])
 
-const currentPlatform = ref('all')
+const currentPlatform = ref('douyin')
 
 console.log('🎯 [index-v3] 页面组件初始化')
 
@@ -654,10 +675,10 @@ if (typeof window !== 'undefined') {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 24px;
+    margin-bottom: 0;
     padding: 24px;
     background: var(--el-bg-color);
-    border-radius: 8px;
+    border-radius: 8px 8px 0 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 
     .header-left {
@@ -683,16 +704,18 @@ if (typeof window !== 'undefined') {
 
   /* 平台切换Tab栏 */
   .platform-tabs-wrapper {
+    position: relative;
+    background: linear-gradient(to bottom, #fafafa, #ffffff);
+    padding: 20px 24px 0;
+    border-bottom: 1px solid #e8e8e8;
     margin-bottom: 20px;
-    background: var(--el-bg-color);
-    border-radius: 8px;
-    padding: 16px 20px 0;
+    border-radius: 0 0 8px 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 
     .platform-tabs {
       :deep(.el-tabs__header) {
         margin-bottom: 0;
-        border-bottom: 2px solid var(--el-border-color-light);
+        border-bottom: none;
       }
 
       :deep(.el-tabs__nav-wrap) {
@@ -702,111 +725,113 @@ if (typeof window !== 'undefined') {
       }
 
       :deep(.el-tabs__item) {
-        padding: 0 20px;
-        height: 48px;
-        line-height: 48px;
+        padding: 0 24px;
+        height: 52px;
+        line-height: 52px;
         font-size: 14px;
         font-weight: 500;
-        color: var(--el-text-color-regular);
-        transition: all 0.3s;
+        color: #606266;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 8px 8px 0 0;
+        margin-right: 4px;
+        position: relative;
 
-        &:hover {
+        &:hover:not(.is-disabled) {
           color: var(--el-color-primary);
+          background: rgba(64, 158, 255, 0.05);
         }
 
         &.is-active {
           color: var(--el-color-primary);
           font-weight: 600;
+          background: #ffffff;
+          box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
+          
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--el-color-primary), #66b1ff);
+            border-radius: 3px 3px 0 0;
+          }
+        }
+
+        &.is-disabled {
+          color: #c0c4cc;
+          cursor: not-allowed;
+          opacity: 0.5;
+          
+          &:hover {
+            background: transparent;
+          }
+          
+          .platform-icon {
+            filter: grayscale(100%);
+            opacity: 0.4;
+          }
         }
       }
 
       :deep(.el-tabs__active-bar) {
-        height: 3px;
-        background: var(--el-color-primary);
+        display: none;
       }
 
       .platform-tab-label {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 10px;
 
         .platform-icon {
-          font-size: 16px;
+          font-size: 18px;
           display: flex;
           align-items: center;
           justify-content: center;
+          transition: all 0.3s;
           
-          /* 处理图标为URL时的显示 */
           :deep(img) {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             object-fit: contain;
+            transition: all 0.3s;
           }
+        }
+        
+        .platform-name {
+          font-size: 14px;
         }
 
         .platform-count-badge {
           :deep(.el-badge__content) {
-            background-color: var(--el-color-primary);
+            background: linear-gradient(135deg, var(--el-color-primary), #66b1ff);
             border: none;
             font-size: 11px;
-            height: 18px;
-            line-height: 18px;
-            padding: 0 6px;
+            height: 20px;
+            line-height: 20px;
+            padding: 0 7px;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(64, 158, 255, 0.3);
           }
+        }
+      }
+      
+      /* 激活状态下的图标发光效果 */
+      :deep(.el-tabs__item.is-active) {
+        .platform-icon img {
+          filter: drop-shadow(0 0 4px rgba(64, 158, 255, 0.4));
         }
       }
     }
   }
   
-  /* 高级筛选包装器 */
-  .advanced-filters-wrapper {
-    margin-bottom: 20px;
-    background: var(--el-bg-color);
-    border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-    
-    .advanced-filters-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 24px;
-      cursor: pointer;
-      user-select: none;
-      transition: background-color 0.3s;
-      
-      &:hover {
-        background: var(--el-fill-color-light);
-      }
-      
-      .header-left {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        
-        .title {
-          font-size: 14px;
-          font-weight: 500;
-          color: var(--el-text-color-regular);
-        }
-        
-        .filter-badge {
-          margin-left: 4px;
-        }
-      }
-    }
-    
-    .advanced-filters-content {
-      padding: 0 24px 20px;
-    }
-  }
-
   /* 达人展示区 */
   .influencer-display-area {
     background: var(--el-bg-color);
     border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 
     .display-toolbar {
       display: flex;
@@ -830,24 +855,22 @@ if (typeof window !== 'undefined') {
         }
       }
 
-      .toolbar-center {
-        flex: 1;
-        display: flex;
-        justify-content: right;
-      }
-
       .toolbar-right {
         display: flex;
         align-items: center;
-        gap: 12px;
-
-        .is-active {
-          background: var(--el-color-primary);
-          color: white;
-        }
-
-        .filter-badge {
-          margin-left: 8px;
+        gap: 16px;
+      }
+      
+      .toolbar-group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        
+        .group-label {
+          font-size: 13px;
+          color: var(--el-text-color-regular);
+          font-weight: 500;
+          white-space: nowrap;
         }
       }
     }
