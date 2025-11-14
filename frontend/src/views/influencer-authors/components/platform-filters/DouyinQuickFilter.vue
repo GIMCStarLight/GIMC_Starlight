@@ -160,116 +160,45 @@
       </div>
     </div>
 
-    <!-- 第3行:数据表现 -->
+    <!-- 第3行:达人属性(仅保留特殊认证) -->
     <div class="filter-row">
-      <span class="filter-label">数据表现</span>
-      <div class="filter-content dual-dimension">
-        <!-- 内容质量 -->
-        <div class="dimension-group">
-          <span class="dimension-label">内容质量:</span>
-          <el-radio-group
-            v-model="filters.qualityTier"
-            @change="handleFilterChange"
-          >
-            <el-radio-button :value="undefined">不限</el-radio-button>
-            <el-radio-button value="premium">优质</el-radio-button>
-            <el-radio-button value="high">良好</el-radio-button>
-            <el-radio-button value="medium">一般</el-radio-button>
-            <el-radio-button value="low">基础</el-radio-button>
-          </el-radio-group>
-        </div>
-
-        <!-- 粉丝增势 -->
-        <div class="dimension-group">
-          <span class="dimension-label">粉丝增势:</span>
-          <el-radio-group
-            v-model="filters.growthLevel"
-            @change="handleFilterChange"
-          >
-            <el-radio-button :value="undefined">不限</el-radio-button>
-            <el-radio-button value="explosive">爆发(≥30%)</el-radio-button>
-            <el-radio-button value="high">高速(10-30%)</el-radio-button>
-            <el-radio-button value="medium">稳定(3-10%)</el-radio-button>
-            <el-radio-button value="low">缓慢(0-3%)</el-radio-button>
-          </el-radio-group>
-        </div>
-      </div>
-    </div>
-
-    <!-- 第4行:预算规模 -->
-    <div class="filter-row">
-      <span class="filter-label">预算规模</span>
-      <div class="filter-content dual-dimension">
-        <!-- 价格档位 -->
-        <div class="dimension-group">
-          <span class="dimension-label">价格档位:</span>
-          <el-radio-group
-            v-model="filters.priceTier"
-            @change="handleFilterChange"
-          >
-            <el-radio-button :value="undefined">不限</el-radio-button>
-            <el-radio-button value="low">1-5千</el-radio-button>
-            <el-radio-button value="medium">5千-2万</el-radio-button>
-            <el-radio-button value="high">2-5万</el-radio-button>
-            <el-radio-button value="premium">5万+</el-radio-button>
-          </el-radio-group>
-        </div>
-
-        <!-- 达人规模 -->
-        <div class="dimension-group">
-          <span class="dimension-label">达人规模:</span>
-          <el-radio-group
-            v-model="filters.influencerTier"
-            @change="handleFilterChange"
-          >
-            <el-radio-button :value="undefined">不限</el-radio-button>
-            <el-radio-button value="nano">新星(1万以下)</el-radio-button>
-            <el-radio-button value="micro">腰部(1-10万)</el-radio-button>
-            <el-radio-button value="mid">中部(10-100万)</el-radio-button>
-            <el-radio-button value="macro">头部(100-1000万)</el-radio-button>
-            <el-radio-button value="mega">顶流(1000万+)</el-radio-button>
-          </el-radio-group>
-        </div>
-      </div>
-    </div>
-
-    <!-- 第5行:达人属性 -->
-    <div class="filter-row">
-      <span class="filter-label">达人属性</span>
-      <div class="filter-content attribute-grid">
-        <!-- 电商状态 -->
-        <div class="attribute-item">
-          <span class="attribute-label">电商状态:</span>
-          <el-radio-group v-model="influencerAttrs.ecommerceEnabled" size="default" @change="handleAttrChange">
-            <el-radio-button :value="undefined">不限</el-radio-button>
-            <el-radio-button :value="true">已开通</el-radio-button>
-            <el-radio-button :value="false">未开通</el-radio-button>
-          </el-radio-group>
-        </div>
-
-        <!-- 电商等级 -->
-        <div class="attribute-item">
-          <span class="attribute-label">电商等级:</span>
-          <el-radio-group v-model="influencerAttrs.ecomCapabilityTier" size="default" @change="handleAttrChange">
-            <el-radio-button :value="undefined">不限</el-radio-button>
-            <el-radio-button value="top">顶级</el-radio-button>
-            <el-radio-button value="high">高级</el-radio-button>
-            <el-radio-button value="medium">中级</el-radio-button>
-            <el-radio-button value="low">初级</el-radio-button>
-          </el-radio-group>
-        </div>
-
-        <!-- 特殊认证 -->
-        <div class="attribute-item">
-          <span class="attribute-label">特殊认证:</span>
-          <el-radio-group v-model="influencerAttrs.certType" size="default" @change="handleAttrChange">
-            <el-radio-button :value="undefined">不限</el-radio-button>
-            <el-radio-button value="excellentAuthor">优质</el-radio-button>
-            <el-radio-button value="risingStart">新星</el-radio-button>
-            <el-radio-button value="highPotential">高潜</el-radio-button>
-            <el-radio-button value="blackHorse">黑马</el-radio-button>
-          </el-radio-group>
-        </div>
+      <span class="filter-label">达人认证</span>
+      <div class="filter-buttons">
+        <el-button
+          :type="influencerAttrs.certType === undefined ? 'primary' : ''"
+          size="default"
+          @click="influencerAttrs.certType = undefined; handleAttrChange()"
+        >
+          不限
+        </el-button>
+        <el-button
+          :type="influencerAttrs.certType === 'excellentAuthor' ? 'primary' : ''"
+          size="default"
+          @click="influencerAttrs.certType = 'excellentAuthor'; handleAttrChange()"
+        >
+          优质达人
+        </el-button>
+        <el-button
+          :type="influencerAttrs.certType === 'risingStart' ? 'primary' : ''"
+          size="default"
+          @click="influencerAttrs.certType = 'risingStart'; handleAttrChange()"
+        >
+          新星达人
+        </el-button>
+        <el-button
+          :type="influencerAttrs.certType === 'highPotential' ? 'primary' : ''"
+          size="default"
+          @click="influencerAttrs.certType = 'highPotential'; handleAttrChange()"
+        >
+          高潜达人
+        </el-button>
+        <el-button
+          :type="influencerAttrs.certType === 'blackHorse' ? 'primary' : ''"
+          size="default"
+          @click="influencerAttrs.certType = 'blackHorse'; handleAttrChange()"
+        >
+          黑马达人
+        </el-button>
       </div>
     </div>
 
@@ -758,12 +687,7 @@ const contentTagsHierarchy = ref([
   },
 ])
 
-const filters = ref<QuickFilterParams>({
-  qualityTier: undefined,
-  growthLevel: undefined,
-  priceTier: undefined,
-  influencerTier: undefined
-})
+const filters = ref<QuickFilterParams>({})
 
 // 基础信息筛选
 const basicInfo = ref<{
@@ -778,14 +702,10 @@ const basicInfo = ref<{
   city: ''
 })
 
-// 达人属性筛选
+// 达人属性筛选(仅保留特殊认证)
 const influencerAttrs = ref<{
-  ecommerceEnabled?: boolean
-  ecomCapabilityTier?: 'top' | 'high' | 'medium' | 'low'
   certType?: 'excellentAuthor' | 'blackHorse' | 'risingStart' | 'highPotential'
 }>({
-  ecommerceEnabled: undefined,
-  ecomCapabilityTier: undefined,
   certType: undefined
 })
 
@@ -921,17 +841,12 @@ const emit = defineEmits<{
 const hasActiveFilters = computed(() => {
   return selectedCooperation.value !== '' ||
     selectedTags.value.length > 0 ||
-    filters.value.qualityTier !== undefined ||
-    filters.value.growthLevel !== undefined ||
-    filters.value.priceTier !== undefined ||
-    filters.value.influencerTier !== undefined ||
     basicInfo.value.keyword !== '' ||
     basicInfo.value.gender !== undefined ||
     basicInfo.value.province !== '' ||
     basicInfo.value.city !== '' ||
-    influencerAttrs.value.ecommerceEnabled !== undefined ||
-    influencerAttrs.value.ecomCapabilityTier !== undefined ||
-    influencerAttrs.value.certType !== undefined
+    influencerAttrs.value.certType !== undefined ||
+    Object.values(advancedFilters.value).some(v => v !== undefined && v !== null)
 })
 
 const activeFilterTags = computed(() => {
@@ -961,46 +876,6 @@ const activeFilterTags = computed(() => {
   
   if (selectedTags.value.length > 0) {
     tags.push({ key: 'tags', label: `标签: ${selectedTags.value.join(', ')}` })
-  }
-  
-  const qualityLabels = { premium: '优质', high: '良好', medium: '一般', low: '基础' }
-  if (filters.value.qualityTier) {
-    tags.push({ key: 'quality', label: `质量: ${qualityLabels[filters.value.qualityTier]}` })
-  }
-  
-  const growthLabels = { 
-    explosive: '爆发(≥30%)', 
-    high: '高速(10-30%)', 
-    medium: '稳定(3-10%)', 
-    low: '缓慢(0-3%)' 
-  }
-  if (filters.value.growthLevel) {
-    tags.push({ key: 'growth', label: `增长: ${growthLabels[filters.value.growthLevel]}` })
-  }
-  
-  const priceLabels = { 
-    low: '1-5千', 
-    medium: '5千-2万', 
-    high: '2-5万', 
-    premium: '5万+' 
-  }
-  if (filters.value.priceTier) {
-    tags.push({ key: 'price', label: `价格: ${priceLabels[filters.value.priceTier]}` })
-  }
-  
-  const tierLabels = { nano: '新星', micro: '腰部', mid: '中部', macro: '头部', mega: '顶流' }
-  if (filters.value.influencerTier) {
-    tags.push({ key: 'tier', label: `规模: ${tierLabels[filters.value.influencerTier]}` })
-  }
-  
-  // 达人属性标签
-  if (influencerAttrs.value.ecommerceEnabled !== undefined) {
-    tags.push({ key: 'ecommerceEnabled', label: `电商状态: ${influencerAttrs.value.ecommerceEnabled ? '已开通' : '未开通'}` })
-  }
-  
-  const ecomTierLabels = { top: '顶级', high: '高级', medium: '中级', low: '初级' }
-  if (influencerAttrs.value.ecomCapabilityTier) {
-    tags.push({ key: 'ecomCapabilityTier', label: `电商等级: ${ecomTierLabels[influencerAttrs.value.ecomCapabilityTier]}` })
   }
   
   const certLabels = { 
@@ -1175,24 +1050,6 @@ const removeFilter = (key: string) => {
     case 'tags':
       selectedTags.value = []
       break
-    case 'quality':
-      filters.value.qualityTier = undefined
-      break
-    case 'growth':
-      filters.value.growthLevel = undefined
-      break
-    case 'price':
-      filters.value.priceTier = undefined
-      break
-    case 'tier':
-      filters.value.influencerTier = undefined
-      break
-    case 'ecommerceEnabled':
-      influencerAttrs.value.ecommerceEnabled = undefined
-      break
-    case 'ecomCapabilityTier':
-      influencerAttrs.value.ecomCapabilityTier = undefined
-      break
     case 'certType':
       influencerAttrs.value.certType = undefined
       break
@@ -1209,17 +1066,11 @@ const clearAllFilters = () => {
   }
   selectedCooperation.value = ''
   selectedTags.value = []
-  filters.value = {
-    qualityTier: undefined,
-    growthLevel: undefined,
-    priceTier: undefined,
-    influencerTier: undefined
-  }
+  filters.value = {}
   influencerAttrs.value = {
-    ecommerceEnabled: undefined,
-    ecomCapabilityTier: undefined,
     certType: undefined
   }
+  resetAdvancedFilters()
   emitFilterChange()
 }
 
@@ -1316,9 +1167,7 @@ const emitFilterChange = useDebounceFn(() => {
     ...(basicInfo.value.city ? { city: basicInfo.value.city } : {}),
     // 标签
     primaryTags: chineseTagNames.length > 0 ? chineseTagNames : undefined,
-    // 达人属性 - 只传递非undefined的值
-    ...(influencerAttrs.value.ecommerceEnabled !== undefined ? { ecommerceEnabled: influencerAttrs.value.ecommerceEnabled } : {}),
-    ...(influencerAttrs.value.ecomCapabilityTier ? { ecomCapabilityTier: influencerAttrs.value.ecomCapabilityTier } : {}),
+    // 达人属性 - 仅保留特殊认证
     ...certMapping,
     // 高级筛选参数
     ...Object.entries(advancedFilters.value).reduce((acc, [key, value]) => {
