@@ -22,6 +22,9 @@ export class InfluencerNormalizer {
 
     // 执行归一化
     const normalized: Influencer = {
+      // 保留其他所有字段
+      ...raw,
+
       // ID归一化 (优先级: author_id > authorId > id)
       author_id: raw.author_id || raw.authorId || raw.id || '',
 
@@ -39,9 +42,6 @@ export class InfluencerNormalizer {
 
       // 平台
       platform: raw.platform || '',
-
-      // 保留其他所有字段
-      ...raw,
 
       // UI状态初始化
       updating: raw.updating ?? false,
