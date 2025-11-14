@@ -80,6 +80,9 @@ export interface AdvancedFilterParams extends QuickFilterParams {
   risingStart?: boolean
   highPotential?: boolean
   
+  // 机构筛选
+  orgName?: string
+  
   // 匹配相关
   matchedOnly?: boolean
   matchStatus?: 'PENDING' | 'MATCHED' | 'UNMATCHED' | 'REJECTED' | 'NO_MATCH' | 'FAILED'
