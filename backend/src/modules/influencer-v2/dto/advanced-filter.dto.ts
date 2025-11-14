@@ -250,6 +250,10 @@ export class AdvancedFilterDto extends QuickFilterDto {
   // ========== 7. 认证标签维度 ==========
 
   @IsOptional()
+  @IsString()
+  orgName?: string; // 机构筛选（省广星媒、星链达人等）
+
+  @IsOptional()
   @Transform(({ value }) => value === 'true' || value === true)
   excellentAuthor?: boolean; // 优质达人
 
@@ -265,7 +269,59 @@ export class AdvancedFilterDto extends QuickFilterDto {
   @Transform(({ value }) => value === 'true' || value === true)
   highPotential?: boolean; // 高潜达人
 
-  // ========== 8. 匹配相关 ==========
+  // ========== 8. 预期指标维度 ==========
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(0)
+  minExpectedPlayNum?: number; // 预期播放量
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(0)
+  maxExpectedPlayNum?: number;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  @Min(0)
+  minExpectedCpm?: number; // 预期CPM
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  @Min(0)
+  maxExpectedCpm?: number;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  @Min(0)
+  minExpectedCpe?: number; // 预期CPE
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  @Min(0)
+  maxExpectedCpe?: number;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  @Min(0)
+  @Max(1)
+  minBurstRate?: number; // 爆文率
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  @Min(0)
+  @Max(1)
+  maxBurstRate?: number;
+
+  // ========== 9. 匹配相关 ==========
 
   @IsOptional()
   @Transform(({ value }) => value === 'true' || value === true)
