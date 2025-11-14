@@ -203,7 +203,7 @@
     </div>
 
     <!-- 第6行:智能场景 -->
-    <div class="filter-row smart-scenarios-row">
+    <div class="filter-row">
       <span class="filter-label">智能场景</span>
       <div class="filter-buttons">
         <el-button
@@ -220,7 +220,7 @@
     </div>
 
     <!-- 第7行:核心指标 -->
-    <div class="filter-row advanced-row">
+    <div class="filter-row">
       <span class="filter-label">核心指标</span>
       <div class="filter-content advanced-grid">
         <div class="advanced-item">
@@ -251,7 +251,7 @@
     </div>
 
     <!-- 第8行:内容质量指标 -->
-    <div class="filter-row advanced-row">
+    <div class="filter-row">
       <span class="filter-label">内容质量</span>
       <div class="filter-content advanced-grid">
         <div class="advanced-item">
@@ -282,7 +282,7 @@
     </div>
 
     <!-- 第9行:营销指数 -->
-    <div class="filter-row advanced-row">
+    <div class="filter-row">
       <span class="filter-label">营销指数</span>
       <div class="filter-content advanced-grid">
         <div class="advanced-item">
@@ -1224,22 +1224,6 @@ watch(() => estimatedCount.value, (newVal) => {
     padding-bottom: 16px;
     margin-bottom: 20px;
     border-bottom: 2px solid #e5e7eb;
-  }
-  
-  &.smart-scenarios-row {
-    padding: 14px;
-    background: linear-gradient(135deg, #f0f4ff 0%, #f9f5ff 100%);
-    border-radius: 6px;
-    border: 1px solid #e0e7ff;
-    margin-bottom: 16px;
-  }
-  
-  &.advanced-row {
-    padding: 14px;
-    background: #fafbfc;
-    border-radius: 6px;
-    border: 1px solid #e5e7eb;
-    margin-bottom: 12px;
   }
 }
 
