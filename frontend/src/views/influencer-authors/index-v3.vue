@@ -58,13 +58,6 @@
       @filter-change="handleQuickFilterChange"
     />
 
-    <component 
-      :is="getAdvancedFilterComponent(currentPlatform)"
-      :key="`advanced-filter-${currentPlatform}`"
-      ref="advancedFiltersRef"
-      @filter-change="handleAdvancedFilterChange"
-    />
-
     <!-- 达人数据展示区 -->
     <div class="influencer-display-area">
       <!-- 工具栏：视图切换、排序、高级筛选按钮 -->
@@ -179,15 +172,12 @@ import { createCrawlJob, pollCrawlJobStatus, type CrawlJobStatus, type CrawlJobD
 
 // 平台特色筛选组件
 import AllPlatformsQuickFilter from './components/platform-filters/AllPlatformsQuickFilter.vue'
-import DouyinQuickFilter from './components/platform-filters/DouyinQuickFilter.vue' // 抖音平台的快速筛选组件
+import DouyinQuickFilter from './components/platform-filters/DouyinQuickFilter.vue' // 抖音平台的筛选组件(已合并高级筛选)
 import XiaohongshuQuickFilter from './components/platform-filters/XiaohongshuQuickFilter.vue'
 import WeiboQuickFilter from './components/platform-filters/WeiboQuickFilter.vue'
 import BilibiliQuickFilter from './components/platform-filters/BilibiliQuickFilter.vue'
 import KuaishouQuickFilter from './components/platform-filters/KuaishouQuickFilter.vue'
 import WechatQuickFilter from './components/platform-filters/WechatQuickFilter.vue'
-
-// 平台高级筛选组件
-import DouyinAdvancedFilter from './components/platform-filters/DouyinAdvancedFilter.vue' // 抖音平台的高级筛选组件
 
 // 平台展示组件
 import AllPlatformsGrid from './components/platform-grids/AllPlatformsGrid.vue'
@@ -271,7 +261,7 @@ const handlePlatformChange = (platformValue: string) => {
 const getQuickFilterComponent = (platform: string) => {
   const filterMap: Record<string, any> = {
     'all': AllPlatformsQuickFilter,      // 全部平台 - 待补充
-    'douyin': DouyinQuickFilter,          // 抖音 - 当前已有实现
+    'douyin': DouyinQuickFilter,          // 抖音 - 已合并高级筛选
     'xiaohongshu': XiaohongshuQuickFilter, // 小红书 - 待补充
     'weibo': WeiboQuickFilter,            // 微博 - 待补充
     'bilibili': BilibiliQuickFilter,      // B站 - 待补充
@@ -279,14 +269,6 @@ const getQuickFilterComponent = (platform: string) => {
     'wechat': WechatQuickFilter,          // 微信 - 待补充
   }
   return markRaw(filterMap[platform] || AllPlatformsQuickFilter)
-}
-
-const getAdvancedFilterComponent = (platform: string) => {
-  // 抖音使用专属的高级筛选组件，其他平台暂时使用抖音的组件（待各平台补充专属组件）
-  const filterMap: Record<string, any> = {
-    'douyin': DouyinAdvancedFilter,  // 抖音 - 专属高级筛选
-  }
-  return markRaw(filterMap[platform] || DouyinAdvancedFilter)
 }
 
 const getGridComponent = (platform: string) => {
