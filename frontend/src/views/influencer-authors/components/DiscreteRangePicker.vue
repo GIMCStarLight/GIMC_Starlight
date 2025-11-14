@@ -97,12 +97,13 @@ const maxValue = computed({
 .discrete-range-picker {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;  // 缩小网格内间距
   flex: 1;  // 让组件占满剩余空间
   min-width: 0;  // 防止flex子元素溢出
+  width: auto;  // 根据内容自动调整
 
   :deep(.el-popover) {
-    flex: 1;
+    flex: 0 1 auto;  // 不扩张，根据内容调整
     min-width: 0;
   }
 
@@ -112,6 +113,7 @@ const maxValue = computed({
     font-weight: 400;  // 稍微加重
     user-select: none;
     flex-shrink: 0;  // 防止分隔符被压缩
+    margin: 0 2px;  // 两侧一点间距
   }
 }
 </style>
