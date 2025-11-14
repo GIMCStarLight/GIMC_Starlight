@@ -247,6 +247,38 @@
             @update:model-value="handleAdvancedChange"
           />
         </div>
+        <div class="advanced-item">
+          <span class="advanced-label">预期播放量</span>
+          <DiscreteRangePicker
+            v-model="expectedPlayRange"
+            :options="EXPECTED_PLAY_OPTIONS"
+            @update:model-value="handleAdvancedChange"
+          />
+        </div>
+        <div class="advanced-item">
+          <span class="advanced-label">预期CPM</span>
+          <DiscreteRangePicker
+            v-model="expectedCpmRange"
+            :options="EXPECTED_CPM_OPTIONS"
+            @update:model-value="handleAdvancedChange"
+          />
+        </div>
+        <div class="advanced-item">
+          <span class="advanced-label">预期CPE</span>
+          <DiscreteRangePicker
+            v-model="expectedCpeRange"
+            :options="EXPECTED_CPE_OPTIONS"
+            @update:model-value="handleAdvancedChange"
+          />
+        </div>
+        <div class="advanced-item">
+          <span class="advanced-label">爆文率</span>
+          <DiscreteRangePicker
+            v-model="burstRateRange"
+            :options="BURST_RATE_OPTIONS"
+            @update:model-value="handleAdvancedChange"
+          />
+        </div>
       </div>
     </div>
 
@@ -355,7 +387,11 @@ import {
   PLAY_OVER_RATE_OPTIONS,
   GROWTH_RATE_OPTIONS,
   GMV_OPTIONS,
-  MARKETING_INDEX_OPTIONS
+  MARKETING_INDEX_OPTIONS,
+  EXPECTED_PLAY_OPTIONS,
+  EXPECTED_CPM_OPTIONS,
+  EXPECTED_CPE_OPTIONS,
+  BURST_RATE_OPTIONS
 } from '../../constants/filter-options'
 
 // ========== 数据定义 ==========
@@ -775,7 +811,15 @@ const advancedFilters = ref<AdvancedFilterParams>({
   minCpmEfficiency: undefined, 
   maxCpmEfficiency: undefined, 
   minPrice20_60: undefined,
-  maxPrice20_60: undefined
+  maxPrice20_60: undefined,
+  minExpectedPlayNum: undefined,
+  maxExpectedPlayNum: undefined,
+  minExpectedCpm: undefined,
+  maxExpectedCpm: undefined,
+  minExpectedCpe: undefined,
+  maxExpectedCpe: undefined,
+  minBurstRate: undefined,
+  maxBurstRate: undefined
 })
 
 // 高级筛选范围计算属性
@@ -824,6 +868,38 @@ const gmvRange = computed({
   set: (value: [number | undefined, number | undefined]) => {
     advancedFilters.value.minGmv30d = value[0]
     advancedFilters.value.maxGmv30d = value[1]
+  }
+})
+
+const expectedPlayRange = computed({
+  get: (): [number | undefined, number | undefined] => [advancedFilters.value.minExpectedPlayNum, advancedFilters.value.maxExpectedPlayNum],
+  set: (value: [number | undefined, number | undefined]) => {
+    advancedFilters.value.minExpectedPlayNum = value[0]
+    advancedFilters.value.maxExpectedPlayNum = value[1]
+  }
+})
+
+const expectedCpmRange = computed({
+  get: (): [number | undefined, number | undefined] => [advancedFilters.value.minExpectedCpm, advancedFilters.value.maxExpectedCpm],
+  set: (value: [number | undefined, number | undefined]) => {
+    advancedFilters.value.minExpectedCpm = value[0]
+    advancedFilters.value.maxExpectedCpm = value[1]
+  }
+})
+
+const expectedCpeRange = computed({
+  get: (): [number | undefined, number | undefined] => [advancedFilters.value.minExpectedCpe, advancedFilters.value.maxExpectedCpe],
+  set: (value: [number | undefined, number | undefined]) => {
+    advancedFilters.value.minExpectedCpe = value[0]
+    advancedFilters.value.maxExpectedCpe = value[1]
+  }
+})
+
+const burstRateRange = computed({
+  get: (): [number | undefined, number | undefined] => [advancedFilters.value.minBurstRate, advancedFilters.value.maxBurstRate],
+  set: (value: [number | undefined, number | undefined]) => {
+    advancedFilters.value.minBurstRate = value[0]
+    advancedFilters.value.maxBurstRate = value[1]
   }
 })
 
@@ -1122,7 +1198,15 @@ const resetAdvancedFilters = () => {
     minCpmEfficiency: undefined, 
     maxCpmEfficiency: undefined, 
     minPrice20_60: undefined,
-    maxPrice20_60: undefined
+    maxPrice20_60: undefined,
+    minExpectedPlayNum: undefined,
+    maxExpectedPlayNum: undefined,
+    minExpectedCpm: undefined,
+    maxExpectedCpm: undefined,
+    minExpectedCpe: undefined,
+    maxExpectedCpe: undefined,
+    minBurstRate: undefined,
+    maxBurstRate: undefined
   }
 }
 

@@ -111,3 +111,55 @@ export const MARKETING_INDEX_OPTIONS: RangeOption[] = [
   { label: '95', value: 95 },
   { label: '100', value: 100 }
 ]
+
+// 预期播放量档位
+export const EXPECTED_PLAY_OPTIONS: RangeOption[] = [
+  { label: '1千', value: 1000 },
+  { label: '5千', value: 5000 },
+  { label: '1万', value: 10000 },
+  { label: '5万', value: 50000 },
+  { label: '10万', value: 100000 },
+  { label: '50万', value: 500000 },
+  { label: '100万', value: 1000000 },
+  { label: '500万', value: 5000000 },
+  { label: '1000万', value: 10000000 }
+]
+
+// 预期CPM档位（元）
+export const EXPECTED_CPM_OPTIONS: RangeOption[] = [
+  { label: '1元', value: 1 },
+  { label: '5元', value: 5 },
+  { label: '10元', value: 10 },
+  { label: '20元', value: 20 },
+  { label: '50元', value: 50 },
+  { label: '100元', value: 100 },
+  { label: '200元', value: 200 },
+  { label: '500元', value: 500 }
+]
+
+// 预期CPE档位（元）
+export const EXPECTED_CPE_OPTIONS: RangeOption[] = [
+  { label: '0.1元', value: 0.1 },
+  { label: '0.5元', value: 0.5 },
+  { label: '1元', value: 1 },
+  { label: '2元', value: 2 },
+  { label: '5元', value: 5 },
+  { label: '10元', value: 10 },
+  { label: '20元', value: 20 },
+  { label: '50元', value: 50 }
+]
+
+// 爆文率档位（百分比）
+export const BURST_RATE_OPTIONS: RangeOption[] = [
+  { label: '5%', value: 0.05 },
+  { label: '10%', value: 0.10 },
+  { label: '20%', value: 0.20 },
+  { label: '30%', value: 0.30 },
+  { label: '40%', value: 0.40 },
+  { label: '50%', value: 0.50 },
+  { label: '60%', value: 0.60 },
+  { label: '70%', value: 0.70 },
+  { label: '80%', value: 0.80 },
+  { label: '90%', value: 0.90 },
+  { label: '100%', value: 1.00 }
+]
