@@ -1322,7 +1322,7 @@ watch(() => estimatedCount.value, (newVal) => {
 .filter-row {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 12px;
+  margin-bottom: 16px;  // 统一间距为16px
   
   &:last-child {
     margin-bottom: 0;
@@ -1330,7 +1330,7 @@ watch(() => estimatedCount.value, (newVal) => {
   
   &.basic-info-row {
     padding-bottom: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;  // 保持一致
     border-bottom: 2px solid #e5e7eb;
   }
 }
@@ -1518,7 +1518,7 @@ watch(() => estimatedCount.value, (newVal) => {
 .advanced-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px 20px;
+  gap: 16px 24px;  // 增加竖直间距到16px，水平间距保持24px
   max-width: 1300px;
   
   @media (max-width: 1200px) {
@@ -1532,13 +1532,15 @@ watch(() => estimatedCount.value, (newVal) => {
 
 .advanced-item {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;  // 改为水平布局
+  gap: 12px;  // 增加间距
 }
 
 .advanced-label {
-  font-size: 12px;
-  color: #6b7280;
+  font-size: 13px;  // 稍微增大字号
+  color: #374151;  // 加深颜色，提高可读性
   font-weight: 500;
+  white-space: nowrap;
+  min-width: 70px;  // 确保标签宽度一致
 }
 </style>
