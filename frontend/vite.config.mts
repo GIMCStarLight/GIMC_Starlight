@@ -79,6 +79,17 @@ export default defineConfig(async (config?: ConfigEnv) => ({
         cssCodeSplit: true,
         // 设置 chunk 大小警告限制
         chunkSizeWarningLimit: 1000,
+        // 生产环境关闭 sourcemap
+        sourcemap: false,
+        // 压缩配置
+        minify: 'terser',
+        terserOptions: {
+          compress: {
+            drop_console: true, // 移除console
+            drop_debugger: true, // 移除debugger
+            pure_funcs: ['console.log'], // 移除特定函数
+          },
+        },
         rollupOptions: {
           // 外部化 Node.js 专用模块
           external: (id: string) => {
