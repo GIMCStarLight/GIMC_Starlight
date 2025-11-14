@@ -172,6 +172,20 @@
           不限
         </el-button>
         <el-button
+          :type="influencerAttrs.certType === 'shenguangxingmei' ? 'primary' : ''"
+          size="default"
+          @click="influencerAttrs.certType = 'shenguangxingmei'; handleAttrChange()"
+        >
+          省广星媒
+        </el-button>
+        <el-button
+          :type="influencerAttrs.certType === 'xingliandaren' ? 'primary' : ''"
+          size="default"
+          @click="influencerAttrs.certType = 'xingliandaren'; handleAttrChange()"
+        >
+          星链达人
+        </el-button>
+        <el-button
           :type="influencerAttrs.certType === 'excellentAuthor' ? 'primary' : ''"
           size="default"
           @click="influencerAttrs.certType = 'excellentAuthor'; handleAttrChange()"
@@ -204,7 +218,7 @@
 
     <!-- 第6行:智能场景 -->
     <div class="filter-row">
-      <span class="filter-label">智能场景</span>
+      <span class="filter-label">场景推荐</span>
       <div class="filter-buttons">
         <el-button
           v-for="scenario in scenarios"
@@ -740,7 +754,7 @@ const basicInfo = ref<{
 
 // 达人属性筛选(仅保留特殊认证)
 const influencerAttrs = ref<{
-  certType?: 'excellentAuthor' | 'blackHorse' | 'risingStart' | 'highPotential'
+  certType?: 'shenguangxingmei' | 'xingliandaren' | 'excellentAuthor' | 'blackHorse' | 'risingStart' | 'highPotential'
 }>({
   certType: undefined
 })
@@ -955,6 +969,8 @@ const activeFilterTags = computed(() => {
   }
   
   const certLabels = { 
+    shenguangxingmei: '省广星媒',
+    xingliandaren: '星链达人',
     excellentAuthor: '优质达人', 
     risingStart: '新星达人', 
     highPotential: '高潜达人', 
@@ -1234,10 +1250,18 @@ const emitFilterChange = useDebounceFn(() => {
     return tag  // fallback
   })
   
-  // 处理特殊认证
+  // 处理特殊认证和机构筛选
   const certMapping: any = {}
   if (influencerAttrs.value.certType) {
-    certMapping[influencerAttrs.value.certType] = true
+    // 如果是机构筛选,映射到orgName参数
+    if (influencerAttrs.value.certType === 'shenguangxingmei') {
+      certMapping.orgName = '省广星媒'
+    } else if (influencerAttrs.value.certType === 'xingliandaren') {
+      certMapping.orgName = '星链达人'
+    } else {
+      // 其他认证类型保持原有逻辑
+      certMapping[influencerAttrs.value.certType] = true
+    }
   }
   
   // 构建筛选参数 - 只传递有值的字段
