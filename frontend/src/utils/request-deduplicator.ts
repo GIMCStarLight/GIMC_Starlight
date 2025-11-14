@@ -20,19 +20,61 @@ export class RequestDeduplicator {
 
   // 白名单: 需要去重的API路径
   private readonly whitelist: string[] = [
+    // 筛选类API
     '/influencers/v3/filter/advanced',
     '/influencers/v3/filter/quick',
     '/influencers/v3/filter/stats',
     '/influencers/v3/filter/popular-tags',
+    
+    // 列表查询API
+    '/v2/influencers/v3/list',
+    '/kol-lists',
+    '/kol-match',
+    
+    // 统计类API
+    '/influencers/v3/stats',
+    '/kol-match/statistics',
+    '/performance/metrics',
+    '/performance/matching-stats',
+    '/performance/slow-queries',
+    
+    // 详情查询API
+    '/influencers/v3/detail',
+    '/kol-lists/',
+    '/kol-match/',
+    
+    // 配置查询API
+    '/kol-lists/platforms',
+    '/kol-lists/categories',
+    '/kol-lists/organizations',
   ]
 
   // 黑名单: 不应去重的API路径 (优先级高于白名单)
   private readonly blacklist: string[] = [
+    // 刷新类API
     '/influencers/v3/filter/refresh-view',
+    
+    // 导出类API
     '/influencers/v3/batch-export',
+    '/kol-lists/export',
+    
+    // 认证类API
     '/auth/login',
     '/auth/logout',
     '/auth/refresh',
+    
+    // 批量操作API (需要每次执行)
+    '/kol-match/batch',
+    '/kol-lists/batch',
+    '/kol-lists/',  // DELETE操作
+    
+    // 文件上传API
+    '/upload/excel',
+    '/upload/validate',
+    '/upload/import',
+    
+    // 确认/拒绝操作
+    '/kol-match/.*/(confirm|reject)',
   ]
 
   /**

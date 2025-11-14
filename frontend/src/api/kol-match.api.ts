@@ -1,4 +1,5 @@
 import { requestClient } from './request';
+import { requestDeduplicator } from '../utils/request-deduplicator';
 import type {
   BatchMatchParams,
   BatchMatchResponse,
@@ -21,7 +22,13 @@ export class KolMatchApi {
 
   // 获取单个私域达人的匹配候选
   static async getMatchCandidates(privateKolId: number): Promise<MatchResult> {
-    return requestClient.get(`/kol-match/${privateKolId}/candidates`);
+    return requestDeduplicator.deduplicate(
+      {
+        url: `/kol-match/${privateKolId}/candidates`,
+        method: 'GET',
+      },
+      () => requestClient.get(`/kol-match/${privateKolId}/candidates`)
+    );
   }
 
   // 确认匹配
@@ -36,31 +43,48 @@ export class KolMatchApi {
 
   // 查询匹配结果
   static async queryMatches(params: QueryMatchesParams): Promise<PaginationResponse<ExtendedKolInfo>> {
-    const response: any = await requestClient.get('/kol-match', { params, responseReturn: 'raw' });
-    const backendData = response?.data || response;
-    const pagination = backendData.pagination || {};
-    return {
-      data: backendData.data || [],
-      total: pagination.total || 0,
-      page: pagination.page || params.page || 1,
-      limit: pagination.pageSize || params.limit || 20,
-      totalPages: pagination.totalPages || 0,
-      hasNext: pagination.hasNext || false,
-      hasPrev: pagination.hasPrev || false
-    };
+    return requestDeduplicator.deduplicate(
+      {
+        url: '/kol-match',
+        method: 'GET',
+        params,
+      },
+      async () => {
+        const response: any = await requestClient.get('/kol-match', { params, responseReturn: 'raw' });
+        const backendData = response?.data || response;
+        const pagination = backendData.pagination || {};
+        return {
+          data: backendData.data || [],
+          total: pagination.total || 0,
+          page: pagination.page || params.page || 1,
+          limit: pagination.pageSize || params.limit || 20,
+          totalPages: pagination.totalPages || 0,
+          hasNext: pagination.hasNext || false,
+          hasPrev: pagination.hasPrev || false
+        };
+      }
+    );
   }
 
   // 获取匹配统计信息
   static async getMatchStatistics(): Promise<KolStatistics> {
-    const response: any = await requestClient.get('/kol-match/statistics', { responseReturn: 'raw' });
-    const backendData = response?.data || response;
-    return backendData.data || backendData || {
-      total: 0,
-      publicCount: 0,
-      privateCount: 0,
-      matchedCount: 0,
-      pendingReviewCount: 0
-    };
+    return requestDeduplicator.deduplicate(
+      {
+        url: '/kol-match/statistics',
+        method: 'GET',
+      },
+      async () => {
+        const response: any = await requestClient.get('/kol-match/statistics', { responseReturn: 'raw' });
+        const backendData = response?.data || response;
+        return backendData.data || backendData || {
+          total: 0,
+          publicCount: 0,
+          privateCount: 0,
+          matchedCount: 0,
+          pendingReviewCount: 0
+        };
+      }
+    );
   }
 }
 
@@ -68,20 +92,29 @@ export class KolMatchApi {
 export class KolListApi {
   // 获取 KOL 列表
   static async getKolList(params: any): Promise<PaginationResponse<KolInfo>> {
-    const response: any = await requestClient.get('/kol-lists', { params, responseReturn: 'raw' });
-    // 后端返回格式: { code, message, data: [...], pagination: {...} }
-    // 需要重组为前端期望的格式
-    const backendData = response?.data || response;
-    const pagination = backendData.pagination || {};
-    return {
-      data: backendData.data || [],
-      total: pagination.total || 0,
-      page: pagination.page || params.page || 1,
-      limit: pagination.pageSize || params.limit || 20,
-      totalPages: pagination.totalPages || 0,
-      hasNext: pagination.hasNext || false,
-      hasPrev: pagination.hasPrev || false
-    };
+    return requestDeduplicator.deduplicate(
+      {
+        url: '/kol-lists',
+        method: 'GET',
+        params,
+      },
+      async () => {
+        const response: any = await requestClient.get('/kol-lists', { params, responseReturn: 'raw' });
+        // 后端返回格式: { code, message, data: [...], pagination: {...} }
+        // 需要重组为前端期望的格式
+        const backendData = response?.data || response;
+        const pagination = backendData.pagination || {};
+        return {
+          data: backendData.data || [],
+          total: pagination.total || 0,
+          page: pagination.page || params.page || 1,
+          limit: pagination.pageSize || params.limit || 20,
+          totalPages: pagination.totalPages || 0,
+          hasNext: pagination.hasNext || false,
+          hasPrev: pagination.hasPrev || false
+        };
+      }
+    );
   }
 
   // 创建 KOL
@@ -112,7 +145,13 @@ export class KolListApi {
 
   // 获取 KOL 详情
   static async getKolDetail(id: number): Promise<KolInfo> {
-    return requestClient.get(`/kol-lists/${id}`);
+    return requestDeduplicator.deduplicate(
+      {
+        url: `/kol-lists/${id}`,
+        method: 'GET',
+      },
+      () => requestClient.get(`/kol-lists/${id}`)
+    );
   }
 
   // 导出 KOL 数据
@@ -125,23 +164,47 @@ export class KolListApi {
 
   // 获取平台列表
   static async getPlatforms(): Promise<string[]> {
-    const response: any = await requestClient.get('/kol-lists/platforms', { responseReturn: 'raw' });
-    const backendData = response?.data || response;
-    return backendData.data || backendData || [];
+    return requestDeduplicator.deduplicate(
+      {
+        url: '/kol-lists/platforms',
+        method: 'GET',
+      },
+      async () => {
+        const response: any = await requestClient.get('/kol-lists/platforms', { responseReturn: 'raw' });
+        const backendData = response?.data || response;
+        return backendData.data || backendData || [];
+      }
+    );
   }
 
   // 获取分类列表
   static async getCategories(): Promise<string[]> {
-    const response: any = await requestClient.get('/kol-lists/categories', { responseReturn: 'raw' });
-    const backendData = response?.data || response;
-    return backendData.data || backendData || [];
+    return requestDeduplicator.deduplicate(
+      {
+        url: '/kol-lists/categories',
+        method: 'GET',
+      },
+      async () => {
+        const response: any = await requestClient.get('/kol-lists/categories', { responseReturn: 'raw' });
+        const backendData = response?.data || response;
+        return backendData.data || backendData || [];
+      }
+    );
   }
 
   // 获取机构列表
   static async getOrganizations(): Promise<string[]> {
-    const response: any = await requestClient.get('/kol-lists/organizations', { responseReturn: 'raw' });
-    const backendData = response?.data || response;
-    return backendData.data || backendData || [];
+    return requestDeduplicator.deduplicate(
+      {
+        url: '/kol-lists/organizations',
+        method: 'GET',
+      },
+      async () => {
+        const response: any = await requestClient.get('/kol-lists/organizations', { responseReturn: 'raw' });
+        const backendData = response?.data || response;
+        return backendData.data || backendData || [];
+      }
+    );
   }
 }
 
@@ -188,16 +251,34 @@ export class FileUploadApi {
 export class PerformanceApi {
   // 获取系统性能指标
   static async getSystemMetrics(): Promise<any> {
-    return requestClient.get('/performance/metrics');
+    return requestDeduplicator.deduplicate(
+      {
+        url: '/performance/metrics',
+        method: 'GET',
+      },
+      () => requestClient.get('/performance/metrics')
+    );
   }
 
   // 获取匹配性能统计
   static async getMatchingStats(): Promise<any> {
-    return requestClient.get('/performance/matching-stats');
+    return requestDeduplicator.deduplicate(
+      {
+        url: '/performance/matching-stats',
+        method: 'GET',
+      },
+      () => requestClient.get('/performance/matching-stats')
+    );
   }
 
   // 获取慢查询日志
   static async getSlowQueries(): Promise<any> {
-    return requestClient.get('/performance/slow-queries');
+    return requestDeduplicator.deduplicate(
+      {
+        url: '/performance/slow-queries',
+        method: 'GET',
+      },
+      () => requestClient.get('/performance/slow-queries')
+    );
   }
 }
