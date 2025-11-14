@@ -226,10 +226,12 @@ class DatabaseServiceV2:
                 follower, star_index,
                 star_excellent_author, is_black_horse_author, is_cocreate_author,
                 is_cpm_project_author, is_short_drama, is_ad_star_cur_high_quality_author,
-                star_qianchuan_high_potential, last_crawled_at
+                star_qianchuan_high_potential,
+                author_avatar_frame_icon, province_id, city_id,
+                last_crawled_at
             ) VALUES (
                 %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
-                %s, %s, %s, %s, %s, %s, %s, %s
+                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
             )
             ON CONFLICT (author_id) DO UPDATE SET
                 nick_name = EXCLUDED.nick_name,
@@ -237,6 +239,9 @@ class DatabaseServiceV2:
                 star_index = EXCLUDED.star_index,
                 city = EXCLUDED.city,
                 province = EXCLUDED.province,
+                province_id = EXCLUDED.province_id,
+                city_id = EXCLUDED.city_id,
+                author_avatar_frame_icon = EXCLUDED.author_avatar_frame_icon,
                 updated_at = NOW(),
                 last_crawled_at = EXCLUDED.last_crawled_at
         """, (
@@ -259,6 +264,9 @@ class DatabaseServiceV2:
             self._safe_bool(attr.get('is_short_drama')),
             self._safe_bool(attr.get('is_ad_star_cur_high_quality_author')),
             self._safe_bool(attr.get('star_qianchuan_high_potential')),
+            attr.get('author_avatar_frame_icon'),
+            self._safe_int(attr.get('province_id')),
+            self._safe_int(attr.get('city_id')),
             datetime.now()
         ))
     
@@ -321,14 +329,27 @@ class DatabaseServiceV2:
                 assign_cpm_suggest_price, expected_play_num, expected_natural_play_num,
                 promotion_prospective_vv, promotion_prospective_1_20_cpm,
                 promotion_prospective_20_60_cpm, promotion_prospective_60_cpm,
+                sn_prospective_1_20_cpe, sn_prospective_20_60_cpe, sn_prospective_60_cpe,
+                sn_prospective_1_20_cpm, sn_prospective_20_60_cpm, sn_prospective_60_cpm,
                 assign_task_price_list, enroll_task_price_list,
-                pic_expected_play_num, pic_expected_cpm
-            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                pic_expected_play_num, pic_expected_cpm,
+                expected_cpa3_level
+            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             ON CONFLICT (author_id) DO UPDATE SET
                 price_1_20 = EXCLUDED.price_1_20,
                 price_20_60 = EXCLUDED.price_20_60,
                 price_60 = EXCLUDED.price_60,
                 assign_cpm_suggest_price = EXCLUDED.assign_cpm_suggest_price,
+                expected_play_num = EXCLUDED.expected_play_num,
+                expected_natural_play_num = EXCLUDED.expected_natural_play_num,
+                promotion_prospective_vv = EXCLUDED.promotion_prospective_vv,
+                sn_prospective_1_20_cpe = EXCLUDED.sn_prospective_1_20_cpe,
+                sn_prospective_20_60_cpe = EXCLUDED.sn_prospective_20_60_cpe,
+                sn_prospective_60_cpe = EXCLUDED.sn_prospective_60_cpe,
+                sn_prospective_1_20_cpm = EXCLUDED.sn_prospective_1_20_cpm,
+                sn_prospective_20_60_cpm = EXCLUDED.sn_prospective_20_60_cpm,
+                sn_prospective_60_cpm = EXCLUDED.sn_prospective_60_cpm,
+                expected_cpa3_level = EXCLUDED.expected_cpa3_level,
                 updated_at = NOW()
         """, (
             author_id,
@@ -342,10 +363,17 @@ class DatabaseServiceV2:
             self._safe_float(attr.get('promotion_prospective_1_20_cpm')),
             self._safe_float(attr.get('promotion_prospective_20_60_cpm')),
             self._safe_float(attr.get('promotion_prospective_60_cpm')),
+            self._safe_float(attr.get('sn_prospective_1_20_cpe')),
+            self._safe_float(attr.get('sn_prospective_20_60_cpe')),
+            self._safe_float(attr.get('sn_prospective_60_cpe')),
+            self._safe_float(attr.get('sn_prospective_1_20_cpm')),
+            self._safe_float(attr.get('sn_prospective_20_60_cpm')),
+            self._safe_float(attr.get('sn_prospective_60_cpm')),
             self._safe_json(attr.get('assign_task_price_list')),
             self._safe_json(attr.get('enroll_task_price_list')),
             self._safe_int(attr.get('pic_expected_play_num')),
-            self._safe_float(attr.get('pic_expected_cpm'))
+            self._safe_float(attr.get('pic_expected_cpm')),
+            self._safe_int(attr.get('expected_cpa3_level'))
         ))
     
     def _save_marketing_indices(self, cur, author_id: str, attr: Dict):
@@ -404,12 +432,16 @@ class DatabaseServiceV2:
                 star_ecom_video_num_30d, ecom_video_product_num_30d,
                 star_ecom_video_product_num_30d, ecom_gmv_30d_range,
                 ecom_avg_order_value_30d_range, ecom_gpm_30d_range,
-                ecom_score, ecom_watch_pv_30d
-            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                ecom_score, ecom_watch_pv_30d,
+                ecom_gpm_30days_range, ecom_video_ctr_30d_range,
+                avg_sale_amount_range, star_ecom_main_price_30days
+            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             ON CONFLICT (author_id) DO UPDATE SET
                 e_commerce_enable = EXCLUDED.e_commerce_enable,
                 author_ecom_level = EXCLUDED.author_ecom_level,
                 ecom_score = EXCLUDED.ecom_score,
+                star_ecom_video_num_30d = EXCLUDED.star_ecom_video_num_30d,
+                ecom_gmv_30d_range = EXCLUDED.ecom_gmv_30d_range,
                 updated_at = NOW()
         """, (
             author_id,
@@ -422,7 +454,11 @@ class DatabaseServiceV2:
             self._safe_json(attr.get('ecom_avg_order_value_30d_range')),
             self._safe_json(attr.get('ecom_gpm_30d_range')),
             self._safe_float(attr.get('ecom_score')),
-            self._safe_int(attr.get('ecom_watch_pv_30d'))
+            self._safe_int(attr.get('ecom_watch_pv_30d')),
+            self._safe_json(attr.get('ecom_gpm_30days_range')),
+            self._safe_json(attr.get('ecom_video_ctr_30d_range')),
+            self._safe_json(attr.get('avg_sale_amount_range')),
+            self._safe_float(attr.get('star_ecom_main_price_30days'))
         ))
     
     def _save_star_videos(self, cur, author_id: str, attr: Dict):
@@ -431,11 +467,16 @@ class DatabaseServiceV2:
             INSERT INTO authors_star_videos_90d (
                 author_id, star_video_cnt_90d, star_video_interact_rate_90d,
                 star_video_finish_vv_rate_90d, star_video_median_vv_90d,
-                star_video_install_ge_1_cnt_90d, star_item_count_within_30d
-            ) VALUES (%s, %s, %s, %s, %s, %s, %s)
+                star_video_install_ge_1_cnt_90d, star_item_count_within_30d,
+                star_component_link_click_cnt_90d, star_component_install_finish_cnt_90d,
+                star_component_download_ctr_90d, star_component_install_cpa_90d,
+                star_component_install_pvr_90d
+            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             ON CONFLICT (author_id) DO UPDATE SET
                 star_video_cnt_90d = EXCLUDED.star_video_cnt_90d,
                 star_video_interact_rate_90d = EXCLUDED.star_video_interact_rate_90d,
+                star_video_finish_vv_rate_90d = EXCLUDED.star_video_finish_vv_rate_90d,
+                star_component_link_click_cnt_90d = EXCLUDED.star_component_link_click_cnt_90d,
                 updated_at = NOW()
         """, (
             author_id,
@@ -444,7 +485,12 @@ class DatabaseServiceV2:
             self._safe_float(attr.get('star_video_finish_vv_rate_90d')),
             self._safe_int(attr.get('star_video_median_vv_90d')),
             self._safe_int(attr.get('star_video_install_ge_1_cnt_90d')),
-            self._safe_int(attr.get('star_item_count_within_30d'))
+            self._safe_int(attr.get('star_item_count_within_30d')),
+            self._safe_int(attr.get('star_component_link_click_cnt_90d')),
+            self._safe_int(attr.get('star_component_install_finish_cnt_90d')),
+            self._safe_float(attr.get('star_component_download_ctr_90d')),
+            self._safe_float(attr.get('star_component_install_cpa_90d')),
+            self._safe_float(attr.get('star_component_install_pvr_90d'))
         ))
     
     def _save_recent_works(self, cur, author_id: str, attr: Dict):
