@@ -3,14 +3,16 @@
  */
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import { advancedFilter, type AdvancedFilterParams } from '../api/influencer-filter'
+import { advancedFilter } from '../api/influencer-filter'
+import type { Influencer, InfluencerFilterParams, ViewMode, CardSize, SortOption } from '../types/influencer'
+import { InfluencerNormalizer } from '../utils/influencer-normalizer'
 
 export const useInfluencerSquareStore = defineStore('influencer-square', () => {
   // 加载状态
   const loading = ref(false)
   
   // 达人数据
-  const influencers = ref<any[]>([])
+  const influencers = ref<Influencer[]>([])
   const totalCount = ref(0)
   
   // 选中的达人 ID 集合（使用 Set 提高查找性能）
@@ -21,21 +23,21 @@ export const useInfluencerSquareStore = defineStore('influencer-square', () => {
   const pageSize = ref(20)
   
   // 排序 - 默认按星图指数降序
-  const sortBy = ref('star_index_desc')
+  const sortBy = ref<SortOption>('star_index_desc')
   
   // 视图模式
-  const viewMode = ref<'card' | 'table'>('card')
-  const cardSize = ref<'compact' | 'standard' | 'detailed'>('standard')
+  const viewMode = ref<ViewMode>('card')
+  const cardSize = ref<CardSize>('standard')
   
   // 筛选条件 - 使用优化后的筛选参数结构
-  const filters = ref<AdvancedFilterParams>({})
+  const filters = ref<InfluencerFilterParams>({})
   
   // 激活的筛选条件数量
   const activeFiltersCount = computed(() => {
     return Object.keys(filters.value).filter(
-      key => filters.value[key as keyof AdvancedFilterParams] !== undefined && 
-             filters.value[key as keyof AdvancedFilterParams] !== '' &&
-             filters.value[key as keyof AdvancedFilterParams] !== null
+      key => filters.value[key as keyof InfluencerFilterParams] !== undefined && 
+             filters.value[key as keyof InfluencerFilterParams] !== '' &&
+             filters.value[key as keyof InfluencerFilterParams] !== null
     ).length
   })
   
@@ -52,7 +54,7 @@ export const useInfluencerSquareStore = defineStore('influencer-square', () => {
     console.log('🔄 [Store] 开始加载达人数据(优化API)')
     loading.value = true
     try {
-      const params: AdvancedFilterParams = {
+      const params: InfluencerFilterParams = {
         ...filters.value,
         page: currentPage.value,
         limit: pageSize.value,
@@ -67,46 +69,8 @@ export const useInfluencerSquareStore = defineStore('influencer-square', () => {
       // API已经解包，response直接是 { data, pagination, performance, fromCache }
       const rawList = Array.isArray(response.data) ? response.data : []
 
-      // 归一化关键字段，修复命名差异与类型问题
-      const normalizeItem = (item: any) => {
-        const normalized: any = { ...item }
-
-        // 兼容 starIndex → star_index
-        if (normalized.star_index === undefined && normalized.starIndex !== undefined) {
-          const val = normalized.starIndex
-          normalized.star_index = typeof val === 'string' ? Number(val) : val
-        }
-
-        // 数值化并默认值：将字符串转数字；若为 null/undefined 则默认为 0（0 为有效值）
-        if (normalized.star_index === null || normalized.star_index === undefined) {
-          normalized.star_index = 0
-        } else {
-          const val = normalized.star_index
-          normalized.star_index = typeof val === 'string' ? Number(val) : val
-        }
-
-        // 兼容 author_id 命名差异（优先使用 authorId 或 id）
-        if (!normalized.author_id) {
-          normalized.author_id = normalized.authorId ?? normalized.id ?? ''
-        }
-
-        // 兼容昵称与头像字段
-        if (!normalized.nick_name) {
-          normalized.nick_name = normalized.nickName ?? normalized.canonical_name ?? ''
-        }
-        if (!normalized.avatar_uri) {
-          normalized.avatar_uri = normalized.avatarUri ?? normalized.avatar_url ?? ''
-        }
-
-        // 初始化更新状态字段，避免未定义导致的界面闪烁
-        normalized.updating = normalized.updating ?? false
-        normalized.updateProgress = normalized.updateProgress ?? 0
-        normalized.updateStatus = normalized.updateStatus ?? ''
-
-        return normalized
-      }
-
-      influencers.value = rawList.map(normalizeItem)
+      // 使用归一化工具类处理数据
+      influencers.value = InfluencerNormalizer.normalizeBatch(rawList)
       totalCount.value = response.pagination?.total || 0
       
       // 恢复当前页达人的选中状态
@@ -147,7 +111,7 @@ export const useInfluencerSquareStore = defineStore('influencer-square', () => {
   }
   
   // 设置排序
-  const setSortBy = (sort: string) => {
+  const setSortBy = (sort: SortOption) => {
     sortBy.value = sort
   }
   
@@ -167,7 +131,7 @@ export const useInfluencerSquareStore = defineStore('influencer-square', () => {
   }
   
   // 批量设置筛选条件
-  const setFilters = (newFilters: AdvancedFilterParams) => {
+  const setFilters = (newFilters: InfluencerFilterParams) => {
     filters.value = { ...filters.value, ...newFilters }
     currentPage.value = 1
   }
