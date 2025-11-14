@@ -3,6 +3,7 @@
  * 路由: /api/influencers/v3/filter
  */
 import { requestClient } from './request'
+import { requestDeduplicator } from '../utils/request-deduplicator'
 
 // ========== 类型定义 ==========
 
@@ -137,40 +138,50 @@ export async function quickFilter(params: QuickFilterParams): Promise<FilterResp
 }
 
 /**
- * 高级筛选查询
+ * 高级筛选查询 - 集成请求去重
  */
 export async function advancedFilter(params: AdvancedFilterParams): Promise<FilterResponse> {
-  try {
-    // 在发送前进行参数规范化与枚举映射
-    const payload: Record<string, any> = { ...params }
-    
-    // 仅展示已匹配达人
-    if (params.matchedOnly) {
-      payload.matched_only = true
-    }
+  // 使用请求去重器包装
+  return requestDeduplicator.deduplicate(
+    {
+      url: '/influencers/v3/filter/advanced',
+      method: 'POST',
+      data: params,
+    },
+    async () => {
+      try {
+        // 在发送前进行参数规范化与枚举映射
+        const payload: Record<string, any> = { ...params }
+        
+        // 仅展示已匹配达人
+        if (params.matchedOnly) {
+          payload.matched_only = true
+        }
 
-    // 匹配状态枚举映射（兼容前端旧枚举到后端枚举）
-    if (params.matchStatus) {
-      const map: Record<string, string> = {
-        PENDING: 'PENDING',
-        MATCHED: 'MATCHED',
-        UNMATCHED: 'UNMATCHED',
-        REJECTED: 'REJECTED',
-        NO_MATCH: 'UNMATCHED',
-        FAILED: 'REJECTED'
+        // 匹配状态枚举映射（兼容前端旧枚举到后端枚举）
+        if (params.matchStatus) {
+          const map: Record<string, string> = {
+            PENDING: 'PENDING',
+            MATCHED: 'MATCHED',
+            UNMATCHED: 'UNMATCHED',
+            REJECTED: 'REJECTED',
+            NO_MATCH: 'UNMATCHED',
+            FAILED: 'REJECTED'
+          }
+          payload.match_status = map[String(params.matchStatus)]
+        }
+
+        // POST请求,参数放在body里
+        const response = await requestClient.post('/influencers/v3/filter/advanced', payload)
+        // requestClient 配置了 responseReturn: 'data' 和 defaultResponseInterceptor
+        // 会自动解包: { code, data } -> data -> { data, pagination, performance }
+        return response
+      } catch (error) {
+        console.error('高级筛选失败:', error)
+        throw error
       }
-      payload.match_status = map[String(params.matchStatus)]
     }
-
-    // POST请求,参数放在body里
-    const response = await requestClient.post('/influencers/v3/filter/advanced', payload)
-    // requestClient 配置了 responseReturn: 'data' 和 defaultResponseInterceptor
-    // 会自动解包: { code, data } -> data -> { data, pagination, performance }
-    return response
-  } catch (error) {
-    console.error('高级筛选失败:', error)
-    throw error
-  }
+  )
 }
 
 /**
