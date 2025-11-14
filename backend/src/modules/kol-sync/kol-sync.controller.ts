@@ -21,7 +21,7 @@ import {
   BatchSyncResult,
   SyncStatus,
 } from './kol-sync.service';
-import { SingleSyncKolDto, BatchSyncRequestDto } from './dto';
+import { SingleSyncKolDto, BatchSyncRequestDto, SyncStatsDto } from './dto';
 
 /**
  * 私域达人同步控制器
@@ -197,29 +197,14 @@ export class KolSyncController {
   @Get('stats')
   @ApiOperation({
     summary: '获取同步统计信息',
-    description: '获取KOL数据同步的整体统计信息',
+    description: '获取KOL数据同步的整体统计信息，包括匹配率、同步成功率等',
   })
   @ApiResponse({
     status: HttpStatus.OK,
     description: '统计信息',
-    schema: {
-      type: 'object',
-      properties: {
-        total: { type: 'number', description: 'KOL总数' },
-        unmatched: { type: 'number', description: '未匹配数量' },
-        pending: { type: 'number', description: '待同步数量' },
-        matched: { type: 'number', description: '已匹配数量' },
-        rejected: { type: 'number', description: '同步失败数量' },
-      },
-    },
+    type: SyncStatsDto,
   })
-  async getSyncStats(): Promise<{
-    total: number;
-    unmatched: number;
-    pending: number;
-    matched: number;
-    rejected: number;
-  }> {
+  async getSyncStats(): Promise<SyncStatsDto> {
     this.logger.log('获取同步统计信息');
     return await this.kolSyncService.getSyncStats();
   }

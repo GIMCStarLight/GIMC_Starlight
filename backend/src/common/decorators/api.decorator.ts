@@ -538,3 +538,77 @@ export const ApiDecorators = {
       auth: true,
     }),
 };
+
+/**
+ * 标准错误响应装饰器
+ * 为 API 添加通用的错误响应文档
+ */
+export function ApiStandardErrors() {
+  return applyDecorators(
+    ApiResponse({
+      status: 400,
+      description: '请求参数错误',
+      schema: {
+        type: 'object',
+        properties: {
+          code: { type: 'number', example: ResponseStatus.ERROR },
+          message: { type: 'string', example: '请求参数验证失败' },
+          traceId: { type: 'string', example: 'trace-123456' },
+          timestamp: { type: 'number', example: Date.now() },
+        },
+      },
+    }),
+    ApiResponse({
+      status: 401,
+      description: '未授权访问',
+      schema: {
+        type: 'object',
+        properties: {
+          code: { type: 'number', example: ResponseStatus.ERROR },
+          message: { type: 'string', example: '未授权访问' },
+          traceId: { type: 'string', example: 'trace-123456' },
+          timestamp: { type: 'number', example: Date.now() },
+        },
+      },
+    }),
+    ApiResponse({
+      status: 403,
+      description: '禁止访问',
+      schema: {
+        type: 'object',
+        properties: {
+          code: { type: 'number', example: ResponseStatus.ERROR },
+          message: { type: 'string', example: '权限不足' },
+          traceId: { type: 'string', example: 'trace-123456' },
+          timestamp: { type: 'number', example: Date.now() },
+        },
+      },
+    }),
+    ApiResponse({
+      status: 404,
+      description: '资源不存在',
+      schema: {
+        type: 'object',
+        properties: {
+          code: { type: 'number', example: ResponseStatus.ERROR },
+          message: { type: 'string', example: '请求的资源不存在' },
+          traceId: { type: 'string', example: 'trace-123456' },
+          timestamp: { type: 'number', example: Date.now() },
+        },
+      },
+    }),
+    ApiResponse({
+      status: 500,
+      description: '服务器内部错误',
+      schema: {
+        type: 'object',
+        properties: {
+          code: { type: 'number', example: ResponseStatus.ERROR },
+          message: { type: 'string', example: '服务器内部错误' },
+          traceId: { type: 'string', example: 'trace-123456' },
+          timestamp: { type: 'number', example: Date.now() },
+        },
+      },
+    }),
+  );
+}

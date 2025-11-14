@@ -27,6 +27,7 @@ import {
   QueryMatchesDto,
   BatchMatchResponseDto,
   MatchResultResponseDto,
+  MatchStatisticsDto,
 } from '../dto/match.dto';
 import {
   ApiResponse as CustomApiResponse,
@@ -282,21 +283,29 @@ export class KolMatchController {
   }
 
   @Get('statistics')
-  @ApiOperation({ summary: '获取匹配统计信息' })
+  @ApiOperation({ 
+    summary: '获取匹配统计信息',
+    description: '获取私域达人与公海达人的匹配统计数据，包括匹配率、平台分布等',
+  })
   @ApiResponse({
     status: HttpStatus.OK,
     description: '获取统计信息成功',
+    type: MatchStatisticsDto,
+  })
+  @ApiResponse({
+    status: HttpStatus.INTERNAL_SERVER_ERROR,
+    description: '服务器内部错误',
   })
   async getMatchStatistics(
     @Request() req: { headers: Record<string, string> },
-  ): Promise<CustomApiResponse<any>> {
+  ): Promise<CustomApiResponse<MatchStatisticsDto>> {
     const requestId = req.headers['x-request-id'] || `stats-${Date.now()}`;
 
     try {
       // 这里需要实现获取统计信息的逻辑
       // 暂时返回模拟数据
       await Promise.resolve(); // 避免async警告
-      const statistics = {
+      const statistics: MatchStatisticsDto = {
         totalPrivateKols: 0,
         matchedCount: 0,
         pendingCount: 0,

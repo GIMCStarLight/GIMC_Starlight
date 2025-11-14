@@ -58,3 +58,26 @@ export class BatchSyncRequestDto {
   @IsNumber({}, { each: true })
   kolIds?: number[];
 }
+
+export class SyncStatsDto {
+  @ApiProperty({ description: 'KOL总数', example: 1000 })
+  total: number;
+
+  @ApiProperty({ description: '未匹配数量', example: 450 })
+  unmatched: number;
+
+  @ApiProperty({ description: '待同步数量', example: 100 })
+  pending: number;
+
+  @ApiProperty({ description: '已匹配数量', example: 400 })
+  matched: number;
+
+  @ApiProperty({ description: '同步失败数量', example: 50 })
+  rejected: number;
+
+  @ApiProperty({ description: '匹配率（百分比）', example: 40.0, required: false })
+  matchRate?: number;
+
+  @ApiProperty({ description: '同步成功率（百分比）', example: 80.0, required: false })
+  syncSuccessRate?: number;
+}
