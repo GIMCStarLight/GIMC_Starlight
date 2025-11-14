@@ -121,8 +121,8 @@ const handleTriggerWheel = (event: WheelEvent) => {
   width: 100%;
   height: 32px;
   padding: 0 11px;
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
+  background: #ffffff;  // 改为纯白色背景
+  border: 1px solid #d1d5db;  // 增强边框对比度
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s;
@@ -136,12 +136,14 @@ const handleTriggerWheel = (event: WheelEvent) => {
   }
   
   &.is-active {
-    color: #1f2937; // Selected color
+    color: #111827;  // 加深选中文字颜色
+    border-color: #409eff;  // 选中后显示蓝色边框
+    background: #f0f9ff;  // 选中后淡蓝色背景
   }
   
   &:hover {
     border-color: #409eff; // 悬停时高亮
-    box-shadow: 0 0 0 1px #409eff;
+    box-shadow: 0 0 0 1px rgba(64, 158, 255, 0.2);  // 添加微妙阴影
   }
   
   .trigger-icon {
@@ -149,6 +151,11 @@ const handleTriggerWheel = (event: WheelEvent) => {
     color: #9ca3af;
     flex-shrink: 0;
     margin-left: 4px;
+    transition: color 0.2s;
+  }
+  
+  &.is-active .trigger-icon {
+    color: #409eff;  // 选中后图标也变蓝色
   }
 }
 </style>

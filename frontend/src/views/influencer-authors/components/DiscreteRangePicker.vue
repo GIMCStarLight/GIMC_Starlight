@@ -98,7 +98,8 @@ const maxValue = computed({
   display: flex;
   align-items: center;
   gap: 8px;
-  width: 100%;
+  flex: 1;  // 让组件占满剩余空间
+  min-width: 0;  // 防止flex子元素溢出
 
   :deep(.el-popover) {
     flex: 1;
@@ -106,10 +107,11 @@ const maxValue = computed({
   }
 
   .separator {
-    color: #9ca3af;
+    color: #6b7280;  // 加深分隔符颜色
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 400;  // 稍微加重
     user-select: none;
+    flex-shrink: 0;  // 防止分隔符被压缩
   }
 }
 </style>
