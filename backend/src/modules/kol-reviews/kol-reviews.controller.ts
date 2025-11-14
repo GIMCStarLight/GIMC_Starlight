@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Patch, Delete, Body, Param, Query, ValidationPipe, ParseIntPipe } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiParam } from '@nestjs/swagger';
 import { KolReviewsService } from './kol-reviews.service';
-import { QueryKolReviewsDto, CreateKolReviewDto, UpdateKolReviewDto, BatchAuditDto, BatchDeleteDto } from './dto';
+import { QueryKolReviewsDto, CreateKolReviewDto, UpdateKolReviewDto, BatchAuditDto, BatchDeleteDto, ReviewStatisticsDto } from './dto';
 
 @Controller('v2/kol-reviews')
 @ApiTags('KOL评价管理')
@@ -18,9 +18,16 @@ export class KolReviewsController {
 
   // 获取统计数据
   @Get('statistics')
-  @ApiOperation({ summary: '获取评价统计数据' })
-  @ApiResponse({ status: 200, description: '查询成功' })
-  getStatistics() {
+  @ApiOperation({ 
+    summary: '获取评价统计数据',
+    description: '获取达人评价的统计信息，包括总评价数、平均评分、评分分布等',
+  })
+  @ApiResponse({ 
+    status: 200, 
+    description: '查询成功',
+    type: ReviewStatisticsDto,
+  })
+  getStatistics(): Promise<ReviewStatisticsDto> {
     return this.kolReviewsService.getStatistics();
   }
 

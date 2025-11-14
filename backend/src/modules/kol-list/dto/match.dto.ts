@@ -200,3 +200,26 @@ export class BatchMatchResponseDto {
   @ApiProperty({ description: '处理时间（毫秒）' })
   processingTime: number;
 }
+
+export class MatchStatisticsDto {
+  @ApiProperty({ description: '私域达人总数', example: 1000 })
+  totalPrivateKols: number;
+
+  @ApiProperty({ description: '已匹配数量', example: 450 })
+  matchedCount: number;
+
+  @ApiProperty({ description: '待审核数量', example: 100 })
+  pendingCount: number;
+
+  @ApiProperty({ description: '未匹配数量', example: 450 })
+  unmatchedCount: number;
+
+  @ApiProperty({ description: '匹配率（百分比）', example: 45.0 })
+  matchRate: number;
+
+  @ApiPropertyOptional({ description: '按平台分布', example: { douyin: 300, kuaishou: 150 } })
+  platformDistribution?: Record<string, number>;
+
+  @ApiPropertyOptional({ description: '按状态分布', example: { matched: 450, pending: 100, unmatched: 450 } })
+  statusDistribution?: Record<string, number>;
+}

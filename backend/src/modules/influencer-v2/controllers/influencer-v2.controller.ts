@@ -26,6 +26,7 @@ import {
   InfluencerListResponseDto,
   InfluencerDetailResponseDto,
 } from '../dto/influencer-response.dto';
+import { InfluencerV2StatsDto } from '../dto/influencer-v2-stats.dto';
 
 @ApiTags('影响者管理 V2')
 @Controller('v2/influencers')
@@ -105,8 +106,9 @@ export class InfluencerV2Controller {
   @ApiResponse({
     status: 200,
     description: '成功获取统计信息',
+    type: InfluencerV2StatsDto,
   })
-  async getInfluencerStatistics(): Promise<any> {
+  async getInfluencerStatistics(): Promise<InfluencerV2StatsDto> {
     try {
       this.logger.log('获取影响者统计信息请求');
       const result = await this.influencerService.getInfluencerStatistics();
