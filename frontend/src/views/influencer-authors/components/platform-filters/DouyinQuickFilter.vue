@@ -1518,7 +1518,7 @@ watch(() => estimatedCount.value, (newVal) => {
 .advanced-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px 32px;  // 水平间距扩大至32px
+  gap: 16px 20px;  // 缩小水平间距至20px,使筛选项更紧凑
   max-width: 1300px;
   
   @media (max-width: 1200px) {
