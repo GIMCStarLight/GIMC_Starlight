@@ -1,0 +1,238 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "36",
+        "assign_task_price_list": "[55000,72250]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L2",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"洁面\":0,\"清爽\":0.4016000000000002,\"祛痘\":0.001,\"防晒\":3.170278637770898,\"防水\":0}",
+        "author_type": "2",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_5b0a3d3a522792cb8dc1a34ef402fb6a.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "广州市",
+        "content_theme_labels_180d": "[\"保暖穿搭\",\"秋冬穿搭\",\"运动穿搭\",\"季节性穿搭\",\"流行穿搭\",\"变装穿搭\"]",
+        "core_user_id": "103969263102",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": "1k-3w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "258934",
+        "expected_play_num": "307942",
+        "fans_increment_rate_within_15d": "-0.0020812771803280553",
+        "fans_increment_within_15d": "-2927",
+        "fans_increment_within_30d": "-5796",
+        "follower": "1403493",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "6668242831720579083",
+        "interact_rate_within_30d": "0.0718",
+        "interaction_median_30d": "6891",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"59\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762479568\",\"item_id\":\"7569792065454853385\",\"item_publish_time\":\"1762483809\",\"item_title\":\"男生不同温度穿搭公式！怎么穿都时髦又保暖！ #降温了双11我需要一件羽绒服#双11服饰必买清单#这个冬天不能没有毛茸茸#发现宝藏小店\",\"like_cnt\":\"4049\",\"share_cnt\":\"359\",\"vv\":\"133785\"},{\"comment_cnt\":\"264\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761874934\",\"item_id\":\"7567195177975139584\",\"item_publish_time\":\"1761876163\",\"item_title\":\"男生秋冬穿搭公式！时髦一整个秋冬！ #降温了双11我需要一件羽绒服#双11服饰必买清单\",\"like_cnt\":\"10933\",\"share_cnt\":\"320\",\"vv\":\"524011\"},{\"comment_cnt\":\"177\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760926040\",\"item_id\":\"7563119717209214242\",\"item_publish_time\":\"1760929216\",\"item_title\":\"秋冬穿搭大赏！穿和穿搭真的是两码事！ #双11红人上新必买清单 #百大红人上新啦 #抖in红人上新 #双11必冲好东西\",\"like_cnt\":\"11195\",\"share_cnt\":\"298\",\"vv\":\"395015\"},{\"comment_cnt\":\"61\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757230604\",\"item_id\":\"7547247962637143350\",\"item_publish_time\":\"1757230604\",\"item_title\":\"家人生病后我才知道今天的克制是为了明天的从容…#内容太过真实 #敬自己 #长期主义\",\"like_cnt\":\"1259\",\"share_cnt\":\"25\",\"vv\":\"227108\"},{\"comment_cnt\":\"228\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756390535\",\"item_id\":\"7543639893143833899\",\"item_publish_time\":\"1756458042\",\"item_title\":\"从素人变博主的开挂辅助！全在这里了#海洋至尊男士控油洗发水 #夏日闪光派对 #洗发水#男生洗护\",\"like_cnt\":\"7447\",\"share_cnt\":\"822\",\"vv\":\"691294\"},{\"comment_cnt\":\"174\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755658243\",\"item_id\":\"7540494696129252617\",\"item_publish_time\":\"1755658243\",\"item_title\":\"出门前vs出门后！男生出门快速改造术！ #七夕当然要穿琥珀流光风啦\",\"like_cnt\":\"11628\",\"share_cnt\":\"152\",\"vv\":\"294728\"},{\"comment_cnt\":\"168\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1752544981\",\"item_id\":\"7527123337001078058\",\"item_publish_time\":\"1752552300\",\"item_title\":\"这样搜出来的男生裤子无敌了！ #发现宝藏小店#挑战中式美学穿搭天花板#非遗有好物\",\"like_cnt\":\"13689\",\"share_cnt\":\"1451\",\"vv\":\"411461\"},{\"comment_cnt\":\"567\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1749809650\",\"item_id\":\"7515375026573528359\",\"item_publish_time\":\"1749952800\",\"item_title\":\"原来吃这些东西嘴巴会变臭！ #超离谱的饮料界显眼包#舌尖上的抖音#夏天的味道在抖音#喝一口就爱上\",\"like_cnt\":\"30261\",\"share_cnt\":\"22759\",\"vv\":\"576448\"},{\"comment_cnt\":\"145\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1749213268\",\"item_id\":\"7512812741774691623\",\"item_publish_time\":\"1749265200\",\"item_title\":\"夏日男生一周ootd！每天不重样！ #618必买穿搭好物 #跟着抖音学穿搭\",\"like_cnt\":\"9592\",\"share_cnt\":\"101\",\"vv\":\"292248\"},{\"comment_cnt\":\"149\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1747882815\",\"item_id\":\"7507099474923523354\",\"item_publish_time\":\"1747882815\",\"item_title\":\"不动刀改衣服！懒人必学！ #太热了我需要清凉穿搭#去玩水的地方#一起去野\",\"like_cnt\":\"16015\",\"share_cnt\":\"836\",\"vv\":\"563671\"}]",
+        "link_convert_index": "75.49",
+        "link_convert_index_by_industry": "75.49",
+        "link_i_cnt_by_industry": "323844",
+        "link_k_cnt_by_industry": "88",
+        "link_l_cnt_by_industry": "775228",
+        "link_link_cnt_by_industry": "1316792",
+        "link_n_cnt_by_industry": "217632",
+        "link_recommend_index_by_industry": "57.14",
+        "link_shopping_index": "57.14",
+        "link_spread_index": "65.22",
+        "link_spread_index_by_industry": "65.22",
+        "link_star_index": "67.81",
+        "link_star_index_by_industry": "67.81",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "鸭学长开课啦！",
+        "pic_expected_play_num": "20216",
+        "play_over_rate_within_30d": "0.046",
+        "price_1_20": "26000",
+        "price_20_60": "55000",
+        "price_60": "85000",
+        "promotion_prospective_1_20_cpm": "73.04",
+        "promotion_prospective_20_60_cpm": "154.5",
+        "promotion_prospective_60_cpm": "238.78",
+        "promotion_prospective_vv": "355976",
+        "prospective_1_20_cpm": "84.4315",
+        "prospective_20_60_cpm": "178.6051",
+        "prospective_60_cpm": "276.026",
+        "province": "广东省",
+        "search_after_view_index_by_industry": "82.44",
+        "sn_expected_play_num": "307942",
+        "sn_interact_rate_within_30d": "0.0718",
+        "sn_play_over_rate_within_30d": "0.046",
+        "sn_prospective_1_20_cpe": "2.6678",
+        "sn_prospective_1_20_cpm": "84.4315",
+        "sn_prospective_20_60_cpe": "5.6433",
+        "sn_prospective_20_60_cpm": "178.6051",
+        "sn_prospective_60_cpe": "8.7215",
+        "sn_prospective_60_cpm": "276.026",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "329",
+        "star_ecom_video_num_30d": "0",
+        "star_ecom_video_product_num_30d": "0",
+        "star_excellent_author": "0",
+        "star_index": "74.1041145382221",
+        "star_item_count_within_30d": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "2",
+        "star_video_finish_vv_rate_90d": "0.0288",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0106",
+        "star_video_median_vv_90d": "463285",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"时尚\":[\"穿搭\"]}",
+        "vv_median_30d": "70648"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7515375026573528359",
+          "video_tag": 3,
+          "vv": 526594
+        },
+        {
+          "item_id": "7507099474923523354",
+          "video_tag": 3,
+          "vv": 282735
+        },
+        {
+          "item_id": "7543639893143833899",
+          "video_tag": 4,
+          "vv": 686749
+        },
+        {
+          "item_id": "7547247962637143350",
+          "video_tag": 4,
+          "vv": 201927
+        },
+        {
+          "item_id": "7527123337001078058",
+          "video_tag": 5,
+          "vv": 216098
+        },
+        {
+          "item_id": "7567195177975139584",
+          "video_tag": 5,
+          "vv": 134339
+        },
+        {
+          "item_id": "7569792065454853385",
+          "video_tag": 6,
+          "vv": 62328
+        },
+        {
+          "item_id": "7563119717209214242",
+          "video_tag": 6,
+          "vv": 70648
+        }
+      ],
+      "star_id": "6668242831720579083",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 24000,
+              "price_extra_info": {},
+              "start_time": "1661961600",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 55000,
+              "price_extra_info": {},
+              "start_time": "1680278400",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 26000,
+              "price_extra_info": {},
+              "start_time": "1680278400",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 38,
+              "price_extra_info": {
+                "ceiling_price": "82500",
+                "floor_price": "11000"
+              },
+              "start_time": "1700050134",
+              "task_category": 1,
+              "video_type": 92,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 85000,
+              "price_extra_info": {},
+              "start_time": "1680278400",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572113970199314442"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "d0777c05ac389e4e8101db80dcec45adfc335eea"
+}

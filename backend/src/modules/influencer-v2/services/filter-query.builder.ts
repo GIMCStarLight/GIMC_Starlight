@@ -262,30 +262,179 @@ export class FilterQueryBuilder {
   }
 
   /**
-   * 构建排序
+   * 构建排序（智能算法版本）
+   * 集成私域价值分 + 平台质量分 + 用户偏好分
    */
   buildSorting(
     queryBuilder: SelectQueryBuilder<any>,
     sortBy: string = 'follower',
     sortOrder: 'ASC' | 'DESC' = 'DESC',
   ): void {
-    // 安全的排序字段映射
-    const allowedSortFields = {
-      follower: 'mv.follower',
-      growth_rate: 'mv.fans_increment_rate_30d',
-      interact_rate: 'mv.interact_rate_30d',
-      price: 'mv.price_20_60',
-      cpm_efficiency: 'mv.cpm_efficiency',
-      engagement_score: 'mv.engagement_score',
-      star_index: 'mv.star_index',
-      gmv: 'mv.gmv_30d',
-      updated_at: 'mv.updated_at',
-    };
+    // ========== 关联私域数据表 ==========
+    queryBuilder.leftJoin(
+      'kol_list',
+      'kol',
+      `kol.matched_author_id = mv.author_id 
+       AND kol.platform = '抖音' 
+       AND kol.match_status = 'matched'`,
+    );
 
-    const sortField = allowedSortFields[sortBy] || allowedSortFields.follower;
-    queryBuilder.orderBy(sortField, sortOrder);
-    
-    // 添加第二排序字段确保结果稳定
+    // ========== 分层评分计算 ==========
+
+    // 【1. 私域价值分 (0-100)】
+    const businessScoreSQL = `
+      COALESCE(
+        CASE 
+          WHEN kol.org_name IN ('星链计划', '省广星媒') THEN 40
+          ELSE 0
+        END +
+        CASE kol.policy_level
+          WHEN 'S' THEN 30
+          WHEN 'A' THEN 24
+          WHEN 'B' THEN 18
+          WHEN 'C' THEN 12
+          WHEN 'D' THEN 6
+          ELSE 0
+        END +
+        CASE WHEN kol.is_exclusive = 1 THEN 15 ELSE 0 END +
+        CASE 
+          WHEN kol.rebate_range ~ '[0-9]+-[0-9]+%?' THEN
+            LEAST(
+              (
+                CAST(SUBSTRING(kol.rebate_range FROM '[0-9]+') AS DECIMAL) +
+                CAST(SUBSTRING(kol.rebate_range FROM '-([0-9]+)') AS DECIMAL)
+              ) / 2 / 3,
+              10
+            )
+          ELSE 0
+        END +
+        CASE WHEN kol.annual_contract_org IS NOT NULL THEN 5 ELSE 0 END,
+        0
+      )
+    `;
+
+    // 【2. 平台质量分 (0-100)】
+    const qualityScoreSQL = `
+      (
+        CASE 
+          WHEN mv.star_excellent_author = true THEN 25
+          WHEN mv.is_black_horse_author = true THEN 20
+          WHEN mv.star_qianchuan_high_potential = true THEN 15
+          ELSE 0
+        END +
+        LEAST(LOG10(GREATEST(mv.follower, 1)) * 3, 30) +
+        LEAST(COALESCE(mv.interact_rate_30d, 0) * 200, 20) +
+        LEAST(GREATEST(COALESCE(mv.fans_increment_rate_30d, 0) * 100, 0), 15) +
+        LEAST(COALESCE(mv.star_index, 0) / 10, 10)
+      )
+    `;
+
+    // 【3. 用户偏好分 & 动态权重】
+    let userPreferenceSQL = '0';
+    let businessWeight = 0.4;
+    let qualityWeight = 0.6;
+    let preferenceWeight = 0;
+
+    // 根据sortBy调整偏好分和权重
+    switch (sortBy) {
+      case 'follower':
+        userPreferenceSQL = 'LOG10(GREATEST(mv.follower, 1)) * 10';
+        businessWeight = 0.15;
+        qualityWeight = 0.25;
+        preferenceWeight = 0.6;
+        break;
+
+      case 'star_index':
+        // 星图指数NULL或0的得负分
+        userPreferenceSQL = `
+          CASE 
+            WHEN mv.star_index IS NULL OR mv.star_index = 0 THEN -1000
+            ELSE mv.star_index
+          END
+        `;
+        businessWeight = 0.15;
+        qualityWeight = 0.25;
+        preferenceWeight = 0.6;
+        break;
+
+      case 'interact_rate':
+        userPreferenceSQL = 'COALESCE(mv.interact_rate_30d, 0) * 500';
+        businessWeight = 0.15;
+        qualityWeight = 0.25;
+        preferenceWeight = 0.6;
+        break;
+
+      case 'price':
+        if (sortOrder === 'ASC') {
+          // 价格升序：低价优先
+          userPreferenceSQL = `
+            CASE 
+              WHEN COALESCE(mv.price_20_60, kol.star_quote_21_60s) IS NULL THEN 0
+              ELSE GREATEST(
+                100 - LEAST(
+                  COALESCE(mv.price_20_60, kol.star_quote_21_60s, 999999) / 1000,
+                  100
+                ),
+                0
+              )
+            END
+          `;
+        } else {
+          // 价格降序：高价优先，NULL值得负分
+          userPreferenceSQL = `
+            CASE 
+              WHEN COALESCE(mv.price_20_60, kol.star_quote_21_60s) IS NULL THEN -1000
+              ELSE LEAST(
+                COALESCE(mv.price_20_60, kol.star_quote_21_60s, 0) / 1000,
+                100
+              )
+            END
+          `;
+        }
+        businessWeight = 0.2;
+        qualityWeight = 0.2;
+        preferenceWeight = 0.6;
+        break;
+
+      case 'growth_rate':
+        userPreferenceSQL = 'COALESCE(mv.fans_increment_rate_30d, 0) * 100';
+        businessWeight = 0.15;
+        qualityWeight = 0.25;
+        preferenceWeight = 0.6;
+        break;
+
+      case 'gmv':
+        userPreferenceSQL = 'COALESCE(mv.gmv_30d, 0) / 1000000';
+        businessWeight = 0.15;
+        qualityWeight = 0.25;
+        preferenceWeight = 0.6;
+        break;
+
+      default:
+        // 默认综合推荐
+        businessWeight = 0.4;
+        qualityWeight = 0.6;
+        preferenceWeight = 0;
+        break;
+    }
+
+    // ========== 计算综合得分 ==========
+    const totalScoreSQL = `
+      (
+        (${businessScoreSQL}) * ${businessWeight} +
+        (${qualityScoreSQL}) * ${qualityWeight} +
+        (${userPreferenceSQL}) * ${preferenceWeight}
+      )
+    `;
+
+    // 添加计算字段
+    queryBuilder.addSelect(totalScoreSQL, 'total_score');
+
+    // 主排序：按综合得分降序
+    queryBuilder.orderBy('total_score', 'DESC');
+
+    // 次级排序：相同得分时的稳定排序
+    queryBuilder.addOrderBy('mv.updated_at', 'DESC');
     queryBuilder.addOrderBy('mv.author_id', 'ASC');
   }
 

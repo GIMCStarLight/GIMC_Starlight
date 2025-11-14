@@ -150,7 +150,11 @@
       <el-table v-loading="loading" :data="tableData" @selection-change="handleSelectionChange" stripe border
         :empty-text="'暂无数据'">
         <el-table-column type="selection" width="55" />
-        <el-table-column prop="platform" label="平台" width="90" />
+        <el-table-column prop="platform" label="平台" width="90">
+          <template #default="{ row }">
+            {{ getPlatformLabel(row.platform) }}
+          </template>
+        </el-table-column>
         <el-table-column prop="account_name" label="账号名称" width="180" show-overflow-tooltip>
           <template #default="{ row }">
             <div class="account-cell">
@@ -636,6 +640,26 @@ const getCooperationDegreeText = (degree: string): string => {
     'low': '低'
   }
   return textMap[degree] || degree
+}
+
+// 平台名称映射
+const getPlatformLabel = (platform: string): string => {
+  const platformMap: Record<string, string> = {
+    'douyin': '抖音',
+    'xiaohongshu': '小红书',
+    'weibo': '微博',
+    'bilibili': 'B站',
+    'kuaishou': '快手',
+    'wechat': '微信',
+    '微信公众号': '微信公众号',
+    '微信视频号': '微信视频号',
+    'B站': 'B站',
+    '小红书': '小红书',
+    '快手': '快手',
+    '微博': '微博',
+    '今日头条': '今日头条'
+  }
+  return platformMap[platform] || platform
 }
 
 // 格式化日期显示

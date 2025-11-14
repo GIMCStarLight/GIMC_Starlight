@@ -1,0 +1,236 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "48",
+        "assign_task_price_list": "[22400,27200]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"定妆\":3.3108169353377837,\"服帖\":0.0015,\"洁面\":0,\"清爽\":0,\"祛痘\":0,\"胶原成分\":0.069}",
+        "author_type": "2",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_a58e88de0b0bcd9c13493d70d7f7d665.jpeg?from=4010531038",
+        "city": "",
+        "content_theme_labels_180d": "[\"国内城市旅游\",\"染发技巧\",\"城市旅行攻略\",\"护发技巧\",\"服饰测评\",\"地方旅行资讯\",\"高颅顶造型\",\"内衣测评\"]",
+        "core_user_id": "2555677907630151",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "enroll_task_price_list": "[16800]",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "12803",
+        "expected_play_num": "22066",
+        "fans_increment_rate_within_15d": "-0.001750483634740247",
+        "fans_increment_within_15d": "-447",
+        "fans_increment_within_30d": "241.42",
+        "follower": "254890",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7153841586755862564",
+        "interact_rate_within_30d": "0.0437",
+        "interaction_median_30d": "849",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"370\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761633359\",\"item_id\":\"7566157636991847689\",\"item_publish_time\":\"1761633359\",\"item_title\":\"干皮秋冬必备滋润面霜！保湿还抗老！#干皮秋冬必备#面霜#全新OLAY超红瓶\",\"like_cnt\":\"520\",\"share_cnt\":\"52\",\"vv\":\"312465\"},{\"comment_cnt\":\"18\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758702041\",\"item_id\":\"7553567713115295033\",\"item_publish_time\":\"1758702041\",\"item_title\":\"随机抽查！有多少姐妹觉得自己气血不足的！你们去医院看过了没 #气血不足#女性健康\",\"like_cnt\":\"464\",\"share_cnt\":\"180\",\"vv\":\"212087\"},{\"comment_cnt\":\"134\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757987553\",\"item_id\":\"7550499011715730726\",\"item_publish_time\":\"1757987553\",\"item_title\":\"别再随便抓条内裤就穿了！！其实这几步就能挑对，新手直接抄作业！#贴身衣物 #种草好物 #内裤挑选 #女生必看\",\"like_cnt\":\"287\",\"share_cnt\":\"53\",\"vv\":\"1077270\"},{\"comment_cnt\":\"61\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756091253\",\"item_id\":\"7542354466771684635\",\"item_publish_time\":\"1756091253\",\"item_title\":\"淡季！贵州！超全旅游攻略来了！#贵州美好推荐官 #贵州攻略 #贵州美食 #旅游攻略\",\"like_cnt\":\"155\",\"share_cnt\":\"4\",\"vv\":\"49688\"},{\"comment_cnt\":\"6\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1753261666\",\"item_id\":\"7530201481908161838\",\"item_publish_time\":\"1753261666\",\"item_title\":\"守护高颅顶的吹头大法！美女们都进来学！！#发型教程  #护发  #发型  #头发护理\",\"like_cnt\":\"528\",\"share_cnt\":\"18\",\"vv\":\"102578\"},{\"comment_cnt\":\"219\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1751263430\",\"item_id\":\"7521619110573116723\",\"item_publish_time\":\"1751263430\",\"item_title\":\"毕业染发必看，拿下夏天权威发色！#显白发色 #高考 #爆改 #毕业季 #发色推荐\",\"like_cnt\":\"192\",\"share_cnt\":\"115\",\"vv\":\"52376\"},{\"comment_cnt\":\"218\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1747734127\",\"item_id\":\"7506460379044728091\",\"item_publish_time\":\"1747818057\",\"item_title\":\"找到了！搞定夏天辣妹穿搭的必备装备！#有棵树无肩带内衣#自然奇境科普季\",\"like_cnt\":\"12981\",\"share_cnt\":\"68\",\"vv\":\"251570\"},{\"comment_cnt\":\"75\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1732760125\",\"item_id\":\"7442147987314265378\",\"item_publish_time\":\"1732760125\",\"item_title\":\"记住这个拍照万能口诀，嘎嘎出片#拍照 #秋冬 #拍照姿势\",\"like_cnt\":\"15052\",\"share_cnt\":\"1068\",\"vv\":\"139137\"},{\"comment_cnt\":\"85\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1730370219\",\"item_id\":\"7431883432797424934\",\"item_publish_time\":\"1730370219\",\"item_title\":\"是谁还不知道拍照时候看哪里？！快来学眼神管理公式！！#眼神管理 #变美 #拍照姿势 #拍照姿势分享 #拍摄教程\",\"like_cnt\":\"14423\",\"share_cnt\":\"1613\",\"vv\":\"202570\"},{\"comment_cnt\":\"241\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1725771985\",\"item_id\":\"7412134182027054399\",\"item_publish_time\":\"1725771985\",\"item_title\":\"高能量大女主养成法则，松弛人生易如反掌#西兰藤蔓香薰#无火香薰#室内香薰#小众香薰#持久留香\",\"like_cnt\":\"8111\",\"share_cnt\":\"427\",\"vv\":\"196648\"}]",
+        "link_convert_index": "50.04",
+        "link_convert_index_by_industry": "50.04",
+        "link_i_cnt_by_industry": "220587",
+        "link_k_cnt_by_industry": "2",
+        "link_l_cnt_by_industry": "1182566",
+        "link_link_cnt_by_industry": "1406596",
+        "link_n_cnt_by_industry": "3441",
+        "link_recommend_index_by_industry": "41.11",
+        "link_shopping_index": "41.11",
+        "link_spread_index": "62.2",
+        "link_spread_index_by_industry": "62.2",
+        "link_star_index": "59.41",
+        "link_star_index_by_industry": "59.41",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "桐崽张张",
+        "play_over_rate_within_30d": "0.4899",
+        "price_1_20": "24000",
+        "price_20_60": "30000",
+        "price_60": "40000",
+        "promotion_prospective_1_20_cpm": "97.15",
+        "promotion_prospective_20_60_cpm": "121.44",
+        "promotion_prospective_60_cpm": "161.92",
+        "promotion_prospective_vv": "247037",
+        "prospective_1_20_cpm": "1087.6462",
+        "prospective_20_60_cpm": "1359.5577",
+        "prospective_60_cpm": "1812.7436",
+        "province": "",
+        "search_after_view_index_by_industry": "67.89",
+        "sn_expected_play_num": "22066",
+        "sn_interact_rate_within_30d": "0.0437",
+        "sn_play_over_rate_within_30d": "0.4899",
+        "sn_prospective_1_20_cpe": "40.1338",
+        "sn_prospective_1_20_cpm": "1087.6462",
+        "sn_prospective_20_60_cpe": "50.1672",
+        "sn_prospective_20_60_cpm": "1359.5577",
+        "sn_prospective_60_cpe": "66.8896",
+        "sn_prospective_60_cpm": "1812.7436",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "491",
+        "star_ecom_video_num_30d": "1",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "2",
+        "star_video_finish_vv_rate_90d": "0.0477",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0031",
+        "star_video_median_vv_90d": "262276",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"时尚\":[\"穿搭\"]}",
+        "vv_median_30d": "312192"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7550499011715730726",
+          "video_tag": 3,
+          "vv": 1019241
+        },
+        {
+          "item_id": "7530201481908161838",
+          "video_tag": 3,
+          "vv": 13071
+        },
+        {
+          "item_id": "7566157636991847689",
+          "video_tag": 4,
+          "vv": 312192
+        },
+        {
+          "item_id": "7506460379044728091",
+          "video_tag": 4,
+          "vv": 250734
+        },
+        {
+          "item_id": "7553567713115295033",
+          "video_tag": 5,
+          "vv": 58870
+        },
+        {
+          "item_id": "7542354466771684635",
+          "video_tag": 5,
+          "vv": 5688
+        },
+        {
+          "item_id": "7521619110573116723",
+          "video_tag": 6,
+          "vv": 2274
+        }
+      ],
+      "star_id": "7153841586755862564",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 60000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 30000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 24000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 30000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 24000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 40000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572106507907514418"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "48cae4721b91d49227c456c619cc34a936bb0414"
+}

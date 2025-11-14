@@ -1,0 +1,204 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_task_price_list": "[7550]",
+        "author_avatar_frame_icon": "0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"清爽\":0,\"酥脆\":0}",
+        "author_type": "1",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_2b92775371706ee81e51468c74387414.jpeg?from=4010531038",
+        "city": "",
+        "content_theme_labels_180d": "[\"旅行特色体验\",\"足球赛事\",\"草原旅游\",\"旅行美景\",\"国内旅行\",\"友情故事\",\"国庆旅行\",\"搞笑剧情\"]",
+        "core_user_id": "2421582937467772",
+        "enroll_task_price_list": "[2000,2500]",
+        "expected_cpa3_level": "2",
+        "expected_natural_play_num": "29405",
+        "expected_play_num": "33892",
+        "fans_increment_rate_within_15d": "-0.005514138553018717",
+        "fans_increment_within_15d": "-1608",
+        "fans_increment_within_30d": "-3511",
+        "follower": "289991",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7337373864969633818",
+        "interact_rate_within_30d": "0.074",
+        "interaction_median_30d": "2513.5",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"54\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761907312\",\"item_id\":\"7567334260936822699\",\"item_publish_time\":\"1761907312\",\"item_title\":\"man姐女王班开课了！#我要加入Man姐女王班 #新闻女王2 #man姐\",\"like_cnt\":\"2433\",\"share_cnt\":\"22\",\"vv\":\"33720\"},{\"comment_cnt\":\"23\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760335131\",\"item_id\":\"7560581792072453395\",\"item_publish_time\":\"1760335131\",\"item_title\":\"一直很好奇诺贝尔奖的奖金从哪来#知乎诺贝尔奖 #万万没想到 #冷知识\",\"like_cnt\":\"2753\",\"share_cnt\":\"24\",\"vv\":\"55953\"},{\"comment_cnt\":\"12\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760092406\",\"item_id\":\"7559539296471928100\",\"item_publish_time\":\"1760092406\",\"item_title\":\"赴一场太湖惊鸿宴，一睹鼋头渚的盛世颜#人的一生，总要在太湖看一次烟花吧#园林烟花，给你中式美学的双倍震撼\",\"like_cnt\":\"378\",\"share_cnt\":\"12\",\"vv\":\"15317\"},{\"comment_cnt\":\"81\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760011418\",\"item_id\":\"7559191468489952548\",\"item_publish_time\":\"1760011418\",\"item_title\":\"谁能拒绝山东的实在 下一次一定要喊我#好客山东 #国货文具 #点石制笔节 #点石制笔#点石新品发布会\",\"like_cnt\":\"3292\",\"share_cnt\":\"43\",\"vv\":\"45561\"},{\"comment_cnt\":\"21\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759297780\",\"item_id\":\"7556126423812230419\",\"item_publish_time\":\"1759297780\",\"item_title\":\"报告老师！这里有一位同学被建议取消所有假期！#绝命法官 #张家辉 #曾向镇 #秦一唯\",\"like_cnt\":\"1271\",\"share_cnt\":\"36\",\"vv\":\"39147\"},{\"comment_cnt\":\"17\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759297652\",\"item_id\":\"7556125863253101843\",\"item_publish_time\":\"1759297652\",\"item_title\":\"勿扰❗️本牛马坐724路时光巴士庆祝假期了🚌#时光梅酒#724路时光巴士#我的724时光\",\"like_cnt\":\"417\",\"share_cnt\":\"8\",\"vv\":\"13368\"},{\"comment_cnt\":\"39\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758875298\",\"item_id\":\"7554311859718933801\",\"item_publish_time\":\"1758875298\",\"item_title\":\"转转决心做出改变，用一条短片表达自己的真心！ #转转\",\"like_cnt\":\"3808\",\"share_cnt\":\"21\",\"vv\":\"75900\"},{\"comment_cnt\":\"36\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758628387\",\"item_id\":\"7553251395644067108\",\"item_publish_time\":\"1758628387\",\"item_title\":\"boss直聘严厉打击招聘性骚扰 #BOSS直聘回应向企业通报招聘性骚扰#BOSS直聘重拳整治涉黄招聘#女性成长\",\"like_cnt\":\"957\",\"share_cnt\":\"16\",\"vv\":\"27247\"},{\"comment_cnt\":\"106\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1756469392\",\"item_id\":\"7543978585184505107\",\"item_publish_time\":\"1756469392\",\"item_title\":\"是谁还在加班 #七夕加班#牛马#打工人\",\"like_cnt\":\"4325\",\"share_cnt\":\"42\",\"vv\":\"82526\"},{\"comment_cnt\":\"33\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755507037\",\"item_id\":\"7539845295242546473\",\"item_publish_time\":\"1755507037\",\"item_title\":\"家乡人给冠军“硬核投喂” 我滴天，世运会冠军夺冠后一句\\\"想喝老乡鸡\\\"，老乡鸡创始人连夜扛锅上门！#老乡鸡##束从轩亲手给世界冠军熬鸡汤\",\"like_cnt\":\"1868\",\"share_cnt\":\"56\",\"vv\":\"48640\"}]",
+        "link_convert_index": "56.37",
+        "link_convert_index_by_industry": "56.37",
+        "link_i_cnt_by_industry": "42301",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "73470",
+        "link_link_cnt_by_industry": "125134",
+        "link_n_cnt_by_industry": "9363",
+        "link_recommend_index_by_industry": "43.46",
+        "link_shopping_index": "43.46",
+        "link_spread_index": "51.89",
+        "link_spread_index_by_industry": "51.89",
+        "link_star_index": "58.66",
+        "link_star_index_by_industry": "58.66",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "钱多多娱乐",
+        "play_over_rate_within_30d": "0.0735",
+        "price_1_20": "7000",
+        "price_20_60": "7550",
+        "price_60": "8700",
+        "promotion_prospective_1_20_cpm": "228.83",
+        "promotion_prospective_20_60_cpm": "246.81",
+        "promotion_prospective_60_cpm": "284.41",
+        "promotion_prospective_vv": "30590",
+        "prospective_1_20_cpm": "206.5384",
+        "prospective_20_60_cpm": "222.7664",
+        "prospective_60_cpm": "256.6977",
+        "province": "",
+        "search_after_view_index_by_industry": "69.98",
+        "sn_expected_play_num": "33892",
+        "sn_interact_rate_within_30d": "0.074",
+        "sn_play_over_rate_within_30d": "0.0735",
+        "sn_prospective_1_20_cpe": "3.316",
+        "sn_prospective_1_20_cpm": "206.5384",
+        "sn_prospective_20_60_cpe": "3.5765",
+        "sn_prospective_20_60_cpm": "222.7664",
+        "sn_prospective_60_cpe": "4.1213",
+        "sn_prospective_60_cpm": "256.6977",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "0",
+        "star_ecom_video_num_30d": "0",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "1",
+        "star_video_finish_vv_rate_90d": "0.0084",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.033",
+        "star_video_median_vv_90d": "13387",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"萌宠\":[\"日常宠物\"]}",
+        "vv_median_30d": "42517.5"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7527943904906808634",
+          "video_tag": 3,
+          "vv": 488588
+        },
+        {
+          "item_id": "7532431244010687763",
+          "video_tag": 3,
+          "vv": 232728
+        },
+        {
+          "item_id": "7560581792072453395",
+          "video_tag": 4,
+          "vv": 53717
+        },
+        {
+          "item_id": "7554311859718933801",
+          "video_tag": 4,
+          "vv": 34320
+        },
+        {
+          "item_id": "7507258836697648420",
+          "video_tag": 5,
+          "vv": 211329
+        },
+        {
+          "item_id": "7530878978858798375",
+          "video_tag": 5,
+          "vv": 160142
+        },
+        {
+          "item_id": "7567334260936822699",
+          "video_tag": 6,
+          "vv": 31664
+        },
+        {
+          "item_id": "7559539296471928100",
+          "video_tag": 6,
+          "vv": 14866
+        }
+      ],
+      "star_id": "7337373864969633818",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 8700,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 7550,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 7000,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572096376161894409"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "8f8e3dd239c525af823b902ab5ebbdfd759459be"
+}

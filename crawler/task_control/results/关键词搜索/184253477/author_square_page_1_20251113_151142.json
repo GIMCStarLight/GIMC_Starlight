@@ -1,0 +1,246 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "35",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L5",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"酥脆\":0.063}",
+        "author_type": "2",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_6f71d07e858b9b580522f894d1ab9375.jpeg?from=4010531038",
+        "brand_boost_vv": "1000000",
+        "city": "南京市",
+        "content_theme_labels_180d": "[\"古风剧情\",\"搞笑挑战\",\"明星演绎\",\"有趣剧情创作\",\"搞笑剧情\",\"猛禽风采\",\"恐怖演绎\",\"野生动物\",\"奇幻剧情\"]",
+        "core_user_id": "83926444034",
+        "e_commerce_enable": "0",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "801357",
+        "expected_play_num": "830042",
+        "fans_increment_rate_within_15d": "0.009895668243841622",
+        "fans_increment_within_15d": "25756",
+        "fans_increment_within_30d": "28163",
+        "follower": "2628484",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6859571474907267080",
+        "interact_rate_within_30d": "0.0363",
+        "interaction_median_30d": "32230",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "true",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"453\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762228439\",\"item_id\":\"7568713489264581745\",\"item_publish_time\":\"1762228439\",\"item_title\":\"血气方刚的大明贵妇 #妞妞妞#西塘汉服文化周 #当汉服遇上西塘 #西塘中国风汉服音乐节到底谁在 #全网汉服达人都来西塘了\",\"like_cnt\":\"29259\",\"share_cnt\":\"5057\",\"vv\":\"621766\"},{\"comment_cnt\":\"400\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762056946\",\"item_id\":\"7567976929745211365\",\"item_publish_time\":\"1762056946\",\"item_title\":\"有看到妞吗！！ #西塘汉服文化周 #当汉服遇上西塘  #全网汉服达人都来西塘了#妞妞妞#孔雀冠击腰鼓女俑\",\"like_cnt\":\"23781\",\"share_cnt\":\"2302\",\"vv\":\"615229\"},{\"comment_cnt\":\"9105\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1761738840\",\"item_id\":\"7566610698055293029\",\"item_publish_time\":\"1761738840\",\"item_title\":\"大家喜欢什么时期的妲己呢 #妞妞妞#妲己#致敬经典\",\"like_cnt\":\"616699\",\"share_cnt\":\"156769\",\"vv\":\"21471182\"},{\"comment_cnt\":\"394\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760177087\",\"item_id\":\"7559902993832856889\",\"item_publish_time\":\"1760177087\",\"item_title\":\"人生长恨水长东 #李煜#小周后\",\"like_cnt\":\"38872\",\"share_cnt\":\"3880\",\"vv\":\"845905\"},{\"comment_cnt\":\"613\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759488053\",\"item_id\":\"7556943633531079994\",\"item_publish_time\":\"1759488053\",\"item_title\":\"你最喜欢什么版本的武则天 #妞妞妞 #致敬经典 #武则天\",\"like_cnt\":\"62325\",\"share_cnt\":\"8652\",\"vv\":\"1651262\"},{\"comment_cnt\":\"14990\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1759055266\",\"item_id\":\"7555084821246430523\",\"item_publish_time\":\"1759055266\",\"item_title\":\"“神仙开颜，福绕人间” #老君山山海神话季 #妞妞妞 #西王母 #妞妞中国神仙系列\",\"like_cnt\":\"915907\",\"share_cnt\":\"322465\",\"vv\":\"14928715\"},{\"comment_cnt\":\"181\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758881626\",\"item_id\":\"7554339038792404281\",\"item_publish_time\":\"1758881626\",\"item_title\":\"“神仙动情，三界不宁” #妞妞妞#妞妞中国神仙系列 #一纸风月赖仔版#西王母\",\"like_cnt\":\"17753\",\"share_cnt\":\"1116\",\"vv\":\"505237\"},{\"comment_cnt\":\"1857\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758452790\",\"item_id\":\"7552497217446874426\",\"item_publish_time\":\"1758452790\",\"item_title\":\"原创：@桃黑黑 回复 @辣椒炒肉拌面（补药视奸我版）的评论\",\"like_cnt\":\"115184\",\"share_cnt\":\"35655\",\"vv\":\"2855694\"},{\"comment_cnt\":\"1222\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1758362754\",\"item_id\":\"7552110512504180027\",\"item_publish_time\":\"1758362754\",\"item_title\":\"有坏银 原声：@11分为2  原创：@桃黑黑   #妞妞妞\",\"like_cnt\":\"214613\",\"share_cnt\":\"27153\",\"vv\":\"5795361\"},{\"comment_cnt\":\"361\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758272699\",\"item_id\":\"7551723733157875003\",\"item_publish_time\":\"1758272699\",\"item_title\":\"此心安处是吾乡 #妞妞妞#文物拟人 #蛋仔派对国宝归乡季 #林蛋玉勇闯蛋仔岛#蛋仔派对\",\"like_cnt\":\"81196\",\"share_cnt\":\"2299\",\"vv\":\"1070713\"}]",
+        "link_convert_index": "69.16",
+        "link_convert_index_by_industry": "69.16",
+        "link_i_cnt_by_industry": "10608948",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "10083404",
+        "link_link_cnt_by_industry": "21621352",
+        "link_n_cnt_by_industry": "929000",
+        "link_recommend_index_by_industry": "80.26",
+        "link_shopping_index": "80.26",
+        "link_spread_index": "82.72",
+        "link_spread_index_by_industry": "82.72",
+        "link_star_index": "76.04",
+        "link_star_index_by_industry": "76.04",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "妞妞妞",
+        "pic_expected_play_num": "67510",
+        "play_over_rate_within_30d": "0.243",
+        "price_1_20": "61800",
+        "price_20_60": "69800",
+        "price_60": "79800",
+        "promotion_prospective_1_20_cpm": "77.01",
+        "promotion_prospective_20_60_cpm": "86.98",
+        "promotion_prospective_60_cpm": "99.44",
+        "promotion_prospective_vv": "802490",
+        "prospective_1_20_cpm": "74.4541",
+        "prospective_20_60_cpm": "84.0921",
+        "prospective_60_cpm": "96.1397",
+        "province": "江苏省",
+        "search_after_view_index_by_industry": "76.4",
+        "sn_expected_play_num": "830042",
+        "sn_interact_rate_within_30d": "0.0363",
+        "sn_play_over_rate_within_30d": "0.243",
+        "sn_prospective_1_20_cpe": "1.4032",
+        "sn_prospective_1_20_cpm": "74.4541",
+        "sn_prospective_20_60_cpe": "1.5848",
+        "sn_prospective_20_60_cpm": "84.0921",
+        "sn_prospective_60_cpe": "1.8119",
+        "sn_prospective_60_cpm": "96.1397",
+        "star_excellent_author": "0",
+        "star_index": "71.92174723602379",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"二次元\":[\"宅物手办\"]}",
+        "video_brand_boost": "true",
+        "video_brand_boost_vv": "1000000",
+        "vv_median_30d": "585254"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7511660722323213627",
+          "video_tag": 3,
+          "vv": 21703272
+        },
+        {
+          "item_id": "7566610698055293029",
+          "video_tag": 3,
+          "vv": 19979042
+        },
+        {
+          "item_id": "7507856852879068476",
+          "video_tag": 4,
+          "vv": 1144420
+        },
+        {
+          "item_id": "7530948788572376377",
+          "video_tag": 4,
+          "vv": 903147
+        },
+        {
+          "item_id": "7555084821246430523",
+          "video_tag": 5,
+          "vv": 13325451
+        },
+        {
+          "item_id": "7524662910481829180",
+          "video_tag": 5,
+          "vv": 5872708
+        },
+        {
+          "item_id": "7568713489264581745",
+          "video_tag": 6,
+          "vv": 585254
+        },
+        {
+          "item_id": "7567976929745211365",
+          "video_tag": 6,
+          "vv": 567990
+        }
+      ],
+      "star_id": "6859571474907267080",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 79800,
+              "price_extra_info": {},
+              "start_time": "1742370094",
+              "task_category": 1,
+              "video_type": 90,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 79800,
+              "price_extra_info": {},
+              "start_time": "1743436800",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 89800,
+              "price_extra_info": {},
+              "start_time": "1730390400",
+              "task_category": 1,
+              "video_type": 94,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 31,
+              "price_extra_info": {
+                "ceiling_price": "104700",
+                "floor_price": "13960"
+              },
+              "start_time": "1700050201",
+              "task_category": 1,
+              "video_type": 92,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 79800,
+              "price_extra_info": {},
+              "start_time": "1730390400",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 69800,
+              "price_extra_info": {},
+              "start_time": "1730390400",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 61800,
+              "price_extra_info": {},
+              "start_time": "1730390400",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572104110914125875"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "6dfc7d224d902c1083abd088d0c29e606b03f2cf"
+}

@@ -1,0 +1,247 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "48",
+        "assign_task_price_list": "[40000,60000,60000,60000]",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L5",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"年轻人\":0.04,\"清爽\":0.00525,\"玻色因\":0,\"美白\":168.3549645571472,\"防晒\":0}",
+        "author_type": "2",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_bf5d23bb3184078f85a8fc4c741f380c.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "广州市",
+        "content_theme_labels_180d": "[\"消费体验\",\"美食探索\",\"广州旅行\",\"手机评测\",\"数码开箱\",\"国内旅行\",\"旅行特色体验\",\"创业经历\",\"电子产品测评\",\"网球穿搭\"]",
+        "core_user_id": "102028931270",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "49444",
+        "expected_play_num": "173207",
+        "fans_increment_rate_within_15d": "-0.0015543558452142832",
+        "fans_increment_within_15d": "-5836",
+        "fans_increment_within_30d": "-9907",
+        "follower": "3749077",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6618416278770024451",
+        "interact_rate_within_30d": "0.1026",
+        "interaction_median_30d": "21308",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"375\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762780609\",\"item_id\":\"7571085051815930803\",\"item_publish_time\":\"1762780609\",\"item_title\":\"双十一怎么高效购物？我一招搞定！ #华为MateXTs非凡大师#华为三折叠#鸿蒙越用越香#购物分享\",\"like_cnt\":\"15116\",\"share_cnt\":\"60\",\"vv\":\"324927\"},{\"comment_cnt\":\"788\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760602100\",\"item_id\":\"7561728415701175611\",\"item_publish_time\":\"1760602100\",\"item_title\":\"7年模特告诉你上镜最重要是脸匀净！ #美就耀白 #女神真白传#片仔癀化妆品#国妆45珍的藏不住#片仔癀珍珠膏\",\"like_cnt\":\"34776\",\"share_cnt\":\"876\",\"vv\":\"1526142\"},{\"comment_cnt\":\"536\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760524336\",\"item_id\":\"7561394438972804412\",\"item_publish_time\":\"1760524336\",\"item_title\":\"亚洲小姐衣物护理｜能穿到身上的高级香！ #奥妙五星香护洗衣液 #奥妙 #洗衣液 #留香洗衣液 #衣物护理\",\"like_cnt\":\"26746\",\"share_cnt\":\"497\",\"vv\":\"2004356\"},{\"comment_cnt\":\"1483\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759054372\",\"item_id\":\"7555080940012260608\",\"item_publish_time\":\"1759054372\",\"item_title\":\"7年模特｜管住嘴没你想的这么难！ #模特身材管理#身材管理#小基数\",\"like_cnt\":\"18975\",\"share_cnt\":\"179\",\"vv\":\"221088\"},{\"comment_cnt\":\"667\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758532718\",\"item_id\":\"7552840477242936595\",\"item_publish_time\":\"1758532718\",\"item_title\":\"穿上秋日鞋包在南法庄园里走秀～氛围感拉满了！ #秋日鞋包氛围感拿捏了#跟着抖音学穿搭#琥珀流光#vlog#ootd\",\"like_cnt\":\"27554\",\"share_cnt\":\"262\",\"vv\":\"435369\"},{\"comment_cnt\":\"478\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756448793\",\"item_id\":\"7543890091752639754\",\"item_publish_time\":\"1756448793\",\"item_title\":\"不好意思，不装的照片我不发。 #张韶涵隐形的翅膀变装#卡点#变装#反差#如何评价荣耀小折叠\",\"like_cnt\":\"21645\",\"share_cnt\":\"213\",\"vv\":\"906276\"},{\"comment_cnt\":\"409\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756373154\",\"item_id\":\"7543565244745420083\",\"item_publish_time\":\"1756373154\",\"item_title\":\"周末和闺蜜出门散心，一不小心出片了！ #转场#张韶涵隐形的翅膀变装#如何评价荣耀小折叠#荣耀MagicVFlip2\",\"like_cnt\":\"31469\",\"share_cnt\":\"590\",\"vv\":\"600907\"},{\"comment_cnt\":\"720\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756088428\",\"item_id\":\"7542342304456052011\",\"item_publish_time\":\"1756088428\",\"item_title\":\"七夕最好的礼物是和闺蜜出门耍！～ #又在垃圾堆捡到七夕礼物了#玩个很新的东西#七夕#闺蜜#vlog\",\"like_cnt\":\"29192\",\"share_cnt\":\"414\",\"vv\":\"966739\"},{\"comment_cnt\":\"512\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755680478\",\"item_id\":\"7540590220514233627\",\"item_publish_time\":\"1755680478\",\"item_title\":\"超下饭的电子榨菜又来咯～这期含金量很高！ #荣耀MagicVFlip2#荣耀MagicVFlip2开箱#荣耀MagicVFlip2真机曝光#购物分享#长期主义\",\"like_cnt\":\"21146\",\"share_cnt\":\"592\",\"vv\":\"532052\"},{\"comment_cnt\":\"589\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1755154401\",\"item_id\":\"7538330734105906470\",\"item_publish_time\":\"1755154401\",\"item_title\":\"高强度拍摄日，幸好有麦咖啡助力！ #麦当劳#麦咖啡加冰还很浓#麦咖啡冰美式#模特拍摄日#vlog\",\"like_cnt\":\"22165\",\"share_cnt\":\"1181\",\"vv\":\"2043748\"}]",
+        "link_convert_index": "65.82",
+        "link_convert_index_by_industry": "65.82",
+        "link_i_cnt_by_industry": "300043",
+        "link_k_cnt_by_industry": "2",
+        "link_l_cnt_by_industry": "2824439",
+        "link_link_cnt_by_industry": "3267166",
+        "link_n_cnt_by_industry": "142682",
+        "link_recommend_index_by_industry": "77.16",
+        "link_shopping_index": "77.16",
+        "link_spread_index": "73.64",
+        "link_spread_index_by_industry": "73.64",
+        "link_star_index": "72.23",
+        "link_star_index_by_industry": "72.23",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "黄梦宁Morning",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.1642",
+        "price_1_20": "30000",
+        "price_20_60": "40000",
+        "price_60": "60000",
+        "promotion_prospective_1_20_cpm": "23.99",
+        "promotion_prospective_20_60_cpm": "31.98",
+        "promotion_prospective_60_cpm": "47.97",
+        "promotion_prospective_vv": "1250704",
+        "prospective_1_20_cpm": "173.2032",
+        "prospective_20_60_cpm": "230.9375",
+        "prospective_60_cpm": "346.4063",
+        "province": "广东省",
+        "search_after_view_index_by_industry": "71.61",
+        "sn_expected_play_num": "173207",
+        "sn_interact_rate_within_30d": "0.1026",
+        "sn_play_over_rate_within_30d": "0.1642",
+        "sn_prospective_1_20_cpe": "1.3553",
+        "sn_prospective_1_20_cpm": "173.2032",
+        "sn_prospective_20_60_cpe": "1.807",
+        "sn_prospective_20_60_cpm": "230.9375",
+        "sn_prospective_60_cpe": "2.7105",
+        "sn_prospective_60_cpm": "346.4063",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "102",
+        "star_ecom_video_num_30d": "3",
+        "star_excellent_author": "0",
+        "star_index": "75.32079300821688",
+        "star_item_count_within_30d": "3",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "4",
+        "star_video_finish_vv_rate_90d": "0.0256",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0252",
+        "star_video_median_vv_90d": "1063524",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"时尚\":[\"穿搭\"]}",
+        "vv_median_30d": "1498016"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7523175741647818042",
+          "video_tag": 3,
+          "vv": 3841456
+        },
+        {
+          "item_id": "7534923038878420258",
+          "video_tag": 3,
+          "vv": 583656
+        },
+        {
+          "item_id": "7538330734105906470",
+          "video_tag": 4,
+          "vv": 2022031
+        },
+        {
+          "item_id": "7561394438972804412",
+          "video_tag": 4,
+          "vv": 1982303
+        },
+        {
+          "item_id": "7561728415701175611",
+          "video_tag": 5,
+          "vv": 1498016
+        },
+        {
+          "item_id": "7537961097567997193",
+          "video_tag": 5,
+          "vv": 846552
+        },
+        {
+          "item_id": "7571085051815930803",
+          "video_tag": 6,
+          "vv": 300371
+        },
+        {
+          "item_id": "7555080940012260608",
+          "video_tag": 6,
+          "vv": 72500
+        }
+      ],
+      "star_id": "6618416278770024451",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 48000,
+              "price_extra_info": {},
+              "start_time": "1661961600",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 80000,
+              "price_extra_info": {},
+              "start_time": "1755764755",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 60000,
+              "price_extra_info": {},
+              "start_time": "1725120000",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 40000,
+              "price_extra_info": {},
+              "start_time": "1725120000",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 30000,
+              "price_extra_info": {},
+              "start_time": "1725120000",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 45,
+              "price_extra_info": {
+                "ceiling_price": "162000",
+                "floor_price": "21600"
+              },
+              "start_time": "1700050127",
+              "task_category": 1,
+              "video_type": 92,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572113601860649010"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "4465f741b23f2f2c5f7b363723a54fde9b776259"
+}

@@ -1,0 +1,214 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "48",
+        "assign_task_price_list": "[85000,88000,88000]",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L5",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"服帖\":0,\"清爽\":0.0023333333333333335,\"玻色因\":0,\"美白\":0,\"遮瑕\":0,\"防晒\":0}",
+        "author_type": "2",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_1484970b3da8b74b05e0a80342d272f8.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "广州市",
+        "content_theme_labels_180d": "[\"底妆测评\",\"水润妆容\",\"节日美妆\"]",
+        "core_user_id": "101187903294",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "148995",
+        "expected_play_num": "264327",
+        "fans_increment_rate_within_15d": "-0.0017153048166886249",
+        "fans_increment_within_15d": "-4079",
+        "fans_increment_within_30d": "-7655",
+        "follower": "2374051",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6629166746085359624",
+        "interact_rate_within_30d": "0.2772",
+        "interaction_median_30d": "39703",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"2054\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761046268\",\"item_id\":\"7563636111387446587\",\"item_publish_time\":\"1761046268\",\"item_title\":\"真正意义上的“越用越靓”，很绝的养肤气垫#香奈儿金砖气垫 #香奈儿金砖粉底液 #金砖缎光 #香奈儿奢华精萃系列\",\"like_cnt\":\"63978\",\"share_cnt\":\"328\",\"vv\":\"557884\"},{\"comment_cnt\":\"428\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760518191\",\"item_id\":\"7561368022960606523\",\"item_publish_time\":\"1760518191\",\"item_title\":\"越看越中意！超耐看的自然光泽底妆，不抢戏但很高级！#雅诗兰黛沁水粉底液#底妆#底妆测评#干皮粉底\",\"like_cnt\":\"46110\",\"share_cnt\":\"46\",\"vv\":\"859023\"},{\"comment_cnt\":\"591\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755599111\",\"item_id\":\"7540240759518285066\",\"item_publish_time\":\"1755599111\",\"item_title\":\"七夕送礼新思路：CP 香上大分！#香水#七夕#蔻驰香水#摩登都市自在由我#OPTD\",\"like_cnt\":\"48177\",\"share_cnt\":\"699\",\"vv\":\"1669646\"},{\"comment_cnt\":\"811\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1752648148\",\"item_id\":\"7527566455862480155\",\"item_publish_time\":\"1752648148\",\"item_title\":\"救命！兰蔻新品也太超过了！原相机直出生图能打，真系唔使修图！#兰蔻小黑瓶滤镜水#护肤\",\"like_cnt\":\"33452\",\"share_cnt\":\"1014\",\"vv\":\"1004805\"},{\"comment_cnt\":\"591\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1745571432\",\"item_id\":\"7497172165839916315\",\"item_publish_time\":\"1745571432\",\"item_title\":\"晒晒我的音乐节新皮肤☄️墨镜是奶奶的，属实有点潮 #我和音乐节超搭的 #用墨镜拿捏音乐节 #玩个很新的东西 #变妆 #女性力量\",\"like_cnt\":\"21814\",\"share_cnt\":\"207\",\"vv\":\"102033\"},{\"comment_cnt\":\"196\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1744861066\",\"item_id\":\"7494121163694640442\",\"item_publish_time\":\"1744861066\",\"item_title\":\"全身发光✨趁夏天正式来临之前！做个弊！从头白到脚趾头 时隔三年\\n身体素颜霜大盘点又返场啦！\\n【无广】可能得罪人，但是大实话。\\n大声告诉我：你现在用的是哪一支？\\n#白才是夏天ootd的百搭色 #宝藏成分白月光 #一键变装夏日清凉感穿搭 #美白 #身体素颜霜\",\"like_cnt\":\"12015\",\"share_cnt\":\"230\",\"vv\":\"156396\"},{\"comment_cnt\":\"315\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1744344778\",\"item_id\":\"7491903718258969914\",\"item_publish_time\":\"1744344778\",\"item_title\":\"美妆博主私下 真正在用的防晒居然是…… 防晒排雷+选防晒思路+自用无广分享\\n本期超全防晒干货，赶紧码下！！（怒音）\\n#防晒服不服挑战 #防晒推荐好物 #美白大作战 #防晒测评 #防晒\",\"like_cnt\":\"20599\",\"share_cnt\":\"135\",\"vv\":\"88630\"},{\"comment_cnt\":\"930\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1743954804\",\"item_id\":\"7490228658888576265\",\"item_publish_time\":\"1743954804\",\"item_title\":\"Tony老师绝不会告诉你的换头秘密#spes多肽蓬蓬瓶#洗发水#spes\",\"like_cnt\":\"50941\",\"share_cnt\":\"715\",\"vv\":\"1625132\"},{\"comment_cnt\":\"853\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1743387859\",\"item_id\":\"7487793729454099739\",\"item_publish_time\":\"1743387859\",\"item_title\":\"水光肌标准答案，懒人新手轻松get#兰蔻是我水光气垫 #新手化妆 #水光肌#懒人福音\",\"like_cnt\":\"46938\",\"share_cnt\":\"1666\",\"vv\":\"6612325\"},{\"comment_cnt\":\"72\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1742366397\",\"item_id\":\"7483406583087516938\",\"item_publish_time\":\"1742366397\",\"item_title\":\"难得几天在山水间放松身心 想跟你们share✨ 上个月我刚满三十岁 碰巧遇上大吉岭茶香水诞生诞生周年 太巧啦 认定为我的人生香水！干净灵动通透 早春微凉的天气和白衬衫 绝配 anyway 我永远为干净的白衬衫少年感着迷 已经开始期待下一次与品牌的灵感碰撞了！😊 #早春潮搭大赏 #用外套打造早春少年感 #宝格丽大吉岭茶 #少年感\",\"like_cnt\":\"10469\",\"share_cnt\":\"41\",\"vv\":\"68753\"}]",
+        "link_convert_index": "56.15",
+        "link_convert_index_by_industry": "56.15",
+        "link_i_cnt_by_industry": "95936",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "910560",
+        "link_link_cnt_by_industry": "1055492",
+        "link_n_cnt_by_industry": "48996",
+        "link_recommend_index_by_industry": "72.09",
+        "link_shopping_index": "72.09",
+        "link_spread_index": "69.63",
+        "link_spread_index_by_industry": "69.63",
+        "link_star_index": "67.98",
+        "link_star_index_by_industry": "67.98",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "野生杜蕉蕉",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.1238",
+        "price_1_20": "55000",
+        "price_20_60": "85000",
+        "price_60": "110000",
+        "promotion_prospective_1_20_cpm": "65.08",
+        "promotion_prospective_20_60_cpm": "100.58",
+        "promotion_prospective_60_cpm": "130.16",
+        "promotion_prospective_vv": "845095",
+        "prospective_1_20_cpm": "208.0756",
+        "prospective_20_60_cpm": "321.5714",
+        "prospective_60_cpm": "416.1512",
+        "province": "广东省",
+        "search_after_view_index_by_industry": "70.07",
+        "sn_expected_play_num": "264327",
+        "sn_interact_rate_within_30d": "0.2772",
+        "sn_play_over_rate_within_30d": "0.1238",
+        "sn_prospective_1_20_cpe": "1.1116",
+        "sn_prospective_1_20_cpm": "208.0756",
+        "sn_prospective_20_60_cpe": "1.7179",
+        "sn_prospective_20_60_cpm": "321.5714",
+        "sn_prospective_60_cpe": "2.2232",
+        "sn_prospective_60_cpm": "416.1512",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "137",
+        "star_ecom_video_num_30d": "2",
+        "star_excellent_author": "0",
+        "star_index": "77.49110765589205",
+        "star_item_count_within_30d": "2",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "3",
+        "star_video_finish_vv_rate_90d": "0.0226",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0526",
+        "star_video_median_vv_90d": "859023",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"时尚\":[\"穿搭\"]}",
+        "vv_median_30d": "550802.5"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7540240759518285066",
+          "video_tag": 4,
+          "vv": 1633944
+        },
+        {
+          "item_id": "7527566455862480155",
+          "video_tag": 4,
+          "vv": 963020
+        },
+        {
+          "item_id": "7561368022960606523",
+          "video_tag": 5,
+          "vv": 827375
+        },
+        {
+          "item_id": "7563636111387446587",
+          "video_tag": 5,
+          "vv": 274230
+        }
+      ],
+      "star_id": "6629166746085359624",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 36000,
+              "price_extra_info": {},
+              "start_time": "1664553600",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 55000,
+              "price_extra_info": {},
+              "start_time": "1717171200",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 49,
+              "price_extra_info": {
+                "ceiling_price": "127500",
+                "floor_price": "17000"
+              },
+              "start_time": "1700050217",
+              "task_category": 1,
+              "video_type": 92,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 110000,
+              "price_extra_info": {},
+              "start_time": "1717171200",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 85000,
+              "price_extra_info": {},
+              "start_time": "1717171200",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572113938379096073"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "ed5216cfb00f490e3d4be2fc45dfa032a9cbb92f"
+}

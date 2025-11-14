@@ -4,12 +4,13 @@ import { registerAccessDirective } from '@vben/access';
 import { registerLoadingDirective } from '@vben/common-ui';
 import { preferences } from '@vben/preferences';
 import { initStores } from '@vben/stores';
-import '@vben/styles';
-import '@vben/styles/ele';
+// 样式已在 main.ts 中导入，避免重复
+// import '@vben/styles';
+// import '@vben/styles/ele';
 
 import { useTitle } from '@vueuse/core';
 import { ElLoading } from 'element-plus';
-import 'element-plus/dist/index.css';
+// import 'element-plus/dist/index.css';
 
 import { $t, setupI18n } from '#/locales';
 

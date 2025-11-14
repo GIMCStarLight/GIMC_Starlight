@@ -7,9 +7,9 @@ set -e
 
 # 配置变量
 SERVER_IP="192.168.102.168"
-SSH_KEY="/Users/samuel/Desktop/爬虫方案/爬虫工程化开发/192.168.102 (5).168_id_ed25519"  # SSH密钥路径
+SSH_KEY="/Users/samuel/Desktop/系统开发/others/192.168.102 (5).168_id_ed25519"  # SSH密钥路径
 SERVER_PATH="/www/wwwroot/gimcstar_proudction_env/gimcstar"  # 服务器部署路径
-LOCAL_PATH="/Users/samuel/Desktop/爬虫方案/爬虫工程化开发"
+LOCAL_PATH="/Users/samuel/Desktop/系统开发"
 BACKUP_DIR="/www/backup"  # 备份目录
 
 # 颜色输出

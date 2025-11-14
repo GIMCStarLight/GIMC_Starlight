@@ -1,0 +1,207 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"清爽\":0,\"胶原成分\":0,\"防晒\":0}",
+        "author_type": "2",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_65a340c0c982966b5e22010ad07ba24f.jpeg?from=4010531038",
+        "city": "北京",
+        "content_theme_labels_180d": "[\"奶制品测评\",\"口红测评\",\"手机回收\",\"箱包测评\"]",
+        "core_user_id": "62295605039",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "enroll_task_price_list": "[12000]",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "12810",
+        "expected_play_num": "20436",
+        "fans_increment_rate_within_15d": "-0.0021650946917850834",
+        "fans_increment_within_15d": "-87",
+        "fans_increment_within_30d": "31",
+        "follower": "40096",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7207618695940538427",
+        "interact_rate_within_30d": "0.0211",
+        "interaction_median_30d": "226",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"15\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762508716\",\"item_id\":\"7569917274465134565\",\"item_publish_time\":\"1762508716\",\"item_title\":\"谁说网购不能讲价！换个思路怒省一大笔！ #省钱攻略 #该花花该省省 #网购省钱关键词\",\"like_cnt\":\"170\",\"share_cnt\":\"79\",\"vv\":\"12349\"},{\"comment_cnt\":\"1961\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759577928\",\"item_id\":\"7557329639091375412\",\"item_publish_time\":\"1759577928\",\"item_title\":\"建议全国嘴硬的北京人都去趟上海，回来之后后劲太大… #抽象 #上海迪士尼 #vlog #上海滩 #上海美食\",\"like_cnt\":\"2162\",\"share_cnt\":\"250\",\"vv\":\"190317\"},{\"comment_cnt\":\"62\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759144437\",\"item_id\":\"7555467812485205263\",\"item_publish_time\":\"1759144437\",\"item_title\":\"终于有人把上海迪士尼游玩一次性说明白了！ 请您查收您的2025年最新版上海迪士尼保姆级游玩攻略 #上海迪士尼 #上海迪士尼旅游攻略 #国庆假期被安排明白了 #旅游攻略 #迪士尼\",\"like_cnt\":\"2068\",\"share_cnt\":\"1417\",\"vv\":\"95642\"},{\"comment_cnt\":\"78\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758966273\",\"item_id\":\"7554702610872241423\",\"item_publish_time\":\"1758966273\",\"item_title\":\"假如每个品牌只选一只包 #大牌包包#包包推荐#超级转转#转转大牌包#二手奢侈品\",\"like_cnt\":\"1225\",\"share_cnt\":\"47\",\"vv\":\"70422\"},{\"comment_cnt\":\"350\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1752648092\",\"item_id\":\"7527566226340891947\",\"item_publish_time\":\"1752648092\",\"item_title\":\"转转买大牌包靠谱吗？没人说我来说！ #真假#中古包#二手奢侈品#转转大牌包#超级转转\",\"like_cnt\":\"5421\",\"share_cnt\":\"577\",\"vv\":\"1432402\"},{\"comment_cnt\":\"199\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1752129881\",\"item_id\":\"7525340522723986742\",\"item_publish_time\":\"1752129881\",\"item_title\":\"超市版“大型自我介绍”不会还有人不会念Olé吧 #ole北京大悦城店 #ole新店 #Olé怎么读 #ole怎么读 #ole荔枝\",\"like_cnt\":\"1635\",\"share_cnt\":\"22\",\"vv\":\"52129\"},{\"comment_cnt\":\"131\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1751365416\",\"item_id\":\"7522057174001028391\",\"item_publish_time\":\"1751365416\",\"item_title\":\"在爽点上疯狂蹦迪！我不是最后一个爱上短剧的吧 \",\"like_cnt\":\"2386\",\"share_cnt\":\"8\",\"vv\":\"79316\"},{\"comment_cnt\":\"250\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1751089705\",\"item_id\":\"7520872976520482091\",\"item_publish_time\":\"1751089705\",\"item_title\":\"闭眼不踩雷！药妆店不知道买什么都给我抄！ #日本购物#日本药妆#购物分享#种草\",\"like_cnt\":\"6100\",\"share_cnt\":\"877\",\"vv\":\"270830\"},{\"comment_cnt\":\"73\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1750577573\",\"item_id\":\"7518673406490660137\",\"item_publish_time\":\"1750584600\",\"item_title\":\"当2025看到十年前的审美... #时代的眼泪 #口红 #口红试色 #彩妆\",\"like_cnt\":\"182\",\"share_cnt\":\"87\",\"vv\":\"31182\"},{\"comment_cnt\":\"562\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1749783770\",\"item_id\":\"7515264043104521513\",\"item_publish_time\":\"1749783770\",\"item_title\":\"聪明断舍离！免费上门还能秒到账 #上门回收#转转啥都收#省钱攻略#信息差\",\"like_cnt\":\"5774\",\"share_cnt\":\"138\",\"vv\":\"329650\"}]",
+        "link_convert_index": "0",
+        "link_convert_index_by_industry": "0",
+        "link_recommend_index_by_industry": "26.27",
+        "link_shopping_index": "26.27",
+        "link_spread_index": "27.79",
+        "link_spread_index_by_industry": "27.79",
+        "link_star_index": "21.76",
+        "link_star_index_by_industry": "21.76",
+        "local_lower_threshold_author": "false",
+        "nick_name": "王米佳Zoestyle",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.0254",
+        "price_1_20": "12000",
+        "price_20_60": "15000",
+        "price_60": "18800",
+        "promotion_prospective_1_20_cpm": "653.84",
+        "promotion_prospective_20_60_cpm": "817.31",
+        "promotion_prospective_60_cpm": "1024.36",
+        "promotion_prospective_vv": "18353",
+        "prospective_1_20_cpm": "587.1991",
+        "prospective_20_60_cpm": "733.9988",
+        "prospective_60_cpm": "919.9452",
+        "province": "",
+        "sn_expected_play_num": "20436",
+        "sn_interact_rate_within_30d": "0.0211",
+        "sn_play_over_rate_within_30d": "0.0254",
+        "sn_prospective_1_20_cpe": "33.8028",
+        "sn_prospective_1_20_cpm": "587.1991",
+        "sn_prospective_20_60_cpe": "42.2535",
+        "sn_prospective_20_60_cpm": "733.9988",
+        "sn_prospective_60_cpe": "52.9577",
+        "sn_prospective_60_cpm": "919.9452",
+        "star_component_download_ctr_90d": "0.00946969696969697",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_install_pvr_90d": "0",
+        "star_component_link_click_cnt_90d": "45",
+        "star_ecom_video_num_30d": "0",
+        "star_excellent_author": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"时尚\":[\"穿搭\"]}",
+        "vv_median_30d": "10735"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7557329639091375412",
+          "video_tag": 3,
+          "vv": 164927
+        },
+        {
+          "item_id": "7555467812485205263",
+          "video_tag": 3,
+          "vv": 84944
+        },
+        {
+          "item_id": "7527566226340891947",
+          "video_tag": 4,
+          "vv": 1371438
+        },
+        {
+          "item_id": "7507147838393601292",
+          "video_tag": 4,
+          "vv": 314342
+        },
+        {
+          "item_id": "7515264043104521513",
+          "video_tag": 5,
+          "vv": 201507
+        },
+        {
+          "item_id": "7505366825778990347",
+          "video_tag": 5,
+          "vv": 198470
+        },
+        {
+          "item_id": "7569917274465134565",
+          "video_tag": 6,
+          "vv": 10735
+        },
+        {
+          "item_id": "7554702610872241423",
+          "video_tag": 6,
+          "vv": 62211
+        }
+      ],
+      "star_id": "7207618695940538427",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 18800,
+              "price_extra_info": {},
+              "start_time": "1758877873",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 12000,
+              "price_extra_info": {},
+              "start_time": "1758877869",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 18800,
+              "price_extra_info": {},
+              "start_time": "1758877869",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 15000,
+              "price_extra_info": {},
+              "start_time": "1758877869",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572115908253859867"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "07a22228a6a51fc8d0c728eb72b99be240cc0b6e"
+}

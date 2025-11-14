@@ -1,0 +1,204 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "8",
+        "assign_task_price_list": "[8640,12800]",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "2",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813_o4AAwYPyIEPhSPtDtIZiAWBgmDiNgAxYYAGAa.jpeg?from=4010531038",
+        "city": "重庆",
+        "content_theme_labels_180d": "[\"家电推荐\",\"家用电器\",\"奶茶品鉴\",\"婚礼记录\",\"游乐园游玩\",\"零食测评\",\"新能源汽车资讯\",\"水质处理家电\",\"外卖测评\",\"网红景点种草\"]",
+        "core_user_id": "3127452255133347",
+        "e_commerce_enable": "0",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "3",
+        "expected_natural_play_num": "8917",
+        "expected_play_num": "24366",
+        "fans_increment_rate_within_15d": "-0.00104787033546928",
+        "fans_increment_within_15d": "-417",
+        "fans_increment_within_30d": "-975",
+        "follower": "397529",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7445217994308550682",
+        "interact_rate_within_30d": "0.1052",
+        "interaction_median_30d": "1474",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"140\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762654731\",\"item_id\":\"7570544394332278067\",\"item_publish_time\":\"1762654731\",\"item_title\":\"外卖可能会迟到，但他们的善意总会准时抵达#美团先锋骑手#美团表彰大会#这单有人为你兜底\",\"like_cnt\":\"2774\",\"share_cnt\":\"43\",\"vv\":\"39270\"},{\"comment_cnt\":\"199\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761730774\",\"item_id\":\"7566576020950682920\",\"item_publish_time\":\"1761730774\",\"item_title\":\"比翻车来的更早的，是京东漂亮的反击 #京东 #薅羊毛 #省钱攻略\",\"like_cnt\":\"676\",\"share_cnt\":\"38\",\"vv\":\"28621\"},{\"comment_cnt\":\"32\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759068458\",\"item_id\":\"7555141369241685290\",\"item_publish_time\":\"1759068458\",\"item_title\":\"原来好的球员的吸引力不止于球技#巅峰中网问鼎昆仑  #打网球喝昆仑山矿泉水   #山之颠水之极昆仑山矿泉水\",\"like_cnt\":\"327\",\"share_cnt\":\"27\",\"vv\":\"15217\"},{\"comment_cnt\":\"16\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758102772\",\"item_id\":\"7550993866841705737\",\"item_publish_time\":\"1758102772\",\"item_title\":\"每天通勤省一点，省到就是赚到#美团单车 #美团单车起步九毛九\",\"like_cnt\":\"557\",\"share_cnt\":\"7\",\"vv\":\"5292\"},{\"comment_cnt\":\"49\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755690481\",\"item_id\":\"7540633073319169315\",\"item_publish_time\":\"1755690481\",\"item_title\":\"对家人的爱，藏在辣椒里，也藏在一台净烟机里 #厨房安全#硬装结束雷军进场#米家净烟机#是净烟机不是油烟机#炒菜多放辣椒先进事迹引争议\",\"like_cnt\":\"4450\",\"share_cnt\":\"534\",\"vv\":\"28034\"},{\"comment_cnt\":\"14\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755569020\",\"item_id\":\"7540111498157231400\",\"item_publish_time\":\"1755569020\",\"item_title\":\"一张票畅玩整个山地乐园？妈妈再也不用担心我景区套票不能回本了!#龙井峡漂流#三渡山地运动公园 #伊拉克老王也来漂流了 #夏天先去浪再去野 #矿泉水上的过山车\",\"like_cnt\":\"379\",\"share_cnt\":\"116\",\"vv\":\"5064\"},{\"comment_cnt\":\"19\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755053264\",\"item_id\":\"7537896356136930586\",\"item_publish_time\":\"1755053264\",\"item_title\":\"不是表面功夫，是实实在在的付出 #安吉这对新婚夫妻向母校捐赠500万元 #小说照进现实 #感动瞬间\",\"like_cnt\":\"748\",\"share_cnt\":\"153\",\"vv\":\"28318\"},{\"comment_cnt\":\"21\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1754376806\",\"item_id\":\"7534990985630141734\",\"item_publish_time\":\"1754376806\",\"item_title\":\"洗脑神舞攻陷小区？其实是玉林正鼓舞带奖“霸屏”呢 #玉林正鼓舞广场舞大赛 #玉林 #良心企业 #广场舞\",\"like_cnt\":\"615\",\"share_cnt\":\"35\",\"vv\":\"9926\"},{\"comment_cnt\":\"5\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1754142777\",\"item_id\":\"7533985714707385643\",\"item_publish_time\":\"1754142777\",\"item_title\":\"这完全是长在我心巴上的小公主啊 #Heyone黑玩 #荞荞繁星璀璨时 #荞荞JOY #手办盲盒 #林子烨\",\"like_cnt\":\"824\",\"share_cnt\":\"21\",\"vv\":\"7357\"},{\"comment_cnt\":\"152\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1753793932\",\"item_id\":\"7532487472584887591\",\"item_publish_time\":\"1753793932\",\"item_title\":\"被偷照片的女生和躺枪的 BOSS直聘真是无妄之灾！ #BOSS直聘通报王某香简历事件 #造谣 #造谣一张嘴辟谣跑断腿 #互联网\",\"like_cnt\":\"1058\",\"share_cnt\":\"156\",\"vv\":\"15487\"}]",
+        "link_convert_index": "42.51",
+        "link_convert_index_by_industry": "42.51",
+        "link_i_cnt_by_industry": "11336",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "30901",
+        "link_link_cnt_by_industry": "43066",
+        "link_n_cnt_by_industry": "829",
+        "link_recommend_index_by_industry": "42.84",
+        "link_shopping_index": "42.84",
+        "link_spread_index": "47.5",
+        "link_spread_index_by_industry": "47.5",
+        "link_star_index": "54.84",
+        "link_star_index_by_industry": "54.84",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "熊猫叨叨",
+        "play_over_rate_within_30d": "0.0267",
+        "price_1_20": "7000",
+        "price_20_60": "10800",
+        "price_60": "12800",
+        "promotion_prospective_1_20_cpm": "324.4",
+        "promotion_prospective_20_60_cpm": "500.51",
+        "promotion_prospective_60_cpm": "593.2",
+        "promotion_prospective_vv": "21578",
+        "prospective_1_20_cpm": "287.2856",
+        "prospective_20_60_cpm": "443.2406",
+        "prospective_60_cpm": "525.3222",
+        "province": "",
+        "sn_expected_play_num": "24366",
+        "sn_interact_rate_within_30d": "0.1052",
+        "sn_play_over_rate_within_30d": "0.0267",
+        "sn_prospective_1_20_cpe": "9.4086",
+        "sn_prospective_1_20_cpm": "287.2856",
+        "sn_prospective_20_60_cpe": "14.5161",
+        "sn_prospective_20_60_cpm": "443.2406",
+        "sn_prospective_60_cpe": "17.2043",
+        "sn_prospective_60_cpm": "525.3222",
+        "star_component_link_click_cnt_90d": "0",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "3",
+        "star_video_finish_vv_rate_90d": "0.0417",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0669",
+        "star_video_median_vv_90d": "15224",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"萌宠\":[\"日常宠物\"]}",
+        "vv_median_30d": "18124.5"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7528762429359049994",
+          "video_tag": 3,
+          "vv": 438743
+        },
+        {
+          "item_id": "7507616282737495333",
+          "video_tag": 3,
+          "vv": 50934
+        },
+        {
+          "item_id": "7523162478612696359",
+          "video_tag": 4,
+          "vv": 202016
+        },
+        {
+          "item_id": "7509046947693464844",
+          "video_tag": 4,
+          "vv": 61708
+        },
+        {
+          "item_id": "7515334310761631016",
+          "video_tag": 5,
+          "vv": 59380
+        },
+        {
+          "item_id": "7520593242795183398",
+          "video_tag": 5,
+          "vv": 34201
+        },
+        {
+          "item_id": "7570544394332278067",
+          "video_tag": 6,
+          "vv": 30105
+        },
+        {
+          "item_id": "7566576020950682920",
+          "video_tag": 6,
+          "vv": 19953
+        }
+      ],
+      "star_id": "7445217994308550682",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 7000,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 12800,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 10800,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572094658485043227"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "d106b11472aa64aa8967aaf645074dc7e2603f0a"
+}

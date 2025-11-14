@@ -1,0 +1,229 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "74",
+        "assign_task_price_list": "[19200,22800,24000,30000,30000,30000,30000]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "2",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_3521fddbfa93663691a79d50816c686a.jpeg?from=4010531038",
+        "city": "济南",
+        "content_theme_labels_180d": "[\"手机评测\",\"手机市场资讯\",\"智能影音设备\",\"电脑性能\",\"智能穿戴体验\",\"电脑散热\",\"苹果技术\",\"耳机评测\",\"科技资讯\",\"芯片技术动态\"]",
+        "core_user_id": "1433363702351652",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "89203",
+        "expected_play_num": "98854",
+        "fans_increment_rate_within_15d": "-0.0008387895947619891",
+        "fans_increment_within_15d": "-237",
+        "fans_increment_within_30d": "-481",
+        "follower": "282325",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7270825981496016953",
+        "interact_rate_within_30d": "0.0785",
+        "interaction_median_30d": "5905",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"192\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762416553\",\"item_id\":\"7569521421333390186\",\"item_publish_time\":\"1762416553\",\"item_title\":\"定格蓝调浪漫，荣耀Magic8 Pro双十一旗舰之选#荣耀Magic8#荣耀Magic8巅峰旗舰  @荣耀手机\",\"like_cnt\":\"7230\",\"share_cnt\":\"82\",\"vv\":\"196594\"},{\"comment_cnt\":\"218\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761907146\",\"item_id\":\"7567333542335723131\",\"item_publish_time\":\"1761907146\",\"item_title\":\"未来照进现实，Rokid带你解锁明日“视界”！#Rokid乐奇#Rokid#AI眼镜#RokidAI眼镜#乐奇眼镜\",\"like_cnt\":\"6700\",\"share_cnt\":\"503\",\"vv\":\"434540\"},{\"comment_cnt\":\"176\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761557801\",\"item_id\":\"7565833122237074737\",\"item_publish_time\":\"1761557801\",\"item_title\":\"三星玄龙骑士G60F电竞显示器，才是电竞玩家的理想搭档！！#三星显示器#g60f#oled\",\"like_cnt\":\"6332\",\"share_cnt\":\"25\",\"vv\":\"227816\"},{\"comment_cnt\":\"179\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761227672\",\"item_id\":\"7564415241660976433\",\"item_publish_time\":\"1761271200\",\"item_title\":\"上分困难户？试试iQOO Pad5e，爽完无忧！#iQOOPad5e #iQOOPad5 系列\",\"like_cnt\":\"5533\",\"share_cnt\":\"165\",\"vv\":\"329086\"},{\"comment_cnt\":\"255\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760961747\",\"item_id\":\"7563273055485693193\",\"item_publish_time\":\"1760961747\",\"item_title\":\"解锁高效办公，找到护眼和办公的平衡点，选它准没错！#文石彩墨平板#文石T10C#数码好物#职场出彩攻略\",\"like_cnt\":\"783\",\"share_cnt\":\"653\",\"vv\":\"678589\"},{\"comment_cnt\":\"167\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760694024\",\"item_id\":\"7562123224327245083\",\"item_publish_time\":\"1760694024\",\"item_title\":\"iPhone17 pro max评测：终究还是爱上pro#iPhone17 #手机数码 #手机测评\",\"like_cnt\":\"816\",\"share_cnt\":\"17\",\"vv\":\"133497\"},{\"comment_cnt\":\"207\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1758276103\",\"item_id\":\"7551738347384819003\",\"item_publish_time\":\"1758276103\",\"item_title\":\"所以说，家里不仅要有电视，还得选个“抗反光”的！#抗反光神机\\n#TCL#T7LUltra\",\"like_cnt\":\"6790\",\"share_cnt\":\"874\",\"vv\":\"373087\"},{\"comment_cnt\":\"269\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1757559095\",\"item_id\":\"7548658801601580322\",\"item_publish_time\":\"1757559095\",\"item_title\":\"新品logo“非凡”尽显，华为这次站稳高端！ #华为MateXTs非凡大师 #见非凡 #华为三折叠\",\"like_cnt\":\"451\",\"share_cnt\":\"40\",\"vv\":\"1410800\"},{\"comment_cnt\":\"46\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756280167\",\"item_id\":\"7543165860505767228\",\"item_publish_time\":\"1756371651\",\"item_title\":\"猛玛微影拍立传的“高效辅助”，让我彻底告别手忙脚乱！#猛玛微影拍立传#HOLLYLAND猛玛\",\"like_cnt\":\"6100\",\"share_cnt\":\"497\",\"vv\":\"217125\"},{\"comment_cnt\":\"56\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755767700\",\"item_id\":\"7540964833437568282\",\"item_publish_time\":\"1755767700\",\"item_title\":\"闲暇周末与其宅家，不如带上我的JBL pulse4奔向山野#音响 #百元好物 #jbl音响\",\"like_cnt\":\"4276\",\"share_cnt\":\"15\",\"vv\":\"74107\"}]",
+        "link_convert_index": "70.29",
+        "link_convert_index_by_industry": "70.29",
+        "link_i_cnt_by_industry": "269919",
+        "link_k_cnt_by_industry": "19",
+        "link_l_cnt_by_industry": "1574893",
+        "link_link_cnt_by_industry": "1884139",
+        "link_n_cnt_by_industry": "39308",
+        "link_recommend_index_by_industry": "71.98",
+        "link_shopping_index": "71.98",
+        "link_spread_index": "79.06",
+        "link_spread_index_by_industry": "79.06",
+        "link_star_index": "72.95",
+        "link_star_index_by_industry": "72.95",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "科技崽崽",
+        "pic_expected_play_num": "675",
+        "play_over_rate_within_30d": "0.319",
+        "price_1_20": "19200",
+        "price_20_60": "24000",
+        "price_60": "30000",
+        "promotion_prospective_1_20_cpm": "191.45",
+        "promotion_prospective_20_60_cpm": "239.31",
+        "promotion_prospective_60_cpm": "299.14",
+        "promotion_prospective_vv": "100289",
+        "prospective_1_20_cpm": "194.2258",
+        "prospective_20_60_cpm": "242.7823",
+        "prospective_60_cpm": "303.4779",
+        "province": "",
+        "search_after_view_index_by_industry": "76.37",
+        "sn_expected_play_num": "98854",
+        "sn_interact_rate_within_30d": "0.0785",
+        "sn_play_over_rate_within_30d": "0.319",
+        "sn_prospective_1_20_cpe": "26.4828",
+        "sn_prospective_1_20_cpm": "194.2258",
+        "sn_prospective_20_60_cpe": "33.1034",
+        "sn_prospective_20_60_cpm": "242.7823",
+        "sn_prospective_60_cpe": "41.3793",
+        "sn_prospective_60_cpm": "303.4779",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "334",
+        "star_ecom_video_num_30d": "3",
+        "star_ecom_video_product_num_30d": "0",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "3",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "7",
+        "star_video_finish_vv_rate_90d": "0.3679",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.013",
+        "star_video_median_vv_90d": "373087",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"科技数码\":[\"科技\"]}",
+        "vv_median_30d": "26697"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7522781011496783147",
+          "video_tag": 3,
+          "vv": 57581
+        },
+        {
+          "item_id": "7564415241660976433",
+          "video_tag": 3,
+          "vv": 42837
+        },
+        {
+          "item_id": "7548658801601580322",
+          "video_tag": 4,
+          "vv": 1213509
+        },
+        {
+          "item_id": "7527196175792344329",
+          "video_tag": 4,
+          "vv": 354666
+        },
+        {
+          "item_id": "7551738347384819003",
+          "video_tag": 5,
+          "vv": 334520
+        },
+        {
+          "item_id": "7508320321379814716",
+          "video_tag": 5,
+          "vv": 96586
+        },
+        {
+          "item_id": "7569521421333390186",
+          "video_tag": 6,
+          "vv": 35173
+        },
+        {
+          "item_id": "7567333542335723131",
+          "video_tag": 6,
+          "vv": 17468
+        }
+      ],
+      "star_id": "7270825981496016953",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 19200,
+              "price_extra_info": {},
+              "start_time": "1725120000",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 30000,
+              "price_extra_info": {},
+              "start_time": "1725120000",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 24000,
+              "price_extra_info": {},
+              "start_time": "1725120000",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 19200,
+              "price_extra_info": {},
+              "start_time": "1725120000",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 24000,
+              "price_extra_info": {},
+              "start_time": "1725120000",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572107492608950318"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "c6b23da65bf6b008a3c47f05409dad36860cd5bd"
+}

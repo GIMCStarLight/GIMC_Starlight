@@ -1,0 +1,241 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "48",
+        "assign_task_price_list": "[64000]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"清爽\":0,\"祛痘\":0,\"美白\":0.03899999999999999,\"防晒\":0.07961529887583198}",
+        "author_type": "2",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813_766687c3722b41349634eb319a2e2753.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "广州市",
+        "content_theme_labels_180d": "[\"减脂饮食\"]",
+        "core_user_id": "103422928388",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "335491",
+        "expected_play_num": "396252",
+        "fans_increment_rate_within_15d": "-0.001306852943226436",
+        "fans_increment_within_15d": "-675",
+        "fans_increment_within_30d": "-1916",
+        "follower": "515887",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6672291903360204814",
+        "interact_rate_within_30d": "0.1361",
+        "interaction_median_30d": "71026",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"402\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759224040\",\"item_id\":\"7555809691461324082\",\"item_publish_time\":\"1759543200\",\"item_title\":\"那些国庆外出旅游不得不知道的冷知识！ #国庆假期被安排明白了 #假期游玩 #出行提示 #生活小妙招 #冷知识\",\"like_cnt\":\"37258\",\"share_cnt\":\"22894\",\"vv\":\"2282143\"},{\"comment_cnt\":\"120\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758276778\",\"item_id\":\"7551741253633953082\",\"item_publish_time\":\"1758276778\",\"item_title\":\"看似奇奇怪怪，其实能变美的动作！ #变美小技巧 #普通人的变美思路 #女生必看 #冷知识\",\"like_cnt\":\"55134\",\"share_cnt\":\"9443\",\"vv\":\"390369\"},{\"comment_cnt\":\"239\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756361714\",\"item_id\":\"7543516100593814843\",\"item_publish_time\":\"1756361714\",\"item_title\":\"抗氧五年，只有我发现竟然连呼吸都能变丑吗……#修丽可CE#修丽可CE经典抗氧瓶 #抗氧精华 #护肤#早C晚A\",\"like_cnt\":\"4728\",\"share_cnt\":\"198\",\"vv\":\"632240\"},{\"comment_cnt\":\"187\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756202367\",\"item_id\":\"7542831706412272935\",\"item_publish_time\":\"1756202367\",\"item_title\":\"那些你以为是女帝，其实是没礼貌的行为！ #女性成长 #没礼貌 #有教养 #女帝 #内容过于真实\",\"like_cnt\":\"11291\",\"share_cnt\":\"4576\",\"vv\":\"373961\"},{\"comment_cnt\":\"338\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1753157071\",\"item_id\":\"7529752177510862132\",\"item_publish_time\":\"1753157071\",\"item_title\":\"这些夏季健康陷阱，我居然才知道？！ #看病省钱技巧#女性健康#三伏天#健康陷阱#内容过于真实\",\"like_cnt\":\"1594\",\"share_cnt\":\"1467\",\"vv\":\"782540\"},{\"comment_cnt\":\"170\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1752829300\",\"item_id\":\"7528344509312601404\",\"item_publish_time\":\"1752829300\",\"item_title\":\"我的老天鹅！原来吃这些嘴巴会变臭！！ #冷知识 #口臭 #嘴臭 #生活常识 #食物\",\"like_cnt\":\"27736\",\"share_cnt\":\"3984\",\"vv\":\"282180\"},{\"comment_cnt\":\"4131\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1749624143\",\"item_id\":\"7514578461396143418\",\"item_publish_time\":\"1749624143\",\"item_title\":\"半夜忍不住想吃小龙虾的时候看一遍 #小龙虾才是宵夜C位 #星乡村星农人 #洪湖小龙虾 #夏天的味道在抖音 #抑制食欲\",\"like_cnt\":\"102235\",\"share_cnt\":\"150610\",\"vv\":\"3534763\"},{\"comment_cnt\":\"277\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1748342253\",\"item_id\":\"7509072786472570172\",\"item_publish_time\":\"1748426453\",\"item_title\":\"原来口腔也有敏感肌？牙膏选对，又白又嫩！ #参半 #倍护龈 #人源胶原牙膏 #种草好物推荐 #尽兴买出生活高光\",\"like_cnt\":\"27730\",\"share_cnt\":\"6979\",\"vv\":\"1548937\"},{\"comment_cnt\":\"1952\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1747819218\",\"item_id\":\"7506826366621895994\",\"item_publish_time\":\"1747819218\",\"item_title\":\"夏天有救了！终于找到油皮熬夜本命精华… #0油感无油虑 #娇韵诗油皮双萃 #油皮双萃 #618 #熬夜精华\",\"like_cnt\":\"33443\",\"share_cnt\":\"7820\",\"vv\":\"375155\"},{\"comment_cnt\":\"3608\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1747124285\",\"item_id\":\"7503841122146356480\",\"item_publish_time\":\"1747124285\",\"item_title\":\"终于找到我越睡越丑的原因了…… #睡觉姿势 #变丑坏习惯 #变美小技巧 #错误睡姿 #女生必看\",\"like_cnt\":\"27958\",\"share_cnt\":\"19927\",\"vv\":\"3677861\"}]",
+        "link_convert_index": "67.48",
+        "link_convert_index_by_industry": "67.48",
+        "link_i_cnt_by_industry": "218903",
+        "link_k_cnt_by_industry": "2",
+        "link_l_cnt_by_industry": "607893",
+        "link_link_cnt_by_industry": "850824",
+        "link_n_cnt_by_industry": "24026",
+        "link_recommend_index_by_industry": "72.06",
+        "link_shopping_index": "72.06",
+        "link_spread_index": "69.05",
+        "link_spread_index_by_industry": "69.05",
+        "link_star_index": "69.84",
+        "link_star_index_by_industry": "69.84",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "鸡哥扒成分",
+        "pic_brand_boost": "false",
+        "pic_brand_boost_vv": "0",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.181",
+        "price_1_20": "30000",
+        "price_20_60": "50000",
+        "price_60": "70000",
+        "promotion_prospective_1_20_cpm": "76.87",
+        "promotion_prospective_20_60_cpm": "128.11",
+        "promotion_prospective_60_cpm": "179.36",
+        "promotion_prospective_vv": "390284",
+        "prospective_1_20_cpm": "75.7094",
+        "prospective_20_60_cpm": "126.1823",
+        "prospective_60_cpm": "176.6553",
+        "province": "广东省",
+        "search_after_view_index_by_industry": "83.08",
+        "sn_expected_play_num": "396252",
+        "sn_interact_rate_within_30d": "0.1361",
+        "sn_play_over_rate_within_30d": "0.181",
+        "sn_prospective_1_20_cpe": "0.5884",
+        "sn_prospective_1_20_cpm": "75.7094",
+        "sn_prospective_20_60_cpe": "0.9807",
+        "sn_prospective_20_60_cpm": "126.1823",
+        "sn_prospective_60_cpe": "1.3729",
+        "sn_prospective_60_cpm": "176.6553",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "0",
+        "star_ecom_video_num_30d": "0",
+        "star_excellent_author": "0",
+        "star_index": "70.28415708615866",
+        "star_item_count_within_30d": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "1",
+        "star_video_finish_vv_rate_90d": "0.0452",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0082",
+        "star_video_median_vv_90d": "632256",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"时尚\":[\"穿搭\"]}",
+        "video_brand_boost": "false",
+        "video_brand_boost_vv": "0",
+        "vv_median_30d": "521919"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7514578461396143418",
+          "video_tag": 3,
+          "vv": 2800544
+        },
+        {
+          "item_id": "7555809691461324082",
+          "video_tag": 3,
+          "vv": 1947451
+        },
+        {
+          "item_id": "7509072786472570172",
+          "video_tag": 4,
+          "vv": 1501621
+        },
+        {
+          "item_id": "7529752177510862132",
+          "video_tag": 4,
+          "vv": 779038
+        },
+        {
+          "item_id": "7543516100593814843",
+          "video_tag": 5,
+          "vv": 622729
+        },
+        {
+          "item_id": "7569926226782047534",
+          "video_tag": 5,
+          "vv": 521919
+        },
+        {
+          "item_id": "7551741253633953082",
+          "video_tag": 6,
+          "vv": 378977
+        },
+        {
+          "item_id": "7542831706412272935",
+          "video_tag": 6,
+          "vv": 369510
+        }
+      ],
+      "star_id": "6672291903360204814",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 70000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 50000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 30000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 49,
+              "price_extra_info": {
+                "ceiling_price": "112500",
+                "floor_price": "15000"
+              },
+              "start_time": "1700050099",
+              "task_category": 1,
+              "video_type": 92,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 32000,
+              "price_extra_info": {},
+              "start_time": "1664553600",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572113858585133065"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "e72f64110bd340588a6e6dcf452dacc88da6864a"
+}

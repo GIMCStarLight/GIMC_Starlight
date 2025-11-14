@@ -57,9 +57,7 @@ const loadAuthorInfo = async () => {
 // 格式化粉丝数
 const formatFollower = (num?: number) => {
   if (!num) return '0'
-  if (num >= 10000) {
-    return (num / 10000).toFixed(1) + 'w'
-  }
+  // 显示原始数值，使用千分位分隔符
   return num.toLocaleString()
 }
 

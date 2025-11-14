@@ -1,0 +1,243 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "124",
+        "assign_task_price_list": "[36000,36000,46000]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L2",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"年轻人\":0.001,\"聚会\":0,\"防水\":0.002}",
+        "author_type": "2",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_81470aec6422ab2c57b5fd869c70d040.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "",
+        "content_theme_labels_180d": "[\"家电推荐\",\"手机评测\",\"家用电器\",\"洗衣设备选择\",\"空气净化\",\"智能家居\",\"智能冰箱\",\"智能影音设备\"]",
+        "core_user_id": "100929398252",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": ">200",
+        "ecom_gmv_30d_range": "1k-3w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "79711",
+        "expected_play_num": "147183",
+        "fans_increment_rate_within_15d": "-0.0014470622590167044",
+        "fans_increment_within_15d": "-1556",
+        "fans_increment_within_30d": "8187.25",
+        "follower": "1073710",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6628847770520256520",
+        "interact_rate_within_30d": "0.0703",
+        "interaction_median_30d": "519",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"193\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761303439\",\"item_id\":\"7564740592941550900\",\"item_publish_time\":\"1761303439\",\"item_title\":\"2000元档无脑冲的手机终于来了！太值了~ #nova14活力版活力全开#华为nova14\",\"like_cnt\":\"931\",\"share_cnt\":\"53\",\"vv\":\"186031\"},{\"comment_cnt\":\"252\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759234784\",\"item_id\":\"7555855848419380539\",\"item_publish_time\":\"1759234784\",\"item_title\":\"什么？太吾绘卷要出移动版，还是鸿蒙版的!#鸿蒙越用越香#鸿蒙5大有不同#鸿蒙\",\"like_cnt\":\"9262\",\"share_cnt\":\"297\",\"vv\":\"1504089\"},{\"comment_cnt\":\"68\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758702096\",\"item_id\":\"7553567962939002127\",\"item_publish_time\":\"1758702096\",\"item_title\":\"纯干货！原来空气净化器要这么选！ #戴森空气净化器  #戴森净化喷气机#戴森净化喷气机HJ10\",\"like_cnt\":\"253\",\"share_cnt\":\"39\",\"vv\":\"1894198\"},{\"comment_cnt\":\"50\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757053553\",\"item_id\":\"7546487524135292198\",\"item_publish_time\":\"1757053553\",\"item_title\":\"揭秘!为什么百万开发者都选择了鸿蒙!#鸿蒙生态#HarmonyOS5\",\"like_cnt\":\"11998\",\"share_cnt\":\"34\",\"vv\":\"97550\"},{\"comment_cnt\":\"434\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1756897861\",\"item_id\":\"7545818803167481097\",\"item_publish_time\":\"1756897861\",\"item_title\":\"专为长辈送礼而生的手机来了，vivo Y500 #vivoY500#国民神机#又好又便宜\",\"like_cnt\":\"2586\",\"share_cnt\":\"571\",\"vv\":\"1082535\"},{\"comment_cnt\":\"224\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755686275\",\"item_id\":\"7540615116392271145\",\"item_publish_time\":\"1755686275\",\"item_title\":\"折叠屏手机，应该怎么选？#折叠屏手机 #折叠屏 #折叠手机\",\"like_cnt\":\"8306\",\"share_cnt\":\"108\",\"vv\":\"39287\"},{\"comment_cnt\":\"38\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755237888\",\"item_id\":\"7538689297533111567\",\"item_publish_time\":\"1755237888\",\"item_title\":\"我的理想生活家，真的离不开它 \",\"like_cnt\":\"2748\",\"share_cnt\":\"16\",\"vv\":\"60045\"},{\"comment_cnt\":\"4\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1754984827\",\"item_id\":\"7537602384466382095\",\"item_publish_time\":\"1754984827\",\"item_title\":\"洗烘一体机真的是智商税吗？ #家电\",\"like_cnt\":\"261\",\"share_cnt\":\"14\",\"vv\":\"75516\"},{\"comment_cnt\":\"120\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1753693740\",\"item_id\":\"7532057192552271156\",\"item_publish_time\":\"1753693740\",\"item_title\":\"把影院带回家的幸福，在这一刻具象化l #电视\",\"like_cnt\":\"334\",\"share_cnt\":\"3\",\"vv\":\"59400\"},{\"comment_cnt\":\"115\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1752717279\",\"item_id\":\"7527863323510050083\",\"item_publish_time\":\"1752717279\",\"item_title\":\"安卓女孩的“真爱”来啦~ #科技数码\",\"like_cnt\":\"270\",\"share_cnt\":\"5\",\"vv\":\"56897\"}]",
+        "link_convert_index": "60.05",
+        "link_convert_index_by_industry": "60.05",
+        "link_i_cnt_by_industry": "320665",
+        "link_k_cnt_by_industry": "3",
+        "link_l_cnt_by_industry": "2792847",
+        "link_link_cnt_by_industry": "3121156",
+        "link_n_cnt_by_industry": "7641",
+        "link_recommend_index_by_industry": "47.04",
+        "link_shopping_index": "47.04",
+        "link_spread_index": "65.49",
+        "link_spread_index_by_industry": "65.49",
+        "link_star_index": "59.69",
+        "link_star_index_by_industry": "59.69",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "发现新科技",
+        "play_over_rate_within_30d": "0.0401",
+        "price_1_20": "28800",
+        "price_20_60": "36000",
+        "price_60": "46000",
+        "promotion_prospective_1_20_cpm": "214.36",
+        "promotion_prospective_20_60_cpm": "267.95",
+        "promotion_prospective_60_cpm": "342.38",
+        "promotion_prospective_vv": "134355",
+        "prospective_1_20_cpm": "195.6748",
+        "prospective_20_60_cpm": "244.5935",
+        "prospective_60_cpm": "312.5361",
+        "province": "江苏省",
+        "search_after_view_index_by_industry": "77.63",
+        "sn_expected_play_num": "147183",
+        "sn_interact_rate_within_30d": "0.0703",
+        "sn_play_over_rate_within_30d": "0.0401",
+        "sn_prospective_1_20_cpe": "30.7036",
+        "sn_prospective_1_20_cpm": "195.6748",
+        "sn_prospective_20_60_cpe": "38.3795",
+        "sn_prospective_20_60_cpm": "244.5935",
+        "sn_prospective_60_cpe": "49.0405",
+        "sn_prospective_60_cpm": "312.5361",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "574",
+        "star_ecom_video_num_30d": "0",
+        "star_excellent_author": "0",
+        "star_index": "61.34484523085333",
+        "star_item_count_within_30d": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "3",
+        "star_video_finish_vv_rate_90d": "0.0314",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0095",
+        "star_video_median_vv_90d": "1082535",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"科技数码\":[\"科技\"]}",
+        "vv_median_30d": "7378"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7553567962939002127",
+          "video_tag": 3,
+          "vv": 1805172
+        },
+        {
+          "item_id": "7540615116392271145",
+          "video_tag": 3,
+          "vv": 28516
+        },
+        {
+          "item_id": "7555855848419380539",
+          "video_tag": 4,
+          "vv": 1418197
+        },
+        {
+          "item_id": "7510448936448969999",
+          "video_tag": 4,
+          "vv": 973848
+        },
+        {
+          "item_id": "7545818803167481097",
+          "video_tag": 5,
+          "vv": 792315
+        },
+        {
+          "item_id": "7518752525818858809",
+          "video_tag": 5,
+          "vv": 193251
+        },
+        {
+          "item_id": "7564740592941550900",
+          "video_tag": 6,
+          "vv": 7378
+        },
+        {
+          "item_id": "7546487524135292198",
+          "video_tag": 6,
+          "vv": 40385
+        }
+      ],
+      "star_id": "6628847770520256520",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 46000,
+              "price_extra_info": {},
+              "start_time": "1748707200",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 36000,
+              "price_extra_info": {},
+              "start_time": "1748707200",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 28800,
+              "price_extra_info": {},
+              "start_time": "1748707200",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 72000,
+              "price_extra_info": {},
+              "start_time": "1751299200",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 28800,
+              "price_extra_info": {},
+              "start_time": "1748707200",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 36000,
+              "price_extra_info": {},
+              "start_time": "1748707200",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572107175779581961"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "b7fdeb3e718f7f6dd1abf68650e6bd908e39bd5d"
+}

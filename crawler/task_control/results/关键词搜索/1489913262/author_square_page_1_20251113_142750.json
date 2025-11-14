@@ -1,0 +1,193 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "48",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"酥脆\":0}",
+        "author_type": "2",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_3252943674cd9823bf1654d9ce446e6f.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "长沙市",
+        "content_theme_labels_180d": "[\"辣味美食\",\"地方美食\",\"美食探店\",\"城市旅行攻略\",\"国内城市旅游\",\"下酒菜\",\"深夜美食\",\"美食吃播\"]",
+        "core_user_id": "104530426231",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "2",
+        "expected_natural_play_num": "4511",
+        "expected_play_num": "6169",
+        "fans_increment_rate_within_15d": "-0.0017363125063147142",
+        "fans_increment_within_15d": "-464",
+        "fans_increment_within_30d": "-895",
+        "follower": "266762",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "6728928058436222988",
+        "interact_rate_within_30d": "0.0167",
+        "interaction_median_30d": "51",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"23\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761275354\",\"item_id\":\"7564620025542610213\",\"item_publish_time\":\"1761275354\",\"item_title\":\"淡季的温州才是人间理想啊，不仅好吃好玩的多得多，机票还可以免费玩80多个景点！！#温州旅游#一张机票游温州#温州旅游攻略#温州美食\",\"like_cnt\":\"18\",\"share_cnt\":\"13\",\"vv\":\"3477\"},{\"comment_cnt\":\"22\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757558996\",\"item_id\":\"7548658397018000699\",\"item_publish_time\":\"1757558996\",\"item_title\":\"长沙机场美如画  谁能想到这么精彩的表演是在航站楼里#一时忘记来机场干啥的#黄花机场 #航站楼 #登机\",\"like_cnt\":\"102\",\"share_cnt\":\"6\",\"vv\":\"7777\"},{\"comment_cnt\":\"21\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1751612948\",\"item_id\":\"7523120272069758251\",\"item_publish_time\":\"1751620500\",\"item_title\":\"长沙一个大排档36年来越来越火 还真的有好几把刷子 #越夜越长沙 #夜宵 #红记 #跟着长安的荔枝去旅行 #长沙旅游美食攻略\",\"like_cnt\":\"493\",\"share_cnt\":\"30\",\"vv\":\"9233\"},{\"comment_cnt\":\"145\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1749104519\",\"item_id\":\"7512346290307517735\",\"item_publish_time\":\"1749112200\",\"item_title\":\"长沙一家开在半山腰上的土菜馆子，不知道二百者也怎么找到的 #土菜 #好吃到停不下来 #越夜越长沙 没两把刷子还真不敢把店开在这种地\",\"like_cnt\":\"920\",\"share_cnt\":\"1115\",\"vv\":\"177502\"},{\"comment_cnt\":\"42\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1748508055\",\"item_id\":\"7509784669328510220\",\"item_publish_time\":\"1748508055\",\"item_title\":\"三十中登，有吃有喝，又是辣么快乐的一天~ #越夜越长沙 #无辣不欢 #下班后的日常 #帝煌烤卤\",\"like_cnt\":\"316\",\"share_cnt\":\"17\",\"vv\":\"14252\"},{\"comment_cnt\":\"16\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1748415362\",\"item_id\":\"7509386120107543820\",\"item_publish_time\":\"1748422680\",\"item_title\":\"长沙贺龙恒温游泳馆腹肌浓度这么高的吗 #游泳帅哥 #周末去哪儿 #腹肌 #贺龙体育场恒温游泳馆十一周年 #帅哥\",\"like_cnt\":\"371\",\"share_cnt\":\"43\",\"vv\":\"21210\"},{\"comment_cnt\":\"13\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1747291836\",\"item_id\":\"7504560594494737705\",\"item_publish_time\":\"1747299120\",\"item_title\":\"林科大后街走一遭着实爽 视觉 味觉 荷包都是惊喜 #林科大美食 #长沙美食 #越夜越长沙 #带着512G的胃来长沙了\",\"like_cnt\":\"279\",\"share_cnt\":\"378\",\"vv\":\"24233\"},{\"comment_cnt\":\"55\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1746079808\",\"item_id\":\"7499354474507406633\",\"item_publish_time\":\"1746243000\",\"item_title\":\"是不是天下第一我不知道，但是真的香啊！ 一天卖六七百碗不是没有道理的#越夜越长沙 #带着512G的胃来长沙了 #五一出游攻略来了\",\"like_cnt\":\"905\",\"share_cnt\":\"386\",\"vv\":\"57851\"},{\"comment_cnt\":\"33\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1746000267\",\"item_id\":\"7499013527970057484\",\"item_publish_time\":\"1746000267\",\"item_title\":\"与其去长沙市中心人挤人，不如去望城找快乐~#黑麋峰 #千龙湖 #柏乐园 #五一去哪儿 #旅游攻略\",\"like_cnt\":\"668\",\"share_cnt\":\"391\",\"vv\":\"43903\"},{\"comment_cnt\":\"31\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1745924813\",\"item_id\":\"7498688910516636991\",\"item_publish_time\":\"1745924813\",\"item_title\":\"永旺梦乐城五一攻略，这里有一场酣畅淋漓的rap音乐会~ #周末去哪儿 #永旺梦乐城长沙星沙5月周末免费停车 #五一出游攻略来了\",\"like_cnt\":\"113\",\"share_cnt\":\"61\",\"vv\":\"12486\"}]",
+        "link_convert_index": "44",
+        "link_convert_index_by_industry": "44",
+        "link_i_cnt_by_industry": "22604",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "40313",
+        "link_link_cnt_by_industry": "64243",
+        "link_n_cnt_by_industry": "1326",
+        "link_recommend_index_by_industry": "48.95",
+        "link_shopping_index": "48.95",
+        "link_spread_index": "51.21",
+        "link_spread_index_by_industry": "51.21",
+        "link_star_index": "55.61",
+        "link_star_index_by_industry": "55.61",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "小熊崽汁",
+        "play_over_rate_within_30d": "0.0141",
+        "price_1_20": "4800",
+        "price_20_60": "6500",
+        "price_60": "8000",
+        "promotion_prospective_1_20_cpm": "864.71",
+        "promotion_prospective_20_60_cpm": "1170.96",
+        "promotion_prospective_60_cpm": "1441.18",
+        "promotion_prospective_vv": "5551",
+        "prospective_1_20_cpm": "778.084",
+        "prospective_20_60_cpm": "1053.6554",
+        "prospective_60_cpm": "1296.8066",
+        "province": "湖南省",
+        "search_after_view_index_by_industry": "66.49",
+        "sn_expected_play_num": "6169",
+        "sn_interact_rate_within_30d": "0.0167",
+        "sn_play_over_rate_within_30d": "0.0141",
+        "sn_prospective_1_20_cpe": "40.678",
+        "sn_prospective_1_20_cpm": "778.084",
+        "sn_prospective_20_60_cpe": "55.0847",
+        "sn_prospective_20_60_cpm": "1053.6554",
+        "sn_prospective_60_cpe": "67.7966",
+        "sn_prospective_60_cpm": "1296.8066",
+        "star_excellent_author": "0",
+        "star_index": "50.41282376277225",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食探店\"]}",
+        "vv_median_30d": "3054"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7512346290307517735",
+          "video_tag": 3,
+          "vv": 163901
+        },
+        {
+          "item_id": "7509386120107543820",
+          "video_tag": 3,
+          "vv": 19101
+        },
+        {
+          "item_id": "7509784669328510220",
+          "video_tag": 5,
+          "vv": 12956
+        },
+        {
+          "item_id": "7523120272069758251",
+          "video_tag": 5,
+          "vv": 8202
+        },
+        {
+          "item_id": "7564620025542610213",
+          "video_tag": 6,
+          "vv": 3118
+        },
+        {
+          "item_id": "7548658397018000699",
+          "video_tag": 6,
+          "vv": 6727
+        }
+      ],
+      "star_id": "6728928058436222988",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 6500,
+              "price_extra_info": {},
+              "start_time": "1690819200",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 4800,
+              "price_extra_info": {},
+              "start_time": "1690819200",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 8000,
+              "price_extra_info": {},
+              "start_time": "1690350665",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572092800423346203"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "f06f747ccac6208b843e2ed3e989e290ab4ff79f"
+}

@@ -1,0 +1,206 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "70",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"年轻人\":0.022}",
+        "author_type": "2",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813c001_okEjUSg4fAEm3ADiAB9n8CCp4iADiAAdTfAIi4.jpeg?from=4010531038",
+        "city": "北京",
+        "content_theme_labels_180d": "[\"新能源汽车资讯\",\"SUV测评\",\"国产汽车\",\"激光雷达技术\",\"智能汽车\",\"车型对比\",\"汽车油耗\",\"自驾旅行\",\"新车定制\",\"跑车展示\"]",
+        "core_user_id": "61652559898",
+        "e_commerce_enable": "0",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "7712",
+        "expected_play_num": "144901",
+        "fans_increment_rate_within_15d": "-0.002193762219941116",
+        "fans_increment_within_15d": "-2400",
+        "fans_increment_within_30d": "-3878",
+        "follower": "1091614",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7488300720500768806",
+        "interact_rate_within_30d": "0.0108",
+        "interaction_median_30d": "563.5",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"12\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762755248\",\"item_id\":\"7570976108938677544\",\"item_publish_time\":\"1762853400\",\"item_title\":\"都市丽人好搭子 北京现代EO羿欧 能装多少个瑜伽球？#15万内高品质纯电SUV标杆  #北京现代EO羿欧上市\",\"like_cnt\":\"36\",\"share_cnt\":\"4\",\"vv\":\"4415\"},{\"comment_cnt\":\"100\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762616752\",\"item_id\":\"7570381132622040355\",\"item_publish_time\":\"1762616752\",\"item_title\":\"银河M9赴杭征战“车圈马拉松”， 全域AI+奢享空间，20万级家用电混SUV优解！#向美好生活开跑\",\"like_cnt\":\"1466\",\"share_cnt\":\"27\",\"vv\":\"132789\"},{\"comment_cnt\":\"125\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762445152\",\"item_id\":\"7569644222517611822\",\"item_publish_time\":\"1762480860\",\"item_title\":\"“国产库里南”岚图泰山 华为全家桶 旗舰大六座 尊不尊？#岚图泰山 #华为\",\"like_cnt\":\"1333\",\"share_cnt\":\"12\",\"vv\":\"1010365\"},{\"comment_cnt\":\"113\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761882254\",\"item_id\":\"7567226630045699382\",\"item_publish_time\":\"1761882254\",\"item_title\":\"纵横G700奢华抢先体验 30万出头 水路两栖 全领域豪华越野SUV  #纵横G700 #水陆两栖越野车\",\"like_cnt\":\"1510\",\"share_cnt\":\"23\",\"vv\":\"1006028\"},{\"comment_cnt\":\"15\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761202492\",\"item_id\":\"7564307063531179264\",\"item_publish_time\":\"1761210060\",\"item_title\":\"年轻人的第一台性能车 领克03香不香？#领克03 #性能车 #国产车\",\"like_cnt\":\"1111\",\"share_cnt\":\"8\",\"vv\":\"8945\"},{\"comment_cnt\":\"2720\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761024901\",\"item_id\":\"7563544320930876735\",\"item_publish_time\":\"1761037260\",\"item_title\":\"10万级“宝藏纯电SUV” #长安启源全新Q05  #全球都市精品纯电SUV  #长安启源全新Q05开启盲订  #天枢智能新安全\",\"like_cnt\":\"24032\",\"share_cnt\":\"597\",\"vv\":\"613992\"},{\"comment_cnt\":\"180\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760602501\",\"item_id\":\"7561730138996542756\",\"item_publish_time\":\"1760612460\",\"item_title\":\"国民神车#东风奕派  #纳米01 ，小姐姐的出行好搭子#2026款纳米01上市  #十万妍选精致同行\",\"like_cnt\":\"3770\",\"share_cnt\":\"51\",\"vv\":\"43950\"},{\"comment_cnt\":\"30\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760431471\",\"item_id\":\"7560995566663093519\",\"item_publish_time\":\"1760431471\",\"item_title\":\"可换电的“大揽胜”？ 第三代蔚来ES8有多狠？ #蔚来ES8 #新能源车 #带你懂车\",\"like_cnt\":\"1189\",\"share_cnt\":\"8\",\"vv\":\"6904\"},{\"comment_cnt\":\"230\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760190866\",\"item_id\":\"7559962092808211746\",\"item_publish_time\":\"1760241660\",\"item_title\":\"15万买“保定小Macan”？ 欧拉5行不行？#欧拉5 #新能源车 #带你懂车\",\"like_cnt\":\"1659\",\"share_cnt\":\"387\",\"vv\":\"111968\"},{\"comment_cnt\":\"22\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759976195\",\"item_id\":\"7559040175116930356\",\"item_publish_time\":\"1759983600\",\"item_title\":\"中传MBA上学记 暂别职场 来中传上学是什么体验？#中国传媒大学 #MBA #研究生\",\"like_cnt\":\"2126\",\"share_cnt\":\"5\",\"vv\":\"8542\"}]",
+        "link_convert_index": "73.24",
+        "link_convert_index_by_industry": "73.24",
+        "link_i_cnt_by_industry": "859703",
+        "link_k_cnt_by_industry": "32",
+        "link_l_cnt_by_industry": "1375284",
+        "link_link_cnt_by_industry": "2244996",
+        "link_n_cnt_by_industry": "9977",
+        "link_recommend_index_by_industry": "49.54",
+        "link_shopping_index": "49.54",
+        "link_spread_index": "68.35",
+        "link_spread_index_by_industry": "68.35",
+        "link_star_index": "66.53",
+        "link_star_index_by_industry": "66.53",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "美小卓",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.9311",
+        "price_1_20": "18000",
+        "price_20_60": "25000",
+        "price_60": "30000",
+        "promotion_prospective_1_20_cpm": "123.63",
+        "promotion_prospective_20_60_cpm": "171.71",
+        "promotion_prospective_60_cpm": "206.05",
+        "promotion_prospective_vv": "145595",
+        "prospective_1_20_cpm": "124.2227",
+        "prospective_20_60_cpm": "172.5316",
+        "prospective_60_cpm": "207.0379",
+        "province": "",
+        "sn_expected_play_num": "144901",
+        "sn_interact_rate_within_30d": "0.0108",
+        "sn_play_over_rate_within_30d": "0.9311",
+        "sn_prospective_1_20_cpe": "11.7188",
+        "sn_prospective_1_20_cpm": "124.2227",
+        "sn_prospective_20_60_cpe": "16.276",
+        "sn_prospective_20_60_cpm": "172.5316",
+        "sn_prospective_60_cpe": "19.5313",
+        "sn_prospective_60_cpm": "207.0379",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "0",
+        "star_ecom_video_num_30d": "1",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "1",
+        "star_video_finish_vv_rate_90d": "0.0115",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.012",
+        "star_video_median_vv_90d": "133081",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"生活家居\":[\"生活技巧\"]}",
+        "vv_median_30d": "18349.5"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7517126554959236389",
+          "video_tag": 3,
+          "vv": 1116882
+        },
+        {
+          "item_id": "7521380305492626738",
+          "video_tag": 3,
+          "vv": 1056573
+        },
+        {
+          "item_id": "7537571887115783476",
+          "video_tag": 4,
+          "vv": 512634
+        },
+        {
+          "item_id": "7570381132622040355",
+          "video_tag": 4,
+          "vv": 23785
+        },
+        {
+          "item_id": "7519077841619799296",
+          "video_tag": 5,
+          "vv": 1013575
+        },
+        {
+          "item_id": "7519701790221143336",
+          "video_tag": 5,
+          "vv": 1010191
+        },
+        {
+          "item_id": "7570976108938677544",
+          "video_tag": 6,
+          "vv": 9617
+        },
+        {
+          "item_id": "7569644222517611822",
+          "video_tag": 6,
+          "vv": 1007649
+        }
+      ],
+      "star_id": "7488300720500768806",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 25000,
+              "price_extra_info": {},
+              "start_time": "1748707200",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 18000,
+              "price_extra_info": {},
+              "start_time": "1748707200",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 30000,
+              "price_extra_info": {},
+              "start_time": "1748707200",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572085629505388590"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "b47b3621e4863653f71249ec61e28296805c4978"
+}

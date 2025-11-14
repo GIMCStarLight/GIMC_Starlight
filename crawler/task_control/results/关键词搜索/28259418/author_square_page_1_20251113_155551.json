@@ -1,0 +1,243 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "34",
+        "assign_task_price_list": "[34560,60000]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L5",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"厚度适宜\":0.004,\"服帖\":0.066,\"桑蚕丝\":0.14100000000000001,\"清爽\":0.066}",
+        "author_type": "2",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_5151777e791c8028a4e662e24a3bd009.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "杭州市",
+        "content_theme_labels_180d": "[\"国内旅行\",\"内衣测评\",\"婚纱拍摄\",\"家庭生活记录\",\"云南旅游\",\"眼妆教程\",\"通勤妆容\",\"内衣穿搭\",\"创意发型\",\"海滨旅行\"]",
+        "core_user_id": "56561099935",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": "1k-3w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "190239",
+        "expected_play_num": "237306",
+        "fans_increment_rate_within_15d": "-0.002463108792583527",
+        "fans_increment_within_15d": "-5444",
+        "fans_increment_within_30d": "2126.6",
+        "follower": "2204855",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6638477818298630157",
+        "interact_rate_within_30d": "0.0357",
+        "interaction_median_30d": "18307",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"244\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762510546\",\"item_id\":\"7569925144638957413\",\"item_publish_time\":\"1762510546\",\"item_title\":\"当我拥有富士 就会得到...... #天坛#情侣#富士#拍照📷\",\"like_cnt\":\"19113\",\"share_cnt\":\"1524\",\"vv\":\"809070\"},{\"comment_cnt\":\"155\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762331888\",\"item_id\":\"7569157801643530170\",\"item_publish_time\":\"1762331888\",\"item_title\":\"恋爱频率开启🫶 和大胡子去环球啦！ #情侣#手势舞#恋爱频率手势舞 #环球影城\",\"like_cnt\":\"9969\",\"share_cnt\":\"793\",\"vv\":\"353693\"},{\"comment_cnt\":\"236\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762257508\",\"item_id\":\"7568838354935043493\",\"item_publish_time\":\"1762257508\",\"item_title\":\"@野村叔 最后为什么打我\\n#刀马刀马刀马\",\"like_cnt\":\"20169\",\"share_cnt\":\"3210\",\"vv\":\"592556\"},{\"comment_cnt\":\"208\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761911034\",\"item_id\":\"7567350242829657765\",\"item_publish_time\":\"1761911034\",\"item_title\":\"🎄是不是要准备准备过圣诞了！ #圣诞手势舞 #圣诞快乐#圣诞节 #手势舞\",\"like_cnt\":\"15519\",\"share_cnt\":\"3110\",\"vv\":\"575439\"},{\"comment_cnt\":\"239\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761813777\",\"item_id\":\"7566932518542751089\",\"item_publish_time\":\"1761813777\",\"item_title\":\"vlog🍃大树和阳光会拥抱每个抬头的人！ #拍照 #杭州 #vlog #六和塔\",\"like_cnt\":\"10275\",\"share_cnt\":\"943\",\"vv\":\"291237\"},{\"comment_cnt\":\"465\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761650157\",\"item_id\":\"7566229785358889829\",\"item_publish_time\":\"1761650157\",\"item_title\":\"vlog🐾重生之我在济南当小狐狸! #清照泉城明水古城 #清照泉城赏秋季 #清照泉城赏泉季 #来清照泉城做个在逃狐仙#在泉城get秋冬狐系穿搭\",\"like_cnt\":\"35113\",\"share_cnt\":\"5014\",\"vv\":\"422393\"},{\"comment_cnt\":\"557\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1760593763\",\"item_id\":\"7561692620834606395\",\"item_publish_time\":\"1760593763\",\"item_title\":\"终于拍了小厨娘！\",\"like_cnt\":\"42320\",\"share_cnt\":\"6019\",\"vv\":\"1140019\"},{\"comment_cnt\":\"192\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760504879\",\"item_id\":\"7561310871616507195\",\"item_publish_time\":\"1760504879\",\"item_title\":\"带毛茸茸小熊出门约会啦🧸 #变装 #拍照 #得物\",\"like_cnt\":\"11599\",\"share_cnt\":\"447\",\"vv\":\"404943\"},{\"comment_cnt\":\"602\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760265080\",\"item_id\":\"7560280946075962683\",\"item_publish_time\":\"1760265080\",\"item_title\":\"vlog✨在御温泉度假啦！\",\"like_cnt\":\"21528\",\"share_cnt\":\"9394\",\"vv\":\"577485\"},{\"comment_cnt\":\"163\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759655396\",\"item_id\":\"7557662365178957113\",\"item_publish_time\":\"1759655396\",\"item_title\":\"vlog🥮今天自己做了月饼！ 吃了我的大饼就不能再吃别人的了哦 #vlog日常 #中秋节 #月饼\",\"like_cnt\":\"6078\",\"share_cnt\":\"365\",\"vv\":\"241736\"}]",
+        "link_convert_index": "71.03",
+        "link_convert_index_by_industry": "71.03",
+        "link_i_cnt_by_industry": "566045",
+        "link_k_cnt_by_industry": "16",
+        "link_l_cnt_by_industry": "2117128",
+        "link_link_cnt_by_industry": "3161452",
+        "link_n_cnt_by_industry": "478263",
+        "link_recommend_index_by_industry": "81.73",
+        "link_shopping_index": "81.73",
+        "link_spread_index": "80.38",
+        "link_spread_index_by_industry": "80.38",
+        "link_star_index": "76.1",
+        "link_star_index_by_industry": "76.1",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "median_game_item_component_click_90_days": "242",
+        "median_game_item_cpc_90_days_range": "206-208",
+        "median_game_item_ctr_90_days": "0",
+        "nick_name": "兔兔",
+        "pic_brand_boost": "false",
+        "pic_brand_boost_vv": "0",
+        "pic_expected_play_num": "582658",
+        "play_over_rate_within_30d": "0.137",
+        "price_1_20": "38400",
+        "price_20_60": "48000",
+        "price_60": "60000",
+        "promotion_prospective_1_20_cpm": "91.84",
+        "promotion_prospective_20_60_cpm": "114.8",
+        "promotion_prospective_60_cpm": "143.5",
+        "promotion_prospective_vv": "418125",
+        "prospective_1_20_cpm": "161.8164",
+        "prospective_20_60_cpm": "202.2705",
+        "prospective_60_cpm": "252.8381",
+        "province": "浙江省",
+        "search_after_view_index_by_industry": "79.36",
+        "sn_expected_play_num": "237306",
+        "sn_interact_rate_within_30d": "0.0357",
+        "sn_play_over_rate_within_30d": "0.137",
+        "sn_prospective_1_20_cpe": "5.985",
+        "sn_prospective_1_20_cpm": "161.8164",
+        "sn_prospective_20_60_cpe": "7.4813",
+        "sn_prospective_20_60_cpm": "202.2705",
+        "sn_prospective_60_cpe": "9.3516",
+        "sn_prospective_60_cpm": "252.8381",
+        "star_component_download_ctr_90d": "0.002213526226333057",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_install_pvr_90d": "0",
+        "star_component_link_click_cnt_90d": "56",
+        "star_ecom_video_num_30d": "2",
+        "star_excellent_author": "0",
+        "star_index": "69.49434854677618",
+        "star_item_count_within_30d": "2",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "3",
+        "star_video_finish_vv_rate_90d": "0.0113",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0521",
+        "star_video_median_vv_90d": "422393",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"颜值达人\":[\"美女\"]}",
+        "video_brand_boost": "false",
+        "video_brand_boost_vv": "0",
+        "vv_median_30d": "471059"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7538374003469192505",
+          "video_tag": 3,
+          "vv": 5482936
+        },
+        {
+          "item_id": "7548002586013666619",
+          "video_tag": 3,
+          "vv": 5240646
+        },
+        {
+          "item_id": "7530947971172470073",
+          "video_tag": 4,
+          "vv": 1172474
+        },
+        {
+          "item_id": "7524560561451912508",
+          "video_tag": 4,
+          "vv": 918139
+        },
+        {
+          "item_id": "7519477356563123514",
+          "video_tag": 5,
+          "vv": 3716364
+        },
+        {
+          "item_id": "7526491961223466300",
+          "video_tag": 5,
+          "vv": 2399285
+        },
+        {
+          "item_id": "7569925144638957413",
+          "video_tag": 6,
+          "vv": 729760
+        },
+        {
+          "item_id": "7569157801643530170",
+          "video_tag": 6,
+          "vv": 332696
+        }
+      ],
+      "star_id": "6638477818298630157",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 29050,
+              "price_extra_info": {},
+              "start_time": "1714492800",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 60000,
+              "price_extra_info": {},
+              "start_time": "1743436800",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 38400,
+              "price_extra_info": {},
+              "start_time": "1743436800",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 60000,
+              "price_extra_info": {},
+              "start_time": "1743436800",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 48000,
+              "price_extra_info": {},
+              "start_time": "1743436800",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572115447945609262"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "995e5fcc24f1fbe594f822326117bd3368fc30d1"
+}

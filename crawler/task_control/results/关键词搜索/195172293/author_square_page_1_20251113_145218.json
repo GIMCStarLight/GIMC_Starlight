@@ -1,0 +1,221 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_task_price_list": "[31000,31000]",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L2",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"清爽\":0.4549763859754271,\"美白\":0.006,\"聚会\":0.6590000000000001}",
+        "author_type": "2",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_a21ae94296f3d86e6dc25e34fd20d15e.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "静安区",
+        "content_theme_labels_180d": "[\"酒水品鉴\",\"饮品制作\",\"夏日饮品\",\"下酒菜\",\"个人成长\",\"美食挑战\",\"酒店体验\",\"恋爱剧情\",\"汤品教程\",\"搞笑挑战\"]",
+        "core_user_id": "78645439645",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": "1k-3w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "622237",
+        "expected_play_num": "348997",
+        "fans_increment_rate_within_15d": "0.017561071773230425",
+        "fans_increment_within_15d": "7661",
+        "fans_increment_within_30d": "7711.56",
+        "follower": "444018",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6870163519203966990",
+        "interact_rate_within_30d": "0.0705",
+        "interaction_median_30d": "54241",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"428\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762336849\",\"item_id\":\"7569179111349038324\",\"item_publish_time\":\"1762336849\",\"item_title\":\"开局一个盆 调什么全靠灵机一动哈哈#酒蒙子的日常 #微醺时刻\",\"like_cnt\":\"38662\",\"share_cnt\":\"20408\",\"vv\":\"1129943\"},{\"comment_cnt\":\"299\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761905366\",\"item_id\":\"7567325874425953615\",\"item_publish_time\":\"1761905366\",\"item_title\":\"这玩意好人就别碰了👍#酒蒙子的日常 #微醺时刻\",\"like_cnt\":\"10045\",\"share_cnt\":\"6615\",\"vv\":\"406278\"},{\"comment_cnt\":\"3448\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761300048\",\"item_id\":\"7564726077257633058\",\"item_publish_time\":\"1761300048\",\"item_title\":\"不是 这玩意真好喝#酒蒙子的日常 #微醺时刻\",\"like_cnt\":\"58857\",\"share_cnt\":\"101514\",\"vv\":\"1961961\"},{\"comment_cnt\":\"1195\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759918217\",\"item_id\":\"7558791164649852212\",\"item_publish_time\":\"1759918217\",\"item_title\":\"喝酒就喝盆盆酒😋#酒蒙子的日常 #微醺时刻\",\"like_cnt\":\"89973\",\"share_cnt\":\"48116\",\"vv\":\"2325638\"},{\"comment_cnt\":\"994\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759562142\",\"item_id\":\"7557261841546956084\",\"item_publish_time\":\"1759562142\",\"item_title\":\"大长假哪也没去 眼睛一睁就是喝#酒蒙子的日常 #无耻之徒shameless\",\"like_cnt\":\"45760\",\"share_cnt\":\"33811\",\"vv\":\"1376132\"},{\"comment_cnt\":\"603\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759142930\",\"item_id\":\"7555461338828639488\",\"item_publish_time\":\"1759142930\",\"item_title\":\"人都是感性的 那晚为你哭是真心喜欢你，但不会再有那晚了 #酒蒙子的日常 #微醺时刻 #再见前任  #再见前任小酒  #每一杯都有你的故事@再见前任酒\",\"like_cnt\":\"35962\",\"share_cnt\":\"9685\",\"vv\":\"662861\"},{\"comment_cnt\":\"2476\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758696620\",\"item_id\":\"7553544441908104488\",\"item_publish_time\":\"1758696620\",\"item_title\":\"风里是自由 嘴里是旷野～心里是：这样的日子想过一百年#酒蒙子的日常 #微醺时刻 #旷野666 #旷野 #旷野气泡酒\",\"like_cnt\":\"27449\",\"share_cnt\":\"1304\",\"vv\":\"397375\"},{\"comment_cnt\":\"599\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758103323\",\"item_id\":\"7550996266327985423\",\"item_publish_time\":\"1758103323\",\"item_title\":\"更适合小酒量人的真“微醺桶”🫢说真的糖分真的有点超标了奥#酒蒙子的日常 #微醺时刻\",\"like_cnt\":\"36730\",\"share_cnt\":\"12593\",\"vv\":\"783895\"},{\"comment_cnt\":\"291\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757671435\",\"item_id\":\"7549141311947246882\",\"item_publish_time\":\"1757671435\",\"item_title\":\"我创狗上了呜呜#酒蒙子的日常 #微醺时刻\",\"like_cnt\":\"32158\",\"share_cnt\":\"14958\",\"vv\":\"1024111\"},{\"comment_cnt\":\"36\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757329470\",\"item_id\":\"7547672526034341162\",\"item_publish_time\":\"1757498454\",\"item_title\":\"一个个的爱打工是吧，今天都得叫我李总！#一起嗨才够棒 #金宾 #金宾嗨棒 #打工人精神三得历 #highball\",\"like_cnt\":\"1598\",\"share_cnt\":\"180\",\"vv\":\"92099\"}]",
+        "link_convert_index": "75.21",
+        "link_convert_index_by_industry": "75.21",
+        "link_i_cnt_by_industry": "1443846",
+        "link_k_cnt_by_industry": "96",
+        "link_l_cnt_by_industry": "1704364",
+        "link_link_cnt_by_industry": "3394256",
+        "link_n_cnt_by_industry": "245950",
+        "link_recommend_index_by_industry": "77.92",
+        "link_shopping_index": "77.92",
+        "link_spread_index": "74.81",
+        "link_spread_index_by_industry": "74.81",
+        "link_star_index": "74.26",
+        "link_star_index_by_industry": "74.26",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "酒酿圆子🍡",
+        "play_over_rate_within_30d": "0.1771",
+        "price_1_20": "26000",
+        "price_20_60": "35800",
+        "price_60": "35800",
+        "promotion_prospective_1_20_cpm": "32.35",
+        "promotion_prospective_20_60_cpm": "44.55",
+        "promotion_prospective_60_cpm": "44.55",
+        "promotion_prospective_vv": "803614",
+        "prospective_1_20_cpm": "74.4992",
+        "prospective_20_60_cpm": "102.5797",
+        "prospective_60_cpm": "102.5797",
+        "province": "上海市",
+        "search_after_view_index_by_industry": "93.33",
+        "sn_expected_play_num": "348997",
+        "sn_interact_rate_within_30d": "0.0705",
+        "sn_play_over_rate_within_30d": "0.1771",
+        "sn_prospective_1_20_cpe": "1.7803",
+        "sn_prospective_1_20_cpm": "74.4992",
+        "sn_prospective_20_60_cpe": "2.4514",
+        "sn_prospective_20_60_cpm": "102.5797",
+        "sn_prospective_60_cpe": "2.4514",
+        "sn_prospective_60_cpm": "102.5797",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "0",
+        "star_ecom_video_num_30d": "0",
+        "star_ecom_video_product_num_30d": "0",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "3",
+        "star_video_finish_vv_rate_90d": "0.0343",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0478",
+        "star_video_median_vv_90d": "398700",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"生活\":[\"生活记录\"]}",
+        "vv_median_30d": "1020843"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7518340538119032064",
+          "video_tag": 3,
+          "vv": 5650644
+        },
+        {
+          "item_id": "7545429413551590708",
+          "video_tag": 3,
+          "vv": 3091358
+        },
+        {
+          "item_id": "7517578791251954970",
+          "video_tag": 4,
+          "vv": 592492
+        },
+        {
+          "item_id": "7553544441908104488",
+          "video_tag": 4,
+          "vv": 235812
+        },
+        {
+          "item_id": "7541347689017281826",
+          "video_tag": 5,
+          "vv": 2260271
+        },
+        {
+          "item_id": "7516480715338501391",
+          "video_tag": 5,
+          "vv": 2234763
+        },
+        {
+          "item_id": "7571777262010865039",
+          "video_tag": 6,
+          "vv": 127476
+        },
+        {
+          "item_id": "7569179111349038324",
+          "video_tag": 6,
+          "vv": 1073301
+        }
+      ],
+      "star_id": "6870163519203966990",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 20000,
+              "price_extra_info": {},
+              "start_time": "1735660800",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 35800,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 26000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 35800,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572099141007458355"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "bd0ef11d23d7faa9f2a0f61e1d8d6187ce8c9a38"
+}

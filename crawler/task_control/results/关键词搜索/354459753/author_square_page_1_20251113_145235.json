@@ -1,0 +1,251 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "28",
+        "assign_task_price_list": "[127000]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L5",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813_6e0067507101485a8fd423d07ab879b1.jpeg?from=4010531038",
+        "brand_boost_vv": "1000000",
+        "city": "成都市",
+        "content_theme_labels_180d": "[\"糕点教程\",\"自制美食\",\"家居好物\",\"礼物推荐\",\"餐具选购\",\"手工制作\",\"蛋糕制作\",\"月饼测评\"]",
+        "core_user_id": "93156839037",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "300583",
+        "expected_play_num": "3057333",
+        "fans_increment_rate_within_15d": "0.009152055480969952",
+        "fans_increment_within_15d": "34153",
+        "fans_increment_within_30d": "25922",
+        "follower": "3765880",
+        "game_item_count_90d": "1",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6870164692791197703",
+        "interact_rate_within_30d": "0.0783",
+        "interaction_median_30d": "284663",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "true",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "1",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"48\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762873574\",\"item_id\":\"7571484196040969508\",\"item_publish_time\":\"1762873574\",\"item_title\":\"万圣节甜品教程和搞笑翻车 大家快做起来吧，期待收到你们可爱的作品#烘焙 #甜品 #美食 #教程 #翻车\",\"like_cnt\":\"820\",\"share_cnt\":\"47\",\"vv\":\"23144\"},{\"comment_cnt\":\"6817\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761835354\",\"item_id\":\"7567025151456333082\",\"item_publish_time\":\"1761835354\",\"item_title\":\"这是我最期待的万圣节摆摊甜品~ 7款万圣节主题创意甜品，每个都特别好玩，明天就带上它们去摆摊啦#甜品 #烘焙 #万圣节 #摆摊 #创意美食\",\"like_cnt\":\"391614\",\"share_cnt\":\"238017\",\"vv\":\"8076012\"},{\"comment_cnt\":\"341\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759398728\",\"item_id\":\"7556559949082430772\",\"item_publish_time\":\"1759398728\",\"item_title\":\"绝美的的文物主题下午茶来啦 把清乾隆年间的铜镀金乡村景色水法钟+北宋末年的《千里江山图》做成甜品，让时间和江山交织，瞬间和永恒就凝固在此刻~ #文物 #第五人格 #第五人格故宫观唐联动 #甜品#高比克007\",\"like_cnt\":\"9036\",\"share_cnt\":\"1058\",\"vv\":\"335828\"},{\"comment_cnt\":\"161\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758379000\",\"item_id\":\"7552180215133244699\",\"item_publish_time\":\"1758410340\",\"item_title\":\"让我把秋天最美的东西送给你~ 把秋天的8个美丽景物做成月饼，每个都是美好的寓意，也是我对大家的祝福！#中秋 #月饼 #烘焙 #祝福 #秋天\",\"like_cnt\":\"3950\",\"share_cnt\":\"293\",\"vv\":\"225011\"},{\"comment_cnt\":\"190\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757683232\",\"item_id\":\"7549191928995155209\",\"item_publish_time\":\"1757683232\",\"item_title\":\"没什么主题，就是玩的沉浸式开箱 #开箱视频 #好物推荐🔥 #摆件 #趣味\",\"like_cnt\":\"3984\",\"share_cnt\":\"201\",\"vv\":\"248513\"},{\"comment_cnt\":\"247\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756457726\",\"item_id\":\"7543928465100180775\",\"item_publish_time\":\"1756457726\",\"item_title\":\"原创七夕蛋糕，一款唯美的国风蛋糕！ 因为花了很多时间打磨，结果临近七夕才做出来，哈哈哈#蛋糕 #烘焙 #七夕 #原创 #国风\",\"like_cnt\":\"12175\",\"share_cnt\":\"986\",\"vv\":\"556926\"},{\"comment_cnt\":\"162\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756298671\",\"item_id\":\"7543245302745042215\",\"item_publish_time\":\"1756298671\",\"item_title\":\"各种餐具、摆件它又来啦~ 助眠、解压的开箱，祝大家睡个好觉#开箱 #餐具 #好物\",\"like_cnt\":\"4815\",\"share_cnt\":\"313\",\"vv\":\"319835\"},{\"comment_cnt\":\"1396\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755347537\",\"item_id\":\"7539160145222176036\",\"item_publish_time\":\"1755347537\",\"item_title\":\"如何纯手工打造一款产品？这也许就是手工的魅力 6款超可爱的挂杯猫咪饼干+手工包装制作+水彩插画#美食 #烘焙 #饼干 #包装#领厨嵌入式冰箱\",\"like_cnt\":\"131621\",\"share_cnt\":\"32209\",\"vv\":\"3958220\"},{\"comment_cnt\":\"604\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1753964134\",\"item_id\":\"7533218458020924723\",\"item_publish_time\":\"1753964134\",\"item_title\":\"假如这是个AI月饼...... 原创猫咪月饼，效果太可爱了！视频后面还有更多有趣的桥段，千万别错过啦#烘焙 #创意美食 #月饼 #猫咪 #高比克t95\",\"like_cnt\":\"15471\",\"share_cnt\":\"2264\",\"vv\":\"692159\"},{\"comment_cnt\":\"570\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1752664487\",\"item_id\":\"7527636553993161999\",\"item_publish_time\":\"1752664487\",\"item_title\":\"用饼干搭建一个梦幻的甜品农场！ 今天我是清新风格的甜品魔法师，只用一只魔法杖完成所有的饼干，真是一个极致舒爽的过程~#甜品 #美食 #糖霜饼干 #魔法 #被dong少翻牌有多幸福\",\"like_cnt\":\"30666\",\"share_cnt\":\"4602\",\"vv\":\"856715\"}]",
+        "link_convert_index": "71.1",
+        "link_convert_index_by_industry": "71.1",
+        "link_i_cnt_by_industry": "3378416",
+        "link_k_cnt_by_industry": "18",
+        "link_l_cnt_by_industry": "2976355",
+        "link_link_cnt_by_industry": "6644054",
+        "link_n_cnt_by_industry": "289265",
+        "link_recommend_index_by_industry": "83.08",
+        "link_shopping_index": "83.08",
+        "link_spread_index": "80.4",
+        "link_spread_index_by_industry": "80.4",
+        "link_star_index": "75.96",
+        "link_star_index_by_industry": "75.96",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "median_game_item_component_click_90_days": "151",
+        "median_game_item_component_click_range": "500以下",
+        "median_game_item_cpc_90_days_range": "882-884",
+        "median_game_item_cpc_range": "694-696",
+        "median_game_item_ctr_90_days": "0",
+        "nick_name": "七分甜的秋刀鱼",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.0837",
+        "price_1_20": "40000",
+        "price_20_60": "90400",
+        "price_60": "112000",
+        "promotion_prospective_1_20_cpm": "14.75",
+        "promotion_prospective_20_60_cpm": "33.34",
+        "promotion_prospective_60_cpm": "41.31",
+        "promotion_prospective_vv": "2711313",
+        "prospective_1_20_cpm": "13.0833",
+        "prospective_20_60_cpm": "29.5683",
+        "prospective_60_cpm": "36.6332",
+        "province": "四川省",
+        "search_after_view_index_by_industry": "88.43",
+        "sn_expected_play_num": "3057333",
+        "sn_interact_rate_within_30d": "0.0783",
+        "sn_play_over_rate_within_30d": "0.0837",
+        "sn_prospective_1_20_cpe": "0.1736",
+        "sn_prospective_1_20_cpm": "13.0833",
+        "sn_prospective_20_60_cpe": "0.3922",
+        "sn_prospective_20_60_cpm": "29.5683",
+        "sn_prospective_60_cpe": "0.4859",
+        "sn_prospective_60_cpm": "36.6332",
+        "star_component_download_ctr_90d": "0.0005249659592385807",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_install_pvr_90d": "0",
+        "star_component_link_click_cnt_90d": "0",
+        "star_excellent_author": "1",
+        "star_index": "71.51894434965963",
+        "star_item_count_within_30d": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "1",
+        "star_video_finish_vv_rate_90d": "0.0178",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0311",
+        "star_video_median_vv_90d": "337455",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食教程\"]}",
+        "video_brand_boost": "true",
+        "video_brand_boost_vv": "1000000",
+        "vv_median_30d": "3587391.5"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7567025151456333082",
+          "video_tag": 3,
+          "vv": 7205973
+        },
+        {
+          "item_id": "7539160145222176036",
+          "video_tag": 3,
+          "vv": 3775137
+        },
+        {
+          "item_id": "7556559949082430772",
+          "video_tag": 4,
+          "vv": 318730
+        },
+        {
+          "item_id": "7509768602724076800",
+          "video_tag": 5,
+          "vv": 991456
+        },
+        {
+          "item_id": "7527636553993161999",
+          "video_tag": 5,
+          "vv": 787343
+        },
+        {
+          "item_id": "7571484196040969508",
+          "video_tag": 6,
+          "vv": 163952
+        },
+        {
+          "item_id": "7552180215133244699",
+          "video_tag": 6,
+          "vv": 208664
+        }
+      ],
+      "star_id": "6870164692791197703",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 35200,
+              "price_extra_info": {},
+              "start_time": "1669824000",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 88000,
+              "price_extra_info": {},
+              "start_time": "1669824000",
+              "task_category": 1,
+              "video_type": 90,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 90400,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 40000,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 83,
+              "price_extra_info": {
+                "ceiling_price": "166480",
+                "floor_price": "20840"
+              },
+              "start_time": "1709716485",
+              "task_category": 1,
+              "video_type": 92,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 112000,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572099216907288614"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "c41358c4e27498df70c1b0c2a9ac7192a34481ff"
+}

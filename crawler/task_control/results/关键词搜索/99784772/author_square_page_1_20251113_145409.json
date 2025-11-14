@@ -1,0 +1,279 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "35",
+        "assign_task_price_list": "[11280]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"早餐\":0,\"酥脆\":0.003}",
+        "author_type": "1",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_ab18d81940ac47a14a4767afaf17e35c.jpeg?from=4010531038",
+        "brand_boost_vv": "155671",
+        "city": "福州市",
+        "content_theme_labels_180d": "[\"自制美食\",\"家常菜谱\",\"家常菜教程\",\"家庭美食\",\"荤菜教程\",\"海鲜烹饪\",\"辣味美食\",\"下饭菜教程\",\"家庭生活记录\",\"减脂美食\"]",
+        "core_user_id": "72581023968",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "1k-3w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_score": "68",
+        "ecom_video_ctr_30d_range": "6%-8%",
+        "ecom_video_mid_click_pv_30d_range": "1000-3000",
+        "ecom_video_product_num_30d": "3",
+        "expected_cpa3_level": "2",
+        "expected_natural_play_num": "39045",
+        "expected_play_num": "39848",
+        "fans_increment_rate_within_15d": "-0.0028382613595013674",
+        "fans_increment_within_15d": "-1209",
+        "fans_increment_within_30d": "-2522",
+        "follower": "424724",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6989178922596302884",
+        "interact_rate_within_30d": "0.0307",
+        "interaction_median_30d": "1059",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "true",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"21\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762855956\",\"item_id\":\"7571408663631245797\",\"item_publish_time\":\"1762855956\",\"item_title\":\"🔥每一丝肉都吸饱了麻辣卤汁，香香香 #鸭脖 #卤鸭脖做法 #鸭货 #追剧小零食 #追剧必备\",\"like_cnt\":\"197\",\"share_cnt\":\"14\",\"vv\":\"5975\"},{\"comment_cnt\":\"49\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762771949\",\"item_id\":\"7571047856854500837\",\"item_publish_time\":\"1762771949\",\"item_title\":\"带饭打败90%外卖，胃觉不贵篇《大林的饭盒》 #大林的饭盒 #便当 #打工人带饭 #种草 #vlog日常\",\"like_cnt\":\"571\",\"share_cnt\":\"24\",\"vv\":\"16613\"},{\"comment_cnt\":\"58\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762599504\",\"item_id\":\"7570307210875879845\",\"item_publish_time\":\"1762599504\",\"item_title\":\"固体杨枝甘露新形态，全新口感暴击 一口惊艳颠覆想象#固体杨枝甘露 #固体杨枝甘露做法 #杨枝甘露 #vlog十亿流量扶持计划 #日常分享\",\"like_cnt\":\"1211\",\"share_cnt\":\"310\",\"vv\":\"39474\"},{\"comment_cnt\":\"88\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762346546\",\"item_id\":\"7569220769097976187\",\"item_publish_time\":\"1762346546\",\"item_title\":\"不用排队，在家自制奶皮子冰糖葫芦 #奶皮子糖葫芦 #奶皮子 #奶皮子糖葫芦做法 #vlog十亿流量扶持计划 #吃货日常\",\"like_cnt\":\"1851\",\"share_cnt\":\"470\",\"vv\":\"67647\"},{\"comment_cnt\":\"49\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762167298\",\"item_id\":\"7568450894464834745\",\"item_publish_time\":\"1762167298\",\"item_title\":\"降温了炒一盘酸辣鱿鱼，开胃又下饭 #打工人带饭 #大林的饭盒  #便当 #vlog十亿流量扶持计划#种草激励计划\",\"like_cnt\":\"808\",\"share_cnt\":\"39\",\"vv\":\"24289\"},{\"comment_cnt\":\"74\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761391757\",\"item_id\":\"7565119867054777273\",\"item_publish_time\":\"1761391757\",\"item_title\":\"累一天吃一顿好的，一点也不过分 #大林的饭盒 #打工人带饭 #便当 #盒饭 #美食趣胃计划\",\"like_cnt\":\"1450\",\"share_cnt\":\"18\",\"vv\":\"52226\"},{\"comment_cnt\":\"56\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761217031\",\"item_id\":\"7564369427303553137\",\"item_publish_time\":\"1761217031\",\"item_title\":\"论做饭这一块的时间管理大师，必须给咱提个名 #大林的饭盒 #便当 #打工人带饭 #懒人美食 #电饭煲一锅出\",\"like_cnt\":\"912\",\"share_cnt\":\"22\",\"vv\":\"38522\"},{\"comment_cnt\":\"41\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761130700\",\"item_id\":\"7563998502084233979\",\"item_publish_time\":\"1761130700\",\"item_title\":\"大林的饭盒今日降温带饭三鲜汤 #便当 #大林的饭盒 #盒饭 #打工人带饭 #带饭一族\",\"like_cnt\":\"853\",\"share_cnt\":\"27\",\"vv\":\"30781\"},{\"comment_cnt\":\"66\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761044930\",\"item_id\":\"7563630229920144763\",\"item_publish_time\":\"1761044930\",\"item_title\":\"肝脆薯了算了，笑薯我了，人怎么可以有梗成这样 #肝脆薯了蒜了 #人怎么能有梗成这样 #网红美食 #吃货日常 #内容太过真实\",\"like_cnt\":\"1118\",\"share_cnt\":\"195\",\"vv\":\"45058\"},{\"comment_cnt\":\"33\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760871610\",\"item_id\":\"7562885973470629177\",\"item_publish_time\":\"1760871610\",\"item_title\":\"一喷即匀，告别油腻 #喷油壶 #喷油瓶   #厨房好物 #vlog十亿流量扶持计划#种草激励计划\",\"like_cnt\":\"498\",\"share_cnt\":\"9\",\"vv\":\"26798\"}]",
+        "link_convert_index": "74.75",
+        "link_convert_index_by_industry": "74.75",
+        "link_i_cnt_by_industry": "95152",
+        "link_k_cnt_by_industry": "121",
+        "link_l_cnt_by_industry": "118498",
+        "link_link_cnt_by_industry": "232076",
+        "link_n_cnt_by_industry": "18305",
+        "link_recommend_index_by_industry": "71.58",
+        "link_shopping_index": "71.58",
+        "link_spread_index": "66.83",
+        "link_spread_index_by_industry": "66.83",
+        "link_star_index": "74.78",
+        "link_star_index_by_industry": "74.78",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "派大林小小厨",
+        "pic_expected_play_num": "3360",
+        "play_over_rate_within_30d": "0.0832",
+        "price_1_20": "6800",
+        "price_20_60": "8800",
+        "price_60": "9100",
+        "promotion_prospective_1_20_cpm": "180.34",
+        "promotion_prospective_20_60_cpm": "233.38",
+        "promotion_prospective_60_cpm": "241.34",
+        "promotion_prospective_vv": "37706",
+        "prospective_1_20_cpm": "170.6485",
+        "prospective_20_60_cpm": "220.8392",
+        "prospective_60_cpm": "228.3678",
+        "province": "福建省",
+        "search_after_view_index_by_industry": "87.6",
+        "sn_expected_play_num": "39848",
+        "sn_interact_rate_within_30d": "0.0307",
+        "sn_play_over_rate_within_30d": "0.0832",
+        "sn_prospective_1_20_cpe": "5.2267",
+        "sn_prospective_1_20_cpm": "170.6485",
+        "sn_prospective_20_60_cpe": "6.764",
+        "sn_prospective_20_60_cpm": "220.8392",
+        "sn_prospective_60_cpe": "6.9946",
+        "sn_prospective_60_cpm": "228.3678",
+        "star_component_link_click_cnt_90d": "0",
+        "star_excellent_author": "0",
+        "star_index": "73.5622406719949",
+        "star_item_count_within_30d": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "1",
+        "star_video_finish_vv_rate_90d": "0.0575",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0622",
+        "star_video_median_vv_90d": "106753",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食教程\"]}",
+        "video_brand_boost": "true",
+        "video_brand_boost_vv": "155671",
+        "vv_median_30d": "34842"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7523547334950882595",
+          "video_tag": 3,
+          "vv": 183143
+        },
+        {
+          "item_id": "7526894526733978914",
+          "video_tag": 3,
+          "vv": 172943
+        },
+        {
+          "item_id": "7519847042613939490",
+          "video_tag": 4,
+          "vv": 122906
+        },
+        {
+          "item_id": "7540660426574728463",
+          "video_tag": 4,
+          "vv": 92758
+        },
+        {
+          "item_id": "7516099763986287924",
+          "video_tag": 5,
+          "vv": 138024
+        },
+        {
+          "item_id": "7511645525645872419",
+          "video_tag": 5,
+          "vv": 136545
+        },
+        {
+          "item_id": "7571408663631245797",
+          "video_tag": 6,
+          "vv": 9410
+        },
+        {
+          "item_id": "7571047856854500837",
+          "video_tag": 6,
+          "vv": 17132
+        }
+      ],
+      "star_id": "6989178922596302884",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 7100,
+              "price_extra_info": {},
+              "start_time": "1762489445",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3800,
+              "price_extra_info": {},
+              "start_time": "1690819200",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 6400,
+              "price_extra_info": {},
+              "start_time": "1690607910",
+              "task_category": 1,
+              "video_type": 90,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 6500,
+              "price_extra_info": {},
+              "start_time": "1686491898",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 9100,
+              "price_extra_info": {
+                "price_discount_range": "35",
+                "price_last_month": "14100",
+                "price_margin_last": "5000"
+              },
+              "start_time": "1762489445",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 8800,
+              "price_extra_info": {
+                "price_discount_range": "12",
+                "price_last_month": "10100",
+                "price_margin_last": "1300"
+              },
+              "start_time": "1762489445",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 6800,
+              "price_extra_info": {
+                "price_discount_range": "22",
+                "price_last_month": "8800",
+                "price_margin_last": "2000"
+              },
+              "start_time": "1762489445",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 11000,
+              "price_extra_info": {},
+              "start_time": "1762489445",
+              "task_category": 1,
+              "video_type": 94,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572099598412693513"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "dba5bef9a6398c225f8e44f497d10d9f78f7305a"
+}

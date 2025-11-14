@@ -1,0 +1,191 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "48",
+        "assign_task_price_list": "[35000,44000]",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"成膜速度快\":0,\"洁面\":0,\"清爽\":0,\"祛痘\":0,\"美白\":0.4534166888955757,\"胶原成分\":0,\"防晒\":0}",
+        "author_type": "2",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_781a45afef89e6b4af8c3fe3248918d9.jpeg?from=4010531038",
+        "city": "广州",
+        "content_theme_labels_180d": "[\"牙膏评测\",\"口腔护理\",\"体态调整\",\"健康趣闻\",\"健身教程\"]",
+        "core_user_id": "4134634167213851",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "10331",
+        "expected_play_num": "68045",
+        "fans_increment_rate_within_15d": "-0.001962450695453602",
+        "fans_increment_within_15d": "-605",
+        "fans_increment_within_30d": "168.4",
+        "follower": "307675",
+        "game_type": "",
+        "gender": "1",
+        "grade": "0",
+        "id": "7359045682668830729",
+        "interact_rate_within_30d": "0.0238",
+        "interaction_median_30d": "701",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"228\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761818732\",\"item_id\":\"7566953796854805989\",\"item_publish_time\":\"1761818732\",\"item_title\":\"当代年轻人自毁式作息，你中了几条？#熬夜 #失眠#不良作息 #健康隐患\",\"like_cnt\":\"455\",\"share_cnt\":\"45\",\"vv\":\"298368\"},{\"comment_cnt\":\"372\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758265092\",\"item_id\":\"7551691039066606900\",\"item_publish_time\":\"1758265092\",\"item_title\":\"牙疼的痛苦谁懂！？#高露洁 #高露洁360牙膏 #世界口腔医学大会 #FDI\",\"like_cnt\":\"4545\",\"share_cnt\":\"439\",\"vv\":\"1204895\"},{\"comment_cnt\":\"445\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1752834173\",\"item_id\":\"7528365434379324731\",\"item_publish_time\":\"1752834173\",\"item_title\":\"你不是真的馋，是身体在警示你了！ #科普 #涨知识 #猪瘾 #食物替代法 #抑制食欲\",\"like_cnt\":\"23813\",\"share_cnt\":\"11254\",\"vv\":\"293740\"},{\"comment_cnt\":\"313\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1748683529\",\"item_id\":\"7510538555678444858\",\"item_publish_time\":\"1748683529\",\"item_title\":\"其实你不胖，只是体态太差了 #涨知识 #经验分享 #对号入座 #体态 #体态纠正\",\"like_cnt\":\"51229\",\"share_cnt\":\"20271\",\"vv\":\"621862\"},{\"comment_cnt\":\"282\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1746683599\",\"item_id\":\"7501948880460827956\",\"item_publish_time\":\"1747213233\",\"item_title\":\"痛！太痛了！旅游想拍美照却敏敏大爆发…  #油敏皮 #修护 #玉泽 #玉泽修护霜\",\"like_cnt\":\"17870\",\"share_cnt\":\"1243\",\"vv\":\"218828\"},{\"comment_cnt\":\"270\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1744986377\",\"item_id\":\"7494659337110670632\",\"item_publish_time\":\"1744986377\",\"item_title\":\"越do脸越丑的原因找到了！#兰嘉丝汀白金防晒#宝藏成分白月光#成分党年度坦白局\",\"like_cnt\":\"6987\",\"share_cnt\":\"958\",\"vv\":\"487555\"},{\"comment_cnt\":\"78\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1744967544\",\"item_id\":\"7494578464152227106\",\"item_publish_time\":\"1744967544\",\"item_title\":\"没去过山姆的这里集合喽喂 #山姆 #涨知识 #经验分享 #山姆攻略\",\"like_cnt\":\"26127\",\"share_cnt\":\"1792\",\"vv\":\"175229\"},{\"comment_cnt\":\"526\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1743669613\",\"item_id\":\"7489003807465065762\",\"item_publish_time\":\"1743669613\",\"item_title\":\"怪不得川渝多美女…… #科普 #涨知识 #对号入座 #控糖 #抗糖\",\"like_cnt\":\"33299\",\"share_cnt\":\"9258\",\"vv\":\"654853\"},{\"comment_cnt\":\"2898\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1743148807\",\"item_id\":\"7486766992217738496\",\"item_publish_time\":\"1743148807\",\"item_title\":\"又准备到吃小龙虾的季节了，爱嗦虾脑的注意了！ #有毒食物 #食物安全 #科普 #涨知识 #经验分享\",\"like_cnt\":\"39872\",\"share_cnt\":\"125848\",\"vv\":\"2416431\"},{\"comment_cnt\":\"5526\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1741681445\",\"item_id\":\"7480464724426099968\",\"item_publish_time\":\"1741681445\",\"item_title\":\"我不是变态！我只是超喜欢你！ 你有没有生理性喜欢的人？#科普 #涨知识 #经验分享 #生理性喜欢 #对号入座\",\"like_cnt\":\"54042\",\"share_cnt\":\"50702\",\"vv\":\"2219495\"}]",
+        "link_convert_index": "49.29",
+        "link_convert_index_by_industry": "49.29",
+        "link_i_cnt_by_industry": "21161",
+        "link_k_cnt_by_industry": "2",
+        "link_l_cnt_by_industry": "290894",
+        "link_link_cnt_by_industry": "330174",
+        "link_n_cnt_by_industry": "18117",
+        "link_recommend_index_by_industry": "57.38",
+        "link_shopping_index": "57.38",
+        "link_spread_index": "59.34",
+        "link_spread_index_by_industry": "59.34",
+        "link_star_index": "61.77",
+        "link_star_index_by_industry": "61.77",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "钢钢杠成分",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.6705",
+        "price_1_20": "30000",
+        "price_20_60": "35000",
+        "price_60": "45000",
+        "promotion_prospective_1_20_cpm": "66.63",
+        "promotion_prospective_20_60_cpm": "77.74",
+        "promotion_prospective_60_cpm": "99.95",
+        "promotion_prospective_vv": "450243",
+        "prospective_1_20_cpm": "440.8847",
+        "prospective_20_60_cpm": "514.3655",
+        "prospective_60_cpm": "661.3271",
+        "province": "",
+        "search_after_view_index_by_industry": "81.33",
+        "sn_expected_play_num": "68045",
+        "sn_interact_rate_within_30d": "0.0238",
+        "sn_play_over_rate_within_30d": "0.6705",
+        "sn_prospective_1_20_cpe": "4.9685",
+        "sn_prospective_1_20_cpm": "440.8847",
+        "sn_prospective_20_60_cpe": "5.7966",
+        "sn_prospective_20_60_cpm": "514.3655",
+        "sn_prospective_60_cpe": "7.4528",
+        "sn_prospective_60_cpm": "661.3271",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "2",
+        "star_ecom_video_num_30d": "1",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "2",
+        "star_video_finish_vv_rate_90d": "0.0456",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.004",
+        "star_video_median_vv_90d": "751631",
+        "star_whispers_author": "0",
+        "tags_relation": "{}",
+        "vv_median_30d": "297783"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7510538555678444858",
+          "video_tag": 3,
+          "vv": 545559
+        },
+        {
+          "item_id": "7528365434379324731",
+          "video_tag": 3,
+          "vv": 274288
+        },
+        {
+          "item_id": "7551691039066606900",
+          "video_tag": 4,
+          "vv": 1202805
+        },
+        {
+          "item_id": "7566953796854805989",
+          "video_tag": 4,
+          "vv": 297783
+        }
+      ],
+      "star_id": "7359045682668830729",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 35000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 30000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 45000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572113854202314802"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "aa9d253ae62407cff88e859406443293efac2a3e"
+}

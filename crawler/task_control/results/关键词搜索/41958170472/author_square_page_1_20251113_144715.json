@@ -1,0 +1,236 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_task_price_list": "[3040,3800,3800,3800]",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-i-0813_7b3bfb5b09c4489b8422b2a115bd7c0a.jpeg?from=4010531038",
+        "city": "",
+        "content_theme_labels_180d": "[\"王者游戏资讯\",\"生活清洁技巧\",\"搞笑挑战\",\"动物趣闻\",\"搞笑剧情\",\"实用绳结\",\"智能汽车\",\"家用电器\",\"饮品制作\",\"生活好物评测\"]",
+        "core_user_id": "1385811162709822",
+        "e_commerce_enable": "0",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "2",
+        "expected_natural_play_num": "5422",
+        "expected_play_num": "5186",
+        "fans_increment_rate_within_15d": "-0.005698581897782431",
+        "fans_increment_within_15d": "-479",
+        "fans_increment_within_30d": "-1055",
+        "follower": "83559",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7232284967085015051",
+        "interact_rate_within_30d": "0.0642",
+        "interaction_median_30d": "623",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762843812\",\"item_id\":\"7571356484156640512\",\"item_publish_time\":\"1762862940\",\"item_title\":\"猫：这世界没我迟早完蛋 #搞笑  #娱乐评论大赏  #猫咪\",\"like_cnt\":\"59\",\"share_cnt\":\"17\",\"vv\":\"1586\"},{\"comment_cnt\":\"51\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762414069\",\"item_id\":\"7569510757440720128\",\"item_publish_time\":\"1762428600\",\"item_title\":\"2016马上就是10年前了 #搞笑 #娱乐评论大赏 #生活 #过年\",\"like_cnt\":\"483\",\"share_cnt\":\"296\",\"vv\":\"16546\"},{\"comment_cnt\":\"33\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761982960\",\"item_id\":\"7567659164839808310\",\"item_publish_time\":\"1761990300\",\"item_title\":\"怎么还会折叠咬人啊 #搞笑 #娱乐评论大赏 #生活\",\"like_cnt\":\"482\",\"share_cnt\":\"805\",\"vv\":\"22362\"},{\"comment_cnt\":\"13\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761891193\",\"item_id\":\"7567265023282711851\",\"item_publish_time\":\"1761902100\",\"item_title\":\"邪恶QQ肠激情开麦 #搞笑 #娱乐评论大赏 #生活\",\"like_cnt\":\"731\",\"share_cnt\":\"328\",\"vv\":\"13061\"},{\"comment_cnt\":\"11\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761727519\",\"item_id\":\"7566562059526081830\",\"item_publish_time\":\"1761727519\",\"item_title\":\"别问了！双十一就盘这个「AI电吉他音箱」！ #电吉他音箱  #sparkmini #生活 #音乐\",\"like_cnt\":\"565\",\"share_cnt\":\"8\",\"vv\":\"3291\"},{\"comment_cnt\":\"65\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761119373\",\"item_id\":\"7563950088951827727\",\"item_publish_time\":\"1761127320\",\"item_title\":\"南北方接送这一块儿 #搞笑 #娱乐评论大赏 #生活\",\"like_cnt\":\"1420\",\"share_cnt\":\"381\",\"vv\":\"29549\"},{\"comment_cnt\":\"40\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761034193\",\"item_id\":\"7563584235865443620\",\"item_publish_time\":\"1761048120\",\"item_title\":\"第一次玩王者有多招笑 #王者荣耀 #搞笑 #娱乐评论大赏 #游戏\",\"like_cnt\":\"458\",\"share_cnt\":\"111\",\"vv\":\"12946\"},{\"comment_cnt\":\"11\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760712851\",\"item_id\":\"7562204093726477625\",\"item_publish_time\":\"1760712851\",\"item_title\":\"南北朋友圈空调 “分裂”！ 南方 16℃制冷炫冰饮，北方 26℃制热裹毯，你家啥模式？#你在北方穿秋裤我在南方防中暑 #空调#伟大发明\",\"like_cnt\":\"411\",\"share_cnt\":\"8\",\"vv\":\"4283\"},{\"comment_cnt\":\"19\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760690441\",\"item_id\":\"7562107830212267316\",\"item_publish_time\":\"1760697660\",\"item_title\":\"神话故事诚不欺我 #搞笑 #娱乐评论大赏 #生活 #神话\",\"like_cnt\":\"963\",\"share_cnt\":\"217\",\"vv\":\"23057\"},{\"comment_cnt\":\"5\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760266707\",\"item_id\":\"7560287866622856482\",\"item_publish_time\":\"1760266707\",\"item_title\":\"从vlog鼻祖里扒的宝藏，原来明星的发质护理可以这么简单 #欧阳娜娜艺术留子千金感#松下吹风机NX81#欧阳娜娜同款吹风机#松下花芯护发吹风机#千金\",\"like_cnt\":\"34\",\"share_cnt\":\"4\",\"vv\":\"3649\"}]",
+        "link_convert_index": "0",
+        "link_convert_index_by_industry": "0",
+        "link_i_cnt_by_industry": "12504",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "28563",
+        "link_link_cnt_by_industry": "52137",
+        "link_n_cnt_by_industry": "11070",
+        "link_recommend_index_by_industry": "27.68",
+        "link_shopping_index": "27.68",
+        "link_spread_index": "28.52",
+        "link_spread_index_by_industry": "28.52",
+        "link_star_index": "22.34",
+        "link_star_index_by_industry": "22.34",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "离奇酱",
+        "play_over_rate_within_30d": "0.3234",
+        "price_1_20": "3000",
+        "price_20_60": "3500",
+        "price_60": "4200",
+        "promotion_prospective_1_20_cpm": "504.97",
+        "promotion_prospective_20_60_cpm": "589.13",
+        "promotion_prospective_60_cpm": "706.95",
+        "promotion_prospective_vv": "5941",
+        "prospective_1_20_cpm": "578.4805",
+        "prospective_20_60_cpm": "674.8939",
+        "prospective_60_cpm": "809.8727",
+        "province": "",
+        "search_after_view_index_by_industry": "50.13",
+        "sn_expected_play_num": "5186",
+        "sn_interact_rate_within_30d": "0.0642",
+        "sn_play_over_rate_within_30d": "0.3234",
+        "sn_prospective_1_20_cpe": "5.9642",
+        "sn_prospective_1_20_cpm": "578.4805",
+        "sn_prospective_20_60_cpe": "6.9583",
+        "sn_prospective_20_60_cpm": "674.8939",
+        "sn_prospective_60_cpe": "8.3499",
+        "sn_prospective_60_cpm": "809.8727",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "0",
+        "star_ecom_video_num_30d": "1",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "4",
+        "star_video_finish_vv_rate_90d": "0.0354",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.1102",
+        "star_video_median_vv_90d": "7286",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"剧情搞笑\":[\"剧情\"]}",
+        "vv_median_30d": "11163"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7547981057027493171",
+          "video_tag": 3,
+          "vv": 3086262
+        },
+        {
+          "item_id": "7507557776978103587",
+          "video_tag": 3,
+          "vv": 716039
+        },
+        {
+          "item_id": "7520165961136082185",
+          "video_tag": 4,
+          "vv": 90179
+        },
+        {
+          "item_id": "7545766851733720379",
+          "video_tag": 4,
+          "vv": 14623
+        },
+        {
+          "item_id": "7525408585804270907",
+          "video_tag": 5,
+          "vv": 693965
+        },
+        {
+          "item_id": "7532020474868485410",
+          "video_tag": 5,
+          "vv": 332445
+        },
+        {
+          "item_id": "7571751936421055784",
+          "video_tag": 6,
+          "vv": 12407
+        },
+        {
+          "item_id": "7569510757440720128",
+          "video_tag": 6,
+          "vv": 11255
+        }
+      ],
+      "star_id": "7232284967085015051",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3000,
+              "price_extra_info": {},
+              "start_time": "1709091697",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 4200,
+              "price_extra_info": {},
+              "start_time": "1759053080",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3500,
+              "price_extra_info": {},
+              "start_time": "1759053080",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3000,
+              "price_extra_info": {},
+              "start_time": "1759053080",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1500,
+              "price_extra_info": {},
+              "start_time": "1706182329",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3500,
+              "price_extra_info": {},
+              "start_time": "1759053080",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572097809907138570"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "7a8f2ac3c228b2beea3ac69fa462c1ac48317c30"
+}

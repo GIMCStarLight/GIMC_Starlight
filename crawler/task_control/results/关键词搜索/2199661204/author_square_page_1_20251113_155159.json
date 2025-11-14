@@ -1,0 +1,176 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "48",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"美白\":0.006}",
+        "author_type": "2",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_c0659b0e93757ff70dfd3c49fa97a8d7.jpeg?from=4010531038",
+        "brand_boost_vv": "45149",
+        "city": "广州市",
+        "content_theme_labels_180d": "[]",
+        "core_user_id": "4331698418095576",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "fans_increment_rate_within_15d": "-0.0027471058937274416",
+        "fans_increment_within_15d": "-3546",
+        "fans_increment_within_30d": "-5462",
+        "follower": "1287253",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6714875368391573516",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"27\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1742810166\",\"item_id\":\"7485311656071941439\",\"item_publish_time\":\"1742817600\",\"item_title\":\"拿捏松弛感来源 你的美比春天还灿烂~#护肤好物 #松弛感 #girlstalk #分享爱用物\",\"like_cnt\":\"485\",\"share_cnt\":\"6\",\"vv\":\"5240\"},{\"comment_cnt\":\"371\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1735198767\",\"item_id\":\"7452621839160888633\",\"item_publish_time\":\"1735198767\",\"item_title\":\"春节假期如何一件过冬？快和我一起解锁充满新年氛围感的穿搭神器！ #波司登温暖中国家庭48年 #新年衣服 #春节\",\"like_cnt\":\"10679\",\"share_cnt\":\"32\",\"vv\":\"439383\"},{\"comment_cnt\":\"187\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1733303855\",\"item_id\":\"7444483304293682472\",\"item_publish_time\":\"1733303855\",\"item_title\":\"你有你的人生，我有我的旅程，我们都没有快慢之分 #人生没有标准答案 #girlstalk #有趣的人生要开挂\",\"like_cnt\":\"1666\",\"share_cnt\":\"55\",\"vv\":\"21605\"},{\"comment_cnt\":\"123\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1729670381\",\"item_id\":\"7428877303746186550\",\"item_publish_time\":\"1729677600\",\"item_title\":\"SKII打工人极限出差！李斯丹妮又见面了！#Vlog#工作花絮#电商人#双十一#记录生活\",\"like_cnt\":\"5728\",\"share_cnt\":\"14\",\"vv\":\"62169\"},{\"comment_cnt\":\"211\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1727074128\",\"item_id\":\"7417726859909074211\",\"item_publish_time\":\"1727074128\",\"item_title\":\"只管努力 你我都能毫不费力地出圈 #出圈路上的每一步都算数 #出圈吧 #实力国货 #护肤\",\"like_cnt\":\"3586\",\"share_cnt\":\"25\",\"vv\":\"257704\"},{\"comment_cnt\":\"425\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1724396401\",\"item_id\":\"7406226076084473115\",\"item_publish_time\":\"1724396401\",\"item_title\":\"第一次尝试复古穿搭 到底哪套适合我？#返潮复古穿搭#2024早秋时髦主场#ootd #演唱会穿搭\",\"like_cnt\":\"11442\",\"share_cnt\":\"65\",\"vv\":\"165451\"},{\"comment_cnt\":\"232\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1723198689\",\"item_id\":\"7401081960275135784\",\"item_publish_time\":\"1723284000\",\"item_title\":\"谁看了不说一句满分男友!? 赶紧艾特他学起来！#情侣日常 #女生化妆 #情侣\",\"like_cnt\":\"10681\",\"share_cnt\":\"943\",\"vv\":\"75557\"},{\"comment_cnt\":\"634\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1722080372\",\"item_id\":\"7396278824872217865\",\"item_publish_time\":\"1722080372\",\"item_title\":\"改变心情最好的方法～就是逃离城市 #夏日补妆 #大自然天然氧吧 #一起变美\",\"like_cnt\":\"10627\",\"share_cnt\":\"56\",\"vv\":\"30422\"},{\"comment_cnt\":\"842\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1720755816\",\"item_id\":\"7390589890112605478\",\"item_publish_time\":\"1720755816\",\"item_title\":\"人生不过三万天 我要每一天都过得自如轻盈!#女性成长#抖音商城大牌惊喜日#淘淘氧棉消毒级卫生巾#长相思\",\"like_cnt\":\"33849\",\"share_cnt\":\"845\",\"vv\":\"248557\"},{\"comment_cnt\":\"578\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1719846715\",\"item_id\":\"7386685347448540443\",\"item_publish_time\":\"1719846715\",\"item_title\":\"不得不承认 头发的确就是氛围感的体现～#养发 #护发技巧 #头发护理\",\"like_cnt\":\"11754\",\"share_cnt\":\"35\",\"vv\":\"31310\"}]",
+        "link_convert_index": "65.25",
+        "link_convert_index_by_industry": "65.25",
+        "link_i_cnt_by_industry": "2195",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "5363",
+        "link_link_cnt_by_industry": "8638",
+        "link_n_cnt_by_industry": "1080",
+        "link_recommend_index_by_industry": "43.49",
+        "link_shopping_index": "43.49",
+        "link_spread_index": "44.03",
+        "link_spread_index_by_industry": "44.03",
+        "link_star_index": "58.05",
+        "link_star_index_by_industry": "58.05",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "雷雨甜Nana",
+        "pic_expected_play_num": "1773",
+        "price_1_20": "45000",
+        "price_20_60": "48000",
+        "price_60": "52000",
+        "province": "广东省",
+        "search_after_view_index_by_industry": "68.51",
+        "star_excellent_author": "0",
+        "star_index": "71.70195825225525",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"时尚\":[\"穿搭\"]}",
+        "video_brand_boost": "true",
+        "video_brand_boost_vv": "45149"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7485311656071941439",
+          "video_tag": 3,
+          "vv": 4318
+        }
+      ],
+      "star_id": "6714875368391573516",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 45000,
+              "price_extra_info": {},
+              "start_time": "1727712000",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 52000,
+              "price_extra_info": {},
+              "start_time": "1727712000",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 48000,
+              "price_extra_info": {},
+              "start_time": "1727712000",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 52320,
+              "price_extra_info": {},
+              "start_time": "1730390400",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 20800,
+              "price_extra_info": {},
+              "start_time": "1664553600",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 25000,
+              "price_extra_info": {},
+              "start_time": "1663930122",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572114485432451081"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "d01650d13839edf9110cad538054196d8a073fcc"
+}

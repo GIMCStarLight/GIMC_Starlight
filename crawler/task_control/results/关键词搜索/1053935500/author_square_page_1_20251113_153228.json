@@ -1,0 +1,165 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "48",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"防晒\":0}",
+        "author_type": "2",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_097a4e72d3b14c7c091d30ca3aae2ca5.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "长春市",
+        "content_theme_labels_180d": "[]",
+        "core_user_id": "97839994349",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "fans_increment_rate_within_15d": "-0.002310125151514499",
+        "fans_increment_within_15d": "-3219",
+        "fans_increment_within_30d": "-6614",
+        "follower": "1390378",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6629723308080234504",
+        "interaction_median_30d": "330",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"23\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1739416794\",\"item_id\":\"7470737609409465639\",\"item_publish_time\":\"1739416794\",\"item_title\":\"内行人眼中的网购省钱关键词，原来我白花了这么多冤枉钱#网购技巧#省钱攻略#网购关键词#女装\",\"like_cnt\":\"10719\",\"share_cnt\":\"1072\",\"vv\":\"159367\"},{\"comment_cnt\":\"59\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1736392603\",\"item_id\":\"7457748933675093263\",\"item_publish_time\":\"1736392603\",\"item_title\":\"这些人体隐藏开关你知道吗！离谱但是真的管用#科普#冷知识#生活妙招#人体奥秘\",\"like_cnt\":\"12235\",\"share_cnt\":\"2508\",\"vv\":\"231062\"},{\"comment_cnt\":\"121\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1735291498\",\"item_id\":\"7453019708967669027\",\"item_publish_time\":\"1735291498\",\"item_title\":\"黄子韬退圈了？！原来退的是黑眼圈...#黄子韬代言眼霜#绝色熬夜眼霜#新年有意思#年末浪漫高手\",\"like_cnt\":\"17179\",\"share_cnt\":\"111\",\"vv\":\"151042\"},{\"comment_cnt\":\"306\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1733467977\",\"item_id\":\"7445187846467620147\",\"item_publish_time\":\"1733467977\",\"item_title\":\"还得走有效抗老路，实现面部三折叠怎么折都难垮！#麦吉丽#麦吉丽御龄面霜#麦肤因#抗老#麦吉丽十周年盛典\",\"like_cnt\":\"15682\",\"share_cnt\":\"216\",\"vv\":\"1141587\"},{\"comment_cnt\":\"66\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1731316121\",\"item_id\":\"7435946043872660773\",\"item_publish_time\":\"1731316121\",\"item_title\":\"原来我长这么丑都是有原因的啊...#护肤#变美#变丑习惯#女生必看\",\"like_cnt\":\"12214\",\"share_cnt\":\"970\",\"vv\":\"160748\"},{\"comment_cnt\":\"236\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1729670372\",\"item_id\":\"7428877074896588072\",\"item_publish_time\":\"1729670372\",\"item_title\":\"原来能防住魔法攻击的保暖衣才是过冬的正确打开方式#有棵树防湿冷保暖衣 #吸汗保暖衣 #保暖衣测评 #成毅同款#天猫双11抄省清单\",\"like_cnt\":\"10809\",\"share_cnt\":\"327\",\"vv\":\"406822\"},{\"comment_cnt\":\"122\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1724744607\",\"item_id\":\"7407721627640745268\",\"item_publish_time\":\"1724744607\",\"item_title\":\"质检师都爱用它？发量弯道超车的秘密真藏不住啦#清爽秀发 #蓬松发根 #养发 #好物种草 #KOSHINE826\",\"like_cnt\":\"12193\",\"share_cnt\":\"70\",\"vv\":\"165277\"},{\"comment_cnt\":\"52\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1724223446\",\"item_id\":\"7405483217987390747\",\"item_publish_time\":\"1724223446\",\"item_title\":\"专业质检师揭秘护肤品 让你不再当冤大头#护肤#智商税#护肤分享\",\"like_cnt\":\"12738\",\"share_cnt\":\"37\",\"vv\":\"68198\"},{\"comment_cnt\":\"105\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1714884049\",\"item_id\":\"7365370798657342783\",\"item_publish_time\":\"1714884049\",\"item_title\":\"质检师专业推荐的宝藏眼霜，眼周问题全靠它~#赫莲娜 #黑绷带眼霜 #眼部护理 #护肤 #眼袋眼霜\",\"like_cnt\":\"16775\",\"share_cnt\":\"11\",\"vv\":\"24076\"},{\"comment_cnt\":\"121\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1714465845\",\"item_id\":\"7363574684262206757\",\"item_publish_time\":\"1714465845\",\"item_title\":\"你怎么知道我没有毛孔？！一期视频教会你毛孔消失术#毛孔粗大 #填毛孔 #护肤 #干货\",\"like_cnt\":\"13150\",\"share_cnt\":\"35\",\"vv\":\"20422\"}]",
+        "link_convert_index": "64.18",
+        "link_convert_index_by_industry": "64.18",
+        "link_i_cnt_by_industry": "3523",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "6708",
+        "link_link_cnt_by_industry": "11788",
+        "link_n_cnt_by_industry": "1557",
+        "link_recommend_index_by_industry": "41.08",
+        "link_shopping_index": "41.08",
+        "link_spread_index": "44.28",
+        "link_spread_index_by_industry": "44.28",
+        "link_star_index": "57.4",
+        "link_star_index_by_industry": "57.4",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "质检师燕小馨",
+        "price_1_20": "35000",
+        "price_20_60": "62000",
+        "price_60": "67000",
+        "province": "吉林省",
+        "search_after_view_index_by_industry": "62.43",
+        "star_excellent_author": "0",
+        "star_index": "61.536851248488944",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食教程\"]}",
+        "vv_median_30d": "15946"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7470737609409465639",
+          "video_tag": 3,
+          "vv": 138295
+        }
+      ],
+      "star_id": "6629723308080234504",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 42250,
+              "price_extra_info": {},
+              "start_time": "1695881515",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 14000,
+              "price_extra_info": {},
+              "start_time": "1628693505",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 67000,
+              "price_extra_info": {},
+              "start_time": "1714492800",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 35000,
+              "price_extra_info": {},
+              "start_time": "1714492800",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 62000,
+              "price_extra_info": {},
+              "start_time": "1714492800",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572109438426218542"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "ae7d7365858465f66a40e49de28fbb6fd5394ff7"
+}

@@ -1,0 +1,210 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "49",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_14ccfb3e1e971b4d8df3e0944f94cf01.jpeg?from=4010531038",
+        "brand_boost_vv": "20087",
+        "city": "深圳市",
+        "content_theme_labels_180d": "[]",
+        "core_user_id": "105003306863",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "19500",
+        "expected_play_num": "42981",
+        "fans_increment_rate_within_15d": "-0.003525030390755266",
+        "fans_increment_within_15d": "-1186",
+        "fans_increment_within_30d": "-2443",
+        "follower": "335203",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7085593936126967821",
+        "interaction_median_30d": "954",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"11\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755427811\",\"item_id\":\"7539504753697393962\",\"item_publish_time\":\"1755427811\",\"item_title\":\"谁的心 谁独自流浪。#沉沦在绝美的海边  #电影感 #抓拍此刻氛围感 \",\"like_cnt\":\"888\",\"share_cnt\":\"151\",\"vv\":\"45116\"},{\"comment_cnt\":\"4\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1754058828\",\"item_id\":\"7533625048742268214\",\"item_publish_time\":\"1754058828\",\"item_title\":\"蓝色🔵仲夏夜。#暮色下的海边氛围感绝了 #夜晚海边拍照 #摄影 \",\"like_cnt\":\"287\",\"share_cnt\":\"15\",\"vv\":\"23352\"},{\"comment_cnt\":\"18\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1753530513\",\"item_id\":\"7531356194402880825\",\"item_publish_time\":\"1753530513\",\"item_title\":\"山中岁月 #东方美学\",\"like_cnt\":\"610\",\"share_cnt\":\"91\",\"vv\":\"18914\"},{\"comment_cnt\":\"10\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1747371565\",\"item_id\":\"7504903673551834403\",\"item_publish_time\":\"1747371565\",\"item_title\":\"旅行让人变漂亮 出镜@十九日见  #春日氛围感 #livephoto #理光\",\"like_cnt\":\"695\",\"share_cnt\":\"96\",\"vv\":\"24795\"},{\"comment_cnt\":\"10\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1746951265\",\"item_id\":\"7503098486767586560\",\"item_publish_time\":\"1746951265\",\"item_title\":\"樱花树下谁站都美 #春日氛围感 #拍出电影感\",\"like_cnt\":\"494\",\"share_cnt\":\"62\",\"vv\":\"20586\"},{\"comment_cnt\":\"108\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1746542098\",\"item_id\":\"7501341109479476514\",\"item_publish_time\":\"1746542098\",\"item_title\":\"那就约在春天见面吧 出镜@十九日见 #摄影  #理光  #大连\",\"like_cnt\":\"9492\",\"share_cnt\":\"987\",\"vv\":\"3883941\"},{\"comment_cnt\":\"14\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1746361444\",\"item_id\":\"7500565268679249187\",\"item_publish_time\":\"1746361444\",\"item_title\":\"春天是个巨大的能量场 | 大连碎片 和@十九日见 一起大连旅行#摄影 #拍出电影感 #旅行出片计划\",\"like_cnt\":\"516\",\"share_cnt\":\"72\",\"vv\":\"58191\"},{\"comment_cnt\":\"39\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1745855711\",\"item_id\":\"7498393023677812002\",\"item_publish_time\":\"1745855711\",\"item_title\":\"四月大连 温度正宜人 #旅行 #海鸥 #大连\",\"like_cnt\":\"3519\",\"share_cnt\":\"592\",\"vv\":\"55453\"},{\"comment_cnt\":\"13\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1741602924\",\"item_id\":\"7480127506343890176\",\"item_publish_time\":\"1741602924\",\"item_title\":\"爱自有天意 #氛围感\",\"like_cnt\":\"1505\",\"share_cnt\":\"248\",\"vv\":\"47865\"},{\"comment_cnt\":\"24\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1741263214\",\"item_id\":\"7478668536886381884\",\"item_publish_time\":\"1741263214\",\"item_title\":\"风是自由的，希望你也是。 #感觉至上\",\"like_cnt\":\"3613\",\"share_cnt\":\"1048\",\"vv\":\"77102\"}]",
+        "link_convert_index": "38.65",
+        "link_convert_index_by_industry": "38.65",
+        "link_i_cnt_by_industry": "3993",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "28858",
+        "link_link_cnt_by_industry": "33980",
+        "link_n_cnt_by_industry": "1129",
+        "link_recommend_index_by_industry": "41.32",
+        "link_shopping_index": "41.32",
+        "link_spread_index": "45.65",
+        "link_spread_index_by_industry": "45.65",
+        "link_star_index": "53.33",
+        "link_star_index_by_industry": "53.33",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "黄慕潇（摄影）",
+        "pic_brand_boost": "true",
+        "pic_brand_boost_vv": "50000",
+        "pic_expected_cpm": "6345.18",
+        "pic_expected_play_num": "2364",
+        "price_1_20": "10000",
+        "price_20_60": "13000",
+        "price_60": "15000",
+        "promotion_prospective_1_20_cpm": "256.34",
+        "promotion_prospective_20_60_cpm": "333.25",
+        "promotion_prospective_60_cpm": "384.52",
+        "promotion_prospective_vv": "39010",
+        "prospective_1_20_cpm": "232.6609",
+        "prospective_20_60_cpm": "302.4592",
+        "prospective_60_cpm": "348.9914",
+        "province": "广东省",
+        "search_after_view_index_by_industry": "68.23",
+        "sn_expected_play_num": "42981",
+        "sn_prospective_1_20_cpe": "9.8328",
+        "sn_prospective_1_20_cpm": "232.6609",
+        "sn_prospective_20_60_cpe": "12.7827",
+        "sn_prospective_20_60_cpm": "302.4592",
+        "sn_prospective_60_cpe": "14.7493",
+        "sn_prospective_60_cpm": "348.9914",
+        "star_excellent_author": "0",
+        "star_index": "57.840477992428944",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"随拍\":[\"随拍\"]}",
+        "video_brand_boost": "true",
+        "video_brand_boost_vv": "20087",
+        "vv_median_30d": "37306"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7539504753697393962",
+          "video_tag": 3,
+          "vv": 44348
+        },
+        {
+          "item_id": "7533625048742268214",
+          "video_tag": 3,
+          "vv": 22550
+        },
+        {
+          "item_id": "7531356194402880825",
+          "video_tag": 5,
+          "vv": 18209
+        }
+      ],
+      "star_id": "7085593936126967821",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 15000,
+              "price_extra_info": {},
+              "start_time": "1760241504",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 13000,
+              "price_extra_info": {},
+              "start_time": "1760241504",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 10000,
+              "price_extra_info": {},
+              "start_time": "1760241504",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 55,
+              "price_extra_info": {
+                "ceiling_price": "27000",
+                "floor_price": "3600"
+              },
+              "start_time": "1700050197",
+              "task_category": 1,
+              "video_type": 92,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 12000,
+              "price_extra_info": {},
+              "start_time": "1760241504",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 6000,
+              "price_extra_info": {},
+              "start_time": "1672502400",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572094375870808091"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "4475d153d1c34f9ff57d8fb45848f0c0171f66b8"
+}

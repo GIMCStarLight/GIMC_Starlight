@@ -1,0 +1,222 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "68",
+        "assign_task_price_list": "[35700,35700]",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"清爽\":0.093,\"美白\":0.022000000000000006}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_35d79ca41b0fba93f9667abe2304426a.jpeg?from=4010531038",
+        "city": "沈阳市",
+        "content_theme_labels_180d": "[\"美食探店\",\"烧烤\",\"地方美食\",\"城市旅行攻略\",\"东北美食\",\"美食之旅\",\"海鲜美食\",\"国内城市旅游\",\"家庭旅行\",\"美食探索\"]",
+        "core_user_id": "61783040756",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": "1k-3w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_score": "75",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "226022",
+        "expected_play_num": "291715",
+        "fans_increment_rate_within_15d": "0.010815704759714877",
+        "fans_increment_within_15d": "7526",
+        "fans_increment_within_30d": "11754",
+        "follower": "703390",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7020565444960452616",
+        "interact_rate_within_30d": "0.0269",
+        "interaction_median_30d": "6674",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"62\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762847835\",\"item_id\":\"7571373782319030218\",\"item_publish_time\":\"1762847835\",\"item_title\":\"终于不用天天洗头啦！\",\"like_cnt\":\"295\",\"share_cnt\":\"24\",\"vv\":\"54970\"},{\"comment_cnt\":\"1013\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761873015\",\"item_id\":\"7567186944770182042\",\"item_publish_time\":\"1761873015\",\"item_title\":\"去大连给旅顺留一天！#大连旅游攻略 #旅顺旅游攻略 #大连景点 #旅顺 #旅行推荐官\",\"like_cnt\":\"5365\",\"share_cnt\":\"2064\",\"vv\":\"388484\"},{\"comment_cnt\":\"882\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761723521\",\"item_id\":\"7566544867892810890\",\"item_publish_time\":\"1761723521\",\"item_title\":\"我都好看成啥样了，天天睁眼睛都敢录视频了！我这就开始走颜值少妇赛道了知道不！\",\"like_cnt\":\"2074\",\"share_cnt\":\"400\",\"vv\":\"207194\"},{\"comment_cnt\":\"250\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761694372\",\"item_id\":\"7566419576809653875\",\"item_publish_time\":\"1761694372\",\"item_title\":\"今天先说洗脑，下期说运动啊！#日常唠嗑#脱口秀\",\"like_cnt\":\"1444\",\"share_cnt\":\"379\",\"vv\":\"121769\"},{\"comment_cnt\":\"1766\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761632169\",\"item_id\":\"7566152315796914587\",\"item_publish_time\":\"1761632169\",\"item_title\":\"这期我要是还讲不明白三亚我奏退网！真的是护工级别的三亚攻略了！#三亚 #三亚旅游攻略 #三亚自由行攻略 #三亚景点 #三亚酒店\",\"like_cnt\":\"29775\",\"share_cnt\":\"15664\",\"vv\":\"1104387\"},{\"comment_cnt\":\"620\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760843838\",\"item_id\":\"7562766685310160137\",\"item_publish_time\":\"1760843838\",\"item_title\":\"我宣布大连海鲜是我最钟意的海鲜！#大连#大连美食#大连旅游攻略\",\"like_cnt\":\"5612\",\"share_cnt\":\"3605\",\"vv\":\"273211\"},{\"comment_cnt\":\"2707\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760407860\",\"item_id\":\"7560894150654446874\",\"item_publish_time\":\"1760407860\",\"item_title\":\"今天和大家唠唠老年人在三亚过冬！#三亚过冬#三亚\",\"like_cnt\":\"19828\",\"share_cnt\":\"10842\",\"vv\":\"1610457\"},{\"comment_cnt\":\"7557\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760083427\",\"item_id\":\"7559500749231934729\",\"item_publish_time\":\"1760083427\",\"item_title\":\"潮汕的味道一点不迁就外来游客，主打就是地道，但是真的很对我的味！#潮汕#潮汕美食\",\"like_cnt\":\"10224\",\"share_cnt\":\"2621\",\"vv\":\"624936\"},{\"comment_cnt\":\"833\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759635859\",\"item_id\":\"7557578449708272946\",\"item_publish_time\":\"1759635859\",\"item_title\":\"海肠捞饭和烤鸟贝真的是猴赛雷啊！！！#开海啦#沈阳美食#沈阳海鲜#需要大声安利的烟火气美食\",\"like_cnt\":\"8903\",\"share_cnt\":\"1229\",\"vv\":\"249903\"},{\"comment_cnt\":\"8922\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759381386\",\"item_id\":\"7556485501830876426\",\"item_publish_time\":\"1759381386\",\"item_title\":\"感谢和我一面之缘的潮汕小妹妹！藩记的牛肉丸和牛肉简直不要太哇塞！#潮汕美食#潮汕牛肉#潮汕牛肉丸#汕头藩记牛肉丸\",\"like_cnt\":\"16317\",\"share_cnt\":\"1528\",\"vv\":\"1211525\"}]",
+        "link_convert_index": "74.83",
+        "link_convert_index_by_industry": "74.83",
+        "link_i_cnt_by_industry": "454385",
+        "link_k_cnt_by_industry": "106",
+        "link_l_cnt_by_industry": "2540220",
+        "link_link_cnt_by_industry": "3888823",
+        "link_n_cnt_by_industry": "894112",
+        "link_recommend_index_by_industry": "72.34",
+        "link_shopping_index": "72.34",
+        "link_spread_index": "74.67",
+        "link_spread_index_by_industry": "74.67",
+        "link_star_index": "74.31",
+        "link_star_index_by_industry": "74.31",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "天上拍下个金妹妹",
+        "pic_expected_play_num": "47676",
+        "play_over_rate_within_30d": "0.0659",
+        "price_1_20": "28000",
+        "price_20_60": "38000",
+        "price_60": "44000",
+        "promotion_prospective_1_20_cpm": "100.32",
+        "promotion_prospective_20_60_cpm": "136.15",
+        "promotion_prospective_60_cpm": "157.65",
+        "promotion_prospective_vv": "279106",
+        "prospective_1_20_cpm": "95.9841",
+        "prospective_20_60_cpm": "130.2641",
+        "prospective_60_cpm": "150.8321",
+        "province": "辽宁省",
+        "search_after_view_index_by_industry": "85.31",
+        "sn_expected_play_num": "291715",
+        "sn_interact_rate_within_30d": "0.0269",
+        "sn_play_over_rate_within_30d": "0.0659",
+        "sn_prospective_1_20_cpe": "3.8916",
+        "sn_prospective_1_20_cpm": "95.9841",
+        "sn_prospective_20_60_cpe": "5.2814",
+        "sn_prospective_20_60_cpm": "130.2641",
+        "sn_prospective_60_cpe": "6.1154",
+        "sn_prospective_60_cpm": "150.8321",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "11099",
+        "star_ecom_video_num_30d": "1",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "3",
+        "star_video_finish_vv_rate_90d": "0.0061",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0024",
+        "star_video_median_vv_90d": "1836761",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"生活\":[\"生活记录\"]}",
+        "vv_median_30d": "235246"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7514643262365355274",
+          "video_tag": 3,
+          "vv": 8782396
+        },
+        {
+          "item_id": "7517196160764628234",
+          "video_tag": 3,
+          "vv": 1997694
+        },
+        {
+          "item_id": "7552459324036959498",
+          "video_tag": 4,
+          "vv": 3213297
+        },
+        {
+          "item_id": "7533857262139755802",
+          "video_tag": 4,
+          "vv": 2684015
+        },
+        {
+          "item_id": "7514890517176814899",
+          "video_tag": 5,
+          "vv": 1809652
+        },
+        {
+          "item_id": "7513756180923567369",
+          "video_tag": 5,
+          "vv": 1718813
+        },
+        {
+          "item_id": "7571373782319030218",
+          "video_tag": 6,
+          "vv": 235246
+        },
+        {
+          "item_id": "7567186944770182042",
+          "video_tag": 6,
+          "vv": 320277
+        }
+      ],
+      "star_id": "7020565444960452616",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 44000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 38000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 28000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3800,
+              "price_extra_info": {},
+              "start_time": "1688831252",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572103762230263846"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "3fdd6f9fa7b0bcee82250fc0a89242f281f49a3e"
+}

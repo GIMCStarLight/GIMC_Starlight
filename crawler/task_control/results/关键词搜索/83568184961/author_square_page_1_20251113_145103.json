@@ -1,0 +1,247 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "27",
+        "assign_task_price_list": "[18000,22933,26240,27904,27904,28602,28800,30400,32000,32000,32000,34880,34880,34880]",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L2",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"定妆\":7.152333333333323,\"成膜速度快\":0.063,\"早餐\":0.00866666666666667,\"服帖\":3.1257142857142832,\"洁面\":2.094999999999997,\"清爽\":1.5628333333333313,\"祛痘\":7.781499999999992,\"绵密\":0.124,\"美白\":8.697466115259086,\"胶原成分\":6.660999999999981,\"色修\":0.308,\"遮瑕\":2.1158333333333292,\"酥脆\":1.6909999999999952,\"防晒\":13.023654791879098,\"防水\":62.14100000000009}",
+        "author_type": "2",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_3bd91140ce9e0864e69d8752b62b7ee6.jpeg?from=4010531038",
+        "avg_search_after_view_rate_30d": "0.021",
+        "burst_text_rate": "0.25",
+        "city": "潍坊",
+        "content_theme_labels_180d": "[\"海鲜美食\",\"美食吃播\",\"深夜美食\",\"辣味美食\",\"凉拌菜制作\",\"自制美食\",\"零食测评\",\"下饭菜教程\",\"火锅\",\"云南美食\"]",
+        "core_user_id": "3989478267953712",
+        "e_commerce_enable": "1",
+        "ecom_score": "84",
+        "ecom_video_product_num_30d": "0",
+        "enroll_task_price_list": "[13200,22400]",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "490102",
+        "expected_play_num": "652511",
+        "fans_increment_rate_within_15d": "0.000154118917678993",
+        "fans_increment_within_15d": "129",
+        "fans_increment_within_30d": "9723",
+        "follower": "837075",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7235585232563339301",
+        "interact_rate_within_30d": "0.0436",
+        "interaction_median_30d": "53596.5",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "1",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"125\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762087390\",\"item_id\":\"7568107704670227749\",\"item_publish_time\":\"1762087390\",\"item_title\":\"甜品巧克力局~#甜品 #巧克力  #M豆小豆包 #包好吃的小豆包\",\"like_cnt\":\"5422\",\"share_cnt\":\"1481\",\"vv\":\"183625\"},{\"comment_cnt\":\"228\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761556856\",\"item_id\":\"7565829074443586874\",\"item_publish_time\":\"1761556856\",\"item_title\":\"山东太冷了，肝脆冻薯我蒜了#美食推荐 #美食  #吃货的日常 #追剧小零食\",\"like_cnt\":\"30565\",\"share_cnt\":\"10519\",\"vv\":\"880656\"},{\"comment_cnt\":\"1094\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761274050\",\"item_id\":\"7564614426357681445\",\"item_publish_time\":\"1761274050\",\"item_title\":\"今日份夜宵#美食 #夜宵吃什么 #olay水光小白瓶\",\"like_cnt\":\"70368\",\"share_cnt\":\"54870\",\"vv\":\"4601081\"},{\"comment_cnt\":\"143\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761041076\",\"item_id\":\"7563613818011274553\",\"item_publish_time\":\"1761041076\",\"item_title\":\"今日份美味晚餐#美食 #美团拼好饭 #花小钱拼好饭 #天儿冷吃点啥\",\"like_cnt\":\"5727\",\"share_cnt\":\"1885\",\"vv\":\"330188\"},{\"comment_cnt\":\"1000\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760605968\",\"item_id\":\"7561745038717553979\",\"item_publish_time\":\"1760605968\",\"item_title\":\"谁给我个高级河灯啊哈哈哈#美食 #土豆粉 #螺蛳土豆粉 #深夜偷吃 #夜宵吃什么\",\"like_cnt\":\"41296\",\"share_cnt\":\"36479\",\"vv\":\"1429225\"},{\"comment_cnt\":\"8635\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1760326485\",\"item_id\":\"7560544656913042745\",\"item_publish_time\":\"1760326485\",\"item_title\":\"脆脆辣辣拼盘#美食 #夜宵吃什么 #海鲜美食 #今天吃啥 #天儿冷吃点啥\",\"like_cnt\":\"219427\",\"share_cnt\":\"250026\",\"vv\":\"16162797\"},{\"comment_cnt\":\"1927\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759306871\",\"item_id\":\"7556165461960822073\",\"item_publish_time\":\"1759309200\",\"item_title\":\"节日快乐！国庆节你们去哪玩了~人多不多哇#美食 #夜宵吃什么 #海蜇 #海鲜美食\",\"like_cnt\":\"93726\",\"share_cnt\":\"75430\",\"vv\":\"2232443\"},{\"comment_cnt\":\"970\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758877247\",\"item_id\":\"7554320241279896892\",\"item_publish_time\":\"1758877247\",\"item_title\":\"章鱼足主理人的一餐#饭扫光炝卤笋丁牛肉酱 #山姆笋丁牛肉酱 #美食 #夜宵吃什么 #大熊猫润玥\",\"like_cnt\":\"48628\",\"share_cnt\":\"34372\",\"vv\":\"1224300\"},{\"comment_cnt\":\"365\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758786488\",\"item_id\":\"7553930434179026233\",\"item_publish_time\":\"1758786488\",\"item_title\":\"刺身拼盘和脆皮肠！#美食 #夜宵 #玩铁猩猩脆皮肠 #三文鱼\",\"like_cnt\":\"25933\",\"share_cnt\":\"8681\",\"vv\":\"615933\"},{\"comment_cnt\":\"3172\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758687012\",\"item_id\":\"7553503184262712634\",\"item_publish_time\":\"1758687012\",\"item_title\":\"加辣加臭螺蛳粉太好吃了  #螺蛳粉#好欢螺 #好欢螺多多系列 #好欢螺加辣加臭螺蛳粉#我的双11必买清单\",\"like_cnt\":\"80604\",\"share_cnt\":\"59505\",\"vv\":\"3556180\"}]",
+        "link_convert_index": "76.48",
+        "link_convert_index_by_industry": "76.48",
+        "link_i_cnt_by_industry": "3980568",
+        "link_k_cnt_by_industry": "361",
+        "link_l_cnt_by_industry": "12277417",
+        "link_link_cnt_by_industry": "17197242",
+        "link_n_cnt_by_industry": "938896",
+        "link_recommend_index_by_industry": "87.12",
+        "link_shopping_index": "87.12",
+        "link_spread_index": "84.83",
+        "link_spread_index_by_industry": "84.83",
+        "link_star_index": "82.3",
+        "link_star_index_by_industry": "82.3",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "猫猫杨🍤今天吃什么",
+        "play_over_rate_within_30d": "0.0408",
+        "price_1_20": "20000",
+        "price_20_60": "29980",
+        "price_60": "34880",
+        "promotion_prospective_1_20_cpm": "31.85",
+        "promotion_prospective_20_60_cpm": "47.74",
+        "promotion_prospective_60_cpm": "55.55",
+        "promotion_prospective_vv": "627921",
+        "prospective_1_20_cpm": "30.6508",
+        "prospective_20_60_cpm": "45.9456",
+        "prospective_60_cpm": "53.455",
+        "province": "",
+        "search_after_view_index_by_industry": "90.22",
+        "sn_expected_play_num": "652511",
+        "sn_interact_rate_within_30d": "0.0436",
+        "sn_play_over_rate_within_30d": "0.0408",
+        "sn_prospective_1_20_cpe": "1.0997",
+        "sn_prospective_1_20_cpm": "30.6508",
+        "sn_prospective_20_60_cpe": "1.6485",
+        "sn_prospective_20_60_cpm": "45.9456",
+        "sn_prospective_60_cpe": "1.918",
+        "sn_prospective_60_cpm": "53.455",
+        "star_component_download_ctr_90d": "0.0026472195655144145",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_install_pvr_90d": "0",
+        "star_component_link_click_cnt_90d": "5199",
+        "star_ecom_video_num_30d": "3",
+        "star_ecom_video_product_num_30d": "0",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "3",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "15",
+        "star_video_finish_vv_rate_90d": "0.0287",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0371",
+        "star_video_median_vv_90d": "1668444",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食产品测评\"]}",
+        "vv_median_30d": "1027040"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7535766749585755452",
+          "video_tag": 3,
+          "vv": 9308674
+        },
+        {
+          "item_id": "7530200084777372988",
+          "video_tag": 3,
+          "vv": 8999044
+        },
+        {
+          "item_id": "7560544656913042745",
+          "video_tag": 4,
+          "vv": 15720879
+        },
+        {
+          "item_id": "7535875098332499257",
+          "video_tag": 4,
+          "vv": 12224965
+        },
+        {
+          "item_id": "7540508989869706555",
+          "video_tag": 5,
+          "vv": 8130887
+        },
+        {
+          "item_id": "7527157010443128124",
+          "video_tag": 5,
+          "vv": 7955175
+        },
+        {
+          "item_id": "7568107704670227749",
+          "video_tag": 6,
+          "vv": 170111
+        },
+        {
+          "item_id": "7565829074443586874",
+          "video_tag": 6,
+          "vv": 836020
+        }
+      ],
+      "star_id": "7235585232563339301",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1689998007",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3850,
+              "price_extra_info": {},
+              "start_time": "1738339200",
+              "task_category": 1,
+              "video_type": 73,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 20,
+              "price_extra_info": {
+                "ceiling_price": "9750",
+                "floor_price": "1300"
+              },
+              "start_time": "1730103395",
+              "task_category": 1,
+              "video_type": 92,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 34880,
+              "price_extra_info": {},
+              "start_time": "1756656000",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 29980,
+              "price_extra_info": {},
+              "start_time": "1756656000",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 20000,
+              "price_extra_info": {},
+              "start_time": "1756656000",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572098807740203017"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "da2c12ef35c6eaf2640c95691f21583c6ca39a0f"
+}

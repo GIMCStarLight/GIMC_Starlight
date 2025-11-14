@@ -1,0 +1,216 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_task_price_list": "[4400]",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"服帖\":0,\"清爽\":0,\"祛痘\":0,\"美白\":0,\"聚会\":0.001,\"遮瑕\":0.006,\"防晒\":0.006,\"防水\":0}",
+        "author_type": "1",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_9ce5b511ffbb2d2127bc4e10d4ce5b24.jpeg?from=4010531038",
+        "city": "石家庄",
+        "content_theme_labels_180d": "[\"数码周边\",\"电竞资讯汇总\",\"手机配件\",\"手机市场资讯\",\"美食吃播\",\"游戏体验展示\",\"游戏解说讲解\",\"苹果技术\",\"SUV测评\",\"自制美食\"]",
+        "core_user_id": "4433651895377592",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "enroll_task_price_list": "[550,1000,1000,1000,1300,2000,2000,2400,2800,2800,4000]",
+        "expected_cpa3_level": "3",
+        "expected_natural_play_num": "4326",
+        "expected_play_num": "4931",
+        "fans_increment_rate_within_15d": "-0.0013045098770033544",
+        "fans_increment_within_15d": "-63",
+        "fans_increment_within_30d": "-13",
+        "follower": "48228",
+        "game_item_count_90d": "1",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7313595443668058175",
+        "interact_rate_within_30d": "0.0384",
+        "interaction_median_30d": "225",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "1",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"25\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762423270\",\"item_id\":\"7569550287067169518\",\"item_publish_time\":\"1762423270\",\"item_title\":\"一代人有一代人的德华#Babycare背带腰凳 #全红婵 #谢思埸 #十五运\",\"like_cnt\":\"977\",\"share_cnt\":\"31\",\"vv\":\"13976\"},{\"comment_cnt\":\"7\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762409350\",\"item_id\":\"7569490476178241011\",\"item_publish_time\":\"1762409350\",\"item_title\":\"“铁铁”这下子再也不用担心我的状态了！#打工党 #铁 #铁元素 #德国铁元 #精神状态\",\"like_cnt\":\"290\",\"share_cnt\":\"10\",\"vv\":\"1153\"},{\"comment_cnt\":\"19\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762309657\",\"item_id\":\"7569062308712089766\",\"item_publish_time\":\"1762309657\",\"item_title\":\"一代人有一代人的求好运方式 #青岛啤酒白啤 #玄学 #震惊\",\"like_cnt\":\"748\",\"share_cnt\":\"33\",\"vv\":\"5750\"},{\"comment_cnt\":\"55\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762253502\",\"item_id\":\"7568821145600838387\",\"item_publish_time\":\"1762253502\",\"item_title\":\"没想到已经2025年了我却还是想用那一句“轻舟已过万重山”来形容张杰#张杰 #白惜#娱乐评论大赏\",\"like_cnt\":\"1303\",\"share_cnt\":\"23\",\"vv\":\"25040\"},{\"comment_cnt\":\"55\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761635954\",\"item_id\":\"7566168788820184347\",\"item_publish_time\":\"1761635954\",\"item_title\":\"早抢早享受#夸克\",\"like_cnt\":\"16\",\"share_cnt\":\"3\",\"vv\":\"3052\"},{\"comment_cnt\":\"9\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761527908\",\"item_id\":\"7565704741666508059\",\"item_publish_time\":\"1761527908\",\"item_title\":\"实现听歌自由#QQ音乐\",\"like_cnt\":\"14\",\"share_cnt\":\"2\",\"vv\":\"14144\"},{\"comment_cnt\":\"5\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761465286\",\"item_id\":\"7565435778190134579\",\"item_publish_time\":\"1761465286\",\"item_title\":\"这回终于没白等#大疆\",\"like_cnt\":\"18\",\"share_cnt\":\"1\",\"vv\":\"2622\"},{\"comment_cnt\":\"954\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1761424122\",\"item_id\":\"7565258855740542217\",\"item_publish_time\":\"1761424122\",\"item_title\":\"至少今天很快乐太快乐了#至少今天很快乐演唱会 #再就业男团 #演唱会\",\"like_cnt\":\"53364\",\"share_cnt\":\"17059\",\"vv\":\"1713433\"},{\"comment_cnt\":\"159\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761412357\",\"item_id\":\"7565208413644164378\",\"item_publish_time\":\"1761412357\",\"item_title\":\"再就业男团自己数自己的秒#再就业男团 #至少今天很快乐演唱会 #万万没想到\",\"like_cnt\":\"9498\",\"share_cnt\":\"2154\",\"vv\":\"423279\"},{\"comment_cnt\":\"349\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761395474\",\"item_id\":\"7565135939632647462\",\"item_publish_time\":\"1761395474\",\"item_title\":\"《烂人》一开始就是双人版#陆虎 #王栎鑫#烂人 #至少今天很快乐演唱会 #娱乐评论大赏\",\"like_cnt\":\"6123\",\"share_cnt\":\"1635\",\"vv\":\"155250\"}]",
+        "link_convert_index": "0",
+        "link_convert_index_by_industry": "0",
+        "link_recommend_index_by_industry": "17.43",
+        "link_shopping_index": "17.43",
+        "link_spread_index": "22.23",
+        "link_spread_index_by_industry": "22.23",
+        "link_star_index": "18.29",
+        "link_star_index_by_industry": "18.29",
+        "local_lower_threshold_author": "false",
+        "median_game_item_component_click_range": "500以下",
+        "median_game_item_cpc_range": "192-194",
+        "nick_name": "当当娱见",
+        "play_over_rate_within_30d": "0.2616",
+        "price_1_20": "3900",
+        "price_20_60": "4400",
+        "price_60": "6000",
+        "promotion_prospective_1_20_cpm": "775.66",
+        "promotion_prospective_20_60_cpm": "875.1",
+        "promotion_prospective_60_cpm": "1193.32",
+        "promotion_prospective_vv": "5028",
+        "prospective_1_20_cpm": "790.9146",
+        "prospective_20_60_cpm": "892.3139",
+        "prospective_60_cpm": "1216.7917",
+        "province": "",
+        "sn_expected_play_num": "4931",
+        "sn_interact_rate_within_30d": "0.0384",
+        "sn_play_over_rate_within_30d": "0.2616",
+        "sn_prospective_1_20_cpe": "22.0339",
+        "sn_prospective_1_20_cpm": "790.9146",
+        "sn_prospective_20_60_cpe": "24.8588",
+        "sn_prospective_20_60_cpm": "892.3139",
+        "sn_prospective_60_cpe": "33.8983",
+        "sn_prospective_60_cpm": "1216.7917",
+        "star_component_download_ctr_90d": "0.07759021217283568",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_install_pvr_90d": "0",
+        "star_component_link_click_cnt_90d": "498",
+        "star_ecom_video_num_30d": "6",
+        "star_ecom_video_product_num_30d": "0",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "4",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "8",
+        "star_video_finish_vv_rate_90d": "0.014",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0088",
+        "star_video_median_vv_90d": "5184",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"影视娱乐\":[\"明星资讯\"]}",
+        "vv_median_30d": "4601"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7531079564651859227",
+          "video_tag": 3,
+          "vv": 4551565
+        },
+        {
+          "item_id": "7565258855740542217",
+          "video_tag": 3,
+          "vv": 1258994
+        },
+        {
+          "item_id": "7506809939076304155",
+          "video_tag": 4,
+          "vv": 1353939
+        },
+        {
+          "item_id": "7508027508807683366",
+          "video_tag": 4,
+          "vv": 1188894
+        },
+        {
+          "item_id": "7534424497664101670",
+          "video_tag": 5,
+          "vv": 1144954
+        },
+        {
+          "item_id": "7536241119094410546",
+          "video_tag": 5,
+          "vv": 1039307
+        },
+        {
+          "item_id": "7569550287067169518",
+          "video_tag": 6,
+          "vv": 12047
+        },
+        {
+          "item_id": "7569490476178241011",
+          "video_tag": 6,
+          "vv": 1023
+        }
+      ],
+      "star_id": "7313595443668058175",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 6000,
+              "price_extra_info": {},
+              "start_time": "1760346801",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 4400,
+              "price_extra_info": {},
+              "start_time": "1760346800",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3900,
+              "price_extra_info": {},
+              "start_time": "1760346800",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 4000,
+              "price_extra_info": {},
+              "start_time": "1761926400",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572097761538621450"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "fb22646a13ed2e949df96ed14a18e8ec0a047dd1"
+}

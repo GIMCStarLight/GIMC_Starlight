@@ -1,0 +1,203 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L1",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"早餐\":0,\"美白\":0,\"酥脆\":104.90466666666669}",
+        "author_type": "2",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_64d95c7259dde4de43d3929c928c2fdd.jpeg?from=4010531038",
+        "avg_sale_amount_range": "0",
+        "city": "开封市",
+        "content_theme_labels_180d": "[\"家常菜教程\",\"自制美食\",\"家常菜谱\",\"下饭菜教程\",\"荤菜教程\",\"蔬菜美食\",\"海鲜烹饪\",\"糕点教程\",\"辣味美食\",\"面食制作\"]",
+        "core_user_id": "1902594569547933",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "<=1k",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_gpm_30days_range": "0",
+        "ecom_score": "71",
+        "ecom_video_product_num_30d": "1",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "25208",
+        "expected_play_num": "12613",
+        "fans_increment_rate_within_15d": "-0.0007505769061858715",
+        "fans_increment_within_15d": "-94",
+        "fans_increment_within_30d": "-191",
+        "follower": "125145",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7280905780834861112",
+        "interact_rate_within_30d": "0.0144",
+        "interaction_median_30d": "174.5",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"0\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762673504\",\"item_id\":\"7570625039369457576\",\"item_publish_time\":\"1762673504\",\"item_title\":\"一定要试试这酱汁浓郁的青椒酿虾滑，一口一个简直就是米饭杀手！#家常菜 #抖音美食创作者 #今天吃什么 #抖音美食推荐官\",\"like_cnt\":\"68\",\"share_cnt\":\"3\",\"vv\":\"7378\"},{\"comment_cnt\":\"19\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1762240053\",\"item_id\":\"7568763372805289827\",\"item_publish_time\":\"1762246799\",\"item_title\":\"茄子的新吃法-锅包茄子，一口下去幸福感爆棚！#锅包茄子#茄子的神仙吃法#胡姬花舞落花生香#胡姬花古法小榨花生油\",\"like_cnt\":\"663\",\"share_cnt\":\"202\",\"vv\":\"93901\"},{\"comment_cnt\":\"5\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761898656\",\"item_id\":\"7567297051933331904\",\"item_publish_time\":\"1761898656\",\"item_title\":\"酥酥脆脆的外壳搭配软糯的茄子，酸酸甜甜的料汁，味道真的是太绝了，超级美味\",\"like_cnt\":\"209\",\"share_cnt\":\"84\",\"vv\":\"28556\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761552253\",\"item_id\":\"7565809279519214882\",\"item_publish_time\":\"1761552253\",\"item_title\":\"妈妈做的虾仁茄盒真的太好吃了，0失败的教程，有肉，茄子，虾仁三种口感，一口下去酥焦香蒜，别提多美味了#抖音美食创作者 #家常饭菜 #糖醋茄盒\",\"like_cnt\":\"72\",\"share_cnt\":\"4\",\"vv\":\"8648\"},{\"comment_cnt\":\"8\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761206434\",\"item_id\":\"7564324019374476579\",\"item_publish_time\":\"1761206434\",\"item_title\":\"干锅土豆排骨#家常菜 #抖音美食创作者 #干锅酱\",\"like_cnt\":\"629\",\"share_cnt\":\"562\",\"vv\":\"104465\"},{\"comment_cnt\":\"7\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760947365\",\"item_id\":\"7563211304493042984\",\"item_publish_time\":\"1760947365\",\"item_title\":\"孜然土豆火腿肠，秒杀一切路边摊#抖音美食创作者 #美食教程\",\"like_cnt\":\"296\",\"share_cnt\":\"160\",\"vv\":\"32231\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760688230\",\"item_id\":\"7562098353765911842\",\"item_publish_time\":\"1760688230\",\"item_title\":\"妈妈做的酱汁浓郁的粉皮炖鸡真的绝了！滑溜的粉皮，软烂的鸡肉，真的超级超级好吃！#家常菜 #下饭菜 #抖音美食创作者\",\"like_cnt\":\"78\",\"share_cnt\":\"5\",\"vv\":\"9905\"},{\"comment_cnt\":\"20\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1760515518\",\"item_id\":\"7561356542387031336\",\"item_publish_time\":\"1760515518\",\"item_title\":\"土豆的100种吃法 酥酥脆脆的土豆片，酸甜的酱汁，没有一个土豆脑袋能拒绝得了！#抖音趣胃计划 #风味土豆片 #土豆的神仙吃法 #酥酥脆脆 #抖音美食创作者\",\"like_cnt\":\"1149\",\"share_cnt\":\"636\",\"vv\":\"129995\"},{\"comment_cnt\":\"10\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760255070\",\"item_id\":\"7560237944645635386\",\"item_publish_time\":\"1760255070\",\"item_title\":\"妈妈做的酱大骨太好吃啦！软烂入味，好吃到嗦手指！冬天来上一顿热气腾腾的酱大骨真的太幸福啦#抖音美食创作者 #家常菜\",\"like_cnt\":\"708\",\"share_cnt\":\"512\",\"vv\":\"97584\"},{\"comment_cnt\":\"2\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760082936\",\"item_id\":\"7559498609785883956\",\"item_publish_time\":\"1760082936\",\"item_title\":\"可乐鸡翅包虾滑 ，Q弹饱满，一口一个超过瘾～鸡翅包裹着虾滑，裹满了可乐酱汁，好吃到爆！#可乐鸡翅 #可乐鸡翅虾滑 #美食教程\",\"like_cnt\":\"127\",\"share_cnt\":\"17\",\"vv\":\"13547\"}]",
+        "link_convert_index": "69.44",
+        "link_convert_index_by_industry": "69.44",
+        "link_i_cnt_by_industry": "194725",
+        "link_k_cnt_by_industry": "34",
+        "link_l_cnt_by_industry": "344623",
+        "link_link_cnt_by_industry": "546428",
+        "link_n_cnt_by_industry": "7046",
+        "link_recommend_index_by_industry": "57.88",
+        "link_shopping_index": "57.88",
+        "link_spread_index": "61.18",
+        "link_spread_index_by_industry": "61.18",
+        "link_star_index": "66.77",
+        "link_star_index_by_industry": "66.77",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "鸭血粉丝",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.0556",
+        "price_1_20": "3000",
+        "price_20_60": "5000",
+        "price_60": "6000",
+        "promotion_prospective_1_20_cpm": "116.31",
+        "promotion_prospective_20_60_cpm": "193.84",
+        "promotion_prospective_60_cpm": "232.61",
+        "promotion_prospective_vv": "25794",
+        "prospective_1_20_cpm": "237.8498",
+        "prospective_20_60_cpm": "396.4164",
+        "prospective_60_cpm": "475.6997",
+        "province": "河南省",
+        "sn_expected_play_num": "12613",
+        "sn_interact_rate_within_30d": "0.0144",
+        "sn_play_over_rate_within_30d": "0.0556",
+        "sn_prospective_1_20_cpe": "18.5185",
+        "sn_prospective_1_20_cpm": "237.8498",
+        "sn_prospective_20_60_cpe": "30.8642",
+        "sn_prospective_20_60_cpm": "396.4164",
+        "sn_prospective_60_cpe": "37.037",
+        "sn_prospective_60_cpm": "475.6997",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "0",
+        "star_ecom_main_price_30days": "29.9",
+        "star_ecom_video_num_30d": "1",
+        "star_ecom_video_product_num_30d": "1",
+        "star_excellent_author": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"美食\":[\"美食教程\"]}",
+        "vv_median_30d": "12103"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7528333324777311547",
+          "video_tag": 3,
+          "vv": 2062696
+        },
+        {
+          "item_id": "7539463175289195836",
+          "video_tag": 3,
+          "vv": 1333800
+        },
+        {
+          "item_id": "7568763372805289827",
+          "video_tag": 4,
+          "vv": 93539
+        },
+        {
+          "item_id": "7520166982395088143",
+          "video_tag": 5,
+          "vv": 611355
+        },
+        {
+          "item_id": "7521280226669382946",
+          "video_tag": 5,
+          "vv": 430952
+        },
+        {
+          "item_id": "7570625039369457576",
+          "video_tag": 6,
+          "vv": 5492
+        },
+        {
+          "item_id": "7567297051933331904",
+          "video_tag": 6,
+          "vv": 11072
+        }
+      ],
+      "star_id": "7280905780834861112",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 6000,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 5000,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3000,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572090057000402990"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "3eb09754fedd2c22e55afb1f03f6ad560dd40f39"
+}

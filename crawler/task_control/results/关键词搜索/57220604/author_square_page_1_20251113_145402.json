@@ -1,0 +1,317 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "31",
+        "assign_task_price_list": "[33600]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L5",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"早餐\":0.0006666666666666666,\"清爽\":0.003,\"聚会\":0.042,\"蛋白质\":0.4400000000000001,\"酥脆\":0.15133333333333335}",
+        "author_type": "3",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/mosaic-legacy_2e5f00000256f539be15d.jpeg?from=4010531038",
+        "brand_boost_vv": "271463",
+        "city": "长沙市",
+        "content_theme_labels_180d": "[\"自制美食\",\"家常菜教程\",\"家常菜谱\",\"荤菜教程\",\"辣味美食\",\"下饭菜教程\",\"海鲜烹饪\",\"深夜美食\",\"早餐美食\",\"饮品制作\"]",
+        "core_user_id": "65844520469",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "50-200",
+        "ecom_gmv_30d_range": "3w-20w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_score": "85",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "89153",
+        "expected_play_num": "115857",
+        "fans_increment_rate_within_15d": "-0.0022832239954093583",
+        "fans_increment_within_15d": "-7361",
+        "fans_increment_within_30d": "-14880",
+        "follower": "3216741",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6783598198842720269",
+        "interact_rate_within_30d": "0.0429",
+        "interaction_median_30d": "7540.5",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"106\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762520797\",\"item_id\":\"7569969145308056883\",\"item_publish_time\":\"1762520797\",\"item_title\":\"懒人一次性包上半个月的馄饨放冰箱 四种口味，当早中晚餐都可以！#立冬 #馄饨 #治愈系美食\",\"like_cnt\":\"7767\",\"share_cnt\":\"1837\",\"vv\":\"230506\"},{\"comment_cnt\":\"87\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761914070\",\"item_id\":\"7567363289610700721\",\"item_publish_time\":\"1761914070\",\"item_title\":\"🌰香哭！排骨+板栗的神仙组合，一锅端直接香晕室友啦～ #电饭煲美食 #在家做美食 #谁懂这一口的好吃程度 #晚饭吃什么\",\"like_cnt\":\"6170\",\"share_cnt\":\"2493\",\"vv\":\"212174\"},{\"comment_cnt\":\"51\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761568450\",\"item_id\":\"7565878875261439281\",\"item_publish_time\":\"1761568450\",\"item_title\":\"甜品新手狂喜！超好吃清爽不腻的南瓜挞绝绝子～太爱了！ #甜品 #烘焙日记 #烘焙新手 #我的厨房日记vlog #甜品控\",\"like_cnt\":\"4383\",\"share_cnt\":\"1049\",\"vv\":\"181373\"},{\"comment_cnt\":\"63\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761313723\",\"item_id\":\"7564784785470573865\",\"item_publish_time\":\"1761396300\",\"item_title\":\"来碗栗子烧排骨，吃出秋天的浪漫～是时候安排起来了！ #抖音美食推荐官 #下饭神器 #日常做饭 #美食\",\"like_cnt\":\"5266\",\"share_cnt\":\"3061\",\"vv\":\"180999\"},{\"comment_cnt\":\"88\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761036125\",\"item_id\":\"7563592537177623835\",\"item_publish_time\":\"1761036125\",\"item_title\":\"秋冬需滋阴润燥，就要多喝点暖汤，这个金汤板栗鸡绝了~ 不小心误删也要重新分享给你们的暖汤#秋冬第一碗汤 #我的厨房日记\",\"like_cnt\":\"4656\",\"share_cnt\":\"2270\",\"vv\":\"166141\"},{\"comment_cnt\":\"68\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760928360\",\"item_id\":\"7563129693726199067\",\"item_publish_time\":\"1760928360\",\"item_title\":\"沿海地区的朋友们哪有什么眉毛 早就被各种海鲜煮出的那口鲜，给鲜掉啦！#双立人大肚锅\",\"like_cnt\":\"8243\",\"share_cnt\":\"2188\",\"vv\":\"102470\"},{\"comment_cnt\":\"30\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758706788\",\"item_id\":\"7553588120181394748\",\"item_publish_time\":\"1758720600\",\"item_title\":\"谁懂啊！秋天的快乐是大肉蟹给的，一锅肉蟹煲全是料！ 这波贴秋膘我先冲啦～#晚饭吃什么\",\"like_cnt\":\"953\",\"share_cnt\":\"348\",\"vv\":\"71770\"},{\"comment_cnt\":\"36\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758457166\",\"item_id\":\"7552516012949327162\",\"item_publish_time\":\"1758457166\",\"item_title\":\"谁懂这一串的含金量呀 ！甜辣过瘾的泰式小串绝了… #从好好吃饭开始爱自己 #你饿了吗 #谁懂啊真的很好吃\",\"like_cnt\":\"2569\",\"share_cnt\":\"1071\",\"vv\":\"109196\"},{\"comment_cnt\":\"71\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758079474\",\"item_id\":\"7550893822910156078\",\"item_publish_time\":\"1758079474\",\"item_title\":\"是浓郁开胃的 番茄肥牛鱼丸乌冬~一口沦陷的简单美味！ #好好吃饭 #日常做饭 #宅家美食日记\",\"like_cnt\":\"7769\",\"share_cnt\":\"4679\",\"vv\":\"219229\"},{\"comment_cnt\":\"73\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1757502890\",\"item_id\":\"7548417379496201512\",\"item_publish_time\":\"1757510100\",\"item_title\":\"今天做个无水桑拿鸡！皮爽肉嫩 好鲜甜好爱～ #美食新星计划 #好好吃饭大赛\",\"like_cnt\":\"6822\",\"share_cnt\":\"2675\",\"vv\":\"221983\"}]",
+        "link_convert_index": "78.41",
+        "link_convert_index_by_industry": "78.41",
+        "link_i_cnt_by_industry": "353561",
+        "link_k_cnt_by_industry": "688",
+        "link_l_cnt_by_industry": "831145",
+        "link_link_cnt_by_industry": "1211652",
+        "link_n_cnt_by_industry": "26258",
+        "link_recommend_index_by_industry": "79.94",
+        "link_shopping_index": "79.94",
+        "link_spread_index": "74.29",
+        "link_spread_index_by_industry": "74.29",
+        "link_star_index": "75.13",
+        "link_star_index_by_industry": "75.13",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "橘子の投食记",
+        "pic_expected_play_num": "0",
+        "play_over_rate_within_30d": "0.051",
+        "price_1_20": "28000",
+        "price_20_60": "32000",
+        "price_60": "33600",
+        "promotion_prospective_1_20_cpm": "266.83",
+        "promotion_prospective_20_60_cpm": "304.95",
+        "promotion_prospective_60_cpm": "320.2",
+        "promotion_prospective_vv": "104935",
+        "prospective_1_20_cpm": "241.6772",
+        "prospective_20_60_cpm": "276.2026",
+        "prospective_60_cpm": "290.0127",
+        "province": "湖南省",
+        "search_after_view_index_by_industry": "88.8",
+        "sn_expected_play_num": "115857",
+        "sn_interact_rate_within_30d": "0.0429",
+        "sn_play_over_rate_within_30d": "0.051",
+        "sn_prospective_1_20_cpe": "3.9309",
+        "sn_prospective_1_20_cpm": "241.6772",
+        "sn_prospective_20_60_cpe": "4.4925",
+        "sn_prospective_20_60_cpm": "276.2026",
+        "sn_prospective_60_cpe": "4.7171",
+        "sn_prospective_60_cpm": "290.0127",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "51",
+        "star_ecom_video_num_30d": "1",
+        "star_excellent_author": "0",
+        "star_index": "73.13294661821001",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "1",
+        "star_video_finish_vv_rate_90d": "0.0227",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.1021",
+        "star_video_median_vv_90d": "102921",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食教程\"]}",
+        "video_brand_boost": "true",
+        "video_brand_boost_vv": "271463",
+        "vv_median_30d": "161973.5"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7508365641445215539",
+          "video_tag": 3,
+          "vv": 1913968
+        },
+        {
+          "item_id": "7533233634510818620",
+          "video_tag": 3,
+          "vv": 575455
+        },
+        {
+          "item_id": "7563129693726199067",
+          "video_tag": 4,
+          "vv": 88586
+        },
+        {
+          "item_id": "7513922042820152636",
+          "video_tag": 5,
+          "vv": 397304
+        },
+        {
+          "item_id": "7525433886826974515",
+          "video_tag": 5,
+          "vv": 325080
+        },
+        {
+          "item_id": "7569969145308056883",
+          "video_tag": 6,
+          "vv": 221846
+        },
+        {
+          "item_id": "7567363289610700721",
+          "video_tag": 6,
+          "vv": 188655
+        }
+      ],
+      "star_id": "6783598198842720269",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 32000,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 28000,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 33600,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 16800,
+              "price_extra_info": {},
+              "start_time": "1638288000",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/c16000003f97583dac4.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "丰台区",
+        "core_user_id": "74980716036",
+        "e_commerce_enable": "0",
+        "ecom_video_product_num_30d": "0",
+        "fans_increment_rate_within_15d": "-0.0010430038510911425",
+        "fans_increment_within_15d": "-26",
+        "fans_increment_within_30d": "-54",
+        "follower": "24906",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6719032927537070087",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"6\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1561365826\",\"item_id\":\"6706010428130069767\",\"item_publish_time\":\"1561365826\",\"item_title\":\"#搞笑 #笑话 没了！！！\",\"like_cnt\":\"361\",\"share_cnt\":\"3\",\"vv\":\"90659\"},{\"comment_cnt\":\"5\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1557399821\",\"item_id\":\"6688955844370943235\",\"item_publish_time\":\"1557399821\",\"item_title\":\"#搞笑 #笑话 老司机不可以！\",\"like_cnt\":\"4875\",\"share_cnt\":\"29\",\"vv\":\"756373\"},{\"comment_cnt\":\"5\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1557052084\",\"item_id\":\"6687420243092049165\",\"item_publish_time\":\"1557052084\",\"item_title\":\"#搞笑 #笑话 我说兄弟？？\",\"like_cnt\":\"3923\",\"share_cnt\":\"26\",\"vv\":\"674750\"},{\"comment_cnt\":\"3\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1555582669\",\"item_id\":\"6681135111762693389\",\"item_publish_time\":\"1555582669\",\"item_title\":\"#搞笑 #笑话 原来我只是一个桃！\",\"like_cnt\":\"664\",\"share_cnt\":\"4\",\"vv\":\"109726\"},{\"comment_cnt\":\"49\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1555412727\",\"item_id\":\"6680120872881196299\",\"item_publish_time\":\"1555412727\",\"item_title\":\"#搞笑 #笑话 我怕痒！\",\"like_cnt\":\"9695\",\"share_cnt\":\"142\",\"vv\":\"2381225\"}]",
+        "link_convert_index": "0",
+        "link_convert_index_by_industry": "0",
+        "link_recommend_index_by_industry": "18.59",
+        "link_shopping_index": "18.59",
+        "link_spread_index": "8.36",
+        "link_spread_index_by_industry": "8.36",
+        "link_star_index": "13.31",
+        "link_star_index_by_industry": "13.31",
+        "local_lower_threshold_author": "false",
+        "nick_name": "572206600",
+        "price_1_20": "1000",
+        "price_20_60": "2000",
+        "province": "北京市",
+        "star_excellent_author": "0",
+        "star_index": "55.28077719286473",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"剧情搞笑\":[\"剧情\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [],
+      "star_id": "6719032927537070087",
+      "task_infos": [
+        {
+          "online_status": 2,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1604570222",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 2000,
+              "price_extra_info": {},
+              "start_time": "1604570222",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572099543052484634"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 2
+  },
+  "request_payload_hash": "451d7c309da3591531f03913d510ea8b21be4767"
+}

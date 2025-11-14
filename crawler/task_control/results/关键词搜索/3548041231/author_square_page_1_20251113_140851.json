@@ -1,0 +1,216 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "41",
+        "assign_task_price_list": "[3200]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"健身\":0.003,\"早餐\":0,\"清爽\":0.0015,\"绵密\":0}",
+        "author_type": "1",
+        "avatar_uri": "https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_db007d64f9a809be9c36dfaf3be962c3.jpeg?from=4010531038",
+        "brand_boost_vv": "8122",
+        "city": "广州市",
+        "content_theme_labels_180d": "[\"美食探店\",\"广东美食\",\"地方美食\",\"夏日饮品\",\"美食之旅\",\"烧烤\",\"海鲜美食\",\"足球赛事\",\"辣味美食\",\"奶茶品鉴\"]",
+        "core_user_id": "109531388528",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "1",
+        "expected_natural_play_num": "4465",
+        "expected_play_num": "6931",
+        "fans_increment_rate_within_15d": "-0.0015447773827662096",
+        "fans_increment_within_15d": "-219",
+        "fans_increment_within_30d": "-262",
+        "follower": "141543",
+        "game_type": "{\"\\u6c99\\u76d2\": 1.0}",
+        "gender": "1",
+        "grade": "0",
+        "id": "6870168525831405576",
+        "interact_rate_within_30d": "0.0185",
+        "interaction_median_30d": "123",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"11\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762778579\",\"item_id\":\"7571076337806354131\",\"item_publish_time\":\"1762778579\",\"item_title\":\"全红婵又来为广东跳水队加油啦#中国跳水梦之队 #全红婵 #陈芋汐 #第十五届全运会 #跳水10米台决赛\",\"like_cnt\":\"788\",\"share_cnt\":\"34\",\"vv\":\"32162\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762658242\",\"item_id\":\"7570559484612623336\",\"item_publish_time\":\"1762658242\",\"item_title\":\"肯德基榛巧蛋挞 哇塞巨好吃#肯德基#肯德基新品#肯德基蛋挞#肯德基隐藏吃法#新鲜出炉\",\"like_cnt\":\"15\",\"share_cnt\":\"23\",\"vv\":\"3244\"},{\"comment_cnt\":\"13\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762604492\",\"item_id\":\"7570328637653693163\",\"item_publish_time\":\"1762604492\",\"item_title\":\"中甲大结局 广州豹冲超失败#中超联赛#中甲联赛#中国足球#广州豹#重庆铜梁龙\",\"like_cnt\":\"53\",\"share_cnt\":\"2\",\"vv\":\"6597\"},{\"comment_cnt\":\"1\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762582042\",\"item_id\":\"7570232208507950824\",\"item_publish_time\":\"1762582042\",\"item_title\":\"10元不到买一送一 肯德基榛巧冰淇淋太好吃了#肯德基#肯德基新品#肯德基冰淇淋#榛子黑巧风味花筒#白敬亭\",\"like_cnt\":\"36\",\"share_cnt\":\"26\",\"vv\":\"13442\"},{\"comment_cnt\":\"19\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762356072\",\"item_id\":\"7569261662726729471\",\"item_publish_time\":\"1762356072\",\"item_title\":\"王钰栋尽力了 全运会浙江队因抽签未能晋级#全运会 #王钰栋 #中国足球 #浙江队 #中超联赛\",\"like_cnt\":\"233\",\"share_cnt\":\"40\",\"vv\":\"22925\"},{\"comment_cnt\":\"17\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762241299\",\"item_id\":\"7568768734429598114\",\"item_publish_time\":\"1762241299\",\"item_title\":\"佛山烟火气啫啫煲开来广州啦 万物皆可啫 我试过真的有料#烟火广州#我的冬日续命粤菜#我的立冬仪式感#广东DOU是好风光#寻味烟火气\",\"like_cnt\":\"117\",\"share_cnt\":\"17\",\"vv\":\"2054\"},{\"comment_cnt\":\"13\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761904425\",\"item_id\":\"7567321867321672104\",\"item_publish_time\":\"1761904425\",\"item_title\":\"人均200+ 就可以在香港铜锣湾 实现海鲜和牛刺身烧鸟自由啦#香港美食#香港放题#牛之锅#香港旅游#海鲜火锅\",\"like_cnt\":\"96\",\"share_cnt\":\"71\",\"vv\":\"5589\"},{\"comment_cnt\":\"21\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761726743\",\"item_id\":\"7566558732638063924\",\"item_publish_time\":\"1761726743\",\"item_title\":\"来香港吃下午茶 当然要来茶餐厅啦#香港美食#世华茶餐厅#湾仔美食#香港旅游#港式茶餐厅\",\"like_cnt\":\"72\",\"share_cnt\":\"8\",\"vv\":\"2184\"},{\"comment_cnt\":\"16\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761642219\",\"item_id\":\"7566195685814996224\",\"item_publish_time\":\"1761642219\",\"item_title\":\"来香港吃姜涛严选点心店 就烧卖就有六种口味#香港美食#姜涛#龍点心#龙点心#香港旅游\",\"like_cnt\":\"56\",\"share_cnt\":\"17\",\"vv\":\"1875\"},{\"comment_cnt\":\"4\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761625183\",\"item_id\":\"7566122525966716200\",\"item_publish_time\":\"1761625183\",\"item_title\":\"20元20块肯德基黄金鸡块 现在还不吃等明年吗？#肯德基#黄金鸡块#麦乐鸡侠#肯德基隐藏吃法\",\"like_cnt\":\"147\",\"share_cnt\":\"117\",\"vv\":\"6572\"}]",
+        "link_convert_index": "57.5",
+        "link_convert_index_by_industry": "57.5",
+        "link_i_cnt_by_industry": "64934",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "248566",
+        "link_link_cnt_by_industry": "324574",
+        "link_n_cnt_by_industry": "11074",
+        "link_recommend_index_by_industry": "46.75",
+        "link_shopping_index": "46.75",
+        "link_spread_index": "54.07",
+        "link_spread_index_by_industry": "54.07",
+        "link_star_index": "60.52",
+        "link_star_index_by_industry": "60.52",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "老广蒙查查",
+        "pic_expected_play_num": "35860",
+        "play_over_rate_within_30d": "0.1472",
+        "price_1_20": "1800",
+        "price_20_60": "3200",
+        "price_60": "4800",
+        "promotion_prospective_1_20_cpm": "294.7",
+        "promotion_prospective_20_60_cpm": "523.9",
+        "promotion_prospective_60_cpm": "785.85",
+        "promotion_prospective_vv": "6108",
+        "prospective_1_20_cpm": "259.7028",
+        "prospective_20_60_cpm": "461.6938",
+        "prospective_60_cpm": "692.5408",
+        "province": "广东省",
+        "search_after_view_index_by_industry": "60.75",
+        "sn_expected_play_num": "6931",
+        "sn_interact_rate_within_30d": "0.0185",
+        "sn_play_over_rate_within_30d": "0.1472",
+        "sn_prospective_1_20_cpe": "6.8182",
+        "sn_prospective_1_20_cpm": "259.7028",
+        "sn_prospective_20_60_cpe": "12.1212",
+        "sn_prospective_20_60_cpm": "461.6938",
+        "sn_prospective_60_cpe": "18.1818",
+        "sn_prospective_60_cpm": "692.5408",
+        "star_component_link_click_cnt_90d": "0",
+        "star_excellent_author": "0",
+        "star_index": "52.83665252622616",
+        "star_item_count_within_30d": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "1",
+        "star_video_finish_vv_rate_90d": "0.1388",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.1446",
+        "star_video_median_vv_90d": "1715",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食探店\"]}",
+        "video_brand_boost": "true",
+        "video_brand_boost_vv": "8122",
+        "vv_median_30d": "5836"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7554405407553916212",
+          "video_tag": 3,
+          "vv": 602006
+        },
+        {
+          "item_id": "7542944016083799330",
+          "video_tag": 3,
+          "vv": 394254
+        },
+        {
+          "item_id": "7551823990052113698",
+          "video_tag": 4,
+          "vv": 1536
+        },
+        {
+          "item_id": "7518604364241489204",
+          "video_tag": 5,
+          "vv": 288584
+        },
+        {
+          "item_id": "7536047367074876712",
+          "video_tag": 5,
+          "vv": 276300
+        },
+        {
+          "item_id": "7571076337806354131",
+          "video_tag": 6,
+          "vv": 27648
+        },
+        {
+          "item_id": "7570328637653693163",
+          "video_tag": 6,
+          "vv": 6077
+        }
+      ],
+      "star_id": "6870168525831405576",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3500,
+              "price_extra_info": {},
+              "start_time": "1659283200",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1800,
+              "price_extra_info": {},
+              "start_time": "1735660800",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 4800,
+              "price_extra_info": {},
+              "start_time": "1735660800",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 3200,
+              "price_extra_info": {},
+              "start_time": "1735660800",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572087897210322953"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "7ff74ff8428071a02a0b1ca7578c2ccbe2505acc"
+}

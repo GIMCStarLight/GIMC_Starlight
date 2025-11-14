@@ -1,0 +1,296 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "47",
+        "assign_task_price_list": "[19000]",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_651e30dc8ce09d99fab76bb6027a030f.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "",
+        "content_theme_labels_180d": "[\"美食之旅\",\"城市旅行攻略\",\"奶制品测评\",\"湖北旅行\",\"国内城市旅游\",\"地方美食\"]",
+        "core_user_id": "63975397505",
+        "e_commerce_enable": "1",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "7031",
+        "expected_play_num": "4917",
+        "fans_increment_rate_within_15d": "-0.00045445488136979694",
+        "fans_increment_within_15d": "-260",
+        "fans_increment_within_30d": "-634",
+        "follower": "571910",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6629657819605893127",
+        "interact_rate_within_30d": "0.1943",
+        "interaction_median_30d": "2103",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"152\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762505830\",\"item_id\":\"7569904890979753722\",\"item_publish_time\":\"1762505830\",\"item_title\":\"现在来武汉旅游的朋友太爽啦 又能吃美食又能看汉超决赛 别忘了买点友芝友汉口老酸奶哦#场上是对手场下友芝友 #汉口老酸奶地道湖北味#友芝友汉口老酸奶\",\"like_cnt\":\"3233\",\"share_cnt\":\"82\",\"vv\":\"19386\"},{\"comment_cnt\":\"179\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756120782\",\"item_id\":\"7542481316605398332\",\"item_publish_time\":\"1756120782\",\"item_title\":\"你们觉得夏天最幸福的事是什么，我当然是大排档配老雪啦#好好吃饭大赛#要带劲上老雪#经典老雪不服来战#深夜的快乐是夜宵给的\",\"like_cnt\":\"3822\",\"share_cnt\":\"73\",\"vv\":\"18302\"},{\"comment_cnt\":\"46\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1754100815\",\"item_id\":\"7533805616487763260\",\"item_publish_time\":\"1754100815\",\"item_title\":\"八月份来武汉的宝子们，这份旅行攻略可要收好啦#一张券解锁城市宝藏#省到武汉了#周五会员真免单#天天会员专属价\",\"like_cnt\":\"662\",\"share_cnt\":\"76\",\"vv\":\"10845\"},{\"comment_cnt\":\"146\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1745812233\",\"item_id\":\"7498206388859440395\",\"item_publish_time\":\"1745812233\",\"item_title\":\"五一武汉武商有美团神券街活动，来武商薅羊毛啦#武商mall神券街\",\"like_cnt\":\"4765\",\"share_cnt\":\"378\",\"vv\":\"616350\"},{\"comment_cnt\":\"58\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1741762525\",\"item_id\":\"7480812967399836928\",\"item_publish_time\":\"1741762525\",\"item_title\":\"拍樱花照有技巧 吃湖北菜也大有研究 U你简直满足我对湖北菜所有期待#U你陪你打卡武汉旅游地#U你湖北家宴菜#广告\",\"like_cnt\":\"3380\",\"share_cnt\":\"48\",\"vv\":\"36851\"},{\"comment_cnt\":\"4162\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1734580754\",\"item_id\":\"7449967570158931251\",\"item_publish_time\":\"1734580754\",\"item_title\":\"沃尔玛20周年面包出逃啦 快来一起打卡拍照~ #沃尔玛武汉20周年庆 #沃尔玛面包出逃了#沃尔玛烘焙车\",\"like_cnt\":\"66226\",\"share_cnt\":\"6194\",\"vv\":\"1352260\"},{\"comment_cnt\":\"187\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1730281224\",\"item_id\":\"7431501189822352674\",\"item_publish_time\":\"1730281224\",\"item_title\":\"立冬来一顿火锅，快来谭鸭血大口炫肉#雪碧配辣一口入魂#谭鸭血#谭鸭血老火锅#天天开鸿运当然谭鸭血\",\"like_cnt\":\"3544\",\"share_cnt\":\"318\",\"vv\":\"67132\"},{\"comment_cnt\":\"142\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1727405942\",\"item_id\":\"7419151794548280635\",\"item_publish_time\":\"1727405942\",\"item_title\":\"这家鲜活烤鱼太够味了 吃辣的就要配雪碧 人均不到50块来打卡#雪碧配辣一口入魂#烤鱼#武汉美食#雪碧#武汉探店\",\"like_cnt\":\"4039\",\"share_cnt\":\"101\",\"vv\":\"113857\"},{\"comment_cnt\":\"51\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1713250211\",\"item_id\":\"7358353568799329576\",\"item_publish_time\":\"1713250211\",\"item_title\":\"这个夏天和好朋友来靓靓吃虾，一起蒸蒸日上～#好朋友一起蒸蒸日上 #吃靓靓蒸虾会蒸蒸日上 #在武汉吃靓靓#每一家靓靓都值得一去\",\"like_cnt\":\"1955\",\"share_cnt\":\"31\",\"vv\":\"15941\"},{\"comment_cnt\":\"59\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1703322587\",\"item_id\":\"7315714643131944226\",\"item_publish_time\":\"1703322587\",\"item_title\":\"祐禾面包测评来啦！面包脑袋看过来#祐禾 #武汉祐禾 #武汉吃喝玩乐 #面包 #美食测评\",\"like_cnt\":\"4478\",\"share_cnt\":\"42\",\"vv\":\"17066\"}]",
+        "link_convert_index": "47.34",
+        "link_convert_index_by_industry": "47.34",
+        "link_i_cnt_by_industry": "2668",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "8563",
+        "link_link_cnt_by_industry": "11570",
+        "link_n_cnt_by_industry": "339",
+        "link_recommend_index_by_industry": "40.26",
+        "link_shopping_index": "40.26",
+        "link_spread_index": "41.79",
+        "link_spread_index_by_industry": "41.79",
+        "link_star_index": "50.18",
+        "link_star_index_by_industry": "50.18",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "汉咖觅食武汉",
+        "play_over_rate_within_30d": "0.0084",
+        "price_1_20": "9350",
+        "price_20_60": "14000",
+        "price_60": "19000",
+        "promotion_prospective_1_20_cpm": "586.24",
+        "promotion_prospective_20_60_cpm": "877.8",
+        "promotion_prospective_60_cpm": "1191.3",
+        "promotion_prospective_vv": "15949",
+        "prospective_1_20_cpm": "1901.566",
+        "prospective_20_60_cpm": "2847.2646",
+        "prospective_60_cpm": "3864.1448",
+        "province": "湖北省",
+        "search_after_view_index_by_industry": "42.75",
+        "sn_expected_play_num": "4917",
+        "sn_interact_rate_within_30d": "0.1943",
+        "sn_play_over_rate_within_30d": "0.0084",
+        "sn_prospective_1_20_cpe": "37.5502",
+        "sn_prospective_1_20_cpm": "1901.566",
+        "sn_prospective_20_60_cpe": "56.2249",
+        "sn_prospective_20_60_cpm": "2847.2646",
+        "sn_prospective_60_cpe": "76.3052",
+        "sn_prospective_60_cpm": "3864.1448",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "0",
+        "star_ecom_video_num_30d": "0",
+        "star_excellent_author": "0",
+        "star_index": "44.40203041315952",
+        "star_item_count_within_30d": "1",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "2",
+        "star_video_finish_vv_rate_90d": "0.0172",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.1165",
+        "star_video_median_vv_90d": "44839",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食探店\"]}",
+        "vv_median_30d": "10625"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7542481316605398332",
+          "video_tag": 4,
+          "vv": 15373
+        },
+        {
+          "item_id": "7569904890979753722",
+          "video_tag": 4,
+          "vv": 13648
+        },
+        {
+          "item_id": "7533805616487763260",
+          "video_tag": 5,
+          "vv": 8135
+        }
+      ],
+      "star_id": "6629657819605893127",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 14000,
+              "price_extra_info": {},
+              "start_time": "1744100312",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 9350,
+              "price_extra_info": {},
+              "start_time": "1744100312",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 19000,
+              "price_extra_info": {},
+              "start_time": "1744100312",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 4800,
+              "price_extra_info": {},
+              "start_time": "1646064000",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    },
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "80",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/mosaic-legacy_c16000003f97583dac4.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "",
+        "core_user_id": "101040664807",
+        "e_commerce_enable": "0",
+        "ecom_video_product_num_30d": "0",
+        "fans_increment_rate_within_15d": "-0.0006021896008766301",
+        "fans_increment_within_15d": "-61",
+        "fans_increment_within_30d": "-131",
+        "follower": "101233",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6849529519821291534",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "link_convert_index": "60.55",
+        "link_convert_index_by_industry": "60.55",
+        "link_i_cnt_by_industry": "0",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "0",
+        "link_link_cnt_by_industry": "1",
+        "link_n_cnt_by_industry": "1",
+        "link_recommend_index_by_industry": "30.26",
+        "link_shopping_index": "30.26",
+        "link_spread_index": "30.08",
+        "link_spread_index_by_industry": "30.08",
+        "link_star_index": "48.88",
+        "link_star_index_by_industry": "48.88",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "1108098531",
+        "price_1_20": "1000",
+        "price_20_60": "1000",
+        "province": "",
+        "search_after_view_index_by_industry": "51.42",
+        "star_excellent_author": "0",
+        "star_index": "55.73349102134555",
+        "star_qianchuan_high_potential": "0",
+        "star_whispers_author": "1",
+        "tags_relation": "{\"旅行\":[\"旅行记录\"]}"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [],
+      "star_id": "6849529519821291534",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1597894382",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 1000,
+              "price_extra_info": {},
+              "start_time": "1597894382",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 3
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572091478539796530"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 2
+  },
+  "request_payload_hash": "050b13c199a3be9d1bac16c0c0aa77d3d0524841"
+}

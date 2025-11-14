@@ -1,6 +1,11 @@
 import { initPreferences } from '@vben/preferences';
 import { unmountGlobalLoading } from '@vben/utils';
 
+// 在主入口直接导入样式，确保在生产构建时被正确打包
+import '@vben/styles';
+import '@vben/styles/ele';
+import 'element-plus/dist/index.css';
+
 import { overridesPreferences } from './preferences';
 
 /**

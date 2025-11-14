@@ -1,0 +1,200 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "33",
+        "assign_task_price_list": "[24000]",
+        "author_avatar_frame_icon": "0",
+        "author_ecom_level": "L5",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{}",
+        "author_type": "1",
+        "avatar_uri": "https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_e065e5423cccddda2ee990c01012a619.jpeg?from=4010531038",
+        "brand_boost_vv": "0",
+        "city": "",
+        "content_theme_labels_180d": "[\"饮品制作\",\"河北旅行\",\"漂流体验\",\"亲子活动\",\"食材选购\",\"酒水品鉴\",\"夏日饮品\",\"水果测评\"]",
+        "core_user_id": "2678029069071214",
+        "e_commerce_enable": "0",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "26563",
+        "expected_play_num": "31891",
+        "fans_increment_rate_within_15d": "-0.0013026057703591526",
+        "fans_increment_within_15d": "-2331",
+        "fans_increment_within_30d": "-4553",
+        "follower": "1787191",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "6707487726062534670",
+        "interaction_median_30d": "1801",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "0",
+        "is_excellenct_author": "0",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"306\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758784516\",\"item_id\":\"7553921947165281577\",\"item_publish_time\":\"1758784516\",\"item_title\":\"保定你真的是太好吃了！心心念念的素颜鱼香肉丝我来了！#保定美食#尖庄荣光#百年尖庄唱响保定群星演唱会\",\"like_cnt\":\"3093\",\"share_cnt\":\"103\",\"vv\":\"39542\"},{\"comment_cnt\":\"98\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1756277435\",\"item_id\":\"7543154133273333051\",\"item_publish_time\":\"1756277435\",\"item_title\":\"又发现了北京超有意思的展览！能玩能学，推荐！ #追光者节科技追光之旅 #北京展览 #周末去哪儿 #科技展览 @阳光新能源\",\"like_cnt\":\"935\",\"share_cnt\":\"476\",\"vv\":\"132035\"},{\"comment_cnt\":\"64\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1755142082\",\"item_id\":\"7538277824919751995\",\"item_publish_time\":\"1755142082\",\"item_title\":\"又让我发现了一个北京夏日微醺好地方！ 就在玩酷亚奥国际嗨啤节啦！#周末去哪儿 #夏日微醺 #红星二锅头 #北京夏日清凉好去处推荐\",\"like_cnt\":\"405\",\"share_cnt\":\"334\",\"vv\":\"7652\"},{\"comment_cnt\":\"203\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1752122851\",\"item_id\":\"7525310332719385871\",\"item_publish_time\":\"1752122851\",\"item_title\":\"暑期京郊避暑好去处！夏天玩漂流也太爽了吧！ #野三坡清泉山 #漂流 #这么近那么美周末到河北 #野三坡 #周末去哪儿\",\"like_cnt\":\"2347\",\"share_cnt\":\"143\",\"vv\":\"83491\"},{\"comment_cnt\":\"154\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1747732765\",\"item_id\":\"7506455000790322472\",\"item_publish_time\":\"1747732765\",\"item_title\":\"又到榴莲季！如何挑到报恩榴莲，方法都在这了！#买四房自由#物美超市保四房挑战#北京8点后的超市有多好逛 #端午不躺平放粽去野#京趣@物美超市 -广告\",\"like_cnt\":\"10531\",\"share_cnt\":\"882\",\"vv\":\"112292\"},{\"comment_cnt\":\"134\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1746673990\",\"item_id\":\"7501907618978483471\",\"item_publish_time\":\"1746673990\",\"item_title\":\"寿司脑袋又能大饱口福了！寿司自由不是吹的！#寿司郎 #寿司郎海淀首店 #北京美食#美食探店 -广告\",\"like_cnt\":\"7170\",\"share_cnt\":\"139\",\"vv\":\"88826\"},{\"comment_cnt\":\"135\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1743654785\",\"item_id\":\"7488940175288962339\",\"item_publish_time\":\"1743654785\",\"item_title\":\"又发现了北京周末假期出游好去处！吃喝玩乐溜达一站式安排！#欧乐堡闺蜜月 #欧乐堡两天一夜攻略 #周末去哪儿玩\",\"like_cnt\":\"610\",\"share_cnt\":\"914\",\"vv\":\"28183\"},{\"comment_cnt\":\"117\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1741950376\",\"item_id\":\"7481619817947073827\",\"item_publish_time\":\"1741950376\",\"item_title\":\"北京装修怕踩坑？跟着春妮一起选装修，看看靠不靠谱！@梵客家装  #家装季 #梵客家装安心装#家居\",\"like_cnt\":\"3444\",\"share_cnt\":\"163\",\"vv\":\"17775\"},{\"comment_cnt\":\"96\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1741403352\",\"item_id\":\"7479270388216663330\",\"item_publish_time\":\"1741403352\",\"item_title\":\"快马住！春季换新衣又找到了好地方!@BIGOFFS北京 #bigoffs #bigoffs北京#折扣店#换季换新装#逛街-广告-\",\"like_cnt\":\"6640\",\"share_cnt\":\"113\",\"vv\":\"100384\"},{\"comment_cnt\":\"96\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1738553596\",\"item_id\":\"7467030686130523427\",\"item_publish_time\":\"1738553596\",\"item_title\":\"排队排上热搜的麻辣烤鱼到底好不好吃？#烤匠#不吃火锅就吃烤匠#烤匠麻辣烤鱼#烤匠北京西直门店#烤匠进京-广告\",\"like_cnt\":\"5502\",\"share_cnt\":\"44\",\"vv\":\"144789\"}]",
+        "link_convert_index": "42.41",
+        "link_convert_index_by_industry": "42.41",
+        "link_i_cnt_by_industry": "2960",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "8946",
+        "link_link_cnt_by_industry": "12071",
+        "link_n_cnt_by_industry": "165",
+        "link_recommend_index_by_industry": "63.66",
+        "link_shopping_index": "63.66",
+        "link_spread_index": "50.74",
+        "link_spread_index_by_industry": "50.74",
+        "link_star_index": "58.61",
+        "link_star_index_by_industry": "58.61",
+        "link_user_type_by_industry": "1",
+        "local_lower_threshold_author": "false",
+        "nick_name": "北京多多酱",
+        "price_1_20": "13800",
+        "price_20_60": "25000",
+        "price_60": "30000",
+        "promotion_prospective_1_20_cpm": "334.76",
+        "promotion_prospective_20_60_cpm": "606.44",
+        "promotion_prospective_60_cpm": "727.73",
+        "promotion_prospective_vv": "41224",
+        "prospective_1_20_cpm": "432.724",
+        "prospective_20_60_cpm": "783.9202",
+        "prospective_60_cpm": "940.7043",
+        "province": "北京市",
+        "search_after_view_index_by_industry": "51.3",
+        "sn_expected_play_num": "31891",
+        "sn_prospective_1_20_cpe": "7.8722",
+        "sn_prospective_1_20_cpm": "432.724",
+        "sn_prospective_20_60_cpe": "14.2613",
+        "sn_prospective_20_60_cpm": "783.9202",
+        "sn_prospective_60_cpe": "17.1135",
+        "sn_prospective_60_cpm": "940.7043",
+        "star_component_link_click_cnt_90d": "0",
+        "star_ecom_video_num_30d": "0",
+        "star_excellent_author": "0",
+        "star_index": "46.14540309910227",
+        "star_item_count_within_30d": "0",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "1",
+        "star_video_finish_vv_rate_90d": "0.0231",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0885",
+        "star_video_median_vv_90d": "39553",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食探店\"]}",
+        "vv_median_30d": "14191"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7506455000790322472",
+          "video_tag": 3,
+          "vv": 95208
+        },
+        {
+          "item_id": "7525310332719385871",
+          "video_tag": 3,
+          "vv": 25531
+        },
+        {
+          "item_id": "7553921947165281577",
+          "video_tag": 4,
+          "vv": 14299
+        },
+        {
+          "item_id": "7543154133273333051",
+          "video_tag": 5,
+          "vv": 17594
+        },
+        {
+          "item_id": "7538277824919751995",
+          "video_tag": 5,
+          "vv": 5677
+        }
+      ],
+      "star_id": "6707487726062534670",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 12000,
+              "price_extra_info": {},
+              "start_time": "1665201404",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 30000,
+              "price_extra_info": {},
+              "start_time": "1722441600",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 25000,
+              "price_extra_info": {},
+              "start_time": "1722441600",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 13800,
+              "price_extra_info": {},
+              "start_time": "1722441600",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572090886994378762"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "1a2ce1817af1b7700fc7cb053924f766a698703b"
+}

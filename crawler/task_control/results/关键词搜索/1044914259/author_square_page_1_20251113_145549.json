@@ -1,0 +1,250 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_cpm_suggest_price": "17",
+        "assign_task_price_list": "[17600,17600,18200,20800,22800,26000,26000,26000,30000]",
+        "author_avatar_frame_icon": "20",
+        "author_ecom_level": "L2",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"厚乳\":0.06,\"早餐\":0.2800000000000001,\"清爽\":0.029888888888888892,\"绵密\":1.008399999999996,\"美白\":0.002,\"聚会\":0.14,\"蛋白质\":0,\"酥脆\":0.13166666666666668}",
+        "author_type": "1",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_cda54e5fc984dc52a4c9d7ba782e24d3.jpeg?from=4010531038",
+        "brand_boost_vv": "607828",
+        "burst_text_rate": "0.3333",
+        "city": "东城区",
+        "content_theme_labels_180d": "[\"零食测评\",\"奶茶品鉴\",\"奶制品测评\",\"夏日饮品\",\"美食探店\",\"外卖测评\",\"月饼测评\",\"传统美食\",\"热门小吃\"]",
+        "core_user_id": "71585651248",
+        "e_commerce_enable": "1",
+        "ecom_avg_order_value_30d_range": "10-50",
+        "ecom_gmv_30d_range": "1k-3w",
+        "ecom_gpm_30d_range": "<=80",
+        "ecom_score": "82",
+        "ecom_video_product_num_30d": "0",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "643507",
+        "expected_play_num": "658049",
+        "fans_increment_rate_within_15d": "0.005379328640135196",
+        "fans_increment_within_15d": "3285",
+        "fans_increment_within_30d": "1991.95",
+        "follower": "613974",
+        "game_type": "",
+        "gender": "2",
+        "grade": "0",
+        "id": "7001714890117234695",
+        "interact_rate_within_30d": "0.0342",
+        "interaction_median_30d": "23340",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "1",
+        "is_excellenct_author": "1",
+        "is_short_drama": "0",
+        "last_10_items": "[{\"comment_cnt\":\"617\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762527763\",\"item_id\":\"7569999047780535594\",\"item_publish_time\":\"1762574400\",\"item_title\":\"从今天开始我也是吃过奶皮子糖葫芦的人啦 #奶皮子糖葫芦 #甜品 #美食\",\"like_cnt\":\"17001\",\"share_cnt\":\"7512\",\"vv\":\"690179\"},{\"comment_cnt\":\"345\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762277100\",\"item_id\":\"7568922377297688527\",\"item_publish_time\":\"1762315200\",\"item_title\":\"奶皮子的风刮到了北京 甜品克星小焙帮您看看能吃到多少种奶皮子甜品#甜品#奶皮子#美食 #申请成为奶皮子主理人\",\"like_cnt\":\"14160\",\"share_cnt\":\"5165\",\"vv\":\"413958\"},{\"comment_cnt\":\"2057\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761796993\",\"item_id\":\"7566860443273792820\",\"item_publish_time\":\"1761796993\",\"item_title\":\"鲜京采新品大测评 事先声明人类所有发言与白小焙无关#美食#甜品#京东#鲜京采#芋泥\",\"like_cnt\":\"22774\",\"share_cnt\":\"4275\",\"vv\":\"684520\"},{\"comment_cnt\":\"817\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761707619\",\"item_id\":\"7566476578005323023\",\"item_publish_time\":\"1761707619\",\"item_title\":\"驻京办美食节 小焙今天带您一起逛吃逛吃#驻京办美食街 #美食 #万益蓝餐前控控片\",\"like_cnt\":\"20234\",\"share_cnt\":\"19504\",\"vv\":\"897609\"},{\"comment_cnt\":\"775\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761498079\",\"item_id\":\"7565576574758653190\",\"item_publish_time\":\"1761537600\",\"item_title\":\"老北京甜品大合集 甜品克星小焙帮您尝尝我的童年回忆#美食 #北京小吃 #甜品 #童年回忆\",\"like_cnt\":\"19366\",\"share_cnt\":\"5707\",\"vv\":\"743747\"},{\"comment_cnt\":\"2978\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1761289005\",\"item_id\":\"7564678659676966159\",\"item_publish_time\":\"1761289005\",\"item_title\":\"北京首家喜茶蛋挞店 甜品克星小焙帮您尝尝味道如何#甜品#喜茶#美食#小青柑蜂蜜水\",\"like_cnt\":\"61997\",\"share_cnt\":\"91892\",\"vv\":\"1957519\"},{\"comment_cnt\":\"340\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761285046\",\"item_id\":\"7564661626961661199\",\"item_publish_time\":\"1761285046\",\"item_title\":\"盒马新品大测评 甜品克星小焙帮您尝尝盒马这季新品怎么样#甜品 #美食 #圣培露 #圣培露气泡果汁\",\"like_cnt\":\"13689\",\"share_cnt\":\"5490\",\"vv\":\"506962\"},{\"comment_cnt\":\"444\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760704784\",\"item_id\":\"7562169420911627520\",\"item_publish_time\":\"1760760000\",\"item_title\":\"山姆新品大测评 甜品克星小焙帮您尝尝哪款更好吃#甜品 #美食 #山姆\",\"like_cnt\":\"14545\",\"share_cnt\":\"6238\",\"vv\":\"711803\"},{\"comment_cnt\":\"724\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760500510\",\"item_id\":\"7561292076978949410\",\"item_publish_time\":\"1760500510\",\"item_title\":\"十月奶茶大测评嘴替版 人类帮大家尝尝十月哪家强#奶茶 #喜茶 #蜜雪冰城\",\"like_cnt\":\"20889\",\"share_cnt\":\"5252\",\"vv\":\"856799\"},{\"comment_cnt\":\"1353\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1758771336\",\"item_id\":\"7553865340132805888\",\"item_publish_time\":\"1758859200\",\"item_title\":\"北京簋街有一家刚开业就上榜的“把角儿面包” 甜品克星小焙帮您尝尝有多好吃#美食 #面包 #把角儿面包\",\"like_cnt\":\"58313\",\"share_cnt\":\"16721\",\"vv\":\"1540327\"}]",
+        "link_convert_index": "75.72",
+        "link_convert_index_by_industry": "75.72",
+        "link_i_cnt_by_industry": "1154979",
+        "link_k_cnt_by_industry": "54",
+        "link_l_cnt_by_industry": "2208455",
+        "link_link_cnt_by_industry": "3927600",
+        "link_n_cnt_by_industry": "564112",
+        "link_recommend_index_by_industry": "78.06",
+        "link_shopping_index": "78.06",
+        "link_spread_index": "76.49",
+        "link_spread_index_by_industry": "76.49",
+        "link_star_index": "76.77",
+        "link_star_index_by_industry": "76.77",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "白小焙",
+        "play_over_rate_within_30d": "0.0527",
+        "price_1_20": "22000",
+        "price_20_60": "26000",
+        "price_60": "30000",
+        "promotion_prospective_1_20_cpm": "35.3",
+        "promotion_prospective_20_60_cpm": "41.72",
+        "promotion_prospective_60_cpm": "48.14",
+        "promotion_prospective_vv": "623148",
+        "prospective_1_20_cpm": "33.4322",
+        "prospective_20_60_cpm": "39.5107",
+        "prospective_60_cpm": "45.5893",
+        "province": "北京市",
+        "search_after_view_index_by_industry": "82.32",
+        "sn_expected_play_num": "658049",
+        "sn_interact_rate_within_30d": "0.0342",
+        "sn_play_over_rate_within_30d": "0.0527",
+        "sn_prospective_1_20_cpe": "1.1114",
+        "sn_prospective_1_20_cpm": "33.4322",
+        "sn_prospective_20_60_cpe": "1.3135",
+        "sn_prospective_20_60_cpm": "39.5107",
+        "sn_prospective_60_cpe": "1.5156",
+        "sn_prospective_60_cpm": "45.5893",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "1152",
+        "star_ecom_video_num_30d": "3",
+        "star_excellent_author": "1",
+        "star_index": "81.01655966851392",
+        "star_item_count_within_30d": "3",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "9",
+        "star_video_finish_vv_rate_90d": "0.0419",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0471",
+        "star_video_median_vv_90d": "687492",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"美食\":[\"美食产品测评\"]}",
+        "video_brand_boost": "true",
+        "video_brand_boost_vv": "607828",
+        "vv_median_30d": "641696"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7548305997464571146",
+          "video_tag": 3,
+          "vv": 2454607
+        },
+        {
+          "item_id": "7530637421420105003",
+          "video_tag": 3,
+          "vv": 1716786
+        },
+        {
+          "item_id": "7528373313359924532",
+          "video_tag": 4,
+          "vv": 4317202
+        },
+        {
+          "item_id": "7534010925385436431",
+          "video_tag": 4,
+          "vv": 2463092
+        },
+        {
+          "item_id": "7505451476044090639",
+          "video_tag": 5,
+          "vv": 2230919
+        },
+        {
+          "item_id": "7564678659676966159",
+          "video_tag": 5,
+          "vv": 1735949
+        },
+        {
+          "item_id": "7569999047780535594",
+          "video_tag": 6,
+          "vv": 672571
+        },
+        {
+          "item_id": "7568922377297688527",
+          "video_tag": 6,
+          "vv": 387627
+        }
+      ],
+      "star_id": "7001714890117234695",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 22000,
+              "price_extra_info": {},
+              "start_time": "1761499395",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 19,
+              "price_extra_info": {
+                "ceiling_price": "36000",
+                "floor_price": "12000"
+              },
+              "start_time": "1703622113",
+              "task_category": 1,
+              "video_type": 92,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 30000,
+              "price_extra_info": {},
+              "start_time": "1761499395",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 26000,
+              "price_extra_info": {},
+              "start_time": "1761499395",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 12000,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 91,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 28000,
+              "price_extra_info": {},
+              "start_time": "1761499395",
+              "task_category": 1,
+              "video_type": 150,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572100022440083483"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "491c98dc83e002b35e8dae961a14c562d24adb52"
+}

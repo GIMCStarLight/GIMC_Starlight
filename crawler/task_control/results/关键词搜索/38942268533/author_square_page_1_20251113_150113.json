@@ -1,0 +1,205 @@
+{
+  "authors": [
+    {
+      "attribute_datas": {
+        "assign_task_price_list": "[26000,29600,29600,29600,32600,37000,37000,37000,37000,37000,40700]",
+        "author_avatar_frame_icon": "0",
+        "author_status": "1",
+        "author_thin_mid_word_association_index": "{\"洁面\":0.006,\"清爽\":0.23300000000000007,\"祛痘\":0.0035,\"绵密\":0.006,\"胶原成分\":0.02266666666666667,\"酥脆\":0.001,\"防晒\":0.016333333333333335,\"防水\":0.024000000000000004}",
+        "author_type": "3",
+        "avatar_uri": "https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_f28fabb816cbd592b66902412ebe89de.jpeg?from=4010531038",
+        "avg_search_after_view_rate_30d": "0.0003",
+        "burst_text_rate": "0.2",
+        "city": "宁波市",
+        "content_theme_labels_180d": "[\"职场女性\",\"家庭生活记录\",\"个人成长\",\"搞笑剧情\",\"情侣趣事\",\"职场趣闻\",\"海外旅行\",\"消费体验\",\"国内旅行\",\"城市旅行\"]",
+        "core_user_id": "1097753501898507",
+        "expected_cpa3_level": "4",
+        "expected_natural_play_num": "426192",
+        "expected_play_num": "423287",
+        "fans_increment_rate_within_15d": "0.00842237417630926",
+        "fans_increment_within_15d": "2509",
+        "fans_increment_within_30d": "3019",
+        "follower": "300416",
+        "game_type": "",
+        "gender": "0",
+        "grade": "0",
+        "id": "7399879436163776562",
+        "interact_rate_within_30d": "0.0526",
+        "interaction_median_30d": "21596.5",
+        "is_ad_star_cur_high_quality_author": "0",
+        "is_black_horse_author": "false",
+        "is_cocreate_author": "false",
+        "is_cpm_project_author": "1",
+        "is_excellenct_author": "0",
+        "last_10_items": "[{\"comment_cnt\":\"431\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762740260\",\"item_id\":\"7570911756290683107\",\"item_publish_time\":\"1762740260\",\"item_title\":\"班味很重，但又自律的一天 #上班vlog#打工人的精神状态#下班后的日常#在拍一种很新的vlog#班味\",\"like_cnt\":\"13935\",\"share_cnt\":\"7080\",\"vv\":\"353101\"},{\"comment_cnt\":\"446\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762487421\",\"item_id\":\"7569825826531706816\",\"item_publish_time\":\"1762487421\",\"item_title\":\"原来办一场演出这么麻烦啊 @炸鸡少女阿肆 #上班vlog #娱乐圈 #打工人的精神状态 #演唱会 #在拍一种很新的vlog\",\"like_cnt\":\"11631\",\"share_cnt\":\"1116\",\"vv\":\"311496\"},{\"comment_cnt\":\"508\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1762227773\",\"item_id\":\"7568710623107736436\",\"item_publish_time\":\"1762227773\",\"item_title\":\"翘了早自习 偷偷溜出来上班 #上班vlog #打工人的精神状态 #下班后的日常 #在拍一种很新的vlog #搞笑日常\",\"like_cnt\":\"12826\",\"share_cnt\":\"1683\",\"vv\":\"440066\"},{\"comment_cnt\":\"1242\",\"is_high_quality_item\":\"1\",\"item_create_time\":\"1761805270\",\"item_id\":\"7566896011831037236\",\"item_publish_time\":\"1761805270\",\"item_title\":\"打工人有自己的“勒是雾都” #日常vlog#旅行#重庆#名创优品毛绒节#吉福特熊和朋友们\",\"like_cnt\":\"19449\",\"share_cnt\":\"3054\",\"vv\":\"2331676\"},{\"comment_cnt\":\"652\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761558031\",\"item_id\":\"7565834119842860322\",\"item_publish_time\":\"1761558031\",\"item_title\":\"阿浙 我说的降温是这么降吗？ #上班vlog#打工人的精神状态#下班后的日常#在拍一种很新的vlog#周末时光\",\"like_cnt\":\"64870\",\"share_cnt\":\"3242\",\"vv\":\"686337\"},{\"comment_cnt\":\"3382\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761277176\",\"item_id\":\"7564627860087377187\",\"item_publish_time\":\"1761277176\",\"item_title\":\"给你们也准备了 “蛋糕” #日常vlog #下班后的日常  #生日 #在拍一种很新的vlog\",\"like_cnt\":\"24572\",\"share_cnt\":\"4518\",\"vv\":\"538168\"},{\"comment_cnt\":\"448\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1761018112\",\"item_id\":\"7563515172112862504\",\"item_publish_time\":\"1761018112\",\"item_title\":\"最怕领导突然的关心 #上班vlog #打工人的精神状态 #下班后的日常 #在拍一种很新的vlog #搞笑日常\",\"like_cnt\":\"16267\",\"share_cnt\":\"1747\",\"vv\":\"464742\"},{\"comment_cnt\":\"1044\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1760597378\",\"item_id\":\"7561708138711600418\",\"item_publish_time\":\"1760597378\",\"item_title\":\"大学生们 俺老猪来了 #上班vlog#打工人的精神状态#下班后的日常#绿源Moda60#绿源液冷电动车\",\"like_cnt\":\"35460\",\"share_cnt\":\"13161\",\"vv\":\"1276958\"},{\"comment_cnt\":\"333\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759743904\",\"item_id\":\"7558042504554351906\",\"item_publish_time\":\"1759743904\",\"item_title\":\"人在囧途之越囧 #日常vlog #旅行vlog #越南 #搞笑的日常\",\"like_cnt\":\"20116\",\"share_cnt\":\"2264\",\"vv\":\"572365\"},{\"comment_cnt\":\"526\",\"is_high_quality_item\":\"0\",\"item_create_time\":\"1759203689\",\"item_id\":\"7555722283585096994\",\"item_publish_time\":\"1759203689\",\"item_title\":\"这下是真的中头彩了 #日常vlog #打工人的精神状态 #下班后的日常 #在拍一种很新的vlog #搞笑日常\",\"like_cnt\":\"22362\",\"share_cnt\":\"2055\",\"vv\":\"763530\"}]",
+        "link_convert_index": "66.62",
+        "link_convert_index_by_industry": "66.62",
+        "link_i_cnt_by_industry": "331052",
+        "link_k_cnt_by_industry": "0",
+        "link_l_cnt_by_industry": "2791740",
+        "link_link_cnt_by_industry": "3604791",
+        "link_n_cnt_by_industry": "481999",
+        "link_recommend_index_by_industry": "71.23",
+        "link_shopping_index": "71.23",
+        "link_spread_index": "70.86",
+        "link_spread_index_by_industry": "70.86",
+        "link_star_index": "71.16",
+        "link_star_index_by_industry": "71.16",
+        "link_user_type_by_industry": "2",
+        "local_lower_threshold_author": "false",
+        "nick_name": "蜡笔瑞瑞",
+        "play_over_rate_within_30d": "0.1265",
+        "price_1_20": "17000",
+        "price_20_60": "26000",
+        "price_60": "37000",
+        "promotion_prospective_1_20_cpm": "40.57",
+        "promotion_prospective_20_60_cpm": "62.05",
+        "promotion_prospective_60_cpm": "88.3",
+        "promotion_prospective_vv": "419012",
+        "prospective_1_20_cpm": "40.1619",
+        "prospective_20_60_cpm": "61.424",
+        "prospective_60_cpm": "87.4111",
+        "province": "浙江省",
+        "search_after_view_index_by_industry": "70.31",
+        "sn_expected_play_num": "423287",
+        "sn_interact_rate_within_30d": "0.0526",
+        "sn_play_over_rate_within_30d": "0.1265",
+        "sn_prospective_1_20_cpe": "1.1",
+        "sn_prospective_1_20_cpm": "40.1619",
+        "sn_prospective_20_60_cpe": "1.6824",
+        "sn_prospective_20_60_cpm": "61.424",
+        "sn_prospective_60_cpe": "2.3942",
+        "sn_prospective_60_cpm": "87.4111",
+        "star_component_install_finish_cnt_90d": "0",
+        "star_component_link_click_cnt_90d": "0",
+        "star_ecom_video_num_30d": "4",
+        "star_excellent_author": "0",
+        "star_item_count_within_30d": "5",
+        "star_qianchuan_high_potential": "0",
+        "star_video_cnt_90d": "12",
+        "star_video_finish_vv_rate_90d": "0.0666",
+        "star_video_install_ge_1_cnt_90d": "0",
+        "star_video_interact_rate_90d": "0.0262",
+        "star_video_median_vv_90d": "981647",
+        "star_whispers_author": "0",
+        "tags_relation": "{\"剧情搞笑\":[\"剧情\"]}",
+        "vv_median_30d": "470223"
+      },
+      "extra_data": {
+        "content_query_from_word": "",
+        "content_query_score": 0,
+        "debug_info": "",
+        "demander_behavior": {
+          "added_author_list": false,
+          "cooperated": false,
+          "viewd_author_page": false
+        },
+        "recall_from": [
+          "1_0"
+        ],
+        "recall_return_infos": {},
+        "recommend_types": []
+      },
+      "items": [
+        {
+          "item_id": "7528261971377147171",
+          "video_tag": 3,
+          "vv": 1540406
+        },
+        {
+          "item_id": "7521953692661943587",
+          "video_tag": 3,
+          "vv": 1268688
+        },
+        {
+          "item_id": "7566896011831037236",
+          "video_tag": 4,
+          "vv": 2317784
+        },
+        {
+          "item_id": "7543601065753922851",
+          "video_tag": 4,
+          "vv": 2004110
+        },
+        {
+          "item_id": "7545327672869391616",
+          "video_tag": 5,
+          "vv": 1775093
+        },
+        {
+          "item_id": "7551442706309778723",
+          "video_tag": 5,
+          "vv": 1362122
+        },
+        {
+          "item_id": "7570911756290683107",
+          "video_tag": 6,
+          "vv": 340334
+        },
+        {
+          "item_id": "7569825826531706816",
+          "video_tag": 6,
+          "vv": 295599
+        }
+      ],
+      "star_id": "7399879436163776562",
+      "task_infos": [
+        {
+          "online_status": 1,
+          "platform_source": 1,
+          "price_infos": [
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 17000,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 1,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 37000,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 71,
+              "video_type_status": 1
+            },
+            {
+              "end_time": "2145916800",
+              "platform_source": 1,
+              "price": 26000,
+              "price_extra_info": {},
+              "start_time": "1753977600",
+              "task_category": 1,
+              "video_type": 2,
+              "video_type_status": 1
+            }
+          ],
+          "task_category": 1,
+          "task_status": 1
+        }
+      ]
+    }
+  ],
+  "base_resp": {
+    "status_code": 0,
+    "status_message": ""
+  },
+  "extra_data": {
+    "is_cpm_project_search": false,
+    "search_author_count": 0,
+    "search_item_count": 0,
+    "search_session_id": "7572101466131808306"
+  },
+  "pagination": {
+    "has_more": false,
+    "limit": 20,
+    "page": 1,
+    "total_count": 1
+  },
+  "request_payload_hash": "9f47b01e71a66ae5891581b1e5e3bb331c2342bd"
+}
