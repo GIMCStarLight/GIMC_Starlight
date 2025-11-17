@@ -205,7 +205,7 @@ export class InfluencerFilterController {
 
   /**
    * 刷新物化视图 (内部使用)
-   * POST /api/influencers/v3/filter/refresh-view
+   * POST /api/influencer-filter/refresh-view
    */
   @Post('refresh-view')
   @HttpCode(HttpStatus.OK)
