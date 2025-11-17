@@ -21,25 +21,25 @@ export class RequestDeduplicator {
   // 白名单: 需要去重的API路径
   private readonly whitelist: string[] = [
     // 筛选类API
-    '/influencers/v3/filter/advanced',
-    '/influencers/v3/filter/quick',
-    '/influencers/v3/filter/stats',
-    '/influencers/v3/filter/popular-tags',
+    '/influencer-filter/advanced',
+    '/influencer-filter/quick',
+    '/influencer-filter/stats',
+    '/influencer-filter/popular-tags',
     
     // 列表查询API
-    '/v2/influencers/v3/list',
+    '/influencer-authors/list',
     '/kol-lists',
     '/kol-match',
     
     // 统计类API
-    '/influencers/v3/stats',
+    '/influencer-authors/stats',
     '/kol-match/statistics',
     '/performance/metrics',
     '/performance/matching-stats',
     '/performance/slow-queries',
     
     // 详情查询API
-    '/influencers/v3/detail',
+    '/influencer-authors/detail',
     '/kol-lists/',
     '/kol-match/',
     
@@ -52,10 +52,10 @@ export class RequestDeduplicator {
   // 黑名单: 不应去重的API路径 (优先级高于白名单)
   private readonly blacklist: string[] = [
     // 刷新类API
-    '/influencers/v3/filter/refresh-view',
+    '/influencer-filter/refresh-view',
     
     // 导出类API
-    '/influencers/v3/batch-export',
+    '/influencer-authors/batch-export',
     '/kol-lists/export',
     
     // 认证类API

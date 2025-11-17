@@ -581,7 +581,7 @@ const loadReviews = async () => {
       params.sortOrder = sortConfig.value.order === 'ascending' ? 'ASC' : 'DESC'
     }
 
-    const response = await requestClient.get('v2/kol-reviews', { params })
+    const response = await requestClient.get('kol-reviews', { params })
 
     console.log('API响应:', response)
     console.log('response类型:', typeof response, '是否为数组:', Array.isArray(response))
