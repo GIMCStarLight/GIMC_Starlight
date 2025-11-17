@@ -432,7 +432,7 @@ const loadData = async () => {
     pagination.limit = limit
     pagination.total = total
   } catch (error: any) {
-    console.error('API请求失败:', error)
+    log.error('API请求失败:', error)
     const status = error?.response?.status
     if (status === 404 || status === 204) {
       // 空数据场景：不提示错误，展示空表格
@@ -451,7 +451,7 @@ const loadStatistics = async () => {
     const response = await requestClient.get('influencer-current/stats')
     statistics.value = response.data || response
   } catch (error) {
-    console.error('加载统计数据失败:', error)
+    log.error('加载统计数据失败:', error)
   }
 }
 
@@ -486,11 +486,11 @@ const handleEdit = (row) => {
 }
 
 const handleView = (row: any) => {
-  console.log('[handleView] 传入数据:', row)
+  log.debug('[handleView] 传入数据:', row)
   currentDetailKol.value = row
-  console.log('[handleView] currentDetailKol.value:', currentDetailKol.value)
+  log.debug('[handleView] currentDetailKol.value:', currentDetailKol.value)
   detailDialogVisible.value = true
-  console.log('[handleView] detailDialogVisible.value:', detailDialogVisible.value)
+  log.debug('[handleView] detailDialogVisible.value:', detailDialogVisible.value)
 }
 
 const handleDelete = async (row) => {
@@ -576,7 +576,7 @@ const handleExport = async () => {
     URL.revokeObjectURL(url)
     ElMessage.success('导出成功')
   } catch (error) {
-    console.error(error)
+    log.error(error)
     ElMessage.error('导出失败: ' + error.message)
   }
 }
@@ -735,7 +735,7 @@ const loadSyncStats = async () => {
     const stats = await KolSyncApi.getSyncStats()
     syncStats.value = stats
   } catch (error) {
-    console.error('加载同步统计失败:', error)
+    log.error('加载同步统计失败:', error)
   }
 }
 
@@ -748,11 +748,12 @@ const selectedDouyinRows = computed(() => {
 // 判断是否可以同步
 const canSync = (row: any): boolean => {
   const platform = String(row.platform || '').trim();
+import { log } from '#/utils/logger';
   const platformLower = platform.toLowerCase();
   const isDouyin = platform === '抖音' || platformLower === 'douyin';
   const hasAccountId = !!row.account_id && String(row.account_id).trim().length > 0;
   
-  console.log(`[前端.canSync] 🤔 检查是否可以同步:`, {
+  log.debug(`[前端.canSync] 🤔 检查是否可以同步:`, {
     id: row.id,
     platform,
     platformLower,
@@ -768,8 +769,8 @@ const canSync = (row: any): boolean => {
 // 单个同步
 const handleSingleSync = async (row: any) => {
   const startTime = Date.now();
-  console.log(`====== [前端.index] 开始同步流程 ======`);
-  console.log(`[前端.index] 📋 KOL信息:`, {
+  log.debug(`====== [前端.index] 开始同步流程 ======`);
+  log.debug(`[前端.index] 📋 KOL信息:`, {
     id: row.id,
     account_id: row.account_id,
     account_name: row.account_name,
@@ -779,45 +780,45 @@ const handleSingleSync = async (row: any) => {
   
   try {
     loading.value = true;
-    console.log(`[前端.index] 🔄 设置加载状态: true`);
-    console.log(`[前端.index] 🚀 调用KolSyncApi.syncSingleKol(${row.id}, ${row.account_id})`);
+    log.debug(`[前端.index] 🔄 设置加载状态: true`);
+    log.debug(`[前端.index] 🚀 调用KolSyncApi.syncSingleKol(${row.id}, ${row.account_id})`);
     
     const result = await KolSyncApi.syncSingleKol(row.id, row.account_id);
     
     const duration = Date.now() - startTime;
-    console.log(`[前端.index] 📊 同步结果:`, result);
-    console.log(`[前端.index] ⏱️ 总耗时: ${duration}ms`);
+    log.debug(`[前端.index] 📊 同步结果:`, result);
+    log.debug(`[前端.index] ⏱️ 总耗时: ${duration}ms`);
     
     if (result.status === 'success') {
-      console.log(`[前端.index] ✅ 同步成功`);
+      log.debug(`[前端.index] ✅ 同步成功`);
       ElMessage.success(`同步成功：${row.account_name}`);
-      console.log(`[前端.index] 🔄 刷新列表数据和统计信息...`);
+      log.debug(`[前端.index] 🔄 刷新列表数据和统计信息...`);
       loadData(); // 刷新列表
       loadSyncStats(); // 刷新统计
     } else if (result.status === 'failed') {
-      console.warn(`[前端.index] ⚠️ 同步失败: ${result.errorMessage}`);
+      log.warn(`[前端.index] ⚠️ 同步失败: ${result.errorMessage}`);
       ElMessage.warning(`同步失败：${result.errorMessage || '未知错误'}`);
     } else {
-      console.log(`[前端.index] 📝 同步状态: ${result.status}`);
+      log.debug(`[前端.index] 📝 同步状态: ${result.status}`);
       ElMessage.info('同步任务已提交，请稍后查看结果');
     }
   } catch (error: any) {
     const duration = Date.now() - startTime;
-    console.error(`[前端.index] 💥 同步异常 - 耗时: ${duration}ms`);
-    console.error(`[前端.index] 💥 错误类型: ${error.constructor?.name || typeof error}`);
-    console.error(`[前端.index] 💥 错误信息: ${error.message}`);
-    console.error(`[前端.index] 💥 完整错误:`, error);
+    log.error(`[前端.index] 💥 同步异常 - 耗时: ${duration}ms`);
+    log.error(`[前端.index] 💥 错误类型: ${error.constructor?.name || typeof error}`);
+    log.error(`[前端.index] 💥 错误信息: ${error.message}`);
+    log.error(`[前端.index] 💥 完整错误:`, error);
     
     if (error.response) {
-      console.error(`[前端.index] 📥 响应数据:`, error.response.data);
+      log.error(`[前端.index] 📥 响应数据:`, error.response.data);
     }
     
     ElMessage.error(`同步失败: ${error.message || '请稍后重试'}`);
   } finally {
     loading.value = false;
     const totalDuration = Date.now() - startTime;
-    console.log(`[前端.index] 🔄 恢复加载状态: false`);
-    console.log(`====== [前端.index] 同步流程结束 - 总耗时: ${totalDuration}ms ======`);
+    log.debug(`[前端.index] 🔄 恢复加载状态: false`);
+    log.debug(`====== [前端.index] 同步流程结束 - 总耗时: ${totalDuration}ms ======`);
   }
 }
 
@@ -850,7 +851,7 @@ const handleBatchSync = async () => {
     loadSyncStats() // 刷新统计
   } catch (error: any) {
     if (error !== 'cancel') {
-      console.error('批量同步失败:', error)
+      log.error('批量同步失败:', error)
       ElMessage.error(`批量同步失败: ${error.message || '请稍后重试'}`)
     }
   } finally {
@@ -885,7 +886,7 @@ const handleRetryFailed = async () => {
     }
   } catch (error: any) {
     if (error !== 'cancel') {
-      console.error('重试失败:', error)
+      log.error('重试失败:', error)
       ElMessage.error(`重试失败: ${error.message || '请稍后重试'}`)
     }
   } finally {
@@ -913,7 +914,7 @@ const handleViewAuthor = (authorId: string) => {
 
 // 评价达人
 const handleEvaluate = (row: any) => {
-  console.log('评价达人:', row)
+  log.debug('评价达人:', row)
   // 使用 matched_author_id 或 account_id
   currentEvaluateAuthorId.value = row.matched_author_id || row.account_id || ''
   if (!currentEvaluateAuthorId.value) {

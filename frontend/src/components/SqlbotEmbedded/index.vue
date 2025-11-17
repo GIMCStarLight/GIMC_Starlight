@@ -6,6 +6,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, computed, watch } from 'vue';
+import { log } from '#/utils/logger';
 import { useUserStore } from '@vben/stores';
 
 // 定义组件属性
@@ -162,7 +163,7 @@ const loadSqlbotScript = (): Promise<void> => {
 
     // 验证域名是否可用
     if (!props.domain) {
-      console.warn('SQLBot domain not provided, using fallback');
+      log.warn('SQLBot domain not provided, using fallback');
       // 创建一个模拟的SQLBot处理器
       createFallbackHandler();
       isScriptLoaded.value = true;
@@ -181,8 +182,8 @@ const loadSqlbotScript = (): Promise<void> => {
     };
     
     script.onerror = () => {
-      console.error('Failed to load SQLBot script from:', script.src);
-      console.warn('Creating fallback SQLBot handler');
+      log.error('Failed to load SQLBot script from:', script.src);
+      log.warn('Creating fallback SQLBot handler');
       // 创建降级方案
       createFallbackHandler();
       isScriptLoaded.value = true;
@@ -215,7 +216,7 @@ const initSqlbot = async () => {
             resolve();
           } else if (attempts >= maxAttempts) {
             clearInterval(timer);
-            console.warn('SQLBot handler not available, using fallback');
+            log.warn('SQLBot handler not available, using fallback');
             // 如果handler不可用，创建降级方案
             createFallbackHandler();
             resolve(); // 不要reject，继续执行
@@ -231,9 +232,9 @@ const initSqlbot = async () => {
       try {
         window.sqlbot_embedded_handler.mounted(`.${props.containerClass}`, sqlbotParams.value);
         isMounted.value = true;
-        console.log('SQLBot mounted successfully', sqlbotParams.value);
+        log.debug('SQLBot mounted successfully', sqlbotParams.value);
       } catch (mountError) {
-        console.error('Failed to mount SQLBot:', mountError);
+        log.error('Failed to mount SQLBot:', mountError);
         // 挂载失败时也使用降级方案
         createFallbackHandler();
         if (sqlbotContainer.value) {
@@ -243,7 +244,7 @@ const initSqlbot = async () => {
       }
     }
   } catch (error) {
-    console.error('Failed to initialize SQLBot:', error);
+    log.error('Failed to initialize SQLBot:', error);
     // 初始化失败时使用降级方案
     createFallbackHandler();
     if (sqlbotContainer.value && window.sqlbot_embedded_handler?.mounted) {
@@ -251,7 +252,7 @@ const initSqlbot = async () => {
         window.sqlbot_embedded_handler.mounted(`.${props.containerClass}`, sqlbotParams.value);
         isMounted.value = true;
       } catch (fallbackError) {
-        console.error('Even fallback failed:', fallbackError);
+        log.error('Even fallback failed:', fallbackError);
       }
     }
   }
@@ -264,9 +265,9 @@ const reinitSqlbot = async () => {
   if (isMounted.value && window.sqlbot_embedded_handler?.mounted) {
     try {
       window.sqlbot_embedded_handler.mounted(`.${props.containerClass}`, sqlbotParams.value);
-      console.log('SQLBot reinitialized with new params', sqlbotParams.value);
+      log.debug('SQLBot reinitialized with new params', sqlbotParams.value);
     } catch (error) {
-      console.error('Failed to reinitialize SQLBot:', error);
+      log.error('Failed to reinitialize SQLBot:', error);
     }
   }
 };

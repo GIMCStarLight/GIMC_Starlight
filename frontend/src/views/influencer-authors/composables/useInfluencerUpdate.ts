@@ -42,7 +42,7 @@ export function useInfluencerUpdate() {
     influencer.updateStatus = '正在启动任务...'
 
     try {
-      console.log(`[更新] 开始更新达人数据: ${influencer.nick_name} (${influencer.star_id})`)
+      log.debug(`[更新] 开始更新达人数据: ${influencer.nick_name} (${influencer.star_id})`)
 
       // 创建爬虫任务
       const response = await createCrawlJob({
@@ -58,7 +58,7 @@ export function useInfluencerUpdate() {
         }
       })
 
-      console.log('[更新] 爬虫任务创建响应:', response)
+      log.debug('[更新] 爬虫任务创建响应:', response)
 
       if (response.success && response.data?.job_id) {
         const jobId = response.data.job_id
@@ -82,7 +82,7 @@ export function useInfluencerUpdate() {
                 influencer.updateStatus = '任务排队中...'
               }
 
-              console.log(`[更新] 任务进度: ${status} - ${detail.progress.percentage}%`, detail)
+              log.debug(`[更新] 任务进度: ${status} - ${detail.progress.percentage}%`, detail)
             },
             2000,  // 每2秒查询一次
             150    // 最多持续5分钟 (150次 * 2秒 = 300秒)
@@ -110,7 +110,7 @@ export function useInfluencerUpdate() {
             ElMessage.warning('任务已取消')
           }
         } catch (pollError) {
-          console.error('[更新] 轮询任务状态失败:', pollError)
+          log.error('[更新] 轮询任务状态失败:', pollError)
           influencer.updateStatus = '轮询超时'
           ElMessage.warning('任务执行时间较长，请稍后刷新查看结果')
 
@@ -125,7 +125,7 @@ export function useInfluencerUpdate() {
         ElMessage.error(`更新失败: ${response.message || '未知错误'}`)
       }
     } catch (error) {
-      console.error('[更新] 更新达人数据失败:', error)
+      log.error('[更新] 更新达人数据失败:', error)
       ElMessage.error(`更新失败: ${(error as Error).message || '网络错误'}`)
     } finally {
       // 清除加载状态
@@ -180,7 +180,7 @@ export function useInfluencerUpdate() {
         successCount++
       } catch (error) {
         failCount++
-        console.error(`[批量更新] ${influencer.nick_name} 更新失败:`, error)
+        log.error(`[批量更新] ${influencer.nick_name} 更新失败:`, error)
       }
     }
 

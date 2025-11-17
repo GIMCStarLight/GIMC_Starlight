@@ -223,7 +223,8 @@ interface PlatformConfig {
 const platforms = ref<PlatformConfig[]>([
   { value: 'all', label: '全部平台', icon: 'lucide:globe', count: undefined },
   { value: 'douyin', label: '抖音', icon: 'https://th.bing.com/th/id/ODF.6ZkCjv2hR5s6SR35yaulqQ?w=32&h=32&qlt=90&pcl=fffffc&o=6&cb=ucfimg1&pid=1.2&ucfimg=1', count: undefined },
-  { value: 'xiaohongshu', label: '小红书', icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAIBSURBVDhPpZPLS5RhFIfnX9CERJE0G2dGiLLMCS98c4mQNlHwFV6qTYEJZZEhXqiggoSuFilhakkhRSphYFBRUUQJ5SyaFi5c5CJq2QUSPE/n/d6ZbBUDszi8F87vOe93fufzscZxpSzylbII4neWdC//Dc3xco1GtT4JRBYIxKw4Q4AHMRrV+vTSXiiVQDSzWH7tkgFYciAqBGN/E7zVnNN7s5qzhs23OgswYr8DKzfaxJAmFm22UVwDhVWwuhbyK21OaR1SXJMCqFiKwkJ5HE5eBL8C8irAbYWmNog3wp6jUOdCxzno7IUN25CtzV5hn5TUimxpFNyDkPgEOw6AswvevIfrozA6Dr8XFXIE3s3Cz1/w6Bly4kIKkF8pMvZQuHEXJh7D7QdwcwxevoXp59BwyK71e2E2CfOf4cs3pKlNZFW1Asy3TL8Qus/D1FMYuANXhuDSIB40stsmFVy9E5Jz8HoGrt1CZhIiwVgKcLpPOHUZPny0FXv74ckr6BuGe1Pw/Qds3w9XRzT0bt8xJJEUCcUVYFwo1CYa4fGzULBJG9dgxS1dMKifM3IfWnu0qYdtL9rPIC1dYopbFxTiWWZsCqrnJWrdivUKU/ty10HOWrUyvGytFpGCqlQTzQvSs/Dv4KSHyqwhtdjsvXMUCWpRE94cZD3K2f5M2f3OjvsHKgyYDgVwnokAAAAASUVORK5CYII=', count: undefined },
+  { value: 'xiaohongshu', label: '小红书', icon: 'data:image/png;
+import { log } from '#/utils/logger';base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAIBSURBVDhPpZPLS5RhFIfnX9CERJE0G2dGiLLMCS98c4mQNlHwFV6qTYEJZZEhXqiggoSuFilhakkhRSphYFBRUUQJ5SyaFi5c5CJq2QUSPE/n/d6ZbBUDszi8F87vOe93fufzscZxpSzylbII4neWdC//Dc3xco1GtT4JRBYIxKw4Q4AHMRrV+vTSXiiVQDSzWH7tkgFYciAqBGN/E7zVnNN7s5qzhs23OgswYr8DKzfaxJAmFm22UVwDhVWwuhbyK21OaR1SXJMCqFiKwkJ5HE5eBL8C8irAbYWmNog3wp6jUOdCxzno7IUN25CtzV5hn5TUimxpFNyDkPgEOw6AswvevIfrozA6Dr8XFXIE3s3Cz1/w6Bly4kIKkF8pMvZQuHEXJh7D7QdwcwxevoXp59BwyK71e2E2CfOf4cs3pKlNZFW1Asy3TL8Qus/D1FMYuANXhuDSIB40stsmFVy9E5Jz8HoGrt1CZhIiwVgKcLpPOHUZPny0FXv74ckr6BuGe1Pw/Qds3w9XRzT0bt8xJJEUCcUVYFwo1CYa4fGzULBJG9dgxS1dMKifM3IfWnu0qYdtL9rPIC1dYopbFxTiWWZsCqrnJWrdivUKU/ty10HOWrUyvGytFpGCqlQTzQvSs/Dv4KSHyqwhtdjsvXMUCWpRE94cZD3K2f5M2f3OjvsHKgyYDgVwnokAAAAASUVORK5CYII=', count: undefined },
   { value: 'weibo', label: '微博', icon: 'https://th.bing.com/th/id/ODF.qJ-ykoFwP262TObc-fcbNQ?w=32&h=32&qlt=90&pcl=fffffa&o=6&cb=ucfimg1&pid=1.2&ucfimg=1', count: undefined },
   { value: 'bilibili', label: 'B站', icon: 'https://th.bing.com/th/id/ODF.HcIfqnk4n-lbffGcaqDC2w?w=32&h=32&qlt=97&pcl=fffffa&o=6&cb=ucfimg1&pid=1.2&ucfimg=1', count: undefined },
   { value: 'kuaishou', label: '快手', icon: 'https://th.bing.com/th/id/ODF.gZu0GMZwmj-vdqhMRZZODQ?w=32&h=32&qlt=90&pcl=fffffa&o=6&cb=ucfimg1&pid=1.2&ucfimg=1', count: undefined },
@@ -232,7 +233,7 @@ const platforms = ref<PlatformConfig[]>([
 
 const currentPlatform = ref('douyin')
 
-console.log('🎯 [index-v3] 页面组件初始化')
+log.debug('🎯 [index-v3] 页面组件初始化')
 
 // 使用状态管理
 const store = useInfluencerSquareStore()
@@ -268,7 +269,7 @@ const matchedOnly = ref(false)
 
 // 平台切换处理
 const handlePlatformChange = (platformValue: string) => {
-  console.log('🔄 平台切换:', platformValue)
+  log.debug('🔄 平台切换:', platformValue)
   currentPlatform.value = platformValue
   
   // 清空筛选条件
@@ -320,7 +321,7 @@ watch(
     loading: loading.value,
   }),
   (newVal) => {
-    console.log('🎯 [index-v3] Store状态变化:', newVal)
+    log.debug('🎯 [index-v3] Store状态变化:', newVal)
   },
   { immediate: true, deep: true }
 )
@@ -368,24 +369,24 @@ const handleSortChange = () => {
 
 // 分页变化
 const handlePageChange = (page: number) => {
-  console.log('📄 [index-v3] 页码变化:', {
+  log.debug('📄 [index-v3] 页码变化:', {
     newPage: page,
     currentPageBeforeSet: currentPage.value
   })
   store.setCurrentPage(page)
-  console.log('📄 [index-v3] 页码更新后:', currentPage.value)
+  log.debug('📄 [index-v3] 页码更新后:', currentPage.value)
   store.loadInfluencers()
 }
 
 const handleSizeChange = (size: number) => {
-  console.log('📏 [index-v3] 每页数量变化:', size)
+  log.debug('📏 [index-v3] 每页数量变化:', size)
   store.setPageSize(size)
   store.loadInfluencers()
 }
 
 // 处理快速筛选变化
 const handleQuickFilterChange = (filters: AdvancedFilterParams) => {
-  console.log('🛠️ 快速筛选变化:', filters)
+  log.debug('🛠️ 快速筛选变化:', filters)
   // 保留平台筛选
   const platformFilter = currentPlatform.value !== 'all' ? { platform: currentPlatform.value } : {}
   currentFilters.value = { ...currentFilters.value, ...filters, ...platformFilter, matchedOnly: matchedOnly.value }
@@ -397,7 +398,7 @@ const handleQuickFilterChange = (filters: AdvancedFilterParams) => {
 
 // 处理高级筛选变化
 const handleAdvancedFilterChange = (filters: AdvancedFilterParams) => {
-  console.log('⚙️ 高级筛选变化:', filters)
+  log.debug('⚙️ 高级筛选变化:', filters)
   // 保留平台筛选
   const platformFilter = currentPlatform.value !== 'all' ? { platform: currentPlatform.value } : {}
   currentFilters.value = { ...currentFilters.value, ...filters, ...platformFilter, matchedOnly: matchedOnly.value }
@@ -409,7 +410,7 @@ const handleAdvancedFilterChange = (filters: AdvancedFilterParams) => {
 
 // 处理"仅展示已匹配"切换
 const handleMatchedOnlyToggle = () => {
-  console.log('🔄 [匹配筛选] 开关状态:', matchedOnly.value)
+  log.debug('🔄 [匹配筛选] 开关状态:', matchedOnly.value)
   // 保留平台筛选
   const platformFilter = currentPlatform.value !== 'all' ? { platform: currentPlatform.value } : {}
   currentFilters.value = { ...currentFilters.value, ...platformFilter, matchedOnly: matchedOnly.value }
@@ -425,7 +426,7 @@ const handleUpdateData = async (influencer: any) => {
 
 // 评价达人
 const handleEvaluate = (influencer: any) => {
-  console.log('评价达人:', influencer)
+  log.debug('评价达人:', influencer)
   currentEvaluateAuthorId.value = influencer.author_id || ''
   if (!currentEvaluateAuthorId.value) {
     ElMessage.warning('缺少达人 ID，无法评价')
@@ -446,7 +447,7 @@ defineExpose({
 })
 
 // 初始化加载数据
-console.log('🎯 [index-v3] 开始加载初始数据')
+log.debug('🎯 [index-v3] 开始加载初始数据')
 store.loadInfluencers()
 
 // 暴露调试变量到 window，便于控制台查看与触发刷新

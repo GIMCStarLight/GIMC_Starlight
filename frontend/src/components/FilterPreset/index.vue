@@ -315,7 +315,7 @@ const savePreset = async () => {
     showCreateDialog.value = false
     resetForm()
   } catch (error) {
-    console.error('保存预设失败:', error)
+    log.error('保存预设失败:', error)
   } finally {
     saving.value = false
   }
@@ -337,6 +337,7 @@ const formatDate = (dateString: string) => {
 <style scoped>
 .filter-preset {
   background: var(--el-bg-color);
+import { log } from '#/utils/logger';
   border-radius: 8px;
   padding: 16px;
   border: 1px solid var(--el-border-color-lighter);

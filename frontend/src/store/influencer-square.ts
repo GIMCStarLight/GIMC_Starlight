@@ -6,6 +6,7 @@ import { ref, computed } from 'vue'
 import { advancedFilter } from '../api/influencer-filter'
 import type { Influencer, InfluencerFilterParams, ViewMode, CardSize, SortOption } from '../types/influencer'
 import { InfluencerNormalizer } from '../utils/influencer-normalizer'
+import { log } from '#/utils/logger'
 
 export const useInfluencerSquareStore = defineStore('influencer-square', () => {
   // 加载状态
@@ -51,7 +52,7 @@ export const useInfluencerSquareStore = defineStore('influencer-square', () => {
   
   // 加载达人数据 - 使用优化后API
   const loadInfluencers = async () => {
-    console.log('🔄 [Store] 开始加载达人数据(优化API)')
+    log.debug('[Store] 开始加载达人数据(优化API)')
     loading.value = true
     try {
       const params: InfluencerFilterParams = {
@@ -61,10 +62,10 @@ export const useInfluencerSquareStore = defineStore('influencer-square', () => {
         sortBy: sortBy.value === 'recommended' ? 'created_at' : sortBy.value.replace(/_desc$/, '').replace(/_asc$/, ''),
         sortOrder: sortBy.value.includes('_asc') ? 'ASC' : 'DESC',
       }
-      console.log('📋 [Store] 请求参数:', params)
+      log.debug('[Store] 请求参数:', params)
       
       const response = await advancedFilter(params)
-      console.log('📥 [Store] 优化API返回数据:', response)
+      log.debug('[Store] 优化API返回数据:', response)
       
       // API已经解包，response直接是 { data, pagination, performance, fromCache }
       const rawList = Array.isArray(response.data) ? response.data : []
@@ -81,22 +82,22 @@ export const useInfluencerSquareStore = defineStore('influencer-square', () => {
       // 显示性能信息
       if (response.performance) {
         const { totalTime, dataTime, countTime } = response.performance
-        console.log(`⚡ [Store] 查询性能: 总计${totalTime}ms (计数:${countTime}ms, 数据:${dataTime}ms)`)
+        log.debug(`[Store] 查询性能: 总计${totalTime}ms (计数:${countTime}ms, 数据:${dataTime}ms)`)
         if (response.fromCache) {
-          console.log('💾 [Store] 数据来自缓存')
+          log.debug('[Store] 数据来自缓存')
         }
       }
       
-      console.log('✅ [Store] 数据已更新到Store')
-      console.log('✅ [Store] influencers.value长度:', influencers.value.length)
-      console.log('✅ [Store] totalCount.value:', totalCount.value)
+      log.success('[Store] 数据已更新到Store')
+      log.debug('[Store] influencers.value长度:', influencers.value.length)
+      log.debug('[Store] totalCount.value:', totalCount.value)
     } catch (error) {
-      console.error('❌ [Store] 加载达人数据失败:', error)
+      log.error('[Store] 加载达人数据失败:', error)
       influencers.value = []
       totalCount.value = 0
     } finally {
       loading.value = false
-      console.log('🏁 [Store] 加载完成, loading:', loading.value)
+      log.debug('[Store] 加载完成, loading:', loading.value)
     }
   }
   

@@ -324,27 +324,27 @@ const rebatePolicyConfigApi = {
   },
   
   createPolicy: async (data: any) => {
-    console.log('创建政策:', data)
+    log.debug('创建政策:', data)
     return { success: true, message: '创建成功' }
   },
   
   updatePolicy: async (id: number, data: any) => {
-    console.log('更新政策:', id, data)
+    log.debug('更新政策:', id, data)
     return { success: true, message: '更新成功' }
   },
   
   deletePolicy: async (id: number) => {
-    console.log('删除政策:', id)
+    log.debug('删除政策:', id)
     return { success: true, message: '删除成功' }
   },
   
   batchDeletePolicies: async (ids: number[]) => {
-    console.log('批量删除政策:', ids)
+    log.debug('批量删除政策:', ids)
     return { success: true, message: '批量删除成功' }
   },
   
   calculateRebate: async (data: any) => {
-    console.log('计算返点:', data)
+    log.debug('计算返点:', data)
     // 模拟计算结果
     const result = {
       baseAmount: data.baseAmount,
@@ -365,7 +365,8 @@ interface RebatePolicy {
   baseAmount: number
   percentage: number
   fixedAmount: number
-  tiers: Array<{ threshold: [number, number]; rate: number }>
+  tiers: Array<{ threshold: [number, number];
+import { log } from '#/utils/logger'; rate: number }>
   status: 'active' | 'inactive'
   updatedAt: string
 }

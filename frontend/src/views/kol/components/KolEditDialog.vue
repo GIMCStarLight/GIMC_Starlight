@@ -336,7 +336,8 @@ const resetForm = () => {
 
 // 兼容 camelCase 的旧类型，初始化表单数据
 watch(() => props.kolData, (d) => {
-  if (!d) { resetForm(); return }
+  if (!d) { resetForm();
+import { log } from '#/utils/logger'; return }
   Object.assign(formData, {
     platform: d.platform || '',
     account_name: d.account_name || d.accountName || '',
@@ -435,7 +436,7 @@ const handleSubmit = async () => {
     emit('kol-updated')
     handleClose()
   } catch (e: any) {
-    console.error('保存 KOL 失败:', e)
+    log.error('保存 KOL 失败:', e)
     ElMessage.error(`保存失败: ${e?.message || '请稍后重试'}`)
   } finally {
     loading.value = false

@@ -17,6 +17,7 @@ const CRAWLER_API_BASE_URL = (
 
 // 可选：为线上环境注入 X-SQLBOT-TOKEN，以通过服务器侧的额外鉴权
 import { sqlbotApi } from "./sqlbot";
+import { log } from '#/utils/logger';
 import { useAccessStore } from "@vben/stores";
 
 let _sqlbotToken: string | null = null;
@@ -35,13 +36,13 @@ async function ensureSqlbotToken(): Promise<string | null> {
     _sqlbotAppId = resp.appId;
     // 后端返回的 expiresIn 单位秒，换算为毫秒
     _sqlbotTokenExpiresAt = now + (resp.expiresIn || 600) * 1000;
-    console.debug("[CrawlerAPI] SQLBot token acquired", {
+    log.debug("[CrawlerAPI] SQLBot token acquired", {
       appId: _sqlbotAppId,
       expiresAt: new Date(_sqlbotTokenExpiresAt).toISOString(),
     });
     return _sqlbotToken;
   } catch (e) {
-    console.warn("获取SQLBot Token失败，尝试兜底方式:", e);
+    log.warn("获取SQLBot Token失败，尝试兜底方式:", e);
     try {
       const res = await fetch("/api/sqlbot/token?account=admin");
       if (!res.ok) throw new Error(`fallback http ${res.status}`);
@@ -51,13 +52,13 @@ async function ensureSqlbotToken(): Promise<string | null> {
       _sqlbotAppId = payload.appId;
       _sqlbotTokenExpiresAt =
         now + (payload.expiresIn ? payload.expiresIn * 1000 : 600_000);
-      console.debug("[CrawlerAPI] SQLBot token acquired via fallback", {
+      log.debug("[CrawlerAPI] SQLBot token acquired via fallback", {
         appId: _sqlbotAppId,
         expiresAt: new Date(_sqlbotTokenExpiresAt).toISOString(),
       });
       if (_sqlbotToken) return _sqlbotToken;
     } catch (ee) {
-      console.warn("兜底获取SQLBot Token仍失败，暂不注入令牌:", ee);
+      log.warn("兜底获取SQLBot Token仍失败，暂不注入令牌:", ee);
     }
     return null;
   }
@@ -217,7 +218,7 @@ export async function createCrawlJob(
   const token = await ensureSqlbotToken();
   const authHeader = getSqlbotAuthHeader();
   const bearer = getAuthorizationHeader();
-  console.debug("[CrawlerAPI] createCrawlJob headers", {
+  log.debug("[CrawlerAPI] createCrawlJob headers", {
     assistantToken: authHeader,
     tokenHeader: authHeader ? "[X-SQLBOT-TOKEN]" : null,
     authorization: bearer ? "[Bearer]" : null,
@@ -256,7 +257,7 @@ export async function getCrawlJobStatus(
   const token = await ensureSqlbotToken();
   const authHeader = getSqlbotAuthHeader();
   const bearer = getAuthorizationHeader();
-  console.debug("[CrawlerAPI] getCrawlJobStatus headers", {
+  log.debug("[CrawlerAPI] getCrawlJobStatus headers", {
     assistantToken: authHeader,
     tokenHeader: authHeader ? "[X-SQLBOT-TOKEN]" : null,
     authorization: bearer ? "[Bearer]" : null,
@@ -292,7 +293,7 @@ export async function getCrawlJobDetail(
   const token = await ensureSqlbotToken();
   const authHeader = getSqlbotAuthHeader();
   const bearer = getAuthorizationHeader();
-  console.debug("[CrawlerAPI] getCrawlJobDetail headers", {
+  log.debug("[CrawlerAPI] getCrawlJobDetail headers", {
     assistantToken: authHeader,
     tokenHeader: authHeader ? "[X-SQLBOT-TOKEN]" : null,
     authorization: bearer ? "[Bearer]" : null,
@@ -327,7 +328,7 @@ export async function getCrawlJobResults(
   const token = await ensureSqlbotToken();
   const authHeader = getSqlbotAuthHeader();
   const bearer = getAuthorizationHeader();
-  console.debug("[CrawlerAPI] getCrawlJobResults headers", {
+  log.debug("[CrawlerAPI] getCrawlJobResults headers", {
     assistantToken: authHeader,
     tokenHeader: authHeader ? "[X-SQLBOT-TOKEN]" : null,
     authorization: bearer ? "[Bearer]" : null,

@@ -519,7 +519,7 @@ const getCooperationStars = (degree: string): number => {
 
 // 事件处理
 const handleViewDetail = () => {
-  console.log('🔵 [InfluencerCard] handleViewDetail 被触发！data:', props.data.nick_name)
+  log.debug('🔵 [InfluencerCard] handleViewDetail 被触发！data:', props.data.nick_name)
   // 显示一个明显的提示
   ElMessage.info('正在跳转：' + props.data.nick_name)
   emit('view-detail', props.data)
@@ -549,6 +549,7 @@ const handleUpdateData = () => {
 <style scoped lang="scss">
 .influencer-card {
   background: var(--el-bg-color);
+import { log } from '#/utils/logger';
   border-radius: 12px;
   border: 1px solid var(--el-border-color-lighter);
   transition: all 0.3s ease;

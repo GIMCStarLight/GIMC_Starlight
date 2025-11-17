@@ -317,7 +317,8 @@ const loadCandidates = async () => {
   try {
     // 生成模拟候选数据
     const mockCandidates: DisplayCandidate[] = []
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1;
+import { log } from '#/utils/logger'; i <= 5; i++) {
       mockCandidates.push({
         id: `candidate-${i}`,
         publicAuthorId: `public-${i}`,
@@ -343,7 +344,7 @@ const loadCandidates = async () => {
     
     candidates.value = mockCandidates.sort((a, b) => b.confidence - a.confidence)
   } catch (error) {
-    console.error('加载候选失败:', error)
+    log.error('加载候选失败:', error)
     ElMessage.error('加载匹配候选失败')
   }
 }

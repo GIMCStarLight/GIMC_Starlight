@@ -231,7 +231,7 @@ const router = useRouter()
 watch(
   () => influencers.value,
   (newVal) => {
-    console.log('🎨 [InfluencerGrid] influencers变化:', {
+    log.debug('🎨 [InfluencerGrid] influencers变化:', {
       isArray: Array.isArray(newVal),
       length: newVal?.length,
       firstItem: newVal?.[0],
@@ -242,7 +242,7 @@ watch(
 
 // 确保 influencers 总是有值
 if (!influencers.value) {
-  console.warn('⚠️ [InfluencerGrid] influencers.value 为空，初始化为空数组')
+  log.warn('⚠️ [InfluencerGrid] influencers.value 为空，初始化为空数组')
   influencers.value = []
 }
 
@@ -295,15 +295,15 @@ const getPolicyLevelType = (level: string): string => {
 
 // 事件处理
 const handleViewDetail = (data: any) => {
-  console.log('📤 [跳转详情] author_id:', data.author_id, 'nick_name:', data.nick_name)
+  log.debug('📤 [跳转详情] author_id:', data.author_id, 'nick_name:', data.nick_name)
   const targetPath = `/influencer-detail/${data.author_id}`
-  console.log('📤 [跳转详情] 目标路径:', targetPath)
+  log.debug('📤 [跳转详情] 目标路径:', targetPath)
   
   try {
     router.push(targetPath)
-    console.log('✅ [跳转详情] 路由跳转成功')
+    log.debug('✅ [跳转详情] 路由跳转成功')
   } catch (error) {
-    console.error('❌ [跳转详情] 路由跳转失败:', error)
+    log.error('❌ [跳转详情] 路由跳转失败:', error)
     ElMessage.error('跳转失败: ' + (error as Error).message)
   }
 }
@@ -335,7 +335,7 @@ const handleTableSelectionChange = (selection: any[]) => {
 
 // 处理表格排序
 const handleSortChange = ({ column, prop, order }: any) => {
-  console.log('排序变化:', { prop, order })
+  log.debug('排序变化:', { prop, order })
   
   if (!prop || !order) {
     // 清除排序，恢复默认
@@ -371,6 +371,7 @@ const emit = defineEmits<{
 <style scoped lang="scss">
 .influencer-grid {
   min-height: 400px;
+import { log } from '#/utils/logger';
 
   .table-view {
     :deep(.el-table) {

@@ -591,7 +591,7 @@ const fetchPolicies = async () => {
     policyList.value = mockData
     pagination.total = mockData.length
   } catch (error) {
-    console.error('获取政策列表失败:', error)
+    log.error('获取政策列表失败:', error)
     ElMessage.error('获取政策列表失败')
   } finally {
     loading.value = false
@@ -635,7 +635,7 @@ const fetchVersionHistory = async (policyId: number) => {
     
     versionHistory.value = mockVersions
   } catch (error) {
-    console.error('获取版本历史失败:', error)
+    log.error('获取版本历史失败:', error)
     ElMessage.error('获取版本历史失败')
   }
 }
@@ -707,7 +707,7 @@ const handleActivateVersion = async (version: PolicyVersion) => {
     await fetchPolicies()
   } catch (error) {
     if (error !== 'cancel') {
-      console.error('激活版本失败:', error)
+      log.error('激活版本失败:', error)
       ElMessage.error('激活版本失败')
     }
   }
@@ -741,7 +741,7 @@ const handleCompareVersions = async () => {
     compareVersionsData.value = versions
     compareVersionsVisible.value = true
   } catch (error) {
-    console.error('版本对比失败:', error)
+    log.error('版本对比失败:', error)
     ElMessage.error('版本对比失败')
   }
 }
@@ -766,7 +766,7 @@ const handleSubmitVersion = async () => {
 
     createVersionVisible.value = false
   } catch (error) {
-    console.error('提交失败:', error)
+    log.error('提交失败:', error)
     ElMessage.error('提交失败')
   } finally {
     submitLoading.value = false
@@ -895,6 +895,7 @@ onMounted(() => {
 <style scoped>
 .page-container {
   padding: 24px;
+import { log } from '#/utils/logger';
   background-color: #f5f7fa;
   min-height: 100vh;
 }

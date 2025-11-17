@@ -107,7 +107,8 @@ export interface FilterResponse {
 
 export interface FilterStatsResponse {
   totalCount: number
-  qualityDistribution: { tier: string; count: number }[]
+  qualityDistribution: { tier: string;
+import { log } from '#/utils/logger'; count: number }[]
   growthDistribution: { level: string; count: number }[]
   priceDistribution: { tier: string; count: number }[]
   followerDistribution: { tier: string; count: number }[]
@@ -132,7 +133,7 @@ export async function quickFilter(params: QuickFilterParams): Promise<FilterResp
     // 会自动解包: { code, data } -> data -> { data, pagination, performance }
     return response
   } catch (error) {
-    console.error('快速筛选失败:', error)
+    log.error('快速筛选失败:', error)
     throw error
   }
 }
@@ -177,7 +178,7 @@ export async function advancedFilter(params: AdvancedFilterParams): Promise<Filt
         // 会自动解包: { code, data } -> data -> { data, pagination, performance }
         return response
       } catch (error) {
-        console.error('高级筛选失败:', error)
+        log.error('高级筛选失败:', error)
         throw error
       }
     }
@@ -192,7 +193,7 @@ export async function getFilterStatistics(params: Omit<AdvancedFilterParams, 'pa
     const response = await requestClient.get('/influencer-filter/stats', { params })
     return response
   } catch (error) {
-    console.error('获取筛选统计失败:', error)
+    log.error('获取筛选统计失败:', error)
     throw error
   }
 }
@@ -207,7 +208,7 @@ export async function getPopularTags(limit = 20): Promise<PopularTag[]> {
     })
     return response
   } catch (error) {
-    console.error('获取热门标签失败:', error)
+    log.error('获取热门标签失败:', error)
     throw error
   }
 }
@@ -220,7 +221,7 @@ export async function refreshMaterializedView(): Promise<{ message: string }> {
     const response = await requestClient.post('/influencer-filter/refresh-view')
     return response
   } catch (error) {
-    console.error('刷新物化视图失败:', error)
+    log.error('刷新物化视图失败:', error)
     throw error
   }
 }

@@ -25,7 +25,7 @@ const loadReviews = async () => {
     const data = await getKolReviewsByAuthorIdApi(props.authorId)
     reviews.value = data || []
   } catch (error) {
-    console.error('加载评价失败:', error)
+    log.error('加载评价失败:', error)
     ElMessage.error('加载评价失败')
   } finally {
     loading.value = false
@@ -282,6 +282,7 @@ watch(() => props.authorId, () => {
 <style scoped>
 .kol-reviews-tab {
   padding: 20px;
+import { log } from '#/utils/logger';
 }
 
 /* 统计卡片样式 */

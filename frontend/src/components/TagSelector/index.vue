@@ -236,7 +236,7 @@ const loadTagTree = async () => {
     loading.value = true
     tagTree.value = await getTagTreeByPlatform(selectedPlatform.value)
   } catch (error) {
-    console.error('加载标签树失败:', error)
+    log.error('加载标签树失败:', error)
     ElMessage.error('加载标签失败')
   } finally {
     loading.value = false
@@ -367,6 +367,7 @@ onMounted(() => {
 <style scoped>
 .tag-selector {
   @apply w-full;
+import { log } from '#/utils/logger';
 }
 
 .platform-selector {
