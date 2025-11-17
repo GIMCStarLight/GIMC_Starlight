@@ -10,8 +10,7 @@ const mode = process.env.NODE_ENV ?? "development";
 const env = loadEnv(mode, process.cwd(), "");
 const isDev = mode === "development";
 
-export default defineConfig(async (config?: ConfigEnv) => ({
-  application: {},
+export default defineConfig(async (config?: ConfigEnv) => ({  application: {},
   vite: {
       plugins: [
         AutoImport({
@@ -43,12 +42,8 @@ export default defineConfig(async (config?: ConfigEnv) => ({
         fs: {
           cachedChecks: true,
         },
-        // 设置缓存头
-        headers: isDev
-          ? {
-              "Cache-Control": "public, max-age=31536000", // 1年缓存
-            }
-          : undefined,
+        // 开发环境不设置长期缓存，避免更新不及时
+        // headers: isDev ? { "Cache-Control": "no-cache" } : undefined,
         proxy: {
           "/api": {
             changeOrigin: true,

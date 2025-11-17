@@ -115,8 +115,9 @@ export async function getInfluencerList(params: InfluencerQueryParams = {}) {
     params,
   });
 
-  // res 形如 { data: [...], pagination: {...} }
-  const list = Array.isArray((res as any)?.data) ? (res as any).data : [];
+  // 安全解析响应数据
+  const response = res as unknown as InfluencerListResponse;
+  const list = Array.isArray(response?.data) ? response.data : [];
 
   const normalizeBasic = (item: any): InfluencerBasic => {
     const follower = Number(item?.follower ?? 0) || 0;
@@ -184,17 +185,19 @@ export async function getInfluencerList(params: InfluencerQueryParams = {}) {
 
   return {
     data: list.map(normalizeBasic),
-    pagination: (res as any)?.pagination || { page: 1, limit: 20, total: 0, totalPages: 0 },
-  } as InfluencerListResponse;
+    pagination: response?.pagination || { page: 1, limit: 20, total: 0, totalPages: 0 },
+  };
 }
 
 /**
  * 获取影响者详情
  */
-export async function getInfluencerDetail(authorId: string) {
+export async function getInfluencerDetail(authorId: string): Promise<InfluencerDetailResponse> {
   const res = await requestClient.get<InfluencerDetailResponse>(`/influencer-manager/${authorId}`);
 
-  const src = (res as any)?.data || {};
+  const response = res as unknown as InfluencerDetailResponse;
+  // 使用Record类型兼容后端的各种字段命名格式
+  const src = (response?.data || {}) as Record<string, any>;
 
   const follower = Number(src?.follower ?? 0) || 0;
   const province = src?.province || '';
@@ -245,7 +248,7 @@ export async function getInfluencerDetail(authorId: string) {
       }
     : undefined;
 
-  return { data: detail } as InfluencerDetailResponse;
+  return { data: detail };
 }
 
 /**
@@ -253,17 +256,28 @@ export async function getInfluencerDetail(authorId: string) {
  * 注意：该接口返回结构可能为 { code, message, data: { data: {...} } }
  * 因此做了兼容性解析，优先提取最内层的 data
  */
-export async function getInfluencerFullData(authorId: string): Promise<Record<string, any>> {
+export async function getInfluencerFullData(authorId: string): Promise<Record<string, unknown>> {
   const res = await baseRequestClient.get(`/influencer-manager/${authorId}/full-data`);
 
-  const payload =
-    (res && (res as any).data && (res as any).data.data && (res as any).data.data.data)
-      ? (res as any).data.data.data
-      : (res && (res as any).data && (res as any).data.data)
-        ? (res as any).data.data
-        : (res && (res as any).data)
-          ? (res as any).data
-          : (res as any);
-
-  return payload || {};
+  // 安全解析多层嵌套响应
+  interface NestedData {
+    data?: Record<string, unknown> | { data?: Record<string, unknown> | { data?: Record<string, unknown> } };
+  }
+  
+  const response = res as NestedData;
+  
+  // 逐层解析
+  if (response?.data && typeof response.data === 'object') {
+    const level1 = response.data as { data?: Record<string, unknown> | { data?: Record<string, unknown> } };
+    if (level1.data && typeof level1.data === 'object') {
+      const level2 = level1.data as { data?: Record<string, unknown> };
+      if (level2.data && typeof level2.data === 'object') {
+        return level2.data; // 最内层
+      }
+      return level1.data as Record<string, unknown>; // 第二层
+    }
+    return response.data as Record<string, unknown>; // 第一层
+  }
+  
+  return response as Record<string, unknown> || {};
 }
