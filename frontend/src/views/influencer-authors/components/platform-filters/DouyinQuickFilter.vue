@@ -6,102 +6,8 @@
     <!-- 合作诉求 -->
     <DouyinCooperationFilter v-model="selectedCooperation" @update:model-value="handleCooperationChange" />
 
-    <!-- 第2行:内容定位 -->
-    <div class="filter-row">
-      <span class="filter-label">内容定位</span>
-      <div class="filter-content">
-        <!-- 一级标签快捷按钮（支持下拉二级标签）-->
-        <div class="hot-tags">
-          <el-button
-            :type="selectedTags.length === 0 ? 'primary' : ''"
-            size="default"
-            @click="clearTags"
-          >
-            不限
-          </el-button>
-          
-          <!-- 一级标签（仅显示一级标签，二级标签下拉功能已隐藏）-->
-          <template v-for="category in (showAllTags ? contentTagsHierarchy : contentTagsHierarchy.slice(0, 8))" :key="category.code">
-            <!-- 有二级标签：显示下拉菜单 - 已注释隐藏 -->
-            <!-- <el-dropdown 
-              v-if="category.children && category.children.length > 0"
-              trigger="click"
-              @command="(subcategory) => handleSubcategorySelect(category.code, subcategory)"
-            >
-              <el-button
-                :type="isTagSelected(category.code) ? 'primary' : ''"
-                size="default"
-              >
-                {{ category.category }}
-                <span class="tag-count">({{ getCategoryCount(category.code) }})</span>
-                <Icon icon="lucide:chevron-down" class="ml-1" />
-              </el-button>
-              <template #dropdown>
-                <el-dropdown-menu>
-                  <el-dropdown-item 
-                    :command="null"
-                    :class="{ 'is-active': isOnlyCategorySelected(category.code) }"
-                  >
-                    <el-checkbox 
-                      :model-value="isOnlyCategorySelected(category.code)"
-                      @change="toggleCategoryOnly(category.code)"
-                    >
-                      全选
-                    </el-checkbox>
-                  </el-dropdown-item>
-                  <el-dropdown-item 
-                    v-for="child in category.children" 
-                    :key="child.code"
-                    :command="child.code"
-                    :class="{ 'is-active': isSubcategorySelected(category.code, child.code) }"
-                  >
-                    <el-checkbox 
-                      :model-value="isSubcategorySelected(category.code, child.code)"
-                    >
-                      {{ child.name }}
-                    </el-checkbox>
-                  </el-dropdown-item>
-                </el-dropdown-menu>
-              </template>
-            </el-dropdown>
-            -->
-            
-            <!-- 无二级标签：直接点击 -->
-            <el-button
-              :type="isTagSelected(category.code) ? 'primary' : ''"
-              size="default"
-              @click="toggleCategoryOnly(category.code)"
-            >
-              {{ category.category }}
-              <span class="tag-count">({{ getCategoryCount(category.code) }})</span>
-            </el-button>
-          </template>
-          
-          <!-- 更多/收起按钮 -->
-          <el-button 
-            v-if="contentTagsHierarchy.length > 8"
-            size="default"
-            @click="showAllTags = !showAllTags"
-          >
-            {{ showAllTags ? '收起' : '更多' }}
-            <Icon :icon="showAllTags ? 'lucide:chevron-up' : 'lucide:chevron-down'" class="ml-1" />
-          </el-button>
-        </div>
-        
-        <!-- 已选标签 -->
-        <div v-if="selectedTags.length > 0" class="selected-tags">
-          <el-tag
-            v-for="tag in selectedTags"
-            :key="tag"
-            closable
-            type="primary"
-            @close="removeTag(tag)"
-          >
-            {{ getTagDisplayName(tag) }}
-          </el-tag>
-        </div>
-      </div>
-    </div>
+    <!-- 内容定位 -->
+    <DouyinContentTagsFilter v-model="selectedTags" :tag-counts="hotTags" @update:model-value="emitFilterChange" />
 
     <!-- 达人认证 -->
     <DouyinCertFilter v-model="influencerAttrs.certType" @update:model-value="handleAttrChange" />
@@ -270,6 +176,7 @@ import BasicInfoFilter from './filters/BasicInfoFilter.vue'
 import DouyinCooperationFilter from './filters/DouyinCooperationFilter.vue'
 import DouyinCertFilter from './filters/DouyinCertFilter.vue'
 import DouyinScenarioFilter from './filters/DouyinScenarioFilter.vue'
+import DouyinContentTagsFilter from './filters/DouyinContentTagsFilter.vue'
 import { 
   FOLLOWER_OPTIONS, 
   PRICE_OPTIONS, 
