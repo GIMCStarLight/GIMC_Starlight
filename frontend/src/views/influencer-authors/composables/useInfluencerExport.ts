@@ -19,7 +19,7 @@ export function useInfluencerExport() {
       ElMessage.info(`正在获取 ${selectedIds.size} 位达人的完整数据...`)
 
       // 调用后端API批量获取完整原始数据
-      const response = await fetch('/api/v2/influencers/v3/batch-export', {
+      const response = await fetch('/api/influencer-authors/batch-export', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

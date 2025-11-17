@@ -235,7 +235,7 @@ describe('RequestDeduplicator', () => {
       
       expect(deduplicator.getPendingCount()).toBe(0)
       
-      deduplicator.deduplicate({ url: '/influencers/v3/stats' }, requestFn)
+      deduplicator.deduplicate({ url: '/influencer-authors/stats' }, requestFn)
       expect(deduplicator.getPendingCount()).toBe(1)
       
       deduplicator.deduplicate({ url: '/kol-match/statistics' }, requestFn)
