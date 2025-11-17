@@ -24,7 +24,7 @@
   "type": "module",
   "scripts": {
     "build": "pnpm vite build --mode production",
-    "build:analyze": "pnpm vite build --mode analyze",
+    "build:analyze": "pnpm vite build --mode production && pnpm exec vite-bundle-visualizer",
     "build:ele": "pnpm run build",
     "build:packages": "pnpm -r --filter='!@vben-core/design' run build",
     "clean": "node ./scripts/clean.mjs",
@@ -104,6 +104,7 @@
     "unplugin-element-plus": "catalog:",
     "unplugin-vue-components": "^29.1.0",
     "vite": "catalog:",
+    "vite-bundle-visualizer": "^1.2.1",
     "vitest": "catalog:",
     "vue": "catalog:",
     "vue-tsc": "catalog:"
