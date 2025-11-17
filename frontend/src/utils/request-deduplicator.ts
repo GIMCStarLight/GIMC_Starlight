@@ -115,12 +115,12 @@ export class RequestDeduplicator {
 
     // 如果已有相同请求正在处理,直接返回该Promise
     if (this.pendingRequests.has(key)) {
-      console.log(`[RequestDeduplicator] 去重复用请求: ${config.url}`)
+      log.debug(`[RequestDeduplicator] 去重复用请求: ${config.url}`)
       return this.pendingRequests.get(key)!
     }
 
     // 执行新请求
-    console.log(`[RequestDeduplicator] 执行新请求: ${config.url}`)
+    log.debug(`[RequestDeduplicator] 执行新请求: ${config.url}`)
     const promise = requestFn().finally(() => {
       // 请求完成后从Map中移除
       this.pendingRequests.delete(key)
@@ -137,7 +137,7 @@ export class RequestDeduplicator {
    */
   clear(): void {
     this.pendingRequests.clear()
-    console.log('[RequestDeduplicator] 已清除所有待处理请求')
+    log.debug('[RequestDeduplicator] 已清除所有待处理请求')
   }
 
   /**

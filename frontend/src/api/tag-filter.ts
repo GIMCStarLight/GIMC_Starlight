@@ -1,4 +1,5 @@
 import type { RequestClient } from '@vben/request';
+import { log } from '#/utils/logger';
 import { requestClient } from './request';
 
 // 标签筛选相关的类型定义
@@ -258,22 +259,22 @@ class TagFilterApi {
     // 根据筛选条件进一步过滤
     if (params.cooperationRequest?.contentType?.value) {
       // 这里可以根据实际需求添加更复杂的筛选逻辑
-      console.log('筛选条件 - 题材类型:', params.cooperationRequest.contentType.value);
+      log.debug('筛选条件 - 题材类型:', params.cooperationRequest.contentType.value);
     }
 
     if (params.matchingDegree) {
       // 这里可以根据实际需求添加更复杂的筛选逻辑
-      console.log('筛选条件 - 匹配度:', params.matchingDegree);
+      log.debug('筛选条件 - 匹配度:', params.matchingDegree);
     }
 
     if (params.costEffectiveness) {
       // 这里可以根据实际需求添加更复杂的筛选逻辑
-      console.log('筛选条件 - 性价比:', params.costEffectiveness);
+      log.debug('筛选条件 - 性价比:', params.costEffectiveness);
     }
 
     if (params.themeRecommendations && params.themeRecommendations.length > 0) {
       // 这里可以根据实际需求添加更复杂的筛选逻辑
-      console.log('筛选条件 - 主题推荐:', params.themeRecommendations);
+      log.debug('筛选条件 - 主题推荐:', params.themeRecommendations);
     }
 
     // 模拟返回筛选后的结果

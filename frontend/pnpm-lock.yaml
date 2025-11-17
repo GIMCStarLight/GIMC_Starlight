@@ -160,7 +160,7 @@ catalogs:
       specifier: ^4.0.2
       version: 4.1.1
     consola:
-      specifier: ^3.4.2
+      specifier: 3.4.2
       version: 3.4.2
     cross-env:
       specifier: ^7.0.3
@@ -606,6 +606,9 @@ importers:
       autoprefixer:
         specifier: 'catalog:'
         version: 10.4.22(postcss@8.5.6)
+      consola:
+        specifier: 'catalog:'
+        version: 3.4.2
       cross-env:
         specifier: 'catalog:'
         version: 7.0.3

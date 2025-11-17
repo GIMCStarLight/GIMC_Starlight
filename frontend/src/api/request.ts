@@ -17,6 +17,7 @@ import { ElMessage } from 'element-plus';
 
 import { useAuthStore } from '#/store';
 import { clearAllCache } from '#/utils/auth';
+import { log } from '#/utils/logger';
 
 import { refreshTokenApi } from './core';
 
@@ -45,7 +46,7 @@ function createRequestClient(baseURL: string, options?: RequestClientOptions) {
    * 重新认证逻辑 - 简化版本，直接跳转登录页
    */
   async function doReAuthenticate() {
-    console.warn('Access token or refresh token is invalid or expired. ');
+    log.warn('Access token or refresh token is invalid or expired.');
     const accessStore = useAccessStore();
     const authStore = useAuthStore();
     
@@ -72,7 +73,7 @@ function createRequestClient(baseURL: string, options?: RequestClientOptions) {
     
     try {
       const result = await refreshTokenApi();
-      console.log('刷新token API响应:', result);
+      log.debug('刷新token API响应:', result);
       
       // 安全解析嵌套的API响应结构
       const nestedResponse = result as NestedApiResponse<TokenRefreshResponse>;
@@ -81,26 +82,26 @@ function createRequestClient(baseURL: string, options?: RequestClientOptions) {
           ? (nestedResponse.data as { data: TokenRefreshResponse }).data
           : nestedResponse?.data as TokenRefreshResponse | undefined;
 
-      console.log('解析后的payload:', payload);
+      log.debug('解析后的payload:', payload);
 
       const accessToken = payload?.accessToken;
       const refreshToken = payload?.refreshToken;
       
       if (accessToken) {
-        console.log('刷新token成功，新的accessToken:', accessToken);
+        log.success('刷新token成功，新的accessToken:', accessToken);
         accessStore.setAccessToken(accessToken);
         // 存储新的refreshToken
         if (refreshToken) {
-          console.log('更新refreshToken:', refreshToken);
+          log.debug('更新refreshToken:', refreshToken);
           accessStore.setRefreshToken(refreshToken);
         }
         return accessToken;
       }
       
-      console.error('刷新token失败：未找到accessToken', payload);
+      log.error('刷新token失败：未找到accessToken', payload);
       throw new Error('刷新令牌失败：未找到accessToken');
     } catch (error) {
-      console.error('刷新token过程中发生错误:', error);
+      log.error('刷新token过程中发生错误:', error);
       
       // 清空所有缓存
       clearAllCache();
@@ -194,7 +195,7 @@ function getApiURL() {
     const { apiURL } = useAppConfig(import.meta.env, import.meta.env.PROD);
     return apiURL;
   } catch (error) {
-    console.error('Error getting apiURL:', error);
+    log.error('Error getting apiURL:', error);
     return 'http://localhost:5320/api'; // fallback URL
   }
 }

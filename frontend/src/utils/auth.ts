@@ -1,6 +1,7 @@
 /**
  * 认证相关工具函数
  */
+import { log } from './logger'
 
 /**
  * 清除所有缓存数据（localStorage、sessionStorage、cookies）
@@ -10,11 +11,11 @@ export function clearAllCache(): void {
   try {
     // 清空 localStorage
     localStorage.clear()
-    console.log('✅ localStorage已清空')
+    log.success('localStorage已清空')
     
     // 清空 sessionStorage
     sessionStorage.clear()
-    console.log('✅ sessionStorage已清空')
+    log.success('sessionStorage已清空')
     
     // 清空所有cookies
     document.cookie.split(";").forEach((c) => {
@@ -24,9 +25,9 @@ export function clearAllCache(): void {
       document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=" + window.location.hostname
       document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=." + window.location.hostname
     })
-    console.log('✅ cookies已清空')
+    log.success('cookies已清空')
   } catch (error) {
-    console.error('清空缓存时出错:', error)
+    log.error('清空缓存时出错:', error)
     throw error
   }
 }

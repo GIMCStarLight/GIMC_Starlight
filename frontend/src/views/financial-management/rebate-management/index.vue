@@ -342,12 +342,12 @@ const rebateManagementApi = {
   },
   
   collectRebate: async (id: number) => {
-    console.log('收取返点:', id)
+    log.debug('收取返点:', id)
     return { success: true, message: '收取成功' }
   },
   
   batchCollectRebate: async (ids: number[]) => {
-    console.log('批量收取返点:', ids)
+    log.debug('批量收取返点:', ids)
     return { success: true, message: '批量收取成功' }
   }
 }
@@ -438,7 +438,8 @@ const handleSelectionChange = (selection: RebateRecord[]) => {
   selectedIds.value = selection.map(item => item.id)
 }
 
-const handleSortChange = ({ prop, order }: { prop: string; order: string }) => {
+const handleSortChange = ({ prop, order }: { prop: string;
+import { log } from '#/utils/logger'; order: string }) => {
   sortParams.prop = prop
   sortParams.order = order
   loadRebateRecords()
@@ -578,7 +579,7 @@ const loadDashboardData = async () => {
       dashboardData.value = response.data
     }
   } catch (error) {
-    console.error('加载仪表板数据失败:', error)
+    log.error('加载仪表板数据失败:', error)
   }
 }
 

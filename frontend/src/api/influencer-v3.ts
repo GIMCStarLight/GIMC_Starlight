@@ -50,22 +50,22 @@ export async function getInfluencerListV3(params: InfluencerListParams): Promise
     },
     async () => {
       try {
-        console.log('🚀 [API] 发起请求 getInfluencerListV3, params:', params)
+        log.debug('🚀 [API] 发起请求 getInfluencerListV3, params:', params)
         
         // 参数转换：将 camelCase 转为 snake_case
         const queryParams: any = { ...params }
         if (params.matchedOnly !== undefined) {
           queryParams.matchedOnly = params.matchedOnly
-          console.log('🔗 [API] 启用已匹配筛选:', queryParams.matchedOnly)
+          log.debug('🔗 [API] 启用已匹配筛选:', queryParams.matchedOnly)
         }
         
         // 使用 baseRequestClient 获取完整 AxiosResponse
         const axiosResponse = await baseRequestClient.get('/influencer-authors/list', { params: queryParams })
-        console.log('📦 [API] Axios原始响应:', axiosResponse)
+        log.debug('📦 [API] Axios原始响应:', axiosResponse)
         
         // 从 AxiosResponse 中提取 data
         const responseData = axiosResponse.data
-        console.log('📦 [API] 响应数据:', responseData)
+        log.debug('📦 [API] 响应数据:', responseData)
         
         // 后端返回结构: { code: 200, message: "...", data: [...], pagination: {...} }
         const finalResult: InfluencerListResponse = {
@@ -75,12 +75,12 @@ export async function getInfluencerListV3(params: InfluencerListParams): Promise
           pageSize: responseData.pageSize || 20,
         }
         
-        console.log('✅ [API] 最终返回数据:', finalResult)
-        console.log('✅ [API] 返回数据量:', finalResult.data.length, '条, 总数:', finalResult.total)
+        log.debug('✅ [API] 最终返回数据:', finalResult)
+        log.debug('✅ [API] 返回数据量:', finalResult.data.length, '条, 总数:', finalResult.total)
         
         return finalResult
       } catch (error) {
-        console.error('❌ [API] 获取达人列表失败:', error)
+        log.error('❌ [API] 获取达人列表失败:', error)
         throw error
       }
     }
@@ -103,7 +103,7 @@ export async function getInfluencerStats() {
         const result = response.data || response
         return result.data || result
       } catch (error) {
-        console.error('获取统计数据失败:', error)
+        log.error('获取统计数据失败:', error)
         throw error
       }
     }
@@ -125,7 +125,7 @@ export async function getInfluencerDetailV3(authorId: string) {
         const result = response.data || response
         return result.data || result
       } catch (error) {
-        console.error('获取达人详情失败:', error)
+        log.error('获取达人详情失败:', error)
         throw error
       }
     }

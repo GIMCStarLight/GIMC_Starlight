@@ -324,6 +324,7 @@ const gridOptions: VxeGridProps = reactive({
               class: 'ml-2'
             }, { default: () => row.code }) : null
           ]);
+import { log } from '#/utils/logger';
         }
       }
     },
@@ -584,11 +585,11 @@ const loadTableData = async () => {
       params.sortOrder = queryParams.sortOrder
     }
     
-    console.log('Table API params:', params) // 调试日志
+    log.debug('Table API params:', params) // 调试日志
     
     // 使用raw模式获取完整响应
     const response = await requestClient.get('/tags', { params, responseReturn: 'raw' })
-    console.log('Table API Response:', response) // 调试日志
+    log.debug('Table API Response:', response) // 调试日志
     
     // 处理完整的响应对象
     if (response && response.data && typeof response.data === 'object') {
@@ -598,7 +599,7 @@ const loadTableData = async () => {
         // 从pagination对象中获取total
         pagination.total = responseData.pagination?.total || 0
       } else {
-        console.warn('Invalid table data response:', responseData)
+        log.warn('Invalid table data response:', responseData)
         tableData.value = []
         pagination.total = 0
       }
@@ -606,11 +607,11 @@ const loadTableData = async () => {
       tableData.value = []
       pagination.total = 0
     }
-    console.log('Table data updated:', tableData.value.length, 'items') // 调试日志
+    log.debug('Table data updated:', tableData.value.length, 'items') // 调试日志
   } catch (error) {
     tableData.value = []
     pagination.total = 0
-    console.error('加载标签列表失败:', error)
+    log.error('加载标签列表失败:', error)
     ElMessage.error('加载标签列表失败')
   } finally {
     loading.value = false
@@ -636,9 +637,9 @@ const loadTreeData = async () => {
       params.isActive = queryParams.isActive
     }
     
-    console.log('Tree API params:', params) // 调试日志
+    log.debug('Tree API params:', params) // 调试日志
     const response = await requestClient.get('tags/tree', { params, responseReturn: 'raw' })
-    console.log('Tree API Response:', response) // 调试日志
+    log.debug('Tree API Response:', response) // 调试日志
     
     // 处理完整的响应对象
     if (response && response.data && typeof response.data === 'object') {
@@ -652,15 +653,15 @@ const loadTreeData = async () => {
         
         // 使用loadData方法加载数据，类似role页面的实现
         if (gridApi && gridApi.grid && gridApi.grid.loadData) {
-          console.log('Using gridApi.loadData to load tree data:', dataArray.length, 'items')
+          log.debug('Using gridApi.loadData to load tree data:', dataArray.length, 'items')
           gridApi.grid.loadData(dataArray)
         } else {
-          console.log('GridApi not ready, updating gridOptions.data directly')
+          log.debug('GridApi not ready, updating gridOptions.data directly')
           // 如果gridApi还未初始化，直接更新gridOptions
           gridOptions.data = dataArray
         }
       } else {
-        console.warn('Tree data is not an array:', responseData)
+        log.warn('Tree data is not an array:', responseData)
         treeData.value = []
         gridOptions.data = []
       }
@@ -668,9 +669,9 @@ const loadTreeData = async () => {
       treeData.value = []
       gridOptions.data = []
     }
-    console.log('Grid data updated:', treeData.value.length, 'items') // 调试日志
+    log.debug('Grid data updated:', treeData.value.length, 'items') // 调试日志
   } catch (error) {
-    console.error('加载树形数据失败:', error)
+    log.error('加载树形数据失败:', error)
     ElMessage.error('加载数据失败')
     treeData.value = []
     gridOptions.data = []
@@ -686,7 +687,7 @@ const loadParentOptions = async () => {
       parentOptions.value = await getTagTree({ platform })
     }
   } catch (error) {
-    console.error('加载父级标签选项失败:', error)
+    log.error('加载父级标签选项失败:', error)
   }
 }
 
@@ -860,7 +861,7 @@ const handleDelete = async (row: Tag) => {
     }
   } catch (error) {
     if (error !== 'cancel') {
-      console.error('删除标签失败:', error)
+      log.error('删除标签失败:', error)
       ElMessage.error('删除标签失败')
     }
   }
@@ -892,7 +893,7 @@ const handleBatchDelete = async () => {
     loadTableData()
   } catch (error) {
     if (error !== 'cancel') {
-      console.error('批量删除失败:', error)
+      log.error('批量删除失败:', error)
       ElMessage.error('批量删除失败')
     }
   }
@@ -914,13 +915,13 @@ const handleToggleStatus = async (row: Tag) => {
     const updateData: UpdateTagDto = { 
       isActive: row.isActive
     }
-    console.log('前端发送状态切换请求:', { id: row.id, updateData })
+    log.debug('前端发送状态切换请求:', { id: row.id, updateData })
     await updateTag(row.id, updateData)
     ElMessage.success('状态更新成功')
     // 刷新数据以确保显示最新状态
     await loadTableData()
   } catch (error) {
-    console.error('更新状态失败:', error)
+    log.error('更新状态失败:', error)
     ElMessage.error('更新状态失败')
     // 恢复原状态
     row.isActive = !row.isActive
@@ -972,7 +973,7 @@ const handleSubmit = async () => {
       loadTreeData()
     }
   } catch (error) {
-    console.error('提交失败:', error)
+    log.error('提交失败:', error)
     ElMessage.error('提交失败')
   } finally {
     submitting.value = false

@@ -671,7 +671,7 @@ const loadData = async () => {
       limit: pagination.pageSize,
       ...filters  // 只包含非空的筛选条件
     }
-    console.log('🚀 开始加载供应商数据:', params)
+    log.debug('🚀 开始加载供应商数据:', params)
     
     const result = await getSupplierListApi(params)
     
@@ -691,7 +691,7 @@ const loadData = async () => {
       pagination.total = 0
     }
   } catch (error) {
-    console.error('❌ 加载数据失败:', error)
+    log.error('❌ 加载数据失败:', error)
     ElMessage.error('加载数据失败')
   } finally {
     loading.value = false
@@ -767,7 +767,7 @@ const handleSubmit = async () => {
     dialogVisible.value = false
     loadData()  // 重新加载数据
   } catch (error) {
-    console.error('保存失败:', error)
+    log.error('保存失败:', error)
     ElMessage.error('保存失败')
   } finally {
     submitting.value = false
@@ -808,7 +808,7 @@ const handleBatchDelete = async () => {
     loadData()
   } catch (error) {
     if (error !== 'cancel') {
-      console.error('批量删除失败:', error)
+      log.error('批量删除失败:', error)
       ElMessage.error('删除失败')
     }
   }
@@ -920,18 +920,18 @@ const formatDate = (dateStr: string) => {
 
 // 下载导入模板
 const handleDownloadTemplate = async () => {
-  console.log('🚀 [下载模板] 开始下载供应商导入模板')
+  log.debug('🚀 [下载模板] 开始下载供应商导入模板')
   
   try {
     loading.value = true
-    console.log('⏳ [下载模板] 设置加载状态为true')
+    log.debug('⏳ [下载模板] 设置加载状态为true')
     
-    console.log('📡 [下载模板] 调用API: downloadSupplierTemplateApi()')
+    log.debug('📡 [下载模板] 调用API: downloadSupplierTemplateApi()')
     const startTime = Date.now()
     const response = await downloadSupplierTemplateApi()
     const endTime = Date.now()
     
-    console.log('✅ [下载模板] API调用成功', {
+    log.debug('✅ [下载模板] API调用成功', {
       responseType: typeof response,
       responseSize: response?.size || 'unknown',
       responseConstructor: response?.constructor?.name,
@@ -946,13 +946,13 @@ const handleDownloadTemplate = async () => {
     // 确保响应是Blob对象
     let blob: Blob
     if (response instanceof Blob) {
-      console.log('📄 [下载模板] 响应已是Blob对象，直接使用', {
+      log.debug('📄 [下载模板] 响应已是Blob对象，直接使用', {
         size: response.size,
         type: response.type
       })
       blob = response
     } else {
-      console.warn('⚠️ [下载模板] 响应不是Blob对象，尝试转换', {
+      log.warn('⚠️ [下载模板] 响应不是Blob对象，尝试转换', {
         actualType: typeof response,
         constructor: response?.constructor?.name
       })
@@ -962,7 +962,7 @@ const handleDownloadTemplate = async () => {
       })
     }
     
-    console.log('📦 [下载模板] 最终Blob信息', {
+    log.debug('📦 [下载模板] 最终Blob信息', {
       size: blob.size,
       type: blob.type
     })
@@ -971,33 +971,33 @@ const handleDownloadTemplate = async () => {
       throw new Error('生成的Blob文件大小为0')
     }
     
-    console.log('🌐 [下载模板] 创建下载URL')
+    log.debug('🌐 [下载模板] 创建下载URL')
     const url = window.URL.createObjectURL(blob)
-    console.log('🔗 [下载模板] URL创建成功:', url)
+    log.debug('🔗 [下载模板] URL创建成功:', url)
     
-    console.log('📎 [下载模板] 创建下载链接元素')
+    log.debug('📎 [下载模板] 创建下载链接元素')
     const link = document.createElement('a')
     link.href = url
     link.download = '供应商导入模板.xlsx'
     
-    console.log('📋 [下载模板] 下载链接配置', {
+    log.debug('📋 [下载模板] 下载链接配置', {
       href: link.href,
       download: link.download
     })
     
-    console.log('🖱️ [下载模板] 触发下载')
+    log.debug('🖱️ [下载模板] 触发下载')
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
     
-    console.log('🧹 [下载模板] 清理资源')
+    log.debug('🧹 [下载模板] 清理资源')
     window.URL.revokeObjectURL(url)
     
-    console.log('✅ [下载模板] 下载完成')
+    log.debug('✅ [下载模板] 下载完成')
     ElMessage.success('模板下载成功')
   } catch (error) {
-    console.error('❌ [下载模板] 下载失败:', error)
-    console.error('❌ [下载模板] 错误详情:', {
+    log.error('❌ [下载模板] 下载失败:', error)
+    log.error('❌ [下载模板] 错误详情:', {
       message: error?.message,
       stack: error?.stack,
       name: error?.name,
@@ -1006,17 +1006,17 @@ const handleDownloadTemplate = async () => {
     
     // 检查网络错误
     if (error?.message?.includes('fetch') || error?.message?.includes('network')) {
-      console.error('🌐 [下载模板] 网络错误，请检查网络连接')
+      log.error('🌐 [下载模板] 网络错误，请检查网络连接')
       ElMessage.error('网络连接失败，请检查网络后重试')
     } else if (error?.message?.includes('timeout')) {
-      console.error('⏰ [下载模板] 请求超时')
+      log.error('⏰ [下载模板] 请求超时')
       ElMessage.error('请求超时，请重试')
     } else {
-      console.error('💥 [下载模板] 未知错误')
+      log.error('💥 [下载模板] 未知错误')
       ElMessage.error('下载模板失败，请重试')
     }
   } finally {
-    console.log('🏁 [下载模板] 重置加载状态')
+    log.debug('🏁 [下载模板] 重置加载状态')
     loading.value = false
   }
 }
@@ -1026,6 +1026,7 @@ const uploadExcelRef = ref()
 const uploadFile = async (file: any) => {
   // 表头字段数组
   const header = Object.values(mapExcelSupplier);
+import { log } from '#/utils/logger';
   if (file.raw?.type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' 
       && file.raw?.type !== 'application/vnd.ms-excel') {
     ElMessage.error('文件格式错误，请重新上传！')
@@ -1144,7 +1145,7 @@ const uploadFile = async (file: any) => {
     loadData()
     
   } catch (error) {
-    console.error('导入失败:', error)
+    log.error('导入失败:', error)
     ElMessage.error('导入失败，请检查文件格式和数据')
   } finally {
     loading.value = false

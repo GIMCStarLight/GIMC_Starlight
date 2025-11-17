@@ -18,6 +18,7 @@ catalog:
   '@commitlint/cli': ^19.8.1
   '@commitlint/config-conventional': ^19.8.1
   '@ctrl/tinycolor': ^4.1.0
+  '@element-plus/icons-vue': ^2.3.1
   '@eslint/js': ^9.30.1
   '@faker-js/faker': ^9.9.0
   '@iconify/json': ^2.2.354
@@ -28,6 +29,7 @@ catalog:
   '@jspm/generator': ^2.6.2
   '@manypkg/get-packages': ^3.0.0
   '@nolebase/vitepress-plugin-git-changelog': ^2.18.0
+  '@nuxt/kit': 3.19.3
   '@playwright/test': ^1.53.2
   '@pnpm/workspace.read-manifest': ^1000.2.0
   '@stylistic/stylelint-plugin': ^3.1.3
@@ -74,7 +76,7 @@ catalog:
   class-variance-authority: ^0.7.1
   clsx: ^2.1.1
   commitlint-plugin-function-rules: ^4.0.2
-  consola: ^3.4.2
+  consola: 3.4.2
   cross-env: ^7.0.3
   cspell: ^8.19.4
   cssnano: ^7.0.7
@@ -85,7 +87,6 @@ catalog:
   depcheck: ^1.4.7
   dotenv: ^16.6.1
   echarts: ^5.6.0
-  '@element-plus/icons-vue': ^2.3.1
   element-plus: ^2.10.2
   eslint: ^9.30.1
   eslint-config-turbo: ^2.5.4
@@ -128,8 +129,6 @@ catalog:
   ora: ^8.2.0
   pinia: ^3.0.3
   pinia-plugin-persistedstate: ^4.4.1
-  # 降级 @nuxt/kit 以避免 jiti 问题
-  '@nuxt/kit': 3.19.3
   pkg-types: ^2.2.0
   playwright: ^1.53.2
   postcss: ^8.5.6

@@ -484,7 +484,8 @@ const statistics = ref({
   totalReviews: 0,
   averageScore: 0 as string | number,
   todayReviews: 0,
-  scoreDistribution: [] as Array<{ score: number; count: number }>
+  scoreDistribution: [] as Array<{ score: number;
+import { log } from '#/utils/logger'; count: number }>
 })
 
 // 评分统计
@@ -583,8 +584,8 @@ const loadReviews = async () => {
 
     const response = await requestClient.get('kol-reviews', { params })
 
-    console.log('API响应:', response)
-    console.log('response类型:', typeof response, '是否为数组:', Array.isArray(response))
+    log.debug('API响应:', response)
+    log.debug('response类型:', typeof response, '是否为数组:', Array.isArray(response))
     
     // requestClient的defaultResponseInterceptor会自动解包，所以response可能是：
     // 1. 原始数组：[...]
@@ -596,16 +597,16 @@ const loadReviews = async () => {
     if (Array.isArray(response)) {
       // 情兵1：直接返回数组
       dataArray = response
-      console.log('直接返回数组，长度:', dataArray.length)
+      log.debug('直接返回数组，长度:', dataArray.length)
     } else if (response && typeof response === 'object') {
       // 情兵2：返回对象
       if (response.data && Array.isArray(response.data)) {
         dataArray = response.data
         paginationInfo = response.pagination
-        console.log('对象包含data数组，长度:', dataArray.length)
+        log.debug('对象包含data数组，长度:', dataArray.length)
       } else if (Array.isArray(response)) {
         dataArray = response
-        console.log('对象本身是数组，长度:', dataArray.length)
+        log.debug('对象本身是数组，长度:', dataArray.length)
       }
     }
     
@@ -616,14 +617,14 @@ const loadReviews = async () => {
       pagination.total = paginationInfo.total || 0
       pagination.page = paginationInfo.page || 1
       pagination.limit = paginationInfo.pageSize || 20
-      console.log('分页信息:', pagination)
+      log.debug('分页信息:', pagination)
     } else {
       // 如果没有分页信息，使用数据长度
       pagination.total = dataArray.length
-      console.log('无分页信息，使用数据长度:', pagination.total)
+      log.debug('无分页信息，使用数据长度:', pagination.total)
     }
   } catch (error) {
-    console.error('获取评价数据失败:', error)
+    log.error('获取评价数据失败:', error)
     ElMessage.error('获取评价数据失败: ' + (error?.message || '未知错误'))
     tableData.value = []
     pagination.total = 0
@@ -636,7 +637,7 @@ const loadReviews = async () => {
 const loadStatistics = async () => {
   try {
     const stats = await getReviewStatisticsApi()
-    console.log('统计API响应:', stats)
+    log.debug('统计API响应:', stats)
     statistics.value = {
       totalInfluencers: stats.totalInfluencers || 0,
       totalReviews: stats.totalReviews || 0,
@@ -648,7 +649,7 @@ const loadStatistics = async () => {
     // 计算评分分布统计
     calculateScoreStats(stats.scoreDistribution || [])
   } catch (error) {
-    console.error('获取统计数据失败:', error)
+    log.error('获取统计数据失败:', error)
   }
 }
 
@@ -819,7 +820,7 @@ const handleDelete = async (row: KolReviewInfo) => {
     loadStatistics()
   } catch (error) {
     if (error !== 'cancel') {
-      console.error('删除失败:', error)
+      log.error('删除失败:', error)
       ElMessage.error('删除失败: ' + (error?.message || '未知错误'))
     }
   }
@@ -862,7 +863,7 @@ const handleBatchApprove = async () => {
     loadStatistics()
   } catch (error) {
     if (error !== 'cancel') {
-      console.error('批量通过失败:', error)
+      log.error('批量通过失败:', error)
       ElMessage.error('批量通过失败: ' + (error?.message || '未知错误'))
     }
   }
@@ -907,7 +908,7 @@ const handleBatchReject = async () => {
     loadStatistics()
   } catch (error) {
     if (error !== 'cancel') {
-      console.error('批量拒绝失败:', error)
+      log.error('批量拒绝失败:', error)
       ElMessage.error('批量拒绝失败: ' + (error?.message || '未知错误'))
     }
   }
@@ -935,7 +936,7 @@ const handleEditSubmit = async () => {
     editDialogVisible.value = false
     loadReviews()
   } catch (error) {
-    console.error('更新失败:', error)
+    log.error('更新失败:', error)
     ElMessage.error('更新失败: ' + (error?.message || '未知错误'))
   }
 }

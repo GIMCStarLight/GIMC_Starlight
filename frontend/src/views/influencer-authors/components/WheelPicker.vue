@@ -30,6 +30,7 @@ import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 
 interface Option {
   label: string;
+import { log } from '#/utils/logger';
   value: number | string | undefined;
 }
 
@@ -74,7 +75,7 @@ const minOffsetY = computed(() => - (internalOptions.value.length - centerItemIn
 const maxOffsetY = computed(() => centerItemIndex.value * props.itemHeight)
 onMounted(() => {
   if (props.visibleItems % 2 === 0) {
-    console.warn('WheelPicker: visibleItems should be an odd number to center the selection.')
+    log.warn('WheelPicker: visibleItems should be an odd number to center the selection.')
   }
   updateInternalOptions();
   updateSelectedIndex(props.modelValue)

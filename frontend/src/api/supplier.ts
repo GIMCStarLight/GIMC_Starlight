@@ -103,8 +103,8 @@ export async function getSupplierListApi(params?: SupplierListParams) {
     params,
   })
   
-  console.log('🔍 [API] 原始响应:', response)
-  console.log('🔍 [API] response.data:', response?.data)
+  log.debug('🔍 [API] 原始响应:', response)
+  log.debug('🔍 [API] response.data:', response?.data)
   
   // baseRequestClient 返回完整的 AxiosResponse
   // response.data 就是后端返回的 {code, message, data, pagination}

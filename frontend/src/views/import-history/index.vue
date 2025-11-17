@@ -150,7 +150,7 @@ const loadHistory = async () => {
     historyList.value = result.items
     pagination.value.total = result.total
   } catch (error) {
-    console.error('加载导入历史失败:', error)
+    log.error('加载导入历史失败:', error)
     ElMessage.error('加载导入历史失败')
   } finally {
     loading.value = false
@@ -178,7 +178,7 @@ const viewDetail = async (row: any) => {
     currentDetail.value = detail
     detailVisible.value = true
   } catch (error) {
-    console.error('加载详情失败:', error)
+    log.error('加载详情失败:', error)
     ElMessage.error('加载详情失败')
   }
 }
@@ -208,7 +208,8 @@ const downloadFailed = (row: any) => {
   
   const csvContent = [headers.join(','), ...csvRows].join('\n')
   const bom = '\uFEFF'
-  const blob = new Blob([bom + csvContent], { type: 'text/csv;charset=utf-8' })
+  const blob = new Blob([bom + csvContent], { type: 'text/csv;
+import { log } from '#/utils/logger';charset=utf-8' })
   const url = URL.createObjectURL(blob)
   const link = document.createElement('a')
   link.href = url

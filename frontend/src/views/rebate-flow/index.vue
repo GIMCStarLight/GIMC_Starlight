@@ -300,7 +300,7 @@ const nextStep = (project: any) => {
 }
 
 const handleSelectionChange = (selection: any[]) => {
-  console.log('选中项目:', selection)
+  log.debug('选中项目:', selection)
 }
 
 const handleSizeChange = (size: number) => {
@@ -325,6 +325,7 @@ onMounted(() => {
 <style scoped lang="scss">
 .rebate-flow-container {
   padding: 24px;
+import { log } from '#/utils/logger';
   background-color: #f5f5f5;
   min-height: 100vh;
 }

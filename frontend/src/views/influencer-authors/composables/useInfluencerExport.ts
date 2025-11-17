@@ -27,30 +27,30 @@ export function useInfluencerExport() {
         body: JSON.stringify({ authorIds: Array.from(selectedIds) }),
       })
 
-      console.log('API响应状态:', response.status, response.statusText)
+      log.debug('API响应状态:', response.status, response.statusText)
 
       if (!response.ok) {
         const errorText = await response.text()
-        console.error('API错误响应:', errorText)
+        log.error('API错误响应:', errorText)
         throw new Error(`API请求失败: ${response.statusText}`)
       }
 
       const result = await response.json()
-      console.log('API返回结果:', result)
+      log.debug('API返回结果:', result)
 
       if (!result.data || !Array.isArray(result.data) || result.data.length === 0) {
-        console.warn('数据为空或格式错误:', result)
+        log.warn('数据为空或格式错误:', result)
         ElMessage.warning('未获取到达人数据')
         return
       }
 
       const fullData = result.data
-      console.log('完整数据数组长度:', fullData.length)
-      console.log('第一条数据样例:', fullData[0])
+      log.debug('完整数据数组长度:', fullData.length)
+      log.debug('第一条数据样例:', fullData[0])
 
       // 检查第一条数据是否有效
       if (!fullData[0] || typeof fullData[0] !== 'object') {
-        console.error('第一条数据无效:', fullData[0])
+        log.error('第一条数据无效:', fullData[0])
         throw new Error('数据格式错误：第一条数据无效')
       }
 
@@ -61,7 +61,7 @@ export function useInfluencerExport() {
         `已导出 ${fullData.length} 位达人的完整数据（包含 ${Object.keys(fullData[0]).length} 个字段）`,
       )
     } catch (error) {
-      console.error('导出失败:', error)
+      log.error('导出失败:', error)
       ElMessage.error('导出失败: ' + ((error as Error).message || '未知错误'))
     }
   }
@@ -72,8 +72,8 @@ export function useInfluencerExport() {
   const downloadAsCSV = (data: Influencer[]) => {
     // 获取所有字段名（从第一条数据）
     const allFields = Object.keys(data[0])
-    console.log('字段总数:', allFields.length)
-    console.log('字段列表:', allFields)
+    log.debug('字段总数:', allFields.length)
+    log.debug('字段列表:', allFields)
 
     // 创建CSV内容（包含所有字段）
     const headers = allFields
@@ -84,7 +84,8 @@ export function useInfluencerExport() {
         if (value === null || value === undefined) {
           return '-'
         } else if (Array.isArray(value)) {
-          return value.join('; ')
+          return value.join(';
+import { log } from '#/utils/logger'; ')
         } else if (typeof value === 'object') {
           return JSON.stringify(value)
         } else {

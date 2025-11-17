@@ -416,7 +416,8 @@ const cooperationTypes = [
 
 const selectedCooperation = ref('')
 const selectedTags = ref<string[]>([])
-const hotTags = ref<{ tag: string; count: number }[]>([])
+const hotTags = ref<{ tag: string;
+import { log } from '#/utils/logger'; count: number }[]>([])
 const showAllTags = ref(false)  // 控制是否显示所有标签
 
 // 内容标签层级结构（基于设计方案的30个一级标签）
@@ -1487,7 +1488,7 @@ const loadHotTags = async () => {
     const tags = await getPopularTags(30)
     hotTags.value = tags
   } catch (error) {
-    console.error('加载热门标签失败:', error)
+    log.error('加载热门标签失败:', error)
   }
 }
 

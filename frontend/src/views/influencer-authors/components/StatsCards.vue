@@ -101,7 +101,7 @@ const loadStats = async () => {
       stats.value = response.data
     }
   } catch (error) {
-    console.error('加载统计数据失败:', error)
+    log.error('加载统计数据失败:', error)
     // 使用默认值
     stats.value = {
       totalInfluencers: 27720,
@@ -122,6 +122,7 @@ onMounted(() => {
 <style scoped lang="scss">
 .stats-cards {
   margin-bottom: 24px;
+import { log } from '#/utils/logger';
 
   .stats-card {
     display: flex;
