@@ -99,7 +99,7 @@ export interface SupplierListResult {
  * 使用 baseRequestClient 以保留完整的响应数据（包括 pagination）
  */
 export async function getSupplierListApi(params?: SupplierListParams) {
-  const response = await baseRequestClient.get<any>('/v2/supplier-database', {
+  const response = await baseRequestClient.get<any>('/supplier-database', {
     params,
   })
   
@@ -130,49 +130,49 @@ export async function getSupplierListApi(params?: SupplierListParams) {
  * 获取供应商详情
  */
 export async function getSupplierDetailApi(id: number) {
-  return requestClient.get<SupplierInfo>(`/v2/supplier-database/${id}`)
+  return requestClient.get<SupplierInfo>(`/supplier-database/${id}`)
 }
 
 /**
  * 创建供应商
  */
 export async function createSupplierApi(data: CreateSupplierDto) {
-  return requestClient.post<SupplierInfo>('/v2/supplier-database', data)
+  return requestClient.post<SupplierInfo>('/supplier-database', data)
 }
 
 /**
  * 更新供应商
  */
 export async function updateSupplierApi(id: number, data: Partial<CreateSupplierDto>) {
-  return requestClient.put<SupplierInfo>(`/v2/supplier-database/${id}`, data)
+  return requestClient.put<SupplierInfo>(`/supplier-database/${id}`, data)
 }
 
 /**
  * 删除供应商
  */
 export async function deleteSupplierApi(id: number) {
-  return requestClient.delete(`/v2/supplier-database/${id}`)
+  return requestClient.delete(`/supplier-database/${id}`)
 }
 
 /**
  * 批量删除供应商
  */
 export async function batchDeleteSuppliersApi(ids: number[]) {
-  return requestClient.delete('/v2/supplier-database/batch', { data: { ids } })
+  return requestClient.delete('/supplier-database/batch', { data: { ids } })
 }
 
 /**
  * 批量创建供应商
  */
 export async function batchCreateSupplierApi(data: BatchCreateSupplierDto) {
-  return requestClient.post<BatchCreateResult>('/v2/supplier-database/batch', data)
+  return requestClient.post<BatchCreateResult>('/supplier-database/batch', data)
 }
 
 /**
  * 下载供应商导入模板
  */
 export async function downloadSupplierTemplateApi() {
-  return requestClient.get('/v2/supplier-database/template/download', {
+  return requestClient.get('/supplier-database/template/download', {
     responseType: 'blob',
     responseReturn: 'body',
   })
