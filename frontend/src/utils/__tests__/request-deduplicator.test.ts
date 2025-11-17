@@ -62,7 +62,7 @@ describe('RequestDeduplicator', () => {
 
   describe('shouldDeduplicate', () => {
     it('应该对白名单中的URL返回true', () => {
-      const config = { url: '/influencers/v3/filter/advanced' }
+      const config = { url: '/influencer-filter/advanced' }
       expect(deduplicator.shouldDeduplicate(config)).toBe(true)
     })
 
@@ -77,23 +77,23 @@ describe('RequestDeduplicator', () => {
     })
 
     it('黑名单优先级应该高于白名单', () => {
-      const config = { url: '/influencers/v3/batch-export' }
+      const config = { url: '/influencer-authors/batch-export' }
       expect(deduplicator.shouldDeduplicate(config)).toBe(false)
     })
 
     it('应该对统计类API返回true', () => {
-      expect(deduplicator.shouldDeduplicate({ url: '/influencers/v3/stats' })).toBe(true)
+      expect(deduplicator.shouldDeduplicate({ url: '/influencer-authors/stats' })).toBe(true)
       expect(deduplicator.shouldDeduplicate({ url: '/kol-match/statistics' })).toBe(true)
       expect(deduplicator.shouldDeduplicate({ url: '/performance/metrics' })).toBe(true)
     })
 
     it('应该对详情类API返回true', () => {
-      expect(deduplicator.shouldDeduplicate({ url: '/influencers/v3/detail/123' })).toBe(true)
+      expect(deduplicator.shouldDeduplicate({ url: '/influencer-authors/detail/123' })).toBe(true)
       expect(deduplicator.shouldDeduplicate({ url: '/kol-match/123/candidates' })).toBe(true)
     })
 
     it('应该对列表查询API返回true', () => {
-      expect(deduplicator.shouldDeduplicate({ url: '/v2/influencers/v3/list' })).toBe(true)
+      expect(deduplicator.shouldDeduplicate({ url: '/influencer-authors/list' })).toBe(true)
       expect(deduplicator.shouldDeduplicate({ url: '/kol-lists' })).toBe(true)
       expect(deduplicator.shouldDeduplicate({ url: '/kol-match' })).toBe(true)
     })
@@ -122,7 +122,7 @@ describe('RequestDeduplicator', () => {
 
     it('应该对相同的请求只执行一次', async () => {
       const requestFn = vi.fn().mockResolvedValue('result')
-      const config = { url: '/influencers/v3/stats', method: 'GET' }
+      const config = { url: '/influencer-authors/stats', method: 'GET' }
       
       const [result1, result2, result3] = await Promise.all([
         deduplicator.deduplicate(config, requestFn),
@@ -138,7 +138,7 @@ describe('RequestDeduplicator', () => {
 
     it('应该在请求完成后从缓存中移除', async () => {
       const requestFn = vi.fn().mockResolvedValue('result')
-      const config = { url: '/influencers/v3/stats', method: 'GET' }
+      const config = { url: '/influencer-authors/stats', method: 'GET' }
       
       await deduplicator.deduplicate(config, requestFn)
       expect(deduplicator.getPendingCount()).toBe(0)
@@ -150,7 +150,7 @@ describe('RequestDeduplicator', () => {
     it('应该处理请求失败的情况', async () => {
       const error = new Error('Request failed')
       const requestFn = vi.fn().mockRejectedValue(error)
-      const config = { url: '/influencers/v3/stats', method: 'GET' }
+      const config = { url: '/influencer-authors/stats', method: 'GET' }
       
       await expect(deduplicator.deduplicate(config, requestFn)).rejects.toThrow('Request failed')
       expect(deduplicator.getPendingCount()).toBe(0)
@@ -161,7 +161,7 @@ describe('RequestDeduplicator', () => {
       const requestFn = vi.fn()
         .mockRejectedValueOnce(error)
         .mockResolvedValueOnce('success')
-      const config = { url: '/influencers/v3/stats', method: 'GET' }
+      const config = { url: '/influencer-authors/stats', method: 'GET' }
       
       await expect(deduplicator.deduplicate(config, requestFn)).rejects.toThrow('Request failed')
       const result = await deduplicator.deduplicate(config, requestFn)
@@ -173,8 +173,8 @@ describe('RequestDeduplicator', () => {
     it('应该对不同参数的相同URL分别处理', async () => {
       const requestFn1 = vi.fn().mockResolvedValue('result1')
       const requestFn2 = vi.fn().mockResolvedValue('result2')
-      const config1 = { url: '/influencers/v3/detail/123', method: 'GET' }
-      const config2 = { url: '/influencers/v3/detail/456', method: 'GET' }
+      const config1 = { url: '/influencer-authors/detail/123', method: 'GET' }
+      const config2 = { url: '/influencer-authors/detail/456', method: 'GET' }
       
       const [result1, result2] = await Promise.all([
         deduplicator.deduplicate(config1, requestFn1),
@@ -190,7 +190,7 @@ describe('RequestDeduplicator', () => {
     it('应该正确处理复杂的请求数据', async () => {
       const requestFn = vi.fn().mockResolvedValue('result')
       const config = {
-        url: '/influencers/v3/filter/advanced',
+        url: '/influencer-filter/advanced',
         method: 'POST',
         data: {
           platform: 'douyin',
@@ -217,7 +217,7 @@ describe('RequestDeduplicator', () => {
       const requestFn = vi.fn().mockImplementation(() => 
         new Promise(resolve => setTimeout(() => resolve('result'), 100))
       )
-      const config = { url: '/influencers/v3/stats', method: 'GET' }
+      const config = { url: '/influencer-authors/stats', method: 'GET' }
       
       deduplicator.deduplicate(config, requestFn)
       expect(deduplicator.getPendingCount()).toBe(1)
@@ -250,7 +250,7 @@ describe('RequestDeduplicator', () => {
 
     it('requestDeduplicator应该正常工作', async () => {
       const requestFn = vi.fn().mockResolvedValue('result')
-      const config = { url: '/influencers/v3/stats', method: 'GET' }
+      const config = { url: '/influencer-authors/stats', method: 'GET' }
       
       const result = await requestDeduplicator.deduplicate(config, requestFn)
       
