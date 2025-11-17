@@ -23,18 +23,23 @@ export default defineConfig(async (config?: ConfigEnv) => ({  application: {},
           format: "esm",
         }),
       ] as PluginOption[],
-      // 优化缓存配置
+      // 优化预构建配置
       optimizeDeps: {
+        // 预构建常用依赖，加速首次启动
         include: [
           "vue",
           "vue-router",
           "pinia",
           "element-plus",
           "@element-plus/icons-vue",
+          "@vueuse/core",
           "dayjs",
           "echarts",
+          "exceljs",
         ],
+        // 排除 Node.js 专用模块
         exclude: ["@nuxt/kit", "jiti", "c12", "untyped"],
+        // 设置为 false 以使用缓存，加速二次启动
         force: false,
       },
       server: {
@@ -74,15 +79,20 @@ export default defineConfig(async (config?: ConfigEnv) => ({  application: {},
         cssCodeSplit: true,
         // 设置 chunk 大小警告限制
         chunkSizeWarningLimit: 1000,
-        // 生产环境关闭 sourcemap
-        sourcemap: false,
+        // 生产环境关闭 sourcemap，开发环境启用以便调试
+        sourcemap: isDev,
+        // 目标浏览器
+        target: 'es2015',
         // 压缩配置
         minify: 'terser',
         terserOptions: {
           compress: {
-            drop_console: true, // 移除console
             drop_debugger: true, // 移除debugger
-            pure_funcs: ['console.log'], // 移除特定函数
+            // 不移除console，由log工具在生产环境自动降低日志级别
+            passes: 2, // 压缩次数，提升压缩率
+          },
+          format: {
+            comments: false, // 移除注释
           },
         },
         rollupOptions: {
@@ -102,9 +112,13 @@ export default defineConfig(async (config?: ConfigEnv) => ({  application: {},
           output: {
             // 使用函数形式的代码分割
             manualChunks(id: string) {
-              // Element Plus 相关
+              // Element Plus 相关 - 独立分包
               if (id.includes("element-plus")) {
                 return "element-plus";
+              }
+              // Element Plus Icons - 独立分包
+              if (id.includes("@element-plus/icons-vue")) {
+                return "element-icons";
               }
               // Vue 核心库
               if (id.includes("vue") && !id.includes("node_modules")) {
@@ -116,15 +130,31 @@ export default defineConfig(async (config?: ConfigEnv) => ({  application: {},
               if (id.includes("pinia")) {
                 return "pinia";
               }
+              // 图表库单独分包
+              if (id.includes("echarts")) {
+                return "echarts";
+              }
               // 工具库
-              if (id.includes("dayjs")) {
+              if (id.includes("dayjs") || id.includes("@vueuse/core")) {
                 return "utils";
               }
-              // 第三方库
+              // Excel 相关库
+              if (id.includes("exceljs")) {
+                return "excel";
+              }
+              // Vben 内部包
+              if (id.includes("@vben/") || id.includes("workspace:")) {
+                return "vben-core";
+              }
+              // 其他第三方库
               if (id.includes("node_modules")) {
                 return "vendor";
               }
             },
+            // 优化输出文件名
+            chunkFileNames: 'js/[name]-[hash].js',
+            entryFileNames: 'js/[name]-[hash].js',
+            assetFileNames: '[ext]/[name]-[hash].[ext]',
           },
         },
       },
