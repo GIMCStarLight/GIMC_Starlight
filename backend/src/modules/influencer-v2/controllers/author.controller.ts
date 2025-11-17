@@ -26,16 +26,16 @@ import {
 /**
  * 筛选功能API控制器
  * 基于物化视图 mv_authors_combined
- * 路由: /api/influencers/v3/filter (全局前缀api已在main.ts配置)
+ * 路由: /api/influencer-filter (全局前缀api已在main.ts配置)
  */
 @ApiTags('达人筛选')
-@Controller('influencers/v3/filter')
+@Controller('influencer-filter')
 export class InfluencerFilterController {
   constructor(private readonly filterService: AuthorFilterService) {}
 
   /**
    * 高级筛选查询
-   * POST /api/influencers/v3/filter/advanced
+   * POST /api/influencer-filter/advanced
    * 使用物化视图 + Redis缓存
    */
   @Post('advanced')
@@ -84,7 +84,7 @@ export class InfluencerFilterController {
 
   /**
    * 快速筛选查询
-   * GET /api/influencers/v3/filter/quick
+   * GET /api/influencer-filter/quick
    */
   @Get('quick')
   @HttpCode(HttpStatus.OK)
@@ -129,7 +129,7 @@ export class InfluencerFilterController {
 
   /**
    * 获取筛选统计
-   * GET /api/influencers/v3/filter/stats
+   * GET /api/influencer-filter/stats
    */
   @Get('stats')
   @HttpCode(HttpStatus.OK)
@@ -166,7 +166,7 @@ export class InfluencerFilterController {
 
   /**
    * 获取热门标签
-   * GET /api/influencers/v3/filter/popular-tags
+   * GET /api/influencer-filter/popular-tags
    */
   @Get('popular-tags')
   @HttpCode(HttpStatus.OK)

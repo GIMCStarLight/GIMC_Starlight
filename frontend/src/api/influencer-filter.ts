@@ -1,6 +1,6 @@
 /**
  * 达人筛选API (基于物化视图优化)
- * 路由: /api/influencers/v3/filter
+ * 路由: /api/influencer-filter
  */
 import { requestClient } from './request'
 import { requestDeduplicator } from '../utils/request-deduplicator'
@@ -127,7 +127,7 @@ export interface PopularTag {
  */
 export async function quickFilter(params: QuickFilterParams): Promise<FilterResponse> {
   try {
-    const response = await requestClient.get('/influencers/v3/filter/quick', { params })
+    const response = await requestClient.get('/influencer-filter/quick', { params })
     // requestClient 配置了 responseReturn: 'data' 和 defaultResponseInterceptor
     // 会自动解包: { code, data } -> data -> { data, pagination, performance }
     return response
@@ -144,7 +144,7 @@ export async function advancedFilter(params: AdvancedFilterParams): Promise<Filt
   // 使用请求去重器包装
   return requestDeduplicator.deduplicate(
     {
-      url: '/influencers/v3/filter/advanced',
+      url: '/influencer-filter/advanced',
       method: 'POST',
       data: params,
     },
@@ -172,7 +172,7 @@ export async function advancedFilter(params: AdvancedFilterParams): Promise<Filt
         }
 
         // POST请求,参数放在body里
-        const response = await requestClient.post('/influencers/v3/filter/advanced', payload)
+        const response = await requestClient.post('/influencer-filter/advanced', payload)
         // requestClient 配置了 responseReturn: 'data' 和 defaultResponseInterceptor
         // 会自动解包: { code, data } -> data -> { data, pagination, performance }
         return response
@@ -189,7 +189,7 @@ export async function advancedFilter(params: AdvancedFilterParams): Promise<Filt
  */
 export async function getFilterStatistics(params: Omit<AdvancedFilterParams, 'page' | 'limit'>): Promise<FilterStatsResponse> {
   try {
-    const response = await requestClient.get('/influencers/v3/filter/stats', { params })
+    const response = await requestClient.get('/influencer-filter/stats', { params })
     return response
   } catch (error) {
     console.error('获取筛选统计失败:', error)
@@ -202,7 +202,7 @@ export async function getFilterStatistics(params: Omit<AdvancedFilterParams, 'pa
  */
 export async function getPopularTags(limit = 20): Promise<PopularTag[]> {
   try {
-    const response = await requestClient.get('/influencers/v3/filter/popular-tags', {
+    const response = await requestClient.get('/influencer-filter/popular-tags', {
       params: { limit }
     })
     return response
@@ -217,7 +217,7 @@ export async function getPopularTags(limit = 20): Promise<PopularTag[]> {
  */
 export async function refreshMaterializedView(): Promise<{ message: string }> {
   try {
-    const response = await requestClient.post('/influencers/v3/filter/refresh-view')
+    const response = await requestClient.post('/influencer-filter/refresh-view')
     return response
   } catch (error) {
     console.error('刷新物化视图失败:', error)

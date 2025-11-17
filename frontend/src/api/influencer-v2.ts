@@ -111,7 +111,7 @@ export interface InfluencerDetailResponse {
  * 获取影响者列表
  */
 export async function getInfluencerList(params: InfluencerQueryParams = {}) {
-  const res = await requestClient.get<InfluencerListResponse>('/v2/influencers', {
+  const res = await requestClient.get<InfluencerListResponse>('/influencer-manager', {
     params,
   });
 
@@ -192,7 +192,7 @@ export async function getInfluencerList(params: InfluencerQueryParams = {}) {
  * 获取影响者详情
  */
 export async function getInfluencerDetail(authorId: string) {
-  const res = await requestClient.get<InfluencerDetailResponse>(`/v2/influencers/${authorId}`);
+  const res = await requestClient.get<InfluencerDetailResponse>(`/influencer-manager/${authorId}`);
 
   const src = (res as any)?.data || {};
 
@@ -254,7 +254,7 @@ export async function getInfluencerDetail(authorId: string) {
  * 因此做了兼容性解析，优先提取最内层的 data
  */
 export async function getInfluencerFullData(authorId: string): Promise<Record<string, any>> {
-  const res = await baseRequestClient.get(`/v2/influencers/${authorId}/full-data`);
+  const res = await baseRequestClient.get(`/influencer-manager/${authorId}/full-data`);
 
   const payload =
     (res && (res as any).data && (res as any).data.data && (res as any).data.data.data)
