@@ -1,67 +1,10 @@
 <template>
   <div class="quick-filters-optimized">
-    <!-- 第0行:基础信息 -->
-    <div class="filter-row basic-info-row">
-      <span class="filter-label">基础筛选</span>
-      <div class="filter-content basic-info-grid">
-        <div class="basic-item">
-          <el-input 
-            v-model="basicInfo.keyword" 
-            placeholder="搜索昵称或ID" 
-            clearable 
-            size="default"
-            @input="handleBasicInfoChange"
-          >
-            <template #prefix><Icon icon="lucide:search" /></template>
-          </el-input>
-        </div>
-        <div class="basic-item">
-          <el-input 
-            v-model="basicInfo.province" 
-            placeholder="省份(如: 北京)" 
-            clearable 
-            size="default"
-            @input="handleBasicInfoChange"
-          >
-            <template #prefix><Icon icon="lucide:map-pin" /></template>
-          </el-input>
-        </div>
-        <div class="basic-item">
-          <el-input 
-            v-model="basicInfo.city" 
-            placeholder="城市(如: 北京市)" 
-            clearable 
-            size="default"
-            @input="handleBasicInfoChange"
-          >
-            <template #prefix><Icon icon="lucide:map" /></template>
-          </el-input>
-        </div>
-        <div class="basic-item">
-          <el-radio-group v-model="basicInfo.gender" size="default" @change="handleBasicInfoChange">
-            <el-radio-button :value="undefined">不限性别</el-radio-button>
-            <el-radio-button value="M">男</el-radio-button>
-            <el-radio-button value="F">女</el-radio-button>
-          </el-radio-group>
-        </div>
-      </div>
-    </div>
+    <!-- 基础信息筛选 -->
+    <BasicInfoFilter v-model="basicInfo" @update:model-value="handleBasicInfoChange" />
 
-    <!-- 第1行:业务场景 -->
-    <div class="filter-row">
-      <span class="filter-label">合作诉求</span>
-      <div class="filter-buttons">
-        <el-button
-          v-for="item in cooperationTypes"
-          :key="item.value"
-          :type="selectedCooperation === item.value ? 'primary' : ''"
-          size="default"
-          @click="handleCooperationChange(item.value)"
-        >
-          {{ item.label }}
-        </el-button>
-      </div>
-    </div>
+    <!-- 合作诉求 -->
+    <DouyinCooperationFilter v-model="selectedCooperation" @update:model-value="handleCooperationChange" />
 
     <!-- 第2行:内容定位 -->
     <div class="filter-row">
@@ -160,78 +103,11 @@
       </div>
     </div>
 
-    <!-- 第3行:达人属性(仅保留特殊认证) -->
-    <div class="filter-row">
-      <span class="filter-label">达人认证</span>
-      <div class="filter-buttons">
-        <el-button
-          :type="influencerAttrs.certType === undefined ? 'primary' : ''"
-          size="default"
-          @click="influencerAttrs.certType = undefined; handleAttrChange()"
-        >
-          不限
-        </el-button>
-        <el-button
-          :type="influencerAttrs.certType === 'shenguangxingmei' ? 'primary' : ''"
-          size="default"
-          @click="influencerAttrs.certType = 'shenguangxingmei'; handleAttrChange()"
-        >
-          省广星媒
-        </el-button>
-        <el-button
-          :type="influencerAttrs.certType === 'xingliandaren' ? 'primary' : ''"
-          size="default"
-          @click="influencerAttrs.certType = 'xingliandaren'; handleAttrChange()"
-        >
-          星链计划
-        </el-button>
-        <el-button
-          :type="influencerAttrs.certType === 'excellentAuthor' ? 'primary' : ''"
-          size="default"
-          @click="influencerAttrs.certType = 'excellentAuthor'; handleAttrChange()"
-        >
-          优质达人
-        </el-button>
-        <el-button
-          :type="influencerAttrs.certType === 'risingStart' ? 'primary' : ''"
-          size="default"
-          @click="influencerAttrs.certType = 'risingStart'; handleAttrChange()"
-        >
-          新星达人
-        </el-button>
-        <el-button
-          :type="influencerAttrs.certType === 'highPotential' ? 'primary' : ''"
-          size="default"
-          @click="influencerAttrs.certType = 'highPotential'; handleAttrChange()"
-        >
-          高潜达人
-        </el-button>
-        <el-button
-          :type="influencerAttrs.certType === 'blackHorse' ? 'primary' : ''"
-          size="default"
-          @click="influencerAttrs.certType = 'blackHorse'; handleAttrChange()"
-        >
-          黑马达人
-        </el-button>
-      </div>
-    </div>
+    <!-- 达人认证 -->
+    <DouyinCertFilter v-model="influencerAttrs.certType" @update:model-value="handleAttrChange" />
 
-    <!-- 第6行:智能场景 -->
-    <div class="filter-row">
-      <span class="filter-label">场景推荐</span>
-      <div class="filter-buttons">
-        <el-button
-          v-for="scenario in scenarios"
-          :key="scenario.key"
-          :type="selectedScenario === scenario.key ? 'primary' : ''"
-          size="default"
-          @click="applyScenario(scenario)"
-        >
-          <Icon :icon="scenario.icon" />
-          {{ scenario.label }}
-        </el-button>
-      </div>
-    </div>
+    <!-- 场景推荐 -->
+    <DouyinScenarioFilter v-model="selectedScenario" @apply-scenario="applyScenario" />
 
     <!-- 第7行:核心指标 -->
     <div class="filter-row">
@@ -390,6 +266,10 @@ import { useDebounceFn } from '@vueuse/core'
 import { log } from '#/utils/logger'
 import DiscreteRangePicker from '../DiscreteRangePicker.vue'
 import PickerInput from '../PickerInput.vue'
+import BasicInfoFilter from './filters/BasicInfoFilter.vue'
+import DouyinCooperationFilter from './filters/DouyinCooperationFilter.vue'
+import DouyinCertFilter from './filters/DouyinCertFilter.vue'
+import DouyinScenarioFilter from './filters/DouyinScenarioFilter.vue'
 import { 
   FOLLOWER_OPTIONS, 
   PRICE_OPTIONS, 

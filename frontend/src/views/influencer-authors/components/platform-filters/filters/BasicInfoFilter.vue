@@ -57,7 +57,7 @@ interface BasicInfo {
   keyword?: string
   province?: string
   city?: string
-  gender?: 'M' | 'F' | undefined
+  gender?: 'M' | 'F' | 'U' | undefined
 }
 
 const props = defineProps<{
