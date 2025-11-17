@@ -31,7 +31,7 @@
     "dev": "pnpm vite --mode development",
     "format": "prettier --write .",
     "lint": "eslint . --fix",
-    "postinstall": "pnpm -r run build",
+    "postinstall": "pnpm -r --filter='!@vben-core/design' run build",
     "preinstall": "npx only-allow pnpm",
     "preview": "vite preview",
     "reinstall": "pnpm clean --del-lock && pnpm install",
