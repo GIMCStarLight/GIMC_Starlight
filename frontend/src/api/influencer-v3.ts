@@ -1,5 +1,5 @@
 /**
- * 达人广场V3 API接口
+ * 达人广场API接口
  */
 import { requestClient, baseRequestClient } from './request'
 import { requestDeduplicator } from '../utils/request-deduplicator'
@@ -44,7 +44,7 @@ export interface InfluencerListResponse {
 export async function getInfluencerListV3(params: InfluencerListParams): Promise<InfluencerListResponse> {
   return requestDeduplicator.deduplicate(
     {
-      url: '/v2/influencers/v3/list',
+      url: '/influencer-authors/list',
       method: 'GET',
       params,
     },
@@ -60,7 +60,7 @@ export async function getInfluencerListV3(params: InfluencerListParams): Promise
         }
         
         // 使用 baseRequestClient 获取完整 AxiosResponse
-        const axiosResponse = await baseRequestClient.get('/v2/influencers/v3/list', { params: queryParams })
+        const axiosResponse = await baseRequestClient.get('/influencer-authors/list', { params: queryParams })
         console.log('📦 [API] Axios原始响应:', axiosResponse)
         
         // 从 AxiosResponse 中提取 data
@@ -93,12 +93,12 @@ export async function getInfluencerListV3(params: InfluencerListParams): Promise
 export async function getInfluencerStats() {
   return requestDeduplicator.deduplicate(
     {
-      url: '/influencers/v3/stats',
+      url: '/influencer-authors/stats',
       method: 'GET',
     },
     async () => {
       try {
-        const response = await requestClient.get('/influencers/v3/stats')
+        const response = await requestClient.get('/influencer-authors/stats')
         // 后端返回: { code, message, data: { data: {...} } }
         const result = response.data || response
         return result.data || result
@@ -116,12 +116,12 @@ export async function getInfluencerStats() {
 export async function getInfluencerDetailV3(authorId: string) {
   return requestDeduplicator.deduplicate(
     {
-      url: `/influencers/v3/detail/${authorId}`,
+      url: `/influencer-authors/detail/${authorId}`,
       method: 'GET',
     },
     async () => {
       try {
-        const response = await requestClient.get(`/influencers/v3/detail/${authorId}`)
+        const response = await requestClient.get(`/influencer-authors/detail/${authorId}`)
         const result = response.data || response
         return result.data || result
       } catch (error) {

@@ -24,8 +24,8 @@ import {
   InfluencerV3StatsResponseDto,
 } from '../dto/influencer-v3-response.dto';
 
-@ApiTags('达人广场 V3')
-@Controller('v2/influencers/v3')
+@ApiTags('达人广场')
+@Controller('influencer-authors')
 export class InfluencerV3Controller {
   private readonly logger = new Logger(InfluencerV3Controller.name);
 
