@@ -352,8 +352,11 @@ catalogs:
       specifier: ^5.14.0
       version: 5.14.0
     sass:
-      specifier: ^1.89.2
+      specifier: ^1.94.0
       version: 1.94.0
+    sass-embedded:
+      specifier: ^1.77.8
+      version: 1.93.3
     secure-ls:
       specifier: ^2.0.0
       version: 2.0.0
@@ -627,6 +630,9 @@ importers:
       rimraf:
         specifier: 'catalog:'
         version: 6.1.0
+      sass:
+        specifier: 'catalog:'
+        version: 1.94.0
       sass-embedded:
         specifier: ^1.93.3
         version: 1.93.3
@@ -964,9 +970,9 @@ importers:
       rollup-plugin-visualizer:
         specifier: 'catalog:'
         version: 5.14.0(rollup@4.53.2)
-      sass:
+      sass-embedded:
         specifier: 'catalog:'
-        version: 1.94.0
+        version: 1.93.3
       vite:
         specifier: 'catalog:'
         version: 6.4.1(@types/node@24.10.1)(jiti@2.6.1)(sass-embedded@1.93.3)(sass@1.94.0)(terser@5.44.1)(yaml@2.8.1)
