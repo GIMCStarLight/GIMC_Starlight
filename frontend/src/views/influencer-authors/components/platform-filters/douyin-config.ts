@@ -350,12 +350,14 @@ export const SCENARIO_OPTIONS = [
     key: '',
     label: '全部场景',
     description: '不限制场景',
+    icon: 'lucide:layers',
     filters: {}
   },
   {
     key: 'new_product_launch',
     label: '新品上市',
     description: '适合新品推广的达人',
+    icon: 'lucide:sparkles',
     filters: {
       minFollowers: 100000,
       minInteractRate: 0.03,
@@ -366,6 +368,7 @@ export const SCENARIO_OPTIONS = [
     key: 'brand_exposure',
     label: '品牌曝光',
     description: '高粉丝量，适合品牌曝光',
+    icon: 'lucide:megaphone',
     filters: {
       minFollowers: 500000,
       minExpectedPlayNum: 100000
@@ -375,6 +378,7 @@ export const SCENARIO_OPTIONS = [
     key: 'ecommerce',
     label: '电商带货',
     description: '带货能力强的达人',
+    icon: 'lucide:shopping-bag',
     filters: {
       minGmv30d: 100000,
       minShoppingIndex: 600
@@ -384,6 +388,7 @@ export const SCENARIO_OPTIONS = [
     key: 'content_marketing',
     label: '内容营销',
     description: '内容质量高，互动率好',
+    icon: 'lucide:trending-up',
     filters: {
       minInteractRate: 0.05,
       minPlayOverRate: 0.3,
@@ -394,6 +399,7 @@ export const SCENARIO_OPTIONS = [
     key: 'rising_star',
     label: '潜力新星',
     description: '成长快速的新星达人',
+    icon: 'lucide:rocket',
     filters: {
       minFollowers: 10000,
       maxFollowers: 500000,
