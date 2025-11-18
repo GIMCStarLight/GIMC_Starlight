@@ -27,10 +27,10 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
+import { log } from '../../../utils/logger'
 
 interface Option {
   label: string;
-import { log } from '#/utils/logger';
   value: number | string | undefined;
 }
 
