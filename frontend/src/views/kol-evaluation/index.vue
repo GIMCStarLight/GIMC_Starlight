@@ -18,207 +18,26 @@
     </div>
 
     <!-- 统计卡片 -->
-    <div class="stats-cards">
-      <el-row :gutter="16">
-        <el-col :xs="12" :sm="6">
-          <el-card class="stat-card" shadow="hover">
-            <div class="stat-content">
-              <div class="stat-icon stat-icon-primary">
-                <el-icon :size="28"><User /></el-icon>
-              </div>
-              <div class="stat-info">
-                <div class="stat-number">{{ statistics.totalInfluencers || 0 }}</div>
-                <div class="stat-label">已评价达人</div>
-              </div>
-            </div>
-          </el-card>
-        </el-col>
-        <el-col :xs="12" :sm="6">
-          <el-card class="stat-card" shadow="hover">
-            <div class="stat-content">
-              <div class="stat-icon stat-icon-success">
-                <el-icon :size="28"><ChatDotRound /></el-icon>
-              </div>
-              <div class="stat-info">
-                <div class="stat-number">{{ statistics.totalReviews || 0 }}</div>
-                <div class="stat-label">总评价数</div>
-              </div>
-            </div>
-          </el-card>
-        </el-col>
-        <el-col :xs="12" :sm="6">
-          <el-card class="stat-card" shadow="hover" @click="showHighScoreList">
-            <div class="stat-content">
-              <div class="stat-icon stat-icon-warning">
-                <el-icon :size="28"><Medal /></el-icon>
-              </div>
-              <div class="stat-info">
-                <div class="stat-number">{{ scoreStats.highScoreCount || 0 }}</div>
-                <div class="stat-label">优质达人 (4-5分)</div>
-                <div class="stat-percent">{{ scoreStats.highScorePercent }}%</div>
-              </div>
-            </div>
-          </el-card>
-        </el-col>
-        <el-col :xs="12" :sm="6">
-          <el-card class="stat-card" shadow="hover">
-            <div class="stat-content">
-              <div class="stat-icon stat-icon-danger">
-                <el-icon :size="28"><TrendCharts /></el-icon>
-              </div>
-              <div class="stat-info">
-                <div class="stat-number">+{{ statistics.todayReviews || 0 }}</div>
-                <div class="stat-label">今日新增</div>
-              </div>
-            </div>
-          </el-card>
-        </el-col>
-      </el-row>
-    </div>
+    <ReviewStatsCards 
+      :statistics="statistics" 
+      :score-stats="scoreStats"
+      @high-score-click="showHighScoreList"
+    />
 
     <!-- 评分分布可视化卡片 -->
-    <el-card class="distribution-card" shadow="never" v-if="scoreDistribution.length > 0">
-      <div class="distribution-header">
-        <el-icon class="distribution-icon"><DataAnalysis /></el-icon>
-        <span class="distribution-title">评分分布分析</span>
-      </div>
-      <div class="distribution-content">
-        <el-row :gutter="16">
-          <el-col :span="24" :lg="16">
-            <div class="distribution-chart">
-              <div v-for="item in scoreDistribution" :key="item.score" class="chart-item">
-                <div class="chart-label">
-                  <el-rate :model-value="item.score" disabled :max="5" size="small" />
-                  <span class="score-text">{{ item.score }}分</span>
-                </div>
-                <div class="chart-bar-wrapper">
-                  <div 
-                    class="chart-bar" 
-                    :style="{ width: getBarWidth(item.count) + '%' }"
-                    :class="getBarClass(item.score)"
-                  >
-                    <span class="bar-count">{{ item.count }}个达人</span>
-                  </div>
-                </div>
-                <div class="chart-percent">{{ getPercent(item.count) }}%</div>
-              </div>
-            </div>
-          </el-col>
-          <el-col :span="24" :lg="8">
-            <div class="distribution-summary">
-              <div class="summary-item">
-                <el-icon class="summary-icon summary-icon-excellent"><Star /></el-icon>
-                <div class="summary-content">
-                  <div class="summary-label">优秀达人 (5分)</div>
-                  <div class="summary-value">{{ scoreStats.excellentCount }} 个 ({{ scoreStats.excellentPercent }}%)</div>
-                </div>
-              </div>
-              <div class="summary-item">
-                <el-icon class="summary-icon summary-icon-good"><Select /></el-icon>
-                <div class="summary-content">
-                  <div class="summary-label">良好达人 (4分)</div>
-                  <div class="summary-value">{{ scoreStats.goodCount }} 个 ({{ scoreStats.goodPercent }}%)</div>
-                </div>
-              </div>
-              <div class="summary-item">
-                <el-icon class="summary-icon summary-icon-average"><Minus /></el-icon>
-                <div class="summary-content">
-                  <div class="summary-label">一般达人 (3分)</div>
-                  <div class="summary-value">{{ scoreStats.averageCount }} 个 ({{ scoreStats.averagePercent }}%)</div>
-                </div>
-              </div>
-              <div class="summary-item">
-                <el-icon class="summary-icon summary-icon-poor"><WarningFilled /></el-icon>
-                <div class="summary-content">
-                  <div class="summary-label">待改进 (1-2分)</div>
-                  <div class="summary-value">{{ scoreStats.poorCount }} 个 ({{ scoreStats.poorPercent }}%)</div>
-                </div>
-              </div>
-            </div>
-          </el-col>
-        </el-row>
-      </div>
-    </el-card>
+    <ScoreDistributionChart 
+      :score-distribution="scoreDistribution"
+      :score-stats="scoreStats"
+    />
 
     <!-- 搜索筛选区域 -->
-    <el-card class="search-card" shadow="never">
-      <div class="search-header">
-        <el-icon class="search-icon"><Filter /></el-icon>
-        <span class="search-title">筛选条件</span>
-      </div>
-      <el-form :model="searchForm" label-width="80px">
-        <el-row :gutter="16">
-          <el-col :xs="24" :sm="12" :md="8" :lg="6">
-            <el-form-item label="达人 ID">
-              <el-input
-                v-model="searchForm.authorId"
-                placeholder="请输入达人 ID"
-                clearable
-                prefix-icon="Search"
-              />
-            </el-form-item>
-          </el-col>
-          <el-col :xs="24" :sm="12" :md="8" :lg="6">
-            <el-form-item label="评价人">
-              <el-input
-                v-model="searchForm.reviewer"
-                placeholder="请输入评价人"
-                clearable
-                prefix-icon="User"
-              />
-            </el-form-item>
-          </el-col>
-          <el-col :xs="24" :sm="12" :md="8" :lg="6">
-            <el-form-item label="评分范围">
-              <el-select
-                v-model="searchForm.scoreRange"
-                placeholder="请选择评分"
-                clearable
-              >
-                <el-option label="⭐ 1分" value="1-1" />
-                <el-option label="⭐⭐ 2分" value="2-2" />
-                <el-option label="⭐⭐⭐ 3分" value="3-3" />
-                <el-option label="⭐⭐⭐⭐ 4分" value="4-4" />
-                <el-option label="⭐⭐⭐⭐⭐ 5分" value="5-5" />
-                <el-option label="低分 (1-2分)" value="1-2" />
-                <el-option label="中等 (3分)" value="3-3" />
-                <el-option label="高分 (4-5分)" value="4-5" />
-              </el-select>
-            </el-form-item>
-          </el-col>
-          <el-col :xs="24" :sm="12" :md="8" :lg="6">
-            <el-form-item label="时间范围">
-              <el-date-picker
-                v-model="searchForm.dateRange"
-                type="daterange"
-                range-separator="至"
-                start-placeholder="开始日期"
-                end-placeholder="结束日期"
-                style="width: 100%"
-                :shortcuts="dateShortcuts"
-              />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="24" class="search-actions">
-            <el-button type="primary" @click="handleSearch" :loading="loading">
-              <el-icon><Search /></el-icon>
-              搜索
-            </el-button>
-            <el-button @click="handleReset">
-              <el-icon><Refresh /></el-icon>
-              重置
-            </el-button>
-            <div class="search-stats">
-              <el-tag v-if="pagination.total > 0" type="info" size="large">
-                找到 <strong>{{ pagination.total }}</strong> 条评价
-              </el-tag>
-            </div>
-          </el-col>
-        </el-row>
-      </el-form>
-    </el-card>
+    <ReviewSearchForm 
+      v-model="searchForm"
+      :loading="loading"
+      :total="pagination.total"
+      @search="handleSearch"
+      @reset="handleReset"
+    />
 
     <!-- 评价列表 -->
     <el-card class="table-card" shadow="never">
@@ -425,10 +244,10 @@
           </div>
         </div>
 
-        <div v-if="currentReview.review_tags && currentReview.review_tags.length > 0" class="tags-section">
+        <div v-if="currentReview.reviewTags && currentReview.reviewTags.length > 0" class="tags-section">
           <h4><el-icon><PriceTag /></el-icon> 评价标签</h4>
           <el-space wrap>
-            <el-tag v-for="tag in currentReview.review_tags" :key="tag" type="success">
+            <el-tag v-for="tag in currentReview.reviewTags" :key="tag" type="success">
               {{ tag }}
             </el-tag>
           </el-space>
@@ -469,8 +288,12 @@ import {
   Minus,
   WarningFilled
 } from '@element-plus/icons-vue'
-import { requestClient } from '#/api/request'
-import { getReviewStatisticsApi, deleteKolReviewApi, updateKolReviewApi, batchAuditKolReviewsApi, type KolReviewInfo } from '#/api/kol-reviews'
+import { requestClient } from '../../api/request'
+import { getReviewStatisticsApi, deleteKolReviewApi, updateKolReviewApi, batchAuditKolReviewsApi, type KolReviewInfo } from '../../api/kol-reviews'
+import { log } from '../../utils/logger'
+import ReviewStatsCards from './components/ReviewStatsCards.vue'
+import ScoreDistributionChart from './components/ScoreDistributionChart.vue'
+import ReviewSearchForm from './components/ReviewSearchForm.vue'
 
 // 页面状态
 const loading = ref(false)
@@ -484,8 +307,7 @@ const statistics = ref({
   totalReviews: 0,
   averageScore: 0 as string | number,
   todayReviews: 0,
-  scoreDistribution: [] as Array<{ score: number;
-import { log } from '#/utils/logger'; count: number }>
+  scoreDistribution: [] as Array<{ score: number; count: number }>
 })
 
 // 评分统计
@@ -591,8 +413,8 @@ const loadReviews = async () => {
     // 1. 原始数组：[...]
     // 2. 包含分页的对象：{ data: [...], pagination: {...} }
     
-    let dataArray = []
-    let paginationInfo = null
+    let dataArray: any[] = []
+    let paginationInfo: any = null
     
     if (Array.isArray(response)) {
       // 情兵1：直接返回数组
