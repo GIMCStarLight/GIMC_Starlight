@@ -128,7 +128,15 @@ import { UploadModule } from './modules/upload/upload.module';
     // JWT 配置
     JwtModule.register({
       global: true,
-      secret: process.env.JWT_SECRET || 'your-secret-key',
+      secret: process.env.JWT_SECRET || (() => {
+        // 生产环境必须配置JWT_SECRET
+        if (process.env.NODE_ENV === 'production' && !process.env.JWT_SECRET) {
+          throw new Error('生产环境必须配置 JWT_SECRET 环境变量');
+        }
+        // 开发环境使用默认值
+        console.warn('⚠️  使用默认JWT密钥，仅适用于开发环境');
+        return 'your-secret-key';
+      })(),
       signOptions: {
         expiresIn: process.env.JWT_EXPIRES_IN || '1h',
         issuer: process.env.JWT_ISSUER || 'gimcstar-light-system',

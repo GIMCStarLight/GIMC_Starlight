@@ -179,7 +179,7 @@ export class CacheService {
   }
 
   /**
-   * 获取或设置缓存（缓存穿透保护）
+   * 获取或设置缓存（缓存穿透保护 + Redis降级）
    * @param key 缓存键
    * @param factory 数据工厂函数
    * @param options 缓存选项
@@ -190,26 +190,30 @@ export class CacheService {
     factory: () => Promise<T>,
     options: CacheOptions = {},
   ): Promise<T> {
-    try {
-      const { prefix = '' } = options;
+    const { prefix = '' } = options;
 
+    try {
       // 先尝试从缓存获取
       const cached = await this.get<T>(key, prefix);
       if (cached !== null) {
         return cached;
       }
-
-      // 缓存未命中，调用工厂函数获取数据
-      const data = await factory();
-
-      // 将数据存入缓存
-      await this.set(key, data, options);
-
-      return data;
     } catch (error) {
-      this.logger.error(`获取或设置缓存失败: ${error.message}`, error.stack);
-      throw error;
+      // Redis故障，记录警告但不抛异常
+      this.logger.warn(`Redis缓存获取失败，降级到直接查询: ${(error as Error).message}`);
     }
+
+    // 缓存未命中或Redis故障，调用工厂函数获取数据
+    const data = await factory();
+
+    // 尝试将数据存入缓存（Redis故障时不影响业务）
+    try {
+      await this.set(key, data, options);
+    } catch (error) {
+      this.logger.warn(`Redis缓存写入失败，但不影响业务: ${(error as Error).message}`);
+    }
+
+    return data;
   }
 
   /**
