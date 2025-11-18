@@ -265,6 +265,7 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
 import { ElMessage, ElMessageBox, type FormInstance } from 'element-plus'
+import { log } from '../../../utils/logger'
 
 // 模拟API接口
 const rebatePolicyConfigApi = {
@@ -365,8 +366,7 @@ interface RebatePolicy {
   baseAmount: number
   percentage: number
   fixedAmount: number
-  tiers: Array<{ threshold: [number, number];
-import { log } from '#/utils/logger'; rate: number }>
+  tiers: Array<{ threshold: [number, number]; rate: number }>
   status: 'active' | 'inactive'
   updatedAt: string
 }
