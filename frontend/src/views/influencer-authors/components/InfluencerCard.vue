@@ -13,9 +13,11 @@
     <!-- 第一层：核心识别信息 -->
     <div class="card-header">
       <div class="avatar-section">
-        <el-avatar :size="60" :src="data.avatar_uri">
-          {{ data.nick_name?.charAt(0) }}
-        </el-avatar>
+        <img 
+          v-lazy="data.avatar_uri" 
+          :alt="data.nick_name"
+          class="avatar-img"
+        />
         <div class="tier-badge" :class="`tier-${data.influencer_tier}`">
           {{ getTierLabel(data.influencer_tier) }}
         </div>
@@ -606,6 +608,27 @@ const handleUpdateData = () => {
       align-items: center;
       margin-bottom: 12px;
       position: relative;
+
+      .avatar-img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        background: var(--el-fill-color-lighter);
+        transition: opacity 0.3s ease;
+        
+        &.lazy-loading {
+          opacity: 0.6;
+        }
+        
+        &.lazy-loaded {
+          opacity: 1;
+        }
+        
+        &.lazy-error {
+          opacity: 0.4;
+        }
+      }
 
       .tier-badge {
         position: absolute;
