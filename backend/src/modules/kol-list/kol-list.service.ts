@@ -14,6 +14,7 @@ import {
   QueryKolListDto,
   BatchCreateKolListDto,
 } from './dto';
+import { SqlErrorUtil } from '../../common/utils/sql-error.util';
 
 export interface PaginationResult<T> {
   data: T[];
@@ -125,35 +126,11 @@ export class KolListService {
       if (error instanceof ConflictException) {
         throw error;
       }
-      const err = this.toSqlError(error);
-      const driverErr = err.driverError ?? err;
-      const code = driverErr.code ?? driverErr.errno;
-      const sqlMessageRaw = driverErr.sqlMessage ?? driverErr.message;
-      const sqlMessage = sqlMessageRaw ? String(sqlMessageRaw) : '';
-      const sql = driverErr.sql;
-      // 尝试从报错信息提取列名，帮助定位具体字段
-      let columnHint = '';
-      const tooLongMatch = /Data too long for column '(.*?)'/i.exec(sqlMessage);
-      const nullMatch = /Column '(.*?)' cannot be null/i.exec(sqlMessage);
-      const dupMatch = /Duplicate entry .* for key '(.*?)'/i.exec(sqlMessage);
-      if (tooLongMatch) columnHint = `字段超长: ${tooLongMatch[1]}`;
-      else if (nullMatch) columnHint = `字段为空: ${nullMatch[1]}`;
-      else if (dupMatch) columnHint = `唯一约束冲突: ${dupMatch[1]}`;
 
-      this.logger.error('创建KOL失败: ', {
-        code,
-        sqlMessage,
-        sql,
-        data: createDto,
-      });
-      const detail = [
-        code ? `MySQL代码=${code}` : '',
-        sqlMessage ? `原因=${sqlMessage}` : '',
-        columnHint ? `定位=${columnHint}` : '',
-      ]
-        .filter(Boolean)
-        .join(' | ');
-      throw new BadRequestException(`创建KOL失败: ${detail}`);
+      // 使用统一的SQL错误处理工具
+      const errorMessage = SqlErrorUtil.formatErrorMessage(error);
+      this.logger.error('创建KOL失败:', { error, data: createDto });
+      throw new BadRequestException(`创建KOL失败: ${errorMessage}`);
     }
   }
 
@@ -177,39 +154,20 @@ export class KolListService {
         result.createdItems.push(createdKol);
         result.successCount++;
       } catch (error: unknown) {
-        const err = this.toSqlError(error);
-        const driverErr = err.driverError ?? err;
-        const code = driverErr.code ?? driverErr.errno;
-        const sqlMessageRaw = driverErr.sqlMessage ?? driverErr.message;
-        const sqlMessage = sqlMessageRaw ? String(sqlMessageRaw) : '';
-        const tooLongMatch = /Data too long for column '(.*?)'/i.exec(
-          sqlMessage,
-        );
-        const nullMatch = /Column '(.*?)' cannot be null/i.exec(sqlMessage);
-        const dupMatch = /Duplicate entry .* for key '(.*?)'/i.exec(sqlMessage);
-        let columnHint = '';
-        if (tooLongMatch) columnHint = `字段超长: ${tooLongMatch[1]}`;
-        else if (nullMatch) columnHint = `字段为空: ${nullMatch[1]}`;
-        else if (dupMatch) columnHint = `唯一约束冲突: ${dupMatch[1]}`;
-        const detail = [
-          code ? `MySQL代码=${code}` : '',
-          sqlMessage ? `原因=${sqlMessage}` : '',
-          columnHint ? `定位=${columnHint}` : '',
-        ]
-          .filter(Boolean)
-          .join(' | ');
-
+        // 使用统一的SQL错误处理工具
+        const errorMessage = SqlErrorUtil.formatErrorMessage(error);
+        
         result.failedCount++;
         result.failedItems.push({
           index: i,
           data: kolData,
           error:
-            detail ||
+            errorMessage ||
             (error instanceof Error ? error.message : undefined) ||
             '创建KOL失败',
         });
         this.logger.warn(
-          `批量创建第 ${i + 1} 个KOL失败: ${detail || this.errMsg(error)}`,
+          `批量创建第 ${i + 1} 个KOL失败: ${errorMessage || this.errMsg(error)}`,
         );
       }
     }
