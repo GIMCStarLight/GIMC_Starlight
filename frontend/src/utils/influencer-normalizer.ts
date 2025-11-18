@@ -61,7 +61,7 @@ export class InfluencerNormalizer {
    */
   static normalizeBatch(items: RawInfluencer[]): Influencer[] {
     if (!Array.isArray(items)) {
-      console.warn('[InfluencerNormalizer] 输入不是数组:', items)
+      log.warn('[InfluencerNormalizer] 输入不是数组:', items)
       return []
     }
 
@@ -87,7 +87,7 @@ export class InfluencerNormalizer {
    */
   static clearCache(): void {
     // WeakMap会自动回收,这里仅做标记
-    console.log('[InfluencerNormalizer] 缓存清除标记')
+    log.debug('[InfluencerNormalizer] 缓存清除标记')
   }
 
   /**
@@ -98,7 +98,7 @@ export class InfluencerNormalizer {
     const missing = requiredFields.filter((field) => !influencer[field as keyof Influencer])
 
     if (missing.length > 0) {
-      console.warn('[InfluencerNormalizer] 缺少必填字段:', {
+      log.warn('[InfluencerNormalizer] 缺少必填字段:', {
         author_id: influencer.author_id,
         missing,
       })

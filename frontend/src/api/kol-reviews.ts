@@ -1,4 +1,5 @@
 import { requestClient } from './request'
+import { requestDeduplicator } from '../utils/request-deduplicator'
 
 export interface CreateKolReviewDto {
   authorId: string
@@ -49,37 +50,62 @@ export interface ReviewStatistics {
 
 // 创建达人评价
 export async function createKolReviewApi(data: CreateKolReviewDto) {
-  return requestClient.post<KolReviewInfo>('v2/kol-reviews', data)
+  return requestClient.post<KolReviewInfo>('kol-reviews', data)
 }
 
 // 更新达人评价
 export async function updateKolReviewApi(id: number, data: Partial<CreateKolReviewDto>) {
-  return requestClient.patch<KolReviewInfo>(`v2/kol-reviews/${id}`, data)
+  return requestClient.patch<KolReviewInfo>(`kol-reviews/${id}`, data)
 }
 
 // 获取达人评价列表（带分页和筛选）
 export async function getKolReviewsApi(params?: any) {
-  return requestClient.get<KolReviewListResult>('v2/kol-reviews', { params })
+  return requestDeduplicator.deduplicate(
+    {
+      url: '/kol-reviews',
+      method: 'GET',
+      params,
+    },
+    () => requestClient.get<KolReviewListResult>('kol-reviews', { params })
+  )
 }
 
 // 获取单条评价详情
 export async function getKolReviewDetailApi(id: number) {
-  return requestClient.get<KolReviewInfo>(`v2/kol-reviews/${id}`)
+  return requestDeduplicator.deduplicate(
+    {
+      url: `/kol-reviews/${id}`,
+      method: 'GET',
+    },
+    () => requestClient.get<KolReviewInfo>(`kol-reviews/${id}`)
+  )
 }
 
 // 获取统计数据
 export async function getReviewStatisticsApi() {
-  return requestClient.get<ReviewStatistics>('v2/kol-reviews/statistics')
+  return requestDeduplicator.deduplicate(
+    {
+      url: '/kol-reviews/statistics',
+      method: 'GET',
+    },
+    () => requestClient.get<ReviewStatistics>('kol-reviews/statistics')
+  )
 }
 
 // 根据authorId获取达人评价
 export async function getKolReviewsByAuthorIdApi(authorId: string) {
-  return requestClient.get<KolReviewInfo[]>(`v2/kol-reviews/author/${authorId}`)
+  return requestDeduplicator.deduplicate(
+    {
+      url: `/kol-reviews/author/${authorId}`,
+      method: 'GET',
+    },
+    () => requestClient.get<KolReviewInfo[]>(`kol-reviews/author/${authorId}`)
+  )
 }
 
 // 删除评价
 export async function deleteKolReviewApi(id: number) {
-  return requestClient.delete(`v2/kol-reviews/${id}`)
+  return requestClient.delete(`kol-reviews/${id}`)
 }
 
 // 审核评价
@@ -88,7 +114,7 @@ export async function auditKolReviewApi(id: number, data: {
   auditor: string
   comment?: string
 }) {
-  return requestClient.post(`v2/kol-reviews/${id}/audit`, data)
+  return requestClient.post(`kol-reviews/${id}/audit`, data)
 }
 
 // 批量删除
@@ -96,7 +122,7 @@ export async function batchDeleteKolReviewsApi(data: {
   ids: number[]
   deletedBy?: string
 }) {
-  return requestClient.post('v2/kol-reviews/batch/delete', data)
+  return requestClient.post('kol-reviews/batch/delete', data)
 }
 
 // 批量审核
@@ -106,5 +132,5 @@ export async function batchAuditKolReviewsApi(data: {
   auditor: string
   comment?: string
 }) {
-  return requestClient.post('v2/kol-reviews/batch/audit', data)
+  return requestClient.post('kol-reviews/batch/audit', data)
 }

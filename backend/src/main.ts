@@ -31,7 +31,7 @@ async function bootstrap() {
   const frontendOrigin =
     configService.get<string>('FRONTEND_ORIGIN') || 'http://localhost:5777';
   app.enableCors({
-    origin: (origin, callback) => {
+    origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
       // 允许本地开发、内网IP和未提供origin的同源请求
       const isLocal =
         !origin ||

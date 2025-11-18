@@ -265,12 +265,13 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
 import { ElMessage, ElMessageBox, type FormInstance } from 'element-plus'
+import { log } from '../../../utils/logger'
 
 // 模拟API接口
 const rebatePolicyConfigApi = {
   getPolicies: async (params: any) => {
     // 模拟数据
-    const mockData = [
+    const mockData: RebatePolicy[] = [
       {
         id: 1,
         policyName: '标准返点政策',
@@ -324,27 +325,27 @@ const rebatePolicyConfigApi = {
   },
   
   createPolicy: async (data: any) => {
-    console.log('创建政策:', data)
+    log.debug('创建政策:', data)
     return { success: true, message: '创建成功' }
   },
   
   updatePolicy: async (id: number, data: any) => {
-    console.log('更新政策:', id, data)
+    log.debug('更新政策:', id, data)
     return { success: true, message: '更新成功' }
   },
   
   deletePolicy: async (id: number) => {
-    console.log('删除政策:', id)
+    log.debug('删除政策:', id)
     return { success: true, message: '删除成功' }
   },
   
   batchDeletePolicies: async (ids: number[]) => {
-    console.log('批量删除政策:', ids)
+    log.debug('批量删除政策:', ids)
     return { success: true, message: '批量删除成功' }
   },
   
   calculateRebate: async (data: any) => {
-    console.log('计算返点:', data)
+    log.debug('计算返点:', data)
     // 模拟计算结果
     const result = {
       baseAmount: data.baseAmount,
@@ -484,8 +485,8 @@ const handleSelectionChange = (selection: RebatePolicy[]) => {
   selectedIds.value = selection.map(item => item.id)
 }
 
-const getPolicyTypeColor = (type: string) => {
-  const colorMap: { [key: string]: string } = {
+const getPolicyTypeColor = (type: string): 'success' | 'primary' | 'warning' | 'danger' | 'info' => {
+  const colorMap: { [key: string]: 'success' | 'primary' | 'warning' | 'danger' | 'info' } = {
     percentage: 'primary',
     fixed: 'success',
     tiered: 'warning'
@@ -502,8 +503,8 @@ const getPolicyTypeLabel = (type: string) => {
   return labelMap[type] || type
 }
 
-const getStatusColor = (status: string) => {
-  const colorMap: { [key: string]: string } = {
+const getStatusColor = (status: string): 'success' | 'primary' | 'warning' | 'danger' | 'info' => {
+  const colorMap: { [key: string]: 'success' | 'primary' | 'warning' | 'danger' | 'info' } = {
     active: 'success',
     inactive: 'info'
   }
@@ -677,7 +678,7 @@ const loadPolicies = async () => {
     
     const response = await rebatePolicyConfigApi.getPolicies(params)
     if (response.success) {
-      policyList.value = response.data.items
+      policyList.value = response.data.items as RebatePolicy[]
       pagination.total = response.data.total
     } else {
       ElMessage.error(response.message)

@@ -1,5 +1,6 @@
 import type { RequestClient } from '@vben/request';
 import { requestClient } from './request';
+import { requestDeduplicator } from '../utils/request-deduplicator';
 
 // 标签相关的类型定义
 export interface Tag {
@@ -93,7 +94,14 @@ class TagApi {
    * 分页查询标签列表
    */
   findAll = async (params?: QueryTagDto): Promise<PaginatedTagResponse> => {
-    return this.client.get('/tags', { params });
+    return requestDeduplicator.deduplicate(
+      {
+        url: '/tags',
+        method: 'GET',
+        params,
+      },
+      () => this.client.get('/tags', { params })
+    );
   }
 
   /**
@@ -103,7 +111,14 @@ class TagApi {
     const params = filters ? Object.fromEntries(
       Object.entries(filters).filter(([_, value]) => value !== undefined)
     ) : undefined;
-    return this.client.get('tags/tree', { params });
+    return requestDeduplicator.deduplicate(
+      {
+        url: '/tags/tree',
+        method: 'GET',
+        params,
+      },
+      () => this.client.get('tags/tree', { params })
+    );
   }
 
   /**
@@ -166,14 +181,27 @@ class TagApi {
    * 根据平台获取标签树结构
    */
   getTreeByPlatform = async (platform: string): Promise<TagTreeNode[]> => {
-    return this.client.get(`/tags/platform/${platform}/tree`);
+    return requestDeduplicator.deduplicate(
+      {
+        url: `/tags/platform/${platform}/tree`,
+        method: 'GET',
+      },
+      () => this.client.get(`/tags/platform/${platform}/tree`)
+    );
   }
 
   /**
    * 根据平台获取根级标签
    */
   getRootsByPlatform = async (platform: string, params?: Omit<QueryTagDto, 'platform' | 'rootOnly'>): Promise<PaginatedTagResponse> => {
-    return this.client.get(`/tags/platform/${platform}/roots`, { params });
+    return requestDeduplicator.deduplicate(
+      {
+        url: `/tags/platform/${platform}/roots`,
+        method: 'GET',
+        params,
+      },
+      () => this.client.get(`/tags/platform/${platform}/roots`, { params })
+    );
   }
 }
 

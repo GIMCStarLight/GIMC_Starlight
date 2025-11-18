@@ -201,6 +201,7 @@
 <script setup lang="ts">
 import { ref, reactive, computed, watch } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
+import { log } from '../../../utils/logger'
 import { 
   type ExtendedKolInfo,
   type MatchCandidate,
@@ -343,7 +344,7 @@ const loadCandidates = async () => {
     
     candidates.value = mockCandidates.sort((a, b) => b.confidence - a.confidence)
   } catch (error) {
-    console.error('加载候选失败:', error)
+    log.error('加载候选失败:', error)
     ElMessage.error('加载匹配候选失败')
   }
 }

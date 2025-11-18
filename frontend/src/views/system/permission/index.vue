@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { log } from '../../../utils/logger'
 import type { FormInstance, FormRules } from 'element-plus';
 
 import type { PermissionApi } from '#/api/core/permission';
@@ -400,9 +401,9 @@ const fetchPermissionList = async () => {
 
     const response = await getPermissionListApi(params, { responseReturn: 'raw' });
     
-    console.log('列表视图API响应:', response);
-    console.log('响应类型:', typeof response);
-    console.log('是否为数组:', Array.isArray(response));
+    log.debug('列表视图API响应:', response);
+    log.debug('响应类型:', typeof response);
+    log.debug('是否为数组:', Array.isArray(response));
     
     let listData = [];
     let total = 0;
@@ -412,7 +413,7 @@ const fetchPermissionList = async () => {
        // 如果直接返回数组（可能是中间件处理后的结果）
        listData = response;
        total = response.length; // 临时使用数组长度作为总数
-       console.log('直接数组响应，数据长度:', total);
+       log.debug('直接数组响应，数据长度:', total);
      } else if (response && response.data && response.data.code === 200) {
        // 标准API响应格式
        const responseData = response.data;
@@ -425,7 +426,7 @@ const fetchPermissionList = async () => {
          pagination.limit = paginationInfo.pageSize || 10;  // 后端返回的是 pageSize
          pagination.total = paginationInfo.total || 0;
          
-         console.log('分页信息解析:', {
+         log.debug('分页信息解析:', {
            原始分页数据: paginationInfo,
            解析后: {
              page: pagination.page,
@@ -436,10 +437,10 @@ const fetchPermissionList = async () => {
        } else {
          // 如果没有pagination信息，使用数组长度作为临时方案
          pagination.total = listData.length;
-         console.warn('后端未返回pagination信息，使用数组长度作为total:', pagination.total);
+         log.warn('后端未返回pagination信息，使用数组长度作为total:', pagination.total);
        }
        
-       console.log('标准API响应格式，数据长度:', listData.length, '总数:', pagination.total);
+       log.debug('标准API响应格式，数据长度:', listData.length, '总数:', pagination.total);
      } else if (response && response.code === 200) {
        // 可能是已经解包的响应
        listData = response.data || [];
@@ -451,7 +452,7 @@ const fetchPermissionList = async () => {
          pagination.limit = paginationInfo.pageSize || 10;  // 后端返回的是 pageSize
          pagination.total = paginationInfo.total || 0;
          
-         console.log('分页信息解析:', {
+         log.debug('分页信息解析:', {
            原始分页数据: paginationInfo,
            解析后: {
              page: pagination.page,
@@ -461,12 +462,12 @@ const fetchPermissionList = async () => {
          });
        } else {
          pagination.total = listData.length;
-         console.warn('后端未返回pagination信息，使用数组长度作为total:', pagination.total);
+         log.warn('后端未返回pagination信息，使用数组长度作为total:', pagination.total);
        }
        
-       console.log('解包响应格式，数据长度:', listData.length, '总数:', pagination.total);
+       log.debug('解包响应格式，数据长度:', listData.length, '总数:', pagination.total);
      } else {
-       console.error('未知的API响应格式:', response);
+       log.error('未知的API响应格式:', response);
      }
      
      // 更新数据
@@ -484,14 +485,14 @@ const fetchPermissionList = async () => {
       gridOptions.data = dataArray;
     }
     
-    console.log('最终设置的数据:', {
+    log.debug('最终设置的数据:', {
       listData: listData.length,
       total: pagination.total,
       gridData: dataArray.length
     });
     
   } catch (error) {
-    console.error('获取权限列表失败:', error);
+    log.error('获取权限列表失败:', error);
     ElMessage.error('获取权限列表失败');
   } finally {
     loading.value = false;

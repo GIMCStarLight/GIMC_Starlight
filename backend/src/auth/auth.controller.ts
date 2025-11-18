@@ -11,6 +11,8 @@ import {
   HttpStatus,
   UnauthorizedException,
 } from '@nestjs/common';
+import type { Response as ExpressResponse } from 'express';
+import type { AuthenticatedRequest } from './types/request.types';
 import { AuthGuard } from '@nestjs/passport';
 import {
   ApiTags,
@@ -132,7 +134,7 @@ export class AuthController {
   })
   async login(
     @Body() loginDto: LoginDto,
-    @Response({ passthrough: true }) res,
+    @Response({ passthrough: true }) res: ExpressResponse,
   ) {
     const result = await this.authService.login(loginDto);
 
@@ -239,7 +241,7 @@ export class AuthController {
   })
   async register(
     @Body() registerDto: RegisterDto,
-    @Response({ passthrough: true }) res,
+    @Response({ passthrough: true }) res: ExpressResponse,
   ) {
     const result = await this.authService.register(registerDto);
 
@@ -305,8 +307,8 @@ export class AuthController {
     },
   })
   async refresh(
-    @Request() req,
-    @Response({ passthrough: true }) res,
+    @Request() req: AuthenticatedRequest,
+    @Response({ passthrough: true }) res: ExpressResponse,
     @Body() body?: { refreshToken?: string },
   ) {
     // 优先从Cookie中获取refreshToken，其次从请求体中获取
@@ -410,7 +412,7 @@ export class AuthController {
       },
     },
   })
-  async getProfile(@Request() req) {
+  async getProfile(@Request() req: AuthenticatedRequest) {
     // 从数据库获取用户基本信息和资料
     const userInfo = await this.authService.validateUser(req.user.userId);
 
@@ -444,7 +446,7 @@ export class AuthController {
   @ApiResponse({ status: 200, description: '修改成功' })
   @ApiResponse({ status: 401, description: '认证失败' })
   async changePassword(
-    @Request() req,
+    @Request() req: AuthenticatedRequest,
     @Body() body: { oldPassword: string; newPassword: string },
   ) {
     await this.authService.changePassword(
@@ -466,7 +468,7 @@ export class AuthController {
     description: '将JWT令牌加入黑名单，清除Refresh Token Cookie并使登录态失效',
   })
   @ApiResponse({ status: 200, description: '退出登录成功' })
-  async logout(@Request() req, @Response({ passthrough: true }) res) {
+  async logout(@Request() req: AuthenticatedRequest, @Response({ passthrough: true }) res: ExpressResponse) {
     // 获取访问令牌
     const token = req.headers.authorization?.replace('Bearer ', '');
 
@@ -493,7 +495,7 @@ export class AuthController {
   @ApiOperation({ summary: '更新用户资料' })
   @ApiResponse({ status: 200, description: '更新成功' })
   async updateProfile(
-    @Request() req,
+    @Request() req: AuthenticatedRequest,
     @Body()
     updateData: {
       name?: string;
@@ -518,7 +520,7 @@ export class AuthController {
   @ApiResponse({ status: 200, description: '更新成功' })
   @ApiResponse({ status: 403, description: '权限不足' })
   async updateUserStatus(
-    @Request() req,
+    @Request() req: AuthenticatedRequest,
     @Body() body: { userId: string; status: number },
   ) {
     await this.authService.updateUserStatus(body.userId, body.status);
@@ -560,7 +562,7 @@ export class AuthController {
   @ApiOperation({ summary: '获取当前用户权限码' })
   @ApiResponse({ status: 200, description: '获取成功' })
   @ApiResponse({ status: 401, description: '未认证' })
-  async getAccessCodes(@Request() req) {
+  async getAccessCodes(@Request() req: AuthenticatedRequest) {
     const userId = req.user.userId;
     const permissions = await this.authService.getUserPermissions(userId);
     return ResponseUtil.success(permissions, '操作成功');

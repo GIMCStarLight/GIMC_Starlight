@@ -16,8 +16,25 @@ import { useAccessStore } from '@vben/stores';
 import { ElMessage } from 'element-plus';
 
 import { useAuthStore } from '#/store';
+import { clearAllCache } from '#/utils/auth';
+import { log } from '../utils/logger';
 
 import { refreshTokenApi } from './core';
+
+/**
+ * Token刷新API响应类型
+ */
+interface TokenRefreshResponse {
+  accessToken: string;
+  refreshToken?: string;
+}
+
+/**
+ * API响应的嵌套结构类型
+ */
+interface NestedApiResponse<T> {
+  data?: T | { data?: T };
+}
 
 function createRequestClient(baseURL: string, options?: RequestClientOptions) {
   const client = new RequestClient({
@@ -29,7 +46,7 @@ function createRequestClient(baseURL: string, options?: RequestClientOptions) {
    * 重新认证逻辑 - 简化版本，直接跳转登录页
    */
   async function doReAuthenticate() {
-    console.warn('Access token or refresh token is invalid or expired. ');
+    log.warn('Access token or refresh token is invalid or expired.');
     const accessStore = useAccessStore();
     const authStore = useAuthStore();
     
@@ -42,27 +59,7 @@ function createRequestClient(baseURL: string, options?: RequestClientOptions) {
     authStore.loginLoading = false;
     
     // 清空所有缓存
-    try {
-      // 清空 localStorage
-      localStorage.clear();
-      console.log('✅ localStorage已清空');
-      
-      // 清空 sessionStorage
-      sessionStorage.clear();
-      console.log('✅ sessionStorage已清空');
-      
-      // 清空所有cookies
-      document.cookie.split(";").forEach((c) => {
-        const eqPos = c.indexOf("=");
-        const name = eqPos > -1 ? c.substr(0, eqPos) : c;
-        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
-        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=" + window.location.hostname;
-        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=." + window.location.hostname;
-      });
-      console.log('✅ cookies已清空');
-    } catch (error) {
-      console.error('清空缓存时出错:', error);
-    }
+    clearAllCache();
     
     // 直接执行登出，跳转到登录页
     await authStore.logout();
@@ -76,62 +73,38 @@ function createRequestClient(baseURL: string, options?: RequestClientOptions) {
     
     try {
       const result = await refreshTokenApi();
-      console.log('刷新token API响应:', result);
+      log.debug('刷新token API响应:', result);
       
-      // baseRequestClient.post 默认会返回 AxiosResponse，structure 可能为:
-      // 1) AxiosResponse -> result.data = { code, message, data: { accessToken, ... } }
-      // 2) 已经被拦截器处理过 -> result = { accessToken, refreshToken, ... }
-      // 兼容两种情况，优先读取内部 data 字段
-      const payload =
-        // 如果是 AxiosResponse 且 data 包含 data 字段
-        (result && (result as any).data && (result as any).data.data)
-          ? (result as any).data.data
-          : // 否则如果是 AxiosResponse，取其 data；或直接取 result
-            (result && (result as any).data) || result;
+      // 安全解析嵌套的API响应结构
+      const nestedResponse = result as NestedApiResponse<TokenRefreshResponse>;
+      const payload: TokenRefreshResponse | undefined = 
+        nestedResponse?.data && typeof nestedResponse.data === 'object' && 'data' in nestedResponse.data
+          ? (nestedResponse.data as { data: TokenRefreshResponse }).data
+          : nestedResponse?.data as TokenRefreshResponse | undefined;
 
-      console.log('解析后的payload:', payload);
+      log.debug('解析后的payload:', payload);
 
       const accessToken = payload?.accessToken;
       const refreshToken = payload?.refreshToken;
       
       if (accessToken) {
-        console.log('刷新token成功，新的accessToken:', accessToken);
+        log.success('刷新token成功，新的accessToken:', accessToken);
         accessStore.setAccessToken(accessToken);
         // 存储新的refreshToken
         if (refreshToken) {
-          console.log('更新refreshToken:', refreshToken);
+          log.debug('更新refreshToken:', refreshToken);
           accessStore.setRefreshToken(refreshToken);
         }
         return accessToken;
       }
       
-      console.error('刷新token失败：未找到accessToken', payload);
+      log.error('刷新token失败：未找到accessToken', payload);
       throw new Error('刷新令牌失败：未找到accessToken');
     } catch (error) {
-      console.error('刷新token过程中发生错误:', error);
+      log.error('刷新token过程中发生错误:', error);
       
       // 清空所有缓存
-      try {
-        // 清空 localStorage
-        localStorage.clear();
-        console.log('✅ localStorage已清空');
-        
-        // 清空 sessionStorage
-        sessionStorage.clear();
-        console.log('✅ sessionStorage已清空');
-        
-        // 清空所有cookies
-        document.cookie.split(";").forEach((c) => {
-          const eqPos = c.indexOf("=");
-          const name = eqPos > -1 ? c.substr(0, eqPos) : c;
-          document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
-          document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=" + window.location.hostname;
-          document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=." + window.location.hostname;
-        });
-        console.log('✅ cookies已清空');
-      } catch (clearError) {
-        console.error('清空缓存时出错:', clearError);
-      }
+      clearAllCache();
       
       throw error;
     }
@@ -222,7 +195,7 @@ function getApiURL() {
     const { apiURL } = useAppConfig(import.meta.env, import.meta.env.PROD);
     return apiURL;
   } catch (error) {
-    console.error('Error getting apiURL:', error);
+    log.error('Error getting apiURL:', error);
     return 'http://localhost:5320/api'; // fallback URL
   }
 }

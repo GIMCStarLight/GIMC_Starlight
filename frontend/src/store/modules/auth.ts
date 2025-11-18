@@ -17,6 +17,7 @@ import {
   logoutApi,
 } from '#/api';
 import { $t } from '#/locales';
+import { log } from '../../utils/logger';
 
 export const useAuthStore = defineStore('auth', () => {
   const loginLoading = ref(false);
@@ -31,32 +32,32 @@ export const useAuthStore = defineStore('auth', () => {
     // 异步处理用户登录操作并获取 accessToken
     let userInfo: null | UserInfo = null;
     try {
-      console.log('🔄 开始登录，设置loading为true');
+      log.debug('开始登录，设置loading为true');
       loginLoading.value = true;
-      console.log('📤 发送登录请求，参数:', params);
+      log.debug('发送登录请求，参数:', params);
       const loginResult = await loginApi(params);
-      console.log('📥 登录API响应:', loginResult.data);
+      log.debug('登录API响应:', loginResult.data);
 
       const accessToken =
         loginResult?.accessToken ||
         loginResult?.data?.accessToken ||
         loginResult?.data?.data?.accessToken;
 
-      console.log("accessToken", accessToken)
+      log.debug("accessToken", accessToken)
       if (accessToken) {
-        console.log('🔑 获取到accessToken:', accessToken);
+        log.success('获取到accessToken:', accessToken);
         // 将 accessToken 存储到 accessStore 中
         accessStore.setAccessToken(accessToken);
-        console.log('✅ accessToken已存储到store');
+        log.success('accessToken已存储到store');
         // 存储 refreshToken（虽然主要通过Cookie，但也可以存储备用）
         const refreshToken =
           loginResult?.refreshToken ||
           loginResult?.data?.refreshToken ||
           loginResult?.data?.data?.refreshToken;
         if (refreshToken) {
-          console.log('🔑 获取到refreshToken:', refreshToken);
+          log.debug('获取到refreshToken:', refreshToken);
           accessStore.setRefreshToken(refreshToken);
-          console.log('✅ refreshToken已存储到store');
+          log.success('refreshToken已存储到store');
         }
 
         // 直接使用登录API返回的用户信息
@@ -71,23 +72,23 @@ export const useAuthStore = defineStore('auth', () => {
         await fetchAccessCodes();
 
         if (accessStore.loginExpired) {
-          console.log('🔄 处理登录过期状态');
+          log.debug('处理登录过期状态');
           accessStore.setLoginExpired(false);
         } else {
           if (onSuccess) {
-            console.log('🎯 执行onSuccess回调');
+            log.debug('执行onSuccess回调');
             await onSuccess?.();
           } else {
             // 登录成功后，跳转到用户主页或默认首页
             const redirectPath = userInfo?.homePath || preferences.app.defaultHomePath;
-            console.log('🚀 准备跳转到:', redirectPath);
-            console.log('👤 用户信息homePath:', userInfo?.homePath);
-            console.log('🏠 默认首页路径:', preferences.app.defaultHomePath);
+            log.debug('准备跳转到:', redirectPath);
+            log.debug('用户信息homePath:', userInfo?.homePath);
+            log.debug('默认首页路径:', preferences.app.defaultHomePath);
 
             // 使用window.location进行跳转，避免router实例问题
-            console.log('🔄 使用window.location进行跳转...');
+            log.debug('使用window.location进行跳转...');
             window.location.href = redirectPath;
-            console.log('✅ 跳转指令已发送');
+            log.success('跳转指令已发送');
           }
         }
 
@@ -101,13 +102,13 @@ export const useAuthStore = defineStore('auth', () => {
       }
     } catch (error) {
       // 登录失败，立即重置loading状态
-      console.log('❌ 登录失败，立即设置loading为false');
+      log.error('登录失败，立即设置loading为false');
       loginLoading.value = false;
       // 重新抛出错误让调用方和拦截器处理
       throw error;
     } finally {
       // 确保loading状态被重置（防御性编程）
-      console.log('✅ finally块执行，确保loading为false');
+      log.debug('finally块执行，确保loading为false');
       loginLoading.value = false;
     }
 
@@ -118,17 +119,17 @@ export const useAuthStore = defineStore('auth', () => {
 
   async function logout(redirect: boolean = true) {
     const accessStore = useAccessStore();
-    console.log('🚪 开始执行退出登录...');
+    log.info('开始执行退出登录...');
 
     try {
-      console.log('📡 调用退出登录API...');
+      log.debug('调用退出登录API...');
       await logoutApi();
-      console.log('✅ 退出登录API调用成功');
+      log.success('退出登录API调用成功');
     } catch (error) {
-      console.log('⚠️ 退出登录API调用失败，但继续执行清理:', error);
+      log.warn('退出登录API调用失败，但继续执行清理:', error);
     }
 
-    console.log('🧹 清除token和状态...');
+    log.debug('清除token和状态...');
     // 显式清除token和相关状态
     accessStore.setAccessToken(null);
     accessStore.setRefreshToken(null);
@@ -140,14 +141,14 @@ export const useAuthStore = defineStore('auth', () => {
     const userStore = useUserStore();
     userStore.setUserInfo(null);
     
-    console.log('✅ 认证状态清除完成');
+    log.success('认证状态清除完成');
 
     // 构建登录页URL - 强制刷新页面
     const isHashMode = window.location.hash !== '';
     
     if (isHashMode) {
       // Hash路由模式：直接修改hash并强制刷新整个页面
-      console.log('✅ Hash路由模式，准备跳转到登录页');
+      log.debug('Hash路由模式，准备跳转到登录页');
       // 先设置hash到登录页
       window.location.hash = LOGIN_PATH;
       // 立即强制刷新整个页面，确保状态完全清空
@@ -163,11 +164,11 @@ export const useAuthStore = defineStore('auth', () => {
           loginUrl += `?redirect=${encodeURIComponent(currentPath)}`;
         }
       }
-      console.log('🔄 准备跳转到登录页:', loginUrl);
+      log.debug('准备跳转到登录页:', loginUrl);
       window.location.href = loginUrl;
     }
     
-    console.log('✅ 退出登录跳转指令已发送');
+    log.success('退出登录跳转指令已发送');
   }
 
   /**
@@ -244,20 +245,20 @@ export const useAuthStore = defineStore('auth', () => {
     
     // 如果已有缓存的权限码，直接返回
     if (accessStore.accessCodes && accessStore.accessCodes.length > 0) {
-      console.log('✅ 使用缓存的权限码');
+      log.debug('使用缓存的权限码');
       return accessStore.accessCodes;
     }
 
     // 如果正在请求中，返回同一个 Promise
     if (fetchAccessCodesPromise) {
-      console.log('⏳ 正在请求权限码，复用同一请求');
+      log.debug('正在请求权限码，复用同一请求');
       return fetchAccessCodesPromise;
     }
 
     // 创建新的请求
     fetchAccessCodesPromise = (async () => {
       try {
-        console.log('📡 开始请求权限码...');
+        log.debug('开始请求权限码...');
         const response = await getAccessCodesApi();
 
         // 提取权限码数组，处理可能的响应格式
@@ -279,10 +280,10 @@ export const useAuthStore = defineStore('auth', () => {
         }
 
         accessStore.setAccessCodes(codes);
-        console.log('✅ 权限码获取成功，数量:', codes.length);
+        log.success('权限码获取成功，数量:', codes.length);
         return codes;
       } catch (error) {
-        console.error('fetchAccessCodes - 获取权限码失败:', error);
+        log.error('fetchAccessCodes - 获取权限码失败:', error);
         // 权限码获取失败不应该阻止登录流程，设置为空数组
         accessStore.setAccessCodes([]);
         return [];

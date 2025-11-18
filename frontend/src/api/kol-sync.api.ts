@@ -5,6 +5,7 @@
  */
 
 import { requestClient } from './request';
+import { log } from '../utils/logger';
 
 export namespace KolSyncApi {
   /** 同步结果 */
@@ -42,12 +43,12 @@ export namespace KolSyncApi {
    */
   export async function syncSingleKol(kolId: number, accountId: string): Promise<SyncResult> {
     const startTime = Date.now();
-    console.log(`[KolSyncApi.syncSingleKol] 🎯 开始同步请求 - KOL ID: ${kolId}, Account ID: ${accountId}`);
+    log.debug(`[KolSyncApi.syncSingleKol] 🎯 开始同步请求 - KOL ID: ${kolId}, Account ID: ${accountId}`);
     
     try {
-      console.log(`[KolSyncApi.syncSingleKol] 📤 发送POST请求到: /kol-sync/single`);
-      console.log(`[KolSyncApi.syncSingleKol] 📊 请求体:`, { kol_id: kolId, account_id: accountId });
-      console.log(`[KolSyncApi.syncSingleKol] ⏱️ 超时设置: 360000ms (6分钟)`);
+      log.debug(`[KolSyncApi.syncSingleKol] 📤 发送POST请求到: /kol-sync/single`);
+      log.debug(`[KolSyncApi.syncSingleKol] 📊 请求体:`, { kol_id: kolId, account_id: accountId });
+      log.debug(`[KolSyncApi.syncSingleKol] ⏱️ 超时设置: 360000ms (6分钟)`);
       
       const result = await requestClient.post<SyncResult>(
         `/kol-sync/single`, 
@@ -61,8 +62,8 @@ export namespace KolSyncApi {
       );
       
       const duration = Date.now() - startTime;
-      console.log(`[KolSyncApi.syncSingleKol] ✅ 收到响应 - 耗时: ${duration}ms`);
-      console.log(`[KolSyncApi.syncSingleKol] 📊 同步结果:`, {
+      log.debug(`[KolSyncApi.syncSingleKol] ✅ 收到响应 - 耗时: ${duration}ms`);
+      log.debug(`[KolSyncApi.syncSingleKol] 📊 同步结果:`, {
         kolId: result.kolId,
         accountId: result.accountId,
         status: result.status,
@@ -72,30 +73,30 @@ export namespace KolSyncApi {
       });
       
       if (result.status === 'failed') {
-        console.warn(`[KolSyncApi.syncSingleKol] ⚠️ 同步失败 - 错误: ${result.errorMessage}`);
+        log.warn(`[KolSyncApi.syncSingleKol] ⚠️ 同步失败 - 错误: ${result.errorMessage}`);
       } else if (result.status === 'success') {
-        console.log(`[KolSyncApi.syncSingleKol] 🎉 同步成功 - 匹配作者ID: ${result.matchedAuthorId}`);
+        log.debug(`[KolSyncApi.syncSingleKol] 🎉 同步成功 - 匹配作者ID: ${result.matchedAuthorId}`);
       }
       
       return result;
     } catch (error: any) {
       const duration = Date.now() - startTime;
-      console.error(`[KolSyncApi.syncSingleKol] 💥 同步请求失败 - 耗时: ${duration}ms`);
-      console.error(`[KolSyncApi.syncSingleKol] 💥 错误类型: ${error.constructor?.name || typeof error}`);
-      console.error(`[KolSyncApi.syncSingleKol] 💥 错误信息: ${error.message}`);
+      log.error(`[KolSyncApi.syncSingleKol] 💥 同步请求失败 - 耗时: ${duration}ms`);
+      log.error(`[KolSyncApi.syncSingleKol] 💥 错误类型: ${error.constructor?.name || typeof error}`);
+      log.error(`[KolSyncApi.syncSingleKol] 💥 错误信息: ${error.message}`);
       
       if (error.response) {
-        console.error(`[KolSyncApi.syncSingleKol] 📥 HTTP响应状态: ${error.response.status}`);
-        console.error(`[KolSyncApi.syncSingleKol] 📥 HTTP响应数据:`, error.response.data);
-        console.error(`[KolSyncApi.syncSingleKol] 📥 HTTP响应头:`, error.response.headers);
+        log.error(`[KolSyncApi.syncSingleKol] 📥 HTTP响应状态: ${error.response.status}`);
+        log.error(`[KolSyncApi.syncSingleKol] 📥 HTTP响应数据:`, error.response.data);
+        log.error(`[KolSyncApi.syncSingleKol] 📥 HTTP响应头:`, error.response.headers);
       } else if (error.request) {
-        console.error(`[KolSyncApi.syncSingleKol] 📥 请求已发送但未收到响应`);
-        console.error(`[KolSyncApi.syncSingleKol] 📥 请求详情:`, error.request);
+        log.error(`[KolSyncApi.syncSingleKol] 📥 请求已发送但未收到响应`);
+        log.error(`[KolSyncApi.syncSingleKol] 📥 请求详情:`, error.request);
       } else {
-        console.error(`[KolSyncApi.syncSingleKol] 💥 请求配置错误: ${error.message}`);
+        log.error(`[KolSyncApi.syncSingleKol] 💥 请求配置错误: ${error.message}`);
       }
       
-      console.error(`[KolSyncApi.syncSingleKol] 💥 完整错误对象:`, error);
+      log.error(`[KolSyncApi.syncSingleKol] 💥 完整错误对象:`, error);
       throw error;
     }
   }

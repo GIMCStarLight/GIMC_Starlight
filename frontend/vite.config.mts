@@ -5,13 +5,13 @@ import AutoImport from "unplugin-auto-import/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import Components from "unplugin-vue-components/vite";
 import ElementPlus from "unplugin-element-plus/vite";
+import { visualizer } from "rollup-plugin-visualizer";
 
 const mode = process.env.NODE_ENV ?? "development";
 const env = loadEnv(mode, process.cwd(), "");
 const isDev = mode === "development";
 
-export default defineConfig(async (config?: ConfigEnv) => ({
-  application: {},
+export default defineConfig(async (config?: ConfigEnv) => ({  application: {},
   vite: {
       plugins: [
         AutoImport({
@@ -23,19 +23,32 @@ export default defineConfig(async (config?: ConfigEnv) => ({
         ElementPlus({
           format: "esm",
         }),
-      ] as PluginOption[],
-      // 优化缓存配置
+        // Bundle 分析工具 - 生产构建时生成可视化报告
+        !isDev && visualizer({
+          open: true, // 构建完成后自动打开报告
+          gzipSize: true, // 显示 gzip 压缩后的大小
+          brotliSize: true, // 显示 brotli 压缩后的大小
+          filename: 'dist/stats.html', // 报告输出路径
+          template: 'treemap', // 使用树状图展示
+        }),
+      ].filter(Boolean) as PluginOption[],
+      // 优化预构建配置
       optimizeDeps: {
+        // 预构建常用依赖，加速首次启动
         include: [
           "vue",
           "vue-router",
           "pinia",
           "element-plus",
           "@element-plus/icons-vue",
+          "@vueuse/core",
           "dayjs",
           "echarts",
+          "exceljs",
         ],
+        // 排除 Node.js 专用模块
         exclude: ["@nuxt/kit", "jiti", "c12", "untyped"],
+        // 设置为 false 以使用缓存，加速二次启动
         force: false,
       },
       server: {
@@ -43,12 +56,8 @@ export default defineConfig(async (config?: ConfigEnv) => ({
         fs: {
           cachedChecks: true,
         },
-        // 设置缓存头
-        headers: isDev
-          ? {
-              "Cache-Control": "public, max-age=31536000", // 1年缓存
-            }
-          : undefined,
+        // 开发环境不设置长期缓存，避免更新不及时
+        // headers: isDev ? { "Cache-Control": "no-cache" } : undefined,
         proxy: {
           "/api": {
             changeOrigin: true,
@@ -79,15 +88,20 @@ export default defineConfig(async (config?: ConfigEnv) => ({
         cssCodeSplit: true,
         // 设置 chunk 大小警告限制
         chunkSizeWarningLimit: 1000,
-        // 生产环境关闭 sourcemap
-        sourcemap: false,
+        // 生产环境关闭 sourcemap，开发环境启用以便调试
+        sourcemap: isDev,
+        // 目标浏览器
+        target: 'es2015',
         // 压缩配置
         minify: 'terser',
         terserOptions: {
           compress: {
-            drop_console: true, // 移除console
             drop_debugger: true, // 移除debugger
-            pure_funcs: ['console.log'], // 移除特定函数
+            // 不移除console，由log工具在生产环境自动降低日志级别
+            passes: 2, // 压缩次数，提升压缩率
+          },
+          format: {
+            comments: false, // 移除注释
           },
         },
         rollupOptions: {
@@ -107,9 +121,13 @@ export default defineConfig(async (config?: ConfigEnv) => ({
           output: {
             // 使用函数形式的代码分割
             manualChunks(id: string) {
-              // Element Plus 相关
+              // Element Plus 相关 - 独立分包
               if (id.includes("element-plus")) {
                 return "element-plus";
+              }
+              // Element Plus Icons - 独立分包
+              if (id.includes("@element-plus/icons-vue")) {
+                return "element-icons";
               }
               // Vue 核心库
               if (id.includes("vue") && !id.includes("node_modules")) {
@@ -121,15 +139,69 @@ export default defineConfig(async (config?: ConfigEnv) => ({
               if (id.includes("pinia")) {
                 return "pinia";
               }
-              // 工具库
-              if (id.includes("dayjs")) {
-                return "utils";
+              // 图表库单独分包
+              if (id.includes("echarts")) {
+                return "echarts";
               }
-              // 第三方库
+              // 工具库细分
+              if (id.includes("dayjs")) {
+                return "dayjs";
+              }
+              if (id.includes("@vueuse/core")) {
+                return "vueuse";
+              }
+              if (id.includes("lodash") || id.includes("lodash-es")) {
+                return "lodash";
+              }
+              // Excel 相关库
+              if (id.includes("exceljs")) {
+                return "excel";
+              }
+              // Axios 和请求相关
+              if (id.includes("axios")) {
+                return "axios";
+              }
+              // Radix UI 组件库
+              if (id.includes("radix-vue") || id.includes("@radix-ui")) {
+                return "radix-ui";
+              }
+              // 图标库
+              if (id.includes("@iconify") || id.includes("iconify")) {
+                return "iconify";
+              }
+              // Vben 内部包细分
+              if (id.includes("@vben/") || id.includes("workspace:")) {
+                // Vben UI 组件
+                if (id.includes("@vben/common-ui") || id.includes("@vben/ui-kit")) {
+                  return "vben-ui";
+                }
+                // Vben 工具
+                if (id.includes("@vben/utils") || id.includes("@vben/hooks")) {
+                  return "vben-utils";
+                }
+                // 其他 Vben 核心
+                return "vben-core";
+              }
+              // 其他第三方库 - 按大小细分
               if (id.includes("node_modules")) {
+                // 大型库单独分包
+                if (id.includes("consola")) {
+                  return "consola";
+                }
+                if (id.includes("sortablejs")) {
+                  return "sortable";
+                }
+                if (id.includes("mitt") || id.includes("nprogress")) {
+                  return "mini-libs";
+                }
+                // 剩余第三方库
                 return "vendor";
               }
             },
+            // 优化输出文件名
+            chunkFileNames: 'js/[name]-[hash].js',
+            entryFileNames: 'js/[name]-[hash].js',
+            assetFileNames: '[ext]/[name]-[hash].[ext]',
           },
         },
       },

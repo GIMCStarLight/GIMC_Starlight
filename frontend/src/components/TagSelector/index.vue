@@ -160,6 +160,7 @@
 </template>
 
 <script setup lang="ts">
+import { log } from '../../utils/logger'
 import { ref, computed, onMounted, watch } from 'vue'
 import { ElMessage } from 'element-plus'
 import { ArrowLeft, ArrowRight, Search } from '@element-plus/icons-vue'
@@ -236,7 +237,7 @@ const loadTagTree = async () => {
     loading.value = true
     tagTree.value = await getTagTreeByPlatform(selectedPlatform.value)
   } catch (error) {
-    console.error('加载标签树失败:', error)
+    log.error('加载标签树失败:', error)
     ElMessage.error('加载标签失败')
   } finally {
     loading.value = false
