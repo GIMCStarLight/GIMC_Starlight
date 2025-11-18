@@ -19,12 +19,18 @@ interface CacheOptions {
   ttl?: number
   /** 是否强制刷新缓存 */
   forceRefresh?: boolean
+  /** 是否使用 SWR 策略（返回过期数据的同时后台刷新） */
+  staleWhileRevalidate?: boolean
 }
 
 interface CacheEntry<T> {
   data: T
   timestamp: number
   ttl: number
+  /** 访问次数统计 */
+  accessCount?: number
+  /** 最后访问时间 */
+  lastAccessTime?: number
 }
 
 /**
@@ -36,6 +42,20 @@ export class RequestDeduplicator {
   
   // 缓存数据Map (key -> CacheEntry)
   private cache = new Map<string, CacheEntry<any>>()
+  
+  // 缓存统计
+  private stats = {
+    hits: 0,        // 缓存命中次数
+    misses: 0,      // 缓存未命中次数
+    sets: 0,        // 缓存设置次数
+    evictions: 0,   // 缓存驱逐次数
+  }
+  
+  // 最大缓存条目数（防止内存无限增长）
+  private readonly maxCacheSize = 1000
+  
+  // 最大缓存内存估算（MB）
+  private readonly maxCacheMemoryMB = 50
 
   // 默认缓存配置 (url路径 -> TTL毫秒)
   private readonly defaultCacheTTL: Record<string, number> = {
@@ -167,18 +187,35 @@ export class RequestDeduplicator {
   /**
    * 从缓存中获取数据
    */
-  private getCachedData<T>(key: string): T | null {
+  private getCachedData<T>(key: string, useSWR: boolean = false): T | null {
     const entry = this.cache.get(key)
-    if (!entry) return null
+    if (!entry) {
+      this.stats.misses++
+      return null
+    }
+    
+    // 更新访问统计
+    entry.accessCount = (entry.accessCount || 0) + 1
+    entry.lastAccessTime = Date.now()
     
     if (this.isCacheValid(entry)) {
       const age = Date.now() - entry.timestamp
-      log.debug(`[RequestCache] 缓存命中: ${key.split(':')[1]}, 缓存年龄: ${(age / 1000).toFixed(1)}s`)
+      this.stats.hits++
+      log.debug(`[RequestCache] 缓存命中: ${key.split(':')[1]}, 缓存年龄: ${(age / 1000).toFixed(1)}s, 访问次数: ${entry.accessCount}`)
+      return entry.data
+    }
+    
+    // SWR 策略：返回过期数据（调用方会在后台刷新）
+    if (useSWR) {
+      const age = Date.now() - entry.timestamp
+      log.debug(`[RequestCache] SWR命中（过期数据）: ${key.split(':')[1]}, 过期时长: ${(age / 1000).toFixed(1)}s`)
+      this.stats.hits++
       return entry.data
     }
     
     // 缓存过期，清除
     this.cache.delete(key)
+    this.stats.misses++
     log.debug(`[RequestCache] 缓存过期: ${key.split(':')[1]}`)
     return null
   }
@@ -189,12 +226,21 @@ export class RequestDeduplicator {
   private setCachedData<T>(key: string, data: T, ttl: number): void {
     if (ttl <= 0) return // 不缓存
     
+    // 检查缓存大小限制
+    if (this.cache.size >= this.maxCacheSize) {
+      this.evictLRUCache()
+    }
+    
     this.cache.set(key, {
       data,
       timestamp: Date.now(),
       ttl,
+      accessCount: 0,
+      lastAccessTime: Date.now(),
     })
-    log.debug(`[RequestCache] 缓存设置: ${key.split(':')[1]}, TTL: ${(ttl / 1000).toFixed(0)}s`)
+    
+    this.stats.sets++
+    log.debug(`[RequestCache] 缓存设置: ${key.split(':')[1]}, TTL: ${(ttl / 1000).toFixed(0)}s, 总缓存数: ${this.cache.size}`)
   }
 
   /**
@@ -215,11 +261,18 @@ export class RequestDeduplicator {
     
     // 确定缓存时长
     const ttl = options.ttl !== undefined ? options.ttl : this.getDefaultTTL(url)
+    const useSWR = options.staleWhileRevalidate ?? false
     
     // 如果不强制刷新，先尝试从缓存获取
     if (!options.forceRefresh && ttl > 0) {
-      const cachedData = this.getCachedData<T>(key)
+      const cachedData = this.getCachedData<T>(key, useSWR)
       if (cachedData !== null) {
+        // SWR 策略：返回缓存数据的同时，后台刷新
+        if (useSWR && !this.isCacheValid(this.cache.get(key)!)) {
+          log.debug(`[RequestCache] SWR后台刷新: ${url}`)
+          // 异步刷新缓存（不阻塞返回）
+          this.refreshCacheInBackground(key, requestFn, ttl)
+        }
         return Promise.resolve(cachedData)
       }
     }
@@ -237,6 +290,15 @@ export class RequestDeduplicator {
         // 成功后缓存数据
         this.setCachedData(key, data, ttl)
         return data
+      })
+      .catch((error) => {
+        // 请求失败，如果有过期缓存，尝试返回过期数据
+        const staleData = this.cache.get(key)?.data
+        if (staleData && useSWR) {
+          log.warn(`[RequestCache] 请求失败，返回过期缓存: ${url}`, error)
+          return staleData
+        }
+        throw error
       })
       .finally(() => {
         // 请求完成后从Map中移除
@@ -303,11 +365,103 @@ export class RequestDeduplicator {
   }
   
   /**
-   * 获取缓存统计信息
+   * LRU 缓存驱逐策略（移除最少访问的条目）
    */
-  getCacheStats(): { total: number; valid: number; expired: number } {
+  private evictLRUCache(): void {
+    let oldestKey: string | null = null
+    let oldestTime = Date.now()
+    let lowestAccessCount = Infinity
+    
+    // 找出最少使用的缓存条目
+    for (const [key, entry] of this.cache.entries()) {
+      const accessCount = entry.accessCount || 0
+      const lastAccessTime = entry.lastAccessTime || entry.timestamp
+      
+      // 优先驱逐访问次数少的，其次驱逐最久未访问的
+      if (accessCount < lowestAccessCount || 
+          (accessCount === lowestAccessCount && lastAccessTime < oldestTime)) {
+        oldestKey = key
+        oldestTime = lastAccessTime
+        lowestAccessCount = accessCount
+      }
+    }
+    
+    if (oldestKey) {
+      this.cache.delete(oldestKey)
+      this.stats.evictions++
+      log.debug(`[RequestCache] LRU驱逐缓存: ${oldestKey.split(':')[1]}, 访问次数: ${lowestAccessCount}`)
+    }
+  }
+  
+  /**
+   * SWR 后台刷新缓存
+   */
+  private refreshCacheInBackground<T>(
+    key: string,
+    requestFn: () => Promise<T>,
+    ttl: number
+  ): void {
+    // 避免重复刷新
+    if (this.pendingRequests.has(key)) {
+      return
+    }
+    
+    const promise = requestFn()
+      .then((data) => {
+        this.setCachedData(key, data, ttl)
+        log.debug(`[RequestCache] SWR后台刷新完成: ${key.split(':')[1]}`)
+        return data
+      })
+      .catch((error) => {
+        log.warn(`[RequestCache] SWR后台刷新失败: ${key.split(':')[1]}`, error)
+      })
+      .finally(() => {
+        this.pendingRequests.delete(key)
+      })
+    
+    this.pendingRequests.set(key, promise)
+  }
+  
+  /**
+   * 缓存预热（主动加载常用数据）
+   */
+  async warmupCache(requests: Array<{ config: RequestConfig; requestFn: () => Promise<any>; ttl?: number }>): Promise<void> {
+    log.info(`[RequestCache] 开始缓存预热，共 ${requests.length} 个请求`)
+    
+    const promises = requests.map(({ config, requestFn, ttl }) => {
+      const key = this.generateKey(config)
+      const cacheTTL = ttl ?? this.getDefaultTTL(config.url || '')
+      
+      return requestFn()
+        .then((data) => {
+          this.setCachedData(key, data, cacheTTL)
+        })
+        .catch((error) => {
+          log.warn(`[RequestCache] 预热失败: ${config.url}`, error)
+        })
+    })
+    
+    await Promise.allSettled(promises)
+    log.success(`[RequestCache] 缓存预热完成，当前缓存数: ${this.cache.size}`)
+  }
+  
+  /**
+   * 获取缓存统计信息（增强版）
+   */
+  getCacheStats(): {
+    total: number
+    valid: number
+    expired: number
+    hits: number
+    misses: number
+    hitRate: number
+    sets: number
+    evictions: number
+    memoryEstimateMB: number
+  } {
     let valid = 0
     let expired = 0
+    let totalSize = 0
     
     for (const entry of this.cache.values()) {
       if (this.isCacheValid(entry)) {
@@ -315,13 +469,56 @@ export class RequestDeduplicator {
       } else {
         expired++
       }
+      // 粗略估算内存占用（JSON字符串长度）
+      try {
+        totalSize += JSON.stringify(entry.data).length
+      } catch {
+        // 忽略无法序列化的数据
+      }
     }
+    
+    const totalRequests = this.stats.hits + this.stats.misses
+    const hitRate = totalRequests > 0 ? (this.stats.hits / totalRequests) * 100 : 0
+    const memoryEstimateMB = totalSize / (1024 * 1024)
     
     return {
       total: this.cache.size,
       valid,
       expired,
+      hits: this.stats.hits,
+      misses: this.stats.misses,
+      hitRate: Number(hitRate.toFixed(2)),
+      sets: this.stats.sets,
+      evictions: this.stats.evictions,
+      memoryEstimateMB: Number(memoryEstimateMB.toFixed(2)),
     }
+  }
+  
+  /**
+   * 重置统计信息
+   */
+  resetStats(): void {
+    this.stats = {
+      hits: 0,
+      misses: 0,
+      sets: 0,
+      evictions: 0,
+    }
+    log.debug('[RequestCache] 统计信息已重置')
+  }
+  
+  /**
+   * 打印缓存统计报告
+   */
+  printCacheReport(): void {
+    const stats = this.getCacheStats()
+    log.info('===== 📊 请求缓存统计报告 =====')
+    log.info(`总缓存数: ${stats.total} (有效: ${stats.valid}, 过期: ${stats.expired})`)
+    log.info(`命中次数: ${stats.hits}, 未命中: ${stats.misses}, 命中率: ${stats.hitRate}%`)
+    log.info(`设置次数: ${stats.sets}, 驱逐次数: ${stats.evictions}`)
+    log.info(`内存估算: ${stats.memoryEstimateMB} MB / ${this.maxCacheMemoryMB} MB`)
+    log.info(`待处理请求: ${this.getPendingCount()}`)
+    log.info('================================')
   }
 }
 

@@ -5,6 +5,7 @@ import AutoImport from "unplugin-auto-import/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import Components from "unplugin-vue-components/vite";
 import ElementPlus from "unplugin-element-plus/vite";
+import { visualizer } from "rollup-plugin-visualizer";
 
 const mode = process.env.NODE_ENV ?? "development";
 const env = loadEnv(mode, process.cwd(), "");
@@ -22,7 +23,15 @@ export default defineConfig(async (config?: ConfigEnv) => ({  application: {},
         ElementPlus({
           format: "esm",
         }),
-      ] as PluginOption[],
+        // Bundle 分析工具 - 生产构建时生成可视化报告
+        !isDev && visualizer({
+          open: true, // 构建完成后自动打开报告
+          gzipSize: true, // 显示 gzip 压缩后的大小
+          brotliSize: true, // 显示 brotli 压缩后的大小
+          filename: 'dist/stats.html', // 报告输出路径
+          template: 'treemap', // 使用树状图展示
+        }),
+      ].filter(Boolean) as PluginOption[],
       // 优化预构建配置
       optimizeDeps: {
         // 预构建常用依赖，加速首次启动

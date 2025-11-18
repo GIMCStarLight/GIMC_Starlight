@@ -332,7 +332,7 @@ const validationResult = ref<{
 // 导入进度
 const importProgress = reactive({
   percentage: 0,
-  status: 'active' as 'active' | 'success' | 'exception',
+  status: 'success' as '' | 'success' | 'exception' | 'warning',
   processed: 0,
   total: 0,
   success: 0,
@@ -347,7 +347,19 @@ const importLogs = ref<Array<{
 }>>([])
 
 // 导入结果
-const importResult = reactive({
+const importResult = reactive<{
+  isSuccess: boolean
+  message: string
+  total: number
+  successCount: number
+  failedCount: number
+  duration: number
+  failedRecords?: Array<{
+    row: number
+    error: string
+    data: Record<string, any>
+  }>
+}>({
   isSuccess: false,
   message: '',
   total: 0,
@@ -637,7 +649,7 @@ const executeImport = async () => {
       importProgress.processed = data.total || 0
       importProgress.success = data.successCount || 0
       importProgress.failed = data.failedCount || 0
-      importProgress.status = data.failedCount === 0 ? 'success' : 'active'
+      importProgress.status = data.failedCount === 0 ? 'success' : 'warning'
       
       // 更新结果
       const duration = data.duration ? Math.round(data.duration / 1000) : Math.round((Date.now() - startTime) / 1000)
@@ -701,7 +713,7 @@ const formatTime = (time: Date) => {
 
 const downloadFailedRecords = () => {
   // 检查是否有导入失败记录
-  if (!importResult.value || !importResult.value.failedRecords || importResult.value.failedRecords.length === 0) {
+  if (!importResult.failedRecords || importResult.failedRecords.length === 0) {
     ElMessage.warning('没有失败记录可下载')
     return
   }
@@ -710,7 +722,7 @@ const downloadFailedRecords = () => {
   const headers = ['行号', '错误信息', '达人昵称', '平台', '账号', '粉丝数(万)', '机构名称', '类目']
   
   // 构建CSV数据行
-  const csvRows = importResult.value.failedRecords.map(record => {
+  const csvRows = importResult.failedRecords.map(record => {
     const row = record.row || ''
     const error = record.error || ''
     const data = record.data || {}

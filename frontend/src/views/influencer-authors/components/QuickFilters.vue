@@ -35,7 +35,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { useInfluencerSquareStore } from '#/store/influencer-square'
+import { useInfluencerSquareStore } from '#/store'
 import CooperationFilter from './filters/CooperationFilter.vue'
 import IndustryFilter from './filters/IndustryFilter.vue'
 import InfluencerTierFilter from './filters/InfluencerTierFilter.vue'

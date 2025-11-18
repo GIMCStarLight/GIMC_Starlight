@@ -381,10 +381,10 @@ import { ref, reactive, onMounted, computed } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { IconifyIcon as Icon } from '@vben/icons'
 import { log } from '../../utils/logger'
-import { requestClient } from '#/api/request'
-import { Excel, mapExcelInfluencer } from '#/utils/excel'
+import { requestClient } from '../../api/request'
+import { Excel, mapExcelInfluencer } from '../../utils/excel'
 import { useRouter } from 'vue-router'
-import EvaluateDialog from '#/components/EvaluateDialog/index.vue'
+import EvaluateDialog from '../../components/EvaluateDialog/index.vue'
 import { formatters } from '../shared/influencer-columns'
 import { id } from 'element-plus/es/locales.mjs'
 
@@ -403,9 +403,13 @@ const formatContentTheme = formatters.formatContentTheme
 const loading = ref(false)
 const submitting = ref(false)
 const dialogVisible = ref(false)
-const selectedRows = ref([])
-const tableData = ref([])
-const statistics = ref({})
+const selectedRows = ref<any[]>([])
+const tableData = ref<any[]>([])
+const statistics = ref<{
+  totalCount?: number
+  ecommerceEnabledCount?: number
+  genderStats?: Array<{ gender: string; count: number }>
+}>({})
 const genderStats = computed(() => statistics.value?.genderStats || [])
 
 // 搜索表单
@@ -725,7 +729,7 @@ const handleSubmit = async () => {
     const data = { ...formData }
     delete data.id
    if(!data.tags_relation) {
-      data.tags_relation = {}
+      data.tags_relation = '' as any
     }
     
     if (formData.id) {
@@ -905,7 +909,7 @@ const uploadExcelRef = ref()
 
 // 评价达人
 const evaluateDialogVisible = ref(false)
-const currentStarId = ref(0)
+const currentStarId = ref<string>('')
 const handleEvaluate = (row) => {
   log.debug('=== 评价达人调试信息 ===')
   log.debug('完整row对象:', row)
@@ -916,7 +920,7 @@ const handleEvaluate = (row) => {
   log.debug('row对象的所有值:', Object.values(row))
   
   // 设置当前要评价的达人ID，v2 API返回的是id字段，兼容旧的author_id和influencer_id
-  const starId = row.id || row.author_id || row.influencer_id
+  const starId = String(row.id || row.author_id || row.influencer_id)
   log.debug('最终设置的starId:', starId)
   
   currentStarId.value = starId

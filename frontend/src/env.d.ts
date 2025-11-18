@@ -12,6 +12,11 @@ declare module '*.vue' {
  * 补充项目中实际使用的变量，便于 TS 识别 `import.meta.env`
  */
 interface ImportMetaEnv {
+  PROD: boolean
+  DEV: boolean
+  MODE: string
+  readonly VITE_APP_VERSION: string
+  readonly VITE_APP_NAMESPACE: string
   readonly VITE_BASE: string
   readonly VITE_GLOB_API_URL: string
   readonly VITE_GLOB_API_V2_URL: string

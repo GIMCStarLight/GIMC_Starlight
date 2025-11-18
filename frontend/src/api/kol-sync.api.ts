@@ -5,7 +5,7 @@
  */
 
 import { requestClient } from './request';
-import { log } from '#/utils/logger';
+import { log } from '../utils/logger';
 
 export namespace KolSyncApi {
   /** 同步结果 */

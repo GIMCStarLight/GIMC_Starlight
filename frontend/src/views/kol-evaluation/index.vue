@@ -32,7 +32,7 @@
 
     <!-- 搜索筛选区域 -->
     <ReviewSearchForm 
-      v-model="searchForm"
+      :search-form="searchForm"
       :loading="loading"
       :total="pagination.total"
       @search="handleSearch"

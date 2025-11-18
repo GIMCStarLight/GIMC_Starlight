@@ -95,6 +95,7 @@
     "lefthook": "catalog:",
     "playwright": "catalog:",
     "rimraf": "catalog:",
+    "rollup-plugin-visualizer": "catalog:",
     "sass": "catalog:",
     "sass-embedded": "^1.93.3",
     "tailwindcss": "catalog:",

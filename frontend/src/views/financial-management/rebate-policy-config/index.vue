@@ -271,7 +271,7 @@ import { log } from '../../../utils/logger'
 const rebatePolicyConfigApi = {
   getPolicies: async (params: any) => {
     // 模拟数据
-    const mockData = [
+    const mockData: RebatePolicy[] = [
       {
         id: 1,
         policyName: '标准返点政策',
@@ -485,8 +485,8 @@ const handleSelectionChange = (selection: RebatePolicy[]) => {
   selectedIds.value = selection.map(item => item.id)
 }
 
-const getPolicyTypeColor = (type: string) => {
-  const colorMap: { [key: string]: string } = {
+const getPolicyTypeColor = (type: string): 'success' | 'primary' | 'warning' | 'danger' | 'info' => {
+  const colorMap: { [key: string]: 'success' | 'primary' | 'warning' | 'danger' | 'info' } = {
     percentage: 'primary',
     fixed: 'success',
     tiered: 'warning'
@@ -503,8 +503,8 @@ const getPolicyTypeLabel = (type: string) => {
   return labelMap[type] || type
 }
 
-const getStatusColor = (status: string) => {
-  const colorMap: { [key: string]: string } = {
+const getStatusColor = (status: string): 'success' | 'primary' | 'warning' | 'danger' | 'info' => {
+  const colorMap: { [key: string]: 'success' | 'primary' | 'warning' | 'danger' | 'info' } = {
     active: 'success',
     inactive: 'info'
   }
@@ -678,7 +678,7 @@ const loadPolicies = async () => {
     
     const response = await rebatePolicyConfigApi.getPolicies(params)
     if (response.success) {
-      policyList.value = response.data.items
+      policyList.value = response.data.items as RebatePolicy[]
       pagination.total = response.data.total
     } else {
       ElMessage.error(response.message)
