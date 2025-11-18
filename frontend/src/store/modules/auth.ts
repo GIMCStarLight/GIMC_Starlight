@@ -17,7 +17,7 @@ import {
   logoutApi,
 } from '#/api';
 import { $t } from '#/locales';
-import { log } from '#/utils/logger';
+import { log } from '../../utils/logger';
 
 export const useAuthStore = defineStore('auth', () => {
   const loginLoading = ref(false);

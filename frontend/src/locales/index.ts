@@ -1,5 +1,5 @@
 import type { Language } from 'element-plus/es/locale';
-import { log } from '#/utils/logger';
+import { log } from '../utils/logger';
 
 import type { App } from 'vue';
 

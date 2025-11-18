@@ -17,7 +17,7 @@ const CRAWLER_API_BASE_URL = (
 
 // 可选：为线上环境注入 X-SQLBOT-TOKEN，以通过服务器侧的额外鉴权
 import { sqlbotApi } from "./sqlbot";
-import { log } from '#/utils/logger';
+import { log } from '../utils/logger';
 import { useAccessStore } from "@vben/stores";
 
 let _sqlbotToken: string | null = null;

@@ -244,7 +244,7 @@
           <el-descriptions-item label="收取时间" v-if="selectedRebate.collectedAt">
             {{ formatDate(selectedRebate.collectedAt) }}
           </el-descriptions-item>
-          <el-descriptions-item label="备注" span="2" v-if="selectedRebate.remark">
+          <el-descriptions-item label="备注" :span="2" v-if="selectedRebate.remark">
             {{ selectedRebate.remark }}
           </el-descriptions-item>
         </el-descriptions>
@@ -274,7 +274,7 @@ import { log } from '../../../utils/logger'
 const rebateManagementApi = {
   getRebateRecords: async (params: any) => {
     // 模拟数据
-    const mockData = [
+    const mockData: RebateRecord[] = [
       {
         id: 1,
         supplierName: '优质供应商A',
@@ -515,8 +515,8 @@ const handleCurrentChange = (page: number) => {
   loadRebateRecords()
 }
 
-const getStatusColor = (status: string) => {
-  const colorMap: { [key: string]: string } = {
+const getStatusColor = (status: string): 'success' | 'warning' | 'danger' | 'info' => {
+  const colorMap: { [key: string]: 'success' | 'warning' | 'danger' | 'info' } = {
     pending: 'warning',
     collected: 'success',
     expired: 'danger'
@@ -560,7 +560,7 @@ const loadRebateRecords = async () => {
     
     const response = await rebateManagementApi.getRebateRecords(params)
     if (response.success) {
-      rebateList.value = response.data.items
+      rebateList.value = response.data.items as RebateRecord[]
       pagination.total = response.data.total
     } else {
       ElMessage.error(response.message)

@@ -34,24 +34,14 @@ interface Option {
   value: number | string | undefined;
 }
 
-const props = defineProps({
-  modelValue: {
-    type: [Number, String, undefined],
-    default: undefined
-  },
-  options: {
-    type: Array as () => Option[],
-    required: true
-  },
-  itemHeight: { // 优化：更小的行高
-    type: Number,
-    default: 30
-  },
-  visibleItems: {
-    type: Number,
-    default: 5,
-    validator: (val: number) => val % 2 === 1 && val >= 3
-  }
+const props = withDefaults(defineProps<{
+  modelValue?: number | string | undefined
+  options: Option[]
+  itemHeight?: number
+  visibleItems?: number
+}>(), {
+  itemHeight: 30,
+  visibleItems: 5
 })
 
 // ... (脚本与 18:03 版本的完全相同) ...

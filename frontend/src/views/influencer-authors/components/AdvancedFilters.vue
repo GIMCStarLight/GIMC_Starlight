@@ -255,7 +255,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useInfluencerSquareStore } from '#/store/influencer-square'
+import { useInfluencerSquareStore } from '#/store'
 
 const store = useInfluencerSquareStore()
 

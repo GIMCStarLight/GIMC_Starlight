@@ -17,7 +17,7 @@ import { ElMessage } from 'element-plus';
 
 import { useAuthStore } from '#/store';
 import { clearAllCache } from '#/utils/auth';
-import { log } from '#/utils/logger';
+import { log } from '../utils/logger';
 
 import { refreshTokenApi } from './core';
 

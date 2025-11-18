@@ -1,5 +1,5 @@
 import type { RequestClient } from '@vben/request';
-import { log } from '#/utils/logger';
+import { log } from '../utils/logger';
 import { requestClient } from './request';
 
 // 标签筛选相关的类型定义

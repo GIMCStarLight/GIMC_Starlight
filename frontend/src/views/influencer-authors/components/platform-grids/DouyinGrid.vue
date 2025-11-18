@@ -214,7 +214,7 @@ import { log } from '../../../../utils/logger'
 import { computed, watch } from 'vue'
 import { ElMessage } from 'element-plus'
 import InfluencerCard from '../InfluencerCard.vue'
-import { useInfluencerSquareStore } from '#/store/influencer-square'
+import { useInfluencerSquareStore } from '#/store'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 
