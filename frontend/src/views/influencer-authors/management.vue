@@ -380,6 +380,7 @@
 import { ref, reactive, onMounted, computed } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { IconifyIcon as Icon } from '@vben/icons'
+import { log } from '../../utils/logger'
 import { requestClient } from '#/api/request'
 import { Excel, mapExcelInfluencer } from '#/utils/excel'
 import { useRouter } from 'vue-router'
@@ -880,7 +881,6 @@ const uploadExcelRef = ref()
  const uploadFile = async (file: any) => {
   // 表头字段数组
   const header = Object.values(mapExcelInfluencer);
-import { log } from '#/utils/logger';
   if (file.raw?.type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' 
       && file.raw?.type !== 'application/vnd.ms-excel') {
     ElMessage.error('文件格式错误，请重新上传！')
