@@ -508,9 +508,9 @@ export class SupplierDatabaseService {
     ];
 
     platformFields.forEach((field) => {
-      if (queryDto[field] !== undefined) {
+      if ((queryDto as any)[field] !== undefined) {
         queryBuilder.andWhere(`supplier.${field} = :${field}`, {
-          [field]: queryDto[field],
+          [field]: (queryDto as any)[field],
         });
       }
     });
