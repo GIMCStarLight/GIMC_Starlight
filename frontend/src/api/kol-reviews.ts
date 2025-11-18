@@ -1,4 +1,5 @@
 import { requestClient } from './request'
+import { requestDeduplicator } from '../utils/request-deduplicator'
 
 export interface CreateKolReviewDto {
   authorId: string
@@ -59,22 +60,47 @@ export async function updateKolReviewApi(id: number, data: Partial<CreateKolRevi
 
 // 获取达人评价列表（带分页和筛选）
 export async function getKolReviewsApi(params?: any) {
-  return requestClient.get<KolReviewListResult>('kol-reviews', { params })
+  return requestDeduplicator.deduplicate(
+    {
+      url: '/kol-reviews',
+      method: 'GET',
+      params,
+    },
+    () => requestClient.get<KolReviewListResult>('kol-reviews', { params })
+  )
 }
 
 // 获取单条评价详情
 export async function getKolReviewDetailApi(id: number) {
-  return requestClient.get<KolReviewInfo>(`kol-reviews/${id}`)
+  return requestDeduplicator.deduplicate(
+    {
+      url: `/kol-reviews/${id}`,
+      method: 'GET',
+    },
+    () => requestClient.get<KolReviewInfo>(`kol-reviews/${id}`)
+  )
 }
 
 // 获取统计数据
 export async function getReviewStatisticsApi() {
-  return requestClient.get<ReviewStatistics>('kol-reviews/statistics')
+  return requestDeduplicator.deduplicate(
+    {
+      url: '/kol-reviews/statistics',
+      method: 'GET',
+    },
+    () => requestClient.get<ReviewStatistics>('kol-reviews/statistics')
+  )
 }
 
 // 根据authorId获取达人评价
 export async function getKolReviewsByAuthorIdApi(authorId: string) {
-  return requestClient.get<KolReviewInfo[]>(`kol-reviews/author/${authorId}`)
+  return requestDeduplicator.deduplicate(
+    {
+      url: `/kol-reviews/author/${authorId}`,
+      method: 'GET',
+    },
+    () => requestClient.get<KolReviewInfo[]>(`kol-reviews/author/${authorId}`)
+  )
 }
 
 // 删除评价

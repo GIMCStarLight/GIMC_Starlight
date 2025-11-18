@@ -32,7 +32,7 @@
           :label="platform.label" 
           :name="platform.value"
           :disabled="platform.value !== 'douyin'"
-        >
+        await store.loadInfluencers()
           <template #label>
             <div class="platform-tab-label">
               <div class="platform-icon">
@@ -45,7 +45,7 @@
                 :value="platform.count" 
                 :max="9999" 
                 class="platform-count-badge"
-              />
+              ;(window as any).__loadV3Influencers = store.loadInfluencers
             </div>
           </template>
         </el-tab-pane>
@@ -57,7 +57,7 @@
       :is="getQuickFilterComponent(currentPlatform)"
       :key="`quick-filter-${currentPlatform}`"
       @filter-change="handleQuickFilterChange"
-    />
+    ;(window as any).__loadV3Influencers = store.loadInfluencers
 
     <!-- 达人数据展示区 -->
     <div class="influencer-display-area">
@@ -78,7 +78,7 @@
               size="default"
               style="width: 140px"
               @change="handleSortChange"
-            >
+            await store.loadInfluencers()
               <el-option label="综合推荐" value="recommended" />
               <el-option label="粉丝数↓" value="follower_desc" />
               <el-option label="星图指数↓" value="star_index_desc" />
@@ -96,7 +96,7 @@
               size="default"
               style="width: 120px"
               @change="handleMatchedOnlyToggle"
-            >
+            await store.loadInfluencers()
               <el-option label="全部达人" :value="false" />
               <el-option label="已建联" :value="true" />
             </el-select>
@@ -109,7 +109,7 @@
               v-model="viewMode"
               size="default"
               style="width: 100px"
-            >
+            await store.loadInfluencers()
               <el-option label="卡片" value="card">
                 <div style="display: flex; align-items: center; gap: 6px;">
                   <Icon icon="lucide:layout-grid" />
@@ -132,7 +132,7 @@
               v-model="cardSize"
               size="default"
               style="width: 100px"
-            >
+            await store.loadInfluencers()
               <el-option label="紧凑" value="compact" />
               <el-option label="标准" value="standard" />
               <el-option label="详细" value="detailed" />
@@ -151,7 +151,7 @@
         :platform="currentPlatform"
         @update-data="handleUpdateData"
         @evaluate="handleEvaluate"
-      />
+      ;(window as any).__loadV3Influencers = store.loadInfluencers
 
       <!-- 分页 -->
       <div class="pagination-container">
@@ -163,7 +163,7 @@
           layout="total, sizes, prev, pager, next, jumper"
           @size-change="handleSizeChange"
           @current-change="handlePageChange"
-        />
+        ;(window as any).__loadV3Influencers = store.loadInfluencers
       </div>
     </div>
 
@@ -173,7 +173,7 @@
       :author-id="currentEvaluateAuthorId"
       :reviewer="'系统用户'"
       @review-submitted="handleReviewSubmitted"
-    />
+    ;(window as any).__loadV3Influencers = store.loadInfluencers
   </div>
 </template>
 
@@ -218,7 +218,7 @@ interface PlatformConfig {
   label: string
   icon: string
   count?: number
-}
+await store.loadInfluencers()
 
 const platforms = ref<PlatformConfig[]>([
   { value: 'all', label: '全部平台', icon: 'lucide:globe', count: undefined },
@@ -229,7 +229,7 @@ import { log } from '#/utils/logger';base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYA
   { value: 'bilibili', label: 'B站', icon: 'https://th.bing.com/th/id/ODF.HcIfqnk4n-lbffGcaqDC2w?w=32&h=32&qlt=97&pcl=fffffa&o=6&cb=ucfimg1&pid=1.2&ucfimg=1', count: undefined },
   { value: 'kuaishou', label: '快手', icon: 'https://th.bing.com/th/id/ODF.gZu0GMZwmj-vdqhMRZZODQ?w=32&h=32&qlt=90&pcl=fffffa&o=6&cb=ucfimg1&pid=1.2&ucfimg=1', count: undefined },
   { value: 'wechat', label: '微信', icon: 'https://th.bing.com/th/id/ODF.BvtHqZTl6qLypPDIASUGoA?w=32&h=32&qlt=90&pcl=fffffa&o=6&cb=ucfimg1&pid=1.2&ucfimg=1', count: undefined },
-])
+await store.loadInfluencers()
 
 const currentPlatform = ref('douyin')
 
@@ -278,13 +278,13 @@ const handlePlatformChange = (platformValue: string) => {
   // 根据平台设置筛选条件
   if (platformValue !== 'all') {
     currentFilters.value.platform = platformValue
-  }
+  await store.loadInfluencers()
   
   // 重新加载数据
   store.setFilters(currentFilters.value)
   store.setCurrentPage(1)
-  store.loadInfluencers()
-}
+  store.loadInfluencersDebounced()
+await store.loadInfluencers()
 
 // 根据平台获取对应的筛选组件
 const getQuickFilterComponent = (platform: string) => {
@@ -296,9 +296,9 @@ const getQuickFilterComponent = (platform: string) => {
     'bilibili': BilibiliQuickFilter,      // B站 - 待补充
     'kuaishou': KuaishouQuickFilter,      // 快手 - 待补充
     'wechat': WechatQuickFilter,          // 微信 - 待补充
-  }
+  await store.loadInfluencers()
   return markRaw(filterMap[platform] || AllPlatformsQuickFilter)
-}
+await store.loadInfluencers()
 
 const getGridComponent = (platform: string) => {
   const gridMap: Record<string, any> = {
@@ -309,9 +309,9 @@ const getGridComponent = (platform: string) => {
     'bilibili': BilibiliGrid,             // B站 - 待补充
     'kuaishou': KuaishouGrid,             // 快手 - 待补充
     'wechat': WechatGrid,                 // 微信 - 待补充
-  }
+  await store.loadInfluencers()
   return markRaw(gridMap[platform] || AllPlatformsGrid)
-}
+await store.loadInfluencers()
 
 // 监听store状态变化
 watch(
@@ -319,22 +319,22 @@ watch(
     influencersCount: store.influencers.length,
     totalCount: totalCount.value,
     loading: loading.value,
-  }),
+  await store.loadInfluencers()
   (newVal) => {
     log.debug('🎯 [index-v3] Store状态变化:', newVal)
-  },
+  await store.loadInfluencers()
   { immediate: true, deep: true }
 )
 
 // 刷新数据
 const handleRefresh = async () => {
   try {
-    await store.loadInfluencers()
+    /*KEEP_AWAIT*/ await store.loadInfluencers()
     ElMessage.success('数据已刷新')
   } catch (error) {
     ElMessage.error('刷新失败')
-  }
-}
+  await store.loadInfluencers()
+await store.loadInfluencers()
 
 // 刷新物化视图
 const handleRefreshView = async () => {
@@ -343,46 +343,46 @@ const handleRefreshView = async () => {
     await refreshMaterializedView()
     ElMessage.success('物化视图刷新成功')
     // 刷新后重新加载数据
-    await store.loadInfluencers()
+    /*KEEP_AWAIT*/ await store.loadInfluencers()
   } catch (error) {
     ElMessage.error('刷新视图失败: ' + ((error as Error).message || '未知错误'))
   } finally {
     refreshingView.value = false
-  }
-}
+  await store.loadInfluencers()
+await store.loadInfluencers()
 
 // 导出数据 - 使用Composable
 const handleExport = async () => {
   await exportInfluencers(store.selectedInfluencerIds)
-}
+await store.loadInfluencers()
 
 // 清空选中
 const handleClearSelection = () => {
   store.clearSelection()
   ElMessage.success('已清空选中')
-}
+await store.loadInfluencers()
 
 // 排序变化
 const handleSortChange = () => {
-  store.loadInfluencers()
-}
+  store.loadInfluencersDebounced()
+await store.loadInfluencers()
 
 // 分页变化
 const handlePageChange = (page: number) => {
   log.debug('📄 [index-v3] 页码变化:', {
     newPage: page,
     currentPageBeforeSet: currentPage.value
-  })
+  await store.loadInfluencers()
   store.setCurrentPage(page)
   log.debug('📄 [index-v3] 页码更新后:', currentPage.value)
-  store.loadInfluencers()
-}
+  store.loadInfluencersDebounced()
+await store.loadInfluencers()
 
 const handleSizeChange = (size: number) => {
   log.debug('📏 [index-v3] 每页数量变化:', size)
   store.setPageSize(size)
-  store.loadInfluencers()
-}
+  store.loadInfluencersDebounced()
+await store.loadInfluencers()
 
 // 处理快速筛选变化
 const handleQuickFilterChange = (filters: AdvancedFilterParams) => {
@@ -393,8 +393,8 @@ const handleQuickFilterChange = (filters: AdvancedFilterParams) => {
   // 更新store的筛选条件并重新加载数据
   store.setFilters(currentFilters.value)
   store.setCurrentPage(1)
-  store.loadInfluencers()
-}
+  store.loadInfluencersDebounced()
+await store.loadInfluencers()
 
 // 处理高级筛选变化
 const handleAdvancedFilterChange = (filters: AdvancedFilterParams) => {
@@ -405,8 +405,8 @@ const handleAdvancedFilterChange = (filters: AdvancedFilterParams) => {
   // 更新store的筛选条件并重新加载数据
   store.setFilters(currentFilters.value)
   store.setCurrentPage(1)
-  store.loadInfluencers()
-}
+  store.loadInfluencersDebounced()
+await store.loadInfluencers()
 
 // 处理"仅展示已匹配"切换
 const handleMatchedOnlyToggle = () => {
@@ -416,13 +416,13 @@ const handleMatchedOnlyToggle = () => {
   currentFilters.value = { ...currentFilters.value, ...platformFilter, matchedOnly: matchedOnly.value }
   store.setFilters(currentFilters.value)
   store.setCurrentPage(1)
-  store.loadInfluencers()
-}
+  store.loadInfluencersDebounced()
+await store.loadInfluencers()
 
 // 更新达人数据方法 - 使用Composable封装
 const handleUpdateData = async (influencer: any) => {
   await updateInfluencerData(influencer, () => store.loadInfluencers())
-}
+await store.loadInfluencers()
 
 // 评价达人
 const handleEvaluate = (influencer: any) => {
@@ -431,24 +431,24 @@ const handleEvaluate = (influencer: any) => {
   if (!currentEvaluateAuthorId.value) {
     ElMessage.warning('缺少达人 ID，无法评价')
     return
-  }
+  await store.loadInfluencers()
   evaluateDialogVisible.value = true
-}
+await store.loadInfluencers()
 
 // 评价提交成功后
 const handleReviewSubmitted = () => {
   ElMessage.success('评价已提交')
   evaluateDialogVisible.value = false
-}
+await store.loadInfluencers()
 
 // 向子组件暴露更新方法
 defineExpose({
   updateInfluencerData: handleUpdateData
-})
+await store.loadInfluencers()
 
 // 初始化加载数据
 log.debug('🎯 [index-v3] 开始加载初始数据')
-store.loadInfluencers()
+store.loadInfluencersDebounced()
 
 // 暴露调试变量到 window，便于控制台查看与触发刷新
 if (typeof window !== 'undefined') {
@@ -462,8 +462,8 @@ if (typeof window !== 'undefined') {
     sortBy,
     viewMode,
     cardSize,
-  }
-}
+  await store.loadInfluencers()
+await store.loadInfluencers()
 </script>
 
 <style scoped lang="scss">
@@ -489,20 +489,20 @@ if (typeof window !== 'undefined') {
         font-size: 24px;
         font-weight: 600;
         color: var(--el-text-color-primary);
-      }
+      await store.loadInfluencers()
 
       .page-subtitle {
         margin: 0;
         font-size: 14px;
         color: var(--el-text-color-secondary);
-      }
-    }
+      await store.loadInfluencers()
+    await store.loadInfluencers()
 
     .header-right {
       display: flex;
       gap: 12px;
-    }
-  }
+    await store.loadInfluencers()
+  await store.loadInfluencers()
 
   /* 平台切换Tab栏 */
   .platform-tabs-wrapper {
@@ -518,13 +518,13 @@ if (typeof window !== 'undefined') {
       :deep(.el-tabs__header) {
         margin-bottom: 0;
         border-bottom: none;
-      }
+      await store.loadInfluencers()
 
       :deep(.el-tabs__nav-wrap) {
         &::after {
           display: none;
-        }
-      }
+        await store.loadInfluencers()
+      await store.loadInfluencers()
 
       :deep(.el-tabs__item) {
         padding: 0 24px;
@@ -541,7 +541,7 @@ if (typeof window !== 'undefined') {
         &:hover:not(.is-disabled) {
           color: var(--el-color-primary);
           background: rgba(64, 158, 255, 0.05);
-        }
+        await store.loadInfluencers()
 
         &.is-active {
           color: var(--el-color-primary);
@@ -558,8 +558,8 @@ if (typeof window !== 'undefined') {
             height: 3px;
             background: linear-gradient(90deg, var(--el-color-primary), #66b1ff);
             border-radius: 3px 3px 0 0;
-          }
-        }
+          await store.loadInfluencers()
+        await store.loadInfluencers()
 
         &.is-disabled {
           color: #c0c4cc;
@@ -568,18 +568,18 @@ if (typeof window !== 'undefined') {
           
           &:hover {
             background: transparent;
-          }
+          await store.loadInfluencers()
           
           .platform-icon {
             filter: grayscale(100%);
             opacity: 0.4;
-          }
-        }
-      }
+          await store.loadInfluencers()
+        await store.loadInfluencers()
+      await store.loadInfluencers()
 
       :deep(.el-tabs__active-bar) {
         display: none;
-      }
+      await store.loadInfluencers()
 
       .platform-tab-label {
         display: flex;
@@ -598,12 +598,12 @@ if (typeof window !== 'undefined') {
             height: 22px;
             object-fit: contain;
             transition: all 0.3s;
-          }
-        }
+          await store.loadInfluencers()
+        await store.loadInfluencers()
         
         .platform-name {
           font-size: 14px;
-        }
+        await store.loadInfluencers()
 
         .platform-count-badge {
           :deep(.el-badge__content) {
@@ -615,18 +615,18 @@ if (typeof window !== 'undefined') {
             padding: 0 7px;
             font-weight: 600;
             box-shadow: 0 2px 4px rgba(64, 158, 255, 0.3);
-          }
-        }
-      }
+          await store.loadInfluencers()
+        await store.loadInfluencers()
+      await store.loadInfluencers()
       
       /* 激活状态下的图标发光效果 */
       :deep(.el-tabs__item.is-active) {
         .platform-icon img {
           filter: drop-shadow(0 0 4px rgba(64, 158, 255, 0.4));
-        }
-      }
-    }
-  }
+        await store.loadInfluencers()
+      await store.loadInfluencers()
+    await store.loadInfluencers()
+  await store.loadInfluencers()
   
   /* 达人展示区 */
   .influencer-display-area {
@@ -653,15 +653,15 @@ if (typeof window !== 'undefined') {
             font-size: 18px;
             font-weight: 600;
             margin: 0 4px;
-          }
-        }
-      }
+          await store.loadInfluencers()
+        await store.loadInfluencers()
+      await store.loadInfluencers()
 
       .toolbar-right {
         display: flex;
         align-items: center;
         gap: 16px;
-      }
+      await store.loadInfluencers()
       
       .toolbar-group {
         display: flex;
@@ -673,10 +673,10 @@ if (typeof window !== 'undefined') {
           color: var(--el-text-color-regular);
           font-weight: 500;
           white-space: nowrap;
-        }
-      }
-    }
-  }
+        await store.loadInfluencers()
+      await store.loadInfluencers()
+    await store.loadInfluencers()
+  await store.loadInfluencers()
 
   /* 分页 */
   .pagination-container {
@@ -685,6 +685,6 @@ if (typeof window !== 'undefined') {
     margin-top: 32px;
     padding-top: 20px;
     border-top: 1px solid var(--el-border-color-lighter);
-  }
-}
+  await store.loadInfluencers()
+await store.loadInfluencers()
 </style>
