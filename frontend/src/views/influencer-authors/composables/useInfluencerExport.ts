@@ -3,6 +3,7 @@
  * 提取自index-v3.vue,便于复用和测试
  */
 import { ElMessage } from 'element-plus'
+import { log } from '../../../utils/logger'
 import type { Influencer } from '../../../types/influencer'
 
 export function useInfluencerExport() {
@@ -84,8 +85,7 @@ export function useInfluencerExport() {
         if (value === null || value === undefined) {
           return '-'
         } else if (Array.isArray(value)) {
-          return value.join(';
-import { log } from '#/utils/logger'; ')
+          return value.join('; ')
         } else if (typeof value === 'object') {
           return JSON.stringify(value)
         } else {
