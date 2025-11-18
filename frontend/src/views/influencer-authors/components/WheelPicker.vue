@@ -27,30 +27,21 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
+import { log } from '../../../utils/logger'
 
 interface Option {
   label: string;
   value: number | string | undefined;
 }
 
-const props = defineProps({
-  modelValue: {
-    type: [Number, String, undefined],
-    default: undefined
-  },
-  options: {
-    type: Array as () => Option[],
-    required: true
-  },
-  itemHeight: { // 优化：更小的行高
-    type: Number,
-    default: 30
-  },
-  visibleItems: {
-    type: Number,
-    default: 5,
-    validator: (val: number) => val % 2 === 1 && val >= 3
-  }
+const props = withDefaults(defineProps<{
+  modelValue?: number | string | undefined
+  options: Option[]
+  itemHeight?: number
+  visibleItems?: number
+}>(), {
+  itemHeight: 30,
+  visibleItems: 5
 })
 
 // ... (脚本与 18:03 版本的完全相同) ...
@@ -74,7 +65,7 @@ const minOffsetY = computed(() => - (internalOptions.value.length - centerItemIn
 const maxOffsetY = computed(() => centerItemIndex.value * props.itemHeight)
 onMounted(() => {
   if (props.visibleItems % 2 === 0) {
-    console.warn('WheelPicker: visibleItems should be an odd number to center the selection.')
+    log.warn('WheelPicker: visibleItems should be an odd number to center the selection.')
   }
   updateInternalOptions();
   updateSelectedIndex(props.modelValue)

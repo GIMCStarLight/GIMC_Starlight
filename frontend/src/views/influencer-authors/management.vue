@@ -380,10 +380,11 @@
 import { ref, reactive, onMounted, computed } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { IconifyIcon as Icon } from '@vben/icons'
-import { requestClient } from '#/api/request'
-import { Excel, mapExcelInfluencer } from '#/utils/excel'
+import { log } from '../../utils/logger'
+import { requestClient } from '../../api/request'
+import { Excel, mapExcelInfluencer } from '../../utils/excel'
 import { useRouter } from 'vue-router'
-import EvaluateDialog from '#/components/EvaluateDialog/index.vue'
+import EvaluateDialog from '../../components/EvaluateDialog/index.vue'
 import { formatters } from '../shared/influencer-columns'
 import { id } from 'element-plus/es/locales.mjs'
 
@@ -402,9 +403,13 @@ const formatContentTheme = formatters.formatContentTheme
 const loading = ref(false)
 const submitting = ref(false)
 const dialogVisible = ref(false)
-const selectedRows = ref([])
-const tableData = ref([])
-const statistics = ref({})
+const selectedRows = ref<any[]>([])
+const tableData = ref<any[]>([])
+const statistics = ref<{
+  totalCount?: number
+  ecommerceEnabledCount?: number
+  genderStats?: Array<{ gender: string; count: number }>
+}>({})
 const genderStats = computed(() => statistics.value?.genderStats || [])
 
 // 搜索表单
@@ -573,29 +578,29 @@ const loadData = async () => {
       }
     })
 
-    console.log('发送API请求参数:', params)
+    log.debug('发送API请求参数:', params)
     // 使用统一的API前缀
     const response = await requestClient.get('/influencers', { 
       params
     })
-    console.log('API完整响应:', response)
+    log.debug('API完整响应:', response)
     
     // 处理v2 API响应格式: { data: [...], pagination: {...} }
     if (response && response.data) {
-      console.log('解析后的响应数据:', response)
+      log.debug('解析后的响应数据:', response)
       
       tableData.value = response.data || []
-      console.log('设置表格数据:', tableData.value.length, '条记录')
+      log.debug('设置表格数据:', tableData.value.length, '条记录')
       
       // 调试：检查表格数据中的字段
       if (tableData.value.length > 0) {
-        console.log('=== 表格数据字段调试 ===')
-        console.log('第一条记录:', tableData.value[0])
-        console.log('第一条记录的所有键:', Object.keys(tableData.value[0]))
-        console.log('是否包含author_id:', 'author_id' in tableData.value[0])
-        console.log('是否包含influencer_id:', 'influencer_id' in tableData.value[0])
-        console.log('author_id值:', tableData.value[0].author_id)
-        console.log('influencer_id值:', tableData.value[0].influencer_id)
+        log.debug('=== 表格数据字段调试 ===')
+        log.debug('第一条记录:', tableData.value[0])
+        log.debug('第一条记录的所有键:', Object.keys(tableData.value[0]))
+        log.debug('是否包含author_id:', 'author_id' in tableData.value[0])
+        log.debug('是否包含influencer_id:', 'influencer_id' in tableData.value[0])
+        log.debug('author_id值:', tableData.value[0].author_id)
+        log.debug('influencer_id值:', tableData.value[0].influencer_id)
       }
       
       // 使用后端返回的完整分页信息
@@ -605,21 +610,21 @@ const loadData = async () => {
         pagination.limit = paginationInfo.limit || 20
         pagination.total = paginationInfo.total || 0
         
-        console.log('分页信息解析:', {
+        log.debug('分页信息解析:', {
           原始分页数据: paginationInfo,
           解析后分页: pagination
         })
       } else {
-        console.log('未找到分页信息，使用默认值')
+        log.debug('未找到分页信息，使用默认值')
         pagination.total = tableData.value.length
       }
     } else {
-      console.log('API响应格式错误')
+      log.debug('API响应格式错误')
       tableData.value = []
       pagination.total = 0
     }
   } catch (error) {
-    console.error('API请求失败:', error)
+    log.error('API请求失败:', error)
     ElMessage.error('加载数据失败: ' + error.message)
   } finally {
     loading.value = false
@@ -631,7 +636,7 @@ const loadStatistics = async () => {
     const response = await requestClient.get('/influencers/stats')
     statistics.value = response.data || response
   } catch (error) {
-    console.error('加载统计数据失败:', error)
+    log.error('加载统计数据失败:', error)
   }
 }
 
@@ -724,7 +729,7 @@ const handleSubmit = async () => {
     const data = { ...formData }
     delete data.id
    if(!data.tags_relation) {
-      data.tags_relation = {}
+      data.tags_relation = '' as any
     }
     
     if (formData.id) {
@@ -750,17 +755,17 @@ const handleSelectionChange = (selection) => {
 }
 
 const handleSizeChange = (size) => {
-  console.log('分页大小改变:', size)
+  log.debug('分页大小改变:', size)
   pagination.limit = size
   pagination.page = 1
-  console.log('更新后的分页参数:', pagination)
+  log.debug('更新后的分页参数:', pagination)
   loadData()
 }
 
 const handleCurrentChange = (page) => {
-  console.log('页码改变:', page)
+  log.debug('页码改变:', page)
   pagination.page = page
-  console.log('更新后的分页参数:', pagination)
+  log.debug('更新后的分页参数:', pagination)
   loadData()
 }
 
@@ -893,9 +898,9 @@ const uploadExcelRef = ref()
     // 导入文件获取数据
     const res = await excel.importExcel({ header });
     res.shift()
-    console.log(res);
+    log.debug(res);
   } catch (err) {
-    console.log(err);
+    log.debug(err);
   }finally{
     ElMessage.success('导入成功')
     uploadExcelRef.value!.handleRemove(file)
@@ -904,19 +909,19 @@ const uploadExcelRef = ref()
 
 // 评价达人
 const evaluateDialogVisible = ref(false)
-const currentStarId = ref(0)
+const currentStarId = ref<string>('')
 const handleEvaluate = (row) => {
-  console.log('=== 评价达人调试信息 ===')
-  console.log('完整row对象:', row)
-  console.log('row.id:', row.id)
-  console.log('row.author_id:', row.author_id)
-  console.log('row.influencer_id:', row.influencer_id)
-  console.log('row对象的所有键:', Object.keys(row))
-  console.log('row对象的所有值:', Object.values(row))
+  log.debug('=== 评价达人调试信息 ===')
+  log.debug('完整row对象:', row)
+  log.debug('row.id:', row.id)
+  log.debug('row.author_id:', row.author_id)
+  log.debug('row.influencer_id:', row.influencer_id)
+  log.debug('row对象的所有键:', Object.keys(row))
+  log.debug('row对象的所有值:', Object.values(row))
   
   // 设置当前要评价的达人ID，v2 API返回的是id字段，兼容旧的author_id和influencer_id
-  const starId = row.id || row.author_id || row.influencer_id
-  console.log('最终设置的starId:', starId)
+  const starId = String(row.id || row.author_id || row.influencer_id)
+  log.debug('最终设置的starId:', starId)
   
   currentStarId.value = starId
   evaluateDialogVisible.value = true

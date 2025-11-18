@@ -1,4 +1,5 @@
 import type { Language } from 'element-plus/es/locale';
+import { log } from '../utils/logger';
 
 import type { App } from 'vue';
 
@@ -69,7 +70,7 @@ async function loadDayjsLocale(lang: SupportedLanguagesType) {
   if (locale) {
     dayjs.locale(locale);
   } else {
-    console.error(`Failed to load dayjs locale for ${lang}`);
+    log.error(`Failed to load dayjs locale for ${lang}`);
   }
 }
 

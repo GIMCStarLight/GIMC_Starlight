@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { log } from '../../utils/logger'
 import { ref, onMounted, watch, computed } from 'vue'
 import { ElMessage } from 'element-plus'
 import { IconifyIcon } from '@vben/icons'
@@ -25,7 +26,7 @@ const loadReviews = async () => {
     const data = await getKolReviewsByAuthorIdApi(props.authorId)
     reviews.value = data || []
   } catch (error) {
-    console.error('加载评价失败:', error)
+    log.error('加载评价失败:', error)
     ElMessage.error('加载评价失败')
   } finally {
     loading.value = false

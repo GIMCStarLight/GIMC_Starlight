@@ -23,7 +23,7 @@ function checkPermission(el: HTMLElement, binding: DirectiveBinding) {
   const { value, arg, modifiers } = binding
   
   if (!value) {
-    console.warn('v-permission指令需要传入权限值')
+    log.warn('v-permission指令需要传入权限值')
     return
   }
 

@@ -126,6 +126,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import { Refresh } from '@element-plus/icons-vue'
+import { log } from '../../utils/logger'
 import { getImportHistory, getImportHistoryDetail } from '../../api/import-async'
 
 const loading = ref(false)
@@ -150,7 +151,7 @@ const loadHistory = async () => {
     historyList.value = result.items
     pagination.value.total = result.total
   } catch (error) {
-    console.error('加载导入历史失败:', error)
+    log.error('加载导入历史失败:', error)
     ElMessage.error('加载导入历史失败')
   } finally {
     loading.value = false
@@ -178,7 +179,7 @@ const viewDetail = async (row: any) => {
     currentDetail.value = detail
     detailVisible.value = true
   } catch (error) {
-    console.error('加载详情失败:', error)
+    log.error('加载详情失败:', error)
     ElMessage.error('加载详情失败')
   }
 }

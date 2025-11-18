@@ -7,6 +7,7 @@ import { AuthenticationLogin, SliderCaptcha, z } from '@vben/common-ui';
 import { $t } from '@vben/locales';
 
 import { ElMessage } from 'element-plus';
+import { log } from '../../../utils/logger';
 
 import { useAuthStore } from '#/store';
 
@@ -61,7 +62,7 @@ async function handleLogin(values: any) {
     // 登录成功，authStore中已经处理了成功通知和跳转
   } catch (error: any) {
     // 登录失败，显示错误提示
-    console.error('登录失败:', error);
+    log.error('登录失败:', error);
     
     // 提取错误信息
     const errorMessage = error?.response?.data?.message || 

@@ -206,7 +206,7 @@ export const actionColumn: ColumnConfig = {
         size: 'small',
         onClick: () => {
           // 查看详情逻辑
-          console.log('查看详情', row)
+          log.debug('查看详情', row)
         }
       }, { default: () => '详情' }),
       h('el-button', {
@@ -214,7 +214,7 @@ export const actionColumn: ColumnConfig = {
         size: 'small',
         onClick: () => {
           // 编辑逻辑
-          console.log('编辑', row)
+          log.debug('编辑', row)
         }
       }, { default: () => '编辑' })
     ])

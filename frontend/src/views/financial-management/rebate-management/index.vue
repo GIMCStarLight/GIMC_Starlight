@@ -244,7 +244,7 @@
           <el-descriptions-item label="收取时间" v-if="selectedRebate.collectedAt">
             {{ formatDate(selectedRebate.collectedAt) }}
           </el-descriptions-item>
-          <el-descriptions-item label="备注" span="2" v-if="selectedRebate.remark">
+          <el-descriptions-item label="备注" :span="2" v-if="selectedRebate.remark">
             {{ selectedRebate.remark }}
           </el-descriptions-item>
         </el-descriptions>
@@ -268,12 +268,13 @@ import { ref, reactive, onMounted, nextTick } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { Money, Clock, Check, Document } from '@element-plus/icons-vue'
 import * as echarts from 'echarts'
+import { log } from '../../../utils/logger'
 
 // 模拟API接口
 const rebateManagementApi = {
   getRebateRecords: async (params: any) => {
     // 模拟数据
-    const mockData = [
+    const mockData: RebateRecord[] = [
       {
         id: 1,
         supplierName: '优质供应商A',
@@ -342,12 +343,12 @@ const rebateManagementApi = {
   },
   
   collectRebate: async (id: number) => {
-    console.log('收取返点:', id)
+    log.debug('收取返点:', id)
     return { success: true, message: '收取成功' }
   },
   
   batchCollectRebate: async (ids: number[]) => {
-    console.log('批量收取返点:', ids)
+    log.debug('批量收取返点:', ids)
     return { success: true, message: '批量收取成功' }
   }
 }
@@ -514,8 +515,8 @@ const handleCurrentChange = (page: number) => {
   loadRebateRecords()
 }
 
-const getStatusColor = (status: string) => {
-  const colorMap: { [key: string]: string } = {
+const getStatusColor = (status: string): 'success' | 'warning' | 'danger' | 'info' => {
+  const colorMap: { [key: string]: 'success' | 'warning' | 'danger' | 'info' } = {
     pending: 'warning',
     collected: 'success',
     expired: 'danger'
@@ -559,7 +560,7 @@ const loadRebateRecords = async () => {
     
     const response = await rebateManagementApi.getRebateRecords(params)
     if (response.success) {
-      rebateList.value = response.data.items
+      rebateList.value = response.data.items as RebateRecord[]
       pagination.total = response.data.total
     } else {
       ElMessage.error(response.message)
@@ -578,7 +579,7 @@ const loadDashboardData = async () => {
       dashboardData.value = response.data
     }
   } catch (error) {
-    console.error('加载仪表板数据失败:', error)
+    log.error('加载仪表板数据失败:', error)
   }
 }
 

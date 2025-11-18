@@ -275,6 +275,7 @@ import { ref, reactive, computed, watch } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { UploadFilled, Document, Download, Loading, CircleCheck, CircleClose, Warning, Bell } from '@element-plus/icons-vue'
 import type { UploadFile, UploadInstance } from 'element-plus'
+import { log } from '../../../utils/logger'
 import { 
   type ImportTask,
   type ImportError,
@@ -331,7 +332,7 @@ const validationResult = ref<{
 // 导入进度
 const importProgress = reactive({
   percentage: 0,
-  status: 'active' as 'active' | 'success' | 'exception',
+  status: 'success' as '' | 'success' | 'exception' | 'warning',
   processed: 0,
   total: 0,
   success: 0,
@@ -346,7 +347,19 @@ const importLogs = ref<Array<{
 }>>([])
 
 // 导入结果
-const importResult = reactive({
+const importResult = reactive<{
+  isSuccess: boolean
+  message: string
+  total: number
+  successCount: number
+  failedCount: number
+  duration: number
+  failedRecords?: Array<{
+    row: number
+    error: string
+    data: Record<string, any>
+  }>
+}>({
   isSuccess: false,
   message: '',
   total: 0,
@@ -376,9 +389,9 @@ const handleFileChange = async (file: UploadFile) => {
   if (selectedFile.value) {
     try {
       stepLoading.value = true
-      console.log('[ImportDialog] 开始上传文件:', selectedFile.value.name)
+      log.debug('[ImportDialog] 开始上传文件:', selectedFile.value.name)
       const response = await FileUploadApi.uploadExcel(selectedFile.value)
-      console.log('[ImportDialog] 文件上传响应:', response)
+      log.debug('[ImportDialog] 文件上传响应:', response)
       
       // 处理上传响应：响应拦截器可能已经提取过data字段
       let uploadData: any = null
@@ -393,7 +406,7 @@ const handleFileChange = async (file: UploadFile) => {
         }
       }
       
-      console.log('[ImportDialog] 解析后的上传数据:', uploadData)
+      log.debug('[ImportDialog] 解析后的上传数据:', uploadData)
       
       if (uploadData && uploadData.fileId) {
         fileId.value = uploadData.fileId
@@ -401,23 +414,23 @@ const handleFileChange = async (file: UploadFile) => {
         
         // 优化提示信息，展示已完成的步骤
         ElMessage.success(`文件解析完成，共${rowCount}条记录`)
-        console.log('[ImportDialog] 文件上传成功，fileId:', fileId.value)
+        log.debug('[ImportDialog] 文件上传成功，fileId:', fileId.value)
         
         // 自动触发数据验证流程
         await new Promise(resolve => setTimeout(resolve, 1000))
         
         // 调用验证
-        console.log('[ImportDialog] 开始验证数据')
+        log.debug('[ImportDialog] 开始验证数据')
         validationLoading.value = true
         const type = importConfig.dataSource === DataSource.PRIVATE ? 'private' : 'public'
-        console.log('[ImportDialog] 验证类型:', type)
+        log.debug('[ImportDialog] 验证类型:', type)
         
         if (!fileId.value) {
           throw new Error('文件ID不存在')
         }
         const validateResponse = await FileUploadApi.validateImportData(fileId.value, type)
-        console.log('[ImportDialog] 验证响应:', validateResponse)
-        console.log('[ImportDialog] 验证响应 JSON:', JSON.stringify(validateResponse, null, 2))
+        log.debug('[ImportDialog] 验证响应:', validateResponse)
+        log.debug('[ImportDialog] 验证响应 JSON:', JSON.stringify(validateResponse, null, 2))
         
         // 处理响应：可能已经被回调中间件提取过了数据字段
         let validationData: any = null
@@ -432,11 +445,11 @@ const handleFileChange = async (file: UploadFile) => {
           }
         }
         
-        console.log('[ImportDialog] 解析后的验证数据:', validationData)
+        log.debug('[ImportDialog] 解析后的验证数据:', validationData)
         
         if (validationData && (validationData as any).validCount !== undefined) {
           const data = validationData as any
-          console.log('[ImportDialog] 验证数据:', data)
+          log.debug('[ImportDialog] 验证数据:', data)
           validationResult.value = {
             validCount: data.validCount || 0,
             errorCount: data.errorCount || 0,
@@ -453,21 +466,21 @@ const handleFileChange = async (file: UploadFile) => {
           } else {
             ElMessage.success(`数据验证成功，共 ${data.validCount} 条有效记录，请选择导入方式`)
             // 跳转到验证步骤，让用户选择"静默导入"或"开始导入"
-            console.log('[ImportDialog] 验证成功，跳转到步骤1让用户选择导入方式')
+            log.debug('[ImportDialog] 验证成功，跳转到步骤1让用户选择导入方式')
             await new Promise(resolve => setTimeout(resolve, 500))
             currentStep.value = 1
-            console.log('[ImportDialog] 已跳转到步骤1（数据验证）')
+            log.debug('[ImportDialog] 已跳转到步骤1（数据验证）')
           }
         } else {
-          console.error('[ImportDialog] 验证响应数据格式错误:', validateResponse)
+          log.error('[ImportDialog] 验证响应数据格式错误:', validateResponse)
           throw new Error('数据验证响应格式错误')
         }
       } else {
-        console.error('[ImportDialog] 上传响应数据格式错误，未找到fileId:', response)
+        log.error('[ImportDialog] 上传响应数据格式错误，未找到fileId:', response)
         throw new Error('文件上传响应格式错误')
       }
     } catch (error) {
-      console.error('[ImportDialog] 整个流程错误:', error)
+      log.error('[ImportDialog] 整个流程错误:', error)
       let errorMsg = '文件处理失败'
       
       if (error instanceof Error) {
@@ -476,7 +489,7 @@ const handleFileChange = async (file: UploadFile) => {
         errorMsg = (error as any).message || (error as any).msg || JSON.stringify(error)
       }
       
-      console.error('[ImportDialog] 错误类庋:', typeof error, '错误内容:', error)
+      log.error('[ImportDialog] 错误类庋:', typeof error, '错误内容:', error)
       ElMessage.error('文件处理失败: ' + errorMsg)
       selectedFile.value = null
       fileId.value = null
@@ -550,11 +563,11 @@ const validateData = async () => {
   validationLoading.value = true
   try {
     const type = importConfig.dataSource === DataSource.PRIVATE ? 'private' : 'public'
-    console.log('[ImportDialog] validateData - 开始验证数据，类型:', type, 'fileId:', fileId.value)
+    log.debug('[ImportDialog] validateData - 开始验证数据，类型:', type, 'fileId:', fileId.value)
     
     const response = await FileUploadApi.validateImportData(fileId.value, type)
-    console.log('[ImportDialog] validateData - 验证响应:', response)
-    console.log('[ImportDialog] validateData - 验证响应 JSON:', JSON.stringify(response, null, 2))
+    log.debug('[ImportDialog] validateData - 验证响应:', response)
+    log.debug('[ImportDialog] validateData - 验证响应 JSON:', JSON.stringify(response, null, 2))
     
     // 处理响应：使用与handleFileChange相同的逻辑
     let validationData: any = null
@@ -563,19 +576,19 @@ const validateData = async () => {
       if ((response as any).validCount !== undefined) {
         // 已经被提取，直接使用
         validationData = response
-        console.log('[ImportDialog] validateData - 使用直接响应数据')
+        log.debug('[ImportDialog] validateData - 使用直接响应数据')
       } else if ((response as any).data) {
         // 根据指定的 dataField 提取
         validationData = (response as any).data
-        console.log('[ImportDialog] validateData - 从data字段提取数据')
+        log.debug('[ImportDialog] validateData - 从data字段提取数据')
       }
     }
     
-    console.log('[ImportDialog] validateData - 解析后的验证数据:', validationData)
+    log.debug('[ImportDialog] validateData - 解析后的验证数据:', validationData)
     
     if (validationData && (validationData as any).validCount !== undefined) {
       const data = validationData as any
-      console.log('[ImportDialog] validateData - 设置验证结果:', data)
+      log.debug('[ImportDialog] validateData - 设置验证结果:', data)
       
       validationResult.value = {
         validCount: data.validCount || 0,
@@ -591,11 +604,11 @@ const validateData = async () => {
         ElMessage.success(`数据验证成功，共 ${data.validCount} 条有效记录`)
       }
     } else {
-      console.error('[ImportDialog] validateData - 验证响应数据格式错误:', response)
+      log.error('[ImportDialog] validateData - 验证响应数据格式错误:', response)
       throw new Error('数据验证响应格式错误')
     }
   } catch (error) {
-    console.error('[ImportDialog] validateData - 验证错误:', error)
+    log.error('[ImportDialog] validateData - 验证错误:', error)
     ElMessage.error(error instanceof Error ? error.message : '数据验证失败')
     validationResult.value = null
   } finally {
@@ -636,7 +649,7 @@ const executeImport = async () => {
       importProgress.processed = data.total || 0
       importProgress.success = data.successCount || 0
       importProgress.failed = data.failedCount || 0
-      importProgress.status = data.failedCount === 0 ? 'success' : 'active'
+      importProgress.status = data.failedCount === 0 ? 'success' : 'warning'
       
       // 更新结果
       const duration = data.duration ? Math.round(data.duration / 1000) : Math.round((Date.now() - startTime) / 1000)
@@ -700,7 +713,7 @@ const formatTime = (time: Date) => {
 
 const downloadFailedRecords = () => {
   // 检查是否有导入失败记录
-  if (!importResult.value || !importResult.value.failedRecords || importResult.value.failedRecords.length === 0) {
+  if (!importResult.failedRecords || importResult.failedRecords.length === 0) {
     ElMessage.warning('没有失败记录可下载')
     return
   }
@@ -709,7 +722,7 @@ const downloadFailedRecords = () => {
   const headers = ['行号', '错误信息', '达人昵称', '平台', '账号', '粉丝数(万)', '机构名称', '类目']
   
   // 构建CSV数据行
-  const csvRows = importResult.value.failedRecords.map(record => {
+  const csvRows = importResult.failedRecords.map(record => {
     const row = record.row || ''
     const error = record.error || ''
     const data = record.data || {}
@@ -862,7 +875,7 @@ const startSilentImport = async () => {
     })
     
   } catch (error) {
-    console.error('启动静默导入失败:', error)
+    log.error('启动静默导入失败:', error)
     ElMessage.error(error instanceof Error ? error.message : '启动静默导入失败')
   } finally {
     silentImportLoading.value = false

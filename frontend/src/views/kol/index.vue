@@ -1,44 +1,15 @@
 <template>
   <div class="influencer-management">
     <!-- 顶部操作栏 -->
-    <div class="top-bar">
-      <div class="bar-left">
-        <h1 class="page-title">省广达人库</h1>
-      </div>
-      <div class="bar-right">
-        <el-button @click="navigateToImportHistory" class="action-btn">
-          <Icon icon="lucide:clock" class="mr-1" />
-          导入历史
-        </el-button>
-        
-        <el-button @click="handleImportData" class="action-btn">
-          <Icon icon="lucide:download" class="mr-1" />
-          导入数据
-        </el-button>
-        
-        <el-button 
-          type="success" 
-          :disabled="!selectedDouyinRows.length" 
-          @click="handleBatchSync"
-          :loading="batchSyncing"
-          class="action-btn"
-        >
-          <Icon icon="lucide:refresh-cw" class="mr-1" />
-          批量同步
-          <el-badge v-if="selectedDouyinRows.length" :value="selectedDouyinRows.length" class="badge-count" />
-        </el-button>
-        
-        <el-button 
-          type="warning" 
-          @click="handleRetryFailed"
-          :loading="retrying"
-          class="action-btn"
-        >
-          <Icon icon="lucide:rotate-ccw" class="mr-1" />
-          重试失败
-        </el-button>
-      </div>
-    </div>
+    <KolActionBar 
+      :selected-count="selectedDouyinRows.length"
+      :batch-syncing="batchSyncing"
+      :retrying="retrying"
+      @import-history="navigateToImportHistory"
+      @import-data="handleImportData"
+      @batch-sync="handleBatchSync"
+      @retry-failed="handleRetryFailed"
+    />
 
     <!-- 导入映射配置弹窗 -->
     <el-dialog v-model="mappingDialogVisible" title="配置导入映射" width="640px">
@@ -76,73 +47,7 @@
     <KolQuickFilters :filters="searchForm" @filter-change="handleFilterChange" />
 
     <!-- 同步统计信息卡片 -->
-    <el-row :gutter="16" class="stats-cards">
-      <el-col :xs="24" :sm="12" :md="6" :lg="4">
-        <el-card shadow="hover" class="stat-card stat-total">
-          <div class="stat-content">
-            <div class="stat-icon">
-              <Icon icon="lucide:database" :size="32" />
-            </div>
-            <div class="stat-info">
-              <div class="stat-label">总计</div>
-              <div class="stat-value">{{ syncStats.total }}</div>
-            </div>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="12" :md="6" :lg="4">
-        <el-card shadow="hover" class="stat-card stat-unmatched">
-          <div class="stat-content">
-            <div class="stat-icon">
-              <Icon icon="lucide:help-circle" :size="32" />
-            </div>
-            <div class="stat-info">
-              <div class="stat-label">未匹配</div>
-              <div class="stat-value">{{ syncStats.unmatched }}</div>
-            </div>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="12" :md="6" :lg="4">
-        <el-card shadow="hover" class="stat-card stat-pending">
-          <div class="stat-content">
-            <div class="stat-icon">
-              <Icon icon="lucide:clock" :size="32" />
-            </div>
-            <div class="stat-info">
-              <div class="stat-label">待同步</div>
-              <div class="stat-value">{{ syncStats.pending }}</div>
-            </div>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="12" :md="6" :lg="4">
-        <el-card shadow="hover" class="stat-card stat-matched">
-          <div class="stat-content">
-            <div class="stat-icon">
-              <Icon icon="lucide:check-circle" :size="32" />
-            </div>
-            <div class="stat-info">
-              <div class="stat-label">已匹配</div>
-              <div class="stat-value">{{ syncStats.matched }}</div>
-            </div>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="12" :md="6" :lg="4">
-        <el-card shadow="hover" class="stat-card stat-rejected">
-          <div class="stat-content">
-            <div class="stat-icon">
-              <Icon icon="lucide:x-circle" :size="32" />
-            </div>
-            <div class="stat-info">
-              <div class="stat-label">同步失败</div>
-              <div class="stat-value">{{ syncStats.rejected }}</div>
-            </div>
-          </div>
-        </el-card>
-      </el-col>
-    </el-row>
+    <SyncStatsCards :stats="syncStats" />
 
     <!-- 筛选条件卡片 -->
     <!-- 已移至高级筛选弹窗中，此处删除旧代码 -->    <!-- 数据表格 -->
@@ -314,19 +219,22 @@
 import { ref, reactive, onMounted, computed } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { IconifyIcon as Icon } from '@vben/icons'
-import { requestClient } from '#/api/request'
-import { Excel, mapExcelKolList } from '#/utils/excel'
+import { requestClient } from '../../api/request'
+import { Excel, mapExcelKolList } from '../../utils/excel'
 import ExcelJS from 'exceljs'
 import { useRouter } from 'vue-router'
-import EvaluateDialog from '#/components/EvaluateDialog/index.vue'
+import EvaluateDialog from '../../components/EvaluateDialog/index.vue'
 import { id } from 'element-plus/es/locales.mjs'
-import { batchCreateKolListApi } from '#/api/kol-list'
+import { batchCreateKolListApi } from '../../api/kol-list'
 import { KolSyncApi } from '../../api/kol-sync.api'
 import ImportDataDialog from './components/ImportDataDialog.vue'
 import SyncStatusTag from './components/SyncStatusTag.vue'
 import KolDetailDialog from './components/KolDetailDialog.vue'
 import KolEditDialog from './components/KolEditDialog.vue'
 import KolQuickFilters from './components/KolQuickFilters.vue'
+import { log } from '../../utils/logger'
+import KolActionBar from './components/KolActionBar.vue'
+import SyncStatsCards from './components/SyncStatsCards.vue'
 
 const router = useRouter()
 
@@ -432,7 +340,7 @@ const loadData = async () => {
     pagination.limit = limit
     pagination.total = total
   } catch (error: any) {
-    console.error('API请求失败:', error)
+    log.error('API请求失败:', error)
     const status = error?.response?.status
     if (status === 404 || status === 204) {
       // 空数据场景：不提示错误，展示空表格
@@ -451,7 +359,7 @@ const loadStatistics = async () => {
     const response = await requestClient.get('influencer-current/stats')
     statistics.value = response.data || response
   } catch (error) {
-    console.error('加载统计数据失败:', error)
+    log.error('加载统计数据失败:', error)
   }
 }
 
@@ -486,11 +394,11 @@ const handleEdit = (row) => {
 }
 
 const handleView = (row: any) => {
-  console.log('[handleView] 传入数据:', row)
+  log.debug('[handleView] 传入数据:', row)
   currentDetailKol.value = row
-  console.log('[handleView] currentDetailKol.value:', currentDetailKol.value)
+  log.debug('[handleView] currentDetailKol.value:', currentDetailKol.value)
   detailDialogVisible.value = true
-  console.log('[handleView] detailDialogVisible.value:', detailDialogVisible.value)
+  log.debug('[handleView] detailDialogVisible.value:', detailDialogVisible.value)
 }
 
 const handleDelete = async (row) => {
@@ -576,7 +484,7 @@ const handleExport = async () => {
     URL.revokeObjectURL(url)
     ElMessage.success('导出成功')
   } catch (error) {
-    console.error(error)
+    log.error(error)
     ElMessage.error('导出失败: ' + error.message)
   }
 }
@@ -699,35 +607,10 @@ const handleEvaluation = (row: any) => {
   evaluateDialogVisible.value = true
 }
 
-// 重置form函数
-const resetForm = () => {
-  Object.assign(formData, {
-    id: undefined,
-    canonical_name: '',
-    canonical_name_source: 'douyin_star',
-    main_platform: 'douyin',
-    gender: 'female',
-    author_type: 'individual',
-    province: '',
-    city: '',
-    follower: 0,
-    interact_rate_within_30d: 0,
-    star_index: 0,
-    price_1_20: 0,
-    price_20_60: 0,
-    price_60: 0,
-    is_excellent_author: true,
-    is_black_horse_author: false,
-    is_cocreate_author: false,
-    is_excellenct_author: true,
-    is_cpm_project_author: false,
-    is_short_drama: false,
-    e_commerce_enable: false,
-    star_id: '',
-    tags_relation: '',
-  })
-  formRef.value?.clearValidate()
-}
+// 重置form函数（已废弃，由KolEditDialog管理）
+// const resetForm = () => {
+//   ...
+// }
 
 // 加载同步统计信息
 const loadSyncStats = async () => {
@@ -735,7 +618,7 @@ const loadSyncStats = async () => {
     const stats = await KolSyncApi.getSyncStats()
     syncStats.value = stats
   } catch (error) {
-    console.error('加载同步统计失败:', error)
+    log.error('加载同步统计失败:', error)
   }
 }
 
@@ -752,7 +635,7 @@ const canSync = (row: any): boolean => {
   const isDouyin = platform === '抖音' || platformLower === 'douyin';
   const hasAccountId = !!row.account_id && String(row.account_id).trim().length > 0;
   
-  console.log(`[前端.canSync] 🤔 检查是否可以同步:`, {
+  log.debug(`[前端.canSync] 🤔 检查是否可以同步:`, {
     id: row.id,
     platform,
     platformLower,
@@ -768,8 +651,8 @@ const canSync = (row: any): boolean => {
 // 单个同步
 const handleSingleSync = async (row: any) => {
   const startTime = Date.now();
-  console.log(`====== [前端.index] 开始同步流程 ======`);
-  console.log(`[前端.index] 📋 KOL信息:`, {
+  log.debug(`====== [前端.index] 开始同步流程 ======`);
+  log.debug(`[前端.index] 📋 KOL信息:`, {
     id: row.id,
     account_id: row.account_id,
     account_name: row.account_name,
@@ -779,45 +662,45 @@ const handleSingleSync = async (row: any) => {
   
   try {
     loading.value = true;
-    console.log(`[前端.index] 🔄 设置加载状态: true`);
-    console.log(`[前端.index] 🚀 调用KolSyncApi.syncSingleKol(${row.id}, ${row.account_id})`);
+    log.debug(`[前端.index] 🔄 设置加载状态: true`);
+    log.debug(`[前端.index] 🚀 调用KolSyncApi.syncSingleKol(${row.id}, ${row.account_id})`);
     
     const result = await KolSyncApi.syncSingleKol(row.id, row.account_id);
     
     const duration = Date.now() - startTime;
-    console.log(`[前端.index] 📊 同步结果:`, result);
-    console.log(`[前端.index] ⏱️ 总耗时: ${duration}ms`);
+    log.debug(`[前端.index] 📊 同步结果:`, result);
+    log.debug(`[前端.index] ⏱️ 总耗时: ${duration}ms`);
     
     if (result.status === 'success') {
-      console.log(`[前端.index] ✅ 同步成功`);
+      log.debug(`[前端.index] ✅ 同步成功`);
       ElMessage.success(`同步成功：${row.account_name}`);
-      console.log(`[前端.index] 🔄 刷新列表数据和统计信息...`);
+      log.debug(`[前端.index] 🔄 刷新列表数据和统计信息...`);
       loadData(); // 刷新列表
       loadSyncStats(); // 刷新统计
     } else if (result.status === 'failed') {
-      console.warn(`[前端.index] ⚠️ 同步失败: ${result.errorMessage}`);
+      log.warn(`[前端.index] ⚠️ 同步失败: ${result.errorMessage}`);
       ElMessage.warning(`同步失败：${result.errorMessage || '未知错误'}`);
     } else {
-      console.log(`[前端.index] 📝 同步状态: ${result.status}`);
+      log.debug(`[前端.index] 📝 同步状态: ${result.status}`);
       ElMessage.info('同步任务已提交，请稍后查看结果');
     }
   } catch (error: any) {
     const duration = Date.now() - startTime;
-    console.error(`[前端.index] 💥 同步异常 - 耗时: ${duration}ms`);
-    console.error(`[前端.index] 💥 错误类型: ${error.constructor?.name || typeof error}`);
-    console.error(`[前端.index] 💥 错误信息: ${error.message}`);
-    console.error(`[前端.index] 💥 完整错误:`, error);
+    log.error(`[前端.index] 💥 同步异常 - 耗时: ${duration}ms`);
+    log.error(`[前端.index] 💥 错误类型: ${error.constructor?.name || typeof error}`);
+    log.error(`[前端.index] 💥 错误信息: ${error.message}`);
+    log.error(`[前端.index] 💥 完整错误:`, error);
     
     if (error.response) {
-      console.error(`[前端.index] 📥 响应数据:`, error.response.data);
+      log.error(`[前端.index] 📥 响应数据:`, error.response.data);
     }
     
     ElMessage.error(`同步失败: ${error.message || '请稍后重试'}`);
   } finally {
     loading.value = false;
     const totalDuration = Date.now() - startTime;
-    console.log(`[前端.index] 🔄 恢复加载状态: false`);
-    console.log(`====== [前端.index] 同步流程结束 - 总耗时: ${totalDuration}ms ======`);
+    log.debug(`[前端.index] 🔄 恢复加载状态: false`);
+    log.debug(`====== [前端.index] 同步流程结束 - 总耗时: ${totalDuration}ms ======`);
   }
 }
 
@@ -850,7 +733,7 @@ const handleBatchSync = async () => {
     loadSyncStats() // 刷新统计
   } catch (error: any) {
     if (error !== 'cancel') {
-      console.error('批量同步失败:', error)
+      log.error('批量同步失败:', error)
       ElMessage.error(`批量同步失败: ${error.message || '请稍后重试'}`)
     }
   } finally {
@@ -885,7 +768,7 @@ const handleRetryFailed = async () => {
     }
   } catch (error: any) {
     if (error !== 'cancel') {
-      console.error('重试失败:', error)
+      log.error('重试失败:', error)
       ElMessage.error(`重试失败: ${error.message || '请稍后重试'}`)
     }
   } finally {
@@ -913,7 +796,7 @@ const handleViewAuthor = (authorId: string) => {
 
 // 评价达人
 const handleEvaluate = (row: any) => {
-  console.log('评价达人:', row)
+  log.debug('评价达人:', row)
   // 使用 matched_author_id 或 account_id
   currentEvaluateAuthorId.value = row.matched_author_id || row.account_id || ''
   if (!currentEvaluateAuthorId.value) {
@@ -942,10 +825,11 @@ const handleCurrentChange = (page: number) => {
 }
 // ========== 同步功能结束 ==========
 
-const handleClose = () => {
-  resetForm()
-  dialogVisible.value = false
-}
+// handleClose 已废弃（由KolEditDialog管理）
+// const handleClose = () => {
+//   resetForm()
+//   dialogVisible.value = false
+// }
 
 
 

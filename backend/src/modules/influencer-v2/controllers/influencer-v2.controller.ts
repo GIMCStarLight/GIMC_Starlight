@@ -28,8 +28,8 @@ import {
 } from '../dto/influencer-response.dto';
 import { InfluencerV2StatsDto } from '../dto/influencer-v2-stats.dto';
 
-@ApiTags('影响者管理 V2')
-@Controller('v2/influencers')
+@ApiTags('影响者管理')
+@Controller('influencer-manager')
 // @UseGuards(JwtAuthGuard)
 // @ApiBearerAuth()
 export class InfluencerV2Controller {

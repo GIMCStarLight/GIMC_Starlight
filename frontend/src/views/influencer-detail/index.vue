@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { log } from '../../utils/logger'
 import { ref, onMounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
@@ -23,10 +24,10 @@ const loadInfluencerFullData = async () => {
   try {
     const fullData = await getInfluencerFullData(id)
     rawData.value = fullData || {}
-    console.log('完整数据:', rawData.value)
+    log.debug('完整数据:', rawData.value)
   } catch (error) {
     ElMessage.error('加载达人数据失败')
-    console.error('加载失败:', error)
+    log.error('加载失败:', error)
   } finally {
     loading.value = false
   }
@@ -299,7 +300,8 @@ onMounted(() => {
               </el-row>
 
               <!-- 营销能力指标 -->
-              <div class="data-module" style="margin-top: 20px;">
+              <div class="data-module" style="margin-top: 20px;
+">
                 <h3 class="module-title">🎯 营销能力指数</h3>
                 <el-row :gutter="20">
                   <el-col v-for="item in marketingIndices" :key="item.name" :span="6">

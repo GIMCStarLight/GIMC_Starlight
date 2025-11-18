@@ -71,6 +71,7 @@
 </template>
 
 <script setup lang="ts">
+import { log } from '../../../utils/logger'
 import { ref, onMounted } from 'vue'
 import { IconifyIcon as Icon } from '@vben/icons'
 import { getInfluencerStats } from '#/api/influencer-v3'
@@ -101,7 +102,7 @@ const loadStats = async () => {
       stats.value = response.data
     }
   } catch (error) {
-    console.error('加载统计数据失败:', error)
+    log.error('加载统计数据失败:', error)
     // 使用默认值
     stats.value = {
       totalInfluencers: 27720,

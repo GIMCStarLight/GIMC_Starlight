@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { log } from '../../utils/logger'
 import { ref, watch } from 'vue'
 import { IconifyIcon } from '@vben/icons'
 import { ElMessage } from 'element-plus'
@@ -45,7 +46,7 @@ const loadAuthorInfo = async () => {
       follower: data.follower
     }
   } catch (error) {
-    console.error('加载达人信息失败:', error)
+    log.error('加载达人信息失败:', error)
     authorInfo.value = {
       nickName: '未知达人'
     }
@@ -132,7 +133,7 @@ const loadExistingReviews = async () => {
         const reviews = await getKolReviewsByAuthorIdApi(props.authorId)
         existingReviews.value = reviews || []
     } catch (error) {
-        console.error('获取评价失败:', error)
+        log.error('获取评价失败:', error)
         existingReviews.value = []
     } finally {
         isLoadingReviews.value = false
@@ -155,10 +156,10 @@ const handleClose = () => {
 
 // 提交评价
 const handleSubmit = async () => {
-    console.log('=== EvaluateDialog 提交评价调试信息 ===')
-    console.log('props.authorId:', props.authorId)
-    console.log('currentScore.value:', currentScore.value)
-    console.log('reviewContent.value:', reviewContent.value)
+    log.debug('=== EvaluateDialog 提交评价调试信息 ===')
+    log.debug('props.authorId:', props.authorId)
+    log.debug('currentScore.value:', currentScore.value)
+    log.debug('reviewContent.value:', reviewContent.value)
     
     if (currentScore.value === 0) {
         ElMessage.warning('请选择评分')
@@ -186,7 +187,7 @@ const handleSubmit = async () => {
             reviewTags: selectedTags.value.length > 0 ? selectedTags.value : undefined
         }
         
-        console.log('准备提交的评价数据:', reviewData)
+        log.debug('准备提交的评价数据:', reviewData)
 
         const result = await createKolReviewApi(reviewData)
         
@@ -199,7 +200,7 @@ const handleSubmit = async () => {
         // 重置表单但不关闭对话框，让用户看到新提交的评价
         resetForm()
     } catch (error) {
-        console.error('提交评价失败:', error)
+        log.error('提交评价失败:', error)
         ElMessage.error('提交评价失败，请重试')
     } finally {
         isSubmitting.value = false

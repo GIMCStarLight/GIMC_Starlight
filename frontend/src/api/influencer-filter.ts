@@ -1,9 +1,10 @@
 /**
  * 达人筛选API (基于物化视图优化)
- * 路由: /api/influencers/v3/filter
+ * 路由: /api/influencer-filter
  */
 import { requestClient } from './request'
 import { requestDeduplicator } from '../utils/request-deduplicator'
+import { log } from '../utils/logger'
 
 // ========== 类型定义 ==========
 
@@ -126,15 +127,24 @@ export interface PopularTag {
  * 快速筛选查询
  */
 export async function quickFilter(params: QuickFilterParams): Promise<FilterResponse> {
-  try {
-    const response = await requestClient.get('/influencers/v3/filter/quick', { params })
-    // requestClient 配置了 responseReturn: 'data' 和 defaultResponseInterceptor
-    // 会自动解包: { code, data } -> data -> { data, pagination, performance }
-    return response
-  } catch (error) {
-    console.error('快速筛选失败:', error)
-    throw error
-  }
+  return requestDeduplicator.deduplicate(
+    {
+      url: '/influencer-filter/quick',
+      method: 'GET',
+      params,
+    },
+    async () => {
+      try {
+        const response = await requestClient.get('/influencer-filter/quick', { params })
+        // requestClient 配置了 responseReturn: 'data' 和 defaultResponseInterceptor
+        // 会自动解包: { code, data } -> data -> { data, pagination, performance }
+        return response
+      } catch (error) {
+        log.error('快速筛选失败:', error)
+        throw error
+      }
+    }
+  )
 }
 
 /**
@@ -144,7 +154,7 @@ export async function advancedFilter(params: AdvancedFilterParams): Promise<Filt
   // 使用请求去重器包装
   return requestDeduplicator.deduplicate(
     {
-      url: '/influencers/v3/filter/advanced',
+      url: '/influencer-filter/advanced',
       method: 'POST',
       data: params,
     },
@@ -172,12 +182,12 @@ export async function advancedFilter(params: AdvancedFilterParams): Promise<Filt
         }
 
         // POST请求,参数放在body里
-        const response = await requestClient.post('/influencers/v3/filter/advanced', payload)
+        const response = await requestClient.post('/influencer-filter/advanced', payload)
         // requestClient 配置了 responseReturn: 'data' 和 defaultResponseInterceptor
         // 会自动解包: { code, data } -> data -> { data, pagination, performance }
         return response
       } catch (error) {
-        console.error('高级筛选失败:', error)
+        log.error('高级筛选失败:', error)
         throw error
       }
     }
@@ -188,28 +198,46 @@ export async function advancedFilter(params: AdvancedFilterParams): Promise<Filt
  * 获取筛选统计
  */
 export async function getFilterStatistics(params: Omit<AdvancedFilterParams, 'page' | 'limit'>): Promise<FilterStatsResponse> {
-  try {
-    const response = await requestClient.get('/influencers/v3/filter/stats', { params })
-    return response
-  } catch (error) {
-    console.error('获取筛选统计失败:', error)
-    throw error
-  }
+  return requestDeduplicator.deduplicate(
+    {
+      url: '/influencer-filter/stats',
+      method: 'GET',
+      params,
+    },
+    async () => {
+      try {
+        const response = await requestClient.get('/influencer-filter/stats', { params })
+        return response
+      } catch (error) {
+        log.error('获取筛选统计失败:', error)
+        throw error
+      }
+    }
+  )
 }
 
 /**
  * 获取热门标签
  */
 export async function getPopularTags(limit = 20): Promise<PopularTag[]> {
-  try {
-    const response = await requestClient.get('/influencers/v3/filter/popular-tags', {
-      params: { limit }
-    })
-    return response
-  } catch (error) {
-    console.error('获取热门标签失败:', error)
-    throw error
-  }
+  return requestDeduplicator.deduplicate(
+    {
+      url: '/influencer-filter/popular-tags',
+      method: 'GET',
+      params: { limit },
+    },
+    async () => {
+      try {
+        const response = await requestClient.get('/influencer-filter/popular-tags', {
+          params: { limit }
+        })
+        return response
+      } catch (error) {
+        log.error('获取热门标签失败:', error)
+        throw error
+      }
+    }
+  )
 }
 
 /**
@@ -217,10 +245,10 @@ export async function getPopularTags(limit = 20): Promise<PopularTag[]> {
  */
 export async function refreshMaterializedView(): Promise<{ message: string }> {
   try {
-    const response = await requestClient.post('/influencers/v3/filter/refresh-view')
+    const response = await requestClient.post('/influencer-filter/refresh-view')
     return response
   } catch (error) {
-    console.error('刷新物化视图失败:', error)
+    log.error('刷新物化视图失败:', error)
     throw error
   }
 }

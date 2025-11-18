@@ -181,6 +181,7 @@
 </template>
 
 <script setup lang="ts">
+import { log } from '../../utils/logger'
 import { ref, reactive, computed, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import { Plus, Refresh, Folder, Clock, Check, Money, Search } from '@element-plus/icons-vue'
@@ -300,7 +301,7 @@ const nextStep = (project: any) => {
 }
 
 const handleSelectionChange = (selection: any[]) => {
-  console.log('选中项目:', selection)
+  log.debug('选中项目:', selection)
 }
 
 const handleSizeChange = (size: number) => {

@@ -86,8 +86,8 @@ export class HttpExceptionFilter implements ExceptionFilter {
         message:
           typeof response === 'string'
             ? response
-            : typeof response === 'object' && response['message']
-              ? response['message']
+            : typeof response === 'object' && response && 'message' in response
+              ? (response as any)['message']
               : exception.message,
         errorType: this.getErrorTypeByStatus(status),
         details: typeof response === 'object' ? response : undefined,

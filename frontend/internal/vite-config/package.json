@@ -12,6 +12,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
+    "build": "pnpm unbuild --stub",
     "stub": "pnpm unbuild --stub"
   },
   "files": [
@@ -22,7 +23,7 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./src/index.ts",
+      "types": "./dist/index.d.ts",
       "default": "./dist/index.mjs"
     }
   },
@@ -49,7 +50,7 @@
     "dotenv": "catalog:",
     "rollup": "catalog:",
     "rollup-plugin-visualizer": "catalog:",
-    "sass": "catalog:",
+    "sass-embedded": "catalog:",
     "vite": "catalog:",
     "vite-plugin-compression": "catalog:",
     "vite-plugin-dts": "catalog:",

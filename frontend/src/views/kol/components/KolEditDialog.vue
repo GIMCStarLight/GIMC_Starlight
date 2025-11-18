@@ -226,6 +226,7 @@
 <script setup lang="ts">
 import { ref, reactive, computed, watch } from 'vue'
 import { ElMessage, type FormInstance, type FormRules } from 'element-plus'
+import { log } from '../../../utils/logger'
 import { KolListApi } from '../../../api/kol-match.api'
 
 interface Props {
@@ -435,7 +436,7 @@ const handleSubmit = async () => {
     emit('kol-updated')
     handleClose()
   } catch (e: any) {
-    console.error('保存 KOL 失败:', e)
+    log.error('保存 KOL 失败:', e)
     ElMessage.error(`保存失败: ${e?.message || '请稍后重试'}`)
   } finally {
     loading.value = false
