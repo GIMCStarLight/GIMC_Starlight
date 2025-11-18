@@ -32,7 +32,7 @@
           :label="platform.label" 
           :name="platform.value"
           :disabled="platform.value !== 'douyin'"
-        await store.loadInfluencers()
+        >
           <template #label>
             <div class="platform-tab-label">
               <div class="platform-icon">
@@ -45,7 +45,7 @@
                 :value="platform.count" 
                 :max="9999" 
                 class="platform-count-badge"
-              ;(window as any).__loadV3Influencers = store.loadInfluencers
+              />
             </div>
           </template>
         </el-tab-pane>
@@ -57,7 +57,7 @@
       :is="getQuickFilterComponent(currentPlatform)"
       :key="`quick-filter-${currentPlatform}`"
       @filter-change="handleQuickFilterChange"
-    ;(window as any).__loadV3Influencers = store.loadInfluencers
+    />
 
     <!-- 达人数据展示区 -->
     <div class="influencer-display-area">
@@ -78,7 +78,7 @@
               size="default"
               style="width: 140px"
               @change="handleSortChange"
-            await store.loadInfluencers()
+            >
               <el-option label="综合推荐" value="recommended" />
               <el-option label="粉丝数↓" value="follower_desc" />
               <el-option label="星图指数↓" value="star_index_desc" />
@@ -96,7 +96,7 @@
               size="default"
               style="width: 120px"
               @change="handleMatchedOnlyToggle"
-            await store.loadInfluencers()
+            >
               <el-option label="全部达人" :value="false" />
               <el-option label="已建联" :value="true" />
             </el-select>
@@ -109,7 +109,7 @@
               v-model="viewMode"
               size="default"
               style="width: 100px"
-            await store.loadInfluencers()
+            >
               <el-option label="卡片" value="card">
                 <div style="display: flex; align-items: center; gap: 6px;">
                   <Icon icon="lucide:layout-grid" />
@@ -132,7 +132,7 @@
               v-model="cardSize"
               size="default"
               style="width: 100px"
-            await store.loadInfluencers()
+            >
               <el-option label="紧凑" value="compact" />
               <el-option label="标准" value="standard" />
               <el-option label="详细" value="detailed" />
@@ -149,9 +149,9 @@
         :card-size="cardSize"
         :loading="loading"
         :platform="currentPlatform"
-        @update-data="handleUpdateData"
+        @update-data="updateInfluencerData"
         @evaluate="handleEvaluate"
-      ;(window as any).__loadV3Influencers = store.loadInfluencers
+      />
 
       <!-- 分页 -->
       <div class="pagination-container">
@@ -163,7 +163,7 @@
           layout="total, sizes, prev, pager, next, jumper"
           @size-change="handleSizeChange"
           @current-change="handlePageChange"
-        ;(window as any).__loadV3Influencers = store.loadInfluencers
+        />
       </div>
     </div>
 
@@ -173,7 +173,7 @@
       :author-id="currentEvaluateAuthorId"
       :reviewer="'系统用户'"
       @review-submitted="handleReviewSubmitted"
-    ;(window as any).__loadV3Influencers = store.loadInfluencers
+    />
   </div>
 </template>
 
@@ -189,10 +189,7 @@ import {
   refreshMaterializedView,
   type AdvancedFilterParams
 } from '#/api/influencer-filter'
-
-// Composables
-import { useInfluencerExport } from './composables/useInfluencerExport'
-import { useInfluencerUpdate } from './composables/useInfluencerUpdate'
+import { createCrawlJob, pollCrawlJobStatus, type CrawlJobStatus, type CrawlJobDetailResponse } from '#/api/crawler'
 
 // 平台特色筛选组件
 import AllPlatformsQuickFilter from './components/platform-filters/AllPlatformsQuickFilter.vue'
@@ -218,22 +215,21 @@ interface PlatformConfig {
   label: string
   icon: string
   count?: number
-await store.loadInfluencers()
+}
 
 const platforms = ref<PlatformConfig[]>([
   { value: 'all', label: '全部平台', icon: 'lucide:globe', count: undefined },
   { value: 'douyin', label: '抖音', icon: 'https://th.bing.com/th/id/ODF.6ZkCjv2hR5s6SR35yaulqQ?w=32&h=32&qlt=90&pcl=fffffc&o=6&cb=ucfimg1&pid=1.2&ucfimg=1', count: undefined },
-  { value: 'xiaohongshu', label: '小红书', icon: 'data:image/png;
-import { log } from '#/utils/logger';base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAIBSURBVDhPpZPLS5RhFIfnX9CERJE0G2dGiLLMCS98c4mQNlHwFV6qTYEJZZEhXqiggoSuFilhakkhRSphYFBRUUQJ5SyaFi5c5CJq2QUSPE/n/d6ZbBUDszi8F87vOe93fufzscZxpSzylbII4neWdC//Dc3xco1GtT4JRBYIxKw4Q4AHMRrV+vTSXiiVQDSzWH7tkgFYciAqBGN/E7zVnNN7s5qzhs23OgswYr8DKzfaxJAmFm22UVwDhVWwuhbyK21OaR1SXJMCqFiKwkJ5HE5eBL8C8irAbYWmNog3wp6jUOdCxzno7IUN25CtzV5hn5TUimxpFNyDkPgEOw6AswvevIfrozA6Dr8XFXIE3s3Cz1/w6Bly4kIKkF8pMvZQuHEXJh7D7QdwcwxevoXp59BwyK71e2E2CfOf4cs3pKlNZFW1Asy3TL8Qus/D1FMYuANXhuDSIB40stsmFVy9E5Jz8HoGrt1CZhIiwVgKcLpPOHUZPny0FXv74ckr6BuGe1Pw/Qds3w9XRzT0bt8xJJEUCcUVYFwo1CYa4fGzULBJG9dgxS1dMKifM3IfWnu0qYdtL9rPIC1dYopbFxTiWWZsCqrnJWrdivUKU/ty10HOWrUyvGytFpGCqlQTzQvSs/Dv4KSHyqwhtdjsvXMUCWpRE94cZD3K2f5M2f3OjvsHKgyYDgVwnokAAAAASUVORK5CYII=', count: undefined },
+  { value: 'xiaohongshu', label: '小红书', icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAIBSURBVDhPpZPLS5RhFIfnX9CERJE0G2dGiLLMCS98c4mQNlHwFV6qTYEJZZEhXqiggoSuFilhakkhRSphYFBRUUQJ5SyaFi5c5CJq2QUSPE/n/d6ZbBUDszi8F87vOe93fufzscZxpSzylbII4neWdC//Dc3xco1GtT4JRBYIxKw4Q4AHMRrV+vTSXiiVQDSzWH7tkgFYciAqBGN/E7zVnNN7s5qzhs23OgswYr8DKzfaxJAmFm22UVwDhVWwuhbyK21OaR1SXJMCqFiKwkJ5HE5eBL8C8irAbYWmNog3wp6jUOdCxzno7IUN25CtzV5hn5TUimxpFNyDkPgEOw6AswvevIfrozA6Dr8XFXIE3s3Cz1/w6Bly4kIKkF8pMvZQuHEXJh7D7QdwcwxevoXp59BwyK71e2E2CfOf4cs3pKlNZFW1Asy3TL8Qus/D1FMYuANXhuDSIB40stsmFVy9E5Jz8HoGrt1CZhIiwVgKcLpPOHUZPny0FXv74ckr6BuGe1Pw/Qds3w9XRzT0bt8xJJEUCcUVYFwo1CYa4fGzULBJG9dgxS1dMKifM3IfWnu0qYdtL9rPIC1dYopbFxTiWWZsCqrnJWrdivUKU/ty10HOWrUyvGytFpGCqlQTzQvSs/Dv4KSHyqwhtdjsvXMUCWpRE94cZD3K2f5M2f3OjvsHKgyYDgVwnokAAAAASUVORK5CYII=', count: undefined },
   { value: 'weibo', label: '微博', icon: 'https://th.bing.com/th/id/ODF.qJ-ykoFwP262TObc-fcbNQ?w=32&h=32&qlt=90&pcl=fffffa&o=6&cb=ucfimg1&pid=1.2&ucfimg=1', count: undefined },
   { value: 'bilibili', label: 'B站', icon: 'https://th.bing.com/th/id/ODF.HcIfqnk4n-lbffGcaqDC2w?w=32&h=32&qlt=97&pcl=fffffa&o=6&cb=ucfimg1&pid=1.2&ucfimg=1', count: undefined },
   { value: 'kuaishou', label: '快手', icon: 'https://th.bing.com/th/id/ODF.gZu0GMZwmj-vdqhMRZZODQ?w=32&h=32&qlt=90&pcl=fffffa&o=6&cb=ucfimg1&pid=1.2&ucfimg=1', count: undefined },
   { value: 'wechat', label: '微信', icon: 'https://th.bing.com/th/id/ODF.BvtHqZTl6qLypPDIASUGoA?w=32&h=32&qlt=90&pcl=fffffa&o=6&cb=ucfimg1&pid=1.2&ucfimg=1', count: undefined },
-await store.loadInfluencers()
+])
 
 const currentPlatform = ref('douyin')
 
-log.debug('🎯 [index-v3] 页面组件初始化')
+console.log('🎯 [index-v3] 页面组件初始化')
 
 // 使用状态管理
 const store = useInfluencerSquareStore()
@@ -248,10 +244,6 @@ const {
   cardSize,
   activeFiltersCount,
 } = storeToRefs(store)
-
-// 使用Composables
-const { exportInfluencers } = useInfluencerExport()
-const { updateInfluencerData } = useInfluencerUpdate()
 
 // 高级筛选面板显示状态
 const showAdvancedFilters = ref(false)
@@ -269,7 +261,7 @@ const matchedOnly = ref(false)
 
 // 平台切换处理
 const handlePlatformChange = (platformValue: string) => {
-  log.debug('🔄 平台切换:', platformValue)
+  console.log('🔄 平台切换:', platformValue)
   currentPlatform.value = platformValue
   
   // 清空筛选条件
@@ -278,13 +270,13 @@ const handlePlatformChange = (platformValue: string) => {
   // 根据平台设置筛选条件
   if (platformValue !== 'all') {
     currentFilters.value.platform = platformValue
-  await store.loadInfluencers()
+  }
   
   // 重新加载数据
   store.setFilters(currentFilters.value)
   store.setCurrentPage(1)
-  store.loadInfluencersDebounced()
-await store.loadInfluencers()
+  store.loadInfluencers()
+}
 
 // 根据平台获取对应的筛选组件
 const getQuickFilterComponent = (platform: string) => {
@@ -296,9 +288,9 @@ const getQuickFilterComponent = (platform: string) => {
     'bilibili': BilibiliQuickFilter,      // B站 - 待补充
     'kuaishou': KuaishouQuickFilter,      // 快手 - 待补充
     'wechat': WechatQuickFilter,          // 微信 - 待补充
-  await store.loadInfluencers()
+  }
   return markRaw(filterMap[platform] || AllPlatformsQuickFilter)
-await store.loadInfluencers()
+}
 
 const getGridComponent = (platform: string) => {
   const gridMap: Record<string, any> = {
@@ -309,9 +301,9 @@ const getGridComponent = (platform: string) => {
     'bilibili': BilibiliGrid,             // B站 - 待补充
     'kuaishou': KuaishouGrid,             // 快手 - 待补充
     'wechat': WechatGrid,                 // 微信 - 待补充
-  await store.loadInfluencers()
+  }
   return markRaw(gridMap[platform] || AllPlatformsGrid)
-await store.loadInfluencers()
+}
 
 // 监听store状态变化
 watch(
@@ -319,22 +311,22 @@ watch(
     influencersCount: store.influencers.length,
     totalCount: totalCount.value,
     loading: loading.value,
-  await store.loadInfluencers()
+  }),
   (newVal) => {
-    log.debug('🎯 [index-v3] Store状态变化:', newVal)
-  await store.loadInfluencers()
+    console.log('🎯 [index-v3] Store状态变化:', newVal)
+  },
   { immediate: true, deep: true }
 )
 
 // 刷新数据
 const handleRefresh = async () => {
   try {
-    /*KEEP_AWAIT*/ await store.loadInfluencers()
+    await store.loadInfluencers()
     ElMessage.success('数据已刷新')
   } catch (error) {
     ElMessage.error('刷新失败')
-  await store.loadInfluencers()
-await store.loadInfluencers()
+  }
+}
 
 // 刷新物化视图
 const handleRefreshView = async () => {
@@ -343,112 +335,318 @@ const handleRefreshView = async () => {
     await refreshMaterializedView()
     ElMessage.success('物化视图刷新成功')
     // 刷新后重新加载数据
-    /*KEEP_AWAIT*/ await store.loadInfluencers()
+    await store.loadInfluencers()
   } catch (error) {
     ElMessage.error('刷新视图失败: ' + ((error as Error).message || '未知错误'))
   } finally {
     refreshingView.value = false
-  await store.loadInfluencers()
-await store.loadInfluencers()
+  }
+}
 
-// 导出数据 - 使用Composable
+// 导出数据
 const handleExport = async () => {
-  await exportInfluencers(store.selectedInfluencerIds)
-await store.loadInfluencers()
+  if (store.selectedCount === 0) {
+    ElMessage.warning('请先选中要导出的达人')
+    return
+  }
+
+  try {
+    ElMessage.info(`正在获取 ${store.selectedCount} 位达人的完整数据...`)
+    
+    // 获取所有选中的 author_id
+    const selectedAuthorIds = Array.from(store.selectedInfluencerIds)
+    console.log('导出请求 - 选中的author_id:', selectedAuthorIds)
+    
+    // 调用后端API批量获取完整原始数据
+    const response = await fetch('/api/v2/influencers/v3/batch-export', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ authorIds: selectedAuthorIds }),
+    })
+    
+    console.log('API响应状态:', response.status, response.statusText)
+    
+    if (!response.ok) {
+      const errorText = await response.text()
+      console.error('API错误响应:', errorText)
+      throw new Error(`API请求失败: ${response.statusText}`)
+    }
+    
+    const result = await response.json()
+    console.log('API返回结果:', result)
+    
+    if (!result.data || !Array.isArray(result.data) || result.data.length === 0) {
+      console.warn('数据为空或格式错误:', result)
+      ElMessage.warning('未获取到达人数据')
+      return
+    }
+    
+    const fullData = result.data
+    console.log('完整数据数组长度:', fullData.length)
+    console.log('第一条数据样例:', fullData[0])
+    
+    // 检查第一条数据是否有效
+    if (!fullData[0] || typeof fullData[0] !== 'object') {
+      console.error('第一条数据无效:', fullData[0])
+      throw new Error('数据格式错误：第一条数据无效')
+    }
+    
+    // 获取所有字段名（从第一条数据）
+    const allFields = Object.keys(fullData[0])
+    console.log('字段总数:', allFields.length)
+    console.log('字段列表:', allFields)
+    
+    // 创建CSV内容（包含所有字段）
+    const headers = allFields
+    const rows = fullData.map(item => 
+      allFields.map(field => {
+        const value = item[field]
+        // 处理不同类型的值
+        if (value === null || value === undefined) {
+          return '-'
+        } else if (Array.isArray(value)) {
+          return value.join('; ')
+        } else if (typeof value === 'object') {
+          return JSON.stringify(value)
+        } else {
+          return String(value)
+        }
+      })
+    )
+    
+    // 创建 CSV 内容
+    const csvContent = [
+      headers.join(','),
+      ...rows.map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(','))
+    ].join('\n')
+    
+    // 创建 Blob 并下载
+    const blob = new Blob(['\ufeff' + csvContent], { type: 'text/csv;charset=utf-8;' })
+    const link = document.createElement('a')
+    const url = URL.createObjectURL(blob)
+    const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-')
+    link.href = url
+    link.download = `达人完整数据_${fullData.length}位_${timestamp}.csv`
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(url)
+    
+    ElMessage.success(`已导出 ${fullData.length} 位达人的完整数据（包含 ${allFields.length} 个字段）`)
+  } catch (error) {
+    console.error('导出失败:', error)
+    ElMessage.error('导出失败: ' + ((error as Error).message || '未知错误'))
+  }
+}
 
 // 清空选中
 const handleClearSelection = () => {
   store.clearSelection()
   ElMessage.success('已清空选中')
-await store.loadInfluencers()
+}
 
 // 排序变化
 const handleSortChange = () => {
-  store.loadInfluencersDebounced()
-await store.loadInfluencers()
+  store.loadInfluencers()
+}
 
 // 分页变化
 const handlePageChange = (page: number) => {
-  log.debug('📄 [index-v3] 页码变化:', {
+  console.log('📄 [index-v3] 页码变化:', {
     newPage: page,
     currentPageBeforeSet: currentPage.value
-  await store.loadInfluencers()
+  })
   store.setCurrentPage(page)
-  log.debug('📄 [index-v3] 页码更新后:', currentPage.value)
-  store.loadInfluencersDebounced()
-await store.loadInfluencers()
+  console.log('📄 [index-v3] 页码更新后:', currentPage.value)
+  store.loadInfluencers()
+}
 
 const handleSizeChange = (size: number) => {
-  log.debug('📏 [index-v3] 每页数量变化:', size)
+  console.log('📏 [index-v3] 每页数量变化:', size)
   store.setPageSize(size)
-  store.loadInfluencersDebounced()
-await store.loadInfluencers()
+  store.loadInfluencers()
+}
 
 // 处理快速筛选变化
 const handleQuickFilterChange = (filters: AdvancedFilterParams) => {
-  log.debug('🛠️ 快速筛选变化:', filters)
+  console.log('🛠️ 快速筛选变化:', filters)
   // 保留平台筛选
   const platformFilter = currentPlatform.value !== 'all' ? { platform: currentPlatform.value } : {}
   currentFilters.value = { ...currentFilters.value, ...filters, ...platformFilter, matchedOnly: matchedOnly.value }
   // 更新store的筛选条件并重新加载数据
   store.setFilters(currentFilters.value)
   store.setCurrentPage(1)
-  store.loadInfluencersDebounced()
-await store.loadInfluencers()
+  store.loadInfluencers()
+}
 
 // 处理高级筛选变化
 const handleAdvancedFilterChange = (filters: AdvancedFilterParams) => {
-  log.debug('⚙️ 高级筛选变化:', filters)
+  console.log('⚙️ 高级筛选变化:', filters)
   // 保留平台筛选
   const platformFilter = currentPlatform.value !== 'all' ? { platform: currentPlatform.value } : {}
   currentFilters.value = { ...currentFilters.value, ...filters, ...platformFilter, matchedOnly: matchedOnly.value }
   // 更新store的筛选条件并重新加载数据
   store.setFilters(currentFilters.value)
   store.setCurrentPage(1)
-  store.loadInfluencersDebounced()
-await store.loadInfluencers()
+  store.loadInfluencers()
+}
 
 // 处理"仅展示已匹配"切换
 const handleMatchedOnlyToggle = () => {
-  log.debug('🔄 [匹配筛选] 开关状态:', matchedOnly.value)
+  console.log('🔄 [匹配筛选] 开关状态:', matchedOnly.value)
   // 保留平台筛选
   const platformFilter = currentPlatform.value !== 'all' ? { platform: currentPlatform.value } : {}
   currentFilters.value = { ...currentFilters.value, ...platformFilter, matchedOnly: matchedOnly.value }
   store.setFilters(currentFilters.value)
   store.setCurrentPage(1)
-  store.loadInfluencersDebounced()
-await store.loadInfluencers()
+  store.loadInfluencers()
+}
 
-// 更新达人数据方法 - 使用Composable封装
-const handleUpdateData = async (influencer: any) => {
-  await updateInfluencerData(influencer, () => store.loadInfluencers())
-await store.loadInfluencers()
+// 更新达人数据方法
+const updateInfluencerData = async (influencer: any) => {
+  if (!influencer.star_id) {
+    ElMessage.error('该达人缺少星图id,无法更新数据')
+    return
+  }
+
+  try {
+    // 显示确认弹窗
+    await ElMessageBox.confirm(
+      `确定要更新达人「${influencer.nick_name}」的数据吗？`,
+      '确认更新',
+      {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning',
+      }
+    )
+  } catch (error) {
+    // 用户取消操作
+    return
+  }
+
+  // 设置加载状态
+  influencer.updating = true
+  influencer.updateProgress = 0
+  influencer.updateStatus = '正在启动任务...'
+
+  try {
+    console.log(`开始更新达人数据: ${influencer.nick_name} (${influencer.star_id})`)
+    
+    // 创建爬虫任务
+    const response = await createCrawlJob({
+      task_type: 'single_star_id',
+      target: {
+        star_id: influencer.star_id
+      },
+      options: {
+        cookies_file: 'cookies.txt',
+        output_dir: 'task_control/results',
+        report_dir: 'reports',
+        save_pg: true
+      }
+    })
+
+    console.log('爬虫任务创建响应:', response)
+
+    if (response.success && response.data?.job_id) {
+      const jobId = response.data.job_id
+      ElMessage.success(`达人"${influencer.nick_name}"数据更新任务已启动`)
+      
+      // 开始轮询任务状态，每2秒查询一次，最多持续5分钟
+      try {
+        const result = await pollCrawlJobStatus(
+          jobId,
+          (status: CrawlJobStatus, detail: CrawlJobDetailResponse['data']) => {
+            // 实时更新UI进度反馈
+            influencer.updateProgress = detail.progress.percentage
+            
+            // 根据状态显示不同的提示
+            if (status === 'running') {
+              influencer.updateStatus = `正在更新: ${detail.progress.percentage.toFixed(0)}%`
+              if (detail.progress.current_keyword) {
+                influencer.updateStatus += ` (${detail.progress.current_keyword})`
+              }
+            } else if (status === 'queued') {
+              influencer.updateStatus = '任务排队中...'
+            }
+            
+            console.log(`任务进度更新: ${status} - ${detail.progress.percentage}%`, detail)
+          },
+          2000,  // 每2秒查询一次
+          150    // 最多持续5分钟 (150次 * 2秒 = 300秒)
+        )
+        
+        // 任务完成
+        if (result.status === 'completed') {
+          influencer.updateStatus = '更新成功'
+          ElMessage.success({
+            message: `达人"${influencer.nick_name}"数据更新完成`,
+            duration: 3000
+          })
+          
+          // 刷新列表数据
+          setTimeout(() => {
+            store.loadInfluencers()
+          }, 1000)
+        } else if (result.status === 'failed') {
+          influencer.updateStatus = '更新失败'
+          ElMessage.error(`更新失败: ${result.error_message || '任务执行失败'}`)
+        } else if (result.status === 'cancelled') {
+          influencer.updateStatus = '已取消'
+          ElMessage.warning('任务已取消')
+        }
+      } catch (pollError) {
+        console.error('轮询任务状态失败:', pollError)
+        influencer.updateStatus = '轮询超时'
+        ElMessage.warning('任务执行时间较长，请稍后刷新查看结果')
+        
+        // 即使轮询超时，也尝试刷新数据
+        setTimeout(() => {
+          store.loadInfluencers()
+        }, 2000)
+      }
+    } else {
+      ElMessage.error(`更新失败: ${response.message || '未知错误'}`)
+    }
+  } catch (error) {
+    console.error('更新达人数据失败:', error)
+    ElMessage.error(`更新失败: ${(error as Error).message || '网络错误'}`)
+  } finally {
+    // 清除加载状态
+    influencer.updating = false
+    influencer.updateProgress = 0
+    influencer.updateStatus = ''
+  }
+}
 
 // 评价达人
 const handleEvaluate = (influencer: any) => {
-  log.debug('评价达人:', influencer)
+  console.log('评价达人:', influencer)
   currentEvaluateAuthorId.value = influencer.author_id || ''
   if (!currentEvaluateAuthorId.value) {
     ElMessage.warning('缺少达人 ID，无法评价')
     return
-  await store.loadInfluencers()
+  }
   evaluateDialogVisible.value = true
-await store.loadInfluencers()
+}
 
 // 评价提交成功后
 const handleReviewSubmitted = () => {
   ElMessage.success('评价已提交')
   evaluateDialogVisible.value = false
-await store.loadInfluencers()
+}
 
 // 向子组件暴露更新方法
 defineExpose({
-  updateInfluencerData: handleUpdateData
-await store.loadInfluencers()
+  updateInfluencerData
+})
 
 // 初始化加载数据
-log.debug('🎯 [index-v3] 开始加载初始数据')
-store.loadInfluencersDebounced()
+console.log('🎯 [index-v3] 开始加载初始数据')
+store.loadInfluencers()
 
 // 暴露调试变量到 window，便于控制台查看与触发刷新
 if (typeof window !== 'undefined') {
@@ -462,8 +660,8 @@ if (typeof window !== 'undefined') {
     sortBy,
     viewMode,
     cardSize,
-  await store.loadInfluencers()
-await store.loadInfluencers()
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -489,20 +687,20 @@ await store.loadInfluencers()
         font-size: 24px;
         font-weight: 600;
         color: var(--el-text-color-primary);
-      await store.loadInfluencers()
+      }
 
       .page-subtitle {
         margin: 0;
         font-size: 14px;
         color: var(--el-text-color-secondary);
-      await store.loadInfluencers()
-    await store.loadInfluencers()
+      }
+    }
 
     .header-right {
       display: flex;
       gap: 12px;
-    await store.loadInfluencers()
-  await store.loadInfluencers()
+    }
+  }
 
   /* 平台切换Tab栏 */
   .platform-tabs-wrapper {
@@ -518,13 +716,13 @@ await store.loadInfluencers()
       :deep(.el-tabs__header) {
         margin-bottom: 0;
         border-bottom: none;
-      await store.loadInfluencers()
+      }
 
       :deep(.el-tabs__nav-wrap) {
         &::after {
           display: none;
-        await store.loadInfluencers()
-      await store.loadInfluencers()
+        }
+      }
 
       :deep(.el-tabs__item) {
         padding: 0 24px;
@@ -541,7 +739,7 @@ await store.loadInfluencers()
         &:hover:not(.is-disabled) {
           color: var(--el-color-primary);
           background: rgba(64, 158, 255, 0.05);
-        await store.loadInfluencers()
+        }
 
         &.is-active {
           color: var(--el-color-primary);
@@ -558,8 +756,8 @@ await store.loadInfluencers()
             height: 3px;
             background: linear-gradient(90deg, var(--el-color-primary), #66b1ff);
             border-radius: 3px 3px 0 0;
-          await store.loadInfluencers()
-        await store.loadInfluencers()
+          }
+        }
 
         &.is-disabled {
           color: #c0c4cc;
@@ -568,18 +766,18 @@ await store.loadInfluencers()
           
           &:hover {
             background: transparent;
-          await store.loadInfluencers()
+          }
           
           .platform-icon {
             filter: grayscale(100%);
             opacity: 0.4;
-          await store.loadInfluencers()
-        await store.loadInfluencers()
-      await store.loadInfluencers()
+          }
+        }
+      }
 
       :deep(.el-tabs__active-bar) {
         display: none;
-      await store.loadInfluencers()
+      }
 
       .platform-tab-label {
         display: flex;
@@ -598,12 +796,12 @@ await store.loadInfluencers()
             height: 22px;
             object-fit: contain;
             transition: all 0.3s;
-          await store.loadInfluencers()
-        await store.loadInfluencers()
+          }
+        }
         
         .platform-name {
           font-size: 14px;
-        await store.loadInfluencers()
+        }
 
         .platform-count-badge {
           :deep(.el-badge__content) {
@@ -615,18 +813,18 @@ await store.loadInfluencers()
             padding: 0 7px;
             font-weight: 600;
             box-shadow: 0 2px 4px rgba(64, 158, 255, 0.3);
-          await store.loadInfluencers()
-        await store.loadInfluencers()
-      await store.loadInfluencers()
+          }
+        }
+      }
       
       /* 激活状态下的图标发光效果 */
       :deep(.el-tabs__item.is-active) {
         .platform-icon img {
           filter: drop-shadow(0 0 4px rgba(64, 158, 255, 0.4));
-        await store.loadInfluencers()
-      await store.loadInfluencers()
-    await store.loadInfluencers()
-  await store.loadInfluencers()
+        }
+      }
+    }
+  }
   
   /* 达人展示区 */
   .influencer-display-area {
@@ -653,15 +851,15 @@ await store.loadInfluencers()
             font-size: 18px;
             font-weight: 600;
             margin: 0 4px;
-          await store.loadInfluencers()
-        await store.loadInfluencers()
-      await store.loadInfluencers()
+          }
+        }
+      }
 
       .toolbar-right {
         display: flex;
         align-items: center;
         gap: 16px;
-      await store.loadInfluencers()
+      }
       
       .toolbar-group {
         display: flex;
@@ -673,10 +871,10 @@ await store.loadInfluencers()
           color: var(--el-text-color-regular);
           font-weight: 500;
           white-space: nowrap;
-        await store.loadInfluencers()
-      await store.loadInfluencers()
-    await store.loadInfluencers()
-  await store.loadInfluencers()
+        }
+      }
+    }
+  }
 
   /* 分页 */
   .pagination-container {
@@ -685,6 +883,6 @@ await store.loadInfluencers()
     margin-top: 32px;
     padding-top: 20px;
     border-top: 1px solid var(--el-border-color-lighter);
-  await store.loadInfluencers()
-await store.loadInfluencers()
+  }
+}
 </style>
