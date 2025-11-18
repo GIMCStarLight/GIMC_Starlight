@@ -433,6 +433,7 @@
 </template>
 
 <script setup lang="ts">
+import { log } from '../../../utils/logger'
 import { ref, reactive, onMounted, computed } from 'vue'
 import { ElMessage, ElMessageBox, type FormInstance } from 'element-plus'
 import { Search, Refresh, Plus, DocumentCopy } from '@element-plus/icons-vue'
@@ -895,7 +896,6 @@ onMounted(() => {
 <style scoped>
 .page-container {
   padding: 24px;
-import { log } from '#/utils/logger';
   background-color: #f5f7fa;
   min-height: 100vh;
 }

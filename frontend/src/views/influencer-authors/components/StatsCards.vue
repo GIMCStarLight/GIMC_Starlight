@@ -71,6 +71,7 @@
 </template>
 
 <script setup lang="ts">
+import { log } from '../../../utils/logger'
 import { ref, onMounted } from 'vue'
 import { IconifyIcon as Icon } from '@vben/icons'
 import { getInfluencerStats } from '#/api/influencer-v3'
@@ -122,7 +123,6 @@ onMounted(() => {
 <style scoped lang="scss">
 .stats-cards {
   margin-bottom: 24px;
-import { log } from '#/utils/logger';
 
   .stats-card {
     display: flex;

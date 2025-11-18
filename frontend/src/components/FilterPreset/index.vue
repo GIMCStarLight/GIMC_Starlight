@@ -121,6 +121,7 @@
 </template>
 
 <script setup lang="ts">
+import { log } from '../../utils/logger'
 import { ref, reactive, computed } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { IconifyIcon as Icon } from '@vben/icons'
@@ -337,7 +338,6 @@ const formatDate = (dateString: string) => {
 <style scoped>
 .filter-preset {
   background: var(--el-bg-color);
-import { log } from '#/utils/logger';
   border-radius: 8px;
   padding: 16px;
   border: 1px solid var(--el-border-color-lighter);

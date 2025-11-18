@@ -201,6 +201,7 @@
 <script setup lang="ts">
 import { ref, reactive, computed, watch } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
+import { log } from '../../../utils/logger'
 import { 
   type ExtendedKolInfo,
   type MatchCandidate,
@@ -317,8 +318,7 @@ const loadCandidates = async () => {
   try {
     // 生成模拟候选数据
     const mockCandidates: DisplayCandidate[] = []
-    for (let i = 1;
-import { log } from '#/utils/logger'; i <= 5; i++) {
+    for (let i = 1; i <= 5; i++) {
       mockCandidates.push({
         id: `candidate-${i}`,
         publicAuthorId: `public-${i}`,

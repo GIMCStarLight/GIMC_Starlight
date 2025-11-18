@@ -246,6 +246,7 @@
 </template>
 
 <script setup lang="ts">
+import { log } from '../../../utils/logger'
 import { ref, reactive, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { Plus, User, View, Edit, Delete } from '@element-plus/icons-vue'
@@ -520,7 +521,6 @@ onMounted(() => {
 <style scoped>
 .page-container {
   padding: 20px;
-import { log } from '#/utils/logger';
 }
 
 .content-card {

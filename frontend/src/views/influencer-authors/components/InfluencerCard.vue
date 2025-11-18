@@ -318,6 +318,7 @@
 </template>
 
 <script setup lang="ts">
+import { log } from '../../../utils/logger'
 import { ref, computed, toRefs } from 'vue'
 import { IconifyIcon as Icon } from '@vben/icons'
 import { ElMessage } from 'element-plus'
@@ -549,7 +550,6 @@ const handleUpdateData = () => {
 <style scoped lang="scss">
 .influencer-card {
   background: var(--el-bg-color);
-import { log } from '#/utils/logger';
   border-radius: 12px;
   border: 1px solid var(--el-border-color-lighter);
   transition: all 0.3s ease;

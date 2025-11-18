@@ -181,6 +181,7 @@
 </template>
 
 <script setup lang="ts">
+import { log } from '../../utils/logger'
 import { ref, reactive, computed, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import { Plus, Refresh, Folder, Clock, Check, Money, Search } from '@element-plus/icons-vue'
@@ -325,7 +326,6 @@ onMounted(() => {
 <style scoped lang="scss">
 .rebate-flow-container {
   padding: 24px;
-import { log } from '#/utils/logger';
   background-color: #f5f5f5;
   min-height: 100vh;
 }

@@ -160,6 +160,7 @@
 </template>
 
 <script setup lang="ts">
+import { log } from '../../utils/logger'
 import { ref, computed, onMounted, watch } from 'vue'
 import { ElMessage } from 'element-plus'
 import { ArrowLeft, ArrowRight, Search } from '@element-plus/icons-vue'
@@ -367,7 +368,6 @@ onMounted(() => {
 <style scoped>
 .tag-selector {
   @apply w-full;
-import { log } from '#/utils/logger';
 }
 
 .platform-selector {
