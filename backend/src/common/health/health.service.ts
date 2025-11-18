@@ -15,6 +15,8 @@ export class HealthService {
     @InjectDataSource('mysql') private readonly mysqlDataSource: DataSource,
     @InjectDataSource('postgres')
     private readonly postgresDataSource: DataSource,
+    @InjectDataSource('crawler')
+    private readonly crawlerDataSource: DataSource,
     @InjectRedis() private readonly redis: Redis,
   ) {}
 
@@ -27,26 +29,39 @@ export class HealthService {
   }
 
   async databaseCheck() {
-    try {
-      await this.mysqlDataSource.query('SELECT 1');
-      await this.postgresDataSource.query('SELECT 1');
+    const checks = await Promise.allSettled([
+      this.mysqlDataSource.query('SELECT 1').then(() => ({ name: 'mysql', status: 'connected' })),
+      this.postgresDataSource.query('SELECT 1').then(() => ({ name: 'postgres', status: 'connected' })),
+      this.crawlerDataSource.query('SELECT 1').then(() => ({ name: 'crawler', status: 'connected' })),
+    ]);
 
-      return {
-        status: 'ok',
-        timestamp: new Date().toISOString(),
-        databases: {
-          mysql: 'connected',
-          postgres: 'connected',
-        },
-      };
-    } catch (error) {
-      this.logger.error('数据库连接检查失败', error);
-      return {
-        status: 'error',
-        timestamp: new Date().toISOString(),
-        error: error.message,
-      };
+    const databases: Record<string, string> = {};
+    const errors: string[] = [];
+
+    checks.forEach((result, index) => {
+      const dbNames = ['mysql', 'postgres', 'crawler'];
+      const dbName = dbNames[index];
+
+      if (result.status === 'fulfilled') {
+        databases[dbName] = result.value.status;
+      } else {
+        databases[dbName] = 'disconnected';
+        errors.push(`${dbName}: ${result.reason?.message || 'Unknown error'}`);
+      }
+    });
+
+    const allConnected = checks.every((c) => c.status === 'fulfilled');
+
+    if (!allConnected) {
+      this.logger.error('数据库连接检查失败', errors);
     }
+
+    return {
+      status: allConnected ? 'ok' : 'degraded',
+      timestamp: new Date().toISOString(),
+      databases,
+      errors: errors.length > 0 ? errors : undefined,
+    };
   }
 
   async redisCheck() {
