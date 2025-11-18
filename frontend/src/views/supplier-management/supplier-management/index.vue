@@ -567,7 +567,8 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { Excel, mapExcelSupplier } from '#/utils/excel'
+import { log } from '../../../utils/logger'
+import { Excel, mapExcelSupplier } from '../../../utils/excel'
 import { 
   getSupplierListApi, 
   batchCreateSupplierApi, 
@@ -578,7 +579,7 @@ import {
   type SupplierInfo,
   type CreateSupplierDto,
   type SupplierListParams
-} from '#/api/supplier'
+} from '../../../api/supplier'
 
 // 响应式数据
 const drawerVisible = ref(false)  // 详情浮窗
@@ -1026,7 +1027,6 @@ const uploadExcelRef = ref()
 const uploadFile = async (file: any) => {
   // 表头字段数组
   const header = Object.values(mapExcelSupplier);
-import { log } from '#/utils/logger';
   if (file.raw?.type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' 
       && file.raw?.type !== 'application/vnd.ms-excel') {
     ElMessage.error('文件格式错误，请重新上传！')
