@@ -3,12 +3,13 @@ import {
   UnauthorizedException,
   ConflictException,
   BadRequestException,
+  Logger,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import * as bcrypt from 'bcryptjs';
+import * as bcrypt from 'bcrypt';
 import { randomUUID } from 'crypto';
 import { UserAuth, UserProfile } from '../../database/entities';
 import { LoginDto, RegisterDto, LoginResponseDto } from '../dto/login.dto';
@@ -19,6 +20,7 @@ import {
 } from './verification.service';
 import { SessionService } from './session.service';
 import { JwtBlacklistService } from './jwt-blacklist.service';
+import { TimeUtil } from '../../common/utils/time.util';
 
 /**
  * 认证服务
@@ -26,6 +28,8 @@ import { JwtBlacklistService } from './jwt-blacklist.service';
  */
 @Injectable()
 export class AuthService {
+  private readonly logger = new Logger(AuthService.name);
+
   constructor(
     @InjectRepository(UserAuth, 'mysql')
     private readonly userAuthRepository: Repository<UserAuth>,
@@ -128,34 +132,12 @@ export class AuthService {
       '7d',
     );
 
-    // 将时间字符串转换为秒数
-    const parseTimeToSeconds = (timeStr: string): number => {
-      const match = timeStr.match(/^(\d+)([smhd])$/);
-      if (!match) return 14400; // 默认4小时
-
-      const [, num, unit] = match;
-      const value = parseInt(num);
-
-      switch (unit) {
-        case 's':
-          return value;
-        case 'm':
-          return value * 60;
-        case 'h':
-          return value * 3600;
-        case 'd':
-          return value * 86400;
-        default:
-          return 14400;
-      }
-    };
-
     return {
       accessToken,
       refreshToken,
       tokenType: 'Bearer',
-      expiresIn: parseTimeToSeconds(jwtExpiresIn),
-      refreshExpiresIn: parseTimeToSeconds(refreshExpiresIn),
+      expiresIn: TimeUtil.parseTimeToSeconds(jwtExpiresIn),
+      refreshExpiresIn: TimeUtil.parseTimeToSeconds(refreshExpiresIn),
       user: {
         id: user.id,
         phone: user.phone,
@@ -378,33 +360,11 @@ export class AuthService {
         '7d',
       );
 
-      // 将时间字符串转换为秒数
-      const parseTimeToSeconds = (timeStr: string): number => {
-        const match = timeStr.match(/^(\d+)([smhd])$/);
-        if (!match) return 14400; // 默认4小时
-
-        const [, num, unit] = match;
-        const value = parseInt(num);
-
-        switch (unit) {
-          case 's':
-            return value;
-          case 'm':
-            return value * 60;
-          case 'h':
-            return value * 3600;
-          case 'd':
-            return value * 86400;
-          default:
-            return 14400;
-        }
-      };
-
       return {
         accessToken: newAccessToken,
         refreshToken: newRefreshToken,
-        expiresIn: parseTimeToSeconds(jwtExpiresIn),
-        refreshExpiresIn: parseTimeToSeconds(refreshExpiresIn),
+        expiresIn: TimeUtil.parseTimeToSeconds(jwtExpiresIn),
+        refreshExpiresIn: TimeUtil.parseTimeToSeconds(refreshExpiresIn),
       };
     } catch (error) {
       if (error instanceof UnauthorizedException) {
@@ -420,6 +380,8 @@ export class AuthService {
    * @param refreshToken 刷新令牌（可选）
    */
   async logout(accessToken?: string, refreshToken?: string): Promise<void> {
+    let payload: any = null;
+    
     try {
       // 将访问令牌加入黑名单
       if (accessToken) {
@@ -432,7 +394,6 @@ export class AuthService {
       }
 
       // 解析令牌获取用户信息（优先使用accessToken，其次使用refreshToken）
-      let payload: any = null;
       if (accessToken) {
         payload = this.jwtService.decode(accessToken);
       } else if (refreshToken) {
@@ -444,8 +405,11 @@ export class AuthService {
         await this.sessionService.deleteSession(payload.jti);
       }
     } catch (error) {
-      // 登出操作即使失败也不应该抛出异常
-      // 登出操作失败
+      // 登出操作即使失败也不应该抛出异常，但需要记录日志
+      this.logger.warn('登出操作失败,但不影响流程', {
+        error: error instanceof Error ? error.message : String(error),
+        userId: payload?.userId,
+      });
     }
   }
 
