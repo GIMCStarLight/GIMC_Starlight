@@ -165,7 +165,7 @@ export class KolReviewsService {
       score: 'review.score',
       reviewer: 'review.reviewer',
     };
-    return fieldMap[sortBy] || 'review.created_at';
+    return fieldMap[sortBy as keyof typeof fieldMap] || 'review.created_at';
   }
 
   // 获取统计数据

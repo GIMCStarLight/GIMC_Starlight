@@ -49,7 +49,7 @@ async function cleanup() {
 
       if (tables.length > 0) {
         logger.log(`\n找到 ${tables.length} 个KOL相关表：`);
-        tables.forEach(t => logger.log(`  - ${t.TABLE_NAME}`));
+        tables.forEach((t: any) => logger.log(`  - ${t.TABLE_NAME}`));
       }
     } catch (error) {
       logger.warn('无法列举表列表');
