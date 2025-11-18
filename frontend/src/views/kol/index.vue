@@ -1,44 +1,15 @@
 <template>
   <div class="influencer-management">
     <!-- 顶部操作栏 -->
-    <div class="top-bar">
-      <div class="bar-left">
-        <h1 class="page-title">省广达人库</h1>
-      </div>
-      <div class="bar-right">
-        <el-button @click="navigateToImportHistory" class="action-btn">
-          <Icon icon="lucide:clock" class="mr-1" />
-          导入历史
-        </el-button>
-        
-        <el-button @click="handleImportData" class="action-btn">
-          <Icon icon="lucide:download" class="mr-1" />
-          导入数据
-        </el-button>
-        
-        <el-button 
-          type="success" 
-          :disabled="!selectedDouyinRows.length" 
-          @click="handleBatchSync"
-          :loading="batchSyncing"
-          class="action-btn"
-        >
-          <Icon icon="lucide:refresh-cw" class="mr-1" />
-          批量同步
-          <el-badge v-if="selectedDouyinRows.length" :value="selectedDouyinRows.length" class="badge-count" />
-        </el-button>
-        
-        <el-button 
-          type="warning" 
-          @click="handleRetryFailed"
-          :loading="retrying"
-          class="action-btn"
-        >
-          <Icon icon="lucide:rotate-ccw" class="mr-1" />
-          重试失败
-        </el-button>
-      </div>
-    </div>
+    <KolActionBar 
+      :selected-count="selectedDouyinRows.length"
+      :batch-syncing="batchSyncing"
+      :retrying="retrying"
+      @import-history="navigateToImportHistory"
+      @import-data="handleImportData"
+      @batch-sync="handleBatchSync"
+      @retry-failed="handleRetryFailed"
+    />
 
     <!-- 导入映射配置弹窗 -->
     <el-dialog v-model="mappingDialogVisible" title="配置导入映射" width="640px">
@@ -76,73 +47,7 @@
     <KolQuickFilters :filters="searchForm" @filter-change="handleFilterChange" />
 
     <!-- 同步统计信息卡片 -->
-    <el-row :gutter="16" class="stats-cards">
-      <el-col :xs="24" :sm="12" :md="6" :lg="4">
-        <el-card shadow="hover" class="stat-card stat-total">
-          <div class="stat-content">
-            <div class="stat-icon">
-              <Icon icon="lucide:database" :size="32" />
-            </div>
-            <div class="stat-info">
-              <div class="stat-label">总计</div>
-              <div class="stat-value">{{ syncStats.total }}</div>
-            </div>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="12" :md="6" :lg="4">
-        <el-card shadow="hover" class="stat-card stat-unmatched">
-          <div class="stat-content">
-            <div class="stat-icon">
-              <Icon icon="lucide:help-circle" :size="32" />
-            </div>
-            <div class="stat-info">
-              <div class="stat-label">未匹配</div>
-              <div class="stat-value">{{ syncStats.unmatched }}</div>
-            </div>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="12" :md="6" :lg="4">
-        <el-card shadow="hover" class="stat-card stat-pending">
-          <div class="stat-content">
-            <div class="stat-icon">
-              <Icon icon="lucide:clock" :size="32" />
-            </div>
-            <div class="stat-info">
-              <div class="stat-label">待同步</div>
-              <div class="stat-value">{{ syncStats.pending }}</div>
-            </div>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="12" :md="6" :lg="4">
-        <el-card shadow="hover" class="stat-card stat-matched">
-          <div class="stat-content">
-            <div class="stat-icon">
-              <Icon icon="lucide:check-circle" :size="32" />
-            </div>
-            <div class="stat-info">
-              <div class="stat-label">已匹配</div>
-              <div class="stat-value">{{ syncStats.matched }}</div>
-            </div>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="12" :md="6" :lg="4">
-        <el-card shadow="hover" class="stat-card stat-rejected">
-          <div class="stat-content">
-            <div class="stat-icon">
-              <Icon icon="lucide:x-circle" :size="32" />
-            </div>
-            <div class="stat-info">
-              <div class="stat-label">同步失败</div>
-              <div class="stat-value">{{ syncStats.rejected }}</div>
-            </div>
-          </div>
-        </el-card>
-      </el-col>
-    </el-row>
+    <SyncStatsCards :stats="syncStats" />
 
     <!-- 筛选条件卡片 -->
     <!-- 已移至高级筛选弹窗中，此处删除旧代码 -->    <!-- 数据表格 -->
@@ -314,19 +219,22 @@
 import { ref, reactive, onMounted, computed } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { IconifyIcon as Icon } from '@vben/icons'
-import { requestClient } from '#/api/request'
-import { Excel, mapExcelKolList } from '#/utils/excel'
+import { requestClient } from '../../api/request'
+import { Excel, mapExcelKolList } from '../../utils/excel'
 import ExcelJS from 'exceljs'
 import { useRouter } from 'vue-router'
-import EvaluateDialog from '#/components/EvaluateDialog/index.vue'
+import EvaluateDialog from '../../components/EvaluateDialog/index.vue'
 import { id } from 'element-plus/es/locales.mjs'
-import { batchCreateKolListApi } from '#/api/kol-list'
+import { batchCreateKolListApi } from '../../api/kol-list'
 import { KolSyncApi } from '../../api/kol-sync.api'
 import ImportDataDialog from './components/ImportDataDialog.vue'
 import SyncStatusTag from './components/SyncStatusTag.vue'
 import KolDetailDialog from './components/KolDetailDialog.vue'
 import KolEditDialog from './components/KolEditDialog.vue'
 import KolQuickFilters from './components/KolQuickFilters.vue'
+import { log } from '../../utils/logger'
+import KolActionBar from './components/KolActionBar.vue'
+import SyncStatsCards from './components/SyncStatsCards.vue'
 
 const router = useRouter()
 
@@ -699,35 +607,10 @@ const handleEvaluation = (row: any) => {
   evaluateDialogVisible.value = true
 }
 
-// 重置form函数
-const resetForm = () => {
-  Object.assign(formData, {
-    id: undefined,
-    canonical_name: '',
-    canonical_name_source: 'douyin_star',
-    main_platform: 'douyin',
-    gender: 'female',
-    author_type: 'individual',
-    province: '',
-    city: '',
-    follower: 0,
-    interact_rate_within_30d: 0,
-    star_index: 0,
-    price_1_20: 0,
-    price_20_60: 0,
-    price_60: 0,
-    is_excellent_author: true,
-    is_black_horse_author: false,
-    is_cocreate_author: false,
-    is_excellenct_author: true,
-    is_cpm_project_author: false,
-    is_short_drama: false,
-    e_commerce_enable: false,
-    star_id: '',
-    tags_relation: '',
-  })
-  formRef.value?.clearValidate()
-}
+// 重置form函数（已废弃，由KolEditDialog管理）
+// const resetForm = () => {
+//   ...
+// }
 
 // 加载同步统计信息
 const loadSyncStats = async () => {
@@ -748,7 +631,6 @@ const selectedDouyinRows = computed(() => {
 // 判断是否可以同步
 const canSync = (row: any): boolean => {
   const platform = String(row.platform || '').trim();
-import { log } from '#/utils/logger';
   const platformLower = platform.toLowerCase();
   const isDouyin = platform === '抖音' || platformLower === 'douyin';
   const hasAccountId = !!row.account_id && String(row.account_id).trim().length > 0;
@@ -943,10 +825,11 @@ const handleCurrentChange = (page: number) => {
 }
 // ========== 同步功能结束 ==========
 
-const handleClose = () => {
-  resetForm()
-  dialogVisible.value = false
-}
+// handleClose 已废弃（由KolEditDialog管理）
+// const handleClose = () => {
+//   resetForm()
+//   dialogVisible.value = false
+// }
 
 
 
