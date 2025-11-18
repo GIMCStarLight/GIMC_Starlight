@@ -275,6 +275,7 @@ import { ref, reactive, computed, watch } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { UploadFilled, Document, Download, Loading, CircleCheck, CircleClose, Warning, Bell } from '@element-plus/icons-vue'
 import type { UploadFile, UploadInstance } from 'element-plus'
+import { log } from '../../../utils/logger'
 import { 
   type ImportTask,
   type ImportError,
@@ -527,8 +528,7 @@ const downloadTemplate = async (type: 'private' | 'public') => {
       '达人昵称,平台,账号,主页链接,粉丝数(万),机构名称,类目,备注\n' +
       '公海达人,抖音,789012,https://example.com,200,公海机构,美食,公海示例'
 
-    const blob = new Blob(['\ufeff' + templateData], { type: 'text/csv;
-import { log } from '#/utils/logger';charset=utf-8' })
+    const blob = new Blob(['\ufeff' + templateData], { type: 'text/csv;charset=utf-8' })
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
     link.href = url
