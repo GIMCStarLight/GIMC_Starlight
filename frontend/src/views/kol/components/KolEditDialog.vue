@@ -226,6 +226,7 @@
 <script setup lang="ts">
 import { ref, reactive, computed, watch } from 'vue'
 import { ElMessage, type FormInstance, type FormRules } from 'element-plus'
+import { log } from '../../../utils/logger'
 import { KolListApi } from '../../../api/kol-match.api'
 
 interface Props {
@@ -336,8 +337,7 @@ const resetForm = () => {
 
 // 兼容 camelCase 的旧类型，初始化表单数据
 watch(() => props.kolData, (d) => {
-  if (!d) { resetForm();
-import { log } from '#/utils/logger'; return }
+  if (!d) { resetForm(); return }
   Object.assign(formData, {
     platform: d.platform || '',
     account_name: d.account_name || d.accountName || '',
