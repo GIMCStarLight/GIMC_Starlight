@@ -8,6 +8,9 @@ import 'element-plus/dist/index.css';
 
 import { overridesPreferences } from './preferences';
 
+// 导入缓存调试工具（开发环境自动挂载到window）
+import './utils/cache-debug'
+
 /**
  * 应用初始化完成之后再进行页面加载渲染
  */

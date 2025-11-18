@@ -37,7 +37,7 @@ import {
 import { SupplierDatabase } from '../../database/entities/supplier-database.entity';
 
 @ApiTags('供应商数据库管理')
-@Controller('v2/supplier-database')
+@Controller('supplier-database')
 @UsePipes(
   new ValidationPipe({
     transform: true,

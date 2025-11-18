@@ -223,7 +223,7 @@ export class InfluencerV3Service {
         }
         
         // 解析 JSON 数据并添加到结果
-        const parsedData = rawData.map(row => ({
+        const parsedData = rawData.map((row: any) => ({
           author_id: row.author_id,
           data_timestamp: row.created_at,
           ...row.raw_attribute_datas,
@@ -261,14 +261,14 @@ export class InfluencerV3Service {
         micro: { min: 100000, max: 1000000 },
         nano: { max: 100000 },
       };
-      const range = tierRanges[query.tier];
+      const range = tierRanges[query.tier as keyof typeof tierRanges];
       if (range) {
-        if (range.min) {
+        if ('min' in range && range.min) {
           queryBuilder.andWhere('author.follower >= :minFollower', {
             minFollower: range.min,
           });
         }
-        if (range.max) {
+        if ('max' in range && range.max) {
           queryBuilder.andWhere('author.follower < :maxFollower', {
             maxFollower: range.max,
           });
@@ -283,7 +283,7 @@ export class InfluencerV3Service {
         black_horse: 'author.is_black_horse_author = true',
         high_potential: 'author.star_qianchuan_high_potential = true',
       };
-      const condition = tagMap[query.specialTag];
+      const condition = tagMap[query.specialTag as keyof typeof tagMap];
       if (condition) {
         queryBuilder.andWhere(condition);
       }

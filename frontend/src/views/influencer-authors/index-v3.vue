@@ -149,7 +149,7 @@
         :card-size="cardSize"
         :loading="loading"
         :platform="currentPlatform"
-        @update-data="handleUpdateData"
+        @update-data="updateInfluencerData"
         @evaluate="handleEvaluate"
       />
 
@@ -181,18 +181,16 @@
 import { ref, computed, watch, markRaw } from 'vue'
 import { IconifyIcon as Icon } from '@vben/icons'
 import { ElMessage, ElMessageBox } from 'element-plus'
+import { log } from '#/utils/logger'
 import EvaluateDialog from '#/components/EvaluateDialog/index.vue'
-import { useInfluencerSquareStore } from '#/store/influencer-square'
+import { useInfluencerSquareStore } from '#/store'
 import { storeToRefs } from 'pinia'
 import {
   advancedFilter,
   refreshMaterializedView,
   type AdvancedFilterParams
 } from '#/api/influencer-filter'
-
-// Composables
-import { useInfluencerExport } from './composables/useInfluencerExport'
-import { useInfluencerUpdate } from './composables/useInfluencerUpdate'
+import { createCrawlJob, pollCrawlJobStatus, type CrawlJobStatus, type CrawlJobDetailResponse } from '#/api/crawler'
 
 // 平台特色筛选组件
 import AllPlatformsQuickFilter from './components/platform-filters/AllPlatformsQuickFilter.vue'
@@ -232,7 +230,7 @@ const platforms = ref<PlatformConfig[]>([
 
 const currentPlatform = ref('douyin')
 
-console.log('🎯 [index-v3] 页面组件初始化')
+log.debug('🎯 [index-v3] 页面组件初始化')
 
 // 使用状态管理
 const store = useInfluencerSquareStore()
@@ -247,10 +245,6 @@ const {
   cardSize,
   activeFiltersCount,
 } = storeToRefs(store)
-
-// 使用Composables
-const { exportInfluencers } = useInfluencerExport()
-const { updateInfluencerData } = useInfluencerUpdate()
 
 // 高级筛选面板显示状态
 const showAdvancedFilters = ref(false)
@@ -268,7 +262,7 @@ const matchedOnly = ref(false)
 
 // 平台切换处理
 const handlePlatformChange = (platformValue: string) => {
-  console.log('🔄 平台切换:', platformValue)
+  log.debug('🔄 平台切换:', platformValue)
   currentPlatform.value = platformValue
   
   // 清空筛选条件
@@ -320,7 +314,7 @@ watch(
     loading: loading.value,
   }),
   (newVal) => {
-    console.log('🎯 [index-v3] Store状态变化:', newVal)
+    log.debug('🎯 [index-v3] Store状态变化:', newVal)
   },
   { immediate: true, deep: true }
 )
@@ -350,9 +344,102 @@ const handleRefreshView = async () => {
   }
 }
 
-// 导出数据 - 使用Composable
+// 导出数据
 const handleExport = async () => {
-  await exportInfluencers(store.selectedInfluencerIds)
+  if (store.selectedCount === 0) {
+    ElMessage.warning('请先选中要导出的达人')
+    return
+  }
+
+  try {
+    ElMessage.info(`正在获取 ${store.selectedCount} 位达人的完整数据...`)
+    
+    // 获取所有选中的 author_id
+    const selectedAuthorIds = Array.from(store.selectedInfluencerIds)
+    log.debug('导出请求 - 选中的author_id:', selectedAuthorIds)
+    
+    // 调用后端API批量获取完整原始数据
+    const response = await fetch('/api/v2/influencers/v3/batch-export', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ authorIds: selectedAuthorIds }),
+    })
+    
+    log.debug('API响应状态:', response.status, response.statusText)
+    
+    if (!response.ok) {
+      const errorText = await response.text()
+      log.error('API错误响应:', errorText)
+      throw new Error(`API请求失败: ${response.statusText}`)
+    }
+    
+    const result = await response.json()
+    log.debug('API返回结果:', result)
+    
+    if (!result.data || !Array.isArray(result.data) || result.data.length === 0) {
+      log.warn('数据为空或格式错误:', result)
+      ElMessage.warning('未获取到达人数据')
+      return
+    }
+    
+    const fullData = result.data
+    log.debug('完整数据数组长度:', fullData.length)
+    log.debug('第一条数据样例:', fullData[0])
+    
+    // 检查第一条数据是否有效
+    if (!fullData[0] || typeof fullData[0] !== 'object') {
+      log.error('第一条数据无效:', fullData[0])
+      throw new Error('数据格式错误：第一条数据无效')
+    }
+    
+    // 获取所有字段名（从第一条数据）
+    const allFields = Object.keys(fullData[0])
+    log.debug('字段总数:', allFields.length)
+    log.debug('字段列表:', allFields)
+    
+    // 创建CSV内容（包含所有字段）
+    const headers = allFields
+    const rows = fullData.map(item => 
+      allFields.map(field => {
+        const value = item[field]
+        // 处理不同类型的值
+        if (value === null || value === undefined) {
+          return '-'
+        } else if (Array.isArray(value)) {
+          return value.join('; ')
+        } else if (typeof value === 'object') {
+          return JSON.stringify(value)
+        } else {
+          return String(value)
+        }
+      })
+    )
+    
+    // 创建 CSV 内容
+    const csvContent = [
+      headers.join(','),
+      ...rows.map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(','))
+    ].join('\n')
+    
+    // 创建 Blob 并下载
+    const blob = new Blob(['\ufeff' + csvContent], { type: 'text/csv;charset=utf-8;' })
+    const link = document.createElement('a')
+    const url = URL.createObjectURL(blob)
+    const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-')
+    link.href = url
+    link.download = `达人完整数据_${fullData.length}位_${timestamp}.csv`
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(url)
+    
+    ElMessage.success(`已导出 ${fullData.length} 位达人的完整数据（包含 ${allFields.length} 个字段）`)
+  } catch (error) {
+    log.error('导出失败:', error)
+    ElMessage.error('导出失败: ' + ((error as Error).message || '未知错误'))
+  }
 }
 
 // 清空选中
@@ -368,24 +455,24 @@ const handleSortChange = () => {
 
 // 分页变化
 const handlePageChange = (page: number) => {
-  console.log('📄 [index-v3] 页码变化:', {
+  log.debug('📄 [index-v3] 页码变化:', {
     newPage: page,
     currentPageBeforeSet: currentPage.value
   })
   store.setCurrentPage(page)
-  console.log('📄 [index-v3] 页码更新后:', currentPage.value)
+  log.debug('📄 [index-v3] 页码更新后:', currentPage.value)
   store.loadInfluencers()
 }
 
 const handleSizeChange = (size: number) => {
-  console.log('📏 [index-v3] 每页数量变化:', size)
+  log.debug('📏 [index-v3] 每页数量变化:', size)
   store.setPageSize(size)
   store.loadInfluencers()
 }
 
 // 处理快速筛选变化
 const handleQuickFilterChange = (filters: AdvancedFilterParams) => {
-  console.log('🛠️ 快速筛选变化:', filters)
+  log.debug('🛠️ 快速筛选变化:', filters)
   // 保留平台筛选
   const platformFilter = currentPlatform.value !== 'all' ? { platform: currentPlatform.value } : {}
   currentFilters.value = { ...currentFilters.value, ...filters, ...platformFilter, matchedOnly: matchedOnly.value }
@@ -397,7 +484,7 @@ const handleQuickFilterChange = (filters: AdvancedFilterParams) => {
 
 // 处理高级筛选变化
 const handleAdvancedFilterChange = (filters: AdvancedFilterParams) => {
-  console.log('⚙️ 高级筛选变化:', filters)
+  log.debug('⚙️ 高级筛选变化:', filters)
   // 保留平台筛选
   const platformFilter = currentPlatform.value !== 'all' ? { platform: currentPlatform.value } : {}
   currentFilters.value = { ...currentFilters.value, ...filters, ...platformFilter, matchedOnly: matchedOnly.value }
@@ -407,9 +494,9 @@ const handleAdvancedFilterChange = (filters: AdvancedFilterParams) => {
   store.loadInfluencers()
 }
 
-// 处理"仅展示已匹配"切换
+// 处理“仅展示已匹配”切换
 const handleMatchedOnlyToggle = () => {
-  console.log('🔄 [匹配筛选] 开关状态:', matchedOnly.value)
+  log.debug('🔄 [匹配筛选] 开关状态:', matchedOnly.value)
   // 保留平台筛选
   const platformFilter = currentPlatform.value !== 'all' ? { platform: currentPlatform.value } : {}
   currentFilters.value = { ...currentFilters.value, ...platformFilter, matchedOnly: matchedOnly.value }
@@ -418,14 +505,127 @@ const handleMatchedOnlyToggle = () => {
   store.loadInfluencers()
 }
 
-// 更新达人数据方法 - 使用Composable封装
-const handleUpdateData = async (influencer: any) => {
-  await updateInfluencerData(influencer, () => store.loadInfluencers())
+// 更新达人数据方法
+const updateInfluencerData = async (influencer: any) => {
+  if (!influencer.star_id) {
+    ElMessage.error('该达人缺少星图id,无法更新数据')
+    return
+  }
+
+  try {
+    // 显示确认弹窗
+    await ElMessageBox.confirm(
+      `确定要更新达人「${influencer.nick_name}」的数据吗？`,
+      '确认更新',
+      {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning',
+      }
+    )
+  } catch (error) {
+    // 用户取消操作
+    return
+  }
+
+  // 设置加载状态
+  influencer.updating = true
+  influencer.updateProgress = 0
+  influencer.updateStatus = '正在启动任务...'
+
+  try {
+    log.debug(`开始更新达人数据: ${influencer.nick_name} (${influencer.star_id})`)
+    
+    // 创建爬虫任务
+    const response = await createCrawlJob({
+      task_type: 'single_star_id',
+      target: {
+        star_id: influencer.star_id
+      },
+      options: {
+        cookies_file: 'cookies.txt',
+        output_dir: 'task_control/results',
+        report_dir: 'reports',
+        save_pg: true
+      }
+    })
+
+    log.debug('爬虫任务创建响应:', response)
+
+    if (response.success && response.data?.job_id) {
+      const jobId = response.data.job_id
+      ElMessage.success(`达人"${influencer.nick_name}"数据更新任务已启动`)
+      
+      // 开始轮询任务状态，每2秒查询一次，最多持续5分钟
+      try {
+        const result = await pollCrawlJobStatus(
+          jobId,
+          (status: CrawlJobStatus, detail: CrawlJobDetailResponse['data']) => {
+            // 实时更新UI进度反馈
+            influencer.updateProgress = detail.progress.percentage
+            
+            // 根据状态显示不同的提示
+            if (status === 'running') {
+              influencer.updateStatus = `正在更新: ${detail.progress.percentage.toFixed(0)}%`
+              if (detail.progress.current_keyword) {
+                influencer.updateStatus += ` (${detail.progress.current_keyword})`
+              }
+            } else if (status === 'queued') {
+              influencer.updateStatus = '任务排队中...'
+            }
+            
+            log.debug(`任务进度更新: ${status} - ${detail.progress.percentage}%`, detail)
+          },
+          2000,  // 每2秒查询一次
+          150    // 最多持续5分钟 (150次 * 2秒 = 300秒)
+        )
+        
+        // 任务完成
+        if (result.status === 'completed') {
+          influencer.updateStatus = '更新成功'
+          ElMessage.success({
+            message: `达人"${influencer.nick_name}"数据更新完成`,
+            duration: 3000
+          })
+          
+          // 刷新列表数据
+          setTimeout(() => {
+            store.loadInfluencers()
+          }, 1000)
+        } else if (result.status === 'failed') {
+          influencer.updateStatus = '更新失败'
+          ElMessage.error(`更新失败: ${result.error_message || '任务执行失败'}`)
+        } else if (result.status === 'cancelled') {
+          influencer.updateStatus = '已取消'
+          ElMessage.warning('任务已取消')
+        }
+      } catch (pollError) {
+        log.error('轮询任务状态失败:', pollError)
+        influencer.updateStatus = '轮询超时'
+        ElMessage.warning('任务执行时间较长，请稍后刷新查看结果')
+        
+        // 即使轮询超时，也尝试刷新数据
+        setTimeout(() => {
+          store.loadInfluencers()
+        }, 2000)
+      }
+    } else {
+      ElMessage.error(`更新失败: ${response.message || '未知错误'}`)
+    }
+  } catch (error) {
+    log.error('更新达人数据失败:', error)
+    ElMessage.error(`更新失败: ${(error as Error).message || '网络错误'}`)
+  } finally {
+    // 清除加载状态
+    influencer.updating = false
+    influencer.updateProgress = 0
+    influencer.updateStatus = ''
+  }
 }
 
 // 评价达人
 const handleEvaluate = (influencer: any) => {
-  console.log('评价达人:', influencer)
+  log.debug('评价达人:', influencer)
   currentEvaluateAuthorId.value = influencer.author_id || ''
   if (!currentEvaluateAuthorId.value) {
     ElMessage.warning('缺少达人 ID，无法评价')
@@ -442,11 +642,11 @@ const handleReviewSubmitted = () => {
 
 // 向子组件暴露更新方法
 defineExpose({
-  updateInfluencerData: handleUpdateData
+  updateInfluencerData
 })
 
 // 初始化加载数据
-console.log('🎯 [index-v3] 开始加载初始数据')
+log.debug('🎯 [index-v3] 开始加载初始数据')
 store.loadInfluencers()
 
 // 暴露调试变量到 window，便于控制台查看与触发刷新

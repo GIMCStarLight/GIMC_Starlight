@@ -22,13 +22,12 @@
   "module": "./dist/index.mjs",
   "exports": {
     "./bem": {
-      "development": "./src/scss-bem/bem.scss",
-      "default": "./dist/bem.scss"
+      "types": "./src/scss-bem/bem.scss",
+      "default": "./src/scss-bem/bem.scss"
     },
     ".": {
       "types": "./src/index.ts",
-      "development": "./src/index.ts",
-      "default": "./dist/design.css"
+      "default": "./src/index.ts"
     }
   },
   "publishConfig": {

@@ -121,6 +121,7 @@
 </template>
 
 <script setup lang="ts">
+import { log } from '../../utils/logger'
 import { ref, reactive, computed } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { IconifyIcon as Icon } from '@vben/icons'
@@ -315,7 +316,7 @@ const savePreset = async () => {
     showCreateDialog.value = false
     resetForm()
   } catch (error) {
-    console.error('保存预设失败:', error)
+    log.error('保存预设失败:', error)
   } finally {
     saving.value = false
   }

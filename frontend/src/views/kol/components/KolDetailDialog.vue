@@ -203,6 +203,7 @@
 </template>
 
 <script setup lang="ts">
+import { log } from '../../../utils/logger'
 import { ref, computed } from 'vue'
 import { ElMessage } from 'element-plus'
 import { Refresh, Edit } from '@element-plus/icons-vue'
@@ -324,9 +325,9 @@ const formatDateTime = (dateStr: string | undefined): string => {
 const handleRetrySync = async () => {
   try {
     syncing.value = true
-    console.log('[handleRetrySync] kolData:', props.kolData)
+    log.debug('[handleRetrySync] kolData:', props.kolData)
     const kolId = typeof props.kolData.id === 'string' ? parseInt(props.kolData.id) : props.kolData.id
-    console.log('[handleRetrySync] kolId:', kolId)
+    log.debug('[handleRetrySync] kolId:', kolId)
     const result = await KolSyncApi.retrySyncKol(kolId)
     
     if (result.status === 'success') {
@@ -339,7 +340,7 @@ const handleRetrySync = async () => {
       ElMessage.info('同步任务已提交，请稍后查看结果')
     }
   } catch (error: any) {
-    console.error('同步失败:', error)
+    log.error('同步失败:', error)
     ElMessage.error(`同步失败: ${error.message || '请稍后重试'}`)
   } finally {
     syncing.value = false

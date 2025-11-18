@@ -3,7 +3,7 @@ import { ApiTags, ApiOperation, ApiResponse, ApiParam } from '@nestjs/swagger';
 import { KolReviewsService } from './kol-reviews.service';
 import { QueryKolReviewsDto, CreateKolReviewDto, UpdateKolReviewDto, BatchAuditDto, BatchDeleteDto, ReviewStatisticsDto } from './dto';
 
-@Controller('v2/kol-reviews')
+@Controller('kol-reviews')
 @ApiTags('KOL评价管理')
 export class KolReviewsController {
   constructor(private readonly kolReviewsService: KolReviewsService) {}

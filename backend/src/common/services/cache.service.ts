@@ -1,7 +1,8 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, Optional } from '@nestjs/common';
 import { InjectRedis } from '@nestjs-modules/ioredis';
 import Redis from 'ioredis';
 import { REDIS_KEYS, REDIS_TTL } from '../../config/redis.config';
+import { PerformanceMetricsService } from '../monitoring/performance-metrics.service';
 
 /**
  * 缓存数据类型
@@ -19,7 +20,10 @@ export interface CacheOptions {
 export class CacheService {
   private readonly logger = new Logger(CacheService.name);
 
-  constructor(@InjectRedis() private readonly redis: Redis) {}
+  constructor(
+    @InjectRedis() private readonly redis: Redis,
+    @Optional() private readonly performanceMetricsService?: PerformanceMetricsService,
+  ) {}
 
   /**
    * 设置缓存
@@ -60,6 +64,11 @@ export class CacheService {
     try {
       const fullKey = prefix ? `${prefix}${key}` : key;
       const value = await this.redis.get(fullKey);
+
+      // 记录缓存命中/未命中
+      if (this.performanceMetricsService) {
+        await this.performanceMetricsService.recordCacheHit(fullKey, value !== null);
+      }
 
       if (!value) {
         return null;
@@ -179,7 +188,7 @@ export class CacheService {
   }
 
   /**
-   * 获取或设置缓存（缓存穿透保护）
+   * 获取或设置缓存（缓存穿透保护 + Redis降级）
    * @param key 缓存键
    * @param factory 数据工厂函数
    * @param options 缓存选项
@@ -190,26 +199,30 @@ export class CacheService {
     factory: () => Promise<T>,
     options: CacheOptions = {},
   ): Promise<T> {
-    try {
-      const { prefix = '' } = options;
+    const { prefix = '' } = options;
 
+    try {
       // 先尝试从缓存获取
       const cached = await this.get<T>(key, prefix);
       if (cached !== null) {
         return cached;
       }
-
-      // 缓存未命中，调用工厂函数获取数据
-      const data = await factory();
-
-      // 将数据存入缓存
-      await this.set(key, data, options);
-
-      return data;
     } catch (error) {
-      this.logger.error(`获取或设置缓存失败: ${error.message}`, error.stack);
-      throw error;
+      // Redis故障，记录警告但不抛异常
+      this.logger.warn(`Redis缓存获取失败，降级到直接查询: ${(error as Error).message}`);
     }
+
+    // 缓存未命中或Redis故障，调用工厂函数获取数据
+    const data = await factory();
+
+    // 尝试将数据存入缓存（Redis故障时不影响业务）
+    try {
+      await this.set(key, data, options);
+    } catch (error) {
+      this.logger.warn(`Redis缓存写入失败，但不影响业务: ${(error as Error).message}`);
+    }
+
+    return data;
   }
 
   /**

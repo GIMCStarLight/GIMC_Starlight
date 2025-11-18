@@ -74,7 +74,7 @@ export function StandardApiResponses<T>(
   standardErrors
     .filter((status) => !excludeErrors.includes(status))
     .forEach((status) => {
-      const errorConfig = ErrorResponseExamples[status];
+      const errorConfig = ErrorResponseExamples[status as keyof typeof ErrorResponseExamples];
       decorators.push(
         ApiResponse({
           status,

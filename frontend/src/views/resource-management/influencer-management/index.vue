@@ -246,6 +246,7 @@
 </template>
 
 <script setup lang="ts">
+import { log } from '../../../utils/logger'
 import { ref, reactive, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { Plus, User, View, Edit, Delete } from '@element-plus/icons-vue'
@@ -340,7 +341,7 @@ const handleDelete = (row: any) => {
 
 // 评价相关方法
 const handleEvaluate = async (row: any) => {
-  console.log('评价达人:', row)
+  log.debug('评价达人:', row)
   currentInfluencer.value = row
   
   try {
@@ -361,7 +362,7 @@ const handleEvaluate = async (row: any) => {
       ElMessage.warning('该达人缺少必要的ID信息，无法进行评价')
     }
   } catch (error) {
-    console.error('获取评价数据失败:', error)
+    log.error('获取评价数据失败:', error)
     // 如果API调用失败，仍然允许新增评价
     evaluateDialogVisible.value = true
   }

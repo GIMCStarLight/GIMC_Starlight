@@ -23,6 +23,7 @@
 </template>
 
 <script setup lang="ts">
+import { log } from '../../../utils/logger'
 import { onMounted, onBeforeUnmount, ref, computed } from 'vue';
 import { ElMessage } from 'element-plus';
 import { sqlbotApi } from '../../../api/sqlbot';
@@ -96,7 +97,7 @@ async function generateJWT(payload: object, secret: string, expiresIn?: number):
 
   if (isSecureContext()) {
     // HTTPS环境：使用crypto.subtle API
-    console.log('SQLBot: 使用安全上下文进行JWT签名');
+    log.debug('SQLBot: 使用安全上下文进行JWT签名');
     try {
       const key = await crypto.subtle.importKey(
         'raw',
@@ -117,7 +118,7 @@ async function generateJWT(payload: object, secret: string, expiresIn?: number):
         .replace(/\//g, '_')
         .replace(/=+$/, '');
     } catch (error) {
-      console.warn('SQLBot: crypto.subtle签名失败，降级到简单签名:', error);
+      log.warn('SQLBot: crypto.subtle签名失败，降级到简单签名:', error);
       // 降级到简单签名
       const simpleSignature = simpleHmacSha256(secret, `${encodedHeader}.${encodedPayload}`);
       encodedSignature = btoa(simpleSignature)
@@ -127,7 +128,7 @@ async function generateJWT(payload: object, secret: string, expiresIn?: number):
     }
   } else {
     // HTTP环境：使用降级方案
-    console.log('SQLBot: 非安全上下文，使用降级签名方案');
+    log.debug('SQLBot: 非安全上下文，使用降级签名方案');
     const simpleSignature = simpleHmacSha256(secret, `${encodedHeader}.${encodedPayload}`);
     encodedSignature = btoa(simpleSignature)
       .replace(/\+/g, '-')
@@ -152,11 +153,11 @@ const loadSqlbotScript = (): Promise<void> => {
     const existScriptDom = document.querySelector(`script[src*="/${jsNamePrefix}"]`);
     
     if (existScriptDom) {
-      console.log('SQLBot: 脚本已存在，检查处理器...');
+      log.debug('SQLBot: 脚本已存在，检查处理器...');
       if (getSqlbotHandler()) {
         resolve();
       } else {
-        console.warn('SQLBot: 脚本存在但处理器未定义，重新加载...');
+        log.warn('SQLBot: 脚本存在但处理器未定义，重新加载...');
         existScriptDom.remove();
       }
     }
@@ -167,34 +168,34 @@ const loadSqlbotScript = (): Promise<void> => {
     script.async = true;
     script.src = `${sqlbotDomain.value}/xpack_static/sqlbot-embedded-dynamic.umd.js?t=${Date.now()}`;
     
-    console.log('SQLBot: 开始加载脚本:', script.src);
+    log.debug('SQLBot: 开始加载脚本:', script.src);
     
     script.onload = () => {
-      console.log('SQLBot: 脚本文件加载完成');
+      log.debug('SQLBot: 脚本文件加载完成');
       
       // 等待一小段时间让脚本执行
       setTimeout(() => {
         if (!getSqlbotHandler()) {
-          console.error('SQLBot: window.sqlbot_embedded_handler未定义，脚本可能加载失败');
-          console.error('SQLBot: window对象keys:', Object.keys(window).filter(key => key.includes('sqlbot')));
+          log.error('SQLBot: window.sqlbot_embedded_handler未定义，脚本可能加载失败');
+          log.error('SQLBot: window对象keys:', Object.keys(window).filter(key => key.includes('sqlbot')));
           reject(new Error('SQLBot脚本加载后未找到处理器'));
           return;
         }
-        console.log('SQLBot: 处理器加载成功');
+        log.debug('SQLBot: 处理器加载成功');
         resolve();
       }, 100);
     };
     
     script.onerror = (error) => {
-      console.error('SQLBot: 脚本加载失败', error);
-      console.error('SQLBot: 脚本URL:', script.src);
+      log.error('SQLBot: 脚本加载失败', error);
+      log.error('SQLBot: 脚本URL:', script.src);
       reject(new Error(`SQLBot脚本加载失败: ${script.src}`));
     };
     
     // 添加额外的错误监听
     window.addEventListener('error', (event) => {
       if (event.filename && event.filename.includes('sqlbot-embedded-dynamic')) {
-        console.error('SQLBot: 脚本执行错误:', {
+        log.error('SQLBot: 脚本执行错误:', {
           message: event.message,
           filename: event.filename,
           lineno: event.lineno,
@@ -216,27 +217,27 @@ const initSqlbot = async () => {
     loading.value = true;
     errorMessage.value = '';
 
-    console.log('SQLBot: 开始初始化...');
+    log.debug('SQLBot: 开始初始化...');
 
     // 1. 获取SQLBot配置
-    console.log('SQLBot: 获取配置...');
+    log.debug('SQLBot: 获取配置...');
     embedConfig.value = await sqlbotApi.getEmbedConfig();
-    console.log('SQLBot: 配置获取成功', embedConfig.value);
+    log.debug('SQLBot: 配置获取成功', embedConfig.value);
     
     if (!embedConfig.value.domain || !embedConfig.value.embeddedAppId) {
       throw new Error('SQLBot配置不完整，请联系管理员配置');
     }
 
     // 2. 加载SQLBot脚本
-    console.log('SQLBot: 加载脚本...');
+    log.debug('SQLBot: 加载脚本...');
     await loadSqlbotScript();
-    console.log('SQLBot: 脚本加载成功');
+    log.debug('SQLBot: 脚本加载成功');
 
     // 3. 生成认证Token（改为后端签发更安全）
-    console.log('SQLBot: 生成认证Token...');
+    log.debug('SQLBot: 生成认证Token...');
     const tokenResp = await sqlbotApi.getToken({ account: 'admin' });
     const token = tokenResp.token;
-    console.log('SQLBot: Token生成成功');
+    log.debug('SQLBot: Token生成成功');
 
     // 4. 先设置loading为false，让DOM元素渲染
     loading.value = false;
@@ -255,7 +256,7 @@ const initSqlbot = async () => {
           // 检查DOM元素是否存在
           const container = document.querySelector('.sqlbot-embedded-full-page');
           if (!container) {
-            console.log(`SQLBot: 等待容器元素渲染... (${attempts}/${maxAttempts})`);
+            log.debug(`SQLBot: 等待容器元素渲染... (${attempts}/${maxAttempts})`);
             if (attempts >= maxAttempts) {
               clearInterval(timer);
               reject(new Error('SQLBot容器元素未找到，初始化超时'));
@@ -267,7 +268,7 @@ const initSqlbot = async () => {
           // 检查SQLBot处理器是否存在
           const handler = getSqlbotHandler();
           if (!handler) {
-            console.log(`SQLBot: 等待处理器加载... (${attempts}/${maxAttempts})`);
+            log.debug(`SQLBot: 等待处理器加载... (${attempts}/${maxAttempts})`);
             if (attempts >= maxAttempts) {
               clearInterval(timer);
               reject(new Error('SQLBot处理器未加载，初始化超时'));
@@ -278,7 +279,7 @@ const initSqlbot = async () => {
           
           if (handler.mounted) {
             try {
-              console.log('SQLBot: 开始挂载，配置:', {
+              log.debug('SQLBot: 开始挂载，配置:', {
                 appId: embedConfig.value.embeddedAppId,
                 token: token.substring(0, 20) + '...',
                 container: '.sqlbot-embedded-full-page'
@@ -290,15 +291,15 @@ const initSqlbot = async () => {
               });
               
               clearInterval(timer);
-              console.log('SQLBot: 挂载成功');
+              log.debug('SQLBot: 挂载成功');
               resolve();
             } catch (err) {
-              console.error('SQLBot: 挂载失败', err);
+              log.error('SQLBot: 挂载失败', err);
               clearInterval(timer);
               reject(err);
             }
           } else {
-            console.log(`SQLBot: 等待mounted方法... (${attempts}/${maxAttempts})`);
+            log.debug(`SQLBot: 等待mounted方法... (${attempts}/${maxAttempts})`);
             if (attempts >= maxAttempts) {
               clearInterval(timer);
               reject(new Error('SQLBot mounted方法未找到，初始化超时'));
@@ -313,7 +314,7 @@ const initSqlbot = async () => {
     ElMessage.success('AI选号助手加载成功');
 
   } catch (err: any) {
-    console.error('SQLBot初始化错误:', err);
+    log.error('SQLBot初始化错误:', err);
     loading.value = false;
     errorMessage.value = err.message || 'SQLBot初始化失败';
     ElMessage.error(errorMessage.value);
@@ -329,7 +330,7 @@ const cleanupSqlbot = () => {
     try {
       handler.destroy(embeddedAppId.value, true);
     } catch (err) {
-      console.warn('SQLBot清理警告:', err);
+      log.warn('SQLBot清理警告:', err);
     }
   }
 };

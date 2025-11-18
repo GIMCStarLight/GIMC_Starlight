@@ -567,7 +567,8 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { Excel, mapExcelSupplier } from '#/utils/excel'
+import { log } from '../../../utils/logger'
+import { Excel, mapExcelSupplier } from '../../../utils/excel'
 import { 
   getSupplierListApi, 
   batchCreateSupplierApi, 
@@ -578,7 +579,7 @@ import {
   type SupplierInfo,
   type CreateSupplierDto,
   type SupplierListParams
-} from '#/api/supplier'
+} from '../../../api/supplier'
 
 // 响应式数据
 const drawerVisible = ref(false)  // 详情浮窗
@@ -671,7 +672,7 @@ const loadData = async () => {
       limit: pagination.pageSize,
       ...filters  // 只包含非空的筛选条件
     }
-    console.log('🚀 开始加载供应商数据:', params)
+    log.debug('🚀 开始加载供应商数据:', params)
     
     const result = await getSupplierListApi(params)
     
@@ -683,15 +684,12 @@ const loadData = async () => {
         pagination.page = result.pagination.page || pagination.page
         pagination.pageSize = result.pagination.pageSize || pagination.pageSize
       }
-    } else if (Array.isArray(result)) {
-      suppliers.value = result
-      pagination.total = result.length
     } else {
       suppliers.value = []
       pagination.total = 0
     }
   } catch (error) {
-    console.error('❌ 加载数据失败:', error)
+    log.error('❌ 加载数据失败:', error)
     ElMessage.error('加载数据失败')
   } finally {
     loading.value = false
@@ -767,7 +765,7 @@ const handleSubmit = async () => {
     dialogVisible.value = false
     loadData()  // 重新加载数据
   } catch (error) {
-    console.error('保存失败:', error)
+    log.error('保存失败:', error)
     ElMessage.error('保存失败')
   } finally {
     submitting.value = false
@@ -808,10 +806,69 @@ const handleBatchDelete = async () => {
     loadData()
   } catch (error) {
     if (error !== 'cancel') {
-      console.error('批量删除失败:', error)
+      log.error('批量删除失败:', error)
       ElMessage.error('删除失败')
     }
   }
+}
+
+// 选择变更
+const handleSelectionChange = (selection: SupplierInfo[]) => {
+  selectedSuppliers.value = selection
+}
+
+// 清除选择
+const clearSelection = () => {
+  selectedSuppliers.value = []
+}
+
+// 批量查看
+const handleBatchView = () => {
+  if (selectedSuppliers.value.length === 0) return
+  // 可以实现批量查看逻辑，这里暂时只查看第一个
+  handleView(selectedSuppliers.value[0])
+}
+
+// 批量编辑（只支持单选）
+const handleBatchEdit = () => {
+  if (selectedSuppliers.value.length !== 1) return
+  handleEdit(selectedSuppliers.value[0])
+}
+
+// 删除单个供应商
+const handleDelete = async (row: SupplierInfo) => {
+  try {
+    await ElMessageBox.confirm(
+      `确定要删除供应商"${row.supplier_full_name}"吗？`,
+      '删除确认',
+      {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }
+    )
+    
+    await deleteSupplierApi(row.id)
+    ElMessage.success('删除成功')
+    loadData()
+  } catch (error) {
+    if (error !== 'cancel') {
+      log.error('删除失败:', error)
+      ElMessage.error('删除失败')
+    }
+  }
+}
+
+// 分页处理
+const handleSizeChange = (size: number) => {
+  pagination.pageSize = size
+  pagination.page = 1
+  loadData()
+}
+
+const handleCurrentChange = (page: number) => {
+  pagination.page = page
+  loadData()
 }
 
 // 工具方法
@@ -920,18 +977,18 @@ const formatDate = (dateStr: string) => {
 
 // 下载导入模板
 const handleDownloadTemplate = async () => {
-  console.log('🚀 [下载模板] 开始下载供应商导入模板')
+  log.debug('🚀 [下载模板] 开始下载供应商导入模板')
   
   try {
     loading.value = true
-    console.log('⏳ [下载模板] 设置加载状态为true')
+    log.debug('⏳ [下载模板] 设置加载状态为true')
     
-    console.log('📡 [下载模板] 调用API: downloadSupplierTemplateApi()')
+    log.debug('📡 [下载模板] 调用API: downloadSupplierTemplateApi()')
     const startTime = Date.now()
     const response = await downloadSupplierTemplateApi()
     const endTime = Date.now()
     
-    console.log('✅ [下载模板] API调用成功', {
+    log.debug('✅ [下载模板] API调用成功', {
       responseType: typeof response,
       responseSize: response?.size || 'unknown',
       responseConstructor: response?.constructor?.name,
@@ -946,13 +1003,13 @@ const handleDownloadTemplate = async () => {
     // 确保响应是Blob对象
     let blob: Blob
     if (response instanceof Blob) {
-      console.log('📄 [下载模板] 响应已是Blob对象，直接使用', {
+      log.debug('📄 [下载模板] 响应已是Blob对象，直接使用', {
         size: response.size,
         type: response.type
       })
       blob = response
     } else {
-      console.warn('⚠️ [下载模板] 响应不是Blob对象，尝试转换', {
+      log.warn('⚠️ [下载模板] 响应不是Blob对象，尝试转换', {
         actualType: typeof response,
         constructor: response?.constructor?.name
       })
@@ -962,7 +1019,7 @@ const handleDownloadTemplate = async () => {
       })
     }
     
-    console.log('📦 [下载模板] 最终Blob信息', {
+    log.debug('📦 [下载模板] 最终Blob信息', {
       size: blob.size,
       type: blob.type
     })
@@ -971,33 +1028,33 @@ const handleDownloadTemplate = async () => {
       throw new Error('生成的Blob文件大小为0')
     }
     
-    console.log('🌐 [下载模板] 创建下载URL')
+    log.debug('🌐 [下载模板] 创建下载URL')
     const url = window.URL.createObjectURL(blob)
-    console.log('🔗 [下载模板] URL创建成功:', url)
+    log.debug('🔗 [下载模板] URL创建成功:', url)
     
-    console.log('📎 [下载模板] 创建下载链接元素')
+    log.debug('📎 [下载模板] 创建下载链接元素')
     const link = document.createElement('a')
     link.href = url
     link.download = '供应商导入模板.xlsx'
     
-    console.log('📋 [下载模板] 下载链接配置', {
+    log.debug('📋 [下载模板] 下载链接配置', {
       href: link.href,
       download: link.download
     })
     
-    console.log('🖱️ [下载模板] 触发下载')
+    log.debug('🖱️ [下载模板] 触发下载')
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
     
-    console.log('🧹 [下载模板] 清理资源')
+    log.debug('🧹 [下载模板] 清理资源')
     window.URL.revokeObjectURL(url)
     
-    console.log('✅ [下载模板] 下载完成')
+    log.debug('✅ [下载模板] 下载完成')
     ElMessage.success('模板下载成功')
   } catch (error) {
-    console.error('❌ [下载模板] 下载失败:', error)
-    console.error('❌ [下载模板] 错误详情:', {
+    log.error('❌ [下载模板] 下载失败:', error)
+    log.error('❌ [下载模板] 错误详情:', {
       message: error?.message,
       stack: error?.stack,
       name: error?.name,
@@ -1006,17 +1063,17 @@ const handleDownloadTemplate = async () => {
     
     // 检查网络错误
     if (error?.message?.includes('fetch') || error?.message?.includes('network')) {
-      console.error('🌐 [下载模板] 网络错误，请检查网络连接')
+      log.error('🌐 [下载模板] 网络错误，请检查网络连接')
       ElMessage.error('网络连接失败，请检查网络后重试')
     } else if (error?.message?.includes('timeout')) {
-      console.error('⏰ [下载模板] 请求超时')
+      log.error('⏰ [下载模板] 请求超时')
       ElMessage.error('请求超时，请重试')
     } else {
-      console.error('💥 [下载模板] 未知错误')
+      log.error('💥 [下载模板] 未知错误')
       ElMessage.error('下载模板失败，请重试')
     }
   } finally {
-    console.log('🏁 [下载模板] 重置加载状态')
+    log.debug('🏁 [下载模板] 重置加载状态')
     loading.value = false
   }
 }
@@ -1054,54 +1111,31 @@ const uploadFile = async (file: any) => {
     
     res.forEach((item, index) => {
       try {
-        // 数据转换
+        // 数据转换 - 只使用CreateSupplierDto中存在的字段
         const supplier: CreateSupplierDto = {
-          logo_url: item.logo_url || '',
           supplier_full_name: item.supplier_full_name || '',
-          mcn_name: item.mcn_name || '',
-          supplier_nature: item.supplier_nature as any || undefined,
+          agency_name: item.agency_name || '',
+          supplier_type: item.supplier_type || '',
           current_policy_gradient: item.current_policy_gradient || '',
-          invoice_content: item.invoice_content || '',
-          invoice_info: item.invoice_info || '',
-          policy_24_sign: item.policy_24_sign || '',
-          policy_24_current: item.policy_24_current || '',
-          total_amount_24: item.total_amount_24 ? Number(item.total_amount_24) : undefined,
-          contract_amount_24: item.contract_amount_24 ? Number(item.contract_amount_24) : undefined,
-          policy_25_sign: item.policy_25_sign || '',
-          policy_25_current: item.policy_25_current || '',
-          total_amount_25: item.total_amount_25 ? Number(item.total_amount_25) : undefined,
-          contract_amount_25: item.contract_amount_25 ? Number(item.contract_amount_25) : undefined,
-          pre_sign_total_amount: item.pre_sign_total_amount ? Number(item.pre_sign_total_amount) : undefined,
-          tax_rate: item.tax_rate ? Number(item.tax_rate) : undefined,
-          rebate_period: item.rebate_period || '',
-          payment_period: item.payment_period || '',
-          is_agent_order: item.is_agent_order as any || '否',
-          agent_service_fee: item.agent_service_fee || '',
+          billing_entity: item.billing_entity || '',
+          collection_entity: item.collection_entity || '',
+          policy_2024_gradient: item.policy_2024_gradient || '',
+          cooperation_mode_2024: item.cooperation_mode_2024 || '',
+          policy_2025_gradient: item.policy_2025_gradient || '',
+          cooperation_mode_2025: item.cooperation_mode_2025 || '',
+          tax_rate_percent: item.tax_rate_percent ? Number(item.tax_rate_percent) : undefined,
+          payment_term: item.payment_term || '',
+          settlement_method: item.settlement_method || '',
+          is_proxy_order: item.is_proxy_order === '是' || item.is_proxy_order === 'true' || (item.is_proxy_order as any) === true,
           primary_contact_name: item.primary_contact_name || '',
-          primary_contact_title: item.primary_contact_title || '',
-          primary_contact_email: item.primary_contact_email || '',
-          primary_contact_wechat_or_phone: item.primary_contact_wechat_or_phone || '',
+          primary_contact_phone_wechat: item.primary_contact_phone_wechat || '',
           secondary_contact_name: item.secondary_contact_name || '',
-          secondary_contact_title: item.secondary_contact_title || '',
-          secondary_contact_wechat_or_phone: item.secondary_contact_wechat_or_phone || '',
-          contract_start: item.contract_start || '',
-          contract_end: item.contract_end || '',
-          contract_expiry: item.contract_expiry || '',
+          secondary_contact_phone_wechat: item.secondary_contact_phone_wechat || '',
+          contract_start_date: item.contract_start_date || '',
+          contract_end_date: item.contract_end_date || '',
           contract_follow_up_person: item.contract_follow_up_person || '',
-          is_dual_signed: item.is_dual_signed as any || '否',
           resource_type: item.resource_type || '',
-          resource_attribute: item.resource_attribute || '',
-          can_cooperate_douyin: item.can_cooperate_douyin === '1' || item.can_cooperate_douyin === 'true' || item.can_cooperate_douyin === '是',
-          can_cooperate_xiaohongshu: item.can_cooperate_xiaohongshu === '1' || item.can_cooperate_xiaohongshu === 'true' || item.can_cooperate_xiaohongshu === '是',
-          can_cooperate_wechat_mp: item.can_cooperate_wechat_mp === '1' || item.can_cooperate_wechat_mp === 'true' || item.can_cooperate_wechat_mp === '是',
-          can_cooperate_wechat_video: item.can_cooperate_wechat_video === '1' || item.can_cooperate_wechat_video === 'true' || item.can_cooperate_wechat_video === '是',
-          can_cooperate_weibo: item.can_cooperate_weibo === '1' || item.can_cooperate_weibo === 'true' || item.can_cooperate_weibo === '是',
-          can_cooperate_bilibili: item.can_cooperate_bilibili === '1' || item.can_cooperate_bilibili === 'true' || item.can_cooperate_bilibili === '是',
-          can_cooperate_zhihu: item.can_cooperate_zhihu === '1' || item.can_cooperate_zhihu === 'true' || item.can_cooperate_zhihu === '是',
-          can_cooperate_kuaishou: item.can_cooperate_kuaishou === '1' || item.can_cooperate_kuaishou === 'true' || item.can_cooperate_kuaishou === '是',
-          can_cooperate_dongchedi: item.can_cooperate_dongchedi === '1' || item.can_cooperate_dongchedi === 'true' || item.can_cooperate_dongchedi === '是',
-          can_cooperate_other: item.can_cooperate_other || '',
-          supplier_intro: item.supplier_intro || ''
+          supplier_description: item.supplier_description || ''
         }
         
         // 基本验证
@@ -1144,7 +1178,7 @@ const uploadFile = async (file: any) => {
     loadData()
     
   } catch (error) {
-    console.error('导入失败:', error)
+    log.error('导入失败:', error)
     ElMessage.error('导入失败，请检查文件格式和数据')
   } finally {
     loading.value = false
