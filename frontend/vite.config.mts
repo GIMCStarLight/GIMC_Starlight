@@ -143,20 +143,58 @@ export default defineConfig(async (config?: ConfigEnv) => ({  application: {},
               if (id.includes("echarts")) {
                 return "echarts";
               }
-              // 工具库
-              if (id.includes("dayjs") || id.includes("@vueuse/core")) {
-                return "utils";
+              // 工具库细分
+              if (id.includes("dayjs")) {
+                return "dayjs";
+              }
+              if (id.includes("@vueuse/core")) {
+                return "vueuse";
+              }
+              if (id.includes("lodash") || id.includes("lodash-es")) {
+                return "lodash";
               }
               // Excel 相关库
               if (id.includes("exceljs")) {
                 return "excel";
               }
-              // Vben 内部包
+              // Axios 和请求相关
+              if (id.includes("axios")) {
+                return "axios";
+              }
+              // Radix UI 组件库
+              if (id.includes("radix-vue") || id.includes("@radix-ui")) {
+                return "radix-ui";
+              }
+              // 图标库
+              if (id.includes("@iconify") || id.includes("iconify")) {
+                return "iconify";
+              }
+              // Vben 内部包细分
               if (id.includes("@vben/") || id.includes("workspace:")) {
+                // Vben UI 组件
+                if (id.includes("@vben/common-ui") || id.includes("@vben/ui-kit")) {
+                  return "vben-ui";
+                }
+                // Vben 工具
+                if (id.includes("@vben/utils") || id.includes("@vben/hooks")) {
+                  return "vben-utils";
+                }
+                // 其他 Vben 核心
                 return "vben-core";
               }
-              // 其他第三方库
+              // 其他第三方库 - 按大小细分
               if (id.includes("node_modules")) {
+                // 大型库单独分包
+                if (id.includes("consola")) {
+                  return "consola";
+                }
+                if (id.includes("sortablejs")) {
+                  return "sortable";
+                }
+                if (id.includes("mitt") || id.includes("nprogress")) {
+                  return "mini-libs";
+                }
+                // 剩余第三方库
                 return "vendor";
               }
             },
