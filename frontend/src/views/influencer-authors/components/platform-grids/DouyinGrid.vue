@@ -32,9 +32,13 @@
         
         <el-table-column label="头像" width="80" align="center" fixed="left">
           <template #default="{ row }">
-            <el-avatar :size="40" :src="row.avatar_uri">
-              {{ row.nick_name?.charAt(0) }}
-            </el-avatar>
+            <div class="avatar-wrapper">
+              <img 
+                v-lazy="row.avatar_uri" 
+                :alt="row.nick_name"
+                class="table-avatar"
+              />
+            </div>
           </template>
         </el-table-column>
         
@@ -416,6 +420,33 @@ const emit = defineEmits<{
       .rebate-highlight {
         color: #f56c6c;
         font-weight: 600;
+      }
+      
+      .avatar-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .table-avatar {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          object-fit: cover;
+          background: var(--el-fill-color-lighter);
+          transition: opacity 0.3s ease;
+          
+          &.lazy-loading {
+            opacity: 0.6;
+          }
+          
+          &.lazy-loaded {
+            opacity: 1;
+          }
+          
+          &.lazy-error {
+            opacity: 0.4;
+          }
+        }
       }
     }
   }
