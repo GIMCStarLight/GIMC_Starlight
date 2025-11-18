@@ -268,6 +268,7 @@ import { ref, reactive, onMounted, nextTick } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { Money, Clock, Check, Document } from '@element-plus/icons-vue'
 import * as echarts from 'echarts'
+import { log } from '../../../utils/logger'
 
 // 模拟API接口
 const rebateManagementApi = {
@@ -438,8 +439,7 @@ const handleSelectionChange = (selection: RebateRecord[]) => {
   selectedIds.value = selection.map(item => item.id)
 }
 
-const handleSortChange = ({ prop, order }: { prop: string;
-import { log } from '#/utils/logger'; order: string }) => {
+const handleSortChange = ({ prop, order }: { prop: string; order: string }) => {
   sortParams.prop = prop
   sortParams.order = order
   loadRebateRecords()
