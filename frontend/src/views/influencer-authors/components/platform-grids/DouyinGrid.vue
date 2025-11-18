@@ -347,7 +347,7 @@ const handleSortChange = ({ column, prop, order }: any) => {
   }
   
   // 重新加载数据
-  store.loadInfluencers()
+  store.loadInfluencersDebounced()
 }
 
 // 更新达人数据

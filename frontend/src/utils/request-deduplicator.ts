@@ -3,6 +3,8 @@
  * 防止短时间内重复发起相同的请求
  */
 
+import { log } from './logger'
+
 interface RequestConfig {
   url?: string
   method?: string

@@ -4,6 +4,7 @@
  */
 import { requestClient } from './request'
 import { requestDeduplicator } from '../utils/request-deduplicator'
+import { log } from '../utils/logger'
 
 // ========== 类型定义 ==========
 
@@ -107,8 +108,7 @@ export interface FilterResponse {
 
 export interface FilterStatsResponse {
   totalCount: number
-  qualityDistribution: { tier: string;
-import { log } from '#/utils/logger'; count: number }[]
+  qualityDistribution: { tier: string; count: number }[]
   growthDistribution: { level: string; count: number }[]
   priceDistribution: { tier: string; count: number }[]
   followerDistribution: { tier: string; count: number }[]
@@ -127,15 +127,24 @@ export interface PopularTag {
  * 快速筛选查询
  */
 export async function quickFilter(params: QuickFilterParams): Promise<FilterResponse> {
-  try {
-    const response = await requestClient.get('/influencer-filter/quick', { params })
-    // requestClient 配置了 responseReturn: 'data' 和 defaultResponseInterceptor
-    // 会自动解包: { code, data } -> data -> { data, pagination, performance }
-    return response
-  } catch (error) {
-    log.error('快速筛选失败:', error)
-    throw error
-  }
+  return requestDeduplicator.deduplicate(
+    {
+      url: '/influencer-filter/quick',
+      method: 'GET',
+      params,
+    },
+    async () => {
+      try {
+        const response = await requestClient.get('/influencer-filter/quick', { params })
+        // requestClient 配置了 responseReturn: 'data' 和 defaultResponseInterceptor
+        // 会自动解包: { code, data } -> data -> { data, pagination, performance }
+        return response
+      } catch (error) {
+        log.error('快速筛选失败:', error)
+        throw error
+      }
+    }
+  )
 }
 
 /**
@@ -189,28 +198,46 @@ export async function advancedFilter(params: AdvancedFilterParams): Promise<Filt
  * 获取筛选统计
  */
 export async function getFilterStatistics(params: Omit<AdvancedFilterParams, 'page' | 'limit'>): Promise<FilterStatsResponse> {
-  try {
-    const response = await requestClient.get('/influencer-filter/stats', { params })
-    return response
-  } catch (error) {
-    log.error('获取筛选统计失败:', error)
-    throw error
-  }
+  return requestDeduplicator.deduplicate(
+    {
+      url: '/influencer-filter/stats',
+      method: 'GET',
+      params,
+    },
+    async () => {
+      try {
+        const response = await requestClient.get('/influencer-filter/stats', { params })
+        return response
+      } catch (error) {
+        log.error('获取筛选统计失败:', error)
+        throw error
+      }
+    }
+  )
 }
 
 /**
  * 获取热门标签
  */
 export async function getPopularTags(limit = 20): Promise<PopularTag[]> {
-  try {
-    const response = await requestClient.get('/influencer-filter/popular-tags', {
-      params: { limit }
-    })
-    return response
-  } catch (error) {
-    log.error('获取热门标签失败:', error)
-    throw error
-  }
+  return requestDeduplicator.deduplicate(
+    {
+      url: '/influencer-filter/popular-tags',
+      method: 'GET',
+      params: { limit },
+    },
+    async () => {
+      try {
+        const response = await requestClient.get('/influencer-filter/popular-tags', {
+          params: { limit }
+        })
+        return response
+      } catch (error) {
+        log.error('获取热门标签失败:', error)
+        throw error
+      }
+    }
+  )
 }
 
 /**

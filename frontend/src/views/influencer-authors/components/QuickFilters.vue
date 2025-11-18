@@ -119,7 +119,7 @@ const handleFilterChange = () => {
   store.setFilter('province', filters.value.province)
   
   // 加载数据
-  store.loadInfluencers()
+  store.loadInfluencersDebounced()
 }
 
 // 清空所有筛选
@@ -137,7 +137,7 @@ const clearAllFilters = () => {
   }
   
   store.resetFilters()
-  store.loadInfluencers()
+  store.loadInfluencersDebounced()
 }
 </script>
 

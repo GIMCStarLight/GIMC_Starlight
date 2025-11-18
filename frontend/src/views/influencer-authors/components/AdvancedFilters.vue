@@ -355,7 +355,7 @@ const handleApply = () => {
     }
   })
   
-  store.loadInfluencers()
+  store.loadInfluencersDebounced()
 }
 
 const handleReset = () => {

@@ -3,10 +3,11 @@
  */
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
+import { useDebounceFn } from '@vueuse/core'
 import { advancedFilter } from '../api/influencer-filter'
 import type { Influencer, InfluencerFilterParams, ViewMode, CardSize, SortOption } from '../types/influencer'
 import { InfluencerNormalizer } from '../utils/influencer-normalizer'
-import { log } from '#/utils/logger'
+import { log } from '../utils/logger'
 
 export const useInfluencerSquareStore = defineStore('influencer-square', () => {
   // 加载状态
@@ -182,6 +183,8 @@ export const useInfluencerSquareStore = defineStore('influencer-square', () => {
     })
   }
   
+  const loadInfluencersDebounced = useDebounceFn(loadInfluencers, 300)
+
   return {
     // 状态
     loading,
@@ -200,6 +203,7 @@ export const useInfluencerSquareStore = defineStore('influencer-square', () => {
     
     // 方法
     loadInfluencers,
+    loadInfluencersDebounced,
     setCurrentPage,
     setPageSize,
     setSortBy,

@@ -1,4 +1,5 @@
 import { requestClient, baseRequestClient } from './request';
+import { requestDeduplicator } from '../utils/request-deduplicator';
 
 export interface InfluencerQueryParams {
   page?: number;
@@ -111,6 +112,13 @@ export interface InfluencerDetailResponse {
  * 获取影响者列表
  */
 export async function getInfluencerList(params: InfluencerQueryParams = {}) {
+  return requestDeduplicator.deduplicate(
+    {
+      url: '/influencer-authors/list',
+      method: 'GET',
+      params,
+    },
+    async () => {
   const res = await requestClient.get<InfluencerListResponse>('/influencer-manager', {
     params,
   });
@@ -187,12 +195,20 @@ export async function getInfluencerList(params: InfluencerQueryParams = {}) {
     data: list.map(normalizeBasic),
     pagination: response?.pagination || { page: 1, limit: 20, total: 0, totalPages: 0 },
   };
+    }
+  )
 }
 
 /**
  * 获取影响者详情
  */
 export async function getInfluencerDetail(authorId: string): Promise<InfluencerDetailResponse> {
+  return requestDeduplicator.deduplicate(
+    {
+      url: `/influencer-authors/detail/${authorId}`,
+      method: 'GET',
+    },
+    async () => {
   const res = await requestClient.get<InfluencerDetailResponse>(`/influencer-manager/${authorId}`);
 
   const response = res as unknown as InfluencerDetailResponse;
@@ -249,6 +265,8 @@ export async function getInfluencerDetail(authorId: string): Promise<InfluencerD
     : undefined;
 
   return { data: detail };
+    }
+  )
 }
 
 /**

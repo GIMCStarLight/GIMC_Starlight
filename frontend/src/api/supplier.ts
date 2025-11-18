@@ -1,4 +1,6 @@
-import { requestClient, baseRequestClient } from '#/api/request'
+import { requestClient, baseRequestClient } from './request'
+import { requestDeduplicator } from '../utils/request-deduplicator'
+import { log } from '../utils/logger'
 
 export interface CreateSupplierDto {
   // 基础信息
@@ -99,6 +101,13 @@ export interface SupplierListResult {
  * 使用 baseRequestClient 以保留完整的响应数据（包括 pagination）
  */
 export async function getSupplierListApi(params?: SupplierListParams) {
+  return requestDeduplicator.deduplicate(
+    {
+      url: '/supplier-database',
+      method: 'GET',
+      params,
+    },
+    async () => {
   const response = await baseRequestClient.get<any>('/supplier-database', {
     params,
   })
@@ -124,13 +133,21 @@ export async function getSupplierListApi(params?: SupplierListParams) {
     data: [],
     pagination: { total: 0, page: 1, pageSize: 20, totalPages: 0, hasNext: false, hasPrev: false }
   } as SupplierListResult
+    }
+  )
 }
 
 /**
  * 获取供应商详情
  */
 export async function getSupplierDetailApi(id: number) {
-  return requestClient.get<SupplierInfo>(`/supplier-database/${id}`)
+  return requestDeduplicator.deduplicate(
+    {
+      url: `/supplier-database/${id}`,
+      method: 'GET',
+    },
+    () => requestClient.get<SupplierInfo>(`/supplier-database/${id}`)
+  )
 }
 
 /**
