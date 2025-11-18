@@ -5,8 +5,8 @@
 </template>
 
 <script setup lang="ts">
+import { log } from '../../utils/logger'
 import { ref, onMounted, onBeforeUnmount, computed, watch } from 'vue';
-import { log } from '#/utils/logger';
 import { useUserStore } from '@vben/stores';
 
 // 定义组件属性

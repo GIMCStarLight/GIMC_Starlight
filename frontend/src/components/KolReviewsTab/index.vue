@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { log } from '../../utils/logger'
 import { ref, onMounted, watch, computed } from 'vue'
 import { ElMessage } from 'element-plus'
 import { IconifyIcon } from '@vben/icons'
@@ -282,7 +283,6 @@ watch(() => props.authorId, () => {
 <style scoped>
 .kol-reviews-tab {
   padding: 20px;
-import { log } from '#/utils/logger';
 }
 
 /* 统计卡片样式 */

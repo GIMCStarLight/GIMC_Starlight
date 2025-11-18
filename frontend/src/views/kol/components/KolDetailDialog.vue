@@ -203,6 +203,7 @@
 </template>
 
 <script setup lang="ts">
+import { log } from '../../../utils/logger'
 import { ref, computed } from 'vue'
 import { ElMessage } from 'element-plus'
 import { Refresh, Edit } from '@element-plus/icons-vue'
@@ -362,7 +363,6 @@ const handleClose = () => {
 <style scoped>
 .kol-detail-content {
   max-height: 70vh;
-import { log } from '#/utils/logger';
   overflow-y: auto;
   padding-right: 8px;
 }

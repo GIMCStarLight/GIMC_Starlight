@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { log } from '../../utils/logger'
 import { ref, onMounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
@@ -300,7 +301,7 @@ onMounted(() => {
 
               <!-- 营销能力指标 -->
               <div class="data-module" style="margin-top: 20px;
-import { log } from '#/utils/logger';">
+">
                 <h3 class="module-title">🎯 营销能力指数</h3>
                 <el-row :gutter="20">
                   <el-col v-for="item in marketingIndices" :key="item.name" :span="6">

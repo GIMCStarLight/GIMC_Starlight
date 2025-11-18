@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { log } from '../../utils/logger'
 import { ref, watch } from 'vue'
 import { IconifyIcon } from '@vben/icons'
 import { ElMessage } from 'element-plus'
@@ -29,7 +30,6 @@ const authorInfo = ref<{
   authorType?: string
   follower?: number
 }>({});
-import { log } from '#/utils/logger';
 const loadingAuthorInfo = ref(false)
 
 // 加载达人信息

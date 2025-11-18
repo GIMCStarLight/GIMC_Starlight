@@ -23,8 +23,8 @@
 </template>
 
 <script setup lang="ts">
+import { log } from '../../../utils/logger'
 import { onMounted, onBeforeUnmount, ref, computed } from 'vue';
-import { log } from '#/utils/logger';
 import { ElMessage } from 'element-plus';
 import { sqlbotApi } from '../../../api/sqlbot';
 

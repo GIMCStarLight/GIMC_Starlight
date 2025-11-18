@@ -210,6 +210,7 @@
 </template>
 
 <script setup lang="ts">
+import { log } from '../../../../utils/logger'
 import { computed, watch } from 'vue'
 import { ElMessage } from 'element-plus'
 import InfluencerCard from '../InfluencerCard.vue'
@@ -371,7 +372,6 @@ const emit = defineEmits<{
 <style scoped lang="scss">
 .influencer-grid {
   min-height: 400px;
-import { log } from '#/utils/logger';
 
   .table-view {
     :deep(.el-table) {

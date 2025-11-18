@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import type { VbenFormSchema } from '@vben/common-ui';
-import { log } from '#/utils/logger';
 
 import { computed, markRaw } from 'vue';
 
@@ -8,6 +7,7 @@ import { AuthenticationLogin, SliderCaptcha, z } from '@vben/common-ui';
 import { $t } from '@vben/locales';
 
 import { ElMessage } from 'element-plus';
+import { log } from '../../../utils/logger';
 
 import { useAuthStore } from '#/store';
 

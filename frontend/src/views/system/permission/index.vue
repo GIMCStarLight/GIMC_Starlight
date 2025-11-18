@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { log } from '../../../utils/logger'
 import type { FormInstance, FormRules } from 'element-plus';
-import { log } from '#/utils/logger';
 
 import type { PermissionApi } from '#/api/core/permission';
 

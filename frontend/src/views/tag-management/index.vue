@@ -269,6 +269,7 @@
 </template>
 
 <script setup lang="ts">
+import { log } from '../../utils/logger'
 import { ref, reactive, computed, onMounted, nextTick, h } from 'vue'
 import { ElMessage, ElMessageBox, ElButton, ElTag, ElSwitch } from 'element-plus'
 import { UploadFilled } from '@element-plus/icons-vue'
@@ -324,7 +325,6 @@ const gridOptions: VxeGridProps = reactive({
               class: 'ml-2'
             }, { default: () => row.code }) : null
           ]);
-import { log } from '#/utils/logger';
         }
       }
     },
