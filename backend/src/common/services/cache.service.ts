@@ -1,7 +1,8 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, Optional } from '@nestjs/common';
 import { InjectRedis } from '@nestjs-modules/ioredis';
 import Redis from 'ioredis';
 import { REDIS_KEYS, REDIS_TTL } from '../../config/redis.config';
+import { PerformanceMetricsService } from '../monitoring/performance-metrics.service';
 
 /**
  * 缓存数据类型
@@ -19,7 +20,10 @@ export interface CacheOptions {
 export class CacheService {
   private readonly logger = new Logger(CacheService.name);
 
-  constructor(@InjectRedis() private readonly redis: Redis) {}
+  constructor(
+    @InjectRedis() private readonly redis: Redis,
+    @Optional() private readonly performanceMetricsService?: PerformanceMetricsService,
+  ) {}
 
   /**
    * 设置缓存
@@ -60,6 +64,11 @@ export class CacheService {
     try {
       const fullKey = prefix ? `${prefix}${key}` : key;
       const value = await this.redis.get(fullKey);
+
+      // 记录缓存命中/未命中
+      if (this.performanceMetricsService) {
+        await this.performanceMetricsService.recordCacheHit(fullKey, value !== null);
+      }
 
       if (!value) {
         return null;

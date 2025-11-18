@@ -22,6 +22,7 @@ import { getRedisConfig } from './config/redis.config';
 
 // 公共模块
 import { CommonModule } from './common/common.module';
+import { MonitoringModule } from './common/monitoring/monitoring.module';
 
 // 原有控制器和服务
 import { AppController } from './app.controller';
@@ -146,6 +147,7 @@ import { UploadModule } from './modules/upload/upload.module';
 
     // 公共模块
     CommonModule,
+    MonitoringModule,
 
     // 功能模块
     AuthModule,
