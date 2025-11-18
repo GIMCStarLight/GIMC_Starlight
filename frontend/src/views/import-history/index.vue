@@ -126,6 +126,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import { Refresh } from '@element-plus/icons-vue'
+import { log } from '../../utils/logger'
 import { getImportHistory, getImportHistoryDetail } from '../../api/import-async'
 
 const loading = ref(false)
@@ -208,8 +209,7 @@ const downloadFailed = (row: any) => {
   
   const csvContent = [headers.join(','), ...csvRows].join('\n')
   const bom = '\uFEFF'
-  const blob = new Blob([bom + csvContent], { type: 'text/csv;
-import { log } from '#/utils/logger';charset=utf-8' })
+  const blob = new Blob([bom + csvContent], { type: 'text/csv;charset=utf-8' })
   const url = URL.createObjectURL(blob)
   const link = document.createElement('a')
   link.href = url
