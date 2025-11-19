@@ -1,0 +1,3 @@
+# Cookie 自动获取工具依赖
+playwright>=1.40.0
+cryptography>=41.0.0  # 用于Cookie加密存储
