@@ -73,24 +73,18 @@ logger = logging.getLogger("auto_cookie_fetcher")
 
 # --- Import account pool and proxy modules ---
 try:
-    from cookie_account_pool import (
+    from account_manager import (
         AccountPool, AccountModel, AccountStatus,
-        RotationStrategy, AccountCookieManager
-    )
-    ACCOUNT_POOL_AVAILABLE = True
-except ImportError:
-    ACCOUNT_POOL_AVAILABLE = False
-    logger.warning("账号池模块未导入，多账号功能将不可用")
-
-try:
-    from cookie_proxy_provider import (
+        RotationStrategy, AccountCookieManager,
         ProxyConfig, ProxyIpPool, IpInfoModel,
         ProviderNameEnum
     )
+    ACCOUNT_POOL_AVAILABLE = True
     PROXY_AVAILABLE = True
-except ImportError:
+except ImportError as e:
+    ACCOUNT_POOL_AVAILABLE = False
     PROXY_AVAILABLE = False
-    logger.warning("代理模块未导入，代理功能将不可用")
+    logger.warning(f"账号管理模块未导入，多账号和代理功能将不可用: {e}")
 
 # --- Constants & Paths ---
 LOGIN_URL = "https://agent.oceanengine.com/login"
@@ -1354,10 +1348,10 @@ def main():
     # ==================== 代理配置初始化 ====================
     if args.init_proxy_config:
         if not PROXY_AVAILABLE:
-            logger.error("代理模块未导入，无法初始化代理配置")
+            logger.error("账号管理模块未导入，无法初始化代理配置")
             return 1
         
-        from cookie_proxy_provider import DEFAULT_PROXY_CONFIG
+        from account_manager import DEFAULT_PROXY_CONFIG
         success = ProxyConfig.save_to_file(DEFAULT_PROXY_CONFIG, PROXY_CONFIG_PATH)
         if success:
             logger.info(f"代理配置模板已生成: {PROXY_CONFIG_PATH}")
