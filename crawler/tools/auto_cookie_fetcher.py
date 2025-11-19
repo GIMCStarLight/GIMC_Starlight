@@ -1445,6 +1445,11 @@ def main():
                     proxy_ip=fetcher.current_proxy.to_url() if fetcher.current_proxy else None
                 )
                 
+                # 如果提供了用户名密码，保存到账号配置中
+                if args.username and args.password:
+                    account.set_credentials(args.username, args.password)
+                    logger.info(f"✅ 已保存账号凭证（加密存储），后续可自动登录")
+                
                 # 添加到账号池
                 if account_pool.add_account(account):
                     logger.info(f"✅ 账号 {account_id} 添加成功！")
@@ -1487,9 +1492,19 @@ def main():
             )
             
             logger.info(f"刷新账号 {account_id}...")
-            if args.username and args.password:
+            
+            # 优先使用命令行参数，其次使用配置中的账号密码
+            username = args.username
+            password = args.password
+            
+            if not username and account.has_credentials():
+                username = account.username
+                password = account.get_decrypted_password()
+                logger.info("使用配置中保存的账号密码自动登录")
+            
+            if username and password:
                 logger.info("使用半自动登录模式（自动填写账号密码）")
-                success = fetcher.semi_auto_login(args.username, args.password)
+                success = fetcher.semi_auto_login(username, password)
             else:
                 logger.info("使用交互模式（需要手动登录）")
                 success = fetcher.interactive_login()
@@ -1537,6 +1552,69 @@ def main():
                 account_pool.update_account(account)
             
             return 0 if all_valid else 1
+        
+        # 刷新所有账号
+        if args.refresh_all:
+            logger.info("刷新所有账号的Cookie...")
+            accounts = account_pool.list_accounts(show_all=True)
+            
+            if not accounts:
+                logger.info("账号池为空")
+                return 0
+            
+            success_count = 0
+            fail_count = 0
+            
+            for acc_dict in accounts:
+                account_id = acc_dict["account_id"]
+                account = account_pool.get_account(account_id)
+                if not account:
+                    continue
+                
+                logger.info(f"\n========== 刷新账号: {account_id} ==========")
+                
+                fetcher = AutoCookieFetcher(
+                    headless=False,
+                    timeout=args.timeout,
+                    account_id=account_id
+                )
+                
+                # 优先使用命令行参数，其次使用配置中的账号密码
+                username = args.username
+                password = args.password
+                
+                if not username and account.has_credentials():
+                    username = account.username
+                    password = account.get_decrypted_password()
+                    logger.info("使用配置中保存的账号密码自动登录")
+                
+                if username and password:
+                    logger.info("使用半自动登录模式")
+                    success = fetcher.semi_auto_login(username, password)
+                else:
+                    logger.warning(f"账号 {account_id} 未配置账号密码，跳过")
+                    continue
+                
+                if success:
+                    # 更新账号元数据
+                    account_dir = os.path.join(ACCOUNTS_DIR, account_id)
+                    meta = AccountCookieManager.load_cookie_meta(account_dir)
+                    if meta:
+                        account.cookie_count = meta.get("cookie_count", 0)
+                        account.expires_at = meta.get("expires_at")
+                    account.status = AccountStatus.ACTIVE
+                    account.reset_error()
+                    account_pool.update_account(account)
+                    logger.info(f"✅ 账号 {account_id} 刷新成功")
+                    success_count += 1
+                else:
+                    account.mark_error()
+                    account_pool.update_account(account)
+                    logger.error(f"❌ 账号 {account_id} 刷新失败")
+                    fail_count += 1
+            
+            logger.info(f"\n========== 刷新结果 ==========\n成功: {success_count}个 | 失败: {fail_count}个")
+            return 0 if fail_count == 0 else 1
         
         # 获取可用账号
         if args.get_available:
