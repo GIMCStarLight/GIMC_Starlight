@@ -9,6 +9,7 @@ import json
 import os
 import logging
 import shutil
+import base64
 from datetime import datetime, timedelta
 from enum import Enum
 from typing import List, Optional, Dict, Any
@@ -24,6 +25,35 @@ try:
 except ImportError:
     FILELOCK_AVAILABLE = False
     logger.warning("未安装 filelock，账号并发控制将不可用。安装: pip install filelock")
+
+
+# ==================== 密码加密/解密工具 ====================
+
+def _simple_encrypt(text: str) -> str:
+    """简单加密（Base64 + XOR，仅用于混淆，不是安全加密）"""
+    if not text:
+        return ""
+    key = "CookieFetcherKey2024"  # 简单密钥
+    encrypted = bytearray()
+    for i, char in enumerate(text):
+        encrypted.append(ord(char) ^ ord(key[i % len(key)]))
+    return base64.b64encode(bytes(encrypted)).decode('utf-8')
+
+
+def _simple_decrypt(encrypted_text: str) -> str:
+    """简单解密"""
+    if not encrypted_text:
+        return ""
+    try:
+        key = "CookieFetcherKey2024"
+        encrypted = base64.b64decode(encrypted_text.encode('utf-8'))
+        decrypted = ""
+        for i, byte in enumerate(encrypted):
+            decrypted += chr(byte ^ ord(key[i % len(key)]))
+        return decrypted
+    except Exception as e:
+        logger.error(f"密码解密失败: {e}")
+        return ""
 
 
 # ==================== 枚举类型 ====================
@@ -51,6 +81,8 @@ class AccountModel(BaseModel):
     """账号信息模型"""
     account_id: str = Field(..., description="账号唯一标识")
     account_name: str = Field(default="", description="账号名称/备注")
+    username: Optional[str] = Field(default=None, description="登录用户名")
+    password: Optional[str] = Field(default=None, description="登录密码（加密存储）")
     created_at: str = Field(default_factory=lambda: datetime.now().isoformat(), description="创建时间")
     last_used_at: Optional[str] = Field(default=None, description="最后使用时间")
     expires_at: Optional[str] = Field(default=None, description="Cookie过期时间")
@@ -95,6 +127,21 @@ class AccountModel(BaseModel):
         self.error_count = 0
         if self.status == AccountStatus.ERROR:
             self.status = AccountStatus.ACTIVE
+    
+    def set_credentials(self, username: str, password: str):
+        """设置账号密码（自动加密）"""
+        self.username = username
+        self.password = _simple_encrypt(password) if password else None
+    
+    def get_decrypted_password(self) -> Optional[str]:
+        """获取解密后的密码"""
+        if self.password:
+            return _simple_decrypt(self.password)
+        return None
+    
+    def has_credentials(self) -> bool:
+        """判断是否配置了账号密码"""
+        return bool(self.username and self.password)
 
 
 # ==================== 账号池管理器 ====================
