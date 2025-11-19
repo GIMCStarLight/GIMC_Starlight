@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-增强版 AutoCookieFetcher（改进的反指纹与行为模拟）
+增强版 AutoCookieFetcher（改进的反指纹与行为模拟 + 多账号池 + 代理支持）
 
-主要改动点：
+主要特性：
 - 基于 profile 的 seed 保持每个持久化 profile 的指纹扰动可复现
 - 移除不安全的 Date.prototype 覆盖
 - Canvas 噪声改为基于 profile seed 的小幅可复现扰动
@@ -11,6 +11,8 @@
 - 随机化并保持 profile 内一致的 UA、viewport、hardwareConcurrency 等
 - 更自然的鼠标轨迹与打字模拟（包含退格等随机行为）
 - 对注入脚本均使用 try/catch 包装以避免抛错导致页面异常
+- 多账号池管理（支持账号轮换、并发控制、健康检查）
+- 代理IP支持（支持快代理、豌豆HTTP、自定义代理）
 
 注意：在部署前请自行测试并根据目标平台调整 UA 池、视窗、WebGL 映射等。
 """
@@ -24,8 +26,10 @@ import time
 import functools
 import logging
 import secrets
+import asyncio
 from datetime import datetime, timedelta
 from typing import Optional, Dict, List, Any
+from pathlib import Path
 
 # --- External deps ---
 try:
@@ -62,11 +66,40 @@ try:
 except ImportError:
     REQUESTS_AVAILABLE = False
 
+# --- Logging setup (must be before importing custom modules) ---
+LOG_FORMAT = "%(asctime)s %(levelname)s %(name)s %(message)s"
+logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
+logger = logging.getLogger("auto_cookie_fetcher")
+
+# --- Import account pool and proxy modules ---
+try:
+    from cookie_account_pool import (
+        AccountPool, AccountModel, AccountStatus,
+        RotationStrategy, AccountCookieManager
+    )
+    ACCOUNT_POOL_AVAILABLE = True
+except ImportError:
+    ACCOUNT_POOL_AVAILABLE = False
+    logger.warning("账号池模块未导入，多账号功能将不可用")
+
+try:
+    from cookie_proxy_provider import (
+        ProxyConfig, ProxyIpPool, IpInfoModel,
+        ProviderNameEnum
+    )
+    PROXY_AVAILABLE = True
+except ImportError:
+    PROXY_AVAILABLE = False
+    logger.warning("代理模块未导入，代理功能将不可用")
+
 # --- Constants & Paths ---
 LOGIN_URL = "https://agent.oceanengine.com/login"
 TARGET_URL = "https://agent.oceanengine.com/admin/star-agent/vue2/market"
 
+# --- 配置目录和路径 ---
 COOKIE_CONFIG_DIR = "config/auto_cookie_fetcher_config"
+
+# 单账号模式的路径（向后兼容）
 COOKIE_OUTPUT_PATH = f"{COOKIE_CONFIG_DIR}/cookies.txt"
 COOKIE_JSON_PATH = f"{COOKIE_CONFIG_DIR}/cookies.json"
 STORAGE_STATE_PATH = f"{COOKIE_CONFIG_DIR}/storage_state.json"
@@ -74,6 +107,12 @@ ENCRYPTED_STATE_PATH = f"{COOKIE_CONFIG_DIR}/storage_state.enc"
 ENCRYPTION_KEY_PATH = f"{COOKIE_CONFIG_DIR}/.cookie_key"
 COOKIE_META_PATH = f"{COOKIE_CONFIG_DIR}/cookie_meta.json"
 USER_DATA_DIR = f"{COOKIE_CONFIG_DIR}/browser_profile"
+
+# 多账号模式的路径
+ACCOUNTS_DIR = f"{COOKIE_CONFIG_DIR}/accounts"
+ACCOUNT_POOL_CONFIG = f"{COOKIE_CONFIG_DIR}/account_pool.json"
+PROXY_CONFIG_PATH = f"{COOKIE_CONFIG_DIR}/proxy_config.json"
+
 DEFAULT_WEBHOOK = os.environ.get("COOKIE_FETCHER_WEBHOOK", "")
 
 # --- 人类行为模拟参数 ---
@@ -94,11 +133,6 @@ CRITICAL_SECURITY_KEYWORDS = [
 NORMAL_KEYWORDS = [
     "验证码", "captcha", "verify", "安全验证",
 ]
-
-# --- Logging setup ---
-LOG_FORMAT = "%(asctime)s %(levelname)s %(name)s %(message)s"
-logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
-logger = logging.getLogger("auto_cookie_fetcher")
 
 
 # --- Utilities ---
@@ -271,22 +305,57 @@ def pick_profile_params(seed: int) -> Dict[str, Any]:
 # --- Main class ---
 class AutoCookieFetcher:
     def __init__(self, headless: bool = False, timeout: int = 30000, webhook: str = "",
-                 use_persistent: bool = True, proxy: Optional[str] = None):
+                 use_persistent: bool = True, proxy: Optional[str] = None, 
+                 account_id: Optional[str] = None, proxy_pool: Optional['ProxyIpPool'] = None):
+        """
+        初始化AutoCookieFetcher
+        
+        Args:
+            headless: 是否使用无头浏览器
+            timeout: 页面加载超时时间（毫秒）
+            webhook: Webhook URL（用于通知）
+            use_persistent: 是否使用持久化浏览器profile
+            proxy: 代理URL（单个代理）
+            account_id: 账号ID（多账号模式）
+            proxy_pool: 代理池对象
+        """
         self.headless = headless
         self.timeout = timeout
         self.browser: Optional[Browser] = None
         self.page: Optional[Page] = None
-        self.cookie_txt_path = COOKIE_OUTPUT_PATH
-        self.cookie_json_path = COOKIE_JSON_PATH
-        self.storage_state_path = STORAGE_STATE_PATH
-        self.encrypted_state_path = ENCRYPTED_STATE_PATH
-        self.encryption_key_path = ENCRYPTION_KEY_PATH
-        self.cookie_meta_path = COOKIE_META_PATH
         self.webhook = webhook or DEFAULT_WEBHOOK
         self.use_persistent = use_persistent
-        self.user_data_dir = USER_DATA_DIR if use_persistent else None
-        self.proxy = proxy
         self.profile_seed: Optional[int] = None
+        
+        # 账号相关
+        self.account_id = account_id
+        self.is_multi_account_mode = account_id is not None
+        
+        # 代理相关
+        self.proxy = proxy
+        self.proxy_pool = proxy_pool
+        self.current_proxy: Optional[IpInfoModel] = None
+        
+        # 根据模式设置路径
+        if self.is_multi_account_mode and ACCOUNT_POOL_AVAILABLE:
+            # 多账号模式：每个账号独立目录
+            account_dir = os.path.join(ACCOUNTS_DIR, account_id)
+            self.cookie_txt_path = os.path.join(account_dir, "cookies.txt")
+            self.cookie_json_path = os.path.join(account_dir, "cookies.json")
+            self.storage_state_path = AccountCookieManager.get_storage_state_path(account_dir)
+            self.encrypted_state_path = AccountCookieManager.get_encrypted_state_path(account_dir)
+            self.encryption_key_path = os.path.join(account_dir, ".cookie_key")
+            self.cookie_meta_path = AccountCookieManager.get_meta_path(account_dir)
+            self.user_data_dir = AccountCookieManager.get_profile_dir(account_dir) if use_persistent else None
+        else:
+            # 单账号模式（向后兼容）
+            self.cookie_txt_path = COOKIE_OUTPUT_PATH
+            self.cookie_json_path = COOKIE_JSON_PATH
+            self.storage_state_path = STORAGE_STATE_PATH
+            self.encrypted_state_path = ENCRYPTED_STATE_PATH
+            self.encryption_key_path = ENCRYPTION_KEY_PATH
+            self.cookie_meta_path = COOKIE_META_PATH
+            self.user_data_dir = USER_DATA_DIR if use_persistent else None
 
     def _ensure_profile_seed(self) -> int:
         """在 user_data_dir 下生成/读取 .profile_seed，使同一 profile 内指纹扰动可复现"""
@@ -1220,7 +1289,29 @@ class AutoCookieFetcher:
 
 # --- CLI & main ---
 def main():
-    parser = argparse.ArgumentParser(description="智能Cookie管理工具 - 巨量引擎/星图平台（增强版-反指纹改进）")
+    parser = argparse.ArgumentParser(
+        description="智能Cookie管理工具 - 巨量引擎/星图平台（增强版-反指纹+多账号+代理）",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+示例用法：
+  # 单账号模式（向后兼容）
+  python auto_cookie_fetcher.py --interactive
+  python auto_cookie_fetcher.py --check
+  
+  # 多账号模式
+  python auto_cookie_fetcher.py --list-accounts
+  python auto_cookie_fetcher.py --add-account account_1
+  python auto_cookie_fetcher.py --refresh-account account_1
+  python auto_cookie_fetcher.py --check-all
+  python auto_cookie_fetcher.py --get-available
+  
+  # 代理支持
+  python auto_cookie_fetcher.py --add-account account_2 --enable-proxy
+  python auto_cookie_fetcher.py --init-proxy-config
+        """
+    )
+    
+    # 基本参数
     parser.add_argument("--interactive", "-i", action="store_true", help="交互模式：完全手动登录")
     parser.add_argument("--username", "-u", type=str, help="登录用户名（半自动模式）")
     parser.add_argument("--password", "-p", type=str, help="登录密码（半自动模式）")
@@ -1231,12 +1322,239 @@ def main():
     parser.add_argument("--output", type=str, default=COOKIE_OUTPUT_PATH)
     parser.add_argument("--output-json", type=str, default=COOKIE_JSON_PATH)
     parser.add_argument("--webhook", type=str, default="", help="Webhook URL（用于人工介入通知）")
+    
+    # 多账号管理
+    account_group = parser.add_argument_group("多账号管理")
+    account_group.add_argument("--list-accounts", action="store_true", help="列出所有账号")
+    account_group.add_argument("--add-account", type=str, metavar="ACCOUNT_ID", help="添加新账号（需要手动登录）")
+    account_group.add_argument("--account-name", type=str, help="账号名称/备注")
+    account_group.add_argument("--refresh-account", type=str, metavar="ACCOUNT_ID", help="刷新指定账号的Cookie")
+    account_group.add_argument("--delete-account", type=str, metavar="ACCOUNT_ID", help="删除指定账号")
+    account_group.add_argument("--check-all", action="store_true", help="检查所有账号的Cookie有效性")
+    account_group.add_argument("--refresh-all", action="store_true", help="刷新所有账号的Cookie")
+    account_group.add_argument("--get-available", action="store_true", help="获取一个可用账号的Cookie")
+    account_group.add_argument("--strategy", type=str, 
+                             choices=["random", "sequential", "least_used", "longest_valid"],
+                             default="least_used", help="账号选择策略")
+    
+    # 代理配置
+    proxy_group = parser.add_argument_group("代理配置")
+    proxy_group.add_argument("--enable-proxy", action="store_true", help="启用代理功能")
+    proxy_group.add_argument("--proxy-provider", type=str, 
+                           choices=["kuaidaili", "wandouhttp", "custom"],
+                           help="代理提供商")
+    proxy_group.add_argument("--init-proxy-config", action="store_true", help="初始化代理配置文件")
+    
     args = parser.parse_args()
 
     if not PLAYWRIGHT_AVAILABLE:
         logger.error("Playwright not available")
         return 1
 
+    # ==================== 代理配置初始化 ====================
+    if args.init_proxy_config:
+        if not PROXY_AVAILABLE:
+            logger.error("代理模块未导入，无法初始化代理配置")
+            return 1
+        
+        from cookie_proxy_provider import DEFAULT_PROXY_CONFIG
+        success = ProxyConfig.save_to_file(DEFAULT_PROXY_CONFIG, PROXY_CONFIG_PATH)
+        if success:
+            logger.info(f"代理配置模板已生成: {PROXY_CONFIG_PATH}")
+            logger.info("请编辑配置文件填入你的代理信息")
+            return 0
+        else:
+            logger.error("生成代理配置失败")
+            return 1
+
+    # ==================== 多账号管理 ====================
+    if args.list_accounts or args.add_account or args.refresh_account or \
+       args.delete_account or args.check_all or args.refresh_all or args.get_available:
+        
+        if not ACCOUNT_POOL_AVAILABLE:
+            logger.error("账号池模块未导入，多账号功能不可用")
+            return 1
+        
+        # 初始化账号池
+        account_pool = AccountPool(
+            pool_config_path=ACCOUNT_POOL_CONFIG,
+            accounts_dir=ACCOUNTS_DIR
+        )
+        
+        # 列出账号
+        if args.list_accounts:
+            accounts = account_pool.list_accounts(show_all=True)
+            if not accounts:
+                logger.info("账号池为空")
+                return 0
+            
+            logger.info(f"\n========== 账号列表 (总计{len(accounts)}个) ==========")
+            for acc in accounts:
+                status_icon = "✅" if acc["status"] == "active" else "❌"
+                logger.info(f"{status_icon} {acc['account_id']} - {acc.get('account_name', 'N/A')}")
+                logger.info(f"   状态: {acc['status']} | Cookie数: {acc['cookie_count']} | 使用次数: {acc['use_count']}")
+                logger.info(f"   过期时间: {acc['expires_at'] or 'N/A'} | 代理: {acc['proxy_ip'] or '无'}")
+                logger.info("")
+            
+            stats = account_pool.get_statistics()
+            logger.info(f"\u7edf计: 可用{stats['available_accounts']}个 / 总计{stats['total_accounts']}个")
+            return 0
+        
+        # 添加账号
+        if args.add_account:
+            account_id = args.add_account
+            account_name = args.account_name or f"Account {account_id}"
+            
+            # 准备代理
+            proxy_pool = None
+            if args.enable_proxy and PROXY_AVAILABLE:
+                proxy_config = ProxyConfig.load_from_file(PROXY_CONFIG_PATH)
+                if proxy_config.get("enable_proxy", False):
+                    logger.info("正在初始化代理池...")
+                    try:
+                        proxy_pool = asyncio.run(ProxyConfig.create_proxy_pool(proxy_config))
+                        logger.info("代理池初始化成功")
+                    except Exception as e:
+                        logger.warning(f"代理池初始化失败: {e}")
+            
+            # 创建 fetcher
+            fetcher = AutoCookieFetcher(
+                headless=False,
+                timeout=args.timeout,
+                webhook=args.webhook,
+                use_persistent=True,
+                account_id=account_id,
+                proxy_pool=proxy_pool
+            )
+            
+            # 执行登录
+            logger.info(f"开始为账号 {account_id} 登录...")
+            success = fetcher.interactive_login()
+            
+            if success:
+                # 加载元数据
+                account_dir = os.path.join(ACCOUNTS_DIR, account_id)
+                meta = AccountCookieManager.load_cookie_meta(account_dir)
+                
+                # 创建账号模型
+                account = AccountModel(
+                    account_id=account_id,
+                    account_name=account_name,
+                    status=AccountStatus.ACTIVE,
+                    cookie_count=meta.get("cookie_count", 0) if meta else 0,
+                    expires_at=meta.get("expires_at") if meta else None,
+                    proxy_ip=fetcher.current_proxy.to_url() if fetcher.current_proxy else None
+                )
+                
+                # 添加到账号池
+                if account_pool.add_account(account):
+                    logger.info(f"✅ 账号 {account_id} 添加成功！")
+                    return 0
+                else:
+                    logger.error(f"❌ 账号 {account_id} 添加失败")
+                    return 1
+            else:
+                logger.error(f"❌ 账号 {account_id} 登录失败")
+                return 1
+        
+        # 删除账号
+        if args.delete_account:
+            account_id = args.delete_account
+            logger.warning(f"确认删除账号 {account_id}？（将删除所有数据）")
+            confirm = input("输入 'yes' 确认: ")
+            if confirm.lower() == 'yes':
+                if account_pool.remove_account(account_id, delete_data=True):
+                    logger.info(f"✅ 账号 {account_id} 已删除")
+                    return 0
+                else:
+                    logger.error(f"❌ 删除账号 {account_id} 失败")
+                    return 1
+            else:
+                logger.info("已取消")
+                return 0
+        
+        # 刷新单个账号
+        if args.refresh_account:
+            account_id = args.refresh_account
+            account = account_pool.get_account(account_id)
+            if not account:
+                logger.error(f"账号不存在: {account_id}")
+                return 1
+            
+            fetcher = AutoCookieFetcher(
+                headless=False,
+                timeout=args.timeout,
+                account_id=account_id
+            )
+            
+            logger.info(f"刷新账号 {account_id}...")
+            success = fetcher.interactive_login()
+            
+            if success:
+                # 更新账号元数据
+                account_dir = os.path.join(ACCOUNTS_DIR, account_id)
+                meta = AccountCookieManager.load_cookie_meta(account_dir)
+                if meta:
+                    account.cookie_count = meta.get("cookie_count", 0)
+                    account.expires_at = meta.get("expires_at")
+                account.status = AccountStatus.ACTIVE
+                account.reset_error()
+                account_pool.update_account(account)
+                logger.info(f"✅ 账号 {account_id} 刷新成功")
+                return 0
+            else:
+                account.mark_error()
+                account_pool.update_account(account)
+                logger.error(f"❌ 账号 {account_id} 刷新失败")
+                return 1
+        
+        # 检查所有账号
+        if args.check_all:
+            logger.info("检查所有账号的Cookie有效性...")
+            all_valid = True
+            
+            for account in account_pool.accounts:
+                fetcher = AutoCookieFetcher(
+                    headless=True,
+                    account_id=account.account_id
+                )
+                
+                is_valid = fetcher.check_cookie_validity()
+                status_icon = "✅" if is_valid else "❌"
+                logger.info(f"{status_icon} {account.account_id}: {'Valid' if is_valid else 'Invalid'}")
+                
+                if not is_valid:
+                    all_valid = False
+                    account.status = AccountStatus.EXPIRED
+                else:
+                    if account.status == AccountStatus.EXPIRED:
+                        account.status = AccountStatus.ACTIVE
+                
+                account_pool.update_account(account)
+            
+            return 0 if all_valid else 1
+        
+        # 获取可用账号
+        if args.get_available:
+            strategy = RotationStrategy(args.strategy)
+            account = account_pool.select_account(strategy=strategy)
+            
+            if not account:
+                logger.error("没有可用账号")
+                return 1
+            
+            logger.info(f"选中账号: {account.account_id} ({account.account_name})")
+            logger.info(f"Cookie路径: {os.path.join(ACCOUNTS_DIR, account.account_id, 'cookies.json')}")
+            logger.info(f"Storage State: {os.path.join(ACCOUNTS_DIR, account.account_id, 'storage_state.json')}")
+            
+            # 更新使用时间
+            account.update_last_used()
+            account_pool.update_account(account)
+            
+            return 0
+
+    # ==================== 单账号模式（向后兼容） ====================
+    
     password = args.password
     if not password and args.username and KEYRING_AVAILABLE:
         try:
