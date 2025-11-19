@@ -7,7 +7,7 @@ set -e
 
 # 配置变量
 SERVER_IP="192.168.102.168"
-SSH_KEY="/Users/samuel/Desktop/系统开发/others/192.168.102 (5).168_id_ed25519"  # SSH密钥路径
+SSH_KEY="/Users/samuel/Desktop/系统开发/others/192.168.102 (6).168_id_ed25519"  # SSH密钥路径
 SERVER_PATH="/www/wwwroot/gimcstar_proudction_env/gimcstar"  # 服务器部署路径
 LOCAL_PATH="/Users/samuel/Desktop/系统开发"
 BACKUP_DIR="/www/backup"  # 备份目录
@@ -53,7 +53,7 @@ create_backup() {
         
         # 备份代码
         cp -r $SERVER_PATH/backend $BACKUP_DIR/$backup_name/ 2>/dev/null || true
-        cp -r $SERVER_PATH/task_control $BACKUP_DIR/$backup_name/ 2>/dev/null || true
+        cp -r $SERVER_PATH/crawler $BACKUP_DIR/$backup_name/ 2>/dev/null || true
         
         # 备份PM2配置
         pm2 save --force
@@ -92,10 +92,10 @@ rollback_deployment() {
             echo "✅ Backend代码已恢复"
         fi
         
-        if [ -d "$BACKUP_DIR/$backup_name/task_control" ]; then
-            rm -rf $SERVER_PATH/task_control
-            cp -r $BACKUP_DIR/$backup_name/task_control $SERVER_PATH/
-            echo "✅ Task control代码已恢复"
+        if [ -d "$BACKUP_DIR/$backup_name/crawler" ]; then
+            rm -rf $SERVER_PATH/crawler
+            cp -r $BACKUP_DIR/$backup_name/crawler $SERVER_PATH/
+            echo "✅ Crawler代码已恢复"
         fi
         
         # 恢复PM2配置
@@ -247,7 +247,7 @@ update_task_control() {
     log_info "开始更新Python任务控制系统..."
     
     # 同步Python代码（排除虚拟环境和缓存）
-    log_info "同步task_control代码到服务器..."
+    log_info "同步crawler代码到服务器..."
     rsync -avz --delete \
         --exclude '__pycache__' \
         --exclude '*.pyc' \
@@ -256,14 +256,17 @@ update_task_control() {
         --exclude '.env' \
         --exclude 'output' \
         --exclude 'reports' \
+        --exclude 'config/browser_profile' \
+        --exclude 'config/cookies.json' \
+        --exclude 'config/storage_state.json' \
         -e "ssh -i '$SSH_KEY'" \
-        "$LOCAL_PATH/task_control/" \
-        "root@$SERVER_IP:$SERVER_PATH/task_control/"
+        "$LOCAL_PATH/crawler/" \
+        "root@$SERVER_IP:$SERVER_PATH/crawler/"
     
     # 在服务器上更新Python依赖
     log_info "在服务器上更新Python依赖..."
     ssh -i "$SSH_KEY" root@$SERVER_IP << 'EOF'
-        cd /www/wwwroot/gimcstar_proudction_env/gimcstar/task_control
+        cd /www/wwwroot/gimcstar_proudction_env/gimcstar/crawler
         
         # 创建虚拟环境（如果不存在）
         if [ ! -d "venv" ]; then
@@ -273,10 +276,19 @@ update_task_control() {
         # 激活虚拟环境并安装依赖
         source venv/bin/activate
         pip install --upgrade pip
-        pip install -r requirements_api.txt || true
+        
+        # 安装项目依赖
+        if [ -f "pyproject.toml" ]; then
+            pip install -e . || true
+        fi
+        
+        # 安装API服务依赖
+        if [ -f "entrypoints/requirements_api.txt" ]; then
+            pip install -r entrypoints/requirements_api.txt || true
+        fi
         
         # 安装额外依赖
-        pip install requests psycopg2-binary python-dotenv || true
+        pip install requests psycopg2-binary python-dotenv playwright || true
         
         # 停止现有服务
         pm2 stop crawler-api || true
