@@ -91,7 +91,7 @@ LOGIN_URL = "https://agent.oceanengine.com/login"
 TARGET_URL = "https://agent.oceanengine.com/admin/star-agent/vue2/market"
 
 # --- 配置目录和路径 ---
-COOKIE_CONFIG_DIR = "config/auto_cookie_fetcher_config"
+COOKIE_CONFIG_DIR = os.path.join(os.path.dirname(__file__), "account_manager", "config")
 
 # 单账号模式的路径（向后兼容）
 COOKIE_OUTPUT_PATH = f"{COOKIE_CONFIG_DIR}/cookies.txt"
