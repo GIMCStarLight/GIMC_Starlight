@@ -1399,66 +1399,41 @@ def main():
             account_id = args.add_account
             account_name = args.account_name or f"Account {account_id}"
             
-            # 准备代理
-            proxy_pool = None
-            if args.enable_proxy and PROXY_AVAILABLE:
-                proxy_config = ProxyConfig.load_from_file(PROXY_CONFIG_PATH)
-                if proxy_config.get("enable_proxy", False):
-                    logger.info("正在初始化代理池...")
-                    try:
-                        proxy_pool = asyncio.run(ProxyConfig.create_proxy_pool(proxy_config))
-                        logger.info("代理池初始化成功")
-                    except Exception as e:
-                        logger.warning(f"代理池初始化失败: {e}")
+            # 检查账号ID是否已存在
+            if account_pool.get_account(account_id):
+                logger.error(f"账号ID已存在: {account_id}")
+                return 1
             
-            # 创建 fetcher
-            fetcher = AutoCookieFetcher(
-                headless=False,
-                timeout=args.timeout,
-                webhook=args.webhook,
-                use_persistent=True,
+            # 创建账号目录
+            account_dir = os.path.join(ACCOUNTS_DIR, account_id)
+            os.makedirs(account_dir, exist_ok=True)
+            
+            # 创建账号模型（只保存配置信息）
+            account = AccountModel(
                 account_id=account_id,
-                proxy_pool=proxy_pool
+                account_name=account_name,
+                status=AccountStatus.ACTIVE,
+                cookie_count=0,
+                expires_at=None,
+                proxy_ip=None
             )
             
-            # 执行登录（支持半自动登录）
-            logger.info(f"开始为账号 {account_id} 登录...")
+            # 如果提供了用户名密码，保存到账号配置中
             if args.username and args.password:
-                logger.info("使用半自动登录模式（自动填写账号密码）")
-                success = fetcher.semi_auto_login(args.username, args.password)
+                account.set_credentials(args.username, args.password)
+                logger.info(f"✅ 已保存账号凭证（加密存储）")
             else:
-                logger.info("使用交互模式（需要手动登录）")
-                success = fetcher.interactive_login()
+                logger.info("💡 未提供账号密码，后续刷新需要手动登录或提供 -u -p 参数")
             
-            if success:
-                # 加载元数据
-                account_dir = os.path.join(ACCOUNTS_DIR, account_id)
-                meta = AccountCookieManager.load_cookie_meta(account_dir)
-                
-                # 创建账号模型
-                account = AccountModel(
-                    account_id=account_id,
-                    account_name=account_name,
-                    status=AccountStatus.ACTIVE,
-                    cookie_count=meta.get("cookie_count", 0) if meta else 0,
-                    expires_at=meta.get("expires_at") if meta else None,
-                    proxy_ip=fetcher.current_proxy.to_url() if fetcher.current_proxy else None
-                )
-                
-                # 如果提供了用户名密码，保存到账号配置中
-                if args.username and args.password:
-                    account.set_credentials(args.username, args.password)
-                    logger.info(f"✅ 已保存账号凭证（加密存储），后续可自动登录")
-                
-                # 添加到账号池
-                if account_pool.add_account(account):
-                    logger.info(f"✅ 账号 {account_id} 添加成功！")
-                    return 0
-                else:
-                    logger.error(f"❌ 账号 {account_id} 添加失败")
-                    return 1
+            # 添加到账号池
+            if account_pool.add_account(account):
+                logger.info(f"✅ 账号 {account_id} ({account_name}) 已添加到账号池")
+                logger.info(f"📁 账号目录: {account_dir}")
+                logger.info(f"\n💡 下一步：使用以下命令刷新该账号的Cookie")
+                logger.info(f"   python auto_cookie_fetcher.py --refresh-account {account_id}")
+                return 0
             else:
-                logger.error(f"❌ 账号 {account_id} 登录失败")
+                logger.error(f"❌ 账号 {account_id} 添加失败")
                 return 1
         
         # 删除账号
