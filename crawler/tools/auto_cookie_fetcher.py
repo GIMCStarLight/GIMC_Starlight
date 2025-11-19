@@ -1421,9 +1421,14 @@ def main():
                 proxy_pool=proxy_pool
             )
             
-            # 执行登录
+            # 执行登录（支持半自动登录）
             logger.info(f"开始为账号 {account_id} 登录...")
-            success = fetcher.interactive_login()
+            if args.username and args.password:
+                logger.info("使用半自动登录模式（自动填写账号密码）")
+                success = fetcher.semi_auto_login(args.username, args.password)
+            else:
+                logger.info("使用交互模式（需要手动登录）")
+                success = fetcher.interactive_login()
             
             if success:
                 # 加载元数据
@@ -1482,7 +1487,12 @@ def main():
             )
             
             logger.info(f"刷新账号 {account_id}...")
-            success = fetcher.interactive_login()
+            if args.username and args.password:
+                logger.info("使用半自动登录模式（自动填写账号密码）")
+                success = fetcher.semi_auto_login(args.username, args.password)
+            else:
+                logger.info("使用交互模式（需要手动登录）")
+                success = fetcher.interactive_login()
             
             if success:
                 # 更新账号元数据
