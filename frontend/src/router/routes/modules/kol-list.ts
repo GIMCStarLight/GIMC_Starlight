@@ -29,8 +29,8 @@ const routes: RouteRecordRaw[] = [
       icon: ElUserFilledIcon,
       title: '省广达人库',
       order: 2,  // 省广达人库，排序第2
-      // hideInMenu: true, // 显示在菜单中
-      // permissions: ['resource:influencer:management:view'],
+      requiresAuth: true,
+      permissions: ['kol:view'],
     },
   },
   {
@@ -42,7 +42,8 @@ const routes: RouteRecordRaw[] = [
       title: '导入历史',
       order: 12,
       hideInMenu: true, // 隐藏在菜单中，改为从自有达人界面访问
-      // permissions: ['resource:influencer:import:view'],
+      requiresAuth: true,
+      permissions: ['upload:import:view'],
     },
   },
 ];

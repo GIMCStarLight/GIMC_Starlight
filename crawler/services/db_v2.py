@@ -458,7 +458,7 @@ class DatabaseServiceV2:
             self._safe_json(attr.get('ecom_gpm_30days_range')),
             self._safe_json(attr.get('ecom_video_ctr_30d_range')),
             self._safe_json(attr.get('avg_sale_amount_range')),
-            self._safe_float(attr.get('star_ecom_main_price_30days'))
+            self._safe_json(attr.get('star_ecom_main_price_30days'))
         ))
     
     def _save_star_videos(self, cur, author_id: str, attr: Dict):

@@ -203,7 +203,7 @@ import {
 const cooperationTypes = COOPERATION_TYPES
 const selectedCooperation = ref('')
 const selectedTags = ref<string[]>([])
-const hotTags = ref<{ tag: string; count: number }[]>([])
+const hotTags = ref<Record<string, number>>({})
 const showAllTags = ref(false)  // 控制是否显示所有标签
 
 // 内容标签层级结构（使用配置文件）
@@ -604,12 +604,7 @@ const toggleCategoryOnly = (categoryCode: string) => {
 
 // 获取分类统计数量（从hotTags中查找）
 const getCategoryCount = (categoryCode: string) => {
-  const category = contentTagsHierarchy.value.find(c => c.code === categoryCode)
-  if (!category) return 0
-  
-  // 查找该分类在hotTags中的数量
-  const hotTag = hotTags.value.find(t => t.tag === category.category)
-  return hotTag ? hotTag.count : 0
+  return hotTags.value[categoryCode] || 0
 }
 
 // 获取标签的中文显示名称
@@ -920,8 +915,25 @@ const emitFilterChange = useDebounceFn(() => {
 const loadHotTags = async () => {
   try {
     const tags = await getPopularTags(30)
-    hotTags.value = tags
-  } catch (error) {
+    // 将数组转换为对象，建立中文名到code的映射
+    const tagCountMap: Record<string, number> = {}
+    
+    tags.forEach(item => {
+      // 找到对应的分类code
+      const category = contentTagsHierarchy.value.find(c => c.category === item.tag)
+      if (category) {
+        tagCountMap[category.code] = item.count
+      }
+    })
+    
+    hotTags.value = tagCountMap
+    log.debug('[loadHotTags] 热门标签统计:', tagCountMap)
+  } catch (error: any) {
+    // 如果是401错误，静默失败，不显示错误提示
+    if (error?.response?.status === 401 || error?.status === 401) {
+      log.warn('热门标签加载被拦截（未认证），忽略此错误')
+      return
+    }
     log.error('加载热门标签失败:', error)
   }
 }

@@ -7,7 +7,7 @@ set -e
 
 # 配置变量
 SERVER_IP="192.168.102.168"
-SSH_KEY="/Users/samuel/Desktop/系统开发/others/192.168.102 (5).168_id_ed25519"  # SSH密钥路径
+SSH_KEY="/Users/samuel/Desktop/系统开发/others/192.168.102 (6).168_id_ed25519"  # SSH密钥路径
 SERVER_PATH="/www/wwwroot/gimcstar_proudction_env/gimcstar"  # 服务器部署路径
 LOCAL_PATH="/Users/samuel/Desktop/系统开发"
 BACKUP_DIR="/www/backup"  # 备份目录
@@ -53,7 +53,7 @@ create_backup() {
         
         # 备份代码
         cp -r $SERVER_PATH/backend $BACKUP_DIR/$backup_name/ 2>/dev/null || true
-        cp -r $SERVER_PATH/task_control $BACKUP_DIR/$backup_name/ 2>/dev/null || true
+        cp -r $SERVER_PATH/crawler $BACKUP_DIR/$backup_name/ 2>/dev/null || true
         
         # 备份PM2配置
         pm2 save --force
@@ -92,10 +92,10 @@ rollback_deployment() {
             echo "✅ Backend代码已恢复"
         fi
         
-        if [ -d "$BACKUP_DIR/$backup_name/task_control" ]; then
-            rm -rf $SERVER_PATH/task_control
-            cp -r $BACKUP_DIR/$backup_name/task_control $SERVER_PATH/
-            echo "✅ Task control代码已恢复"
+        if [ -d "$BACKUP_DIR/$backup_name/crawler" ]; then
+            rm -rf $SERVER_PATH/crawler
+            cp -r $BACKUP_DIR/$backup_name/crawler $SERVER_PATH/
+            echo "✅ Crawler代码已恢复"
         fi
         
         # 恢复PM2配置
@@ -121,7 +121,7 @@ health_check() {
     local failed=0
     
     # 检查后端API（尝试多个端点）
-    if ssh -i "$SSH_KEY" root@$SERVER_IP "curl -s --max-time 10 http://localhost:9000/api/v1/health > /dev/null || curl -s --max-time 10 http://localhost:9000/api/health > /dev/null || pm2 describe crawler-backend | grep -q 'online'"; then
+    if ssh -i "$SSH_KEY" root@$SERVER_IP "curl -f -s --max-time 10 http://localhost:9000/api/health > /dev/null || pm2 describe crawler-backend | grep -q 'online'"; then
         log_info "✅ 后端服务运行正常"
     else
         log_error "后端API健康检查失败"
@@ -229,7 +229,7 @@ update_backend() {
         sleep 5
         
         # 检查服务状态
-        if curl -s http://localhost:9000/api/v1 > /dev/null; then
+        if curl -f -s http://localhost:9000/api/health > /dev/null || pm2 describe crawler-backend | grep -q 'online'; then
             echo "后端服务启动成功"
             pm2 status
         else
@@ -246,8 +246,8 @@ EOF
 update_task_control() {
     log_info "开始更新Python任务控制系统..."
     
-    # 同步Python代码（排除虚拟环境和缓存）
-    log_info "同步task_control代码到服务器..."
+    # 同步Python代码（排除虚拟环境、缓存和数据目录）
+    log_info "同步crawler代码到服务器..."
     rsync -avz --delete \
         --exclude '__pycache__' \
         --exclude '*.pyc' \
@@ -255,15 +255,20 @@ update_task_control() {
         --exclude 'venv' \
         --exclude '.env' \
         --exclude 'output' \
+        --exclude 'results' \
         --exclude 'reports' \
+        --exclude 'logs' \
+        --exclude 'config/browser_profile' \
+        --exclude 'config/cookies.json' \
+        --exclude 'config/storage_state.json' \
         -e "ssh -i '$SSH_KEY'" \
-        "$LOCAL_PATH/task_control/" \
-        "root@$SERVER_IP:$SERVER_PATH/task_control/"
+        "$LOCAL_PATH/crawler/" \
+        "root@$SERVER_IP:$SERVER_PATH/crawler/"
     
     # 在服务器上更新Python依赖
     log_info "在服务器上更新Python依赖..."
     ssh -i "$SSH_KEY" root@$SERVER_IP << 'EOF'
-        cd /www/wwwroot/gimcstar_proudction_env/gimcstar/task_control
+        cd /www/wwwroot/gimcstar_proudction_env/gimcstar/crawler
         
         # 创建虚拟环境（如果不存在）
         if [ ! -d "venv" ]; then
@@ -273,10 +278,19 @@ update_task_control() {
         # 激活虚拟环境并安装依赖
         source venv/bin/activate
         pip install --upgrade pip
-        pip install -r requirements_api.txt || true
+        
+        # 安装项目依赖
+        if [ -f "pyproject.toml" ]; then
+            pip install -e . || true
+        fi
+        
+        # 安装API服务依赖
+        if [ -f "entrypoints/requirements_api.txt" ]; then
+            pip install -r entrypoints/requirements_api.txt || true
+        fi
         
         # 安装额外依赖
-        pip install requests psycopg2-binary python-dotenv || true
+        pip install requests psycopg2-binary python-dotenv playwright || true
         
         # 停止现有服务
         pm2 stop crawler-api || true
@@ -370,7 +384,7 @@ verify_deployment() {
     fi
     
     # 检查后端API
-    if curl -s "http://$SERVER_IP:9000/api/v1" > /dev/null 2>&1; then
+    if curl -f -s "http://$SERVER_IP:9000/api/health" > /dev/null 2>&1 || curl -s "http://$SERVER_IP:9000/api/auth/login" > /dev/null 2>&1; then
         log_info "✅ 后端API访问正常"
     else
         log_warn "❌ 后端API访问异常"
@@ -385,8 +399,11 @@ verify_deployment() {
     
     log_info "部署验证完成"
     log_info "前端访问地址: http://$SERVER_IP"
-    log_info "后端API地址: http://$SERVER_IP:9000/api/v1"
-    log_info "Python API地址: http://$SERVER_IP:8009/api/v1"
+    log_info "后端API地址: http://$SERVER_IP:9000/api"
+    log_info "后端健康检查: http://$SERVER_IP:9000/api/health"
+    log_info "后端API文档: http://$SERVER_IP:9000/api/docs"
+    log_info "Python API地址: http://$SERVER_IP:8009/api"
+    log_info "Python API健康检查: http://$SERVER_IP:8009/api/health"
     log_info "Python API文档: http://$SERVER_IP:8009/docs"
     log_warn "注意: 为了安全性和完整功能，建议配置HTTPS访问和Nginx反向代理"
 }
