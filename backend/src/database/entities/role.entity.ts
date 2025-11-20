@@ -18,17 +18,17 @@ import { UserRole } from './user-role.entity';
  */
 @Entity('roles')
 export class Role {
-  @PrimaryGeneratedColumn({ type: 'bigint', unsigned: true, comment: '角色ID' })
+  @PrimaryGeneratedColumn({ type: 'bigint', comment: '角色ID' })
   id: string;
 
   @Column({
     type: 'bigint',
-    unsigned: true,
     nullable: true,
+    name: 'parent_id',
     comment: '上级角色ID (null 表示顶级角色)',
   })
-  @Index('idx_pid')
-  pid: string;
+  @Index('idx_roles_parent_id')
+  parentId: string;
 
   @Column({
     type: 'varchar',
@@ -92,9 +92,9 @@ export class Role {
   // 自关联：父角色
   @ManyToOne(() => Role, (role) => role.children, {
     nullable: true,
-    onDelete: 'CASCADE',
+    onDelete: 'SET NULL',
   })
-  @JoinColumn({ name: 'pid' })
+  @JoinColumn({ name: 'parent_id' })
   parent: Role;
 
   // 自关联：子角色

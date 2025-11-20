@@ -12,6 +12,7 @@ import {
   ParseIntPipe,
   ValidationPipe,
   UsePipes,
+  UseGuards,
 } from '@nestjs/common';
 import {
   ApiTags,
@@ -20,6 +21,7 @@ import {
   ApiParam,
   ApiQuery,
   ApiBody,
+  ApiBearerAuth,
 } from '@nestjs/swagger';
 import {
   KolListService,
@@ -33,9 +35,14 @@ import {
   BatchCreateKolListDto,
 } from './dto';
 import { KolList, MatchStatus } from '../../database/entities/kol-list.entity';
+import { Permissions } from '../../auth/decorators/permissions.decorator';
+import { PermissionGuard } from '../../auth/guards/permission.guard';
+import { JwtAuthGuard } from '../../common/guards/auth.guard';
 
 @ApiTags('KOL达人管理')
 @Controller('kol-lists')
+@ApiBearerAuth('JWT-auth')
+@UseGuards(JwtAuthGuard, PermissionGuard)
 @UsePipes(
   new ValidationPipe({
     transform: true,
@@ -49,6 +56,7 @@ export class KolListController {
   constructor(private readonly kolListService: KolListService) {}
 
   @Post()
+  @Permissions('kol:create')
   @ApiOperation({ summary: '创建KOL', description: '创建新的KOL记录' })
   @ApiResponse({
     status: HttpStatus.CREATED,
@@ -70,6 +78,7 @@ export class KolListController {
   }
 
   @Post('batch')
+  @Permissions('kol:batch:create')
   @ApiOperation({ summary: '批量创建KOL', description: '批量创建多个KOL记录' })
   @ApiResponse({
     status: HttpStatus.CREATED,
@@ -110,6 +119,7 @@ export class KolListController {
   }
 
   @Get()
+  @Permissions('kol:view')
   @ApiOperation({
     summary: '获取KOL列表',
     description: '分页查询KOL列表，支持多种筛选条件',
@@ -193,6 +203,7 @@ export class KolListController {
   }
 
   @Get('platforms')
+  @Permissions('kol:view')
   @ApiOperation({
     summary: '获取平台列表',
     description: '返回已存在的KOL平台枚举',
@@ -208,6 +219,7 @@ export class KolListController {
   }
 
   @Get('categories')
+  @Permissions('kol:view')
   @ApiOperation({
     summary: '获取分类列表',
     description: '返回已存在的KOL分类枚举',
@@ -223,6 +235,7 @@ export class KolListController {
   }
 
   @Get('organizations')
+  @Permissions('kol:view')
   @ApiOperation({
     summary: '获取机构列表',
     description: '返回已存在的机构名称枚举',
@@ -238,6 +251,7 @@ export class KolListController {
   }
 
   @Get(':id')
+  @Permissions('kol:view')
   @ApiOperation({
     summary: '获取KOL详情',
     description: '根据ID获取KOL详细信息',
@@ -258,6 +272,7 @@ export class KolListController {
   }
 
   @Patch(':id')
+  @Permissions('kol:update')
   @ApiOperation({ summary: '更新KOL信息', description: '根据ID更新KOL信息' })
   @ApiParam({ name: 'id', description: 'KOL ID', type: 'number' })
   @ApiResponse({
@@ -289,6 +304,7 @@ export class KolListController {
   }
 
   @Delete(':id')
+  @Permissions('kol:delete')
   @ApiOperation({ summary: '删除KOL', description: '根据ID删除KOL' })
   @ApiParam({ name: 'id', description: 'KOL ID', type: 'number' })
   @ApiResponse({
@@ -305,6 +321,7 @@ export class KolListController {
   }
 
   @Delete()
+  @Permissions('kol:batch:delete')
   @ApiOperation({
     summary: '批量删除KOL',
     description: '根据ID列表批量删除KOL',

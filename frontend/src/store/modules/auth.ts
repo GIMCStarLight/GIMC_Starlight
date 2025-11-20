@@ -85,10 +85,11 @@ export const useAuthStore = defineStore('auth', () => {
             log.debug('用户信息homePath:', userInfo?.homePath);
             log.debug('默认首页路径:', preferences.app.defaultHomePath);
 
-            // 使用window.location进行跳转，避免router实例问题
-            log.debug('使用window.location进行跳转...');
-            window.location.href = redirectPath;
-            log.success('跳转指令已发送');
+            // 不再使用window.location跳转，避免页面刷新导致的问题
+            // window.location.href = redirectPath;
+            log.debug('登录成功，使用Vue Router进行路由跳转');
+            // 直接返回，让路由守卫处理跳转（在guard.ts中）
+            log.success('登录成功，等待路由守卫处理跳转');
           }
         }
 

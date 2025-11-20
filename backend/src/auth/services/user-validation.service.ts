@@ -19,7 +19,7 @@ export class UserValidationService {
   private readonly logger = new Logger(UserValidationService.name);
 
   constructor(
-    @InjectRepository(UserAuth, 'mysql')
+    @InjectRepository(UserAuth, 'postgres')
     private readonly userAuthRepository: Repository<UserAuth>,
   ) {}
 

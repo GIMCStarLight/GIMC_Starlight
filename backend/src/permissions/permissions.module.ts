@@ -12,7 +12,7 @@ import { AuthModule } from '../auth/auth.module';
   imports: [
     TypeOrmModule.forFeature(
       [Permission, Role, RolePermission, UserRole],
-      'mysql',
+      'postgres',
     ),
     AuthModule,
   ],

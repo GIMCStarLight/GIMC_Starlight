@@ -41,7 +41,7 @@ import { PermissionGuard, AnyPermissionGuard } from './guards/permission.guard';
     // TypeORM实体注册
     TypeOrmModule.forFeature(
       [UserAuth, UserProfile, Role, Permission, UserRole, RolePermission],
-      'mysql',
+      'postgres',
     ),
 
     // Passport模块
