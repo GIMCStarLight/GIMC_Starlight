@@ -55,13 +55,13 @@ export interface RolePermissionDto {
 @Injectable()
 export class PermissionsService {
   constructor(
-    @InjectRepository(Permission, 'mysql')
+    @InjectRepository(Permission, 'postgres')
     private readonly permissionRepository: Repository<Permission>,
-    @InjectRepository(Role, 'mysql')
+    @InjectRepository(Role, 'postgres')
     private readonly roleRepository: Repository<Role>,
-    @InjectRepository(RolePermission, 'mysql')
+    @InjectRepository(RolePermission, 'postgres')
     private readonly rolePermissionRepository: Repository<RolePermission>,
-    @InjectRepository(UserRole, 'mysql')
+    @InjectRepository(UserRole, 'postgres')
     private readonly userRoleRepository: Repository<UserRole>,
     private readonly jwtBlacklistService: JwtBlacklistService,
     private readonly sessionService: SessionService,

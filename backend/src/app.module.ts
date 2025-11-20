@@ -13,7 +13,6 @@ import { DataSource } from 'typeorm';
 // 配置文件
 import { getAppConfig } from './config/app.config';
 import {
-  getMySQLConfig,
   getPostgreSQLConfig,
   getCrawlerDBConfig,
 } from './config/database.config';
@@ -70,18 +69,7 @@ import { UploadModule } from './modules/upload/upload.module';
         getLoggerConfig(configService),
     }),
 
-    // MySQL数据库连接
-    TypeOrmModule.forRootAsync({
-      name: 'mysql',
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: (configService: ConfigService) => ({
-        ...getMySQLConfig(configService),
-        synchronize: false, // 禁用自动同步以避免生产环境问题
-      }),
-    }),
-
-    // PostgreSQL数据库连接
+    // PostgreSQL数据库连接（主数据库）
     TypeOrmModule.forRootAsync({
       name: 'postgres',
       imports: [ConfigModule],
@@ -177,7 +165,6 @@ export class AppModule implements OnModuleInit {
   constructor(
     private readonly configService: ConfigService,
     @InjectRedis() private readonly redis: Redis,
-    @InjectDataSource('mysql') private readonly mysqlDataSource: DataSource,
     @InjectDataSource('postgres')
     private readonly postgresDataSource: DataSource,
     @InjectDataSource('crawler') private readonly crawlerDataSource: DataSource,
@@ -185,18 +172,6 @@ export class AppModule implements OnModuleInit {
 
   async onModuleInit() {
     this.logger.log('🚀 应用模块初始化完成');
-
-    // 检查MySQL连接状态
-    try {
-      if (this.mysqlDataSource.isInitialized) {
-        await this.mysqlDataSource.query('SELECT 1');
-        this.logger.log('✅ MySQL数据库连接成功');
-      } else {
-        this.logger.warn('⚠️ MySQL数据库未初始化');
-      }
-    } catch (error) {
-      this.logger.error('❌ MySQL数据库连接失败', (error as Error).message);
-    }
 
     // 检查PostgreSQL连接状态
     try {

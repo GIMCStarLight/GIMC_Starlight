@@ -15,13 +15,13 @@ import {
 @Injectable()
 export class PermissionService {
   constructor(
-    @InjectRepository(Role, 'mysql')
+    @InjectRepository(Role, 'postgres')
     private readonly roleRepository: Repository<Role>,
-    @InjectRepository(Permission, 'mysql')
+    @InjectRepository(Permission, 'postgres')
     private readonly permissionRepository: Repository<Permission>,
-    @InjectRepository(UserRole, 'mysql')
+    @InjectRepository(UserRole, 'postgres')
     private readonly userRoleRepository: Repository<UserRole>,
-    @InjectRepository(RolePermission, 'mysql')
+    @InjectRepository(RolePermission, 'postgres')
     private readonly rolePermissionRepository: Repository<RolePermission>,
   ) {}
 
@@ -158,7 +158,7 @@ export class PermissionService {
       if (!role) break;
 
       path.unshift(role); // 添加到数组开头
-      currentRoleId = role.pid;
+      currentRoleId = role.parentId;
     }
 
     return path;
@@ -173,7 +173,7 @@ export class PermissionService {
     const children: Role[] = [];
 
     const directChildren = await this.roleRepository.find({
-      where: { pid: roleId, status: 1 },
+      where: { parentId: roleId, status: 1 },
     });
 
     for (const child of directChildren) {

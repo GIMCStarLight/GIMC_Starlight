@@ -260,16 +260,30 @@ export class KolSyncService {
    */
   private async triggerCrawlJob(accountIds: string[]): Promise<string> {
     try {
+      // 从 account_id 中提取纯净的 handle（移除平台前缀）
+      // 例："抖音:张金条" -> "张金条"
+      const cleanHandles = accountIds.map(id => {
+        const parts = id.split(':');
+        return parts.length > 1 ? parts.slice(1).join(':') : id;
+      });
+      
+      this.logger.log(
+        `[triggerCrawlJob] Original handles: ${JSON.stringify(accountIds)}, Clean handles: ${JSON.stringify(cleanHandles)}`,
+      );
+      
       const response = await firstValueFrom(
         this.httpClient.post<{
           data?: { job_id: string };
         }>('/crawl-jobs', {
           task_type: 'batch_handles',
           target: {
-            handles: accountIds,
+            handles: cleanHandles,
             dedup: true,
           },
           options: {
+            cookies_file: 'config/cookies.txt',
+            output_dir: 'results',
+            report_dir: 'reports',
             save_pg: true,
           },
         }),
@@ -550,7 +564,17 @@ export class KolSyncService {
    * Determines if a KOL should be synced.
    */
   private shouldSync(kol: KolList): boolean {
-    if (kol.platform !== '抖音') {
+    // 支持中英文平台名称映射
+    const platformMapping: Record<string, string[]> = {
+      '抖音': ['抖音', 'douyin', 'Douyin', 'DOUYIN'],
+    };
+    
+    // 检查平台是否匹配
+    const isDouyinPlatform = Object.values(platformMapping)
+      .flat()
+      .some(p => p.toLowerCase() === (kol.platform || '').toLowerCase());
+    
+    if (!isDouyinPlatform) {
       this.logger.warn(
         `[shouldSync] KOL ${kol.id} platform is not '抖音', but '${kol.platform}', skipping.`,
       );
