@@ -10,6 +10,7 @@ import {
   BadRequestException,
   HttpStatus,
   HttpCode,
+  UseGuards,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import {
@@ -17,19 +18,24 @@ import {
   ApiOperation,
   ApiConsumes,
   ApiResponse,
+  ApiBearerAuth,
 } from '@nestjs/swagger';
 import { v4 as uuidv4 } from 'uuid';
 import { UploadService } from './upload.service';
 import { ValidateDataDto, ImportDataDto } from './dto/upload.dto';
-import { Public } from '../../common/decorators/auth.decorator';
+import { Permissions } from '../../auth/decorators/permissions.decorator';
+import { PermissionGuard } from '../../auth/guards/permission.guard';
+import { JwtAuthGuard } from '../../common/guards/auth.guard';
 
 @ApiTags('文件上传')
 @Controller('upload')
-@Public()
+@ApiBearerAuth('JWT-auth')
+@UseGuards(JwtAuthGuard, PermissionGuard)
 export class UploadController {
   constructor(private readonly uploadService: UploadService) {}
 
   @Post('excel')
+  @Permissions('upload:excel')
   @ApiOperation({ summary: '上传Excel文件' })
   @ApiConsumes('multipart/form-data')
   @ApiResponse({ status: 200, description: '文件上传成功' })
@@ -58,6 +64,7 @@ export class UploadController {
   }
 
   @Post('validate')
+  @Permissions('upload:validate')
   @ApiOperation({ summary: '验证导入数据' })
   @ApiResponse({ status: 200, description: '数据验证完成' })
   @HttpCode(HttpStatus.OK)
@@ -79,6 +86,7 @@ export class UploadController {
   }
 
   @Post('import')
+  @Permissions('upload:import')
   @ApiOperation({ summary: '导入数据（同步，不推荐大批量数据）' })
   @ApiResponse({ status: 200, description: '数据导入完成' })
   @HttpCode(HttpStatus.OK)
@@ -100,6 +108,7 @@ export class UploadController {
   }
 
   @Post('import-async')
+  @Permissions('upload:import:async')
   @ApiOperation({ summary: '异步导入数据（推荐用于大批量数据）' })
   @ApiResponse({ status: 200, description: '导入任务已启动' })
   @HttpCode(HttpStatus.OK)
@@ -122,6 +131,7 @@ export class UploadController {
   }
 
   @Get('import-progress/:taskId')
+  @Permissions('upload:import:view')
   @ApiOperation({ summary: '获取导入进度' })
   @ApiResponse({ status: 200, description: '进度获取成功' })
   async getImportProgress(@Param('taskId') taskId: string) {
@@ -139,6 +149,7 @@ export class UploadController {
   }
 
   @Get('import-history')
+  @Permissions('upload:import:view')
   @ApiOperation({ summary: '获取导入历史列表' })
   @ApiResponse({ status: 200, description: '获取成功' })
   async getImportHistory(
@@ -162,6 +173,7 @@ export class UploadController {
   }
 
   @Get('import-history/:taskId')
+  @Permissions('upload:import:view')
   @ApiOperation({ summary: '获取导入历史详情' })
   @ApiResponse({ status: 200, description: '获取成功' })
   async getImportHistoryDetail(@Param('taskId') taskId: string) {

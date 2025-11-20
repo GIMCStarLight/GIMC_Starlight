@@ -9,7 +9,7 @@ import {
   UseGuards,
   Query,
 } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
 import { SqlbotService } from './sqlbot.service';
 import {
   CreateSqlbotConfigDto,
@@ -17,11 +17,14 @@ import {
   SqlbotConfigResponseDto,
 } from './dto/sqlbot-config.dto';
 import { JwtAuthGuard, RolesGuard } from '../../common/guards/auth.guard';
-import { Roles, Public } from '../../common/decorators/auth.decorator';
+import { Roles } from '../../common/decorators/auth.decorator';
 import { ApiEndpoint } from '../../common/decorators/api.decorator';
+import { Permissions } from '../../auth/decorators/permissions.decorator';
+import { PermissionGuard } from '../../auth/guards/permission.guard';
 
 @ApiTags('SQLBot管理')
 @Controller('sqlbot')
+@ApiBearerAuth('JWT-auth')
 export class SqlbotController {
   constructor(private readonly sqlbotService: SqlbotService) {}
 
@@ -40,7 +43,8 @@ export class SqlbotController {
   }
 
   @Get('config')
-  @Public()
+  @UseGuards(JwtAuthGuard, PermissionGuard)
+  @Permissions('sqlbot:config:view')
   @ApiEndpoint({
     summary: '获取SQLBot配置',
     description: '获取当前启用的SQLBot配置',
@@ -51,7 +55,8 @@ export class SqlbotController {
   }
 
   @Put('config/:id')
-  @Public()
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles('admin', 'SUPER_ADMIN')
   @ApiEndpoint({
     summary: '更新SQLBot配置',
     description: '更新指定的SQLBot配置',
@@ -76,6 +81,8 @@ export class SqlbotController {
   }
 
   @Get('datasource')
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles('admin', 'SUPER_ADMIN')
   @ApiOperation({
     summary: '获取数据源信息',
     description: '为SQLBot高级应用提供数据源信息',
@@ -142,7 +149,8 @@ export class SqlbotController {
   }
 
   @Get('token')
-  @Public()
+  @UseGuards(JwtAuthGuard, PermissionGuard)
+  @Permissions('sqlbot:token:generate')
   @ApiOperation({
     summary: '获取SQLBot嵌入Token',
     description: '根据已启用的SQLBot配置生成JWT，用于页面嵌入认证',
