@@ -121,7 +121,7 @@ health_check() {
     local failed=0
     
     # 检查后端API（尝试多个端点）
-    if ssh -i "$SSH_KEY" root@$SERVER_IP "curl -s --max-time 10 http://localhost:9000/api/v1/health > /dev/null || curl -s --max-time 10 http://localhost:9000/api/health > /dev/null || pm2 describe crawler-backend | grep -q 'online'"; then
+    if ssh -i "$SSH_KEY" root@$SERVER_IP "curl -f -s --max-time 10 http://localhost:9000/api/health > /dev/null || pm2 describe crawler-backend | grep -q 'online'"; then
         log_info "✅ 后端服务运行正常"
     else
         log_error "后端API健康检查失败"
@@ -229,7 +229,7 @@ update_backend() {
         sleep 5
         
         # 检查服务状态
-        if curl -s http://localhost:9000/api/v1 > /dev/null; then
+        if curl -f -s http://localhost:9000/api/health > /dev/null || pm2 describe crawler-backend | grep -q 'online'; then
             echo "后端服务启动成功"
             pm2 status
         else
@@ -246,7 +246,7 @@ EOF
 update_task_control() {
     log_info "开始更新Python任务控制系统..."
     
-    # 同步Python代码（排除虚拟环境和缓存）
+    # 同步Python代码（排除虚拟环境、缓存和数据目录）
     log_info "同步crawler代码到服务器..."
     rsync -avz --delete \
         --exclude '__pycache__' \
@@ -255,7 +255,9 @@ update_task_control() {
         --exclude 'venv' \
         --exclude '.env' \
         --exclude 'output' \
+        --exclude 'results' \
         --exclude 'reports' \
+        --exclude 'logs' \
         --exclude 'config/browser_profile' \
         --exclude 'config/cookies.json' \
         --exclude 'config/storage_state.json' \
@@ -382,7 +384,7 @@ verify_deployment() {
     fi
     
     # 检查后端API
-    if curl -s "http://$SERVER_IP:9000/api/v1" > /dev/null 2>&1; then
+    if curl -f -s "http://$SERVER_IP:9000/api/health" > /dev/null 2>&1 || curl -s "http://$SERVER_IP:9000/api/auth/login" > /dev/null 2>&1; then
         log_info "✅ 后端API访问正常"
     else
         log_warn "❌ 后端API访问异常"
@@ -397,8 +399,11 @@ verify_deployment() {
     
     log_info "部署验证完成"
     log_info "前端访问地址: http://$SERVER_IP"
-    log_info "后端API地址: http://$SERVER_IP:9000/api/v1"
-    log_info "Python API地址: http://$SERVER_IP:8009/api/v1"
+    log_info "后端API地址: http://$SERVER_IP:9000/api"
+    log_info "后端健康检查: http://$SERVER_IP:9000/api/health"
+    log_info "后端API文档: http://$SERVER_IP:9000/api/docs"
+    log_info "Python API地址: http://$SERVER_IP:8009/api"
+    log_info "Python API健康检查: http://$SERVER_IP:8009/api/health"
     log_info "Python API文档: http://$SERVER_IP:8009/docs"
     log_warn "注意: 为了安全性和完整功能，建议配置HTTPS访问和Nginx反向代理"
 }
