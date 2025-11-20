@@ -69,12 +69,10 @@ export default defineConfig(async (config?: ConfigEnv) => ({  application: {},
           "/crawler-api": {
             changeOrigin: true,
             // 将前端的 /crawler-api 前缀转发到爬虫服务基址
-            // 若已设置 VITE_CRAWLER_API_BASE_URL（如 http://localhost:8009/api/v1），则使用该地址
-            // 否则默认指向本地爬虫服务 http://localhost:8009/api/v1
-            target: env.VITE_CRAWLER_API_BASE_URL || "http://localhost:8009/api/v1",
+            target: "http://localhost:8009",
             ws: true,
-            // /crawler-api/crawl-jobs -> /crawl-jobs（使其附加到 target 的 /api/v1 后）
-            rewrite: (path: string) => path.replace(/^\/crawler-api/, ""),
+            // /crawler-api/crawl-jobs -> /api/v1/crawl-jobs
+            rewrite: (path: string) => path.replace(/^\/crawler-api/, "/api/v1"),
           },
         },
         // 预热更多文件

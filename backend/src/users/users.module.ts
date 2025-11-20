@@ -11,7 +11,7 @@ import { CommonModule } from '../common/common.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([UserAuth, UserProfile, UserRole, Role], 'mysql'),
+    TypeOrmModule.forFeature([UserAuth, UserProfile, UserRole, Role], 'postgres'),
     AuthModule,
     CommonModule,
   ],

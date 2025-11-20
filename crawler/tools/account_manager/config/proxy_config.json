@@ -1,0 +1,26 @@
+{
+  "enable_proxy": false,
+  "proxy_provider": "kuaidaili",
+  "proxy_pool_count": 5,
+  "enable_validate_ip": false,
+  "kuaidaili": {
+    "secret_id": "your_secret_id",
+    "signature": "your_signature",
+    "user_name": "your_username",
+    "password": "your_password"
+  },
+  "wandouhttp": {
+    "api_key": "your_api_key",
+    "user_name": "",
+    "password": ""
+  },
+  "custom_proxies": [
+    {
+      "ip": "127.0.0.1",
+      "port": 7890,
+      "user": "",
+      "password": "",
+      "protocol": "http"
+    }
+  ]
+}

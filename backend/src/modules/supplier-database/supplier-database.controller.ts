@@ -13,6 +13,7 @@ import {
   ValidationPipe,
   UsePipes,
   Res,
+  UseGuards,
 } from '@nestjs/common';
 import {
   ApiTags,
@@ -21,6 +22,7 @@ import {
   ApiParam,
   ApiQuery,
   ApiBody,
+  ApiBearerAuth,
 } from '@nestjs/swagger';
 import type { Response } from 'express';
 import {
@@ -35,9 +37,14 @@ import {
   BatchCreateSupplierDatabaseDto,
 } from './dto';
 import { SupplierDatabase } from '../../database/entities/supplier-database.entity';
+import { Permissions } from '../../auth/decorators/permissions.decorator';
+import { PermissionGuard } from '../../auth/guards/permission.guard';
+import { JwtAuthGuard } from '../../common/guards/auth.guard';
 
 @ApiTags('供应商数据库管理')
 @Controller('supplier-database')
+@ApiBearerAuth('JWT-auth')
+@UseGuards(JwtAuthGuard, PermissionGuard)
 @UsePipes(
   new ValidationPipe({
     transform: true,
@@ -53,6 +60,7 @@ export class SupplierDatabaseController {
   ) {}
 
   @Post()
+  @Permissions('supplier:create')
   @ApiOperation({ summary: '创建供应商', description: '创建新的供应商记录' })
   @ApiResponse({
     status: HttpStatus.CREATED,
@@ -76,6 +84,7 @@ export class SupplierDatabaseController {
   }
 
   @Post('batch')
+  @Permissions('supplier:batch:create')
   @ApiOperation({
     summary: '批量创建供应商',
     description: '批量创建多个供应商记录',
@@ -119,6 +128,7 @@ export class SupplierDatabaseController {
   }
 
   @Get()
+  @Permissions('supplier:view')
   @ApiOperation({
     summary: '获取供应商列表',
     description: '分页查询供应商列表，支持多种筛选条件',
@@ -298,6 +308,7 @@ export class SupplierDatabaseController {
   }
 
   @Get(':id')
+  @Permissions('supplier:view')
   @ApiOperation({
     summary: '获取供应商详情',
     description: '根据ID获取供应商详细信息',
@@ -320,6 +331,7 @@ export class SupplierDatabaseController {
   }
 
   @Patch(':id')
+  @Permissions('supplier:update')
   @ApiOperation({
     summary: '更新供应商信息',
     description: '根据ID更新供应商信息',
@@ -357,6 +369,7 @@ export class SupplierDatabaseController {
   }
 
   @Delete('batch')
+  @Permissions('supplier:batch:delete')
   @ApiOperation({
     summary: '批量删除供应商',
     description: '根据ID列表批量删除供应商',
@@ -397,6 +410,7 @@ export class SupplierDatabaseController {
   }
 
   @Delete(':id')
+  @Permissions('supplier:delete')
   @ApiOperation({ summary: '删除供应商', description: '根据ID删除供应商' })
   @ApiParam({ name: 'id', description: '供应商ID', type: 'number' })
   @ApiResponse({
@@ -413,6 +427,7 @@ export class SupplierDatabaseController {
   }
 
   @Get('template/download')
+  @Permissions('supplier:template:download')
   @ApiOperation({
     summary: '下载导入模板',
     description: '下载供应商数据导入的Excel模板文件',

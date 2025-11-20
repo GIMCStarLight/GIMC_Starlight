@@ -5,7 +5,7 @@ import { KolList } from '../database/entities/kol-list.entity';
 import { KolPrivateMatches } from '../database/entities/kol-private-matches.entity';
 import { KolMatchLogs } from '../database/entities/kol-match-logs.entity';
 import { KolReviews } from '../database/entities/kol-reviews.entity';
-import { RBAC_ENTITIES } from '../database/entities';
+import { MYSQL_ENTITIES, POSTGRES_ENTITIES } from '../database/entities';
 import { AuthorCoreView } from '../database/entities/author-core-view.entity';
 import { SqlbotConfig } from '../modules/sqlbot/entities/sqlbot-config.entity';
 import { SupplierDatabase } from '../database/entities/supplier-database.entity';
@@ -23,7 +23,7 @@ import {
 
 /**
  * MySQL数据库配置
- * 用于主要业务数据存储
+ * 用于用户认证、权限管理、RBAC系统
  */
 export const getMySQLConfig = (
   configService: ConfigService,
@@ -36,7 +36,7 @@ export const getMySQLConfig = (
 
   const baseConfig = {
     type: 'mysql' as const,
-    entities: RBAC_ENTITIES,
+    entities: MYSQL_ENTITIES,  // 使用新的MYSQL_ENTITIES
     synchronize: false,
     logging: configService.get<boolean>('MYSQL_LOGGING', false),
     timezone: '+08:00',
@@ -103,12 +103,12 @@ export const getMySQLConfig = (
 
 /**
  * PostgreSQL数据库配置
- * 用于分析数据和复杂查询 + KOL数据存储
+ * 用于业务数据存储：KOL管理、供应商数据、导入历史
  */
 export const getPostgreSQLConfig = (
   configService: ConfigService,
 ): TypeOrmModuleOptions => {
-  // 读取SSL配置
+  // 读SSL配置
   const sslEnabled =
     configService.get<string>('POSTGRES_SSL', 'false').toLowerCase() === 'true';
   const sslRejectUnauthorized =
@@ -132,14 +132,8 @@ export const getPostgreSQLConfig = (
     password: configService.get<string>('POSTGRES_PASSWORD'),
     database: configService.get<string>('POSTGRES_DATABASE', 'crawler_db_v2'),
     entities: [
-      KolList,
-      KolPrivateMatches,
-      KolMatchLogs,
-      SourceAccount,
-      KolReviews,
-      AuthorCoreView,
-      SqlbotConfig,
-      SupplierDatabase,
+      ...MYSQL_ENTITIES,  // RBAC系统实体（已迁移到PostgreSQL）
+      ...POSTGRES_ENTITIES,  // 业务数据实体
       ImportHistory,
     ],
     synchronize: false, // 禁用自动同步，表结构由迁移脚本管理
@@ -148,11 +142,11 @@ export const getPostgreSQLConfig = (
     extra: {
       max: 20,
       idleTimeoutMillis: 30000,
-      connectionTimeoutMillis: 2000,
+      connectionTimeoutMillis: 10000, // 增加到10秒
       charset: 'utf8',
     },
-    retryAttempts: 3,
-    retryDelay: 3000,
+    retryAttempts: 5, // 增加重试次数
+    retryDelay: 5000, // 增加重试延迟
     autoLoadEntities: false, // 禁用自动加载实体
   };
 };
@@ -205,11 +199,11 @@ export const getCrawlerDBConfig = (
     extra: {
       max: 10,
       idleTimeoutMillis: 30000,
-      connectionTimeoutMillis: 2000,
+      connectionTimeoutMillis: 10000, // 增加到10秒
       charset: 'utf8',
     },
-    retryAttempts: 3,
-    retryDelay: 3000,
+    retryAttempts: 5, // 增加重试次数
+    retryDelay: 5000, // 增加重试延迟
     autoLoadEntities: false,
   };
 };
@@ -218,7 +212,6 @@ export const getCrawlerDBConfig = (
  * 数据库连接名称常量
  */
 export const DATABASE_CONNECTIONS = {
-  MYSQL: 'mysql',
   POSTGRES: 'postgres',
   CRAWLER: 'crawler',
 } as const;
@@ -227,12 +220,6 @@ export const DATABASE_CONNECTIONS = {
  * 数据库配置验证
  */
 export const validateDatabaseConfig = (configService: ConfigService): void => {
-  const requiredMySQLVars = [
-    'MYSQL_HOST',
-    'MYSQL_USERNAME',
-    'MYSQL_PASSWORD',
-    'MYSQL_DATABASE',
-  ];
   const requiredPostgresVars = [
     'POSTGRES_HOST',
     'POSTGRES_USERNAME',
@@ -242,7 +229,7 @@ export const validateDatabaseConfig = (configService: ConfigService): void => {
 
   const missingVars: string[] = [];
 
-  [...requiredMySQLVars, ...requiredPostgresVars].forEach((varName) => {
+  requiredPostgresVars.forEach((varName) => {
     if (!configService.get(varName)) {
       missingVars.push(varName);
     }

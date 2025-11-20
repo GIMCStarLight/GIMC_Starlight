@@ -8,6 +8,7 @@ import {
   ParseIntPipe,
   DefaultValuePipe,
   Post,
+  UseGuards,
 } from '@nestjs/common';
 import {
   ApiTags,
@@ -15,6 +16,7 @@ import {
   ApiResponse,
   ApiQuery,
   ApiBody,
+  ApiBearerAuth,
 } from '@nestjs/swagger';
 import { ApiStandardErrors } from '../../../common/decorators/api.decorator';
 import { AuthorFilterService } from '../services/author-filter.service';
@@ -22,6 +24,9 @@ import {
   AuthorFilterQueryDto,
   QuickFilterDto,
 } from '../dto/advanced-filter.dto';
+import { Permissions } from '../../../auth/decorators/permissions.decorator';
+import { PermissionGuard } from '../../../auth/guards/permission.guard';
+import { JwtAuthGuard } from '../../../common/guards/auth.guard';
 
 /**
  * 筛选功能API控制器
@@ -30,6 +35,8 @@ import {
  */
 @ApiTags('达人筛选')
 @Controller('influencer-filter')
+@ApiBearerAuth('JWT-auth')
+@UseGuards(JwtAuthGuard, PermissionGuard)
 export class InfluencerFilterController {
   constructor(private readonly filterService: AuthorFilterService) {}
 
@@ -39,6 +46,7 @@ export class InfluencerFilterController {
    * 使用物化视图 + Redis缓存
    */
   @Post('advanced')
+  @Permissions('influencer:filter:advanced')
   @HttpCode(HttpStatus.OK)
   @ApiOperation({
     summary: '高级筛选查询',
@@ -87,6 +95,7 @@ export class InfluencerFilterController {
    * GET /api/influencer-filter/quick
    */
   @Get('quick')
+  @Permissions('influencer:filter:quick')
   @HttpCode(HttpStatus.OK)
   @ApiOperation({
     summary: '快速筛选查询',
@@ -132,6 +141,7 @@ export class InfluencerFilterController {
    * GET /api/influencer-filter/stats
    */
   @Get('stats')
+  @Permissions('influencer:filter:stats')
   @HttpCode(HttpStatus.OK)
   @ApiOperation({
     summary: '获取筛选统计',
@@ -169,6 +179,7 @@ export class InfluencerFilterController {
    * GET /api/influencer-filter/popular-tags
    */
   @Get('popular-tags')
+  @Permissions('influencer:filter:quick')
   @HttpCode(HttpStatus.OK)
   @ApiOperation({
     summary: '获取热门标签',
@@ -208,6 +219,7 @@ export class InfluencerFilterController {
    * POST /api/influencer-filter/refresh-view
    */
   @Post('refresh-view')
+  @Permissions('admin:access')
   @HttpCode(HttpStatus.OK)
   @ApiOperation({
     summary: '刷新物化视图',

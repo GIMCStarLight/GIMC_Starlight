@@ -2,6 +2,7 @@
 import type { VbenFormSchema } from '@vben/common-ui';
 
 import { computed, markRaw } from 'vue';
+import { useRouter } from 'vue-router';
 
 import { AuthenticationLogin, SliderCaptcha, z } from '@vben/common-ui';
 import { $t } from '@vben/locales';
@@ -14,6 +15,7 @@ import { useAuthStore } from '#/store';
 defineOptions({ name: 'Login' });
 
 const authStore = useAuthStore();
+const router = useRouter();
 
 const formSchema = computed((): VbenFormSchema[] => {
   return [
@@ -58,8 +60,13 @@ async function handleLogin(values: any) {
   
   // 发送登录请求
   try {
-    await authStore.authLogin(loginData);
-    // 登录成功，authStore中已经处理了成功通知和跳转
+    // 传入onSuccess回调，延迟跳转
+    await authStore.authLogin(loginData, async () => {
+      // 登录成功，等待500ms确保token完全生效
+      log.success('登录成功，等待token生效后跳转');
+      await new Promise(resolve => setTimeout(resolve, 500));
+      await router.push('/');
+    });
   } catch (error: any) {
     // 登录失败，显示错误提示
     log.error('登录失败:', error);
