@@ -543,8 +543,8 @@ const updateInfluencerData = async (influencer: any) => {
         star_id: influencer.star_id
       },
       options: {
-        cookies_file: 'cookies.txt',
-        output_dir: 'task_control/results',
+        cookies_file: 'config/cookies.txt',
+        output_dir: 'results',
         report_dir: 'reports',
         save_pg: true
       }
