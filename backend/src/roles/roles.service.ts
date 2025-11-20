@@ -33,17 +33,17 @@ import { UserRoleDto } from './dto/user-role.dto';
 @Injectable()
 export class RolesService {
   constructor(
-    @InjectRepository(Role, 'mysql')
+    @InjectRepository(Role, 'postgres')
     private readonly roleRepository: Repository<Role>,
-    @InjectRepository(UserRole, 'mysql')
+    @InjectRepository(UserRole, 'postgres')
     private readonly userRoleRepository: Repository<UserRole>,
-    @InjectRepository(UserAuth, 'mysql')
+    @InjectRepository(UserAuth, 'postgres')
     private readonly userAuthRepository: Repository<UserAuth>,
-    @InjectRepository(UserProfile, 'mysql')
+    @InjectRepository(UserProfile, 'postgres')
     private readonly userProfileRepository: Repository<UserProfile>,
-    @InjectRepository(RolePermission, 'mysql')
+    @InjectRepository(RolePermission, 'postgres')
     private readonly rolePermissionRepository: Repository<RolePermission>,
-    @InjectRepository(Permission, 'mysql')
+    @InjectRepository(Permission, 'postgres')
     private readonly permissionRepository: Repository<Permission>,
     private readonly permissionService: PermissionService,
   ) {}
@@ -138,7 +138,7 @@ export class RolesService {
       description: role.description,
       status: role.status,
       isSystem: ['admin', 'user'].includes(role.code),
-      pid: role.pid,
+      pid: role.parentId,
       parent: role.parent
         ? {
             id: role.parent.id,
@@ -304,7 +304,7 @@ export class RolesService {
 
     return {
       userId: user.id,
-      userName: user.profile?.name || user.phone,
+      userName: user.profile?.nickname || user.profile?.realName || user.phone,
       roles,
       roleCount: roles.length,
     };
@@ -335,10 +335,10 @@ export class RolesService {
     const users = userRoles.map((ur) => ({
       id: ur.user.id,
       phone: ur.user.phone,
-      name: ur.user.profile?.name || '',
+      name: ur.user.profile?.nickname || ur.user.profile?.realName || '',
       email: ur.user.profile?.email || '',
-      department: ur.user.profile?.department || '',
-      position: ur.user.profile?.position || '',
+      department: '', // PostgreSQL表中没有此字段
+      position: '', // PostgreSQL表中没有此字段,
       status: ur.user.status,
       assignedAt: ur.createdAt,
     }));
@@ -382,9 +382,9 @@ export class RolesService {
     }
 
     // 如果角色有父角色，检查权限是否在父角色的权限范围内
-    if (role.pid && role.pid !== '0') {
+    if (role.parentId && role.parentId !== '0') {
       const parentRole = await this.roleRepository.findOne({
-        where: { id: role.pid },
+        where: { id: role.parentId },
         relations: ['rolePermissions', 'rolePermissions.permission'],
       });
 
@@ -468,7 +468,7 @@ export class RolesService {
     }
 
     // 如果角色有父角色，返回父角色的权限
-    if (role.pid && role.pid !== '0' && role.parent) {
+    if (role.parentId && role.parentId !== '0' && role.parent) {
       return (
         role.parent.rolePermissions?.map((rp) => ({
           id: rp.permission.id,
@@ -534,7 +534,7 @@ export class RolesService {
         code: role.code,
         description: role.description,
         status: role.status,
-        pid: role.pid,
+        pid: role.parentId,
         isSystem: ['admin', 'user'].includes(role.code),
         userCount: role.userRoles?.length || 0,
         permissionCount: role.rolePermissions?.length || 0,
@@ -551,14 +551,14 @@ export class RolesService {
       const roleNode = roleMap.get(role.id);
 
       if (
-        role.pid &&
-        role.pid !== '0' &&
-        role.pid !== '' &&
-        role.pid !== null &&
-        roleMap.has(role.pid)
+        role.parentId &&
+        role.parentId !== '0' &&
+        role.parentId !== '' &&
+        role.parentId !== null &&
+        roleMap.has(role.parentId)
       ) {
         // 有父角色，添加到父角色的children中
-        const parentNode = roleMap.get(role.pid);
+        const parentNode = roleMap.get(role.parentId);
         parentNode.children.push(roleNode);
       } else {
         // 没有父角色，是根角色

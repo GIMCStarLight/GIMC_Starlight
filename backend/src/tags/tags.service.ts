@@ -18,7 +18,7 @@ import {
 @Injectable()
 export class TagsService {
   constructor(
-    @InjectRepository(Tag, 'mysql')
+    @InjectRepository(Tag, 'postgres')
     private readonly tagRepository: Repository<Tag>,
   ) {}
 

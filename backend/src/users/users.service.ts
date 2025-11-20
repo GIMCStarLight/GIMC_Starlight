@@ -25,13 +25,13 @@ import * as crypto from 'crypto';
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectRepository(UserAuth, 'mysql')
+    @InjectRepository(UserAuth, 'postgres')
     private readonly userAuthRepository: Repository<UserAuth>,
-    @InjectRepository(UserProfile, 'mysql')
+    @InjectRepository(UserProfile, 'postgres')
     private readonly userProfileRepository: Repository<UserProfile>,
-    @InjectRepository(UserRole, 'mysql')
+    @InjectRepository(UserRole, 'postgres')
     private readonly userRoleRepository: Repository<UserRole>,
-    @InjectRepository(Role, 'mysql')
+    @InjectRepository(Role, 'postgres')
     private readonly roleRepository: Repository<Role>,
     private readonly cacheService: CacheService,
   ) {}
@@ -54,11 +54,10 @@ export class UsersService {
         'user.status',
         'user.createdAt',
         'user.updatedAt',
-        'profile.name',
+        'profile.nickname',
+        'profile.realName',
         'profile.email',
-        'profile.department',
-        'profile.position',
-        'profile.avatarUrl',
+        'profile.avatar',
         'userRole.id',
         'role.id',
         'role.name',
@@ -68,7 +67,7 @@ export class UsersService {
     // 搜索条件
     if (search) {
       queryBuilder.andWhere(
-        '(profile.name LIKE :search OR user.phone LIKE :search OR profile.email LIKE :search)',
+        '(profile.nickname LIKE :search OR profile.realName LIKE :search OR user.phone LIKE :search OR profile.email LIKE :search)',
         { search: `%${search}%` },
       );
     }
@@ -78,10 +77,10 @@ export class UsersService {
       queryBuilder.andWhere('user.status = :status', { status });
     }
 
-    // 部门筛选
-    if (department) {
-      queryBuilder.andWhere('profile.department = :department', { department });
-    }
+    // 部门筛选 - PostgreSQL表中没有department字段，删除此功能
+    // if (department) {
+    //   queryBuilder.andWhere('profile.department = :department', { department });
+    // }
 
     // 角色筛选
     if (roleId) {
@@ -96,11 +95,11 @@ export class UsersService {
     const data = users.map((user) => ({
       id: user.id,
       phone: user.phone,
-      name: user.profile?.name || '',
+      name: user.profile?.nickname || user.profile?.realName || '',
       email: user.profile?.email || '',
-      department: user.profile?.department || '',
-      position: user.profile?.position || '',
-      avatarUrl: user.profile?.avatarUrl || '',
+      department: '', // PostgreSQL表中没有此字段
+      position: '', // PostgreSQL表中没有此字段
+      avatarUrl: user.profile?.avatar || '',
       status: user.status,
       roles:
         user.userRoles?.map((userRole) => ({
@@ -152,11 +151,11 @@ export class UsersService {
     const userProfile = {
       id: user.id,
       phone: user.phone,
-      name: user.profile?.name || '',
+      name: user.profile?.nickname || user.profile?.realName || '',
       email: user.profile?.email || '',
-      department: user.profile?.department || '',
-      position: user.profile?.position || '',
-      avatarUrl: user.profile?.avatarUrl || '',
+      department: '', // PostgreSQL表中没有此字段
+      position: '', // PostgreSQL表中没有此字段
+      avatarUrl: user.profile?.avatar || '',
       status: user.status,
       roles:
         user.userRoles?.map((userRole) => ({
@@ -213,10 +212,8 @@ export class UsersService {
     // 创建用户资料记录
     const userProfile = this.userProfileRepository.create({
       userId: savedUser.id,
-      name,
+      nickname: name, // 使用nickname字段
       email,
-      department,
-      position,
     });
 
     await this.userProfileRepository.save(userProfile);
@@ -256,22 +253,16 @@ export class UsersService {
       await this.userProfileRepository.update(
         { userId: id },
         {
-          name: userUpdateData.name,
+          nickname: userUpdateData.name, // name映射到nickname
           email: userUpdateData.email,
-          department: userUpdateData.department,
-          position: userUpdateData.position,
-          avatarUrl: userUpdateData.avatarUrl,
         },
       );
     } else {
       // 如果用户资料不存在，创建新的
       const userProfile = this.userProfileRepository.create({
         userId: id,
-        name: userUpdateData.name || '',
+        nickname: userUpdateData.name || '',
         email: userUpdateData.email,
-        department: userUpdateData.department,
-        position: userUpdateData.position,
-        avatarUrl: userUpdateData.avatarUrl,
       });
       await this.userProfileRepository.save(userProfile);
     }
@@ -314,11 +305,11 @@ export class UsersService {
     return {
       id: updatedUser.id,
       phone: updatedUser.phone,
-      name: updatedUser.profile?.name || '',
+      name: updatedUser.profile?.nickname || updatedUser.profile?.realName || '',
       email: updatedUser.profile?.email || '',
-      department: updatedUser.profile?.department || '',
-      position: updatedUser.profile?.position || '',
-      avatarUrl: updatedUser.profile?.avatarUrl || '',
+      department: '', // PostgreSQL表中没有此字段
+      position: '', // PostgreSQL表中没有此字段
+      avatarUrl: updatedUser.profile?.avatar || '',
       status: updatedUser.status,
       roles,
       updatedAt: updatedUser.updatedAt,
@@ -520,7 +511,7 @@ export class UsersService {
 
     return {
       userId: user.id,
-      userName: user.profile?.name || user.phone,
+      userName: user.profile?.nickname || user.profile?.realName || user.phone,
       roles,
       roleCount: roles.length,
     };

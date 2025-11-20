@@ -420,11 +420,11 @@ export class AuthController {
     const profileData = {
       id: userInfo?.id || req.user.userId,
       phone: userInfo?.phone || req.user.phone,
-      name: userInfo?.profile?.name || req.user.name,
+      name: userInfo?.profile?.nickname || userInfo?.profile?.realName || req.user.name,
       email: userInfo?.profile?.email,
-      department: userInfo?.profile?.department,
-      position: userInfo?.profile?.position,
-      avatarUrl: userInfo?.profile?.avatarUrl,
+      department: undefined,
+      position: undefined,
+      avatarUrl: userInfo?.profile?.avatar,
       status: userInfo?.status,
       roles: req.user.roles, // 使用JWT中的角色信息
       permissions: req.user.permissions, // 使用JWT中的权限信息

@@ -31,9 +31,9 @@ export class AuthService {
   private readonly logger = new Logger(AuthService.name);
 
   constructor(
-    @InjectRepository(UserAuth, 'mysql')
+    @InjectRepository(UserAuth, 'postgres')
     private readonly userAuthRepository: Repository<UserAuth>,
-    @InjectRepository(UserProfile, 'mysql')
+    @InjectRepository(UserProfile, 'postgres')
     private readonly userProfileRepository: Repository<UserProfile>,
     private readonly jwtService: JwtService,
     private readonly configService: ConfigService,
@@ -80,7 +80,7 @@ export class AuthService {
     // 创建用户会话
     await this.sessionService.createSession(tokens.jti, {
       userId: user.id,
-      username: user.profile?.name || '',
+      username: user.profile?.nickname || user.profile?.realName || '',
       phone: user.phone,
       email: user.profile?.email || '',
       roles: userRoles.map((role) => role.code),
@@ -100,11 +100,11 @@ export class AuthService {
       user: {
         id: user.id,
         phone: user.phone,
-        name: user.profile?.name || '',
+        name: user.profile?.nickname || user.profile?.realName || '',
         email: user.profile?.email || undefined,
-        department: user.profile?.department || undefined,
-        position: user.profile?.position || undefined,
-        avatarUrl: user.profile?.avatarUrl || undefined,
+        department: undefined, // PostgreSQL表中没有此字段
+        position: undefined, // PostgreSQL表中没有此字段
+        avatarUrl: user.profile?.avatar || undefined,
         status: user.status,
         roles: userRoles.map((role) => role.code),
         permissions: userPermissions,
@@ -147,7 +147,7 @@ export class AuthService {
     // 创建用户资料记录
     const userProfile = this.userProfileRepository.create({
       userId: savedUser.id,
-      name: name || '',
+      nickname: name || '',
     });
 
     await this.userProfileRepository.save(userProfile);
@@ -170,7 +170,7 @@ export class AuthService {
     // 创建用户会话
     await this.sessionService.createSession(tokens.jti, {
       userId: savedUser.id,
-      username: savedUser.phone,
+      username: name || savedUser.phone,
       phone: savedUser.phone,
       email: undefined,
       roles: userRoles.map((role) => role.code),
@@ -463,7 +463,7 @@ export class AuthService {
     // 创建用户会话
     await this.sessionService.createSession(tokens.jti, {
       userId: user.id,
-      username: user.profile?.name || '',
+      username: user.profile?.nickname || user.profile?.realName || '',
       phone: user.phone,
       email: user.profile?.email || '',
       roles: userRoles.map((role) => role.code),
@@ -486,11 +486,11 @@ export class AuthService {
       user: {
         id: user.id,
         phone: user.phone,
-        name: profile?.name || '',
+        name: profile?.nickname || profile?.realName || '',
         email: profile?.email,
-        department: profile?.department,
-        position: profile?.position,
-        avatarUrl: profile?.avatarUrl,
+        department: undefined,
+        position: undefined,
+        avatarUrl: profile?.avatar,
         status: user.status,
         roles: userRoles.map((role) => role.code),
         permissions: userPermissions,
