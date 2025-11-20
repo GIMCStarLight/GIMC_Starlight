@@ -18,12 +18,12 @@ export class SeedRunner {
 
   constructor() {
     this.dataSource = new DataSource({
-      type: 'mysql',
-      host: process.env.MYSQL_HOST || 'localhost',
-      port: parseInt(process.env.MYSQL_PORT || '3306') || 3306,
-      username: process.env.MYSQL_USERNAME || 'root',
-      password: process.env.MYSQL_PASSWORD || '',
-      database: process.env.MYSQL_DATABASE || 'gimcstar_light_system',
+      type: 'postgres',
+      host: process.env.POSTGRES_HOST || '192.168.102.168',
+      port: parseInt(process.env.POSTGRES_PORT || '5432') || 5432,
+      username: process.env.POSTGRES_USERNAME || 'postgres',
+      password: process.env.POSTGRES_PASSWORD || '',
+      database: process.env.POSTGRES_DATABASE || 'crawler_db_v2',
       entities: RBAC_ENTITIES,
       synchronize: false,
       logging: false,
