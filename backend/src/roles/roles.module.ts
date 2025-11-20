@@ -14,7 +14,7 @@ import { PermissionService } from '../auth/services/permission.service';
   imports: [
     TypeOrmModule.forFeature(
       [Role, UserRole, UserAuth, UserProfile, RolePermission, Permission],
-      'mysql',
+      'postgres',
     ),
   ],
   controllers: [RolesController],

@@ -12,7 +12,6 @@ export class HealthService {
 
   constructor(
     private readonly configService: ConfigService,
-    @InjectDataSource('mysql') private readonly mysqlDataSource: DataSource,
     @InjectDataSource('postgres')
     private readonly postgresDataSource: DataSource,
     @InjectDataSource('crawler')
@@ -78,13 +77,12 @@ export class HealthService {
 
   /**
    * 数据库健康检查 - 检查所有数据库连接状态
-   * 包含: MySQL主库、PostgreSQL、Crawler数据库
+   * 包含: PostgreSQL主库、Crawler数据库
    */
   async databaseCheck() {
     const startTime = Date.now();
 
     const checks = await Promise.allSettled([
-      this.checkDatabaseConnection('mysql', this.mysqlDataSource),
       this.checkDatabaseConnection('postgres', this.postgresDataSource),
       this.checkDatabaseConnection('crawler', this.crawlerDataSource),
     ]);
@@ -93,7 +91,7 @@ export class HealthService {
     const errors: string[] = [];
 
     checks.forEach((result, index) => {
-      const dbNames = ['mysql', 'postgres', 'crawler'];
+      const dbNames = ['postgres', 'crawler'];
       const dbName = dbNames[index];
 
       if (result.status === 'fulfilled') {
