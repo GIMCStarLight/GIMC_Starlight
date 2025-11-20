@@ -43,8 +43,8 @@ export * from './supplier-database.entity';
 export * from './kol-reviews.entity';
 export * from './author-raw-archive.entity';
 
-// 实体数组，用于TypeORM配置
-export const RBAC_ENTITIES = [
+// MySQL数据库实体 - 用户认证和权限管理系统
+export const MYSQL_ENTITIES = [
   UserAuth,
   UserProfile,
   Permission,
@@ -52,10 +52,18 @@ export const RBAC_ENTITIES = [
   RolePermission,
   UserRole,
   Tag,
+];
+
+// PostgreSQL数据库实体 - 业务数据
+export const POSTGRES_ENTITIES = [
   KolList,
   KolPrivateMatches,
   KolMatchLogs,
   SqlbotConfig,
   SupplierDatabase,
-  // KolReviews 移至 PostgreSQL 连接，不在 MySQL 中使用
+  KolReviews, // KolReviews 在 PostgreSQL 中使用
 ];
+
+// 兼容性：保留RBAC_ENTITIES别名（后续逐步移除）
+// @deprecated 使用 MYSQL_ENTITIES 替代
+export const RBAC_ENTITIES = MYSQL_ENTITIES;
