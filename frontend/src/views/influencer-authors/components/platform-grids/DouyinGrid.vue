@@ -21,14 +21,16 @@
     <!-- 列表视图 -->
     <div v-else class="table-view">
       <el-table
+        ref="tableRef"
         :data="influencers"
+        row-key="author_id"
         stripe
         border
         style="width: 100%"
         @selection-change="handleTableSelectionChange"
         @sort-change="handleSortChange"
       >
-        <el-table-column type="selection" width="55" />
+        <el-table-column type="selection" width="55" reserve-selection />
         
         <el-table-column label="头像" width="80" align="center" fixed="left">
           <template #default="{ row }">
@@ -215,8 +217,8 @@
 
 <script setup lang="ts">
 import { log } from '../../../../utils/logger'
-import { computed, watch } from 'vue'
-import { ElMessage } from 'element-plus'
+import { watch, ref, nextTick } from 'vue'
+import { ElMessage, type ElTable } from 'element-plus'
 import InfluencerCard from '../InfluencerCard.vue'
 import { useInfluencerSquareStore } from '#/store'
 import { storeToRefs } from 'pinia'
@@ -229,21 +231,59 @@ defineProps<{
 }>()
 
 const store = useInfluencerSquareStore()
-const { influencers } = storeToRefs(store)
+const { influencers, currentPage } = storeToRefs(store)
 const router = useRouter()
+const tableRef = ref<InstanceType<typeof ElTable>>()
 
-// 监听数据变化
+// 是否正在恢复选中状态(防止触发 selection-change)
+let isRestoring = false
+
+// 监听数据加载完成，恢复选中状态
 watch(
   () => influencers.value,
-  (newVal) => {
-    log.debug('🎨 [InfluencerGrid] influencers变化:', {
-      isArray: Array.isArray(newVal),
-      length: newVal?.length,
-      firstItem: newVal?.[0],
-    })
+  async (newData) => {
+    if (!newData || newData.length === 0) return
+    
+    // 等待表格完全渲染
+    await nextTick()
+    await nextTick()
+    
+    // 延迟100ms确保表格完全ready
+    setTimeout(() => {
+      restoreSelection()
+    }, 100)
   },
-  { immediate: true, deep: true }
+  { deep: false }
 )
+
+// 恢复选中状态
+const restoreSelection = () => {
+  if (!tableRef.value) return
+  
+  //log.debug('[DouyinGrid] 开始恢复选中状态, 总选中数:', store.selectedCount)
+  
+  // 设置恢复标志,防止触发 selection-change
+  isRestoring = true
+  
+  // 先清空
+  tableRef.value.clearSelection()
+  
+  // 遍历当前页数据,恢复选中
+  let restoredCount = 0
+  influencers.value.forEach(row => {
+    if (store.selectedInfluencerIds.has(row.author_id)) {
+      tableRef.value?.toggleRowSelection(row, true)
+      restoredCount++
+    }
+  })
+  
+  //log.debug('[DouyinGrid] 恢复完成, 本页恢复:', restoredCount, '总选中:', store.selectedCount)
+  
+  // 延迟解除恢复标志
+  setTimeout(() => {
+    isRestoring = false
+  }, 50)
+}
 
 // 确保 influencers 总是有值
 if (!influencers.value) {
@@ -327,6 +367,12 @@ const handleSelectionChange = (data: any, selected: boolean) => {
 }
 
 const handleTableSelectionChange = (selection: any[]) => {
+  // 如果正在恢复选中状态,忽略此事件
+  if (isRestoring) {
+    //log.debug('[DouyinGrid] 恢复中,跳过 selection-change')
+    return
+  }
+  
   const selectedIds = selection.map(item => item.author_id)
   const allCurrentPageIds = influencers.value.map(item => item.author_id)
   
@@ -336,6 +382,11 @@ const handleTableSelectionChange = (selection: any[]) => {
   
   // 添加当前页选中的
   store.setInfluencerSelection(selectedIds, true)
+  
+  // log.debug('[DouyinGrid] 选中变化:', {
+  //   当前页选中: selectedIds.length,
+  //   总选中数: store.selectedCount
+  // })
 }
 
 // 处理表格排序
