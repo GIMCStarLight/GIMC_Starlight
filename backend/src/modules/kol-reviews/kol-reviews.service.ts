@@ -19,61 +19,9 @@ export class KolReviewsService {
   async findAll(query: QueryKolReviewsDto): Promise<any> {
     const { page = 1, limit = 20, sortBy = 'created_at', sortOrder = 'DESC' } = query;
 
-    const queryBuilder = this.buildQueryBuilder(query);
-
-    // 分页
-    const skip = (page - 1) * limit;
-    queryBuilder.skip(skip).take(limit);
-
-    // 排序
-    const orderField = this.mapSortField(sortBy);
-    queryBuilder.orderBy(orderField, sortOrder);
-
-    // 执行查询
-    const [data, total] = await Promise.all([
-      queryBuilder.getRawMany(),
-      this.getCount(query),
-    ]);
-
-    return {
-      data,
-      total,
-      page,
-      limit,
-      totalPages: Math.ceil(total / limit),
-    };
-  }
-
-  // 构建查询条件
-  private buildQueryBuilder(query: QueryKolReviewsDto): SelectQueryBuilder<any> {
+    // 构建查询条件
     const queryBuilder = this.kolReviewsRepository
       .createQueryBuilder('review')
-      .leftJoin(
-        AuthorCoreView,
-        'influencer',
-        'influencer.author_id = review.author_id',
-      )
-      .select([
-        'review.id AS "id"',
-        'review.author_id AS "authorId"',
-        'review.reviewer AS "reviewer"',
-        'review.score AS "score"',
-        'review.content AS "content"',
-        'review.review_type AS "reviewType"',
-        'review.review_tags AS "reviewTags"',
-        'review.status AS "status"',
-        'review.created_at AS "createdAt"',
-        'review.updated_at AS "updatedAt"',
-        'influencer.author_id AS "influencerAuthorId"',
-        'influencer.nick_name AS "influencerNickName"',
-        'influencer.avatar_uri AS "influencerAvatarUri"',
-        'influencer.author_type AS "influencerAuthorType"',
-        'influencer.follower AS "influencerFollower"',
-        'influencer.grade AS "influencerGrade"',
-        'influencer.gender AS "influencerGender"',
-        'influencer.city AS "influencerCity"',
-        'influencer.province AS "influencerProvince"',
-      ])
       .where('review.is_deleted = :isDeleted', { isDeleted: false });
 
     // 筛选条件
@@ -111,50 +59,66 @@ export class KolReviewsService {
       queryBuilder.andWhere('review.status = :status', { status: query.status });
     }
 
-    return queryBuilder;
-  }
+    // 分页
+    const skip = (page - 1) * limit;
+    queryBuilder.skip(skip).take(limit);
 
-  // 获取总数
-  private async getCount(query: QueryKolReviewsDto): Promise<number> {
-    const countQuery = this.kolReviewsRepository
-      .createQueryBuilder('review')
-      .where('review.is_deleted = :isDeleted', { isDeleted: false });
+    // 排序
+    const orderField = this.mapSortField(sortBy);
+    queryBuilder.orderBy(orderField, sortOrder);
 
-    if (query.authorId) {
-      countQuery.andWhere('review.author_id = :authorId', { authorId: query.authorId });
-    }
+    // 执行查询
+    const [reviews, total] = await queryBuilder.getManyAndCount();
 
-    if (query.reviewer) {
-      countQuery.andWhere('review.reviewer LIKE :reviewer', {
-        reviewer: `%${query.reviewer}%`,
+    // 获取所有唯一的author_id
+    const authorIds = [...new Set(reviews.map(r => r.authorId).filter(Boolean))];
+
+    // 批量查询达人信息
+    let influencersMap = new Map();
+    if (authorIds.length > 0) {
+      const influencers = await this.authorCoreRepo
+        .createQueryBuilder('author')
+        .where('author.author_id IN (:...authorIds)', { authorIds })
+        .getMany();
+      
+      influencers.forEach(inf => {
+        influencersMap.set(inf.author_id, inf);
       });
     }
 
-    if (query.minScore) {
-      countQuery.andWhere('review.score >= :minScore', { minScore: query.minScore });
-    }
+    // 组合数据
+    const data = reviews.map(review => {
+      const influencer = influencersMap.get(review.authorId);
+      return {
+        id: review.id,
+        authorId: review.authorId,
+        reviewer: review.reviewer,
+        score: review.score,
+        content: review.content,
+        reviewType: review.reviewType,
+        reviewTags: review.reviewTags,
+        status: review.status,
+        createdAt: review.createdAt,
+        updatedAt: review.updatedAt,
+        influencerAuthorId: influencer?.author_id || null,
+        influencerNickName: influencer?.nick_name || null,
+        influencerAvatarUri: influencer?.avatar_uri || null,
+        influencerAuthorType: influencer?.author_type || null,
+        influencerFollower: influencer?.follower || null,
+        influencerGrade: influencer?.grade || null,
+        influencerGender: influencer?.gender || null,
+        influencerCity: influencer?.city || null,
+        influencerProvince: influencer?.province || null,
+      };
+    });
 
-    if (query.maxScore) {
-      countQuery.andWhere('review.score <= :maxScore', { maxScore: query.maxScore });
-    }
-
-    if (query.startDate) {
-      countQuery.andWhere('review.created_at >= :startDate', {
-        startDate: query.startDate,
-      });
-    }
-
-    if (query.endDate) {
-      countQuery.andWhere('review.created_at <= :endDate', {
-        endDate: query.endDate,
-      });
-    }
-
-    if (query.status) {
-      countQuery.andWhere('review.status = :status', { status: query.status });
-    }
-
-    return countQuery.getCount();
+    return {
+      data,
+      total,
+      page,
+      limit,
+      totalPages: Math.ceil(total / limit),
+    };
   }
 
   // 映射排序字段
