@@ -45,6 +45,16 @@ const routes: RouteRecordRaw[] = [
           title: $t('page.system.user.title'),
         },
       },
+      {
+        name: 'SystemAccount',
+        path: '/system/account',
+        component: () => import('#/views/system/account/index.vue'),
+        meta: {
+          affixTab: false,
+          icon: 'lucide:user-circle',
+          title: $t('page.system.account.title'),
+        },
+      },
     ],
   },
 ];
