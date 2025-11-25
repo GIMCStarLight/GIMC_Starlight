@@ -241,25 +241,28 @@ onMounted(() => {
                 <span class="value">{{ rawData.core_user_id }}</span>
               </span>
             </div>
+          </div>
 
-            <!-- 核心数据 -->
-            <div class="stats-grid">
-              <div class="stat-box highlight">
-                <div class="stat-label">粉丝数</div>
-                <div class="stat-value">{{ formatNumber(rawData.follower) }}</div>
-              </div>
-              <div class="stat-box">
-                <div class="stat-label">性别</div>
-                <div class="stat-value">{{ formatGender(rawData.gender) }}</div>
-              </div>
-              <div class="stat-box">
-                <div class="stat-label">地区</div>
-                <div class="stat-value">{{ rawData.city || rawData.province || '-' }}</div>
-              </div>
-              <div class="stat-box">
-                <div class="stat-label">作者类型</div>
-                <div class="stat-value">{{ rawData.author_type === '1' ? 'mega' : 'normal' }}</div>
-              </div>
+          <!-- 右侧核心数据 -->
+          <div class="stats-right-section">
+            <div class="stat-item">
+              <span class="stat-label">粉丝数</span>
+              <span class="stat-value highlight">{{ formatNumber(rawData.follower) }}</span>
+            </div>
+            <span class="divider">|</span>
+            <div class="stat-item">
+              <span class="stat-label">性别</span>
+              <span class="stat-value">{{ formatGender(rawData.gender) }}</span>
+            </div>
+            <span class="divider">|</span>
+            <div class="stat-item">
+              <span class="stat-label">地区</span>
+              <span class="stat-value">{{ rawData.city || rawData.province || '-' }}</span>
+            </div>
+            <span class="divider">|</span>
+            <div class="stat-item">
+              <span class="stat-label">作者类型</span>
+              <span class="stat-value">{{ rawData.author_type === '1' ? 'mega' : 'normal' }}</span>
             </div>
           </div>
         </div>
@@ -269,7 +272,7 @@ onMounted(() => {
       <el-card class="tabs-card" shadow="hover">
         <el-tabs v-model="activeTab">
           <!-- Tab 1: 概览 -->
-          <el-tab-pane label="📊 数据概览" name="overview">
+          <el-tab-pane label="数据概览" name="overview">
             <div class="tab-content">
               <el-row :gutter="20">
                 <!-- 粉丝增长 -->
@@ -316,7 +319,7 @@ onMounted(() => {
           </el-tab-pane>
 
           <!-- Tab 2: 价格与ROI -->
-          <el-tab-pane label="💰 价格与ROI" name="pricing">
+          <el-tab-pane label="价格与ROI" name="pricing">
             <div class="tab-content">
               <div class="data-module">
                 <h3 class="module-title">💵 报价体系</h3>
@@ -344,10 +347,10 @@ onMounted(() => {
           </el-tab-pane>
 
           <!-- Tab 3: 电商数据 -->
-          <el-tab-pane label="🛒 电商能力" name="ecommerce">
+          <el-tab-pane label="电商能力" name="ecommerce">
             <div class="tab-content">
               <div class="data-module">
-                <h3 class="module-title">🏪 电商基础信息</h3>
+                <h3 class="module-title">电商基础信息</h3>
                 <el-descriptions :column="2" border>
                   <el-descriptions-item label="电商开通">{{ ecommerceData.enable ? '✓ 已开通' : '✗ 未开通' }}</el-descriptions-item>
                   <el-descriptions-item label="电商等级">{{ ecommerceData.level || '-' }}</el-descriptions-item>
@@ -361,7 +364,7 @@ onMounted(() => {
           </el-tab-pane>
 
           <!-- Tab 4: 内容标签 -->
-          <el-tab-pane label="🏷️ 内容标签" name="tags">
+          <el-tab-pane label="内容标签" name="tags">
             <div class="tab-content">
               <div class="data-module">
                 <h3 class="module-title">🎨 内容主题标签(180天)</h3>
@@ -391,7 +394,7 @@ onMounted(() => {
           </el-tab-pane>
 
           <!-- Tab 5: 最近作品 -->
-          <el-tab-pane label="📹 最近作品" name="works">
+          <el-tab-pane label="最近作品" name="works">
             <div class="tab-content">
               <div class="data-module">
                 <h3 class="module-title">🎬 最近10个作品</h3>
@@ -437,7 +440,7 @@ onMounted(() => {
           </el-tab-pane>
 
           <!-- Tab 6: 达人评价 -->
-          <el-tab-pane label="⭐ 达人评价" name="reviews">
+          <el-tab-pane label="达人评价" name="reviews">
             <KolReviewsTab 
               v-if="rawData.id" 
               :author-id="rawData.id" 
@@ -446,7 +449,7 @@ onMounted(() => {
           </el-tab-pane>
 
           <!-- Tab 7: 私域信息（仅已匹配达人显示） -->
-          <el-tab-pane v-if="rawData.is_matched" label="🔗 合作信息" name="private">
+          <el-tab-pane v-if="rawData.is_matched" label="合作信息" name="private">
             <div class="tab-content">
               <!-- 匹配状态标识 -->
               <div class="private-header">
@@ -605,6 +608,48 @@ onMounted(() => {
 
 .info-section {
   flex: 1;
+  min-width: 0;
+}
+
+/* 右侧核心数据区域 */
+.stats-right-section {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+  padding: 12px 0;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.stat-item .stat-label {
+  font-size: 13px;
+  color: #909399;
+  font-weight: 500;
+}
+
+.stat-item .stat-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #303133;
+}
+
+.stat-item .stat-value.highlight {
+  color: #1890ff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.divider {
+  font-size: 20px;
+  color: #d9d9d9;
+  font-weight: 300;
 }
 
 .name-row {
@@ -644,51 +689,13 @@ onMounted(() => {
   font-weight: 500;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.stat-box {
-  background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
-  border: 2px solid #e4e7ed;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.stat-box:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.stat-box.highlight {
-  background: linear-gradient(135deg, #e6f7ff 0%, #bae7ff 100%);
-  border-color: #1890ff;
-}
-
-.stat-label {
-  font-size: 13px;
-  color: #909399;
-  margin-bottom: 10px;
-  font-weight: 500;
-}
-
-.stat-value {
-  font-size: 24px;
-  font-weight: 700;
-  color: #303133;
-}
-
 /* Tab内容 */
 .tabs-card {
   margin-top: 20px;
 }
 
 .tab-content {
-  padding: 16px 0;
+  padding: 16px 20px;
 }
 
 .data-module {
@@ -699,7 +706,7 @@ onMounted(() => {
   font-size: 18px;
   font-weight: 600;
   margin: 0 0 16px 0;
-  color: #303133;
+  color: #333;
   padding-bottom: 10px;
   border-bottom: 2px solid #e4e7ed;
 }
@@ -788,8 +795,8 @@ onMounted(() => {
     flex-direction: column;
   }
 
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .stats-right-section {
+    width: 100%;
   }
 }
 
@@ -845,5 +852,25 @@ onMounted(() => {
 .contact-box pre {
   margin: 0;
   font-family: inherit;
+}
+
+/* Tab间距设置 */
+:deep(.el-tabs__item) {
+  margin-right: 25px;
+}
+
+/* Tab底部灰色条改为阴影 */
+:deep(.el-tabs__nav-wrap::after) {
+  display: none;
+}
+
+:deep(.el-tabs__nav-wrap) {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2px;
+}
+
+/* Tab容器左右padding与内容保持一致 */
+:deep(.el-tabs__header) {
+  padding: 0 20px;
 }
 </style>
