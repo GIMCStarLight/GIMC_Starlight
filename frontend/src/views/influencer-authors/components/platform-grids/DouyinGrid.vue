@@ -503,20 +503,9 @@ const emit = defineEmits<{
   }
 
   .card-view {
-    display: grid;
-    gap: 20px;
-    
-    &.card-size-compact {
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    }
-    
-    &.card-size-standard {
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    }
-    
-    &.card-size-detailed {
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 
     .placeholder-card {
       background: var(--el-fill-color-lighter);
