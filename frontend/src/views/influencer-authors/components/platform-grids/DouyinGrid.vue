@@ -1,9 +1,9 @@
 <template>
   <div class="influencer-grid" v-loading="loading">
     <el-empty v-if="!loading && (!influencers || influencers.length === 0)" description="暂无数据" />
-    
-    <!-- 卡片视图 -->
-    <div v-else-if="viewMode === 'card' && influencers" class="card-view" :class="`card-size-${cardSize}`">
+
+    <!-- 卡片视图 - 现在显示表格内容 -->
+    <div v-else-if="viewMode === 'card' && influencers" class="card-view table-content">
       <InfluencerCard
         v-for="item in influencers"
         :key="item.author_id"
@@ -18,199 +18,291 @@
       />
     </div>
 
-    <!-- 列表视图 -->
-    <div v-else class="table-view">
-      <el-table
-        ref="tableRef"
-        :data="influencers"
-        row-key="author_id"
-        stripe
-        border
-        style="width: 100%"
-        @selection-change="handleTableSelectionChange"
-        @sort-change="handleSortChange"
+    <!-- 列表视图 - 现在显示原来的卡片内容 -->
+    <div v-else class="table-view card-content" :class="`card-size-${cardSize}`">
+      <!-- 达人卡片内容 -->
+      <div
+        v-for="item in influencers"
+        :key="item.author_id"
+        class="influencer-card"
+        :class="[
+          `card-size-${cardSize}`,
+          { 'is-selected': item.isSelected },
+          { 'is-favorited': item.isFavorited },
+          { 'has-hover': hoveredCardId === item.author_id }
+        ]"
+        @mouseenter="hoveredCardId = item.author_id"
+        @mouseleave="hoveredCardId = ''"
       >
-        <el-table-column type="selection" width="55" reserve-selection />
-        
-        <el-table-column label="头像" width="80" align="center" fixed="left">
-          <template #default="{ row }">
-            <div class="avatar-wrapper">
-              <img 
-                v-lazy="row.avatar_uri" 
-                :alt="row.nick_name"
-                class="table-avatar"
-              />
-            </div>
-          </template>
-        </el-table-column>
-        
-        <el-table-column label="昵称" prop="nick_name" width="150" show-overflow-tooltip fixed="left" />
-        
-        <el-table-column label="粉丝数" prop="follower" width="120" align="right" sortable="custom">
-          <template #default="{ row }">
-            {{ formatFollower(row.follower) }}
-          </template>
-        </el-table-column>
-        
-        <el-table-column label="粉丝增长率" prop="fans_increment_rate_30d" width="120" align="right" sortable="custom">
-          <template #default="{ row }">
-            <span :class="getGrowthClass(row.fans_increment_rate_30d)">
-              {{ formatPercent(row.fans_increment_rate_30d) }}
-            </span>
-          </template>
-        </el-table-column>
-        
-        <el-table-column label="互动率" prop="interact_rate_30d" width="100" align="right" sortable="custom">
-          <template #default="{ row }">
-            {{ formatPercent(row.interact_rate_30d) }}
-          </template>
-        </el-table-column>
-        
-        <el-table-column label="完播率" prop="play_over_rate_30d" width="100" align="right" sortable="custom">
-          <template #default="{ row }">
-            {{ formatPercent(row.play_over_rate_30d) }}
-          </template>
-        </el-table-column>
-        
-        <el-table-column label="星图指数" prop="star_index" width="110" align="right" sortable="custom">
-          <template #default="{ row }">
-            <el-tag v-if="row.star_index !== undefined && row.star_index !== null" type="success" size="small">
-              {{ formatNumber(row.star_index) }}
+        <!-- 头像区域 -->
+        <div class="card-section avatar-section">
+          <img
+            v-lazy="item.avatar_uri"
+            :alt="item.nick_name"
+            class="avatar-img"
+          />
+          <div class="tier-badge" :class="`tier-${item.influencer_tier}`">
+            {{ getTierLabel(item.influencer_tier) }}
+          </div>
+        </div>
+
+        <!-- 基本信息区域 -->
+        <div class="card-section basic-info">
+          <div class="nick-name">{{ item.nick_name }}</div>
+          <div class="star-id">@星图ID: {{ item.star_id }}</div>
+          <div class="special-badges">
+            <el-tag
+              v-if="item.star_excellent_author"
+              type="warning"
+              size="small"
+              effect="dark"
+            >
+              ⭐ 优质
             </el-tag>
-            <span v-else>-</span>
-          </template>
-        </el-table-column>
-        
-        <el-table-column label="60s报价" prop="price_60" width="120" align="right" sortable="custom">
-          <template #default="{ row }">
-            <span v-if="row.price_60" class="price-text">
-              ¥{{ formatPrice(row.price_60) }}
-            </span>
-            <span v-else>-</span>
-          </template>
-        </el-table-column>
-        
-        <el-table-column label="特征标签" width="200" show-overflow-tooltip>
-          <template #default="{ row }">
-            <div class="tags-container">
-              <el-tag v-if="row.star_excellent_author" type="warning" size="small">优质</el-tag>
-              <el-tag v-if="row.is_black_horse_author" type="danger" size="small">黑马</el-tag>
-              <el-tag v-if="row.e_commerce_enable" type="success" size="small">电商</el-tag>
-              <el-tag v-if="row.is_rising_star" type="info" size="small">新星</el-tag>
-            </div>
-          </template>
-        </el-table-column>
-        
-        <el-table-column label="内容标签" width="250" show-overflow-tooltip>
-          <template #default="{ row }">
-            <div class="content-tags">
+            <el-tag
+              v-if="item.is_black_horse_author"
+              type="danger"
+              size="small"
+            >
+              🐴 黑马
+            </el-tag>
+            <el-tag
+              v-if="item.star_qianchuan_high_potential"
+              type="success"
+              size="small"
+            >
+              🚀 高潜
+            </el-tag>
+          </div>
+          <div class="location">
+            <Icon icon="lucide:map-pin" />
+            {{ item.province }}{{ item.city }}
+          </div>
+          <!-- 内容标签放在这里 -->
+          <div class="tags-wrapper" v-if="item.primary_tags && item.primary_tags.length > 0">
+            <span class="tags-label">标签:</span>
+            <div class="tags-list">
               <el-tag
-                v-for="(tag, index) in getContentTags(row)"
-                :key="index"
+                v-for="tag in item.primary_tags.slice(0, 3)"
+                :key="tag"
+                type="info"
                 size="small"
-                effect="plain"
-                style="margin-right: 4px"
               >
                 {{ tag }}
               </el-tag>
+              <el-tag
+                v-if="item.tag_count > 3"
+                size="small"
+                type="info"
+                plain
+              >
+                +{{ item.tag_count - 3 }}
+              </el-tag>
             </div>
-          </template>
-        </el-table-column>
-        
-        <el-table-column label="地域" width="100">
-          <template #default="{ row }">
-            {{ row.province || '-' }}
-          </template>
-        </el-table-column>
-        
-        <el-table-column label="操作" width="320" fixed="right">
-          <template #default="{ row }">
-            <el-button size="small" type="primary" link @click="handleViewDetail(row)">
-              查看
-            </el-button>
-            <el-button size="small" type="success" link @click="handleCompare(row)">
-              对比
-            </el-button>
-            <el-button size="small" type="warning" link @click="handleFavorite(row)">
-              收藏
-            </el-button>
-            <el-button size="small" type="info" link @click="handleEvaluate(row)">
-              评价
-            </el-button>
-            <el-button 
-              size="small" 
-              type="warning" 
-              link 
-              @click="handleUpdateData(row)"
-              :loading="row.updating"
-            >
-              {{ row.updating ? '更新中...' : '更新数据' }}
-            </el-button>
-          </template>
-        </el-table-column>
-        
-        <!-- 已匹配达人的额外字段 -->
-        <el-table-column label="匹配状态" width="100" align="center">
-          <template #default="{ row }">
-            <el-tag v-if="row.is_matched" type="success" size="small" effect="dark">
-              已建联
-            </el-tag>
-            <el-tag v-else type="info" size="small" effect="plain">
-              未建联
-            </el-tag>
-          </template>
-        </el-table-column>
-        
-        <el-table-column label="所属机构" prop="org_name" width="150" show-overflow-tooltip>
-          <template #default="{ row }">
-            {{ row.org_name || '-' }}
-          </template>
-        </el-table-column>
-        
-        <el-table-column label="返点政策" prop="rebate_policy" width="150" show-overflow-tooltip>
-          <template #default="{ row }">
-            {{ row.rebate_policy || '-' }}
-          </template>
-        </el-table-column>
-        
-        <el-table-column label="返点区间" prop="rebate_range" width="120" align="center">
-          <template #default="{ row }">
-            <span v-if="row.rebate_range" class="rebate-highlight">
-              {{ row.rebate_range }}
-            </span>
-            <span v-else>-</span>
-          </template>
-        </el-table-column>
-        
-        <el-table-column label="政策等级" prop="policy_level" width="100" align="center">
-          <template #default="{ row }">
-            <el-tag v-if="row.policy_level" :type="getPolicyLevelType(row.policy_level)" size="small">
-              {{ row.policy_level }}级
-            </el-tag>
-            <span v-else>-</span>
-          </template>
-        </el-table-column>
-        
-        <el-table-column label="返点账期" prop="rebate_period" width="120" show-overflow-tooltip>
-          <template #default="{ row }">
-            {{ row.rebate_period || '-' }}
-          </template>
-        </el-table-column>
-        
-        <el-table-column label="支付账期" prop="pay_period" width="120" show-overflow-tooltip>
-          <template #default="{ row }">
-            {{ row.pay_period || '-' }}
-          </template>
-        </el-table-column>
-        
-        <el-table-column label="星图ID" width="160" show-overflow-tooltip>
-          <template #default="{ row }">
-            <div style="font-family: monospace; font-size: 12px;">
-              {{ row.star_id }}
+          </div>
+        </div>
+
+        <!-- 中间内容区域 - 包含所有数据指标 -->
+        <div class="card-section middle-content">
+          <!-- 粉丝数据区域 -->
+          <div class="fans-section">
+            <div class="fans-item">
+              <div class="fans-value">{{ formatFollower(item.follower) }}</div>
+              <div class="fans-label">粉丝数</div>
             </div>
-          </template>
-        </el-table-column>
-      </el-table>
+            <div class="fans-item" v-if="item.fans_increment_rate_30d !== undefined">
+              <div class="fans-value" :class="getGrowthClass(item.fans_increment_rate_30d)">
+                {{ formatPercent(item.fans_increment_rate_30d) }}
+              </div>
+              <div class="fans-label">30天增长</div>
+            </div>
+          </div>
+
+          <!-- 互动数据区域 -->
+          <div class="metric-section">
+            <div class="section-content">
+              <div class="section-title">互动数据</div>
+              <div class="metric-item">
+                <div class="metric-label">互动率</div>
+                <div class="metric-value" :class="getInteractClass(item.interact_rate_30d)">
+                  {{ formatPercent(item.interact_rate_30d) }}
+                </div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-label">完播率</div>
+                <div class="metric-value">
+                  {{ formatPercent(item.play_over_rate_30d) }}
+                </div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-label">播放量</div>
+                <div class="metric-value">
+                  {{ formatNumber(item.vv_median_30d) }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 营销能力区域 -->
+          <div class="metric-section" v-if="showMarketingMetrics(item)">
+            <div class="section-content">
+              <div class="section-title">营销能力</div>
+              <div class="metric-item">
+                <div class="metric-label">转化</div>
+                <el-rate
+                  :model-value="getStarRating(item.link_convert_index)"
+                  disabled
+                  size="small"
+                />
+              </div>
+              <div class="metric-item">
+                <div class="metric-label">购物</div>
+                <el-rate
+                  :model-value="getStarRating(item.link_shopping_index)"
+                  disabled
+                  size="small"
+                />
+              </div>
+              <div class="metric-item">
+                <div class="metric-label">星图指数</div>
+                <div class="metric-value star-index">
+                  {{ (item.star_index !== undefined && item.star_index !== null) ? formatNumber(item.star_index) : '-' }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 价格信息区域 -->
+          <div class="price-section" v-if="showPriceInfo(item)">
+            <div class="section-content">
+              <div class="section-title">价格区间</div>
+              <div class="price-item" v-if="item.price_1_20">
+                <span class="duration">1-20s</span>
+                <span class="price">{{ formatPrice(item.price_1_20) }}</span>
+              </div>
+              <div class="price-item" v-if="item.price_20_60">
+                <span class="duration">21-60s</span>
+                <span class="price highlighted">{{ formatPrice(item.price_20_60) }}</span>
+              </div>
+              <div class="price-item" v-if="item.price_60">
+                <span class="duration">60s+</span>
+                <span class="price">{{ formatPrice(item.price_60) }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 电商能力区域 -->
+          <div
+            v-if="showSpecialCapabilities(item)"
+            class="ecommerce-section"
+          >
+            <div class="section-title">
+              <Icon icon="lucide:shopping-bag" />
+              电商带货
+              <el-tag :type="getEcomLevelType(item.author_ecom_level)" size="small">
+                {{ item.author_ecom_level }}级
+              </el-tag>
+            </div>
+            <div class="ecommerce-data">
+              <span v-if="item.ecom_gmv_30d_range">GMV: {{ item.ecom_gmv_30d_range }}</span>
+              <span>视频: {{ item.star_ecom_video_num_30d }}条</span>
+              <span v-if="item.ecom_score">评分: {{ item.ecom_score.toFixed(2) }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 私域信息区域 -->
+        <div v-if="item.is_matched" class="card-section private-section">
+          <div class="section-header">
+            <Icon icon="lucide:building-2" />
+            合作信息
+            <el-tag type="success" size="small" effect="dark">已建联</el-tag>
+          </div>
+          <div class="private-info">
+            <div v-if="item.org_name" class="info-item">
+              <span class="label">机构:</span>
+              <span class="value">{{ item.org_name }}</span>
+            </div>
+            <div v-if="item.is_exclusive === 1" class="info-item">
+              <el-tag type="danger" size="small" effect="dark">
+                <Icon icon="lucide:star" />
+                独家资源
+              </el-tag>
+            </div>
+            <div v-if="item.rebate_range" class="info-item">
+              <span class="label">返点:</span>
+              <span class="value highlighted">{{ item.rebate_range }}</span>
+            </div>
+            <div v-if="item.policy_level" class="info-item">
+              <span class="label">政策等级:</span>
+              <el-tag :type="getPolicyLevelType(item.policy_level)" size="small">
+                {{ item.policy_level }}级
+              </el-tag>
+            </div>
+            <div v-if="item.cooperation_degree" class="info-item">
+              <span class="label">配合度:</span>
+              <el-rate
+                :model-value="getCooperationStars(item.cooperation_degree)"
+                disabled
+                size="small"
+              />
+            </div>
+            <div v-if="item.rebate_period" class="info-item">
+              <span class="label">账期:</span>
+              <span class="value">{{ item.rebate_period }}</span>
+            </div>
+            <div v-if="item.annual_contract_org" class="info-item">
+              <span class="label">年框:</span>
+              <span class="value">{{ item.annual_contract_org }}</span>
+            </div>
+          </div>
+          <div v-if="item.cooperation_intro" class="cooperation-intro">
+            <Icon icon="lucide:info" />
+            合作简介: {{ item.cooperation_intro }}
+          </div>
+          <div v-if="item.remark" class="remark-section">
+            <Icon icon="lucide:message-square" />
+            备注: {{ item.remark }}
+          </div>
+        </div>
+
+        <!-- 操作按钮区域 -->
+        <div class="card-section actions-section">
+
+          <el-button size="small" @click.stop="handleViewDetail(item)">
+            <Icon icon="lucide:eye" />
+            详情
+          </el-button>
+          <el-button size="small" @click.stop="handleCompare(item)">
+            <Icon icon="lucide:git-compare" />
+            对比
+          </el-button>
+          <el-button size="small" @click.stop="handleEvaluate(item)">
+            <Icon icon="lucide:star" />
+            评价
+          </el-button>
+          <el-button
+            size="small"
+            :type="item.isFavorited ? 'warning' : 'default'"
+            @click.stop="handleFavorite(item)"
+          >
+            <Icon :icon="item.isFavorited ? 'lucide:star' : 'lucide:star-off'" />
+          </el-button>
+          <el-button
+            size="small"
+            type="warning"
+            @click.stop="handleUpdateData(item)"
+            :loading="item.updating"
+          >
+            <Icon icon="lucide:refresh-cw" />
+            {{ item.updating ? '更新中...' : '更新' }}
+          </el-button>
+          <el-checkbox
+            v-model="item.isSelected"
+            @change="handleSelectionChange(item, $event)"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -219,6 +311,7 @@
 import { log } from '../../../../utils/logger'
 import { watch, ref, nextTick } from 'vue'
 import { ElMessage, type ElTable } from 'element-plus'
+import { IconifyIcon as Icon } from '@vben/icons'
 import InfluencerCard from '../InfluencerCard.vue'
 import { useInfluencerSquareStore } from '#/store'
 import { storeToRefs } from 'pinia'
@@ -234,56 +327,10 @@ const store = useInfluencerSquareStore()
 const { influencers, currentPage } = storeToRefs(store)
 const router = useRouter()
 const tableRef = ref<InstanceType<typeof ElTable>>()
+const hoveredCardId = ref('')
 
 // 是否正在恢复选中状态(防止触发 selection-change)
 let isRestoring = false
-
-// 监听数据加载完成，恢复选中状态
-watch(
-  () => influencers.value,
-  async (newData) => {
-    if (!newData || newData.length === 0) return
-    
-    // 等待表格完全渲染
-    await nextTick()
-    await nextTick()
-    
-    // 延迟100ms确保表格完全ready
-    setTimeout(() => {
-      restoreSelection()
-    }, 100)
-  },
-  { deep: false }
-)
-
-// 恢复选中状态
-const restoreSelection = () => {
-  if (!tableRef.value) return
-  
-  //log.debug('[DouyinGrid] 开始恢复选中状态, 总选中数:', store.selectedCount)
-  
-  // 设置恢复标志,防止触发 selection-change
-  isRestoring = true
-  
-  // 先清空
-  tableRef.value.clearSelection()
-  
-  // 遍历当前页数据,恢复选中
-  let restoredCount = 0
-  influencers.value.forEach(row => {
-    if (store.selectedInfluencerIds.has(row.author_id)) {
-      tableRef.value?.toggleRowSelection(row, true)
-      restoredCount++
-    }
-  })
-  
-  //log.debug('[DouyinGrid] 恢复完成, 本页恢复:', restoredCount, '总选中:', store.selectedCount)
-  
-  // 延迟解除恢复标志
-  setTimeout(() => {
-    isRestoring = false
-  }, 50)
-}
 
 // 确保 influencers 总是有值
 if (!influencers.value) {
@@ -312,7 +359,7 @@ const formatPrice = (value: number | string): string => {
   if (!value) return '0'
   const numValue = typeof value === 'string' ? parseFloat(value) : value
   if (isNaN(numValue)) return '0'
-  if (numValue >= 10000) return `${(numValue / 10000).toFixed(1)}万`
+  if (numValue >= 10000) return `¥${(numValue / 10000).toFixed(1)}万`
   return numValue.toLocaleString()
 }
 
@@ -324,9 +371,37 @@ const getGrowthClass = (rate: number): string => {
   return 'growth-negative'
 }
 
-const getContentTags = (row: any): string[] => {
-  const tags = row.primary_tags || []
-  return Array.isArray(tags) ? tags.slice(0, 3) : []  // 最多显示3个标签
+const getTierLabel = (tier: string): string => {
+  const labels = {
+    mega: '顶流',
+    macro: '头部',
+    micro: '腰部',
+    nano: '新星',
+  }
+  return labels[tier as keyof typeof labels] || '未知'
+}
+
+const getInteractClass = (rate: number): string => {
+  const avgRate = 0.06 // 假设平均互动率6%
+  if (rate > avgRate * 1.2) return 'interact-high'
+  if (rate < avgRate * 0.8) return 'interact-low'
+  return 'interact-medium'
+}
+
+const getStarRating = (index: number): number => {
+  if (index === undefined || index === null) return 0
+  // 转换 0-100 的分数为 0-5 的星级
+  const rating = (index / 100) * 5
+  return Math.round(rating * 2) / 2  // 四舍五入到 0.5
+}
+
+const getEcomLevelType = (level: string): string => {
+  const types: Record<string, string> = {
+    'A': 'danger',
+    'B': 'warning',
+    'C': 'info',
+  }
+  return types[level] || 'info'
 }
 
 const getPolicyLevelType = (level: string): string => {
@@ -338,12 +413,38 @@ const getPolicyLevelType = (level: string): string => {
   return types[level] || 'info'
 }
 
+const getCooperationStars = (degree: string): number => {
+  const stars: Record<string, number> = {
+    'high': 5,
+    'medium': 3,
+    'low': 1,
+  }
+  return stars[degree] || 0
+}
+
+// 计算属性
+const showMarketingMetrics = (item: any) => {
+  const hasConvert = item.link_convert_index !== undefined && item.link_convert_index !== null
+  const hasShopping = item.link_shopping_index !== undefined && item.link_shopping_index !== null
+  const hasStarIndex = item.star_index !== undefined && item.star_index !== null
+  return hasConvert || hasShopping || hasStarIndex
+}
+
+const showPriceInfo = (item: any) => {
+  return item.price_1_20 > 0 || item.price_20_60 > 0 || item.price_60 > 0
+}
+
+const showSpecialCapabilities = (item: any) => {
+  // 只有当电商开通且有电商视频时才显示
+  return item.e_commerce_enable && item.star_ecom_video_num_30d > 0
+}
+
 // 事件处理
 const handleViewDetail = (data: any) => {
   log.debug('📤 [跳转详情] author_id:', data.author_id, 'nick_name:', data.nick_name)
   const targetPath = `/influencer-detail/${data.author_id}`
   log.debug('📤 [跳转详情] 目标路径:', targetPath)
-  
+
   try {
     router.push(targetPath)
     log.debug('✅ [跳转详情] 路由跳转成功')
@@ -364,46 +465,6 @@ const handleFavorite = (data: any) => {
 
 const handleSelectionChange = (data: any, selected: boolean) => {
   store.toggleInfluencerSelection(data.author_id)
-}
-
-const handleTableSelectionChange = (selection: any[]) => {
-  // 如果正在恢复选中状态,忽略此事件
-  if (isRestoring) {
-    //log.debug('[DouyinGrid] 恢复中,跳过 selection-change')
-    return
-  }
-  
-  const selectedIds = selection.map(item => item.author_id)
-  const allCurrentPageIds = influencers.value.map(item => item.author_id)
-  
-  // 移除当前页未选中的
-  const unselectedIds = allCurrentPageIds.filter(id => !selectedIds.includes(id))
-  store.setInfluencerSelection(unselectedIds, false)
-  
-  // 添加当前页选中的
-  store.setInfluencerSelection(selectedIds, true)
-  
-  // log.debug('[DouyinGrid] 选中变化:', {
-  //   当前页选中: selectedIds.length,
-  //   总选中数: store.selectedCount
-  // })
-}
-
-// 处理表格排序
-const handleSortChange = ({ column, prop, order }: any) => {
-  log.debug('排序变化:', { prop, order })
-  
-  if (!prop || !order) {
-    // 清除排序，恢复默认
-    store.setSortBy('recommended')
-  } else {
-    // 根据字段和顺序设置排序
-    const sortOrder = order === 'ascending' ? 'asc' : 'desc'
-    store.setSortBy(`${prop}_${sortOrder}`)
-  }
-  
-  // 重新加载数据
-  store.loadInfluencersDebounced()
 }
 
 // 更新达人数据
@@ -429,109 +490,519 @@ const emit = defineEmits<{
   min-height: 400px;
 
   .table-view {
-    :deep(.el-table) {
-      font-size: 13px;
-      
-      .price-text {
-        color: #f56c6c;
-        font-weight: 600;
-      }
-      
-      .growth-high {
-        color: #67c23a;
-        font-weight: 600;
-      }
-      
-      .growth-medium {
-        color: #409eff;
-        font-weight: 500;
-      }
-      
-      .growth-low {
-        color: #909399;
-      }
-      
-      .growth-negative {
-        color: #f56c6c;
-      }
-      
-      .tags-container {
-        display: flex;
-        gap: 4px;
-        flex-wrap: wrap;
-      }
-      
-      .content-tags {
-        display: flex;
-        gap: 4px;
-        flex-wrap: wrap;
-        max-width: 100%;
-      }
-      
-      .rebate-highlight {
-        color: #f56c6c;
-        font-weight: 600;
-      }
-      
-      .avatar-wrapper {
-        display: flex;
-        justify-content: center;
+    &.card-content {
+      // 卡片内容显示在列表视图模式下
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .influencer-card {
+        background: var(--el-bg-color);
+        border-radius: 8px;
+        border: 1px solid var(--el-border-color-lighter);
+        transition: all 0.3s ease;
+        overflow: hidden;
+
+        // Grid自适应布局，头尾布局
+        display: grid;
+        grid-template-columns: auto auto 1fr auto auto;
         align-items: center;
-        
-        .table-avatar {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          object-fit: cover;
+        gap: 20px;
+        padding: 16px 20px;
+        min-height: 100px;
+
+        &:hover {
+          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+          border-color: var(--el-color-primary-light-5);
+          background: var(--el-fill-color-extra-light);
+        }
+
+        &.is-selected {
+          border-color: var(--el-color-primary);
+          background: var(--el-color-primary-light-9);
+        }
+
+        &.is-favorited {
+          border-left: 3px solid var(--el-color-warning);
+        }
+
+        // 每个card-section使用grid不换行
+        .card-section {
+          display: grid;
+          grid-auto-flow: column;
+          grid-auto-columns: minmax(auto, max-content);
+          gap: 8px;
+          align-items: center;
+          justify-content: start;
+          white-space: nowrap;
+        }
+
+        // 头像区域
+        .avatar-section {
+          position: relative;
+          grid-auto-flow: row;
+          justify-content: center;
+          gap: 0;
+
+          .avatar-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--el-fill-color-lighter);
+          }
+
+          .tier-badge {
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            white-space: nowrap;
+
+            &.tier-mega {
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            }
+
+            &.tier-macro {
+              background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            }
+
+            &.tier-micro {
+              background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            }
+
+            &.tier-nano {
+              background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            }
+          }
+        }
+
+        // 基本信息区域
+        .basic-info {
+          grid-auto-flow: row;
+          grid-auto-rows: minmax(auto, max-content);
+          gap: 4px;
+          min-width: 180px;
+          max-width: 250px;
+
+          .nick-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--el-text-color-primary);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          .star-id {
+            font-size: 13px;
+            color: var(--el-text-color-secondary);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          .special-badges {
+            display: grid;
+            grid-auto-flow: column;
+            gap: 4px;
+            justify-content: start;
+          }
+
+          .location {
+            font-size: 13px;
+            color: var(--el-text-color-regular);
+            display: grid;
+            grid-auto-flow: column;
+            align-items: center;
+            gap: 2px;
+            justify-content: start;
+          }
+
+          // 标签包装器
+          .tags-wrapper {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 6px;
+            align-items: center;
+            margin-top: 4px;
+
+            .tags-label {
+              font-size: 13px;
+              color: var(--el-text-color-secondary);
+              white-space: nowrap;
+            }
+
+            .tags-list {
+              display: grid;
+              grid-auto-flow: column;
+              gap: 4px;
+              justify-content: start;
+              overflow-x: auto;
+              max-width: 180px;
+
+              &::-webkit-scrollbar {
+                height: 4px;
+              }
+            }
+          }
+        }
+
+        // 中间内容区域
+        .middle-content {
+          display: grid;
+          grid-auto-flow: column;
+          grid-auto-columns: minmax(auto, max-content);
+          gap: 20px;
+          justify-content: start;
+          align-items: center; // 改为居中对齐
+          overflow: visible;
+          min-width: 0; // 允许内容收缩
+        }
+
+        // 粉丝数据区域
+        .fans-section {
+          width: 120px; // 固定宽度
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          justify-content: flex-start; // 从顶部开始排列
+          align-items: center;
+          flex-shrink: 0; // 防止被压缩
+          height: 100%; // 确保有足够高度
+
+          .fans-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            align-items: center;
+            text-align: center;
+
+            .fans-value {
+              font-size: 18px;
+              font-weight: 600;
+              color: var(--el-text-color-primary);
+              white-space: nowrap;
+
+              &.growth-high {
+                color: var(--el-color-success);
+              }
+
+              &.growth-medium {
+                color: var(--el-color-primary);
+              }
+
+              &.growth-low {
+                color: var(--el-color-danger);
+              }
+            }
+
+            .fans-label {
+              font-size: 13px;
+              color: var(--el-text-color-secondary);
+              white-space: nowrap;
+            }
+          }
+        }
+
+        // 指标区域
+        .metric-section {
+          width: 140px; // 固定宽度，包含互动数据和营销能力
+          flex-shrink: 0; // 防止被压缩;
+          height: 120px; // 固定总高度，与价格区域一致
+
+          .section-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            height: 100%;
+          }
+
+          .section-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--el-text-color-primary);
+            white-space: nowrap;
+            text-align: left;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--el-border-color-lighter);
+            flex-shrink: 0;
+          }
+
+          .metric-item {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 6px;
+            align-items: center;
+            font-size: 14px;
+            justify-content: left;
+
+            .metric-label {
+              color: var(--el-text-color-secondary);
+              white-space: nowrap;
+            }
+
+            .metric-value {
+              font-weight: 600;
+              color: var(--el-text-color-primary);
+              white-space: nowrap;
+              display: grid;
+              grid-auto-flow: column;
+              align-items: center;
+              gap: 2px;
+
+              &.growth-high {
+                color: var(--el-color-success);
+              }
+
+              &.growth-medium {
+                color: var(--el-color-primary);
+              }
+
+              &.growth-low {
+                color: var(--el-color-danger);
+              }
+
+              &.interact-high {
+                color: var(--el-color-success);
+              }
+
+              &.interact-low {
+                color: var(--el-color-danger);
+              }
+
+              &.star-index {
+                color: var(--el-color-warning);
+              }
+            }
+          }
+        }
+
+        // 价格区域
+        .price-section {
+          width: 120px; // 固定宽度
+          flex-shrink: 0; // 防止被压缩;
+          height: 120px; // 固定总高度，与指标区域一致
+
+          .section-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            height: 100%;
+          }
+
+          .section-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--el-text-color-primary);
+            white-space: nowrap;
+            text-align: left;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--el-border-color-lighter);
+            flex-shrink: 0;
+          }
+
+          .price-item {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 6px;
+            align-items: center;
+            font-size: 13px;
+            justify-content: left;
+
+            .duration {
+              color: var(--el-text-color-secondary);
+              white-space: nowrap;
+            }
+
+            .price {
+              font-weight: 600;
+              color: var(--el-color-primary);
+              white-space: nowrap;
+
+              &.highlighted {
+                color: var(--el-color-danger);
+                font-size: 12px;
+              }
+            }
+          }
+        }
+
+        // 电商能力区域
+        .ecommerce-section {
+          grid-auto-flow: row;
+          grid-auto-rows: minmax(auto, max-content);
+          gap: 4px;
+          width: 160px; // 固定宽度，比其他区域稍宽以容纳更多信息
+          flex-shrink: 0; // 防止被压缩
+          padding: 8px 12px;
           background: var(--el-fill-color-lighter);
-          transition: opacity 0.3s ease;
-          
-          &.lazy-loading {
-            opacity: 0.6;
+          border-radius: 6px;
+
+          .section-title {
+            display: grid;
+            grid-auto-flow: column;
+            gap: 4px;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--el-text-color-primary);
+            white-space: nowrap;
           }
-          
-          &.lazy-loaded {
-            opacity: 1;
+
+          .ecommerce-data {
+            display: grid;
+            grid-auto-flow: row;
+            gap: 4px;
+            font-size: 13px;
+            color: var(--el-text-color-secondary);
+            justify-content: center; // 居中显示
+            text-align: center;
+
+            span {
+              white-space: nowrap;
+            }
           }
-          
-          &.lazy-error {
-            opacity: 0.4;
+        }
+
+        // 私域信息区域
+        .private-section {
+          display: grid;
+          grid-template-columns: auto 1fr;
+          grid-template-rows: auto auto;
+          gap: 8px 16px;
+          padding: 12px 16px;
+          background: linear-gradient(135deg, var(--el-color-success-light-9) 0%, var(--el-fill-color) 100%);
+          border-radius: 6px;
+          min-width: 200px;
+          max-width: 280px;
+
+          .section-header {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 6px;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--el-color-success);
+            white-space: nowrap;
+            margin-bottom: 4px;
+
+            .iconify {
+              font-size: 16px;
+            }
           }
+
+          .private-info {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 12px;
+
+            .info-item {
+              display: grid;
+              grid-template-columns: auto 1fr;
+              gap: 6px;
+              align-items: center;
+              font-size: 13px;
+
+              .label {
+                color: var(--el-text-color-secondary);
+                white-space: nowrap;
+              }
+
+              .value {
+                font-weight: 500;
+                color: var(--el-text-color-primary);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+                &.highlighted {
+                  color: var(--el-color-danger);
+                  font-weight: 600;
+                }
+              }
+            }
+          }
+
+          .cooperation-intro,
+          .remark-section {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 4px;
+            align-items: start;
+            font-size: 13px;
+            color: var(--el-text-color-regular);
+            margin-top: 4px;
+
+            .iconify {
+              font-size: 14px;
+              color: var(--el-color-success);
+              margin-top: 2px;
+            }
+          }
+        }
+
+        // 操作按钮区域
+        .actions-section {
+          gap: 6px;
+          justify-content: end;
+
+          :deep(.el-button) {
+            padding: 4px 8px;
+            font-size: 13px;
+
+            .iconify {
+              font-size: 15px;
+            }
+          }
+        }
+      }
+
+      .placeholder-card {
+        background: var(--el-fill-color-lighter);
+        border-radius: 8px;
+        padding: 20px;
+        height: 400px;
+
+        .placeholder-header {
+          height: 60px;
+          background: var(--el-fill-color);
+          border-radius: 4px;
+          margin-bottom: 16px;
+        }
+
+        .placeholder-content {
+          height: 200px;
+          background: var(--el-fill-color);
+          border-radius: 4px;
+          margin-bottom: 16px;
+        }
+
+        .placeholder-footer {
+          height: 40px;
+          background: var(--el-fill-color);
+          border-radius: 4px;
         }
       }
     }
   }
 
   .card-view {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-
-    .placeholder-card {
-      background: var(--el-fill-color-lighter);
-      border-radius: 8px;
+    &.table-content {
+      // 卡片网格布局
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
       padding: 20px;
-      height: 400px;
-      
-      .placeholder-header {
-        height: 60px;
-        background: var(--el-fill-color);
-        border-radius: 4px;
-        margin-bottom: 16px;
-      }
-      
-      .placeholder-content {
-        height: 200px;
-        background: var(--el-fill-color);
-        border-radius: 4px;
-        margin-bottom: 16px;
-      }
-      
-      .placeholder-footer {
-        height: 40px;
-        background: var(--el-fill-color);
-        border-radius: 4px;
-      }
     }
   }
 }
