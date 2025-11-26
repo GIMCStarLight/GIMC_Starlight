@@ -309,7 +309,7 @@
 
 <script setup lang="ts">
 import { log } from '../../../../utils/logger'
-import { watch, ref, nextTick } from 'vue'
+import { watch, ref, nextTick, computed } from 'vue'
 import { ElMessage, type ElTable } from 'element-plus'
 import { IconifyIcon as Icon } from '@vben/icons'
 import InfluencerCard from '../InfluencerCard.vue'
@@ -317,14 +317,21 @@ import { useInfluencerSquareStore } from '#/store'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 
-defineProps<{
+const props = defineProps<{
   viewMode: 'card' | 'table'
   cardSize: 'compact' | 'standard' | 'detailed'
   loading: boolean
+  useStoreSelection?: boolean // 是否使用store管理选中状态，默认true
+  influencers?: any[] // 外部传入的达人数据，如果不提供则使用store
+  platform?: string
 }>()
 
 const store = useInfluencerSquareStore()
-const { influencers, currentPage } = storeToRefs(store)
+const storeRefs = storeToRefs(store)
+
+// 使用外部传入的 influencers，或者使用 store 的数据
+const influencers = computed(() => props.influencers || storeRefs.influencers.value)
+const currentPage = computed(() => storeRefs.currentPage.value)
 const router = useRouter()
 const tableRef = ref<InstanceType<typeof ElTable>>()
 const hoveredCardId = ref('')
@@ -464,7 +471,24 @@ const handleFavorite = (data: any) => {
 }
 
 const handleSelectionChange = (data: any, selected: boolean) => {
-  store.toggleInfluencerSelection(data.author_id)
+  log.debug('[DouyinGrid] 选中状态变化:', {
+    author_id: data.author_id,
+    nick_name: data.nick_name,
+    selected,
+    useStoreSelection: props.useStoreSelection
+  })
+  
+  // 先emit事件，让父组件可以拦截处理
+  emit('selection-change', data, selected)
+  
+  // 如果useStoreSelection为false，则不更新store
+  if (props.useStoreSelection !== false) {
+    log.debug('[DouyinGrid] 更新store选中状态')
+    store.toggleInfluencerSelection(data.author_id)
+    log.debug('[DouyinGrid] store当前选中数量:', store.selectedCount)
+  } else {
+    log.debug('[DouyinGrid] 跳过store更新（useStoreSelection=false）')
+  }
 }
 
 // 更新达人数据
@@ -482,6 +506,7 @@ const handleEvaluate = (row: any) => {
 const emit = defineEmits<{
   'update-data': [data: any]
   'evaluate': [data: any]
+  'selection-change': [data: any, selected: boolean]
 }>()
 </script>
 
