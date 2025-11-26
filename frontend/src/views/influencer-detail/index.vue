@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { log } from '../../utils/logger'
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, onUnmounted, computed, nextTick, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
+import * as echarts from 'echarts'
 import { getInfluencerFullData } from '../../api/influencer-v2'
 import KolReviewsTab from '../../components/KolReviewsTab/index.vue'
 
@@ -11,6 +12,8 @@ const router = useRouter()
 const loading = ref(false)
 const rawData = ref<Record<string, any>>({})
 const activeTab = ref('overview')
+const radarChartRef = ref<HTMLElement | null>(null)
+let radarChart: echarts.ECharts | null = null
 
 // 加载达人完整数据
 const loadInfluencerFullData = async () => {
@@ -77,11 +80,41 @@ const engagementData = computed(() => {
 // 计算属性：营销指数
 const marketingIndices = computed(() => {
   return [
-    { name: '转化指数', value: Number(rawData.value.link_convert_index || 0).toFixed(2), color: '#67C23A' },
-    { name: '购物指数', value: Number(rawData.value.link_shopping_index || 0).toFixed(2), color: '#E6A23C' },
-    { name: '传播指数', value: Number(rawData.value.link_spread_index || 0).toFixed(2), color: '#409EFF' },
-    { name: '星图指数', value: Number(rawData.value.link_star_index || 0).toFixed(2), color: '#F56C6C' },
+    { name: '转化指数', value: Number(rawData.value.link_convert_index || 0), color: '#67C23A' },
+    { name: '购物指数', value: Number(rawData.value.link_shopping_index || 0), color: '#E6A23C' },
+    { name: '传播指数', value: Number(rawData.value.link_spread_index || 0), color: '#409EFF' },
+    { name: '星图指数', value: Number(rawData.value.link_star_index || 0), color: '#F56C6C' },
   ]
+})
+
+// 计算属性：雷达图数据
+const radarChartData = computed(() => {
+  const indices = marketingIndices.value
+  const maxValue = Math.max(...indices.map(item => item.value), 10)
+
+  // 如果最大值小于100，则使用100作为最大值，让线条起伏更明显
+  const radarMax = maxValue < 100 ? 100 : maxValue
+
+  return {
+    indicators: indices.map(item => ({
+      name: item.name,
+      max: radarMax
+    })),
+    data: [{
+      value: indices.map(item => item.value),
+      name: '营销指数',
+      areaStyle: {
+        color: 'rgba(64, 158, 255, 0.3)'
+      },
+      lineStyle: {
+        color: '#409EFF',
+        width: 2
+      },
+      itemStyle: {
+        color: '#409EFF'
+      }
+    }]
+  }
 })
 
 // 计算属性：价格数据
@@ -179,13 +212,50 @@ const formatContactInfo = (info: any): string => {
   }
 }
 
+// 初始化雷达图
+const initRadarChart = () => {
+  if (!radarChartRef.value || radarChartRef.value.offsetHeight === 0) return
+  
+  if (radarChart) radarChart.dispose()
+  radarChart = echarts.init(radarChartRef.value)
+
+  radarChart.setOption({
+    tooltip: { trigger: 'item' },
+    radar: {
+      indicator: radarChartData.value.indicators,
+      center: ['50%', '50%'],
+      radius: '70%'
+    },
+    series: [{
+      type: 'radar',
+      data: radarChartData.value.data
+    }]
+  })
+}
+
+// 监听activeTab变化,切换到overview时初始化图表
+watch(activeTab, (newVal) => {
+  if (newVal === 'overview') {
+    nextTick(() => {
+      setTimeout(initRadarChart, 100)
+    })
+  }
+})
+
 // 返回上一页
 const goBack = () => {
   router.back()
 }
 
-onMounted(() => {
-  loadInfluencerFullData()
+onMounted(async () => {
+  await loadInfluencerFullData()
+  if (activeTab.value === 'overview') {
+    nextTick(() => setTimeout(initRadarChart, 100))
+  }
+})
+
+onUnmounted(() => {
+  radarChart?.dispose()
 })
 </script>
 
@@ -275,10 +345,11 @@ onMounted(() => {
           <el-tab-pane label="数据概览" name="overview">
             <div class="tab-content">
               <el-row :gutter="20">
-                <!-- 粉丝增长 -->
+                <!-- 左侧：粉丝增长和互动数据上下排列 -->
                 <el-col :span="12">
+                  <!-- 粉丝增长 -->
                   <div class="data-module">
-                    <h3 class="module-title">📈 粉丝增长数据</h3>
+                    <h3 class="module-title">粉丝增长数据</h3>
                     <el-descriptions :column="2" border>
                       <el-descriptions-item label="15天增长">{{ fansGrowth.increment15d }}</el-descriptions-item>
                       <el-descriptions-item label="30天增长">{{ fansGrowth.increment30d }}</el-descriptions-item>
@@ -286,12 +357,10 @@ onMounted(() => {
                       <el-descriptions-item label="当前粉丝">{{ formatNumber(rawData.follower) }}</el-descriptions-item>
                     </el-descriptions>
                   </div>
-                </el-col>
 
-                <!-- 互动数据 -->
-                <el-col :span="12">
-                  <div class="data-module">
-                    <h3 class="module-title">💬 互动表现数据</h3>
+                  <!-- 互动数据 -->
+                  <div class="data-module" style="margin-top: 50px;">
+                    <h3 class="module-title">互动表现数据</h3>
                     <el-descriptions :column="2" border>
                       <el-descriptions-item label="互动率(30天)">{{ engagementData.interactRate }}</el-descriptions-item>
                       <el-descriptions-item label="完播率(30天)">{{ engagementData.playOverRate }}</el-descriptions-item>
@@ -300,21 +369,17 @@ onMounted(() => {
                     </el-descriptions>
                   </div>
                 </el-col>
-              </el-row>
 
-              <!-- 营销能力指标 -->
-              <div class="data-module" style="margin-top: 20px;
-">
-                <h3 class="module-title">🎯 营销能力指数</h3>
-                <el-row :gutter="20">
-                  <el-col v-for="item in marketingIndices" :key="item.name" :span="6">
-                    <div class="index-card" :style="{ borderColor: item.color }">
-                      <div class="index-name">{{ item.name }}</div>
-                      <div class="index-value" :style="{ color: item.color }">{{ item.value }}</div>
+                <!-- 右侧：营销能力指标 -->
+                <el-col :span="12">
+                  <div class="data-module" style="height: 100%;">
+                    <h3 class="module-title" style="margin-bottom: 0;">营销能力指数</h3>
+                    <div class="radar-chart-container">
+                      <div ref="radarChartRef" class="radar-chart"></div>
                     </div>
-                  </el-col>
-                </el-row>
-              </div>
+                  </div>
+                </el-col>
+              </el-row>
             </div>
           </el-tab-pane>
 
@@ -867,6 +932,23 @@ onMounted(() => {
 :deep(.el-tabs__nav-wrap) {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 2px;
+}
+
+/* 雷达图容器样式 */
+.radar-chart-container {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  /* padding: 20px; */
+  background: #fff;
+  border-radius: 8px;
+  /* border: 1px solid #e4e7ed; */
+}
+
+.radar-chart {
+  width: 100%;
+  height: 300px;
+  max-width: 400px;
 }
 
 /* Tab容器左右padding与内容保持一致 */
