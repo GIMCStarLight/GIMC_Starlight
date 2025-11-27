@@ -16,6 +16,7 @@ const emit = defineEmits<{
 
 const formRef = ref<FormInstance>()
 const loading = ref(false)
+const attachmentUrl = ref('')
 
 // 表单数据
 const formData = reactive({
@@ -75,6 +76,7 @@ const resetForm = () => {
   formData.expectedCompletionAt = ''
   formData.modules = []
   formData.attachments = []
+  attachmentUrl.value = ''
   formRef.value?.clearValidate()
 }
 
@@ -111,8 +113,15 @@ const handleSubmit = async () => {
       if (formData.modules.length > 0) {
         submitData.modules = formData.modules
       }
-      if (formData.attachments.length > 0) {
-        submitData.attachments = formData.attachments
+      
+      // 处理附件：如果有输入URL，转换为对象格式
+      if (attachmentUrl.value.trim()) {
+        submitData.attachments = [{
+          name: '附件',
+          url: attachmentUrl.value.trim(),
+          size: 0,
+          type: 'url'
+        }]
       }
 
       await createWorkOrder(submitData)
@@ -209,8 +218,9 @@ const handleCancel = () => {
 
       <el-form-item label="附件">
         <el-input
-          v-model="formData.attachments[0]"
+          v-model="attachmentUrl"
           placeholder="附件URL（可选）"
+          clearable
         />
         <div class="text-xs text-gray-500 mt-1">
           提示：可以粘贴图片或文件的URL地址
