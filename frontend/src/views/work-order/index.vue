@@ -125,8 +125,9 @@ const loadWorkOrders = async () => {
       response = await getWorkOrderList(params)
     }
 
-    workOrderList.value = response.data.items
-    pagination.total = response.data.total
+    // requestClient 已自动解包 response.data.data，直接使用 response
+    workOrderList.value = response.items
+    pagination.total = response.total
   } catch (error: any) {
     ElMessage.error(error.message || '加载工单列表失败')
   } finally {
