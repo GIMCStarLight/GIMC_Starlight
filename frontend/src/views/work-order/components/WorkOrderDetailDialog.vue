@@ -205,7 +205,21 @@ const loadUserList = async () => {
     }
     
     const response = await getUserListApi(params)
-    userList.value = response.data
+    console.log('用户列表API响应:', response)
+    
+    // 根据实际返回结构解包数据
+    if (Array.isArray(response)) {
+      userList.value = response
+    } else if (response.data && Array.isArray(response.data)) {
+      userList.value = response.data
+    } else if (response.items && Array.isArray(response.items)) {
+      userList.value = response.items
+    } else {
+      console.warn('未知的用户列表数据结构:', response)
+      userList.value = []
+    }
+    
+    console.log('解析后的用户列表:', userList.value)
   } catch (error: any) {
     console.error('加载用户列表失败:', error)
     ElMessage.error(error.message || '加载用户列表失败')
