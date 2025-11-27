@@ -17,6 +17,8 @@ import {
   WorkOrderStatus,
   WorkOrderPriority,
 } from '../../api/work-order'
+import CreateWorkOrderDialog from './components/CreateWorkOrderDialog.vue'
+import WorkOrderDetailDialog from './components/WorkOrderDetailDialog.vue'
 
 // 页面状态
 const loading = ref(false)
@@ -175,6 +177,18 @@ const handleViewDetail = (row: WorkOrder) => {
 // 创建工单
 const handleCreate = () => {
   createDialogVisible.value = true
+}
+
+// 创建成功回调
+const handleCreateSuccess = () => {
+  loadWorkOrders()
+  loadStatistics()
+}
+
+// 详情对话框操作成功回调
+const handleDetailSuccess = () => {
+  loadWorkOrders()
+  loadStatistics()
 }
 
 // 删除工单
@@ -443,15 +457,18 @@ onMounted(() => {
       </div>
     </div>
 
-    <!-- 创建工单对话框 - 将在单独组件中实现 -->
-    <div v-if="createDialogVisible">
-      <!-- TODO: 创建工单表单组件 -->
-    </div>
+    <!-- 创建工单对话框 -->
+    <CreateWorkOrderDialog
+      v-model:visible="createDialogVisible"
+      @success="handleCreateSuccess"
+    />
 
-    <!-- 工单详情对话框 - 将在单独组件中实现 -->
-    <div v-if="detailDialogVisible && currentWorkOrder">
-      <!-- TODO: 工单详情组件 -->
-    </div>
+    <!-- 工单详情对话框 -->
+    <WorkOrderDetailDialog
+      v-model:visible="detailDialogVisible"
+      :work-order-id="currentWorkOrder?.id"
+      @success="handleDetailSuccess"
+    />
   </div>
 </template>
 
