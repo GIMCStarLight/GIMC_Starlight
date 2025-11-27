@@ -149,11 +149,18 @@ export class WorkOrderService {
       });
     }
 
-    // 排序
-    queryBuilder.orderBy(
-      `workOrder.${sortBy}`,
-      sortOrder as 'ASC' | 'DESC',
-    );
+    // 排序 - 将驼峰命名映射到数据库列名
+    const columnMap: Record<string, string> = {
+      created_at: 'workOrder.createdAt',
+      updated_at: 'workOrder.updatedAt',
+      title: 'workOrder.title',
+      status: 'workOrder.status',
+      priority: 'workOrder.priority',
+      type: 'workOrder.type',
+    };
+    
+    const orderColumn = columnMap[sortBy] || 'workOrder.createdAt';
+    queryBuilder.orderBy(orderColumn, sortOrder as 'ASC' | 'DESC');
 
     // 分页
     const skip = (page - 1) * limit;
