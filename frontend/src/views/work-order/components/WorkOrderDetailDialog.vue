@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, computed } from 'vue'
+import { ref, watch, computed, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import { IconifyIcon as Icon } from '@vben/icons'
 import {
@@ -14,6 +14,7 @@ import {
   WorkOrderPriority,
 } from '../../../api/work-order'
 import { getPermissionDetailApi } from '../../../api/core/permission'
+import { getUserListApi, type UserApi } from '../../../api/core/user'
 
 const props = defineProps<{
   visible: boolean
@@ -43,6 +44,9 @@ const newStatus = ref<WorkOrderStatus | null>(null)
 const assignDialogVisible = ref(false)
 const assignComment = ref('')
 const assigneeUserId = ref('')
+const userList = ref<UserApi.UserInfo[]>([])
+const userListLoading = ref(false)
+const userSearchKeyword = ref('')
 
 // 工单类型映射
 const typeLabels: Record<WorkOrderType, string> = {
@@ -186,12 +190,39 @@ const confirmStatusUpdate = async () => {
 // 打开分配对话框
 const handleAssign = () => {
   assignDialogVisible.value = true
+  loadUserList() // 加载用户列表
+}
+
+// 加载用户列表
+const loadUserList = async () => {
+  userListLoading.value = true
+  try {
+    const response = await getUserListApi({
+      page: 1,
+      limit: 100,
+      status: 1, // 只获取启用的用户
+      search: userSearchKeyword.value,
+    })
+    userList.value = response.data
+  } catch (error: any) {
+    ElMessage.error(error.message || '加载用户列表失败')
+  } finally {
+    userListLoading.value = false
+  }
+}
+
+// 搜索用户
+const handleUserSearch = (query: string) => {
+  userSearchKeyword.value = query
+  if (assignDialogVisible.value) {
+    loadUserList()
+  }
 }
 
 // 确认分配
 const confirmAssign = async () => {
   if (!workOrder.value || !assigneeUserId.value) {
-    ElMessage.warning('请输入分配人ID')
+    ElMessage.warning('请选择分配人')
     return
   }
   
@@ -419,12 +450,30 @@ const getLogColor = (action: string) => {
     >
       <el-form label-width="80px">
         <el-form-item label="分配给" required>
-          <el-input
+          <el-select
             v-model="assigneeUserId"
-            placeholder="请输入用户ID"
-          />
+            placeholder="请选择用户"
+            filterable
+            remote
+            :remote-method="handleUserSearch"
+            :loading="userListLoading"
+            clearable
+            class="w-full"
+          >
+            <el-option
+              v-for="user in userList"
+              :key="user.id"
+              :label="user.name || user.phone"
+              :value="user.id"
+            >
+              <div class="flex items-center justify-between">
+                <span>{{ user.name || user.phone }}</span>
+                <span class="text-xs text-gray-400">{{ user.department || '无部门' }}</span>
+              </div>
+            </el-option>
+          </el-select>
           <div class="text-xs text-gray-500 mt-1">
-            提示：请输入要分配的用户ID
+            提示：可搜索用户名称或手机号
           </div>
         </el-form-item>
         <el-form-item label="备注">
