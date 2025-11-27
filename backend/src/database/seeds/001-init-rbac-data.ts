@@ -773,6 +773,50 @@ export class InitRbacDataSeed {
         type: 'BUTTON',
         description: '导出返点流程数据',
       },
+
+      // 工单管理权限
+      {
+        code: 'work-order:access',
+        name: '工单管理',
+        type: 'MENU',
+        description: '访问工单管理模块',
+      },
+      {
+        code: 'work-order:view',
+        name: '查看工单',
+        type: 'API',
+        description: '查看工单列表和详情',
+      },
+      {
+        code: 'work-order:create',
+        name: '创建工单',
+        type: 'API',
+        description: '创建新工单',
+      },
+      {
+        code: 'work-order:update',
+        name: '更新工单',
+        type: 'API',
+        description: '更新工单信息',
+      },
+      {
+        code: 'work-order:delete',
+        name: '删除工单',
+        type: 'API',
+        description: '删除工单',
+      },
+      {
+        code: 'work-order:update-status',
+        name: '更新工单状态',
+        type: 'API',
+        description: '更新工单状态',
+      },
+      {
+        code: 'work-order:assign',
+        name: '分配工单',
+        type: 'API',
+        description: '分配工单给处理人',
+      },
     ];
 
     const permissions: Record<string, Permission> = {};

@@ -27,6 +27,10 @@ import { SupplierDatabase } from './supplier-database.entity';
 // KOL评论实体
 import { KolReviews } from './kol-reviews.entity';
 
+// 工单管理实体
+import { WorkOrder } from './work-order.entity';
+import { WorkOrderLog } from './work-order-log.entity';
+
 // 导出所有实体
 export * from './kol-list.entity';
 export * from './kol-private-matches.entity';
@@ -42,6 +46,8 @@ export * from '../../modules/sqlbot/entities/sqlbot-config.entity';
 export * from './supplier-database.entity';
 export * from './kol-reviews.entity';
 export * from './author-raw-archive.entity';
+export * from './work-order.entity';
+export * from './work-order-log.entity';
 
 // MySQL数据库实体 - 用户认证和权限管理系统
 export const MYSQL_ENTITIES = [
@@ -52,6 +58,8 @@ export const MYSQL_ENTITIES = [
   RolePermission,
   UserRole,
   Tag,
+  WorkOrder,
+  WorkOrderLog,
 ];
 
 // PostgreSQL数据库实体 - 业务数据
