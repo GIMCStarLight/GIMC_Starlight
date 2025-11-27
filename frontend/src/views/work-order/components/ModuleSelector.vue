@@ -85,11 +85,16 @@ const categorizedModules = computed(() => {
     result[cat.name] = []
   })
   
-  // 分类权限（只取MENU类型的权限）
+  // 统计所有权限
+  const allPermissions: PermissionApi.PermissionInfo[] = []
+  
+  // 扁平化处理权限（包含所有类型的权限）
   const flattenPermissions = (permissions: PermissionApi.PermissionInfo[]): void => {
     permissions.forEach(permission => {
-      // 只处理MENU类型的权限
-      if (permission.type === 'MENU' && permission.status === 1) {
+      // 只取启用的权限，不限制类型
+      if (permission.status === 1) {
+        allPermissions.push(permission)
+        
         const permName = String(permission.name || '')
         const permCode = permission.code || ''
         const permResource = permission.resource || ''
@@ -126,6 +131,19 @@ const categorizedModules = computed(() => {
   }
   
   flattenPermissions(permissionList.value)
+  
+  // 添加调试信息
+  console.log('权限分类统计：', {
+    总权限数: allPermissions.length,
+    分类详情: Object.fromEntries(
+      Object.entries(result).map(([name, perms]) => [name, perms.length])
+    ),
+    权限类型分布: {
+      MENU: allPermissions.filter(p => p.type === 'MENU').length,
+      BUTTON: allPermissions.filter(p => p.type === 'BUTTON').length,
+      API: allPermissions.filter(p => p.type === 'API').length,
+    }
+  })
   
   return result
 })
@@ -188,6 +206,30 @@ const isSelected = (permissionId: string) => {
   return selectedModules.value.includes(permissionId)
 }
 
+// 统计信息
+const totalPermissionCount = computed(() => {
+  let count = 0
+  const countPermissions = (permissions: PermissionApi.PermissionInfo[]): void => {
+    permissions.forEach(permission => {
+      if (permission.status === 1) count++
+      if (permission.children && permission.children.length > 0) {
+        countPermissions(permission.children)
+      }
+    })
+  }
+  countPermissions(permissionList.value)
+  return count
+})
+
+const categorizedCount = computed(() => {
+  return Object.values(categorizedModules.value)
+    .reduce((total, perms) => total + perms.length, 0)
+})
+
+const uncategorizedCount = computed(() => {
+  return categorizedModules.value['其他功能']?.length || 0
+})
+
 // 获取选中权限的名称（递归查找）
 const getSelectedPermissionName = (permId: string): string => {
   const findInList = (list: PermissionApi.PermissionInfo[]): string | null => {
@@ -214,6 +256,26 @@ const getCategoryIcon = (catName: string) => {
 // 获取分类颜色
 const getCategoryColor = (catName: string) => {
   return categories.find(c => c.name === catName)?.color || '#6b7280'
+}
+
+// 获取权限类型标签
+const getPermissionTypeLabel = (type: string) => {
+  const labels: Record<string, string> = {
+    MENU: '菜单',
+    BUTTON: '按钮',
+    API: '接口',
+  }
+  return labels[type] || type
+}
+
+// 获取权限类型颜色
+const getPermissionTypeColor = (type: string) => {
+  const colors: Record<string, any> = {
+    MENU: '',
+    BUTTON: 'success',
+    API: 'warning',
+  }
+  return colors[type] || 'info'
 }
 
 // 初始化选中值
@@ -256,6 +318,11 @@ onMounted(() => {
 
     <!-- 分类列表 -->
     <div class="categories-container">
+      <!-- 添加统计信息 -->
+      <div class="mb-4 p-2 bg-gray-50 rounded text-sm text-gray-600">
+        权限总数：{{ totalPermissionCount }}，已分类：{{ categorizedCount }}，未分类：{{ uncategorizedCount }}
+      </div>
+      
       <el-collapse v-model="activeCategories" accordion>
         <el-collapse-item
           v-for="(permissions, catName) in filteredCategories"
@@ -285,9 +352,15 @@ onMounted(() => {
             >
               <div class="flex items-center gap-2 flex-1">
                 <Icon icon="lucide:check-square" :size="16" />
-                <div class="flex flex-col">
-                  <span class="module-title">{{ permission.name }}</span>
+                <div class="flex flex-col flex-1">
+                  <div class="flex items-center gap-2">
+                    <span class="module-title">{{ permission.name }}</span>
+                    <el-tag :type="getPermissionTypeColor(permission.type)" size="small">
+                      {{ getPermissionTypeLabel(permission.type) }}
+                    </el-tag>
+                  </div>
                   <span v-if="permission.description" class="module-desc">{{ permission.description }}</span>
+                  <span v-if="permission.code" class="module-code">{{ permission.code }}</span>
                 </div>
               </div>
               <Icon
@@ -372,6 +445,13 @@ const activeCategories = ref<string[]>(['KOL数据管理'])
 .module-desc {
   font-size: 12px;
   color: #9ca3af;
+  margin-top: 2px;
+}
+
+.module-code {
+  font-size: 11px;
+  color: #d1d5db;
+  font-family: monospace;
   margin-top: 2px;
 }
 
