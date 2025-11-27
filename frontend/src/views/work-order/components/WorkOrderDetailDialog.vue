@@ -46,7 +46,6 @@ const assignComment = ref('')
 const assigneeUserId = ref('')
 const userList = ref<UserApi.UserInfo[]>([])
 const userListLoading = ref(false)
-const userSearchKeyword = ref('')
 
 // 工单类型映射
 const typeLabels: Record<WorkOrderType, string> = {
@@ -190,7 +189,10 @@ const confirmStatusUpdate = async () => {
 // 打开分配对话框
 const handleAssign = () => {
   assignDialogVisible.value = true
-  loadUserList() // 加载用户列表
+  // 如果用户列表为空，则加载
+  if (userList.value.length === 0) {
+    loadUserList()
+  }
 }
 
 // 加载用户列表
@@ -202,11 +204,6 @@ const loadUserList = async () => {
       limit: 100,
     }
     
-    // 只有启用状态的用户
-    if (userSearchKeyword.value) {
-      params.search = userSearchKeyword.value
-    }
-    
     const response = await getUserListApi(params)
     userList.value = response.data
   } catch (error: any) {
@@ -214,14 +211,6 @@ const loadUserList = async () => {
     ElMessage.error(error.message || '加载用户列表失败')
   } finally {
     userListLoading.value = false
-  }
-}
-
-// 搜索用户
-const handleUserSearch = (query: string) => {
-  userSearchKeyword.value = query
-  if (assignDialogVisible.value) {
-    loadUserList()
   }
 }
 
@@ -460,9 +449,6 @@ const getLogColor = (action: string) => {
             v-model="assigneeUserId"
             placeholder="请选择用户"
             filterable
-            remote
-            :remote-method="handleUserSearch"
-            :loading="userListLoading"
             clearable
             class="w-full"
           >
@@ -479,7 +465,7 @@ const getLogColor = (action: string) => {
             </el-option>
           </el-select>
           <div class="text-xs text-gray-500 mt-1">
-            提示：可搜索用户名称或手机号
+            提示：可输入关键词快速过滤用户
           </div>
         </el-form-item>
         <el-form-item label="备注">
