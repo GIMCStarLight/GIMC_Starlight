@@ -31,8 +31,8 @@ export enum WorkOrderLogAction {
  * 记录工单的所有操作历史
  */
 @Entity('work_order_logs')
-@Index(['work_order_id'])
-@Index(['created_at'])
+@Index(['workOrderId'])
+@Index(['createdAt'])
 export class WorkOrderLog {
   @PrimaryGeneratedColumn('uuid', { comment: '日志ID' })
   id: string;
