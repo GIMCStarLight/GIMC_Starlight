@@ -13,6 +13,7 @@ import {
   WorkOrderStatus,
   WorkOrderPriority,
 } from '../../../api/work-order'
+import { getPermissionDetailApi } from '../../../api/core/permission'
 
 const props = defineProps<{
   visible: boolean
@@ -29,6 +30,9 @@ const logsLoading = ref(false)
 const workOrder = ref<WorkOrder | null>(null)
 const logs = ref<WorkOrderLog[]>([])
 const activeTab = ref('detail')
+
+// 模块名称映射（权限ID -> 权限名称）
+const moduleNames = ref<Record<string, string>>({})
 
 // 状态更新对话框
 const statusDialogVisible = ref(false)
@@ -100,11 +104,34 @@ const loadDetail = async () => {
   loading.value = true
   try {
     workOrder.value = await getWorkOrderDetail(props.workOrderId)
+    // 加载模块名称
+    if (workOrder.value.modules && workOrder.value.modules.length > 0) {
+      await loadModuleNames(workOrder.value.modules)
+    }
   } catch (error: any) {
     ElMessage.error(error.message || '加载工单详情失败')
   } finally {
     loading.value = false
   }
+}
+
+// 加载模块名称
+const loadModuleNames = async (moduleIds: string[]) => {
+  for (const id of moduleIds) {
+    if (!moduleNames.value[id]) {
+      try {
+        const permission = await getPermissionDetailApi(id)
+        moduleNames.value[id] = permission.name
+      } catch (error) {
+        moduleNames.value[id] = id // 失败时使用ID
+      }
+    }
+  }
+}
+
+// 获取模块显示名称
+const getModuleName = (moduleId: string) => {
+  return moduleNames.value[moduleId] || moduleId
 }
 
 // 加载工单日志
@@ -272,12 +299,12 @@ const getLogColor = (action: string) => {
               <el-descriptions-item v-if="workOrder.modules && workOrder.modules.length > 0" label="涉及模块" :span="2">
                 <div class="flex flex-wrap gap-2">
                   <el-tag
-                    v-for="(module, index) in workOrder.modules"
+                    v-for="(moduleId, index) in workOrder.modules"
                     :key="index"
                     type="info"
                     size="small"
                   >
-                    {{ module }}
+                    {{ getModuleName(moduleId) }}
                   </el-tag>
                 </div>
               </el-descriptions-item>

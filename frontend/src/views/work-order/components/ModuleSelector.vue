@@ -2,8 +2,7 @@
 import { ref, onMounted, computed } from 'vue'
 import { ElMessage } from 'element-plus'
 import { IconifyIcon as Icon } from '@vben/icons'
-import { getAllMenusApi } from '../../../api/core/menu'
-import type { RouteRecordStringComponent } from '@vben/types'
+import { getPermissionTreeListApi, type PermissionApi } from '../../../api/core/permission'
 
 const props = defineProps<{
   modelValue: string[]
@@ -14,7 +13,7 @@ const emit = defineEmits<{
 }>()
 
 const loading = ref(false)
-const menuTree = ref<RouteRecordStringComponent[]>([])
+const permissionList = ref<PermissionApi.PermissionInfo[]>([])
 const selectedModules = ref<string[]>([])
 const searchKeyword = ref('')
 
@@ -28,10 +27,10 @@ interface ModuleCategory {
 
 const categories: ModuleCategory[] = [
   {
-    name: '数据管理',
-    icon: 'lucide:database',
+    name: 'KOL数据管理',
+    icon: 'lucide:users',
     color: '#3b82f6',
-    keywords: ['kol', 'influencer', 'author', '数据', '列表'],
+    keywords: ['kol', 'influencer', 'author', 'data', '达人', '作者', '数据'],
   },
   {
     name: '财务管理',
@@ -46,10 +45,10 @@ const categories: ModuleCategory[] = [
     keywords: ['supplier', '供应商'],
   },
   {
-    name: '系统管理',
-    icon: 'lucide:settings',
+    name: '权限管理',
+    icon: 'lucide:shield',
     color: '#8b5cf6',
-    keywords: ['system', 'user', 'role', 'permission', '系统', '用户', '角色', '权限'],
+    keywords: ['user', 'role', 'permission', '用户', '角色', '权限'],
   },
   {
     name: '工单管理',
@@ -58,68 +57,75 @@ const categories: ModuleCategory[] = [
     keywords: ['work-order', '工单'],
   },
   {
+    name: '标签管理',
+    icon: 'lucide:tags',
+    color: '#06b6d4',
+    keywords: ['tag', '标签'],
+  },
+  {
+    name: 'AI助手',
+    icon: 'lucide:bot',
+    color: '#a855f7',
+    keywords: ['ai', 'assistant', 'chat', '助手', '智能'],
+  },
+  {
     name: '其他功能',
     icon: 'lucide:grid',
     color: '#6b7280',
-    keywords: ['tag', 'ai', 'dashboard', '标签', '仪表盘'],
+    keywords: [],
   },
 ]
 
-// 分类菜单项
+// 分类权限项
 const categorizedModules = computed(() => {
-  const result: Record<string, RouteRecordStringComponent[]> = {}
+  const result: Record<string, PermissionApi.PermissionInfo[]> = {}
   
   // 初始化分类
   categories.forEach(cat => {
     result[cat.name] = []
   })
   
-  // 分类菜单
-  const flattenMenu = (menus: RouteRecordStringComponent[], parentPath = ''): void => {
-    menus.forEach(menu => {
-      const fullPath = parentPath + (menu.path || '')
-      const menuTitle = String(menu.meta?.title || menu.name || '')
-      const menuPath = menu.path || ''
-      
-      // 跳过隐藏的菜单
-      if (menu.meta?.hideInMenu) {
-        return
-      }
-      
-      // 查找匹配的分类
-      let matched = false
-      for (const cat of categories) {
-        const matchKeyword = cat.keywords.some(keyword => 
-          menuTitle.toLowerCase().includes(keyword.toLowerCase()) ||
-          menuPath.toLowerCase().includes(keyword.toLowerCase())
-        )
+  // 分类权限（只取MENU类型的权限）
+  const flattenPermissions = (permissions: PermissionApi.PermissionInfo[]): void => {
+    permissions.forEach(permission => {
+      // 只处理MENU类型的权限
+      if (permission.type === 'MENU' && permission.status === 1) {
+        const permName = String(permission.name || '')
+        const permCode = permission.code || ''
+        const permResource = permission.resource || ''
         
-        if (matchKeyword) {
-          result[cat.name].push({
-            ...menu,
-            path: fullPath,
-          })
-          matched = true
-          break
+        // 查找匹配的分类
+        let matched = false
+        for (const cat of categories) {
+          if (cat.keywords.length === 0) continue // 跳过"其他功能"分类
+          
+          const matchKeyword = cat.keywords.some(keyword => 
+            permName.toLowerCase().includes(keyword.toLowerCase()) ||
+            permCode.toLowerCase().includes(keyword.toLowerCase()) ||
+            permResource.toLowerCase().includes(keyword.toLowerCase())
+          )
+          
+          if (matchKeyword) {
+            result[cat.name].push(permission)
+            matched = true
+            break
+          }
+        }
+        
+        // 如果没匹配到，放到"其他功能"
+        if (!matched) {
+          result['其他功能'].push(permission)
         }
       }
       
-      // 如果没匹配到，放到"其他功能"
-      if (!matched && menuTitle) {
-        result['其他功能'].push({
-          ...menu,
-          path: fullPath,
-        })
-      }
-      
-      // 递归处理子菜单
-      if (menu.children && menu.children.length > 0) {
-        flattenMenu(menu.children, fullPath + '/')
+      // 递归处理子权限
+      if (permission.children && permission.children.length > 0) {
+        flattenPermissions(permission.children)
       }
     })
   }
   
-  flattenMenu(menuTree.value)
+  flattenPermissions(permissionList.value)
   
   return result
 })
@@ -130,15 +136,19 @@ const filteredCategories = computed(() => {
     return categorizedModules.value
   }
   
-  const result: Record<string, RouteRecordStringComponent[]> = {}
+  const result: Record<string, PermissionApi.PermissionInfo[]> = {}
   const keyword = searchKeyword.value.toLowerCase()
   
-  Object.entries(categorizedModules.value).forEach(([catName, modules]) => {
-    const filtered = modules.filter(m => {
-      const title = String(m.meta?.title || '')
-      const path = m.path || ''
-      return title.toLowerCase().includes(keyword) ||
-             path.toLowerCase().includes(keyword)
+  Object.entries(categorizedModules.value).forEach(([catName, permissions]) => {
+    const filtered = permissions.filter(p => {
+      const name = String(p.name || '')
+      const code = p.code || ''
+      const resource = p.resource || ''
+      const desc = p.description || ''
+      return name.toLowerCase().includes(keyword) ||
+             code.toLowerCase().includes(keyword) ||
+             resource.toLowerCase().includes(keyword) ||
+             desc.toLowerCase().includes(keyword)
     })
     
     if (filtered.length > 0) {
@@ -149,32 +159,51 @@ const filteredCategories = computed(() => {
   return result
 })
 
-// 加载菜单树
-const loadMenuTree = async () => {
+// 加载权限树
+const loadPermissions = async () => {
   loading.value = true
   try {
-    menuTree.value = await getAllMenusApi()
+    const response = await getPermissionTreeListApi()
+    permissionList.value = response.data
   } catch (error: any) {
-    ElMessage.error(error.message || '加载功能模块失败')
+    ElMessage.error(error.message || '加载权限列表失败')
   } finally {
     loading.value = false
   }
 }
 
 // 切换选中
-const toggleModule = (modulePath: string) => {
-  const index = selectedModules.value.indexOf(modulePath)
+const toggleModule = (permissionId: string) => {
+  const index = selectedModules.value.indexOf(permissionId)
   if (index > -1) {
     selectedModules.value.splice(index, 1)
   } else {
-    selectedModules.value.push(modulePath)
+    selectedModules.value.push(permissionId)
   }
   emit('update:modelValue', selectedModules.value)
 }
 
 // 是否选中
-const isSelected = (modulePath: string) => {
-  return selectedModules.value.includes(modulePath)
+const isSelected = (permissionId: string) => {
+  return selectedModules.value.includes(permissionId)
+}
+
+// 获取选中权限的名称（递归查找）
+const getSelectedPermissionName = (permId: string): string => {
+  const findInList = (list: PermissionApi.PermissionInfo[]): string | null => {
+    for (const perm of list) {
+      if (perm.id === permId) {
+        return perm.name
+      }
+      if (perm.children && perm.children.length > 0) {
+        const found = findInList(perm.children)
+        if (found) return found
+      }
+    }
+    return null
+  }
+  
+  return findInList(permissionList.value) || permId
 }
 
 // 获取分类图标
@@ -190,7 +219,7 @@ const getCategoryColor = (catName: string) => {
 // 初始化选中值
 onMounted(() => {
   selectedModules.value = [...props.modelValue]
-  loadMenuTree()
+  loadPermissions()
 })
 </script>
 
@@ -214,13 +243,13 @@ onMounted(() => {
       <div class="text-sm text-gray-600 mb-2">已选择 {{ selectedModules.length }} 个模块：</div>
       <div class="flex flex-wrap gap-2">
         <el-tag
-          v-for="path in selectedModules"
-          :key="path"
+          v-for="permId in selectedModules"
+          :key="permId"
           closable
           type="primary"
-          @close="toggleModule(path)"
+          @close="toggleModule(permId)"
         >
-          {{ path }}
+          {{ getSelectedPermissionName(permId) }}
         </el-tag>
       </div>
     </div>
@@ -229,7 +258,7 @@ onMounted(() => {
     <div class="categories-container">
       <el-collapse v-model="activeCategories" accordion>
         <el-collapse-item
-          v-for="(modules, catName) in filteredCategories"
+          v-for="(permissions, catName) in filteredCategories"
           :key="catName"
           :name="catName"
         >
@@ -242,29 +271,27 @@ onMounted(() => {
                 <Icon :icon="getCategoryIcon(catName)" :size="18" />
               </div>
               <span class="font-medium">{{ catName }}</span>
-              <el-badge :value="modules.length" class="ml-2" />
+              <el-badge :value="permissions.length" class="ml-2" />
             </div>
           </template>
           
           <div class="module-list">
             <div
-              v-for="module in modules"
-              :key="module.path"
+              v-for="permission in permissions"
+              :key="permission.id"
               class="module-item"
-              :class="{ 'module-item-selected': isSelected(module.path!) }"
-              @click="toggleModule(module.path!)"
+              :class="{ 'module-item-selected': isSelected(permission.id) }"
+              @click="toggleModule(permission.id)"
             >
               <div class="flex items-center gap-2 flex-1">
-                <Icon
-                  v-if="module.meta?.icon"
-                  :icon="module.meta.icon.toString()"
-                  :size="16"
-                />
-                <Icon v-else icon="lucide:file" :size="16" />
-                <span class="module-title">{{ module.meta?.title || module.name }}</span>
+                <Icon icon="lucide:check-square" :size="16" />
+                <div class="flex flex-col">
+                  <span class="module-title">{{ permission.name }}</span>
+                  <span v-if="permission.description" class="module-desc">{{ permission.description }}</span>
+                </div>
               </div>
               <Icon
-                v-if="isSelected(module.path!)"
+                v-if="isSelected(permission.id)"
                 icon="lucide:check-circle"
                 :size="18"
                 class="text-blue-500"
@@ -284,7 +311,7 @@ onMounted(() => {
 
 <script lang="ts">
 // 默认展开第一个分类
-const activeCategories = ref<string[]>(['数据管理'])
+const activeCategories = ref<string[]>(['KOL数据管理'])
 </script>
 
 <style scoped>
@@ -339,6 +366,13 @@ const activeCategories = ref<string[]>(['数据管理'])
 .module-title {
   font-size: 14px;
   color: #374151;
+  font-weight: 500;
+}
+
+.module-desc {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 2px;
 }
 
 .module-item-selected .module-title {
