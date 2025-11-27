@@ -640,6 +640,8 @@ onMounted(() => {
 .permissions-list {
   padding: 4px;
   background: white;
+  max-height: 400px;
+  overflow-y: auto;
 }
 
 .permission-item {
