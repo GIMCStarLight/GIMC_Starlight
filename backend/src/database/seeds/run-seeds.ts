@@ -1,5 +1,5 @@
 import { config } from 'dotenv';
-import { PostgresDataSource } from '../../../data-source-postgres';
+import PostgresDataSource from '../../../data-source-postgres';
 import { InitRbacDataSeed } from './001-init-rbac-data';
 
 // 加载环境变量
