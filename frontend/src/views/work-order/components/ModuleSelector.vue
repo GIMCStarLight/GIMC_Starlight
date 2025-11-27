@@ -684,19 +684,20 @@ onMounted(() => {
 /* 分类网格 */
 .categories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 16px;
   overflow-y: auto;
   max-height: calc(70vh - 300px);
-  padding-right: 4px;
+  padding: 4px;
 }
 
 .category-card {
   background: white;
   border-radius: 12px;
   border: 2px solid #e5e7eb;
-  overflow: hidden;
+  overflow: visible;
   transition: all 0.3s;
+  min-height: 60px;
 }
 
 .category-card:hover {
@@ -737,6 +738,7 @@ onMounted(() => {
   justify-content: center;
   color: white;
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .category-title {
@@ -749,11 +751,15 @@ onMounted(() => {
   font-size: 15px;
   font-weight: 600;
   color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .category-count {
   font-size: 12px;
   color: #6b7280;
+  white-space: nowrap;
 }
 
 .category-actions {
@@ -773,7 +779,8 @@ onMounted(() => {
 
 .category-content {
   padding: 16px;
-  background: white;
+  background: #fafafa;
+  border-top: 1px solid #e5e7eb;
 }
 
 /* 权限网格 */
@@ -826,6 +833,8 @@ onMounted(() => {
   font-weight: 500;
   color: #111827;
   flex: 1;
+  word-break: break-word;
+  line-height: 1.4;
 }
 
 .permission-type-tag {
@@ -885,6 +894,12 @@ onMounted(() => {
 }
 
 /* 响应式 */
+@media (max-width: 1200px) {
+  .categories-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
   .categories-grid {
     grid-template-columns: 1fr;
@@ -897,6 +912,15 @@ onMounted(() => {
   
   .stat-divider {
     display: none;
+  }
+  
+  .category-icon-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .category-name {
+    font-size: 14px;
   }
 }
 </style>
