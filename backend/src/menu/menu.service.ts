@@ -235,6 +235,20 @@ export class MenuService {
         ],
       },
       {
+        id: '10',
+        name: '工单管理',
+        path: '/work-order',
+        component: '/work-order/index',
+        icon: 'lucide:clipboard-list',
+        sort: 8,
+        meta: {
+          title: '工单管理',
+          icon: 'lucide:clipboard-list',
+          requiresAuth: true,
+          permissions: ['work-order:access'],
+        },
+      },
+      {
         id: '9',
         name: '系统管理',
         path: '/system',
