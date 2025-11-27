@@ -9,7 +9,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       authority: ['work-order:access'],
       icon: 'lucide:clipboard-list',
-      order: 7,
+      order: 5.5, // 工单管理，排序在供应商管理和系统管理之间
       title: $t('page.workOrder.title'),
     },
     name: 'WorkOrder',
