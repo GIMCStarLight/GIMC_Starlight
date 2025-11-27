@@ -21,9 +21,9 @@ import {
 @Injectable()
 export class WorkOrderService {
   constructor(
-    @InjectRepository(WorkOrder)
+    @InjectRepository(WorkOrder, 'postgres')
     private readonly workOrderRepository: Repository<WorkOrder>,
-    @InjectRepository(WorkOrderLog)
+    @InjectRepository(WorkOrderLog, 'postgres')
     private readonly workOrderLogRepository: Repository<WorkOrderLog>,
   ) {}
 
