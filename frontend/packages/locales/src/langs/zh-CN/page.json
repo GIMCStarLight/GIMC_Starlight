@@ -145,5 +145,59 @@
   "policyManagement": {
     "title": "政策管理",
     "policyVersionManagement": "政策版本管理"
+  },
+  "workOrder": {
+    "title": "工单管理",
+    "list": "工单列表",
+    "create": "创建工单",
+    "detail": "工单详情",
+    "edit": "编辑工单",
+    "delete": "删除工单",
+    "all": "全部工单",
+    "myCreated": "我创建的",
+    "assignedToMe": "分配给我",
+    "title_field": "工单标题",
+    "type": "事务类型",
+    "status": "工单状态",
+    "priority": "优先级",
+    "description": "需求描述",
+    "modules": "涉及模块",
+    "creator": "创建人",
+    "assignee": "处理人",
+    "createdAt": "创建时间",
+    "updatedAt": "更新时间",
+    "expectedCompletionAt": "期望完成时间",
+    "statistics": {
+      "total": "全部工单",
+      "pending": "待接收",
+      "received": "已接收",
+      "inProgress": "处理中",
+      "completed": "已完成",
+      "myCreated": "我创建的",
+      "assignedToMe": "分配给我"
+    },
+    "types": {
+      "new_feature": "新增功能",
+      "system_refactor": "系统改造",
+      "bug_fix": "问题调试",
+      "optimization": "性能优化",
+      "requirement_change": "需求变更",
+      "other": "其他"
+    },
+    "statuses": {
+      "pending": "待接收",
+      "received": "已接收",
+      "in_progress": "处理中",
+      "testing": "测试中",
+      "completed": "已完成",
+      "rejected": "已拒绝",
+      "cancelled": "已取消"
+    },
+    "priorities": {
+      "low": "低",
+      "medium": "中",
+      "high": "高",
+      "urgent": "紧急"
+    }
   }
 }
