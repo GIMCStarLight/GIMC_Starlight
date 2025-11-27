@@ -264,7 +264,7 @@ const formData = reactive({
   star_quote_21_60s: 0,
   star_quote_60s_plus: 0,
   is_exclusive: 0,
-  rebate_policy: 0,
+  rebate_policy: '',
   rebate_range: '',
   policy_level: '',
   rebate_period: '',
@@ -283,8 +283,8 @@ const exclusiveSwitch = computed({
 })
 
 const rebateSwitch = computed({
-  get: () => formData.rebate_policy === 1,
-  set: (val: boolean) => { formData.rebate_policy = val ? 1 : 0 }
+  get: () => formData.rebate_policy === '1' || !!formData.rebate_policy,
+  set: (val: boolean) => { formData.rebate_policy = val ? '1' : '' }
 })
 
 // 表单验证规则（关键字段）
@@ -321,7 +321,7 @@ const resetForm = () => {
     star_quote_21_60s: 0,
     star_quote_60s_plus: 0,
     is_exclusive: 0,
-    rebate_policy: 0,
+    rebate_policy: '',
     rebate_range: '',
     policy_level: '',
     rebate_period: '',
@@ -349,7 +349,7 @@ watch(() => props.kolData, (d) => {
     star_quote_21_60s: d.star_quote_21_60s ?? d.starQuote21_60s ?? 0,
     star_quote_60s_plus: d.star_quote_60s_plus ?? d.starQuote60sPlus ?? 0,
     is_exclusive: typeof d.is_exclusive === 'number' ? d.is_exclusive : (d.isExclusive ? 1 : 0),
-    rebate_policy: typeof d.rebate_policy === 'number' ? d.rebate_policy : (d.rebatePolicy ? 1 : 0),
+    rebate_policy: typeof d.rebate_policy === 'string' ? d.rebate_policy : (d.rebatePolicy ? String(d.rebatePolicy) : ''),
     rebate_range: d.rebate_range || d.rebateRange || '',
     policy_level: d.policy_level || d.policyLevel || '',
     rebate_period: d.rebate_period || d.rebatePeriod || '',
@@ -370,28 +370,32 @@ const handleSubmit = async () => {
 
   try {
     loading.value = true
-    // 构造提交数据，移除空字符串字段，避免后端 Length/Url 校验报错
+    // 构造提交数据，处理空字符串字段
     const sanitizePayload = (src: typeof formData) => {
       const p: any = { ...src }
-      const emptyToUndefined = [
-        'org_name',
-        'category',
-        'rebate_range',
-        'policy_level',
-        'rebate_period',
-        'pay_period',
-        'remark',
-        'cooperation_intro',
-        'annual_contract_org'
-      ]
-      for (const key of emptyToUndefined) {
-        if (p[key] !== undefined && String(p[key]).trim() === '') {
-          delete p[key]
-        }
+
+      // 字段处理配置：定义空字符串的处理方式
+      const fieldConfig = {
+        // 设置为 null 的字段（用于清空数据库中的值）
+        setToNull: [
+          'rebate_range',
+          'rebate_period',
+          'org_name',
+          'category',
+          'policy_level',
+          'pay_period',
+          'remark',
+          'cooperation_intro',
+          'annual_contract_org'
+        ],
+        // 删除的字段（避免后端 Length/Url 校验报错）
+        delete: []
       }
-      // 主页链接：留空则不传；非空时需为有效URL
+
+      // 先处理主页链接（需要特殊处理）
       if (!p.home_link || String(p.home_link).trim() === '') {
-        delete p.home_link
+        // 主页链接为空时设置为空字符串（数据库要求NOT NULL）
+        p.home_link = ''
       } else {
         try {
           // 如果遗漏协议，尝试自动补全为 https
@@ -407,10 +411,28 @@ const handleSubmit = async () => {
           throw new Error('invalid_home_link')
         }
       }
+
+      // 处理需要设置为 null 的字段
+      for (const key of fieldConfig.setToNull) {
+        if (p[key] !== undefined && String(p[key]).trim() === '') {
+          p[key] = null
+        }
+      }
+
+      // 处理需要删除的字段
+      for (const key of fieldConfig.delete) {
+        if (p[key] !== undefined && String(p[key]).trim() === '') {
+          delete p[key]
+        }
+      }
       return p
     }
 
     const payload = sanitizePayload(formData)
+    
+    // 调试日志：打印实际发送的payload
+    log.debug('提交payload:', payload)
+    
     // 编辑模式下，如果平台/账号ID未改动则不提交这两个字段，避免无意义的唯一性检查
     if (isEdit.value && props.kolData) {
       if (payload.platform === props.kolData.platform) delete payload.platform
