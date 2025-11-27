@@ -642,6 +642,15 @@ onMounted(() => {
   padding: 0;
 }
 
+.work-order-table-card :deep(.el-tabs__header) {
+  padding: 0 20px;
+  margin: 0;
+}
+
+.work-order-table-card :deep(.el-tabs__nav-wrap) {
+  padding-top: 12px;
+}
+
 .work-order-table {
   min-height: 400px;
 }
