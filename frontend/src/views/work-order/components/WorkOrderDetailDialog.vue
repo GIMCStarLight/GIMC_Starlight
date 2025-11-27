@@ -197,14 +197,20 @@ const handleAssign = () => {
 const loadUserList = async () => {
   userListLoading.value = true
   try {
-    const response = await getUserListApi({
+    const params: any = {
       page: 1,
       limit: 100,
-      status: 1, // 只获取启用的用户
-      search: userSearchKeyword.value,
-    })
+    }
+    
+    // 只有启用状态的用户
+    if (userSearchKeyword.value) {
+      params.search = userSearchKeyword.value
+    }
+    
+    const response = await getUserListApi(params)
     userList.value = response.data
   } catch (error: any) {
+    console.error('加载用户列表失败:', error)
     ElMessage.error(error.message || '加载用户列表失败')
   } finally {
     userListLoading.value = false
