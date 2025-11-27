@@ -10,7 +10,7 @@ config();
  * PostgreSQL数据源配置
  * 用于运行迁移和种子数据
  */
-export const PostgresDataSource = new DataSource({
+const PostgresDataSource = new DataSource({
   type: 'postgres',
   host: process.env.POSTGRES_HOST || '192.168.102.168',
   port: parseInt(process.env.POSTGRES_PORT || '5432'),
