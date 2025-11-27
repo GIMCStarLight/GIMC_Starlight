@@ -269,6 +269,18 @@ const getLogColor = (action: string) => {
               <el-descriptions-item label="预期完成时间">
                 {{ formatDate(workOrder.expectedCompletionAt) }}
               </el-descriptions-item>
+              <el-descriptions-item v-if="workOrder.modules && workOrder.modules.length > 0" label="涉及模块" :span="2">
+                <div class="flex flex-wrap gap-2">
+                  <el-tag
+                    v-for="(module, index) in workOrder.modules"
+                    :key="index"
+                    type="info"
+                    size="small"
+                  >
+                    {{ module }}
+                  </el-tag>
+                </div>
+              </el-descriptions-item>
               <el-descriptions-item label="工单描述" :span="2">
                 <div class="whitespace-pre-wrap">{{ workOrder.description }}</div>
               </el-descriptions-item>

@@ -3,6 +3,7 @@ import { ref, reactive, watch } from 'vue'
 import { ElMessage } from 'element-plus'
 import type { FormInstance, FormRules } from 'element-plus'
 import { createWorkOrder, WorkOrderType, WorkOrderPriority } from '../../../api/work-order'
+import ModuleSelector from './ModuleSelector.vue'
 
 const props = defineProps<{
   visible: boolean
@@ -24,6 +25,7 @@ const formData = reactive({
   priority: WorkOrderPriority.MEDIUM,
   assignedTo: '',
   expectedCompletionAt: '',
+  modules: [] as string[],
   attachments: [] as { name: string; url: string; size: number; type: string }[],
 })
 
@@ -71,6 +73,7 @@ const resetForm = () => {
   formData.priority = WorkOrderPriority.MEDIUM
   formData.assignedTo = ''
   formData.expectedCompletionAt = ''
+  formData.modules = []
   formData.attachments = []
   formRef.value?.clearValidate()
 }
@@ -104,6 +107,9 @@ const handleSubmit = async () => {
       }
       if (formData.expectedCompletionAt) {
         submitData.expectedCompletionAt = formData.expectedCompletionAt
+      }
+      if (formData.modules.length > 0) {
+        submitData.modules = formData.modules
       }
       if (formData.attachments.length > 0) {
         submitData.attachments = formData.attachments
@@ -181,6 +187,13 @@ const handleCancel = () => {
             :value="option.value"
           />
         </el-select>
+      </el-form-item>
+
+      <el-form-item label="涉及模块">
+        <ModuleSelector v-model="formData.modules" />
+        <div class="text-xs text-gray-500 mt-1">
+          提示：选择工单涉及的功能模块，方便开发人员定位问题
+        </div>
       </el-form-item>
 
       <el-form-item label="预期完成时间">

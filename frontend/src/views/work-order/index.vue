@@ -162,6 +162,14 @@ const handleReset = () => {
   handleSearch()
 }
 
+// 快速筛选状态
+const quickFilter = (status: WorkOrderStatus) => {
+  queryParams.status = status
+  pagination.page = 1
+  activeTab.value = 'all'
+  loadWorkOrders()
+}
+
 // 切换标签
 const handleTabChange = () => {
   pagination.page = 1
@@ -242,133 +250,225 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="work-order-management p-4">
-    <!-- 统计卡片 -->
-    <div class="mb-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-      <div class="stat-card">
-        <div class="stat-label">全部工单</div>
-        <div class="stat-value">{{ statistics.total }}</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">待接收</div>
-        <div class="stat-value text-blue-500">{{ statistics.pending }}</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">已接收</div>
-        <div class="stat-value text-green-500">{{ statistics.received }}</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">处理中</div>
-        <div class="stat-value text-orange-500">{{ statistics.inProgress }}</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">已完成</div>
-        <div class="stat-value text-green-600">{{ statistics.completed }}</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">我创建的</div>
-        <div class="stat-value text-purple-500">{{ statistics.myCreated }}</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">分配给我</div>
-        <div class="stat-value text-indigo-500">{{ statistics.assignedToMe }}</div>
-      </div>
+  <div class="work-order-management">
+    <!-- 统计卡片 - 优化版 -->
+    <div class="mb-6">
+      <el-row :gutter="16">
+        <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
+          <div class="stat-card stat-card-total">
+            <div class="stat-icon">
+              <Icon icon="lucide:clipboard-list" :size="32" />
+            </div>
+            <div class="stat-content">
+              <div class="stat-label">全部工单</div>
+              <div class="stat-value">{{ statistics.total }}</div>
+            </div>
+          </div>
+        </el-col>
+        <el-col :xs="12" :sm="6" :md="6" :lg="4" :xl="4">
+          <div class="stat-card stat-card-pending cursor-pointer" @click="quickFilter(WorkOrderStatus.PENDING)">
+            <div class="stat-icon">
+              <Icon icon="lucide:clock" :size="28" />
+            </div>
+            <div class="stat-content">
+              <div class="stat-label">待接收</div>
+              <div class="stat-value">{{ statistics.pending }}</div>
+            </div>
+          </div>
+        </el-col>
+        <el-col :xs="12" :sm="6" :md="6" :lg="4" :xl="4">
+          <div class="stat-card stat-card-received cursor-pointer" @click="quickFilter(WorkOrderStatus.RECEIVED)">
+            <div class="stat-icon">
+              <Icon icon="lucide:check-circle" :size="28" />
+            </div>
+            <div class="stat-content">
+              <div class="stat-label">已接收</div>
+              <div class="stat-value">{{ statistics.received }}</div>
+            </div>
+          </div>
+        </el-col>
+        <el-col :xs="12" :sm="6" :md="6" :lg="4" :xl="4">
+          <div class="stat-card stat-card-progress cursor-pointer" @click="quickFilter(WorkOrderStatus.IN_PROGRESS)">
+            <div class="stat-icon">
+              <Icon icon="lucide:loader" :size="28" />
+            </div>
+            <div class="stat-content">
+              <div class="stat-label">处理中</div>
+              <div class="stat-value">{{ statistics.inProgress }}</div>
+            </div>
+          </div>
+        </el-col>
+        <el-col :xs="12" :sm="6" :md="6" :lg="4" :xl="4">
+          <div class="stat-card stat-card-completed cursor-pointer" @click="quickFilter(WorkOrderStatus.COMPLETED)">
+            <div class="stat-icon">
+              <Icon icon="lucide:check-circle-2" :size="28" />
+            </div>
+            <div class="stat-content">
+              <div class="stat-label">已完成</div>
+              <div class="stat-value">{{ statistics.completed }}</div>
+            </div>
+          </div>
+        </el-col>
+        <el-col :xs="12" :sm="12" :md="8" :lg="4" :xl="4">
+          <div class="stat-card stat-card-my cursor-pointer" @click="activeTab = 'myCreated'; handleTabChange()">
+            <div class="stat-icon">
+              <Icon icon="lucide:user" :size="28" />
+            </div>
+            <div class="stat-content">
+              <div class="stat-label">我创建的</div>
+              <div class="stat-value">{{ statistics.myCreated }}</div>
+            </div>
+          </div>
+        </el-col>
+        <el-col :xs="12" :sm="12" :md="8" :lg="4" :xl="4">
+          <div class="stat-card stat-card-assigned cursor-pointer" @click="activeTab = 'assignedToMe'; handleTabChange()">
+            <div class="stat-icon">
+              <Icon icon="lucide:user-check" :size="28" />
+            </div>
+            <div class="stat-content">
+              <div class="stat-label">分配给我</div>
+              <div class="stat-value">{{ statistics.assignedToMe }}</div>
+            </div>
+          </div>
+        </el-col>
+      </el-row>
     </div>
 
     <!-- 页面头部 -->
-    <div class="mb-4 flex items-center justify-between">
-      <div>
-        <h2 class="text-xl font-semibold">工单管理</h2>
-        <p class="mt-1 text-sm text-gray-500">管理和跟踪开发工单</p>
+    <el-card class="mb-4" shadow="never">
+      <div class="flex items-center justify-between flex-wrap gap-4">
+        <div>
+          <h2 class="text-xl font-semibold flex items-center gap-2">
+            <Icon icon="lucide:clipboard-list" :size="24" />
+            工单管理
+          </h2>
+          <p class="mt-1 text-sm text-gray-500">管理和跟踪开发工单，协作高效完成任务</p>
+        </div>
+        <div class="flex gap-2">
+          <el-button type="primary" @click="handleCreate">
+            <Icon icon="lucide:plus" class="mr-1" />
+            创建工单
+          </el-button>
+          <el-button @click="handleRefresh">
+            <Icon icon="lucide:refresh-cw" class="mr-1" />
+            刷新
+          </el-button>
+        </div>
       </div>
-      <div class="flex gap-2">
-        <el-button type="primary" @click="handleCreate">
-          <Icon icon="lucide:plus" class="mr-1" />
-          创建工单
-        </el-button>
-        <el-button @click="handleRefresh">
-          <Icon icon="lucide:refresh-cw" class="mr-1" />
-          刷新
-        </el-button>
-      </div>
-    </div>
+    </el-card>
 
     <!-- 搜索栏 -->
-    <div class="mb-4 rounded-lg bg-white p-4 shadow-sm">
-      <el-form :model="queryParams" inline>
-        <el-form-item label="关键词">
-          <el-input
-            v-model="queryParams.keyword"
-            placeholder="搜索标题或描述"
-            clearable
-            style="width: 200px"
-            @keyup.enter="handleSearch"
-          />
-        </el-form-item>
-        <el-form-item label="事务类型">
-          <el-select
-            v-model="queryParams.type"
-            placeholder="请选择"
-            clearable
-            style="width: 150px"
-          >
-            <el-option
-              v-for="item in typeOptions"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            />
-          </el-select>
-        </el-form-item>
-        <el-form-item label="工单状态">
-          <el-select
-            v-model="queryParams.status"
-            placeholder="请选择"
-            clearable
-            style="width: 120px"
-          >
-            <el-option
-              v-for="item in statusOptions"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            />
-          </el-select>
-        </el-form-item>
-        <el-form-item label="优先级">
-          <el-select
-            v-model="queryParams.priority"
-            placeholder="请选择"
-            clearable
-            style="width: 100px"
-          >
-            <el-option
-              v-for="item in priorityOptions"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            />
-          </el-select>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="handleSearch">
-            <Icon icon="lucide:search" class="mr-1" />
-            搜索
-          </el-button>
-          <el-button @click="handleReset">重置</el-button>
-        </el-form-item>
+    <el-card class="mb-4" shadow="never">
+      <el-form :model="queryParams">
+        <el-row :gutter="16">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6">
+            <el-form-item label="关键词">
+              <el-input
+                v-model="queryParams.keyword"
+                placeholder="搜索标题或描述"
+                clearable
+                @keyup.enter="handleSearch"
+              >
+                <template #prefix>
+                  <Icon icon="lucide:search" />
+                </template>
+              </el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :xs="12" :sm="6" :md="6" :lg="4">
+            <el-form-item label="事务类型">
+              <el-select
+                v-model="queryParams.type"
+                placeholder="请选择"
+                clearable
+              >
+                <el-option
+                  v-for="item in typeOptions"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                />
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :xs="12" :sm="6" :md="6" :lg="4">
+            <el-form-item label="工单状态">
+              <el-select
+                v-model="queryParams.status"
+                placeholder="请选择"
+                clearable
+              >
+                <el-option
+                  v-for="item in statusOptions"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                />
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :xs="12" :sm="6" :md="6" :lg="4">
+            <el-form-item label="优先级">
+              <el-select
+                v-model="queryParams.priority"
+                placeholder="请选择"
+                clearable
+              >
+                <el-option
+                  v-for="item in priorityOptions"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                />
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :xs="24" :sm="12" :md="8" :lg="6">
+            <el-form-item label=" ">
+              <div class="flex gap-2 w-full">
+                <el-button type="primary" @click="handleSearch" class="flex-1">
+                  <Icon icon="lucide:search" class="mr-1" />
+                  搜索
+                </el-button>
+                <el-button @click="handleReset" class="flex-1">
+                  <Icon icon="lucide:rotate-ccw" class="mr-1" />
+                  重置
+                </el-button>
+              </div>
+            </el-form-item>
+          </el-col>
+        </el-row>
       </el-form>
-    </div>
+    </el-card>
 
     <!-- 标签页 -->
-    <el-tabs v-model="activeTab" @tab-change="handleTabChange">
-      <el-tab-pane label="全部工单" name="all" />
-      <el-tab-pane label="我创建的" name="myCreated" />
-      <el-tab-pane label="分配给我" name="assignedToMe" />
-    </el-tabs>
-
-    <!-- 工单列表 -->
-    <div class="rounded-lg bg-white shadow-sm">
+    <el-card shadow="never" class="work-order-table-card">
+      <el-tabs v-model="activeTab" @tab-change="handleTabChange">
+        <el-tab-pane name="all">
+          <template #label>
+            <span class="flex items-center gap-1">
+              <Icon icon="lucide:list" />
+              全部工单
+            </span>
+          </template>
+        </el-tab-pane>
+        <el-tab-pane name="myCreated">
+          <template #label>
+            <span class="flex items-center gap-1">
+              <Icon icon="lucide:user" />
+              我创建的
+            </span>
+          </template>
+        </el-tab-pane>
+        <el-tab-pane name="assignedToMe">
+          <template #label>
+            <span class="flex items-center gap-1">
+              <Icon icon="lucide:user-check" />
+              分配给我
+            </span>
+          </template>
+        </el-tab-pane>
+      </el-tabs>
       <el-table
         v-loading="loading"
         :data="workOrderList"
@@ -424,19 +524,22 @@ onMounted(() => {
           </template>
         </el-table-column>
 
-        <el-table-column label="操作" width="150" fixed="right">
+        <el-table-column label="操作" width="180" fixed="right">
           <template #default="{ row }">
             <div class="flex gap-1">
-              <el-button type="primary" size="small" @click="handleViewDetail(row)">
-                <Icon icon="lucide:eye" size="14" />
+              <el-button type="primary" size="small" link @click="handleViewDetail(row)">
+                <Icon icon="lucide:eye" class="mr-1" :size="14" />
+                查看
               </el-button>
               <el-button
                 v-if="row.status === WorkOrderStatus.PENDING"
                 type="danger"
                 size="small"
+                link
                 @click="handleDelete(row)"
               >
-                <Icon icon="lucide:trash-2" size="14" />
+                <Icon icon="lucide:trash-2" class="mr-1" :size="14" />
+                删除
               </el-button>
             </div>
           </template>
@@ -444,18 +547,21 @@ onMounted(() => {
       </el-table>
 
       <!-- 分页 -->
-      <div class="flex justify-end p-4">
+      <div class="flex justify-between items-center p-4 border-t">
+        <div class="text-sm text-gray-500">
+          共 {{ pagination.total }} 条记录，当前第 {{ pagination.page }} / {{ Math.ceil(pagination.total / pagination.limit) }} 页
+        </div>
         <el-pagination
           v-model:current-page="pagination.page"
           v-model:page-size="pagination.limit"
           :total="pagination.total"
           :page-sizes="[10, 20, 50, 100]"
-          layout="total, sizes, prev, pager, next, jumper"
+          layout="sizes, prev, pager, next, jumper"
           @current-change="handlePageChange"
           @size-change="handleSizeChange"
         />
       </div>
-    </div>
+    </el-card>
 
     <!-- 创建工单对话框 -->
     <CreateWorkOrderDialog
@@ -473,19 +579,143 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.work-order-management {
+  padding: 20px;
+  background: #f5f7fa;
+  min-height: calc(100vh - 60px);
+}
+
+/* 统计卡片样式 */
 .stat-card {
-  @apply rounded-lg bg-white p-4 shadow-sm;
+  position: relative;
+  padding: 20px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.stat-card.cursor-pointer {
+  cursor: pointer;
+}
+
+.stat-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.stat-content {
+  flex: 1;
+  min-width: 0;
 }
 
 .stat-label {
-  @apply text-sm text-gray-500 mb-1;
+  font-size: 13px;
+  color: #909399;
+  margin-bottom: 4px;
+  font-weight: 500;
 }
 
 .stat-value {
-  @apply text-2xl font-bold;
+  font-size: 28px;
+  font-weight: 600;
+  color: #303133;
+  line-height: 1;
+}
+
+/* 不同类型卡片的颜色 */
+.stat-card-total .stat-icon {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.stat-card-pending .stat-icon {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+.stat-card-received .stat-icon {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.stat-card-progress .stat-icon {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.stat-card-completed .stat-icon {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+.stat-card-my .stat-icon {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+}
+
+.stat-card-assigned .stat-icon {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+}
+
+/* 表格卡片 */
+.work-order-table-card {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.work-order-table-card :deep(.el-card__body) {
+  padding: 0;
+}
+
+.work-order-table {
+  min-height: 400px;
+}
+
+:deep(.el-table) {
+  font-size: 14px;
 }
 
 :deep(.el-table .el-table__cell) {
-  padding: 12px 0;
+  padding: 14px 0;
+}
+
+:deep(.el-table thead) {
+  background: #fafafa;
+}
+
+:deep(.el-table thead th) {
+  background: #fafafa;
+  color: #606266;
+  font-weight: 600;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .work-order-management {
+    padding: 12px;
+  }
+  
+  .stat-card {
+    padding: 16px;
+  }
+  
+  .stat-icon {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .stat-value {
+    font-size: 24px;
+  }
 }
 </style>
