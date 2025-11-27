@@ -50,9 +50,9 @@ export enum WorkOrderPriority {
  */
 @Entity('work_orders')
 @Index(['status'])
-@Index(['created_by'])
-@Index(['assigned_to'])
-@Index(['created_at'])
+@Index(['createdBy'])
+@Index(['assignedTo'])
+@Index(['createdAt'])
 export class WorkOrder {
   @PrimaryGeneratedColumn('uuid', { comment: '工单ID' })
   id: string;
