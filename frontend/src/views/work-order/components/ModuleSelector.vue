@@ -351,177 +351,109 @@ onMounted(() => {
 
 <template>
   <div v-loading="loading" class="module-selector-modern">
-    <!-- 顶部搜索和统计 -->
-    <div class="selector-header">
+    <!-- 顶部搜索 -->
+    <div class="search-bar">
       <el-input
         v-model="searchKeyword"
-        placeholder="搜索功能模块、权限名称或代码..."
+        placeholder="搜索权限名称、代码或描述..."
         clearable
-        size="large"
         class="search-input"
       >
         <template #prefix>
-          <Icon icon="lucide:search" :size="18" />
+          <Icon icon="lucide:search" :size="16" />
         </template>
       </el-input>
-      
-      <div class="stats-bar">
-        <div class="stat-item">
-          <span class="stat-label">权限总数</span>
-          <span class="stat-value">{{ totalPermissionCount }}</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-label">已选择</span>
-          <span class="stat-value text-primary">{{ selectedModules.length }}</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-label">已分类</span>
-          <span class="stat-value">{{ categorizedCount }}</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-label">未分类</span>
-          <span class="stat-value text-warning">{{ uncategorizedCount }}</span>
-        </div>
-      </div>
     </div>
 
-    <!-- 已选模块标签 -->
-    <transition name="slide-down">
-      <div v-if="selectedModules.length > 0" class="selected-tags">
-        <div class="selected-header">
-          <span class="selected-title">
-            <Icon icon="lucide:check-circle-2" :size="16" />
-            已选择 {{ selectedModules.length }} 个权限
-          </span>
-          <el-button text type="danger" size="small" @click="clearAll">
-            <Icon icon="lucide:x" :size="14" class="mr-1" />
-            清空
-          </el-button>
-        </div>
-        <div class="selected-list">
-          <el-tag
-            v-for="permId in selectedModules"
-            :key="permId"
-            closable
-            type="primary"
-            size="large"
-            class="selected-tag"
-            @close="toggleModule(permId)"
-          >
-            <Icon icon="lucide:shield-check" :size="14" class="mr-1" />
-            {{ getSelectedPermissionName(permId) }}
-          </el-tag>
-        </div>
+    <!-- 统计和类型过滤 -->
+    <div class="filter-bar">
+      <div class="stats-inline">
+        <span class="stat-text">共 <strong>{{ totalPermissionCount }}</strong> 项</span>
+        <span class="stat-divider">|</span>
+        <span class="stat-text">已选 <strong class="text-primary">{{ selectedModules.length }}</strong></span>
+        <span v-if="uncategorizedCount > 0" class="stat-divider">|</span>
+        <span v-if="uncategorizedCount > 0" class="stat-text text-warning">未分类 {{ uncategorizedCount }}</span>
       </div>
-    </transition>
-
-    <!-- 权限类型过滤 -->
-    <div class="type-filter">
-      <span class="filter-label">权限类型：</span>
-      <el-radio-group v-model="typeFilter" size="small" class="type-radio-group">
-        <el-radio-button label="all">
-          <Icon icon="lucide:layers" :size="14" class="mr-1" />
-          全部 ({{ totalPermissionCount }})
-        </el-radio-button>
-        <el-radio-button label="MENU">
-          <Icon icon="lucide:layout-dashboard" :size="14" class="mr-1" />
-          菜单 ({{ typeCount.MENU }})
-        </el-radio-button>
-        <el-radio-button label="BUTTON">
-          <Icon icon="lucide:square-mouse-pointer" :size="14" class="mr-1" />
-          按钮 ({{ typeCount.BUTTON }})
-        </el-radio-button>
-        <el-radio-button label="API">
-          <Icon icon="lucide:plug" :size="14" class="mr-1" />
-          接口 ({{ typeCount.API }})
-        </el-radio-button>
+      
+      <el-radio-group v-model="typeFilter" size="small" class="type-tabs">
+        <el-radio-button label="all">全部</el-radio-button>
+        <el-radio-button label="MENU">菜单</el-radio-button>
+        <el-radio-button label="BUTTON">按钮</el-radio-button>
+        <el-radio-button label="API">接口</el-radio-button>
       </el-radio-group>
     </div>
 
-    <!-- 分类卡片网格 -->
-    <div class="categories-grid">
+    <!-- 已选权限（精简） -->
+    <div v-if="selectedModules.length > 0" class="selected-bar">
+      <div class="selected-tags">
+        <el-tag
+          v-for="permId in selectedModules.slice(0, 5)"
+          :key="permId"
+          closable
+          size="small"
+          @close="toggleModule(permId)"
+        >
+          {{ getSelectedPermissionName(permId) }}
+        </el-tag>
+        <span v-if="selectedModules.length > 5" class="more-tag">+{{ selectedModules.length - 5 }}</span>
+      </div>
+      <el-button text type="danger" size="small" @click="clearAll">
+        清空
+      </el-button>
+    </div>
+
+    <!-- 分类列表（扁平） -->
+    <div class="categories-list">
       <div
         v-for="(permissions, catName) in displayedCategories"
         :key="catName"
-        class="category-card"
-        :class="{ 'category-expanded': expandedCategories.includes(catName) }"
+        class="category-section"
       >
-        <div 
-          class="category-header"
-          @click="toggleCategory(catName)"
-        >
-          <div class="category-info">
+        <!-- 分类标题 -->
+        <div class="category-title-bar" @click="toggleCategory(catName)">
+          <div class="category-left">
             <div 
-              class="category-icon-wrapper"
+              class="category-dot"
               :style="{ backgroundColor: getCategoryColor(catName) }"
-            >
-              <Icon :icon="getCategoryIcon(catName)" :size="20" />
-            </div>
-            <div class="category-title">
-              <span class="category-name">{{ catName }}</span>
-              <span class="category-count">{{ permissions.length }} 项权限</span>
-            </div>
+            ></div>
+            <span class="category-label">{{ catName }}</span>
+            <span class="category-badge">{{ permissions.length }}</span>
           </div>
-          <div class="category-actions">
-            <el-button
-              text
-              size="small"
-              @click.stop="selectAllInCategory(catName, permissions)"
-            >
+          <div class="category-right">
+            <el-button text size="small" @click.stop="selectAllInCategory(catName, permissions)">
               全选
             </el-button>
             <Icon 
-              :icon="expandedCategories.includes(catName) ? 'lucide:chevron-up' : 'lucide:chevron-down'" 
-              :size="20"
-              class="expand-icon"
+              :icon="expandedCategories.includes(catName) ? 'lucide:chevron-down' : 'lucide:chevron-right'" 
+              :size="16"
             />
           </div>
         </div>
         
-        <transition name="expand">
-          <div v-show="expandedCategories.includes(catName)" class="category-content">
-            <div class="permission-grid">
-              <div
-                v-for="permission in permissions"
-                :key="permission.id"
-                class="permission-card"
-                :class="{ 
-                  'permission-selected': isSelected(permission.id),
-                  'permission-hover': true
-                }"
-                @click="toggleModule(permission.id)"
-              >
-                <div class="permission-checkbox">
-                  <el-checkbox 
-                    :model-value="isSelected(permission.id)"
-                    @click.stop="toggleModule(permission.id)"
-                  />
+        <!-- 权限列表 -->
+        <transition name="collapse">
+          <div v-show="expandedCategories.includes(catName)" class="permissions-list">
+            <div
+              v-for="permission in permissions"
+              :key="permission.id"
+              class="permission-item"
+              :class="{ 'is-selected': isSelected(permission.id) }"
+              @click="toggleModule(permission.id)"
+            >
+              <el-checkbox 
+                :model-value="isSelected(permission.id)"
+                @click.stop
+              />
+              <div class="permission-info">
+                <div class="permission-main">
+                  <span class="permission-name">{{ permission.name }}</span>
+                  <el-tag :type="getPermissionTypeColor(permission.type)" size="small" class="permission-tag">
+                    {{ getPermissionTypeLabel(permission.type) }}
+                  </el-tag>
                 </div>
-                <div class="permission-content">
-                  <div class="permission-header">
-                    <span class="permission-name">{{ permission.name }}</span>
-                    <el-tag 
-                      :type="getPermissionTypeColor(permission.type)" 
-                      size="small"
-                      class="permission-type-tag"
-                    >
-                      {{ getPermissionTypeLabel(permission.type) }}
-                    </el-tag>
-                  </div>
-                  <div v-if="permission.description" class="permission-desc">
-                    {{ permission.description }}
-                  </div>
-                  <div v-if="permission.code" class="permission-code">
-                    <Icon icon="lucide:code" :size="12" />
-                    {{ permission.code }}
-                  </div>
-                  <div v-if="permission.resource" class="permission-resource">
-                    <Icon icon="lucide:link" :size="12" />
-                    {{ permission.resource }}
-                  </div>
+                <div v-if="permission.description || permission.code" class="permission-meta">
+                  <span v-if="permission.description" class="meta-text">{{ permission.description }}</span>
+                  <span v-if="permission.code" class="meta-code">{{ permission.code }}</span>
                 </div>
               </div>
             </div>
@@ -534,12 +466,8 @@ onMounted(() => {
     <el-empty
       v-if="Object.keys(displayedCategories).length === 0"
       description="未找到匹配的权限"
-      :image-size="120"
-    >
-      <template #image>
-        <Icon icon="lucide:search-x" :size="120" style="color: #d1d5db" />
-      </template>
-    </el-empty>
+      :image-size="80"
+    />
   </div>
 </template>
 
@@ -547,280 +475,200 @@ onMounted(() => {
 .module-selector-modern {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  max-height: 70vh;
+  gap: 12px;
+  max-height: 65vh;
   overflow: hidden;
 }
 
-/* 顶部区域 */
-.selector-header {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.search-input {
+/* 搜索栏 */
+.search-bar {
   width: 100%;
 }
 
 .search-input :deep(.el-input__wrapper) {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s;
-}
-
-.search-input :deep(.el-input__wrapper:hover) {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-}
-
-/* 统计栏 */
-.stats-bar {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 12px 16px;
-  background: linear-gradient(135deg, #f6f8fb 0%, #ffffff 100%);
-  border-radius: 8px;
+  box-shadow: none;
   border: 1px solid #e5e7eb;
+  transition: border-color 0.2s;
 }
 
-.stat-item {
+.search-input :deep(.el-input__wrapper:hover),
+.search-input :deep(.el-input__wrapper:focus) {
+  border-color: #3b82f6;
+}
+
+/* 过滤栏 */
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #fafafa;
+  border-radius: 6px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.stats-inline {
   display: flex;
   align-items: center;
-  gap: 8px;
-}
-
-.stat-label {
+  gap: 12px;
   font-size: 13px;
   color: #6b7280;
-  font-weight: 500;
 }
 
-.stat-value {
-  font-size: 16px;
-  font-weight: 600;
+.stat-text strong {
   color: #111827;
+  font-weight: 600;
 }
 
-.stat-value.text-primary {
+.stat-text.text-primary strong {
   color: #3b82f6;
 }
 
-.stat-value.text-warning {
+.stat-text.text-warning {
   color: #f59e0b;
 }
 
 .stat-divider {
-  width: 1px;
-  height: 20px;
-  background: #d1d5db;
+  color: #d1d5db;
 }
 
-/* 已选标签区域 */
-.selected-tags {
-  padding: 16px;
-  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-  border-radius: 12px;
-  border: 1px solid #bfdbfe;
-}
-
-.selected-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.selected-title {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #1e40af;
-}
-
-.selected-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.selected-tag {
-  height: 32px;
-  padding: 0 12px;
-  border-radius: 16px;
-  font-size: 13px;
-}
-
-/* 类型过滤 */
-.type-filter {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
-  background: #fafafa;
-  border-radius: 8px;
-}
-
-.filter-label {
-  font-size: 13px;
-  font-weight: 600;
-  color: #374151;
-}
-
-.type-radio-group :deep(.el-radio-button__inner) {
+.type-tabs :deep(.el-radio-button__inner) {
+  padding: 4px 12px;
   border: none;
   background: transparent;
-  padding: 8px 16px;
-  transition: all 0.3s;
 }
 
-.type-radio-group :deep(.el-radio-button__original-radio:checked + .el-radio-button__inner) {
+.type-tabs :deep(.el-radio-button__original-radio:checked + .el-radio-button__inner) {
   background: white;
   color: #3b82f6;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* 分类网格 */
-.categories-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 16px;
-  overflow-y: auto;
-  max-height: calc(70vh - 300px);
-  padding: 4px;
-}
-
-.category-card {
-  background: white;
-  border-radius: 12px;
-  border: 2px solid #e5e7eb;
-  overflow: visible;
-  transition: all 0.3s;
-  min-height: 60px;
-}
-
-.category-card:hover {
-  border-color: #3b82f6;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
-}
-
-.category-expanded {
-  border-color: #3b82f6;
-}
-
-.category-header {
+/* 已选栏 */
+.selected-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
-  cursor: pointer;
-  background: #fafafa;
-  transition: background 0.3s;
-}
-
-.category-header:hover {
-  background: #f3f4f6;
-}
-
-.category-info {
-  display: flex;
-  align-items: center;
+  padding: 8px 12px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 6px;
   gap: 12px;
 }
 
-.category-icon-wrapper {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+.selected-tags {
   display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex: 1;
   align-items: center;
-  justify-content: center;
-  color: white;
-  flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.category-title {
+.more-tag {
+  font-size: 12px;
+  color: #6b7280;
+  padding: 0 8px;
+}
+
+/* 分类列表 */
+.categories-list {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  overflow-y: auto;
+  max-height: calc(65vh - 140px);
 }
 
-.category-name {
-  font-size: 15px;
-  font-weight: 600;
-  color: #111827;
-  white-space: nowrap;
+.category-section {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
   overflow: hidden;
-  text-overflow: ellipsis;
+  background: white;
 }
 
-.category-count {
-  font-size: 12px;
-  color: #6b7280;
-  white-space: nowrap;
+/* 分类标题 */
+.category-title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: #fafafa;
+  cursor: pointer;
+  transition: background 0.2s;
+  user-select: none;
 }
 
-.category-actions {
+.category-title-bar:hover {
+  background: #f3f4f6;
+}
+
+.category-left {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.expand-icon {
-  color: #6b7280;
-  transition: transform 0.3s;
-}
-
-.category-expanded .expand-icon {
-  transform: rotate(180deg);
-}
-
-.category-content {
-  padding: 16px;
-  background: #fafafa;
-  border-top: 1px solid #e5e7eb;
-}
-
-/* 权限网格 */
-.permission-grid {
-  display: grid;
-  gap: 12px;
-}
-
-.permission-card {
-  display: flex;
-  gap: 12px;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
-  background: white;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.permission-card:hover {
-  border-color: #3b82f6;
-  background: #f9fafb;
-  transform: translateX(4px);
-}
-
-.permission-selected {
-  border-color: #3b82f6;
-  background: #eff6ff;
-}
-
-.permission-checkbox {
+.category-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
   flex-shrink: 0;
 }
 
-.permission-content {
+.category-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.category-badge {
+  font-size: 12px;
+  color: #6b7280;
+  background: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.category-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 权限列表*/
+.permissions-list {
+  padding: 4px;
+  background: white;
+}
+
+.permission-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+  border: 1px solid transparent;
+}
+
+.permission-item:hover {
+  background: #f9fafb;
+  border-color: #e5e7eb;
+}
+
+.permission-item.is-selected {
+  background: #eff6ff;
+  border-color: #3b82f6;
+}
+
+.permission-info {
   flex: 1;
   min-width: 0;
 }
 
-.permission-header {
+.permission-main {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -829,98 +677,74 @@ onMounted(() => {
 }
 
 .permission-name {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: #111827;
   flex: 1;
-  word-break: break-word;
-  line-height: 1.4;
 }
 
-.permission-type-tag {
+.permission-tag {
   flex-shrink: 0;
 }
 
-.permission-desc {
-  font-size: 12px;
-  color: #6b7280;
-  line-height: 1.5;
-  margin-bottom: 4px;
+.permission-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.permission-code,
-.permission-resource {
-  display: flex;
-  align-items: center;
-  gap: 4px;
+.meta-text {
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.meta-code {
   font-size: 11px;
   color: #9ca3af;
   font-family: 'Monaco', 'Consolas', monospace;
-  margin-top: 4px;
 }
 
 /* 动画 */
-.slide-down-enter-active,
-.slide-down-leave-active {
-  transition: all 0.3s ease;
-}
-
-.slide-down-enter-from {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-
-.slide-down-leave-to {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-
-.expand-enter-active,
-.expand-leave-active {
-  transition: all 0.3s ease;
+.collapse-enter-active,
+.collapse-leave-active {
+  transition: all 0.2s ease;
   overflow: hidden;
 }
 
-.expand-enter-from,
-.expand-leave-to {
+.collapse-enter-from,
+.collapse-leave-to {
   max-height: 0;
   opacity: 0;
 }
 
-.expand-enter-to,
-.expand-leave-from {
-  max-height: 1000px;
+.collapse-enter-to,
+.collapse-leave-from {
+  max-height: 2000px;
   opacity: 1;
 }
 
 /* 响应式 */
-@media (max-width: 1200px) {
-  .categories-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  }
-}
-
 @media (max-width: 768px) {
-  .categories-grid {
-    grid-template-columns: 1fr;
+  .filter-bar {
+    flex-direction: column;
+    align-items: flex-start;
   }
   
-  .stats-bar {
-    flex-wrap: wrap;
-    gap: 8px;
+  .stats-inline {
+    width: 100%;
   }
   
-  .stat-divider {
-    display: none;
+  .type-tabs {
+    width: 100%;
   }
   
-  .category-icon-wrapper {
-    width: 40px;
-    height: 40px;
+  .type-tabs :deep(.el-radio-group) {
+    display: flex;
   }
   
-  .category-name {
-    font-size: 14px;
+  .type-tabs :deep(.el-radio-button) {
+    flex: 1;
   }
 }
 </style>
