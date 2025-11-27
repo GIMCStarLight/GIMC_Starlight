@@ -636,7 +636,6 @@ onMounted(() => {
 .work-order-table-card {
   border-radius: 8px;
   overflow: hidden;
-  margin: 0 20px;
 }
 
 .work-order-table-card :deep(.el-card__body) {
@@ -693,10 +692,6 @@ onMounted(() => {
   
   .stat-number {
     font-size: 16px;
-  }
-  
-  .work-order-table-card {
-    margin: 0 12px;
   }
 }
 </style>
