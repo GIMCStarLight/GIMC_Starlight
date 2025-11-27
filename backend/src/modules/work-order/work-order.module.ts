@@ -6,7 +6,7 @@ import { WorkOrderController } from './work-order.controller';
 import { WorkOrderService } from './work-order.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([WorkOrder, WorkOrderLog])],
+  imports: [TypeOrmModule.forFeature([WorkOrder, WorkOrderLog], 'postgres')],
   controllers: [WorkOrderController],
   providers: [WorkOrderService],
   exports: [WorkOrderService],
