@@ -16,6 +16,8 @@ const loading = ref(false)
 const permissionList = ref<PermissionApi.PermissionInfo[]>([])
 const selectedModules = ref<string[]>([])
 const searchKeyword = ref('')
+const typeFilter = ref<'all' | 'MENU' | 'BUTTON' | 'API'>('all')
+const expandedCategories = ref<string[]>(['KOL数据管理'])
 
 // 功能分类（根据实际业务调整）
 interface ModuleCategory {
@@ -76,7 +78,43 @@ const categories: ModuleCategory[] = [
   },
 ]
 
-// 分类权限项
+// 权限类型统计
+const typeCount = computed(() => {
+  let menu = 0, button = 0, api = 0
+  const countTypes = (permissions: PermissionApi.PermissionInfo[]): void => {
+    permissions.forEach(permission => {
+      if (permission.status === 1) {
+        if (permission.type === 'MENU') menu++
+        else if (permission.type === 'BUTTON') button++
+        else if (permission.type === 'API') api++
+      }
+      if (permission.children && permission.children.length > 0) {
+        countTypes(permission.children)
+      }
+    })
+  }
+  countTypes(permissionList.value)
+  return { MENU: menu, BUTTON: button, API: api }
+})
+
+// 根据类型和搜索过滤后的分类
+const displayedCategories = computed(() => {
+  let result = filteredCategories.value
+  
+  // 按类型过滤
+  if (typeFilter.value !== 'all') {
+    const filtered: Record<string, PermissionApi.PermissionInfo[]> = {}
+    Object.entries(result).forEach(([catName, permissions]) => {
+      const typeFiltered = permissions.filter(p => p.type === typeFilter.value)
+      if (typeFiltered.length > 0) {
+        filtered[catName] = typeFiltered
+      }
+    })
+    result = filtered
+  }
+  
+  return result
+})
 const categorizedModules = computed(() => {
   const result: Record<string, PermissionApi.PermissionInfo[]> = {}
   
@@ -206,6 +244,32 @@ const isSelected = (permissionId: string) => {
   return selectedModules.value.includes(permissionId)
 }
 
+// 清空所有选中
+const clearAll = () => {
+  selectedModules.value = []
+  emit('update:modelValue', selectedModules.value)
+}
+
+// 切换分类展开/收起
+const toggleCategory = (catName: string) => {
+  const index = expandedCategories.value.indexOf(catName)
+  if (index > -1) {
+    expandedCategories.value.splice(index, 1)
+  } else {
+    expandedCategories.value.push(catName)
+  }
+}
+
+// 全选分类下的所有权限
+const selectAllInCategory = (catName: string, permissions: PermissionApi.PermissionInfo[]) => {
+  permissions.forEach(perm => {
+    if (!isSelected(perm.id)) {
+      selectedModules.value.push(perm.id)
+    }
+  })
+  emit('update:modelValue', selectedModules.value)
+}
+
 // 统计信息
 const totalPermissionCount = computed(() => {
   let count = 0
@@ -286,192 +350,553 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-loading="loading" class="module-selector">
-    <!-- 搜索框 -->
-    <div class="mb-4">
+  <div v-loading="loading" class="module-selector-modern">
+    <!-- 顶部搜索和统计 -->
+    <div class="selector-header">
       <el-input
         v-model="searchKeyword"
-        placeholder="搜索功能模块..."
+        placeholder="搜索功能模块、权限名称或代码..."
         clearable
+        size="large"
+        class="search-input"
       >
         <template #prefix>
-          <Icon icon="lucide:search" />
+          <Icon icon="lucide:search" :size="18" />
         </template>
       </el-input>
-    </div>
-
-    <!-- 已选模块 -->
-    <div v-if="selectedModules.length > 0" class="mb-4 p-3 bg-blue-50 rounded">
-      <div class="text-sm text-gray-600 mb-2">已选择 {{ selectedModules.length }} 个模块：</div>
-      <div class="flex flex-wrap gap-2">
-        <el-tag
-          v-for="permId in selectedModules"
-          :key="permId"
-          closable
-          type="primary"
-          @close="toggleModule(permId)"
-        >
-          {{ getSelectedPermissionName(permId) }}
-        </el-tag>
-      </div>
-    </div>
-
-    <!-- 分类列表 -->
-    <div class="categories-container">
-      <!-- 添加统计信息 -->
-      <div class="mb-4 p-2 bg-gray-50 rounded text-sm text-gray-600">
-        权限总数：{{ totalPermissionCount }}，已分类：{{ categorizedCount }}，未分类：{{ uncategorizedCount }}
-      </div>
       
-      <el-collapse v-model="activeCategories" accordion>
-        <el-collapse-item
-          v-for="(permissions, catName) in filteredCategories"
-          :key="catName"
-          :name="catName"
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span class="stat-label">权限总数</span>
+          <span class="stat-value">{{ totalPermissionCount }}</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-label">已选择</span>
+          <span class="stat-value text-primary">{{ selectedModules.length }}</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-label">已分类</span>
+          <span class="stat-value">{{ categorizedCount }}</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-label">未分类</span>
+          <span class="stat-value text-warning">{{ uncategorizedCount }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 已选模块标签 -->
+    <transition name="slide-down">
+      <div v-if="selectedModules.length > 0" class="selected-tags">
+        <div class="selected-header">
+          <span class="selected-title">
+            <Icon icon="lucide:check-circle-2" :size="16" />
+            已选择 {{ selectedModules.length }} 个权限
+          </span>
+          <el-button text type="danger" size="small" @click="clearAll">
+            <Icon icon="lucide:x" :size="14" class="mr-1" />
+            清空
+          </el-button>
+        </div>
+        <div class="selected-list">
+          <el-tag
+            v-for="permId in selectedModules"
+            :key="permId"
+            closable
+            type="primary"
+            size="large"
+            class="selected-tag"
+            @close="toggleModule(permId)"
+          >
+            <Icon icon="lucide:shield-check" :size="14" class="mr-1" />
+            {{ getSelectedPermissionName(permId) }}
+          </el-tag>
+        </div>
+      </div>
+    </transition>
+
+    <!-- 权限类型过滤 -->
+    <div class="type-filter">
+      <span class="filter-label">权限类型：</span>
+      <el-radio-group v-model="typeFilter" size="small" class="type-radio-group">
+        <el-radio-button label="all">
+          <Icon icon="lucide:layers" :size="14" class="mr-1" />
+          全部 ({{ totalPermissionCount }})
+        </el-radio-button>
+        <el-radio-button label="MENU">
+          <Icon icon="lucide:layout-dashboard" :size="14" class="mr-1" />
+          菜单 ({{ typeCount.MENU }})
+        </el-radio-button>
+        <el-radio-button label="BUTTON">
+          <Icon icon="lucide:square-mouse-pointer" :size="14" class="mr-1" />
+          按钮 ({{ typeCount.BUTTON }})
+        </el-radio-button>
+        <el-radio-button label="API">
+          <Icon icon="lucide:plug" :size="14" class="mr-1" />
+          接口 ({{ typeCount.API }})
+        </el-radio-button>
+      </el-radio-group>
+    </div>
+
+    <!-- 分类卡片网格 -->
+    <div class="categories-grid">
+      <div
+        v-for="(permissions, catName) in displayedCategories"
+        :key="catName"
+        class="category-card"
+        :class="{ 'category-expanded': expandedCategories.includes(catName) }"
+      >
+        <div 
+          class="category-header"
+          @click="toggleCategory(catName)"
         >
-          <template #title>
-            <div class="flex items-center gap-2">
-              <div
-                class="category-icon"
-                :style="{ backgroundColor: getCategoryColor(catName) }"
-              >
-                <Icon :icon="getCategoryIcon(catName)" :size="18" />
-              </div>
-              <span class="font-medium">{{ catName }}</span>
-              <el-badge :value="permissions.length" class="ml-2" />
-            </div>
-          </template>
-          
-          <div class="module-list">
-            <div
-              v-for="permission in permissions"
-              :key="permission.id"
-              class="module-item"
-              :class="{ 'module-item-selected': isSelected(permission.id) }"
-              @click="toggleModule(permission.id)"
+          <div class="category-info">
+            <div 
+              class="category-icon-wrapper"
+              :style="{ backgroundColor: getCategoryColor(catName) }"
             >
-              <div class="flex items-center gap-2 flex-1">
-                <Icon icon="lucide:check-square" :size="16" />
-                <div class="flex flex-col flex-1">
-                  <div class="flex items-center gap-2">
-                    <span class="module-title">{{ permission.name }}</span>
-                    <el-tag :type="getPermissionTypeColor(permission.type)" size="small">
+              <Icon :icon="getCategoryIcon(catName)" :size="20" />
+            </div>
+            <div class="category-title">
+              <span class="category-name">{{ catName }}</span>
+              <span class="category-count">{{ permissions.length }} 项权限</span>
+            </div>
+          </div>
+          <div class="category-actions">
+            <el-button
+              text
+              size="small"
+              @click.stop="selectAllInCategory(catName, permissions)"
+            >
+              全选
+            </el-button>
+            <Icon 
+              :icon="expandedCategories.includes(catName) ? 'lucide:chevron-up' : 'lucide:chevron-down'" 
+              :size="20"
+              class="expand-icon"
+            />
+          </div>
+        </div>
+        
+        <transition name="expand">
+          <div v-show="expandedCategories.includes(catName)" class="category-content">
+            <div class="permission-grid">
+              <div
+                v-for="permission in permissions"
+                :key="permission.id"
+                class="permission-card"
+                :class="{ 
+                  'permission-selected': isSelected(permission.id),
+                  'permission-hover': true
+                }"
+                @click="toggleModule(permission.id)"
+              >
+                <div class="permission-checkbox">
+                  <el-checkbox 
+                    :model-value="isSelected(permission.id)"
+                    @click.stop="toggleModule(permission.id)"
+                  />
+                </div>
+                <div class="permission-content">
+                  <div class="permission-header">
+                    <span class="permission-name">{{ permission.name }}</span>
+                    <el-tag 
+                      :type="getPermissionTypeColor(permission.type)" 
+                      size="small"
+                      class="permission-type-tag"
+                    >
                       {{ getPermissionTypeLabel(permission.type) }}
                     </el-tag>
                   </div>
-                  <span v-if="permission.description" class="module-desc">{{ permission.description }}</span>
-                  <span v-if="permission.code" class="module-code">{{ permission.code }}</span>
+                  <div v-if="permission.description" class="permission-desc">
+                    {{ permission.description }}
+                  </div>
+                  <div v-if="permission.code" class="permission-code">
+                    <Icon icon="lucide:code" :size="12" />
+                    {{ permission.code }}
+                  </div>
+                  <div v-if="permission.resource" class="permission-resource">
+                    <Icon icon="lucide:link" :size="12" />
+                    {{ permission.resource }}
+                  </div>
                 </div>
               </div>
-              <Icon
-                v-if="isSelected(permission.id)"
-                icon="lucide:check-circle"
-                :size="18"
-                class="text-blue-500"
-              />
             </div>
           </div>
-        </el-collapse-item>
-      </el-collapse>
-      
-      <el-empty
-        v-if="Object.keys(filteredCategories).length === 0"
-        description="未找到匹配的功能模块"
-      />
+        </transition>
+      </div>
     </div>
+
+    <!-- 空状态 -->
+    <el-empty
+      v-if="Object.keys(displayedCategories).length === 0"
+      description="未找到匹配的权限"
+      :image-size="120"
+    >
+      <template #image>
+        <Icon icon="lucide:search-x" :size="120" style="color: #d1d5db" />
+      </template>
+    </el-empty>
   </div>
 </template>
 
-<script lang="ts">
-// 默认展开第一个分类
-const activeCategories = ref<string[]>(['KOL数据管理'])
-</script>
-
 <style scoped>
-.module-selector {
-  max-height: 500px;
-  overflow-y: auto;
+.module-selector-modern {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: 70vh;
+  overflow: hidden;
 }
 
-.categories-container {
-  max-height: 400px;
-  overflow-y: auto;
+/* 顶部区域 */
+.selector-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.category-icon {
-  width: 32px;
-  height: 32px;
+.search-input {
+  width: 100%;
+}
+
+.search-input :deep(.el-input__wrapper) {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+}
+
+.search-input :deep(.el-input__wrapper:hover) {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* 统计栏 */
+.stats-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #f6f8fb 0%, #ffffff 100%);
   border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.stat-value.text-primary {
+  color: #3b82f6;
+}
+
+.stat-value.text-warning {
+  color: #f59e0b;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 20px;
+  background: #d1d5db;
+}
+
+/* 已选标签区域 */
+.selected-tags {
+  padding: 16px;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-radius: 12px;
+  border: 1px solid #bfdbfe;
+}
+
+.selected-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.selected-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.selected-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.selected-tag {
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 16px;
+  font-size: 13px;
+}
+
+/* 类型过滤 */
+.type-filter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #fafafa;
+  border-radius: 8px;
+}
+
+.filter-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.type-radio-group :deep(.el-radio-button__inner) {
+  border: none;
+  background: transparent;
+  padding: 8px 16px;
+  transition: all 0.3s;
+}
+
+.type-radio-group :deep(.el-radio-button__original-radio:checked + .el-radio-button__inner) {
+  background: white;
+  color: #3b82f6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* 分类网格 */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 16px;
+  overflow-y: auto;
+  max-height: calc(70vh - 300px);
+  padding-right: 4px;
+}
+
+.category-card {
+  background: white;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.category-card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.category-expanded {
+  border-color: #3b82f6;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  cursor: pointer;
+  background: #fafafa;
+  transition: background 0.3s;
+}
+
+.category-header:hover {
+  background: #f3f4f6;
+}
+
+.category-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.category-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
+  flex-shrink: 0;
 }
 
-.module-list {
+.category-title {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 8px 0;
+  gap: 4px;
 }
 
-.module-item {
+.category-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.category-count {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.category-actions {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 12px 16px;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  gap: 8px;
 }
 
-.module-item:hover {
+.expand-icon {
+  color: #6b7280;
+  transition: transform 0.3s;
+}
+
+.category-expanded .expand-icon {
+  transform: rotate(180deg);
+}
+
+.category-content {
+  padding: 16px;
+  background: white;
+}
+
+/* 权限网格 */
+.permission-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.permission-card {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.permission-card:hover {
+  border-color: #3b82f6;
+  background: #f9fafb;
+  transform: translateX(4px);
+}
+
+.permission-selected {
   border-color: #3b82f6;
   background: #eff6ff;
 }
 
-.module-item-selected {
-  border-color: #3b82f6;
-  background: #dbeafe;
+.permission-checkbox {
+  flex-shrink: 0;
 }
 
-.module-title {
+.permission-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.permission-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.permission-name {
   font-size: 14px;
-  color: #374151;
   font-weight: 500;
+  color: #111827;
+  flex: 1;
 }
 
-.module-desc {
+.permission-type-tag {
+  flex-shrink: 0;
+}
+
+.permission-desc {
   font-size: 12px;
-  color: #9ca3af;
-  margin-top: 2px;
+  color: #6b7280;
+  line-height: 1.5;
+  margin-bottom: 4px;
 }
 
-.module-code {
+.permission-code,
+.permission-resource {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   font-size: 11px;
-  color: #d1d5db;
-  font-family: monospace;
-  margin-top: 2px;
+  color: #9ca3af;
+  font-family: 'Monaco', 'Consolas', monospace;
+  margin-top: 4px;
 }
 
-.module-item-selected .module-title {
-  color: #1e40af;
-  font-weight: 500;
+/* 动画 */
+.slide-down-enter-active,
+.slide-down-leave-active {
+  transition: all 0.3s ease;
 }
 
-:deep(.el-collapse-item__header) {
-  padding: 12px 16px;
-  background: #fafafa;
-  border-radius: 8px;
-  margin-bottom: 8px;
+.slide-down-enter-from {
+  opacity: 0;
+  transform: translateY(-10px);
 }
 
-:deep(.el-collapse-item__wrap) {
-  border: none;
+.slide-down-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
 }
 
-:deep(.el-collapse-item__content) {
-  padding: 0 16px 12px 16px;
+.expand-enter-active,
+.expand-leave-active {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.expand-enter-from,
+.expand-leave-to {
+  max-height: 0;
+  opacity: 0;
+}
+
+.expand-enter-to,
+.expand-leave-from {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-bar {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .stat-divider {
+    display: none;
+  }
 }
 </style>
