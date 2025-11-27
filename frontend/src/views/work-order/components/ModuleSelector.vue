@@ -442,7 +442,7 @@ onMounted(() => {
             >
               <el-checkbox 
                 :model-value="isSelected(permission.id)"
-                @click.stop
+                @change="toggleModule(permission.id)"
               />
               <div class="permission-info">
                 <div class="permission-main">
