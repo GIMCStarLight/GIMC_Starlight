@@ -251,87 +251,49 @@ onMounted(() => {
 
 <template>
   <div class="work-order-management">
-    <!-- 统计卡片 - 优化版 -->
-    <div class="mb-6">
-      <el-row :gutter="16">
-        <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
-          <div class="stat-card stat-card-total">
-            <div class="stat-icon">
-              <Icon icon="lucide:clipboard-list" :size="32" />
-            </div>
-            <div class="stat-content">
-              <div class="stat-label">全部工单</div>
-              <div class="stat-value">{{ statistics.total }}</div>
-            </div>
-          </div>
-        </el-col>
-        <el-col :xs="12" :sm="6" :md="6" :lg="4" :xl="4">
-          <div class="stat-card stat-card-pending cursor-pointer" @click="quickFilter(WorkOrderStatus.PENDING)">
-            <div class="stat-icon">
-              <Icon icon="lucide:clock" :size="28" />
-            </div>
-            <div class="stat-content">
-              <div class="stat-label">待接收</div>
-              <div class="stat-value">{{ statistics.pending }}</div>
-            </div>
-          </div>
-        </el-col>
-        <el-col :xs="12" :sm="6" :md="6" :lg="4" :xl="4">
-          <div class="stat-card stat-card-received cursor-pointer" @click="quickFilter(WorkOrderStatus.RECEIVED)">
-            <div class="stat-icon">
-              <Icon icon="lucide:check-circle" :size="28" />
-            </div>
-            <div class="stat-content">
-              <div class="stat-label">已接收</div>
-              <div class="stat-value">{{ statistics.received }}</div>
-            </div>
-          </div>
-        </el-col>
-        <el-col :xs="12" :sm="6" :md="6" :lg="4" :xl="4">
-          <div class="stat-card stat-card-progress cursor-pointer" @click="quickFilter(WorkOrderStatus.IN_PROGRESS)">
-            <div class="stat-icon">
-              <Icon icon="lucide:loader" :size="28" />
-            </div>
-            <div class="stat-content">
-              <div class="stat-label">处理中</div>
-              <div class="stat-value">{{ statistics.inProgress }}</div>
-            </div>
-          </div>
-        </el-col>
-        <el-col :xs="12" :sm="6" :md="6" :lg="4" :xl="4">
-          <div class="stat-card stat-card-completed cursor-pointer" @click="quickFilter(WorkOrderStatus.COMPLETED)">
-            <div class="stat-icon">
-              <Icon icon="lucide:check-circle-2" :size="28" />
-            </div>
-            <div class="stat-content">
-              <div class="stat-label">已完成</div>
-              <div class="stat-value">{{ statistics.completed }}</div>
-            </div>
-          </div>
-        </el-col>
-        <el-col :xs="12" :sm="12" :md="8" :lg="4" :xl="4">
-          <div class="stat-card stat-card-my cursor-pointer" @click="activeTab = 'myCreated'; handleTabChange()">
-            <div class="stat-icon">
-              <Icon icon="lucide:user" :size="28" />
-            </div>
-            <div class="stat-content">
-              <div class="stat-label">我创建的</div>
-              <div class="stat-value">{{ statistics.myCreated }}</div>
-            </div>
-          </div>
-        </el-col>
-        <el-col :xs="12" :sm="12" :md="8" :lg="4" :xl="4">
-          <div class="stat-card stat-card-assigned cursor-pointer" @click="activeTab = 'assignedToMe'; handleTabChange()">
-            <div class="stat-icon">
-              <Icon icon="lucide:user-check" :size="28" />
-            </div>
-            <div class="stat-content">
-              <div class="stat-label">分配给我</div>
-              <div class="stat-value">{{ statistics.assignedToMe }}</div>
-            </div>
-          </div>
-        </el-col>
-      </el-row>
+    <!-- 统计条 - 精简版 -->
+    <div class="stats-bar">
+      <div class="stat-item stat-item-total">
+        <Icon icon="lucide:clipboard-list" :size="20" />
+        <span class="stat-text">全部</span>
+        <span class="stat-number">{{ statistics.total }}</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item stat-item-pending" @click="quickFilter(WorkOrderStatus.PENDING)">
+        <Icon icon="lucide:clock" :size="18" />
+        <span class="stat-text">待接收</span>
+        <span class="stat-number">{{ statistics.pending }}</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item stat-item-received" @click="quickFilter(WorkOrderStatus.RECEIVED)">
+        <Icon icon="lucide:check-circle" :size="18" />
+        <span class="stat-text">已接收</span>
+        <span class="stat-number">{{ statistics.received }}</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item stat-item-progress" @click="quickFilter(WorkOrderStatus.IN_PROGRESS)">
+        <Icon icon="lucide:loader" :size="18" />
+        <span class="stat-text">处理中</span>
+        <span class="stat-number">{{ statistics.inProgress }}</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item stat-item-completed" @click="quickFilter(WorkOrderStatus.COMPLETED)">
+        <Icon icon="lucide:check-circle-2" :size="18" />
+        <span class="stat-text">已完成</span>
+        <span class="stat-number">{{ statistics.completed }}</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item stat-item-my" @click="activeTab = 'myCreated'; handleTabChange()">
+        <Icon icon="lucide:user" :size="18" />
+        <span class="stat-text">我创建的</span>
+        <span class="stat-number">{{ statistics.myCreated }}</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item stat-item-assigned" @click="activeTab = 'assignedToMe'; handleTabChange()">
+        <Icon icon="lucide:user-check" :size="18" />
+        <span class="stat-text">分配给我</span>
+        <span class="stat-number">{{ statistics.assignedToMe }}</span>
+      </div>
     </div>
 
     <!-- 页面头部 -->
@@ -585,92 +547,96 @@ onMounted(() => {
   min-height: calc(100vh - 60px);
 }
 
-/* 统计卡片样式 */
-.stat-card {
-  position: relative;
-  padding: 20px;
-  border-radius: 12px;
+/* 精简统计条 */
+.stats-bar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 12px 20px;
   background: white;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 16px;
+  overflow-x: auto;
+}
+
+.stat-item {
   display: flex;
   align-items: center;
-  gap: 16px;
-}
-
-.stat-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
-}
-
-.stat-card.cursor-pointer {
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 6px;
   cursor: pointer;
-}
-
-.stat-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
+  transition: all 0.2s;
+  white-space: nowrap;
   flex-shrink: 0;
 }
 
-.stat-content {
-  flex: 1;
-  min-width: 0;
+.stat-item:hover {
+  background: #f5f7fa;
 }
 
-.stat-label {
+.stat-item-total {
+  cursor: default;
+}
+
+.stat-item-total:hover {
+  background: transparent;
+}
+
+.stat-text {
   font-size: 13px;
-  color: #909399;
-  margin-bottom: 4px;
+  color: #606266;
   font-weight: 500;
 }
 
-.stat-value {
-  font-size: 28px;
+.stat-number {
+  font-size: 18px;
   font-weight: 600;
   color: #303133;
-  line-height: 1;
 }
 
-/* 不同类型卡片的颜色 */
-.stat-card-total .stat-icon {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.stat-divider {
+  width: 1px;
+  height: 24px;
+  background: #e5e7eb;
+  flex-shrink: 0;
 }
 
-.stat-card-pending .stat-icon {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+/* 统计项颜色 */
+.stat-item-total {
+  color: #667eea;
 }
 
-.stat-card-received .stat-icon {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+.stat-item-pending {
+  color: #3b82f6;
 }
 
-.stat-card-progress .stat-icon {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+.stat-item-received {
+  color: #10b981;
 }
 
-.stat-card-completed .stat-icon {
-  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+.stat-item-progress {
+  color: #f59e0b;
 }
 
-.stat-card-my .stat-icon {
-  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+.stat-item-completed {
+  color: #059669;
 }
 
-.stat-card-assigned .stat-icon {
-  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+.stat-item-my {
+  color: #8b5cf6;
+}
+
+.stat-item-assigned {
+  color: #6366f1;
 }
 
 /* 表格卡片 */
 .work-order-table-card {
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
+  margin: 0 20px;
 }
 
 .work-order-table-card :deep(.el-card__body) {
@@ -700,22 +666,37 @@ onMounted(() => {
 }
 
 /* 响应式调整 */
+@media (max-width: 1200px) {
+  .stats-bar {
+    justify-content: flex-start;
+  }
+}
+
 @media (max-width: 768px) {
   .work-order-management {
     padding: 12px;
   }
   
-  .stat-card {
-    padding: 16px;
+  .stats-bar {
+    padding: 10px 12px;
+    gap: 1px;
   }
   
-  .stat-icon {
-    width: 48px;
-    height: 48px;
+  .stat-item {
+    padding: 6px 10px;
+    gap: 6px;
   }
   
-  .stat-value {
-    font-size: 24px;
+  .stat-text {
+    font-size: 12px;
+  }
+  
+  .stat-number {
+    font-size: 16px;
+  }
+  
+  .work-order-table-card {
+    margin: 0 12px;
   }
 }
 </style>
