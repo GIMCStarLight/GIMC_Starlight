@@ -370,10 +370,6 @@ watch(() => props.kolData, (d) => {
     formApi.resetForm()
     return
   }
-
-  // 调试：打印 rebate_policy 的实际值
-  console.log('rebate_policy 原始值:', d.rebate_policy, '类型:', typeof d.rebate_policy)
-  console.log('rebatePolicy 原始值:', d.rebatePolicy, '类型:', typeof d.rebatePolicy)
   formApi.setValues({
     platform: d.platform || '',
     account_name: d.account_name || d.accountName || '',

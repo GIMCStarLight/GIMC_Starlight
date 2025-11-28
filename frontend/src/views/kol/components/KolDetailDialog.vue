@@ -195,8 +195,8 @@
               <div class="coop-unified-item">
                 <div class="coop-label-new">返点政策</div>
                 <div class="coop-value-new">
-                  <el-tag :type="kolData.rebate_policy === 1 ? 'warning' : 'info'" size="small">
-                    {{ kolData.rebate_policy === 1 ? '有' : '无' }}
+                  <el-tag :type="String(kolData.rebate_policy) === '1' ? 'warning' : 'info'" size="small">
+                    {{ String(kolData.rebate_policy) === '1' ? '有' : '无' }}
                   </el-tag>
                 </div>
               </div>

@@ -40,9 +40,6 @@
               suffix="%"
               class="stat-card"
             >
-              <!-- <template #prefix>
-                <HeartOutlined class="stat-icon" />
-              </template> -->
             </a-statistic>
           </a-col>
           <a-col :span="8">
@@ -51,9 +48,6 @@
               :value="snapshot.grade"
               class="stat-card"
             >
-              <!-- <template #prefix>
-                <CrownOutlined class="stat-icon" />
-              </template> -->
             </a-statistic>
           </a-col>
         </a-row>
@@ -61,90 +55,107 @@
         <a-divider />
 
         <!-- 基础信息 -->
-        <a-descriptions
-          title="基础信息"
-          :column="2"
-          bordered
-          size="small"
-          class="info-descriptions"
-        >
-          <a-descriptions-item label="达人ID">
-            <a-typography-text copyable>{{ snapshot.author_id }}</a-typography-text>
-          </a-descriptions-item>
-          <a-descriptions-item label="星图ID">
-            <a-typography-text copyable>{{ snapshot.star_id }}</a-typography-text>
-          </a-descriptions-item>
-          <a-descriptions-item label="昵称">
-            {{ snapshot.nick_name }}
-          </a-descriptions-item>
-          <a-descriptions-item label="性别">
-            <a-tag :color="getGenderColor(snapshot.gender)">
-              <template #icon>
-                <ManOutlined v-if="snapshot.gender === 1" />
-                <WomanOutlined v-else-if="snapshot.gender === 2" />
-              </template>
-              {{ getGenderText(snapshot.gender) }}
-            </a-tag>
-          </a-descriptions-item>
-        </a-descriptions>
+        <div class="info-section">
+          <div class="section-title">
+            <IdcardOutlined class="title-icon" />
+            <span>基础信息</span>
+          </div>
+          <a-row :gutter="[16, 16]" class="info-grid">
+            <a-col :span="12">
+              <div class="info-item">
+                <span class="item-label">达人 ID</span>
+                <a-typography-text copyable class="item-value">
+                  {{ snapshot.author_id }}
+                </a-typography-text>
+              </div>
+            </a-col>
+            <a-col :span="12">
+              <div class="info-item">
+                <span class="item-label">星图 ID</span>
+                <a-typography-text copyable class="item-value">
+                  {{ snapshot.star_id }}
+                </a-typography-text>
+              </div>
+            </a-col>
+            <a-col :span="12">
+              <div class="info-item">
+                <span class="item-label">昵称</span>
+                <span class="item-value">{{ snapshot.nick_name }}</span>
+              </div>
+            </a-col>
+             <a-col :span="12">
+              <div class="info-item">
+                <span class="item-label">性别</span>
+                <span class="item-value">
+                  <ManOutlined v-if="snapshot.gender === 1"/>
+                  <WomanOutlined v-else-if="snapshot.gender === 2"/>
+                  <!-- {{ getGenderText(snapshot.gender) }} -->
+                </span>
+              </div>
+            </a-col>
+            <a-col :span="12">
+              <div class="info-item">
+                <span class="item-label">20-60s 视频报价</span>
+                <span class="item-value price-text">
+                  <!-- <DollarOutlined class="price-icon" /> -->
+                  {{ formatPrice(snapshot.price_20_60) || '-' }}
+                </span>
+              </div>
+            </a-col>
+             
+            <a-col :span="12">
+              <div class="info-item">
+                <span class="item-label">60s+ 视频报价</span>
+                <span class="item-value price-text">
+                  <!-- <DollarOutlined class="price-icon" /> -->
+                  {{ formatPrice(snapshot.price_60) || '-' }}
+                </span>
+              </div>
+            </a-col>
+          </a-row>
+        </div>
 
-        <a-divider />
-
-        <!-- 地理位置 -->
-        <a-descriptions
-          title="地理位置"
-          :column="2"
-          bordered
-          size="small"
-          class="info-descriptions"
-        >
-          <a-descriptions-item label="省份">
-            <span class="location-item">
-              <EnvironmentOutlined /> {{ snapshot.province || '-' }}
-            </span>
-          </a-descriptions-item>
-          <a-descriptions-item label="城市">
-            <span class="location-item">
-              <EnvironmentOutlined /> {{ snapshot.city || '-' }}
-            </span>
-          </a-descriptions-item>
-        </a-descriptions>
+        <!-- 地理位置（独占一行） -->
+        <div class="location-card">
+          <EnvironmentOutlined class="location-icon" />
+          <span class="location-label">地理位置：</span>
+          <span class="location-value">{{ snapshot.province || '-' }} / {{ snapshot.city || '-' }}</span>
+        </div>
 
         <a-divider />
 
         <!-- 报价信息 -->
-        <a-descriptions
-          title="报价信息"
-          :column="2"
-          bordered
-          size="small"
-          class="info-descriptions"
-        >
-          <a-descriptions-item label="20-60s 视频报价">
-            <span class="price-item">
-              <!-- <DollarOutlined style="color: #1890ff;" />  -->
-              <span style="color: #1890ff; font-weight: 600;">{{ formatPrice(snapshot.price_20_60) || '-' }}</span>
-            </span>
-          </a-descriptions-item>
-          <a-descriptions-item label="60s+ 视频报价">
-            <span class="price-item">
-              <!-- <DollarOutlined style="color: #1890ff;" />  -->
-              <span style="color: #1890ff; font-weight: 600;">{{ formatPrice(snapshot.price_60) || '-' }}</span>
-            </span>
-          </a-descriptions-item>
-        </a-descriptions>
+        <!-- <div class="info-section">
+          <div class="section-title">
+            <DollarOutlined class="title-icon" />
+            <span>报价信息</span>
+          </div>
+          <a-row :gutter="[16, 16]" class="info-grid">
+            <a-col :span="12">
+              <div class="info-item">
+                <span class="item-label">20-60s 视频报价</span>
+                <span class="item-value price-text">
+                  {{ formatPrice(snapshot.price_20_60) || '-' }}
+                </span>
+              </div>
+            </a-col>
+            <a-col :span="12">
+              <div class="info-item">
+                <span class="item-label">60s+ 视频报价</span>
+                <span class="item-value price-text">
+                  {{ formatPrice(snapshot.price_60) || '-' }}
+                </span>
+              </div>
+            </a-col>
+          </a-row>
+        </div> -->
 
         <!-- 同步时间 -->
-        <a-alert
-          :message="`数据同步时间: ${formatDateTime(snapshot.synced_at)}`"
-          type="info"
-          show-icon
-          class="sync-alert"
-        >
-          <template #icon>
-            <ClockCircleOutlined />
-          </template>
-        </a-alert>
+        <div class="sync-time-card">
+          <ClockCircleOutlined class="sync-icon" />
+          <span class="sync-label">数据同步时间：</span>
+          <span class="sync-value">{{ formatDateTime(snapshot.synced_at) }}</span>
+        </div>
       </div>
 
       <!-- 无数据时显示 -->
@@ -170,7 +181,8 @@ import {
   EnvironmentOutlined,
   DollarOutlined,
   ClockCircleOutlined,
-  InboxOutlined
+  InboxOutlined,
+  IdcardOutlined
 } from '@ant-design/icons-vue'
 
 interface AuthorSnapshot {
@@ -352,34 +364,142 @@ const formatDateTime = (dateStr: string): string => {
   }
 }
 
-// 描述列表样式
-.info-descriptions {
-  margin-bottom: 16px;
+// 信息区域样式
+.info-section {
+  margin-bottom: 24px;
   
-  :deep(.ant-descriptions-title) {
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-size: 15px;
     font-weight: 600;
     color: #303133;
-    margin-bottom: 12px;
-    padding-left: 12px;
-    border-left: 4px solid #1890ff;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f0f0f0;
+    
+    .title-icon {
+      font-size: 18px;
+      color: #1890ff;
+    }
   }
   
-  :deep(.ant-descriptions-item-label) {
-    font-weight: 500;
+  .info-grid {
+    .info-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: #fafafa;
+      border-radius: 8px;
+      border-left: 3px solid #1890ff;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #f0f9ff;
+        transform: translateX(4px);
+        box-shadow: 0 2px 8px rgba(24, 144, 255, 0.1);
+      }
+
+      .item-label {
+        font-size: 14px;
+        color: #606266;
+        font-weight: 500;
+        flex-shrink: 0;
+      }
+
+      .item-value {
+        font-size: 14px;
+        color: #303133;
+        font-weight: 400;
+        flex-shrink: 0;
+        
+        &.location-text {
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          
+          .location-icon {
+            color: #52c41a;
+            font-size: 14px;
+          }
+        }
+        
+        &.price-text {
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          color: #1890ff;
+          font-weight: 600;
+          font-size: 15px;
+          
+          .price-icon {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 同步时间卡片样式
+.sync-time-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #fafbfc 0%, #e8eef5 100%);
+  border-radius: 8px;
+  border-left: 4px solid #409eff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  
+  .sync-icon {
+    font-size: 18px;
+    color: #409eff;
+  }
+  
+  .sync-label {
+    font-size: 14px;
     color: #606266;
-    background-color: #fafafa;
+    font-weight: 500;
   }
   
-  :deep(.ant-descriptions-item-content) {
+  .sync-value {
+    font-size: 14px;
     color: #303133;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+  }
+}
+
+// 地理位置卡片样式（独占一行）
+.location-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+   background: linear-gradient(135deg, #fafbfc 0%, #e8eef5 100%);
+  border-radius: 8px;
+  border-left: 4px solid #409eff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  
+  .location-icon {
+    font-size: 18px;
+    color: #409eff;
   }
   
-  .location-item,
-  .price-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+  .location-label {
+    font-size: 14px;
+    color: #606266;
+    font-weight: 500;
+  }
+  
+  .location-value {
+    font-size: 14px;
+    color: #303133;
+    font-weight: 600;
   }
 }
 
