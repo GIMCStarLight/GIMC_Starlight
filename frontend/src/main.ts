@@ -5,6 +5,7 @@ import { unmountGlobalLoading } from '@vben/utils';
 import '@vben/styles';
 import '@vben/styles/ele';
 import 'element-plus/dist/index.css';
+import 'ant-design-vue/dist/reset.css';
 
 import { overridesPreferences } from './preferences';
 

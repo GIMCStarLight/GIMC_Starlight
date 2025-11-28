@@ -12,24 +12,47 @@
         <div class="avatar">
           <span>{{ (kolData.account_name || '-').slice(0, 1) }}</span>
         </div>
-        <div class="title-group">
-          <div class="title-row">
+        <div class="info-group">
+          <!-- 第一行：昵称 + 粉丝标签 -->
+          <div class="info-row">
             <span class="kol-name">{{ kolData.account_name || '-' }}</span>
-            <el-tag size="small" type="info" class="platform-tag">{{ kolData.platform || '-' }}</el-tag>
             <el-tag v-if="kolData.followers_w" size="small" type="success" class="followers-tag">
               粉丝 {{ kolData.followers_w }} 万
             </el-tag>
           </div>
-          <div class="sub-row">
-            <span class="sub-id">ID：{{ kolData.account_id || '-' }}</span>
-            <el-divider direction="vertical" />
-            <span class="sub-org">机构：{{ kolData.org_name || '-' }}</span>
-            <el-divider direction="vertical" />
-            <span class="sub-category">类型：{{ kolData.category || '-' }}</span>
+          <!-- 第二行：ID -->
+          <div class="info-row">
+            <span class="info-label">ID：</span>
+            <span class="info-value">{{ kolData.account_id || '-' }}</span>
           </div>
-        </div>
-        <div class="header-actions">
-          <a v-if="kolData.home_link" :href="kolData.home_link" target="_blank" class="link">访问主页</a>
+          <!-- 第三行：机构和分类标签 -->
+          <div class="info-row">
+            <el-tag size="small" class="org-tag">
+              <template #icon>
+                <el-icon><OfficeBuilding /></el-icon>
+              </template>
+              {{ kolData.org_name || '暂无机构' }}
+            </el-tag>
+            <el-tag size="small" type="info" class="type-tags">
+               {{ kolData.platform || '-' }}
+            </el-tag>
+          </div>
+          <!-- 第四行：达人类型标签 -->
+          <div class="info-row">
+            <span class="info-label">达人类型</span>
+            <el-tag size="small" class="category-tag">
+              {{ kolData.category || '未分类' }}
+             
+            </el-tag>
+          </div>
+          <!-- 第五行：主页链接 -->
+          <div class="info-row">
+            <span class="info-label">主页链接</span>
+            <a v-if="kolData.home_link" :href="kolData.home_link" target="_blank" class="link">
+              {{ kolData.home_link }}
+            </a>
+            <span v-else class="info-value">-</span>
+          </div>
         </div>
       </div>
 
@@ -54,29 +77,31 @@
           </div>
         </div>
 
-        <el-row :gutter="16" class="status-info">
-          <el-col :span="8">
-            <div class="status-item">
-              <span class="label">同步状态:</span>
-              <SyncStatusTag :status="kolData.match_status || 'unmatched'" />
-            </div>
+        <el-row :gutter="12" class="status-info">
+          <el-col :span="12">
+            <el-card shadow="never">
+              <div class="status-item">
+                <span class="status-label">匹配置信度</span>
+                <div class="status-value confidence">
+                  <span v-if="kolData.match_confidence" class="confidence-number">
+                    {{ (kolData.match_confidence * 100).toFixed(1) }}<span class="percent">%</span>
+                  </span>
+                  <span v-else class="confidence-number empty">-</span>
+                </div>
+              </div>
+            </el-card>
           </el-col>
-          <el-col :span="8">
-            <div class="status-item">
-              <span class="label">匹配置信度:</span>
-              <span v-if="kolData.match_confidence" class="value">
-                {{ (kolData.match_confidence * 100).toFixed(1) }}%
-              </span>
-              <span v-else class="value">-</span>
-            </div>
-          </el-col>
-          <el-col :span="8">
-            <div class="status-item">
-              <span class="label">匹配时间:</span>
-              <span class="value">
-                {{ kolData.matched_at ? formatDateTime(kolData.matched_at) : '-' }}
-              </span>
-            </div>
+          <el-col :span="12">
+            <el-card shadow="never">
+              <div class="status-item">
+                <span class="status-label">匹配时间</span>
+                <div class="status-value">
+                  <span class="match-time">
+                    {{ kolData.matched_at ? formatDateTime(kolData.matched_at) : '-' }}
+                  </span>
+                </div>
+              </div>
+            </el-card>
           </el-col>
         </el-row>
 
@@ -92,7 +117,7 @@
       </div>
 
       <!-- 基本信息 -->
-      <div class="info-section">
+      <!-- <div class="info-section">
         <h4 class="section-title">基本信息</h4>
         <el-descriptions :column="2" border size="small">
           <el-descriptions-item label="平台">{{ kolData.platform }}</el-descriptions-item>
@@ -108,68 +133,127 @@
             <span v-else>-</span>
           </el-descriptions-item>
         </el-descriptions>
-      </div>
+      </div> -->
 
       <!-- 报价信息 -->
-      <div class="info-section">
-        <h4 class="section-title">报价信息</h4>
-        <el-descriptions :column="2" border size="small">
-          <el-descriptions-item label="21-60s报价">
-            <span v-if="kolData.star_quote_21_60s" class="price">
-              ¥{{ kolData.star_quote_21_60s.toLocaleString() }}
-            </span>
-            <span v-else>-</span>
-          </el-descriptions-item>
-          <el-descriptions-item label="60s+报价">
-            <span v-if="kolData.star_quote_60s_plus" class="price">
-              ¥{{ kolData.star_quote_60s_plus.toLocaleString() }}
-            </span>
-            <span v-else>-</span>
-          </el-descriptions-item>
-        </el-descriptions>
+      <div class="info-section price-info-section">
+        <div class="section-header">
+          <h4>报价信息</h4>
+        </div>
+        <el-row :gutter="12" class="price-info-cards">
+          <el-col :span="12">
+            <el-card shadow="never">
+              <div class="price-info-item">
+                <span class="price-info-label">21-60s报价</span>
+                <div class="price-info-value">
+                  <span v-if="kolData.star_quote_21_60s" class="price-amount">
+                    ¥<span class="price-number">{{ kolData.star_quote_21_60s.toLocaleString() }}</span>
+                  </span>
+                  <span v-else class="price-amount empty">-</span>
+                </div>
+              </div>
+            </el-card>
+          </el-col>
+          <el-col :span="12">
+            <el-card shadow="never">
+              <div class="price-info-item">
+                <span class="price-info-label">60s+报价</span>
+                <div class="price-info-value">
+                  <span v-if="kolData.star_quote_60s_plus" class="price-amount">
+                    ¥<span class="price-number">{{ kolData.star_quote_60s_plus.toLocaleString() }}</span>
+                  </span>
+                  <span v-else class="price-amount empty">-</span>
+                </div>
+              </div>
+            </el-card>
+          </el-col>
+        </el-row>
       </div>
 
       <!-- 合作信息 -->
-      <div class="info-section">
-        <h4 class="section-title">合作信息</h4>
-        <el-descriptions :column="2" border size="small">
-          <el-descriptions-item label="是否独家">
-            <el-tag :type="kolData.is_exclusive === 1 ? 'success' : 'info'" size="small">
-              {{ kolData.is_exclusive === 1 ? '是' : '否' }}
-            </el-tag>
-          </el-descriptions-item>
-          <el-descriptions-item label="返点政策">
-            <el-tag :type="kolData.rebate_policy === 1 ? 'warning' : 'info'" size="small">
-              {{ kolData.rebate_policy === 1 ? '有' : '无' }}
-            </el-tag>
-          </el-descriptions-item>
-          <el-descriptions-item label="返点区间">{{ kolData.rebate_range || '-' }}</el-descriptions-item>
-          <el-descriptions-item label="政策等级">{{ kolData.policy_level || '-' }}</el-descriptions-item>
-          <el-descriptions-item label="返点账期">{{ kolData.rebate_period || '-' }}</el-descriptions-item>
-          <el-descriptions-item label="支付账期">{{ kolData.pay_period || '-' }}</el-descriptions-item>
-          <el-descriptions-item label="配合度">
-            <el-tag 
-              :type="cooperationDegreeType(kolData.cooperation_degree)" 
-              size="small"
-            >
-              {{ cooperationDegreeText(kolData.cooperation_degree) }}
-            </el-tag>
-          </el-descriptions-item>
-          <el-descriptions-item label="资源属性">
-            <el-tag 
-              :type="resourceAttributeType(kolData.resource_attribute)" 
-              size="small"
-            >
-              {{ resourceAttributeText(kolData.resource_attribute) }}
-            </el-tag>
-          </el-descriptions-item>
-          <el-descriptions-item label="年框机构" :span="2">
-            {{ kolData.annual_contract_org || '-' }}
-          </el-descriptions-item>
-          <el-descriptions-item label="合作简介" :span="2">
-            {{ kolData.cooperation_intro || '-' }}
-          </el-descriptions-item>
-        </el-descriptions>
+      <div class="info-section cooperation-section">
+        <div class="section-header">
+          <h4>合作信息</h4>
+        </div>
+        
+       <!-- 新版卡片式布局（参考图片样式） -->
+        <div class="cooperation-card-new">
+          <!-- 统一卡片：所有数据项 -->
+          <div class="coop-unified-card">
+            <!-- 第一行：返点区间、政策等级、返点政策、返点账期 -->
+            <div class="coop-unified-row">
+              <div class="coop-unified-item">
+                <div class="coop-label-new">返点区间</div>
+                <div class="coop-value-new">{{ kolData.rebate_range || '-' }}</div>
+              </div>
+              <div class="coop-divider"></div>
+              <div class="coop-unified-item">
+                <div class="coop-label-new">政策等级</div>
+                <div class="coop-value-new">{{ kolData.policy_level || '-' }}</div>
+              </div>
+              <div class="coop-divider"></div>
+              <div class="coop-unified-item">
+                <div class="coop-label-new">返点政策</div>
+                <div class="coop-value-new">
+                  <el-tag :type="kolData.rebate_policy === 1 ? 'warning' : 'info'" size="small">
+                    {{ kolData.rebate_policy === 1 ? '有' : '无' }}
+                  </el-tag>
+                </div>
+              </div>
+              <div class="coop-divider"></div>
+              <div class="coop-unified-item">
+                <div class="coop-label-new">返点账期</div>
+                <div class="coop-value-new">{{ kolData.rebate_period || '-' }}</div>
+              </div>
+            </div>
+
+            <!-- 第二行：是否独家、配合度、年框机构、资源属性、支付账期 -->
+            <div class="coop-unified-row">
+              <div class="coop-unified-item">
+                <div class="coop-label-new">是否独家</div>
+                <div class="coop-value-new">
+                  <el-tag :type="kolData.is_exclusive === 1 ? 'success' : 'info'" size="small">
+                    {{ kolData.is_exclusive === 1 ? '是' : '否' }}
+                  </el-tag>
+                </div>
+              </div>
+              <div class="coop-divider"></div>
+              <div class="coop-unified-item">
+                <div class="coop-label-new">配合度</div>
+                <div class="coop-value-new">
+                  <el-tag :type="cooperationDegreeType(kolData.cooperation_degree)" size="small">
+                    {{ cooperationDegreeText(kolData.cooperation_degree) }}
+                  </el-tag>
+                </div>
+              </div>
+              <div class="coop-divider"></div>
+              <div class="coop-unified-item">
+                <div class="coop-label-new">年框机构</div>
+                <div class="coop-value-new">{{ kolData.annual_contract_org || '-' }}</div>
+              </div>
+              <div class="coop-divider"></div>
+              <div class="coop-unified-item">
+                <div class="coop-label-new">资源属性</div>
+                <div class="coop-value-new">
+                  <el-tag :type="resourceAttributeType(kolData.resource_attribute)" size="small">
+                    {{ resourceAttributeText(kolData.resource_attribute) }}
+                  </el-tag>
+                </div>
+              </div>
+              <div class="coop-divider"></div>
+              <div class="coop-unified-item">
+                <div class="coop-label-new">支付账期</div>
+                <div class="coop-value-new">{{ kolData.pay_period || '-' }}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 第三行：合作简介 -->
+          <div class="coop-intro-row">
+            <div class="coop-label-new">合作简介</div>
+            <div class="coop-intro-content">{{ kolData.cooperation_intro || '-' }}</div>
+          </div>
+        </div>
       </div>
 
       <!-- 公海达人信息快照 -->
@@ -206,7 +290,7 @@
 import { log } from '../../../utils/logger'
 import { ref, computed } from 'vue'
 import { ElMessage } from 'element-plus'
-import { Refresh, Edit } from '@element-plus/icons-vue'
+import { Refresh, Edit, OfficeBuilding } from '@element-plus/icons-vue'
 import { KolSyncApi } from '../../../api/kol-sync.api'
 import SyncStatusTag from './SyncStatusTag.vue'
 import AuthorSnapshotPanel from './AuthorSnapshotPanel.vue'
@@ -368,64 +452,87 @@ const handleClose = () => {
 }
 
 .profile-header {
-  display: grid;
-  grid-template-columns: 60px 1fr auto;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 4px 0 4px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
 }
 
 .avatar {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  background: #409eff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 22px;
+  flex-shrink: 0;
 }
 
-.title-group {
+.info-group {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 
-.title-row {
+.info-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  font-size: 14px;
 }
 
-.sub-row {
-  margin-top: 6px;
-  color: #909399;
-  font-size: 13px;
+.info-row:first-child {
+  margin-bottom: 4px;
 }
 
 .kol-name {
   font-size: 18px;
   font-weight: 600;
   color: #303133;
+  margin-right: 4px;
 }
 
-.platform-tag {
-  border-color: #e4e7ed;
+.info-label {
+  color: #909399;
+  font-size: 13px;
+}
+
+.info-value {
+  color: #606266;
+  font-size: 13px;
 }
 
 .followers-tag {
-  border-color: #e1f3d8;
+  background: #f0f9ff;
+  color: #10b981;
+  border-color: #d1fae5;
+  font-weight: 500;
 }
 
-.header-actions {
-  display: flex;
-  align-items: center;
+.org-tag {
+  background: #eff6ff;
+  color: #3b82f6;
+  border-color: #dbeafe;
+}
+
+.category-tag {
+  background: #f3f4f6;
+  color: #6b7280;
+  border-color: #e5e7eb;
+}
+
+.type-tags {
+  background: #fef3c7;
+  color: #d97706;
+  border-color: #fde68a;
 }
 
 .sync-status-section {
-  background: #f5f7fa;
   padding: 16px;
   border-radius: 8px;
   margin-bottom: 24px;
@@ -466,21 +573,52 @@ const handleClose = () => {
   margin-top: 12px;
 }
 
+/* .status-card {
+  flex: 1;
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid #e4e7ed;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+} */
+
 .status-item {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.status-item .label {
+.status-label {
   color: #909399;
   font-size: 13px;
+  font-weight: 500;
 }
 
-.status-item .value {
-  color: #303133;
-  font-size: 14px;
+.status-value {
+  margin-top: 4px;
+}
+
+.confidence .confidence-number {
+  font-size: 24px;
+  font-weight: 600;
+  color: #409eff;
+}
+
+.confidence .confidence-number .percent {
+  font-size: 16px;
+  margin-left: 2px;
+}
+
+.confidence .confidence-number.empty {
+  font-size: 18px;
+  color: #999;
   font-weight: 500;
+}
+
+.match-time {
+  font-size: 16px;
+  font-weight: 600;
+  color: #303133;
 }
 
 .error-alert {
@@ -557,5 +695,159 @@ const handleClose = () => {
 
 .kol-detail-content::-webkit-scrollbar-thumb:hover {
   background-color: #c0c4cc;
+}
+
+/* 报价信息样式 */
+.price-info-section {
+  background: transparent;
+  border: none;
+  padding: 0 16px;
+  box-shadow: none;
+}
+
+/* .price-info-cards {
+  display: flex;
+  gap: 12px;
+}
+
+.price-info-card {
+  flex: 1;
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid #e4e7ed;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+} */
+
+.price-info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-info-label {
+  color: #909399;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.price-info-value {
+  margin-top: 4px;
+}
+
+.price-amount {
+  font-size: 18px;
+  font-weight: 600;
+  color: #409eff;
+}
+
+.price-amount .price-number {
+  margin-left: 2px;
+}
+
+.price-amount.empty {
+  font-size: 16px;
+  color: #999;
+  font-weight: 500;
+}
+
+/* 合作信息区域样式 */
+.cooperation-section {
+  background: transparent;
+  border: none;
+  padding: 0 16px;
+  box-shadow: none;
+}
+
+
+/* 新版合作信息卡片样式（参考图片） */
+.cooperation-card-new {
+  background: #f8f9fa;
+  background: transparent;
+  border-radius: 12px;
+  /* padding: 20px; */
+}
+
+/* 统一卡片容器 */
+.coop-unified-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+/* 统一卡片内的行 */
+.coop-unified-row {
+  display: flex;
+  align-items: stretch;
+}
+
+.coop-unified-row:not(:last-child) {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* 统一卡片内的数据项 */
+.coop-unified-item {
+  flex: 1;
+  padding: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 灰色竖线分隔符（带上下边距） */
+.coop-divider {
+  width: 1px;
+  background: #e5e7eb;
+  margin: 25px 0;
+}
+
+.coop-label-new {
+  font-size: 13px;
+  color: #909399;
+  margin-bottom: 8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.coop-value-new {
+  font-size: 18px;
+  color: #303133;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* 合作简介单独行样式 */
+.coop-intro-row {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.coop-intro-row .coop-label-new {
+  justify-content: flex-start;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #606266;
+}
+
+.coop-intro-content {
+  font-size: 14px;
+  color: #606266;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  text-align: left;
+}
+
+/* 配合度标签样式：去掉背景色和边框，字体放大2px */
+.coop-value-new .el-tag {
+  background: transparent !important;
+  border: none !important;
+  font-size: 16px !important; /* 比默认的14px大2px */
 }
 </style>
