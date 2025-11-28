@@ -1,128 +1,177 @@
 <template>
   <div class="author-snapshot-panel">
-    <div class="panel-header">
-      <h4>匹配的公海达人信息</h4>
-      <el-tag v-if="snapshot" type="success" size="small">
-        <el-icon><Check /></el-icon>
-        已匹配
-      </el-tag>
-    </div>
-
-    <div v-if="snapshot" class="snapshot-content">
-      <!-- 基础信息 -->
-      <el-row :gutter="16" class="info-section">
-        <el-col :span="24">
-          <div class="section-title">基础信息</div>
-        </el-col>
-        <el-col :span="12">
-          <div class="info-item">
-            <span class="label">达人ID:</span>
-            <span class="value">{{ snapshot.author_id }}</span>
+    <a-card :bordered="false" class="snapshot-card">
+      <!-- 卡片头部 -->
+      <template #title>
+        <div class="card-header">
+          <div class="header-left">
+            <UserOutlined class="header-icon" />
+            <span class="header-title">匹配的公海达人信息</span>
           </div>
-        </el-col>
-        <el-col :span="12">
-          <div class="info-item">
-            <span class="label">星图ID:</span>
-            <span class="value">{{ snapshot.star_id }}</span>
-          </div>
-        </el-col>
-        <el-col :span="12">
-          <div class="info-item">
-            <span class="label">昵称:</span>
-            <span class="value">{{ snapshot.nick_name }}</span>
-          </div>
-        </el-col>
-        <el-col :span="12">
-          <div class="info-item">
-            <span class="label">性别:</span>
-            <span class="value">{{ getGenderText(snapshot.gender) }}</span>
-          </div>
-        </el-col>
-      </el-row>
-
-      <!-- 数据指标 -->
-      <el-row :gutter="16" class="info-section">
-        <el-col :span="24">
-          <div class="section-title">数据指标</div>
-        </el-col>
-        <el-col :span="12">
-          <div class="info-item">
-            <span class="label">粉丝数:</span>
-            <span class="value highlight">{{ formatFollower(snapshot.follower) }}</span>
-          </div>
-        </el-col>
-        <el-col :span="12">
-          <div class="info-item">
-            <span class="label">等级:</span>
-            <el-tag size="small">{{ snapshot.grade }}</el-tag>
-          </div>
-        </el-col>
-        <el-col :span="12">
-          <div class="info-item">
-            <span class="label">互动率:</span>
-            <span class="value">{{ formatPercent(snapshot.interact_rate_within_30d) }}</span>
-          </div>
-        </el-col>
-      </el-row>
-
-      <!-- 地理位置 -->
-      <el-row :gutter="16" class="info-section">
-        <el-col :span="24">
-          <div class="section-title">地理位置</div>
-        </el-col>
-        <el-col :span="12">
-          <div class="info-item">
-            <span class="label">省份:</span>
-            <span class="value">{{ snapshot.province || '-' }}</span>
-          </div>
-        </el-col>
-        <el-col :span="12">
-          <div class="info-item">
-            <span class="label">城市:</span>
-            <span class="value">{{ snapshot.city || '-' }}</span>
-          </div>
-        </el-col>
-      </el-row>
-
-      <!-- 报价信息 -->
-      <el-row :gutter="16" class="info-section">
-        <el-col :span="24">
-          <div class="section-title">报价信息</div>
-        </el-col>
-        <el-col :span="12">
-          <div class="info-item">
-            <span class="label">20-60s报价:</span>
-            <span class="value price">{{ formatPrice(snapshot.price_20_60) }}</span>
-          </div>
-        </el-col>
-        <el-col :span="12">
-          <div class="info-item">
-            <span class="label">60s+报价:</span>
-            <span class="value price">{{ formatPrice(snapshot.price_60) }}</span>
-          </div>
-        </el-col>
-      </el-row>
-
-      <!-- 同步时间 -->
-      <div class="sync-time">
-        <el-icon><Clock /></el-icon>
-        <span>同步时间: {{ formatDateTime(snapshot.synced_at) }}</span>
-      </div>
-    </div>
-
-    <el-empty v-else description="暂无匹配的公海达人信息" :image-size="100">
-      <template #image>
-        <el-icon :size="60" color="#909399">
-          <InfoFilled />
-        </el-icon>
+          <a-tag v-if="snapshot" color="success">
+            <template #icon>
+              <CheckCircleOutlined />
+            </template>
+            已匹配
+          </a-tag>
+        </div>
       </template>
-    </el-empty>
+
+      <!-- 有数据时显示 -->
+      <div v-if="snapshot" class="snapshot-content">
+        <!-- 核心数据统计卡片 -->
+        <a-row :gutter="16" class="stats-row">
+          <a-col :span="8">
+            <a-statistic
+              title="粉丝数"
+              :value="formatFollowerCount(snapshot.follower)"
+              class="stat-card"
+            >
+              <template #prefix>
+                <TeamOutlined class="stat-icon" />
+              </template>
+            </a-statistic>
+          </a-col>
+          <a-col :span="8">
+            <a-statistic
+              title="互动率"
+              :value="(snapshot.interact_rate_within_30d || 0) * 100"
+              :precision="2"
+              suffix="%"
+              class="stat-card"
+            >
+              <!-- <template #prefix>
+                <HeartOutlined class="stat-icon" />
+              </template> -->
+            </a-statistic>
+          </a-col>
+          <a-col :span="8">
+            <a-statistic
+              title="达人等级"
+              :value="snapshot.grade"
+              class="stat-card"
+            >
+              <!-- <template #prefix>
+                <CrownOutlined class="stat-icon" />
+              </template> -->
+            </a-statistic>
+          </a-col>
+        </a-row>
+
+        <a-divider />
+
+        <!-- 基础信息 -->
+        <a-descriptions
+          title="基础信息"
+          :column="2"
+          bordered
+          size="small"
+          class="info-descriptions"
+        >
+          <a-descriptions-item label="达人ID">
+            <a-typography-text copyable>{{ snapshot.author_id }}</a-typography-text>
+          </a-descriptions-item>
+          <a-descriptions-item label="星图ID">
+            <a-typography-text copyable>{{ snapshot.star_id }}</a-typography-text>
+          </a-descriptions-item>
+          <a-descriptions-item label="昵称">
+            {{ snapshot.nick_name }}
+          </a-descriptions-item>
+          <a-descriptions-item label="性别">
+            <a-tag :color="getGenderColor(snapshot.gender)">
+              <template #icon>
+                <ManOutlined v-if="snapshot.gender === 1" />
+                <WomanOutlined v-else-if="snapshot.gender === 2" />
+              </template>
+              {{ getGenderText(snapshot.gender) }}
+            </a-tag>
+          </a-descriptions-item>
+        </a-descriptions>
+
+        <a-divider />
+
+        <!-- 地理位置 -->
+        <a-descriptions
+          title="地理位置"
+          :column="2"
+          bordered
+          size="small"
+          class="info-descriptions"
+        >
+          <a-descriptions-item label="省份">
+            <span class="location-item">
+              <EnvironmentOutlined /> {{ snapshot.province || '-' }}
+            </span>
+          </a-descriptions-item>
+          <a-descriptions-item label="城市">
+            <span class="location-item">
+              <EnvironmentOutlined /> {{ snapshot.city || '-' }}
+            </span>
+          </a-descriptions-item>
+        </a-descriptions>
+
+        <a-divider />
+
+        <!-- 报价信息 -->
+        <a-descriptions
+          title="报价信息"
+          :column="2"
+          bordered
+          size="small"
+          class="info-descriptions"
+        >
+          <a-descriptions-item label="20-60s 视频报价">
+            <span class="price-item">
+              <!-- <DollarOutlined style="color: #1890ff;" />  -->
+              <span style="color: #1890ff; font-weight: 600;">{{ formatPrice(snapshot.price_20_60) || '-' }}</span>
+            </span>
+          </a-descriptions-item>
+          <a-descriptions-item label="60s+ 视频报价">
+            <span class="price-item">
+              <!-- <DollarOutlined style="color: #1890ff;" />  -->
+              <span style="color: #1890ff; font-weight: 600;">{{ formatPrice(snapshot.price_60) || '-' }}</span>
+            </span>
+          </a-descriptions-item>
+        </a-descriptions>
+
+        <!-- 同步时间 -->
+        <a-alert
+          :message="`数据同步时间: ${formatDateTime(snapshot.synced_at)}`"
+          type="info"
+          show-icon
+          class="sync-alert"
+        >
+          <template #icon>
+            <ClockCircleOutlined />
+          </template>
+        </a-alert>
+      </div>
+
+      <!-- 无数据时显示 -->
+      <a-empty v-else description="暂无匹配的公海达人信息">
+        <template #image>
+          <InboxOutlined :style="{ fontSize: '64px', color: '#d9d9d9' }" />
+        </template>
+      </a-empty>
+    </a-card>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { Check, Clock, InfoFilled } from '@element-plus/icons-vue'
+import {
+  UserOutlined,
+  CheckCircleOutlined,
+  TeamOutlined,
+  HeartOutlined,
+  CrownOutlined,
+  ManOutlined,
+  WomanOutlined,
+  EnvironmentOutlined,
+  DollarOutlined,
+  ClockCircleOutlined,
+  InboxOutlined
+} from '@ant-design/icons-vue'
 
 interface AuthorSnapshot {
   author_id: string
@@ -155,8 +204,21 @@ const getGenderText = (gender: number): string => {
   return map[gender] || '未知'
 }
 
-// 格式化粉丝数
-const formatFollower = (count: number): string => {
+// 获取性别颜色
+const getGenderColor = (gender: number): string => {
+  const map: Record<number, string> = {
+    1: 'blue',
+    2: 'pink',
+    0: 'default'
+  }
+  return map[gender] || 'default'
+}
+
+// 格式化粉丝数（用于Statistic组件）
+const formatFollowerCount = (count: number): string => {
+  if (count >= 100000000) {
+    return `${(count / 100000000).toFixed(2)}亿`
+  }
   if (count >= 10000) {
     return `${(count / 10000).toFixed(1)}万`
   }
@@ -182,88 +244,178 @@ const formatDateTime = (dateStr: string): string => {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .author-snapshot-panel {
-  background: #fff;
-  border-radius: 8px;
-  padding: 20px;
-  border: 1px solid #e4e7ed;
+  width: 100%;
 }
 
-.panel-header {
+.snapshot-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  
+  :deep(.ant-card-head) {
+    background: #ffffff;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid #e8e8e8;
+    
+    .ant-card-head-title {
+      padding: 16px 0;
+    }
+  }
+}
+
+.card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #e4e7ed;
-}
-
-.panel-header h4 {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 600;
-  color: #303133;
+  width: 100%;
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    
+    .header-icon {
+      font-size: 20px;
+      color: #303133;
+    }
+    
+    .header-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #303133;
+    }
+  }
 }
 
 .snapshot-content {
-  margin-top: 16px;
-}
-
-.info-section {
-  margin-bottom: 24px;
-}
-
-.section-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: #606266;
-  margin-bottom: 12px;
-  padding-left: 8px;
-  border-left: 3px solid #409eff;
-}
-
-.info-item {
-  display: flex;
-  align-items: center;
   padding: 8px 0;
 }
 
-.info-item .label {
-  min-width: 100px;
-  color: #909399;
-  font-size: 13px;
+// 统计卡片样式
+.stats-row {
+  margin-bottom: 16px;
+  
+  .stat-card {
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+    
+    :deep(.ant-statistic) {
+      text-align: center;
+    }
+    
+    :deep(.ant-statistic-title) {
+      font-size: 14px;
+      color: #606266;
+      margin-bottom: 12px;
+    }
+    
+    :deep(.ant-statistic-content) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 600;
+      color: #303133;
+      
+      .ant-statistic-content-prefix {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 8px;
+      }
+      
+      .ant-statistic-content-value {
+        display: inline-flex;
+        align-items: center;
+      }
+      
+      .ant-statistic-content-suffix {
+        display: inline-flex;
+        align-items: center;
+        margin-left: 4px;
+      }
+    }
+    
+    .stat-icon {
+      font-size: 20px;
+      color: #1890ff;
+    }
+  }
 }
 
-.info-item .value {
-  color: #303133;
-  font-size: 14px;
-  font-weight: 500;
+// 描述列表样式
+.info-descriptions {
+  margin-bottom: 16px;
+  
+  :deep(.ant-descriptions-title) {
+    font-size: 15px;
+    font-weight: 600;
+    color: #303133;
+    margin-bottom: 12px;
+    padding-left: 12px;
+    border-left: 4px solid #1890ff;
+  }
+  
+  :deep(.ant-descriptions-item-label) {
+    font-weight: 500;
+    color: #606266;
+    background-color: #fafafa;
+  }
+  
+  :deep(.ant-descriptions-item-content) {
+    color: #303133;
+  }
+  
+  .location-item,
+  .price-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
 }
 
-.info-item .value.highlight {
-  color: #409eff;
-  font-weight: 600;
+// 同步时间提示
+.sync-alert {
+  margin-top: 20px;
+  border-radius: 6px;
+  background-color: #f5f5f5;
+  border: none;
+  border: 1px solid #d9d9d9;
+  
+  :deep(.ant-alert-message) {
+    color: #606266;
+    font-size: 13px;
+  }
 }
 
-.info-item .value.price {
-  color: #67c23a;
-  font-weight: 600;
+// 分割线
+:deep(.ant-divider) {
+  margin: 20px 0;
 }
 
-.sync-time {
-  display: flex;
+// 空状态
+:deep(.ant-empty) {
+  padding: 60px 0;
+  
+  .ant-empty-description {
+    color: #909399;
+    font-size: 14px;
+  }
+}
+
+// 标签图标对齐
+:deep(.ant-tag) {
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 12px;
-  background: #f5f7fa;
-  border-radius: 4px;
-  color: #909399;
-  font-size: 13px;
-  margin-top: 16px;
-}
-
-:deep(.el-empty) {
-  padding: 40px 0;
+  gap: 4px;
 }
 </style>
