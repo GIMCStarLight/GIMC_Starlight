@@ -2,215 +2,69 @@
   <el-dialog
     v-model="visible"
     :title="isEdit ? '编辑 KOL' : '新增 KOL'"
-    width="860px"
+    width="900px"
     :before-close="handleClose"
     destroy-on-close
   >
     <!-- 头部摘要（编辑模式下展示当前 KOL 的关键信息） -->
-    <div v-if="isEdit" class="dialog-header-summary">
-      <div class="summary-left">
-        <div class="summary-title">
-          <span class="summary-name">{{ props.kolData?.account_name || '-' }}</span>
-          <el-tag size="small" type="info" class="summary-platform">{{ props.kolData?.platform || '-' }}</el-tag>
-          <el-tag v-if="props.kolData?.followers_w" size="small" type="success" class="summary-followers">
+    <div v-if="isEdit" class="profile-header">
+      <div class="avatar">
+        <span>{{ (props.kolData?.account_name || '-').slice(0, 1) }}</span>
+      </div>
+      <div class="info-group">
+        <!-- 第一行：昵称 + 粉丝标签 -->
+        <div class="info-row">
+          <span class="kol-name">{{ props.kolData?.account_name || '-' }}</span>
+          <el-tag v-if="props.kolData?.followers_w" size="small" type="success" class="followers-tag">
             粉丝 {{ props.kolData?.followers_w }} 万
           </el-tag>
         </div>
-        <div class="summary-sub">
-          <span class="summary-id">ID：{{ props.kolData?.account_id || '-' }}</span>
-          <el-divider direction="vertical" />
-          <span class="summary-org">机构：{{ props.kolData?.org_name || '-' }}</span>
+        <!-- 第二行：ID -->
+        <div class="info-row">
+          <span class="info-label">ID：</span>
+          <span class="info-value">{{ props.kolData?.account_id || '-' }}</span>
         </div>
-      </div>
-      <div class="summary-right">
-        <a v-if="props.kolData?.home_link" :href="props.kolData?.home_link" target="_blank" class="link">访问主页</a>
+        <!-- 第三行：机构、平台、达人类型 -->
+        <div class="info-row">
+          <el-tag size="small" class="org-tag">
+            <template #icon>
+              <el-icon><OfficeBuilding /></el-icon>
+            </template>
+            {{ props.kolData?.org_name || '暂无机构' }}
+          </el-tag>
+          <el-tag size="small" type="info" class="type-tags">
+               {{ props.kolData?.platform || '-' }}
+          </el-tag>
+          <el-tag size="small" class="category-tag">
+            {{ props.kolData?.category || '未分类' }}
+          </el-tag>
+        </div>
+        <!-- 第四行：主页链接 -->
+        <div class="info-row">
+          <span class="info-label">主页链接</span>
+          <a v-if="props.kolData?.home_link" :href="props.kolData?.home_link" target="_blank" class="link">
+            {{ props.kolData?.home_link }}
+          </a>
+          <span v-else class="info-value">-</span>
+        </div>
       </div>
     </div>
 
-    <!-- 唯一性提示 -->
-    <el-alert
-      v-if="isEdit"
-      type="info"
-      title="平台 + 账号ID 为唯一组合，编辑模式下已禁用修改，避免冲突"
-      :closable="false"
-      show-icon
-      class="uniqueness-alert"
-    />
+    <!-- <el-divider v-if="isEdit" /> -->
 
-    <el-form
-      ref="formRef"
-      :model="formData"
-      :rules="formRules"
-      label-width="120px"
-      label-position="left"
-      size="small"
-    >
-      <el-row :gutter="16">
-        <!-- 基本信息（与数据库字段对齐） -->
-        <el-col :span="24">
-          <div class="form-section">
-            <h4 class="section-title">基本信息</h4>
+    <!-- 唯一性提示（优化样式） -->
+    <div v-if="isEdit" class="uniqueness-notice">
+      <div class="notice-title">
+        <el-icon class="notice-icon"><InfoFilled /></el-icon>
+        <span>平台 + 账号ID 为唯一组合，编辑模式下已禁用修改，避免冲突</span>
+      </div>
+      <div class="notice-divider"></div>
+    </div>
 
-            <el-row :gutter="16">
-              <el-col :span="12">
-                <el-form-item label="平台" prop="platform">
-                  <el-input v-model="formData.platform" :disabled="isEdit" placeholder="请输入平台" clearable />
-                </el-form-item>
-              </el-col>
-              <el-col :span="12">
-                <el-form-item label="账号名称" prop="account_name">
-                  <el-input v-model="formData.account_name" placeholder="请输入账号名称" clearable />
-                </el-form-item>
-              </el-col>
-            </el-row>
-
-            <el-row :gutter="16">
-              <el-col :span="12">
-                <el-form-item label="账号ID" prop="account_id">
-                  <el-input v-model="formData.account_id" :disabled="isEdit" placeholder="请输入账号ID" clearable />
-                </el-form-item>
-              </el-col>
-              <el-col :span="12">
-                <el-form-item label="机构名" prop="org_name">
-                  <el-input v-model="formData.org_name" placeholder="请输入机构名" clearable />
-                </el-form-item>
-              </el-col>
-            </el-row>
-
-            <el-row :gutter="16">
-              <el-col :span="12">
-                <el-form-item label="账号类型" prop="category">
-                  <el-input v-model="formData.category" placeholder="请输入账号类型" clearable />
-                </el-form-item>
-              </el-col>
-              <el-col :span="12">
-                <el-form-item label="主页链接" prop="home_link">
-                  <el-input v-model="formData.home_link" placeholder="请输入主页链接" clearable />
-                </el-form-item>
-              </el-col>
-            </el-row>
-          </div>
-        </el-col>
-
-        <!-- 数据与报价 -->
-        <el-col :span="24">
-          <div class="form-section">
-            <h4 class="section-title">数据与报价</h4>
-
-            <el-row :gutter="16">
-              <el-col :span="12">
-                <el-form-item label="粉丝(万)" prop="followers_w">
-                  <el-input-number v-model="formData.followers_w" :min="0" :precision="2" style="width: 100%" placeholder="请输入粉丝(万)" />
-                </el-form-item>
-              </el-col>
-              <el-col :span="12">
-                <el-form-item label="21-60s报价" prop="star_quote_21_60s">
-                  <el-input-number v-model="formData.star_quote_21_60s" :min="0" style="width: 100%" placeholder="请输入报价" />
-                </el-form-item>
-              </el-col>
-            </el-row>
-
-            <el-row :gutter="16">
-              <el-col :span="12">
-                <el-form-item label="60s+报价" prop="star_quote_60s_plus">
-                  <el-input-number v-model="formData.star_quote_60s_plus" :min="0" style="width: 100%" placeholder="请输入报价" />
-                </el-form-item>
-              </el-col>
-            </el-row>
-          </div>
-        </el-col>
-
-        <!-- 合作信息 -->
-        <el-col :span="24">
-          <div class="form-section">
-            <h4 class="section-title">合作信息</h4>
-
-            <el-row :gutter="16">
-              <el-col :span="12">
-                <el-form-item label="是否独家" prop="is_exclusive">
-                  <el-switch v-model="exclusiveSwitch" active-text="是" inactive-text="否" />
-                </el-form-item>
-              </el-col>
-              <el-col :span="12">
-                <el-form-item label="返点政策" prop="rebate_policy">
-                  <el-switch v-model="rebateSwitch" active-text="有" inactive-text="无" />
-                </el-form-item>
-              </el-col>
-            </el-row>
-
-            <el-row :gutter="16">
-              <el-col :span="12">
-                <el-form-item label="返点区间" prop="rebate_range">
-                  <el-input v-model="formData.rebate_range" placeholder="示例：5%-10%" clearable />
-                </el-form-item>
-              </el-col>
-              <el-col :span="12">
-                <el-form-item label="政策等级" prop="policy_level">
-                  <el-input v-model="formData.policy_level" placeholder="请输入政策等级" clearable />
-                </el-form-item>
-              </el-col>
-            </el-row>
-
-            <el-row :gutter="16">
-              <el-col :span="12">
-                <el-form-item label="返点账期" prop="rebate_period">
-                  <el-input v-model="formData.rebate_period" placeholder="请输入返点账期" clearable />
-                </el-form-item>
-              </el-col>
-              <el-col :span="12">
-                <el-form-item label="支付账期" prop="pay_period">
-                  <el-input v-model="formData.pay_period" placeholder="请输入支付账期" clearable />
-                </el-form-item>
-              </el-col>
-            </el-row>
-
-            <el-row :gutter="16">
-              <el-col :span="12">
-                <el-form-item label="配合度" prop="cooperation_degree">
-                  <el-select v-model="formData.cooperation_degree" placeholder="请选择配合度" style="width: 100%" clearable>
-                    <el-option label="高" value="high" />
-                    <el-option label="中" value="medium" />
-                    <el-option label="低" value="low" />
-                  </el-select>
-                </el-form-item>
-              </el-col>
-              <el-col :span="12">
-                <el-form-item label="资源属性" prop="resource_attribute">
-                  <el-select v-model="formData.resource_attribute" placeholder="请选择资源属性" style="width: 100%" clearable>
-                    <el-option label="独家" value="exclusive" />
-                    <el-option label="星光" value="sgxm" />
-                    <el-option label="其他" value="other" />
-                  </el-select>
-                </el-form-item>
-              </el-col>
-            </el-row>
-
-            <el-row :gutter="16">
-              <el-col :span="12">
-                <el-form-item label="年框机构" prop="annual_contract_org">
-                  <el-input v-model="formData.annual_contract_org" placeholder="请输入年框机构" clearable />
-                </el-form-item>
-              </el-col>
-              <el-col :span="12">
-                <el-form-item label="合作简介" prop="cooperation_intro">
-                  <el-input v-model="formData.cooperation_intro" placeholder="请输入合作简介" clearable />
-                </el-form-item>
-              </el-col>
-            </el-row>
-          </div>
-        </el-col>
-
-        <!-- 备注信息 -->
-        <el-col :span="24">
-          <div class="form-section">
-            <h4 class="section-title">备注信息</h4>
-            <el-form-item label="备注" prop="remark">
-              <el-input v-model="formData.remark" type="textarea" :rows="3" placeholder="请输入备注信息" />
-            </el-form-item>
-          </div>
-        </el-col>
-      </el-row>
-    </el-form>
+    <!-- Vben 表单 -->
+    <div class="form-container">
+      <Form />
+    </div>
 
     <template #footer>
       <div class="dialog-footer">
@@ -224,10 +78,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed, watch } from 'vue'
-import { ElMessage, type FormInstance, type FormRules } from 'element-plus'
+import { ref, computed, watch, reactive } from 'vue'
+import { ElMessage } from 'element-plus'
+import { OfficeBuilding, InfoFilled } from '@element-plus/icons-vue'
 import { log } from '../../../utils/logger'
 import { KolListApi } from '../../../api/kol-match.api'
+import { useVbenForm, z } from '@vben/common-ui'
+import type { VbenFormSchema } from '@vben/common-ui'
 
 interface Props {
   modelValue: boolean
@@ -242,7 +99,6 @@ interface Emits {
 const props = withDefaults(defineProps<Props>(), { kolData: null })
 const emit = defineEmits<Emits>()
 
-const formRef = ref<FormInstance>()
 const loading = ref(false)
 
 const visible = computed({
@@ -252,93 +108,273 @@ const visible = computed({
 
 const isEdit = computed(() => !!props.kolData?.id)
 
-// 与数据库字段对齐的表单数据（snake_case）
-const formData = reactive({
-  platform: '',
-  account_name: '',
-  account_id: '',
-  org_name: '',
-  category: '',
-  home_link: '',
-  followers_w: 0,
-  star_quote_21_60s: 0,
-  star_quote_60s_plus: 0,
-  is_exclusive: 0,
-  rebate_policy: '',
-  rebate_range: '',
-  policy_level: '',
-  rebate_period: '',
-  pay_period: '',
-  cooperation_degree: '',
-  resource_attribute: '',
-  annual_contract_org: '',
-  cooperation_intro: '',
-  remark: ''
-})
-
-// 开关映射（后端字段为 number 0/1）
-const exclusiveSwitch = computed({
-  get: () => formData.is_exclusive === 1,
-  set: (val: boolean) => { formData.is_exclusive = val ? 1 : 0 }
-})
-
-const rebateSwitch = computed({
-  get: () => formData.rebate_policy === '1' || !!formData.rebate_policy,
-  set: (val: boolean) => { formData.rebate_policy = val ? '1' : '' }
-})
-
-// 表单验证规则（关键字段）
-const formRules: FormRules = {
-  platform: [{ required: true, message: '请输入平台', trigger: 'blur' }],
-  account_name: [{ required: true, message: '请输入账号名称', trigger: 'blur' }],
-  account_id: [
-    { required: true, message: '请输入账号ID', trigger: 'blur' },
+// Vben Form Schema 定义
+const formSchema = computed((): VbenFormSchema[] => {
+  return [
+    // ========== 平台和账号ID（不可编辑字段优先显示） ==========
     {
-      validator: (_rule, value, callback) => {
-        const idStr = String(value || '').trim()
-        const nameStr = String(formData.account_name || '').trim()
-        if (idStr && nameStr && idStr === nameStr) {
-          callback(new Error('账号ID不能与账号名称相同，请填写唯一ID'))
-          return
-        }
-        callback()
+      component: 'VbenInput',
+      componentProps: {
+        placeholder: '请输入平台',
+        disabled: true,
       },
-      trigger: 'blur'
-    }
+      fieldName: 'platform',
+      label: '平台',
+      rules: z.string().min(1, { message: '请输入平台' }),
+    },
+    {
+      component: 'VbenInput',
+      componentProps: {
+        placeholder: '请输入账号ID',
+        disabled: true,
+      },
+      fieldName: 'account_id',
+      label: '账号ID',
+      rules: z.string().min(1, { message: '请输入账号ID' }),
+    },
+    
+    // ========== 基本信息 ==========
+    // {
+    //   component: 'Divider',
+    //   componentProps: {
+    //     title: '基本信息',
+    //     contentPosition: 'left',
+    //   },
+    //   fieldName: 'divider1',
+    // },
+    {
+      component: 'VbenInput',
+      componentProps: {
+        placeholder: '请输入账号名称',
+      },
+      fieldName: 'account_name',
+      label: '账号名称',
+      rules: z.string().min(1, { message: '请输入账号名称' }),
+    },
+    {
+      component: 'VbenInput',
+      componentProps: {
+        placeholder: '请输入机构名',
+      },
+      fieldName: 'org_name',
+      label: '机构名',
+    },
+    {
+      component: 'VbenInput',
+      componentProps: {
+        placeholder: '请输入账号类型',
+      },
+      fieldName: 'category',
+      label: '账号类型',
+    },
+    {
+      component: 'VbenInput',
+      componentProps: {
+        placeholder: '请输入主页链接',
+      },
+      fieldName: 'home_link',
+      label: '主页链接',
+    },
+
+    // ========== 数据与报价 ==========
+    // {
+    //   component: 'Divider',
+    //   componentProps: {
+    //     title: '数据与报价',
+    //     contentPosition: 'left',
+    //   },
+    //   fieldName: 'divider2',
+    // },
+    {
+      component: 'VbenInput',
+      componentProps: {
+        placeholder: '请输入粉丝(万)',
+        min: 0,
+        precision: 2,
+        style: { width: '100%' },
+      },
+      fieldName: 'followers_w',
+      label: '粉丝(万)',
+    },
+    {
+      component: 'VbenInput',
+      componentProps: {
+        placeholder: '',
+        readonly: true,
+        style: { width: '100%', visibility: 'hidden', height: '1px', padding: '0', margin: '0' },
+      },
+      fieldName: 'spacer2',
+      label: '',
+    },
+    {
+      component: 'VbenInput',
+      componentProps: {
+        placeholder: '请输入报价',
+        min: 0,
+        style: { width: '100%' },
+      },
+      fieldName: 'star_quote_21_60s',
+      label: '21-60s报价',
+    },
+    {
+      component: 'VbenInput',
+      componentProps: {
+        placeholder: '请输入报价',
+        min: 0,
+        style: { width: '100%' },
+      },
+      fieldName: 'star_quote_60s_plus',
+      label: '60s+报价',
+    },
+
+    // ========== 合作信息 ==========
+    // {
+    //   component: 'Divider',
+    //   componentProps: {
+    //     title: '合作信息',
+    //     contentPosition: 'left',
+    //   },
+    //   fieldName: 'divider3',
+    // },
+    {
+      component: 'Switch',
+      componentProps: {
+        activeText: '是',
+        inactiveText: '否',
+      },
+      fieldName: 'is_exclusive',
+      label: '是否独家',
+      defaultValue: false,
+    },
+    {
+      component: 'Switch',
+      componentProps: {
+        activeText: '有',
+        inactiveText: '无',
+      },
+      fieldName: 'rebate_policy',
+      label: '返点政策',
+      defaultValue: false,
+    },
+    {
+      component: 'VbenInput',
+      componentProps: {
+        placeholder: '示例：5%-10%',
+      },
+      fieldName: 'rebate_range',
+      label: '返点区间',
+    },
+    {
+      component: 'VbenInput',
+      componentProps: {
+        placeholder: '请输入政策等级',
+      },
+      fieldName: 'policy_level',
+      label: '政策等级',
+    },
+    {
+      component: 'VbenInput',
+      componentProps: {
+        placeholder: '请输入返点账期',
+      },
+      fieldName: 'rebate_period',
+      label: '返点账期',
+    },
+    {
+      component: 'VbenInput',
+      componentProps: {
+        placeholder: '请输入支付账期',
+      },
+      fieldName: 'pay_period',
+      label: '支付账期',
+    },
+    {
+      component: 'Select',
+      componentProps: {
+        placeholder: '请选择配合度',
+        options: [
+          { label: '高', value: 'high' },
+          { label: '中', value: 'medium' },
+          { label: '低', value: 'low' },
+        ],
+      },
+      fieldName: 'cooperation_degree',
+      label: '配合度',
+    },
+    {
+      component: 'Select',
+      componentProps: {
+        placeholder: '请选择资源属性',
+        options: [
+          { label: '独家', value: 'exclusive' },
+          { label: '星光', value: 'sgxm' },
+          { label: '其他', value: 'other' },
+        ],
+      },
+      fieldName: 'resource_attribute',
+      label: '资源属性',
+    },
+    {
+      component: 'VbenInput',
+      componentProps: {
+        placeholder: '请输入年框机构',
+      },
+      fieldName: 'annual_contract_org',
+      label: '年框机构',
+    },
+    {
+      component: 'VbenInput',
+      componentProps: {
+        placeholder: '请输入合作简介',
+      },
+      fieldName: 'cooperation_intro',
+      label: '合作简介',
+    },
+
+    // ========== 备注信息 ==========
+    {
+      component: 'VbenInput',
+      componentProps: {
+        placeholder: '请输入备注信息',
+        type: 'textarea',
+        rows: 3,
+        style: { width: '100%' },
+      },
+      fieldName: 'remark',
+      label: '备注',
+      formItemClass: 'full-width-remark',
+    },
   ]
-}
+})
 
-// 重置表单
-const resetForm = () => {
-  Object.assign(formData, {
-    platform: '',
-    account_name: '',
-    account_id: '',
-    org_name: '',
-    category: '',
-    home_link: '',
-    followers_w: 0,
-    star_quote_21_60s: 0,
-    star_quote_60s_plus: 0,
-    is_exclusive: 0,
-    rebate_policy: '',
-    rebate_range: '',
-    policy_level: '',
-    rebate_period: '',
-    pay_period: '',
-    cooperation_degree: '',
-    resource_attribute: '',
-    annual_contract_org: '',
-    cooperation_intro: '',
-    remark: ''
+// 创建 Vben Form
+const [Form, formApi] = useVbenForm(
+  reactive({
+    schema: formSchema,
+    wrapperClass: 'grid-cols-1 md:grid-cols-2',
+    commonConfig: {
+      componentProps: {
+        class: 'w-full',
+      },
+    },
+    layout: 'horizontal',
+    labelWidth: 100,
+    // 禁用 Vben Form 自带的操作按钮（重置和提交）
+    showDefaultActions: false,
   })
-  formRef.value?.clearValidate()
-}
+)
 
-// 兼容 camelCase 的旧类型，初始化表单数据
+// 监听数据变化，初始化表单
 watch(() => props.kolData, (d) => {
-  if (!d) { resetForm(); return }
-  Object.assign(formData, {
+  if (!d) {
+    formApi.resetForm()
+    return
+  }
+
+  // 调试：打印 rebate_policy 的实际值
+  console.log('rebate_policy 原始值:', d.rebate_policy, '类型:', typeof d.rebate_policy)
+  console.log('rebatePolicy 原始值:', d.rebatePolicy, '类型:', typeof d.rebatePolicy)
+  formApi.setValues({
     platform: d.platform || '',
     account_name: d.account_name || d.accountName || '',
     account_id: d.account_id || d.accountId || '',
@@ -348,8 +384,8 @@ watch(() => props.kolData, (d) => {
     followers_w: d.followers_w ?? d.followersW ?? 0,
     star_quote_21_60s: d.star_quote_21_60s ?? d.starQuote21_60s ?? 0,
     star_quote_60s_plus: d.star_quote_60s_plus ?? d.starQuote60sPlus ?? 0,
-    is_exclusive: typeof d.is_exclusive === 'number' ? d.is_exclusive : (d.isExclusive ? 1 : 0),
-    rebate_policy: typeof d.rebate_policy === 'string' ? d.rebate_policy : (d.rebatePolicy ? String(d.rebatePolicy) : ''),
+    is_exclusive: typeof d.is_exclusive === 'boolean' ? d.is_exclusive : (typeof d.is_exclusive === 'number' ? d.is_exclusive === 1 : (d.isExclusive ? true : false)),
+    rebate_policy: Boolean(typeof d.rebate_policy === 'string' ? d.rebate_policy === '1' : (typeof d.rebate_policy === 'number' ? d.rebate_policy === 1 : false)),
     rebate_range: d.rebate_range || d.rebateRange || '',
     policy_level: d.policy_level || d.policyLevel || '',
     rebate_period: d.rebate_period || d.rebatePeriod || '',
@@ -362,48 +398,56 @@ watch(() => props.kolData, (d) => {
   })
 }, { immediate: true })
 
-// 提交表单（与数据库字段对齐，并调用后端接口）
+// 提交表单
 const handleSubmit = async () => {
-  if (!formRef.value) return
-  const valid = await formRef.value.validate().catch(() => false)
+  const { valid } = await formApi.validate()
   if (!valid) return
 
   try {
     loading.value = true
-    // 构造提交数据，处理空字符串字段
-    const sanitizePayload = (src: typeof formData) => {
+    const values = await formApi.getValues()
+    
+    // 数据处理逻辑（与原来保持一致）
+    const sanitizePayload = (src: any) => {
       const p: any = { ...src }
-
-      // 字段处理配置：定义空字符串的处理方式
+      
+      // 处理 Switch 组件返回值（布尔值转数字）
+      if (typeof p.is_exclusive === 'boolean') {
+        p.is_exclusive = p.is_exclusive ? 1 : 0
+      }
+      if (typeof p.rebate_policy === 'boolean') {
+        p.rebate_policy = p.rebate_policy ? '1' : '0'  // 后端期望字符串类型
+      }
+      
+      // 处理数字字段类型转换（InputNumber 可能返回字符串）
+      if (p.followers_w !== undefined && p.followers_w !== null && p.followers_w !== '') {
+        p.followers_w = Number(p.followers_w)
+      }
+      if (p.star_quote_21_60s !== undefined && p.star_quote_21_60s !== null && p.star_quote_21_60s !== '') {
+        p.star_quote_21_60s = Number(p.star_quote_21_60s)
+      }
+      if (p.star_quote_60s_plus !== undefined && p.star_quote_60s_plus !== null && p.star_quote_60s_plus !== '') {
+        p.star_quote_60s_plus = Number(p.star_quote_60s_plus)
+      }
+      
+      // 字段处理配置
       const fieldConfig = {
-        // 设置为 null 的字段（用于清空数据库中的值）
         setToNull: [
-          'rebate_range',
-          'rebate_period',
-          'org_name',
-          'category',
-          'policy_level',
-          'pay_period',
-          'remark',
-          'cooperation_intro',
+          'rebate_range', 'rebate_period', 'org_name', 'category',
+          'policy_level', 'pay_period', 'remark', 'cooperation_intro',
           'annual_contract_org'
         ],
-        // 删除的字段（避免后端 Length/Url 校验报错）
         delete: []
       }
 
-      // 先处理主页链接（需要特殊处理）
+      // 处理主页链接
       if (!p.home_link || String(p.home_link).trim() === '') {
-        // 主页链接为空时设置为空字符串（数据库要求NOT NULL）
         p.home_link = ''
       } else {
         try {
-          // 如果遗漏协议，尝试自动补全为 https
           const linkStr = String(p.home_link).trim()
           const hasProtocol = /^(https?:)?\/\//i.test(linkStr)
           const normalized = hasProtocol ? linkStr : `https://${linkStr}`
-          // 检验URL有效性
-          // eslint-disable-next-line no-new
           new URL(normalized)
           p.home_link = normalized
         } catch {
@@ -419,34 +463,24 @@ const handleSubmit = async () => {
         }
       }
 
-      // 处理需要删除的字段
-      for (const key of fieldConfig.delete) {
-        if (p[key] !== undefined && String(p[key]).trim() === '') {
-          delete p[key]
-        }
-      }
       return p
     }
 
-    const payload = sanitizePayload(formData)
-    
-    // 调试日志：打印实际发送的payload
-    log.debug('提交payload:', payload)
+    const payload = sanitizePayload(values)
     
     // 编辑模式下，如果平台/账号ID未改动则不提交这两个字段，避免无意义的唯一性检查
     if (isEdit.value && props.kolData) {
-      if (payload.platform === props.kolData.platform) delete payload.platform
-      if (payload.account_id === props.kolData.account_id) delete payload.account_id
-      // 额外保护：账号ID与账号名称相同时直接提示
-      if (
-        String(payload.account_id || '').trim() &&
-        String(payload.account_name || '').trim() &&
-        String(payload.account_id).trim() === String(payload.account_name).trim()
-      ) {
-        ElMessage.error('账号ID不能与账号名称相同，请填写唯一ID')
-        throw new Error('invalid_account_id')
+      if (payload.platform === props.kolData.platform) {
+        delete payload.platform
       }
+      if (payload.account_id === (props.kolData.account_id || props.kolData.accountId)) {
+        delete payload.account_id
+      }
+      
     }
+    
+    log.debug('提交payload:', payload)
+
     if (isEdit.value && props.kolData?.id) {
       const id = typeof props.kolData.id === 'string' ? parseInt(props.kolData.id) : props.kolData.id
       await KolListApi.updateKol(id, payload)
@@ -467,49 +501,143 @@ const handleSubmit = async () => {
 
 // 关闭对话框
 const handleClose = () => {
-  resetForm()
+  formApi.resetForm()
   visible.value = false
 }
 </script>
 
 <style scoped>
-.dialog-header-summary {
+/* 头部信息样式（与KolDetailDialog保持一致） */
+.profile-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 0 16px 0;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  background: #fcfcfd;
+  border: 1px solid #eef2f6;
+  border-radius: 12px;
+  margin-bottom: 16px;
 }
 
-.summary-title {
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 22px;
+  flex-shrink: 0;
 }
 
-.summary-name {
+.info-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.info-row:first-child {
+  margin-bottom: 4px;
+}
+
+.kol-name {
   font-size: 18px;
   font-weight: 600;
   color: #303133;
+  margin-right: 4px;
 }
 
-.summary-sub {
-  margin-top: 6px;
+.info-label {
   color: #909399;
   font-size: 13px;
 }
 
-.summary-right {
-  display: flex;
-  align-items: center;
+.info-value {
+  color: #606266;
+  font-size: 13px;
 }
 
-.uniqueness-alert {
+.followers-tag {
+  background: #f0f9ff;
+  color: #10b981;
+  border-color: #d1fae5;
+  font-weight: 500;
+}
+
+.org-tag {
+  background: #eff6ff;
+  color: #3b82f6;
+  border-color: #dbeafe;
+}
+
+.type-tags {
+  background: #fef3c7;
+  color: #d97706;
+  border-color: #fde68a;
+}
+
+.category-tag {
+  background: #f3f4f6;
+  color: #6b7280;
+  border-color: #e5e7eb;
+}
+
+.link {
+  color: #409eff;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* 分割线样式 */
+:deep(.el-divider--horizontal) {
+  margin: 16px 0;
+}
+
+.uniqueness-notice {
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  background: #f0f9ff;
+  border-radius: 8px;
+}
+
+.notice-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #1890ff;
+  font-size: 14px;
+  font-weight: 500;
   margin-bottom: 12px;
 }
 
+.notice-icon {
+  font-size: 16px;
+}
+
+.notice-divider {
+  height: 1px;
+  background: linear-gradient(to right, #1890ff, transparent);
+  width: 100%;
+}
+
 .form-section {
-  margin-bottom: 24px;
-  padding: 16px;
+  margin-bottom: 20px;
+  padding: 20px;
   background: #fcfcfd;
   border: 1px solid #eef2f6;
   border-radius: 12px;
@@ -517,22 +645,23 @@ const handleClose = () => {
 }
 
 .section-title {
-  margin: 0 0 16px 0;
-  padding-bottom: 8px;
+  margin: 0 0 20px 0;
+  padding-bottom: 12px;
+  padding-left: 12px;
   font-size: 16px;
   font-weight: 600;
   color: #303133;
-  border-bottom: 1px solid #e4e7ed;
+  /* border-bottom: 2px solid #e4e7ed; */
   position: relative;
 }
 
 .section-title::before {
   content: '';
   position: absolute;
-  left: -8px;
-  top: 2px;
+  left: 0;
+  top: 0;
   width: 4px;
-  height: 16px;
+  height: 20px;
   border-radius: 2px;
   background: #409eff;
 }
@@ -559,4 +688,16 @@ const handleClose = () => {
 :deep(.el-textarea__inner) {
   box-shadow: 0 1px 2px rgba(0,0,0,0.02) inset;
 }
+
+/* 强制备注字段占满整行 */
+:deep(.full-width-remark) {
+  grid-column: 1 / -1 !important;
+}
+
+/* 表单容器粉色背景 */
+.form-container {
+  /* background-color: pink !important; */
+  padding-right: 40px !important;
+}
+
 </style>
