@@ -195,9 +195,9 @@
               <div class="coop-unified-item">
                 <div class="coop-label-new">返点政策</div>
                 <div class="coop-value-new">
-                  <el-tag :type="String(kolData.rebate_policy) === '1' ? 'warning' : 'info'" size="small">
+                  <div class="coop-value-new">
                     {{ String(kolData.rebate_policy) === '1' ? '有' : '无' }}
-                  </el-tag>
+                  </div>
                 </div>
               </div>
               <div class="coop-divider"></div>
@@ -212,18 +212,18 @@
               <div class="coop-unified-item">
                 <div class="coop-label-new">是否独家</div>
                 <div class="coop-value-new">
-                  <el-tag :type="kolData.is_exclusive === 1 ? 'success' : 'info'" size="small">
+                  <div class="coop-value-new">
                     {{ kolData.is_exclusive === 1 ? '是' : '否' }}
-                  </el-tag>
+                  </div>
                 </div>
               </div>
               <div class="coop-divider"></div>
               <div class="coop-unified-item">
                 <div class="coop-label-new">配合度</div>
                 <div class="coop-value-new">
-                  <el-tag :type="cooperationDegreeType(kolData.cooperation_degree)" size="small">
+                  <div class="coop-value-new">
                     {{ cooperationDegreeText(kolData.cooperation_degree) }}
-                  </el-tag>
+                  </div>
                 </div>
               </div>
               <div class="coop-divider"></div>
@@ -235,9 +235,9 @@
               <div class="coop-unified-item">
                 <div class="coop-label-new">资源属性</div>
                 <div class="coop-value-new">
-                  <el-tag :type="resourceAttributeType(kolData.resource_attribute)" size="small">
+                  <div>
                     {{ resourceAttributeText(kolData.resource_attribute) }}
-                  </el-tag>
+                  </div>
                 </div>
               </div>
               <div class="coop-divider"></div>
@@ -610,13 +610,13 @@ const handleClose = () => {
 }
 
 .confidence .confidence-number.empty {
-  font-size: 18px;
+  font-size: 16px;
   color: #999;
   font-weight: 500;
 }
 
 .match-time {
-  font-size: 16px;
+  font-size: 23px;
   font-weight: 600;
   color: #303133;
 }
