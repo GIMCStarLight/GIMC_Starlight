@@ -75,7 +75,7 @@
           </template>
         </el-table-column>
         <el-table-column prop="account_id" label="账号ID" width="140" show-overflow-tooltip />
-        <el-table-column prop="org_name" label="机构名" width="130" show-overflow-tooltip>
+        <el-table-column prop="org_name" label="达人属性" width="130" show-overflow-tooltip>
           <template #default="{ row }">
             <span v-if="row.org_name" class="org-name">{{ row.org_name }}</span>
             <span v-else class="text-gray">-</span>
