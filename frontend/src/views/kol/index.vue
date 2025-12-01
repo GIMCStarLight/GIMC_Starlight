@@ -170,12 +170,7 @@
         <div class="display-toolbar">
           <div class="toolbar-left">
             <span class="result-count">
-              <template v-if="!searchForm.match_status || searchForm.match_status === ''">
-                共找到 <strong>{{ currentStatusCount }}</strong> 位达人
-              </template>
-              <template v-else>
-                找到 <strong>{{ currentStatusCount }}</strong> 位{{ currentStatusLabel }}达人
-              </template>
+              找到 <strong>{{ pagination.total }}</strong> 位达人
               <el-tooltip placement="top" effect="light">
                 <template #content>
                   <div class="stats-tooltip-content">
@@ -820,34 +815,6 @@ const currentStatusCount = computed(() => {
     default:
       return syncStats.value.total
   }
-})
-
-const currentStatusLabel = computed(() => {
-  const status = searchForm.match_status
-  if (!status || status === '') {
-    return ''
-  }
-  switch (status) {
-    case 'unmatched':
-      return '未匹配'
-    case 'pending':
-      return '待同步'
-    case 'matched':
-      return '已匹配'
-    case 'rejected':
-      return '同步失败'
-    default:
-      return ''
-  }
-})
-
-// 统计信息Tooltip内容
-const statsTooltipContent = computed(() => {
-  return `总计 ${syncStats.value.total} 位达人
-未匹配 ${syncStats.value.unmatched} 位达人
-待同步 ${syncStats.value.pending} 位达人
-已匹配 ${syncStats.value.matched} 位达人
-同步失败 ${syncStats.value.rejected} 位达人`
 })
 
 // 旧表单相关逻辑已替换为 KolEditDialog
