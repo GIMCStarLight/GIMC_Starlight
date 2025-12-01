@@ -454,7 +454,7 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue';
 import { ElMessage, ElMessageBox, type FormInstance, type FormRules } from 'element-plus';
-import { StarlinkInfluencerApi, StarmediaInfluencerApi } from '@/api/influencer-management';
+import { StarlinkInfluencerApi, StarmediaInfluencerApi } from '#/api/influencer-management-direct-edit';
 
 // Tab状态
 const activeTab = ref<'starlink' | 'starmedia'>('starlink');
