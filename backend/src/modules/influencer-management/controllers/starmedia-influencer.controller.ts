@@ -13,7 +13,7 @@ import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { StarmediaInfluencerService } from '../services/starmedia-influencer.service';
 
 @ApiTags('省广星媒独家签约达人管理')
-@Controller('api/starmedia-influencers')
+@Controller('starmedia-influencers')
 export class StarmediaInfluencerController {
   constructor(
     private readonly starmediaService: StarmediaInfluencerService,

@@ -13,7 +13,7 @@ import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { StarlinkInfluencerService } from '../services/starlink-influencer.service';
 
 @ApiTags('星链计划达人管理')
-@Controller('api/starlink-influencers')
+@Controller('starlink-influencers')
 export class StarlinkInfluencerController {
   constructor(
     private readonly starlinkService: StarlinkInfluencerService,
