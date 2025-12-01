@@ -31,7 +31,7 @@
 
         <el-input 
           v-model="localFilters.org_name" 
-          placeholder="机构名" 
+          placeholder="达人属性" 
           clearable 
           size="default"
           @input="handleFilterChange"
