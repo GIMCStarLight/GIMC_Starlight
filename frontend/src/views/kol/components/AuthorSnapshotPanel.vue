@@ -1,129 +1,106 @@
 <template>
   <div class="author-snapshot-panel">
-    <a-card :bordered="false" class="snapshot-card">
-      <!-- 卡片头部 -->
-      <template #title>
-        <div class="card-header">
-          <div class="header-left">
-            <UserOutlined class="header-icon" />
-            <span class="header-title">匹配的公海达人信息</span>
-          </div>
-          <a-tag v-if="snapshot" color="success">
-            <template #icon>
-              <CheckCircleOutlined />
-            </template>
-            已匹配
-          </a-tag>
+    <div class="snapshot-header">
+      <div class="section-header">
+        <h4>匹配的公海达人信息</h4>
+        <div class="status-actions">
+          <SyncStatusTag :status="'matched'" size="default" />
         </div>
-      </template>
+      </div>
+    </div>
+
+    <a-card :bordered="false" class="snapshot-card">
 
       <!-- 有数据时显示 -->
       <div v-if="snapshot" class="snapshot-content">
-        <!-- 核心数据统计卡片 -->
-        <a-row :gutter="16" class="stats-row">
-          <a-col :span="8">
-            <a-statistic
-              title="粉丝数"
-              :value="formatFollowerCount(snapshot.follower)"
-              class="stat-card"
-            >
-              <template #prefix>
-                <TeamOutlined class="stat-icon" />
-              </template>
-            </a-statistic>
-          </a-col>
-          <a-col :span="8">
-            <a-statistic
-              title="互动率"
-              :value="(snapshot.interact_rate_within_30d || 0) * 100"
-              :precision="2"
-              suffix="%"
-              class="stat-card"
-            >
-            </a-statistic>
-          </a-col>
-          <a-col :span="8">
-            <a-statistic
-              title="达人等级"
-              :value="snapshot.grade"
-              class="stat-card"
-            >
-            </a-statistic>
-          </a-col>
-        </a-row>
-
-        <a-divider />
-
         <!-- 基础信息 -->
         <div class="info-section">
-          <div class="section-title">
+          <!-- <div class="section-title">
             <IdcardOutlined class="title-icon" />
             <span>基础信息</span>
-          </div>
-          <a-row :gutter="[16, 16]" class="info-grid">
-            <a-col :span="12">
-              <div class="info-item">
-                <span class="item-label">达人 ID</span>
-                <a-typography-text copyable class="item-value">
-                  {{ snapshot.author_id }}
-                </a-typography-text>
-              </div>
-            </a-col>
-            <a-col :span="12">
-              <div class="info-item">
-                <span class="item-label">星图 ID</span>
-                <a-typography-text copyable class="item-value">
-                  {{ snapshot.star_id }}
-                </a-typography-text>
-              </div>
-            </a-col>
-            <a-col :span="12">
-              <div class="info-item">
-                <span class="item-label">昵称</span>
-                <span class="item-value">{{ snapshot.nick_name }}</span>
-              </div>
-            </a-col>
-             <a-col :span="12">
-              <div class="info-item">
-                <span class="item-label">性别</span>
-                <span class="item-value">
-                  <ManOutlined v-if="snapshot.gender === 1"/>
-                  <WomanOutlined v-else-if="snapshot.gender === 2"/>
-                  <!-- {{ getGenderText(snapshot.gender) }} -->
-                </span>
-              </div>
-            </a-col>
-            <a-col :span="12">
-              <div class="info-item">
-                <span class="item-label">20-60s 视频报价</span>
-                <span class="item-value price-text">
-                  <!-- <DollarOutlined class="price-icon" /> -->
-                  {{ formatPrice(snapshot.price_20_60) || '-' }}
-                </span>
-              </div>
-            </a-col>
-             
-            <a-col :span="12">
-              <div class="info-item">
-                <span class="item-label">60s+ 视频报价</span>
-                <span class="item-value price-text">
-                  <!-- <DollarOutlined class="price-icon" /> -->
-                  {{ formatPrice(snapshot.price_60) || '-' }}
-                </span>
-              </div>
-            </a-col>
-          </a-row>
+          </div> -->
+          <!-- 第一行：昵称和粉丝数，采用KolEditDialog样式 -->
+        <div class="info-row">
+          <span class="kol-name">{{ snapshot.nick_name || '-' }}</span>
+          <el-tag v-if="snapshot.follower" size="small" class="category-tag">
+            粉丝 {{ formatFollowerCount(snapshot.follower) }}
+          </el-tag>
         </div>
 
-        <!-- 地理位置（独占一行） -->
-        <div class="location-card">
-          <EnvironmentOutlined class="location-icon" />
-          <span class="location-label">地理位置：</span>
-          <span class="location-value">{{ snapshot.province }} {{ snapshot.city }}</span>
+        <!-- 第二行：ID、性别信息 -->
+        <div class="info-row">
+          <span class="info-label">达人ID:</span>
+          <span class="info-value">{{ snapshot.author_id || '-' }}</span>
+
+          <div class="divider">|</div>
+
+          <span class="info-label">星图ID:</span>
+          <span class="info-value">{{ snapshot.star_id || '-' }}</span>
+
+          <div class="divider">|</div>
+
+          <span class="info-label">性别:</span>
+          <span class="info-value">
+            <ManOutlined v-if="snapshot.gender === 1"/>
+            <WomanOutlined v-else-if="snapshot.gender === 2"/>
+            <span v-else>-</span>
+          </span>
         </div>
 
-        <a-divider />
+        <!-- 统计数据（互动率和达人等级），采用与同步状态区域一致的样式 -->
+        <el-row :gutter="12" class="status-info">
+          <el-col :span="12">
+            <el-card shadow="never">
+              <div class="price-info-item">
+                <span class="price-info-label">互动率</span>
+                <div class="price-info-value">
+                  <span class="price-amount">
+                    <span class="price-number">{{ ((snapshot.interact_rate_within_30d || 0) * 100).toFixed(2) }}%</span>
+                  </span>
+                </div>
+              </div>
+            </el-card>
+          </el-col>
+          <el-col :span="12">
+            <el-card shadow="never">
+              <div class="price-info-item">
+                <span class="price-info-label">达人等级</span>
+                <div class="price-info-value">
+                  <span class="price-amount">
+                    <span class="price-number">{{ snapshot.grade || '-' }}</span>
+                  </span>
+                </div>
+              </div>
+            </el-card>
+          </el-col>
+        </el-row>
 
+        <!-- 报价信息数据项，采用卡片式布局 -->
+          <el-row :gutter="12" class="price-info-cards">
+            <el-col :span="12">
+              <el-card shadow="never">
+                <div class="price-info-item">
+                  <span class="price-info-label">20-60s 视频报价</span>
+                  <div class="price-info-value">
+                    <span class="price-amount">{{ formatPrice(snapshot.price_20_60) || '-' }}</span>
+                  </div>
+                </div>
+              </el-card>
+            </el-col>
+            <el-col :span="12">
+              <el-card shadow="never">
+                <div class="price-info-item">
+                  <span class="price-info-label">60s+ 视频报价</span>
+                  <div class="price-info-value">
+                    <span class="price-amount">{{ formatPrice(snapshot.price_60) || '-' }}</span>
+                  </div>
+                </div>
+              </el-card>
+            </el-col>
+          </el-row>
+        </div>
+
+    
         <!-- 报价信息 -->
         <!-- <div class="info-section">
           <div class="section-title">
@@ -150,12 +127,33 @@
           </a-row>
         </div> -->
 
-        <!-- 同步时间 -->
-        <div class="sync-time-card">
-          <ClockCircleOutlined class="sync-icon" />
-          <span class="sync-label">数据同步时间：</span>
-          <span class="sync-value">{{ formatDateTime(snapshot.synced_at) }}</span>
-        </div>
+        <!-- 地理位置和数据同步时间，采用与同步状态区域一致的样式，在同一行显示 -->
+        <el-row :gutter="12" class="status-info">
+          <el-col :span="12">
+            <el-card shadow="never">
+              <div class="price-info-item">
+                <span class="price-info-label">地理位置</span>
+                <div class="price-info-value">
+                  <span class="price-amount">
+                    <span class="price-number">{{ snapshot.province }} {{ snapshot.city }}</span>
+                  </span>
+                </div>
+              </div>
+            </el-card>
+          </el-col>
+          <el-col :span="12">
+            <el-card shadow="never">
+              <div class="price-info-item">
+                <span class="price-info-label">数据同步时间</span>
+                <div class="price-info-value">
+                  <span class="price-amount">
+                    <span class="price-number">{{ formatDateTime(snapshot.synced_at) }}</span>
+                  </span>
+                </div>
+              </div>
+            </el-card>
+          </el-col>
+        </el-row>
       </div>
 
       <!-- 无数据时显示 -->
@@ -171,19 +169,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import {
-  UserOutlined,
-  CheckCircleOutlined,
-  TeamOutlined,
-  HeartOutlined,
-  CrownOutlined,
   ManOutlined,
   WomanOutlined,
-  EnvironmentOutlined,
-  DollarOutlined,
-  ClockCircleOutlined,
   InboxOutlined,
   IdcardOutlined
 } from '@ant-design/icons-vue'
+import SyncStatusTag from './SyncStatusTag.vue'
 
 interface AuthorSnapshot {
   author_id: string
@@ -261,105 +252,74 @@ const formatDateTime = (dateStr: string): string => {
   width: 100%;
 }
 
-.snapshot-card {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  border-radius: 8px;
-  
-  :deep(.ant-card-head) {
-    background: #ffffff;
-    border-radius: 8px 8px 0 0;
-    border-bottom: 1px solid #e8e8e8;
-    
-    .ant-card-head-title {
-      padding: 16px 0;
-    }
-  }
+.snapshot-header {
+  margin-bottom: 0;
 }
 
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  
-  .header-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    
-    .header-icon {
-      font-size: 20px;
-      color: #303133;
-    }
-    
-    .header-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: #303133;
-    }
-  }
+.snapshot-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
 }
 
 .snapshot-content {
   padding: 8px 0;
 }
 
-// 统计卡片样式
+// 统计卡片样式 - 在基本信息中显示
 .stats-row {
-  margin-bottom: 16px;
-  
+  margin-bottom: 20px;
+
   .stat-card {
-    padding: 16px;
     background: #ffffff;
-    border: 1px solid #d9d9d9;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+
+    &:deep(.ant-card) {
+      box-shadow: none;
+      border: none;
     }
-    
+
     :deep(.ant-statistic) {
       text-align: center;
     }
-    
+
     :deep(.ant-statistic-title) {
-      font-size: 14px;
-      color: #606266;
-      margin-bottom: 12px;
+      font-size: 13px;
+      color: #909399;
+      margin-bottom: 8px;
     }
-    
+
     :deep(.ant-statistic-content) {
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
+      font-size: 18px;
       font-weight: 600;
-      color: #303133;
-      
+      color: #409eff;
+
       .ant-statistic-content-prefix {
         display: inline-flex;
         align-items: center;
         margin-right: 8px;
       }
-      
+
       .ant-statistic-content-value {
         display: inline-flex;
         align-items: center;
       }
-      
+
       .ant-statistic-content-suffix {
         display: inline-flex;
         align-items: center;
         margin-left: 4px;
       }
     }
-    
+
     .stat-icon {
-      font-size: 20px;
-      color: #1890ff;
+      font-size: 16px;
+      color: #409eff;
     }
   }
 }
@@ -367,7 +327,11 @@ const formatDateTime = (dateStr: string): string => {
 // 信息区域样式
 .info-section {
   margin-bottom: 24px;
-  
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+
   .section-title {
     display: flex;
     align-items: center;
@@ -378,130 +342,99 @@ const formatDateTime = (dateStr: string): string => {
     margin-bottom: 16px;
     padding-bottom: 12px;
     border-bottom: 2px solid #f0f0f0;
-    
+
     .title-icon {
       font-size: 18px;
       color: #1890ff;
     }
   }
-  
-  .info-grid {
-    .info-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 16px;
-      background: #fafafa;
-      border-radius: 8px;
-      border-left: 3px solid #1890ff;
-      transition: all 0.3s ease;
-
-      &:hover {
-        background: #f0f9ff;
-        transform: translateX(4px);
-        box-shadow: 0 2px 8px rgba(24, 144, 255, 0.1);
-      }
-
-      .item-label {
-        font-size: 14px;
-        color: #606266;
-        font-weight: 500;
-        flex-shrink: 0;
-      }
-
-      .item-value {
-        font-size: 14px;
-        color: #303133;
-        font-weight: 400;
-        flex-shrink: 0;
-        
-        &.location-text {
-          display: inline-flex;
-          align-items: center;
-          gap: 4px;
-          
-          .location-icon {
-            color: #52c41a;
-            font-size: 14px;
-          }
-        }
-        
-        &.price-text {
-          display: inline-flex;
-          align-items: center;
-          gap: 4px;
-          color: #1890ff;
-          font-weight: 600;
-          font-size: 15px;
-          
-          .price-icon {
-            font-size: 14px;
-          }
-        }
-      }
-    }
-  }
 }
 
-// 同步时间卡片样式
-.sync-time-card {
+// info-row样式，与KolDetailDialog一致
+.info-row {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 16px 20px;
-  background: linear-gradient(135deg, #fafbfc 0%, #e8eef5 100%);
-  border-radius: 8px;
-  border-left: 4px solid #409eff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  
-  .sync-icon {
-    font-size: 18px;
-    color: #409eff;
-  }
-  
-  .sync-label {
-    font-size: 14px;
-    color: #606266;
-    font-weight: 500;
-  }
-  
-  .sync-value {
-    font-size: 14px;
-    color: #303133;
-    font-weight: 600;
-    font-family: 'Courier New', monospace;
-  }
-}
-
-// 地理位置卡片样式（独占一行）
-.location-card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 20px;
+  gap: 8px;
+  font-size: 14px;
   margin-bottom: 16px;
-   background: linear-gradient(135deg, #fafbfc 0%, #e8eef5 100%);
-  border-radius: 8px;
-  border-left: 4px solid #409eff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  
-  .location-icon {
-    font-size: 18px;
-    color: #409eff;
-  }
-  
-  .location-label {
-    font-size: 14px;
-    color: #606266;
-    font-weight: 500;
-  }
-  
-  .location-value {
-    font-size: 14px;
-    color: #303133;
-    font-weight: 600;
-  }
+  flex-wrap: wrap;
 }
+
+.divider {
+  color: #d9d9d9;
+  font-size: 16px;
+  margin: 0 4px;
+  user-select: none;
+}
+
+.info-label {
+  color: #909399;
+  font-size: 13px;
+}
+
+.info-value {
+  color: #606266;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* 修复Ant Design图标垂直对齐问题 */
+.info-value :deep(.anticon) {
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+// 第一行昵称和粉丝数样式，与KolEditDialog一致
+.kol-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #303133;
+  margin-right: 4px;
+}
+
+.category-tag {
+  background: #f3f4f6;
+  color: #6b7280;
+  border-color: #e5e7eb;
+}
+
+// 统计信息卡片样式，与同步状态区域一致
+.status-info {
+  margin-top: 12px;
+}
+
+// 报价信息卡片样式 - 基础信息区域使用
+.price-info-cards {
+  margin-top: 12px;
+}
+
+.price-info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-info-label {
+  color: #909399;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.price-info-value {
+  margin-top: 4px;
+}
+
+.price-amount {
+  font-size: 18px;
+  font-weight: 400;
+  color: #409eff;
+}
+
 
 // 同步时间提示
 .sync-alert {
@@ -525,7 +458,7 @@ const formatDateTime = (dateStr: string): string => {
 // 空状态
 :deep(.ant-empty) {
   padding: 60px 0;
-  
+
   .ant-empty-description {
     color: #909399;
     font-size: 14px;
@@ -537,5 +470,26 @@ const formatDateTime = (dateStr: string): string => {
   display: inline-flex;
   align-items: center;
   gap: 4px;
+}
+
+// 头部样式，匹配同步状态区域
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-header h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #303133;
+}
+
+.status-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 </style>

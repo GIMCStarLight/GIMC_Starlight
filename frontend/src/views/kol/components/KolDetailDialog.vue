@@ -16,33 +16,37 @@
           <!-- 第一行：昵称 + 粉丝标签 -->
           <div class="info-row">
             <span class="kol-name">{{ kolData.account_name || '-' }}</span>
-            <el-tag v-if="kolData.followers_w" size="small" type="success" class="followers-tag">
+            <el-tag v-if="kolData.followers_w" size="small" class="category-tag">
               粉丝 {{ kolData.followers_w }} 万
             </el-tag>
           </div>
-          <!-- 第二行：ID -->
+          <!-- 第二行：ID、机构、平台、达人类型 -->
           <div class="info-row">
-            <span class="info-label">ID：</span>
+            <span class="info-label">ID:</span>
             <span class="info-value">{{ kolData.account_id || '-' }}</span>
-          </div>
-          <!-- 第三行：机构和分类标签 -->
-          <div class="info-row">
-            <el-tag size="small" class="org-tag">
+
+            <div class="divider">|</div>
+
+            <span class="info-label">机构名</span>
+            <el-tag size="small" class="category-tag">
               <template #icon>
                 <el-icon><OfficeBuilding /></el-icon>
               </template>
               {{ kolData.org_name || '暂无机构' }}
             </el-tag>
-            <el-tag size="small" type="info" class="type-tags">
+
+            <div class="divider">|</div>
+
+            <span class="info-label">平台</span>
+            <el-tag size="small" class="category-tag">
                {{ kolData.platform || '-' }}
             </el-tag>
-          </div>
-          <!-- 第四行：达人类型标签 -->
-          <div class="info-row">
+
+            <div class="divider">|</div>
+
             <span class="info-label">达人类型</span>
             <el-tag size="small" class="category-tag">
               {{ kolData.category || '未分类' }}
-             
             </el-tag>
           </div>
           <!-- 第五行：主页链接 -->
@@ -58,206 +62,257 @@
 
       <el-divider />
 
-      <!-- 同步状态区域 -->
+      <!-- 综合信息区域 - 同步状态、报价信息、合作信息统一放在一个卡片中 -->
       <div class="sync-status-section">
-        <div class="section-header">
-          <h4>同步状态</h4>
-          <div class="status-actions">
-            <SyncStatusTag :status="kolData.match_status || 'unmatched'" size="default" />
-            <el-button
-              v-if="canRetrySync"
-              type="primary"
-              size="small"
-              :loading="syncing"
-              @click="handleRetrySync"
-            >
-              <el-icon><Refresh /></el-icon>
-              重新同步
-            </el-button>
-          </div>
-        </div>
-
-        <el-row :gutter="12" class="status-info">
-          <el-col :span="12">
-            <el-card shadow="never">
-              <div class="status-item">
-                <span class="status-label">匹配置信度</span>
-                <div class="status-value confidence">
-                  <span v-if="kolData.match_confidence" class="confidence-number">
-                    {{ (kolData.match_confidence * 100).toFixed(1) }}<span class="percent">%</span>
-                  </span>
-                  <span v-else class="confidence-number empty">-</span>
-                </div>
-              </div>
-            </el-card>
-          </el-col>
-          <el-col :span="12">
-            <el-card shadow="never">
-              <div class="status-item">
-                <span class="status-label">匹配时间</span>
-                <div class="status-value">
-                  <span class="match-time">
-                    {{ kolData.matched_at ? formatDateTime(kolData.matched_at) : '-' }}
-                  </span>
-                </div>
-              </div>
-            </el-card>
-          </el-col>
-        </el-row>
-
-        <!-- 失败原因显示 -->
-        <el-alert
-          v-if="kolData.match_status === 'rejected' && errorMessage"
-          type="error"
-          :title="errorMessage"
-          :closable="false"
-          show-icon
-          class="error-alert"
-        />
-      </div>
-
-      <!-- 基本信息 -->
-      <!-- <div class="info-section">
-        <h4 class="section-title">基本信息</h4>
-        <el-descriptions :column="2" border size="small">
-          <el-descriptions-item label="平台">{{ kolData.platform }}</el-descriptions-item>
-          <el-descriptions-item label="账号名称">{{ kolData.account_name }}</el-descriptions-item>
-          <el-descriptions-item label="账号ID">{{ kolData.account_id }}</el-descriptions-item>
-          <el-descriptions-item label="粉丝量(万)">{{ kolData.followers_w }}</el-descriptions-item>
-          <el-descriptions-item label="机构名">{{ kolData.org_name || '-' }}</el-descriptions-item>
-          <el-descriptions-item label="账号类型">{{ kolData.category || '-' }}</el-descriptions-item>
-          <el-descriptions-item label="主页链接" :span="2">
-            <a v-if="kolData.home_link" :href="kolData.home_link" target="_blank" class="link">
-              {{ kolData.home_link }}
-            </a>
-            <span v-else>-</span>
-          </el-descriptions-item>
-        </el-descriptions>
-      </div> -->
-
-      <!-- 报价信息 -->
-      <div class="info-section price-info-section">
-        <div class="section-header">
-          <h4>报价信息</h4>
-        </div>
-        <el-row :gutter="12" class="price-info-cards">
-          <el-col :span="12">
-            <el-card shadow="never">
-              <div class="price-info-item">
-                <span class="price-info-label">21-60s报价</span>
-                <div class="price-info-value">
-                  <span v-if="kolData.star_quote_21_60s" class="price-amount">
-                    ¥<span class="price-number">{{ kolData.star_quote_21_60s.toLocaleString() }}</span>
-                  </span>
-                  <span v-else class="price-amount empty">-</span>
-                </div>
-              </div>
-            </el-card>
-          </el-col>
-          <el-col :span="12">
-            <el-card shadow="never">
-              <div class="price-info-item">
-                <span class="price-info-label">60s+报价</span>
-                <div class="price-info-value">
-                  <span v-if="kolData.star_quote_60s_plus" class="price-amount">
-                    ¥<span class="price-number">{{ kolData.star_quote_60s_plus.toLocaleString() }}</span>
-                  </span>
-                  <span v-else class="price-amount empty">-</span>
-                </div>
-              </div>
-            </el-card>
-          </el-col>
-        </el-row>
-      </div>
-
-      <!-- 合作信息 -->
-      <div class="info-section cooperation-section">
-        <div class="section-header">
-          <h4>合作信息</h4>
-        </div>
-        
-       <!-- 新版卡片式布局（参考图片样式） -->
-        <div class="cooperation-card-new">
-          <!-- 统一卡片：所有数据项 -->
-          <div class="coop-unified-card">
-            <!-- 第一行：返点区间、政策等级、返点政策、返点账期 -->
-            <div class="coop-unified-row">
-              <div class="coop-unified-item">
-                <div class="coop-label-new">返点区间</div>
-                <div class="coop-value-new">{{ kolData.rebate_range || '-' }}</div>
-              </div>
-              <div class="coop-divider"></div>
-              <div class="coop-unified-item">
-                <div class="coop-label-new">政策等级</div>
-                <div class="coop-value-new">{{ kolData.policy_level || '-' }}</div>
-              </div>
-              <div class="coop-divider"></div>
-              <div class="coop-unified-item">
-                <div class="coop-label-new">返点政策</div>
-                <div class="coop-value-new">
-                  <div class="coop-value-new">
-                    {{ String(kolData.rebate_policy) === '1' ? '有' : '无' }}
-                  </div>
-                </div>
-              </div>
-              <div class="coop-divider"></div>
-              <div class="coop-unified-item">
-                <div class="coop-label-new">返点账期</div>
-                <div class="coop-value-new">{{ kolData.rebate_period || '-' }}</div>
+        <el-card :bordered="false" class="snapshot-card">
+        <div class="snapshot-content">
+          <!-- 同步状态区域 -->
+          <div class="info-section">
+            <div class="section-header">
+              <h4>同步状态</h4>
+              <div class="status-actions">
+                <SyncStatusTag :status="kolData.match_status || 'unmatched'" size="default" />
+                <el-button
+                  v-if="canRetrySync"
+                  type="primary"
+                  size="small"
+                  :loading="syncing"
+                  @click="handleRetrySync"
+                >
+                  <el-icon><Refresh /></el-icon>
+                  重新同步
+                </el-button>
               </div>
             </div>
 
-            <!-- 第二行：是否独家、配合度、年框机构、资源属性、支付账期 -->
-            <div class="coop-unified-row">
-              <div class="coop-unified-item">
-                <div class="coop-label-new">是否独家</div>
-                <div class="coop-value-new">
-                  <div class="coop-value-new">
-                    {{ kolData.is_exclusive === 1 ? '是' : '否' }}
+            <el-row :gutter="12" class="status-info">
+              <el-col :span="12">
+                <el-card shadow="never">
+                  <div class="price-info-item">
+                    <span class="price-info-label">匹配置信度</span>
+                    <div class="price-info-value">
+                      <span v-if="kolData.match_confidence" class="price-amount">
+                        <span class="price-number">{{ (kolData.match_confidence * 100).toFixed(1) }}%</span>
+                      </span>
+                      <span v-else class="price-amount empty">-</span>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div class="coop-divider"></div>
-              <div class="coop-unified-item">
-                <div class="coop-label-new">配合度</div>
-                <div class="coop-value-new">
-                  <div class="coop-value-new">
-                    {{ cooperationDegreeText(kolData.cooperation_degree) }}
+                </el-card>
+              </el-col>
+              <el-col :span="12">
+                <el-card shadow="never">
+                  <div class="price-info-item">
+                    <span class="price-info-label">匹配时间</span>
+                    <div class="price-info-value">
+                      <span class="price-amount">
+                        <span class="price-number">{{ kolData.matched_at ? formatDateTime(kolData.matched_at) : '-' }}</span>
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div class="coop-divider"></div>
-              <div class="coop-unified-item">
-                <div class="coop-label-new">年框机构</div>
-                <div class="coop-value-new">{{ kolData.annual_contract_org || '-' }}</div>
-              </div>
-              <div class="coop-divider"></div>
-              <div class="coop-unified-item">
-                <div class="coop-label-new">资源属性</div>
-                <div class="coop-value-new">
-                  <div>
-                    {{ resourceAttributeText(kolData.resource_attribute) }}
-                  </div>
-                </div>
-              </div>
-              <div class="coop-divider"></div>
-              <div class="coop-unified-item">
-                <div class="coop-label-new">支付账期</div>
-                <div class="coop-value-new">{{ kolData.pay_period || '-' }}</div>
-              </div>
-            </div>
+                </el-card>
+              </el-col>
+            </el-row>
+
+            <!-- 失败原因显示 -->
+            <el-alert
+              v-if="kolData.match_status === 'rejected' && errorMessage"
+              type="error"
+              :title="errorMessage"
+              :closable="false"
+              show-icon
+              class="error-alert"
+            />
           </div>
 
-          <!-- 第三行：合作简介 -->
-          <div class="coop-intro-row">
-            <div class="coop-label-new">合作简介</div>
-            <div class="coop-intro-content">{{ kolData.cooperation_intro || '-' }}</div>
+          <!-- 分割线 -->
+          <el-divider />
+
+          <!-- 报价信息 -->
+          <div class="info-section">
+            <div class="section-header">
+              <h4>报价信息</h4>
+            </div>
+            <el-row :gutter="12" class="price-info-cards">
+              <el-col :span="12">
+                <el-card shadow="never">
+                  <div class="price-info-item">
+                    <span class="price-info-label">21-60s报价</span>
+                    <div class="price-info-value">
+                      <span v-if="kolData.star_quote_21_60s" class="price-amount">
+                        ¥<span class="price-number">{{ kolData.star_quote_21_60s.toLocaleString() }}</span>
+                      </span>
+                      <span v-else class="price-amount empty">-</span>
+                    </div>
+                  </div>
+                </el-card>
+              </el-col>
+              <el-col :span="12">
+                <el-card shadow="never">
+                  <div class="price-info-item">
+                    <span class="price-info-label">60s+报价</span>
+                    <div class="price-info-value">
+                      <span v-if="kolData.star_quote_60s_plus" class="price-amount">
+                        ¥<span class="price-number">{{ kolData.star_quote_60s_plus.toLocaleString() }}</span>
+                      </span>
+                      <span v-else class="price-amount empty">-</span>
+                    </div>
+                  </div>
+                </el-card>
+              </el-col>
+            </el-row>
+          </div>
+
+          <!-- 分割线 -->
+          <el-divider />
+
+          <!-- 合作信息 -->
+          <div class="info-section">
+            <div class="section-header">
+              <h4>合作信息</h4>
+            </div>
+
+            <!-- 采用与同步状态区域一致的卡片式布局 -->
+            <el-row :gutter="12" class="status-info">
+              <el-col :span="12">
+                <el-card shadow="never">
+                  <div class="price-info-item">
+                    <span class="price-info-label">返点区间</span>
+                    <div class="price-info-value">
+                      <span class="price-amount">
+                        <span class="price-number">{{ kolData.rebate_range || '-' }}</span>
+                      </span>
+                    </div>
+                  </div>
+                </el-card>
+              </el-col>
+              <el-col :span="12">
+                <el-card shadow="never">
+                  <div class="price-info-item">
+                    <span class="price-info-label">政策等级</span>
+                    <div class="price-info-value">
+                      <span class="price-amount">
+                        <span class="price-number">{{ kolData.policy_level || '-' }}</span>
+                      </span>
+                    </div>
+                  </div>
+                </el-card>
+              </el-col>
+            </el-row>
+
+            <el-row :gutter="12" class="status-info">
+              <el-col :span="12">
+                <el-card shadow="never">
+                  <div class="price-info-item">
+                    <span class="price-info-label">返点政策</span>
+                    <div class="price-info-value">
+                      <span class="price-amount">
+                        <span class="price-number">{{ String(kolData.rebate_policy) === '1' ? '有' : '无' }}</span>
+                      </span>
+                    </div>
+                  </div>
+                </el-card>
+              </el-col>
+              <el-col :span="12">
+                <el-card shadow="never">
+                  <div class="price-info-item">
+                    <span class="price-info-label">返点账期</span>
+                    <div class="price-info-value">
+                      <span class="price-amount">
+                        <span class="price-number">{{ kolData.rebate_period || '-' }}</span>
+                      </span>
+                    </div>
+                  </div>
+                </el-card>
+              </el-col>
+            </el-row>
+
+            <el-row :gutter="12" class="status-info">
+              <el-col :span="12">
+                <el-card shadow="never">
+                  <div class="price-info-item">
+                    <span class="price-info-label">是否独家</span>
+                    <div class="price-info-value">
+                      <span class="price-amount">
+                        <span class="price-number">{{ kolData.is_exclusive === 1 ? '是' : '否' }}</span>
+                      </span>
+                    </div>
+                  </div>
+                </el-card>
+              </el-col>
+              <el-col :span="12">
+                <el-card shadow="never">
+                  <div class="price-info-item">
+                    <span class="price-info-label">配合度</span>
+                    <div class="price-info-value">
+                      <span class="price-amount">
+                        <span class="price-number">{{ cooperationDegreeText(kolData.cooperation_degree) }}</span>
+                      </span>
+                    </div>
+                  </div>
+                </el-card>
+              </el-col>
+            </el-row>
+
+            <el-row :gutter="12" class="status-info">
+              <el-col :span="12">
+                <el-card shadow="never">
+                  <div class="price-info-item">
+                    <span class="price-info-label">年框机构</span>
+                    <div class="price-info-value">
+                      <span class="price-amount">
+                        <span class="price-number">{{ kolData.annual_contract_org || '-' }}</span>
+                      </span>
+                    </div>
+                  </div>
+                </el-card>
+              </el-col>
+              <el-col :span="12">
+                <el-card shadow="never">
+                  <div class="price-info-item">
+                    <span class="price-info-label">资源属性</span>
+                    <div class="price-info-value">
+                      <span class="price-amount">
+                        <span class="price-number">{{ resourceAttributeText(kolData.resource_attribute) }}</span>
+                      </span>
+                    </div>
+                  </div>
+                </el-card>
+              </el-col>
+            </el-row>
+
+            <el-row :gutter="12" class="status-info">
+              <el-col :span="12">
+                <el-card shadow="never">
+                  <div class="price-info-item">
+                    <span class="price-info-label">支付账期</span>
+                    <div class="price-info-value">
+                      <span class="price-amount">
+                        <span class="price-number">{{ kolData.pay_period || '-' }}</span>
+                      </span>
+                    </div>
+                  </div>
+                </el-card>
+              </el-col>
+              <el-col :span="12">
+                <el-card shadow="never">
+                  <div class="price-info-item">
+                    <span class="price-info-label">合作简介</span>
+                    <div class="price-info-value">
+                      <span class="price-amount">
+                        <span class="price-number">{{ kolData.cooperation_intro || '-' }}</span>
+                      </span>
+                    </div>
+                  </div>
+                </el-card>
+              </el-col>
+            </el-row>
           </div>
         </div>
+      </el-card>
       </div>
 
       <!-- 公海达人信息快照 -->
-      <div v-if="kolData.matched_snapshot" class="info-section">
+      <div v-if="kolData.matched_snapshot" class="sync-status-section">
         <AuthorSnapshotPanel :snapshot="kolData.matched_snapshot" />
       </div>
 
@@ -490,6 +545,13 @@ const handleClose = () => {
   margin-bottom: 4px;
 }
 
+.divider {
+  color: #d9d9d9;
+  font-size: 16px;
+  margin: 0 4px;
+  user-select: none;
+}
+
 .kol-name {
   font-size: 18px;
   font-weight: 600;
@@ -626,12 +688,32 @@ const handleClose = () => {
 }
 
 .info-section {
-  margin-bottom: 24px;
-  background: #fcfcfd;
-  border: 1px solid #eef2f6;
-  border-radius: 12px;
-  padding: 12px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  margin-bottom: 16px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+}
+
+.info-section:last-child {
+  margin-bottom: 0;
+}
+
+/* 卡片样式，与AuthorSnapshotPanel保持一致 */
+.snapshot-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.snapshot-content {
+  padding: 8px 0;
+}
+
+/* 统一卡片内的分割线样式 */
+.snapshot-content :deep(.el-divider) {
+  margin: 16px 0;
 }
 
 .section-title {
@@ -672,7 +754,7 @@ const handleClose = () => {
   display: flex;
   justify-content: space-between;
   padding: 12px;
-  background: #f5f7fa;
+  /* background: #f5f7fa; */
   border-radius: 4px;
   color: #909399;
   font-size: 13px;
@@ -737,7 +819,7 @@ const handleClose = () => {
 
 .price-amount {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 400;
   color: #409eff;
 }
 
@@ -755,99 +837,14 @@ const handleClose = () => {
 .cooperation-section {
   background: transparent;
   border: none;
-  padding: 0 16px;
+  padding: 0;
   box-shadow: none;
 }
 
-
-/* 新版合作信息卡片样式（参考图片） */
-.cooperation-card-new {
-  background: #f8f9fa;
-  background: transparent;
-  border-radius: 12px;
-  /* padding: 20px; */
+/* 合作信息区域使用与同步状态区域一致的样式 */
+.cooperation-section .status-info {
+  margin-top: 12px;
 }
 
-/* 统一卡片容器 */
-.coop-unified-card {
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-}
 
-/* 统一卡片内的行 */
-.coop-unified-row {
-  display: flex;
-  align-items: stretch;
-}
-
-.coop-unified-row:not(:last-child) {
-  border-bottom: 1px solid #f0f0f0;
-}
-
-/* 统一卡片内的数据项 */
-.coop-unified-item {
-  flex: 1;
-  padding: 16px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* 灰色竖线分隔符（带上下边距） */
-.coop-divider {
-  width: 1px;
-  background: #e5e7eb;
-  margin: 25px 0;
-}
-
-.coop-label-new {
-  font-size: 13px;
-  color: #909399;
-  margin-bottom: 8px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-}
-
-.coop-value-new {
-  font-size: 18px;
-  color: #303133;
-  font-weight: 600;
-  line-height: 1.4;
-}
-
-/* 合作简介单独行样式 */
-.coop-intro-row {
-  background: #ffffff;
-  border-radius: 8px;
-  padding: 16px;
-  margin-top: 16px;
-}
-
-.coop-intro-row .coop-label-new {
-  justify-content: flex-start;
-  margin-bottom: 12px;
-  font-size: 14px;
-  color: #606266;
-}
-
-.coop-intro-content {
-  font-size: 14px;
-  color: #606266;
-  line-height: 1.6;
-  white-space: pre-wrap;
-  text-align: left;
-}
-
-/* 配合度标签样式：去掉背景色和边框，字体放大2px */
-.coop-value-new .el-tag {
-  background: transparent !important;
-  border: none !important;
-  font-size: 16px !important; /* 比默认的14px大2px */
-}
 </style>
