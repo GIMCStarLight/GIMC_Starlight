@@ -12,17 +12,6 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    AAlert: typeof import('ant-design-vue/es')['Alert']
-    ACard: typeof import('ant-design-vue/es')['Card']
-    ACol: typeof import('ant-design-vue/es')['Col']
-    ADescriptions: typeof import('ant-design-vue/es')['Descriptions']
-    ADescriptionsItem: typeof import('ant-design-vue/es')['DescriptionsItem']
-    ADivider: typeof import('ant-design-vue/es')['Divider']
-    AEmpty: typeof import('ant-design-vue/es')['Empty']
-    ARow: typeof import('ant-design-vue/es')['Row']
-    AStatistic: typeof import('ant-design-vue/es')['Statistic']
-    ATag: typeof import('ant-design-vue/es')['Tag']
-    ATypographyText: typeof import('ant-design-vue/es')['TypographyText']
     AuthorCard: typeof import('./src/components/author/AuthorCard.vue')['default']
     ElAlert: typeof import('element-plus/es')['ElAlert']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
@@ -105,17 +94,6 @@ declare module 'vue' {
 
 // For TSX support
 declare global {
-  const AAlert: typeof import('ant-design-vue/es')['Alert']
-  const ACard: typeof import('ant-design-vue/es')['Card']
-  const ACol: typeof import('ant-design-vue/es')['Col']
-  const ADescriptions: typeof import('ant-design-vue/es')['Descriptions']
-  const ADescriptionsItem: typeof import('ant-design-vue/es')['DescriptionsItem']
-  const ADivider: typeof import('ant-design-vue/es')['Divider']
-  const AEmpty: typeof import('ant-design-vue/es')['Empty']
-  const ARow: typeof import('ant-design-vue/es')['Row']
-  const AStatistic: typeof import('ant-design-vue/es')['Statistic']
-  const ATag: typeof import('ant-design-vue/es')['Tag']
-  const ATypographyText: typeof import('ant-design-vue/es')['TypographyText']
   const AuthorCard: typeof import('./src/components/author/AuthorCard.vue')['default']
   const ElAlert: typeof import('element-plus/es')['ElAlert']
   const ElAvatar: typeof import('element-plus/es')['ElAvatar']
