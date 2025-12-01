@@ -119,7 +119,7 @@
         <div class="location-card">
           <EnvironmentOutlined class="location-icon" />
           <span class="location-label">地理位置：</span>
-          <span class="location-value">{{ snapshot.province || '-' }} / {{ snapshot.city || '-' }}</span>
+          <span class="location-value">{{ snapshot.province }} {{ snapshot.city }}</span>
         </div>
 
         <a-divider />
