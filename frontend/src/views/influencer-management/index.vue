@@ -593,10 +593,30 @@ async function loadStarlinkData() {
       page: starlinkPage.value,
       limit: starlinkLimit.value,
     });
-    // 后端返回格式: { data: [...], pagination: { total, page, pageSize } }
-    starlinkData.value = res.data || res;
-    starlinkTotal.value = res.pagination?.total || res.total || 0;
+    console.log('Starlink API Response:', res);
+    
+    // 响应拦截器处理后的格式：
+    // { code: 200, message: '...', data: [...], pagination: { total, page, pageSize, totalPages } }
+    if (Array.isArray(res)) {
+      // 如果直接返回数组
+      starlinkData.value = res;
+      starlinkTotal.value = 0;
+    } else if (res.pagination) {
+      // 如果有 pagination 字段
+      starlinkData.value = res.data || [];
+      starlinkTotal.value = res.pagination.total || 0;
+    } else if (res.data && Array.isArray(res.data)) {
+      // 如果 data 是数组
+      starlinkData.value = res.data;
+      starlinkTotal.value = res.total || 0;
+    } else {
+      // 兜底处理
+      starlinkData.value = [];
+      starlinkTotal.value = 0;
+    }
+    console.log('Parsed data:', { data: starlinkData.value, total: starlinkTotal.value });
   } catch (error: any) {
+    console.error('加载数据失败:', error);
     ElMessage.error(error.message || '加载数据失败');
   } finally {
     starlinkLoading.value = false;
@@ -611,10 +631,30 @@ async function loadStarmediaData() {
       page: starmediaPage.value,
       limit: starmediaLimit.value,
     });
-    // 后端返回格式: { data: [...], pagination: { total, page, pageSize } }
-    starmediaData.value = res.data || res;
-    starmediaTotal.value = res.pagination?.total || res.total || 0;
+    console.log('Starmedia API Response:', res);
+    
+    // 响应拦截器处理后的格式：
+    // { code: 200, message: '...', data: [...], pagination: { total, page, pageSize, totalPages } }
+    if (Array.isArray(res)) {
+      // 如果直接返回数组
+      starmediaData.value = res;
+      starmediaTotal.value = 0;
+    } else if (res.pagination) {
+      // 如果有 pagination 字段
+      starmediaData.value = res.data || [];
+      starmediaTotal.value = res.pagination.total || 0;
+    } else if (res.data && Array.isArray(res.data)) {
+      // 如果 data 是数组
+      starmediaData.value = res.data;
+      starmediaTotal.value = res.total || 0;
+    } else {
+      // 兜底处理
+      starmediaData.value = [];
+      starmediaTotal.value = 0;
+    }
+    console.log('Parsed data:', { data: starmediaData.value, total: starmediaTotal.value });
   } catch (error: any) {
+    console.error('加载数据失败:', error);
     ElMessage.error(error.message || '加载数据失败');
   } finally {
     starmediaLoading.value = false;
