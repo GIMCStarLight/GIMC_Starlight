@@ -595,22 +595,11 @@ async function loadStarlinkData() {
     });
     console.log('Starlink API Response:', res);
     
-    // 响应拦截器处理后的格式：
-    // { code: 200, message: '...', data: [...], pagination: { total, page, pageSize, totalPages } }
-    if (Array.isArray(res)) {
-      // 如果直接返回数组
-      starlinkData.value = res;
-      starlinkTotal.value = 0;
-    } else if (res.pagination) {
-      // 如果有 pagination 字段
-      starlinkData.value = res.data || [];
-      starlinkTotal.value = res.pagination.total || 0;
-    } else if (res.data && Array.isArray(res.data)) {
-      // 如果 data 是数组
+    // baseRequestClient 返回完整的响应对象：{ code, message, data, pagination }
+    if (res && res.data) {
       starlinkData.value = res.data;
-      starlinkTotal.value = res.total || 0;
+      starlinkTotal.value = res.pagination?.total || 0;
     } else {
-      // 兜底处理
       starlinkData.value = [];
       starlinkTotal.value = 0;
     }
@@ -633,22 +622,11 @@ async function loadStarmediaData() {
     });
     console.log('Starmedia API Response:', res);
     
-    // 响应拦截器处理后的格式：
-    // { code: 200, message: '...', data: [...], pagination: { total, page, pageSize, totalPages } }
-    if (Array.isArray(res)) {
-      // 如果直接返回数组
-      starmediaData.value = res;
-      starmediaTotal.value = 0;
-    } else if (res.pagination) {
-      // 如果有 pagination 字段
-      starmediaData.value = res.data || [];
-      starmediaTotal.value = res.pagination.total || 0;
-    } else if (res.data && Array.isArray(res.data)) {
-      // 如果 data 是数组
+    // baseRequestClient 返回完整的响应对象：{ code, message, data, pagination }
+    if (res && res.data) {
       starmediaData.value = res.data;
-      starmediaTotal.value = res.total || 0;
+      starmediaTotal.value = res.pagination?.total || 0;
     } else {
-      // 兜底处理
       starmediaData.value = [];
       starmediaTotal.value = 0;
     }
