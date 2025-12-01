@@ -44,6 +44,7 @@ import { KolReviewsModule } from './modules/kol-reviews/kol-reviews.module';
 import { SupplierDatabaseModule } from './modules/supplier-database/supplier-database.module';
 import { InfluencerV2Module } from './modules/influencer-v2/influencer-v2.module';
 import { UploadModule } from './modules/upload/upload.module';
+import { InfluencerManagementModule } from './modules/influencer-management/influencer-management.module';
 
 /**
  * 主应用模块
@@ -155,6 +156,7 @@ import { UploadModule } from './modules/upload/upload.module';
     SupplierDatabaseModule,
     InfluencerV2Module,
     UploadModule,
+    InfluencerManagementModule,
   ],
   controllers: [AppController],
   providers: [AppService],
