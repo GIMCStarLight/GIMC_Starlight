@@ -6,7 +6,7 @@ import { StarlinkInfluencer } from '../../../database/entities/starlink-influenc
 @Injectable()
 export class StarlinkInfluencerService {
   constructor(
-    @InjectRepository(StarlinkInfluencer)
+    @InjectRepository(StarlinkInfluencer, 'crawler')
     private readonly starlinkRepository: Repository<StarlinkInfluencer>,
   ) {}
 
