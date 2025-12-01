@@ -9,7 +9,7 @@ import { StarmediaInfluencerService } from './services/starmedia-influencer.serv
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([StarlinkInfluencer, StarmediaInfluencer]),
+    TypeOrmModule.forFeature([StarlinkInfluencer, StarmediaInfluencer], 'crawler'),
   ],
   controllers: [StarlinkInfluencerController, StarmediaInfluencerController],
   providers: [StarlinkInfluencerService, StarmediaInfluencerService],

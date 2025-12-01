@@ -6,7 +6,7 @@ import { StarmediaInfluencer } from '../../../database/entities/starmedia-influe
 @Injectable()
 export class StarmediaInfluencerService {
   constructor(
-    @InjectRepository(StarmediaInfluencer)
+    @InjectRepository(StarmediaInfluencer, 'crawler')
     private readonly starmediaRepository: Repository<StarmediaInfluencer>,
   ) {}
 
