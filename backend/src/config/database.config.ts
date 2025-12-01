@@ -10,6 +10,8 @@ import { AuthorCoreView } from '../database/entities/author-core-view.entity';
 import { SqlbotConfig } from '../modules/sqlbot/entities/sqlbot-config.entity';
 import { SupplierDatabase } from '../database/entities/supplier-database.entity';
 import { ImportHistory } from '../database/entities/import-history.entity';
+import { StarlinkInfluencer } from '../database/entities/starlink-influencer.entity';
+import { StarmediaInfluencer } from '../database/entities/starmedia-influencer.entity';
 import {
   AuthorCore,
   AuthorFansMetrics,
@@ -192,6 +194,8 @@ export const getCrawlerDBConfig = (
       AuthorContentTags,
       AuthorEcommerce,
       MvAuthorsCombined,
+      StarlinkInfluencer,
+      StarmediaInfluencer,
     ],
     synchronize: false, // 禁用自动同步，表结构已存在
     logging: configService.get<boolean>('CRAWLER_DB_LOGGING', false),

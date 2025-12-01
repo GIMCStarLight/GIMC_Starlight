@@ -54,24 +54,24 @@ export namespace StarlinkInfluencerApi {
 
   // 获取列表
   export function getList(params: { page?: number; limit?: number }) {
-    return requestClient.get<ListResponse>('/api/starlink-influencers', {
+    return requestClient.get<ListResponse>('/starlink-influencers', {
       params,
     });
   }
 
   // 获取详情
   export function getDetail(id: number) {
-    return requestClient.get<Influencer>(`/api/starlink-influencers/${id}`);
+    return requestClient.get<Influencer>(`/starlink-influencers/${id}`);
   }
 
   // 更新
   export function update(id: number, data: Partial<Influencer>) {
-    return requestClient.put<Influencer>(`/api/starlink-influencers/${id}`, data);
+    return requestClient.put<Influencer>(`/starlink-influencers/${id}`, data);
   }
 
   // 删除
   export function remove(id: number) {
-    return requestClient.delete(`/api/starlink-influencers/${id}`);
+    return requestClient.delete(`/starlink-influencers/${id}`);
   }
 }
 
@@ -109,23 +109,23 @@ export namespace StarmediaInfluencerApi {
 
   // 获取列表
   export function getList(params: { page?: number; limit?: number }) {
-    return requestClient.get<ListResponse>('/api/starmedia-influencers', {
+    return requestClient.get<ListResponse>('/starmedia-influencers', {
       params,
     });
   }
 
   // 获取详情
   export function getDetail(id: number) {
-    return requestClient.get<Influencer>(`/api/starmedia-influencers/${id}`);
+    return requestClient.get<Influencer>(`/starmedia-influencers/${id}`);
   }
 
   // 更新
   export function update(id: number, data: Partial<Influencer>) {
-    return requestClient.put<Influencer>(`/api/starmedia-influencers/${id}`, data);
+    return requestClient.put<Influencer>(`/starmedia-influencers/${id}`, data);
   }
 
   // 删除
   export function remove(id: number) {
-    return requestClient.delete(`/api/starmedia-influencers/${id}`);
+    return requestClient.delete(`/starmedia-influencers/${id}`);
   }
 }
