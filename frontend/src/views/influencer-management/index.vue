@@ -16,9 +16,9 @@
         style="width: 100%"
         @row-click="handleRowClick"
       >
-        <el-table-column prop="id" label="ID" width="70" />
-        <el-table-column prop="kolSerialNumber" label="序号" width="80" />
-        <el-table-column prop="nickname" label="昵称" width="120" show-overflow-tooltip />
+        <el-table-column prop="id" label="ID" width="70" fixed />
+        <el-table-column prop="kolSerialNumber" label="序号" width="80" fixed />
+        <el-table-column prop="nickname" label="昵称" width="120" show-overflow-tooltip fixed />
         <el-table-column prop="primaryPlatform" label="主发平台" width="100" />
         <el-table-column prop="accountCategory" label="账号类型" width="120" show-overflow-tooltip />
         <el-table-column prop="fansCount" label="粉丝量(万)" width="110" align="right">
@@ -26,22 +26,47 @@
             {{ row.fansCount ? Number(row.fansCount).toFixed(2) : '-' }}
           </template>
         </el-table-column>
-        <el-table-column prop="price60sPlus" label="60s+报价" width="110" align="right">
+        <el-table-column label="报价信息" align="center">
+          <el-table-column prop="price1To20s" label="1-20s" width="100" align="right">
+            <template #default="{ row }">
+              {{ row.price1To20s ? Number(row.price1To20s).toLocaleString() : '-' }}
+            </template>
+          </el-table-column>
+          <el-table-column prop="price21To60s" label="21-60s" width="100" align="right">
+            <template #default="{ row }">
+              {{ row.price21To60s ? Number(row.price21To60s).toLocaleString() : '-' }}
+            </template>
+          </el-table-column>
+          <el-table-column prop="price60sPlus" label="60s+" width="100" align="right">
+            <template #default="{ row }">
+              {{ row.price60sPlus ? Number(row.price60sPlus).toLocaleString() : '-' }}
+            </template>
+          </el-table-column>
+        </el-table-column>
+        <el-table-column label="返点信息" align="center">
+          <el-table-column prop="minRebateRate" label="最低%" width="85" align="right">
+            <template #default="{ row }">
+              {{ row.minRebateRate || '-' }}
+            </template>
+          </el-table-column>
+          <el-table-column prop="maxRebateRate" label="最高%" width="85" align="right">
+            <template #default="{ row }">
+              {{ row.maxRebateRate || '-' }}
+            </template>
+          </el-table-column>
+        </el-table-column>
+        <el-table-column prop="hasGuaranteedMetrics" label="保数据" width="80" align="center">
           <template #default="{ row }">
-            {{ row.price60sPlus ? Number(row.price60sPlus).toLocaleString() : '-' }}
+            <el-tag :type="row.hasGuaranteedMetrics ? 'success' : 'info'" size="small">
+              {{ row.hasGuaranteedMetrics ? '是' : '否' }}
+            </el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="minRebateRate" label="最低返点%" width="100" align="right">
-          <template #default="{ row }">
-            {{ row.minRebateRate || '-' }}
-          </template>
-        </el-table-column>
-        <el-table-column prop="maxRebateRate" label="最高返点%" width="100" align="right">
-          <template #default="{ row }">
-            {{ row.maxRebateRate || '-' }}
-          </template>
-        </el-table-column>
-        <el-table-column prop="currentOrderCount" label="当前订单数" width="110" align="right" />
+        <el-table-column prop="currentOrderCount" label="累计订单" width="95" align="right" />
+        <el-table-column prop="secondHalfOrderCount" label="下半年订单" width="105" align="right" />
+        <el-table-column prop="contentStyle" label="内容风格" width="120" show-overflow-tooltip />
+        <el-table-column prop="targetAudience" label="目标受众" width="120" show-overflow-tooltip />
+        <el-table-column prop="cooperationIndustries" label="合作行业" width="120" show-overflow-tooltip />
         <el-table-column prop="allPlatforms" label="全网平台" min-width="150" show-overflow-tooltip />
         <el-table-column label="操作" width="150" fixed="right">
           <template #default="{ row }">
@@ -77,23 +102,39 @@
         style="width: 100%"
         @row-click="handleRowClick"
       >
-        <el-table-column prop="id" label="ID" width="70" />
-        <el-table-column prop="influencerSerialNumber" label="序号" width="80" />
+        <el-table-column prop="id" label="ID" width="70" fixed />
+        <el-table-column prop="influencerSerialNumber" label="序号" width="80" fixed />
+        <el-table-column prop="nickname" label="昵称" width="120" show-overflow-tooltip fixed />
         <el-table-column prop="accountId" label="账号ID" width="150" show-overflow-tooltip />
-        <el-table-column prop="nickname" label="昵称" width="120" show-overflow-tooltip />
         <el-table-column prop="influencerOverview" label="达人概况" width="150" show-overflow-tooltip />
+        <el-table-column prop="affiliatedOrganization" label="所属机构" width="120" />
         <el-table-column prop="influencerCategory" label="达人类型" width="120" show-overflow-tooltip />
         <el-table-column prop="totalFans" label="主平台粉丝量(万)" width="140" align="right">
           <template #default="{ row }">
             {{ row.totalFans ? Number(row.totalFans).toFixed(2) : '-' }}
           </template>
         </el-table-column>
-        <el-table-column prop="contractStatus" label="签约进度" width="180" show-overflow-tooltip />
-        <el-table-column prop="contractRebateRate" label="签约返点%" width="110" align="right">
+        <el-table-column label="合同信息" align="center">
+          <el-table-column prop="contractStatus" label="签约进度" width="130" show-overflow-tooltip />
+          <el-table-column prop="contractPeriod" label="合同周期" width="110" show-overflow-tooltip />
+          <el-table-column prop="contractMonths" label="合同月数" width="95" align="right" />
+          <el-table-column prop="contractRebateRate" label="签约返点%" width="105" align="right">
+            <template #default="{ row }">
+              {{ row.contractRebateRate || '-' }}
+            </template>
+          </el-table-column>
+        </el-table-column>
+        <el-table-column prop="contractStartDate" label="合同开始" width="110">
           <template #default="{ row }">
-            {{ row.contractRebateRate || '-' }}
+            {{ row.contractStartDate || '-' }}
           </template>
         </el-table-column>
+        <el-table-column prop="contractEndDate" label="合同结束" width="110">
+          <template #default="{ row }">
+            {{ row.contractEndDate || '-' }}
+          </template>
+        </el-table-column>
+        <el-table-column prop="platformAccounts" label="平台账号" width="150" show-overflow-tooltip />
         <el-table-column prop="allPlatforms" label="全网平台" min-width="150" show-overflow-tooltip />
         <el-table-column label="操作" width="150" fixed="right">
           <template #default="{ row }">
@@ -129,6 +170,7 @@
       <el-form :model="editForm" label-width="140px" :rules="formRules" ref="editFormRef">
         <!-- 星链计划达人表单 -->
         <template v-if="activeTab === 'starlink'">
+          <el-divider content-position="left">基本信息</el-divider>
           <el-row :gutter="20">
             <el-col :span="12">
               <el-form-item label="昵称" prop="nickname">
@@ -154,6 +196,20 @@
             </el-col>
           </el-row>
           <el-row :gutter="20">
+            <el-col :span="12">
+              <el-form-item label="达人链接">
+                <el-input v-model="editForm.profileUrl" placeholder="https://..." />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="星图主页链接">
+                <el-input v-model="editForm.starPlatformUrl" placeholder="https://..." />
+              </el-form-item>
+            </el-col>
+          </el-row>
+
+          <el-divider content-position="left">报价信息</el-divider>
+          <el-row :gutter="20">
             <el-col :span="8">
               <el-form-item label="1-20s视频报价">
                 <el-input-number v-model="editForm.price1To20s" :min="0" :precision="2" style="width: 100%" />
@@ -170,18 +226,36 @@
               </el-form-item>
             </el-col>
           </el-row>
+
+          <el-divider content-position="left">政策与返点</el-divider>
           <el-row :gutter="20">
-            <el-col :span="12">
+            <el-col :span="8">
               <el-form-item label="最低返点%" prop="minRebateRate">
                 <el-input-number v-model="editForm.minRebateRate" :min="0" :max="100" :precision="2" style="width: 100%" />
               </el-form-item>
             </el-col>
-            <el-col :span="12">
+            <el-col :span="8">
               <el-form-item label="最高返点%" prop="maxRebateRate">
                 <el-input-number v-model="editForm.maxRebateRate" :min="0" :max="100" :precision="2" style="width: 100%" />
               </el-form-item>
             </el-col>
+            <el-col :span="8">
+              <el-form-item label="是否保数据">
+                <el-switch v-model="editForm.hasGuaranteedMetrics" />
+              </el-form-item>
+            </el-col>
           </el-row>
+          <el-form-item label="政策档位总结">
+            <el-input v-model="editForm.policyTiersSummary" placeholder="政策档位简要说明" />
+          </el-form-item>
+          <el-form-item label="政策档位详情">
+            <el-input v-model="editForm.policyTiers" type="textarea" :rows="3" placeholder="详细政策档位信息" />
+          </el-form-item>
+          <el-form-item label="政策备注">
+            <el-input v-model="editForm.policyRemarks" type="textarea" :rows="2" />
+          </el-form-item>
+
+          <el-divider content-position="left">订单信息</el-divider>
           <el-row :gutter="20">
             <el-col :span="12">
               <el-form-item label="当前累计订单数">
@@ -194,25 +268,85 @@
               </el-form-item>
             </el-col>
           </el-row>
-          <el-form-item label="达人链接">
-            <el-input v-model="editForm.profileUrl" />
+
+          <el-divider content-position="left">达人介绍</el-divider>
+          <el-form-item label="达人简介">
+            <el-input v-model="editForm.kolIntroduction" type="textarea" :rows="3" />
           </el-form-item>
-          <el-form-item label="星图主页链接">
-            <el-input v-model="editForm.starPlatformUrl" />
+          <el-form-item label="成就亮点">
+            <el-input v-model="editForm.achievementHighlights" type="textarea" :rows="2" />
+          </el-form-item>
+          <el-form-item label="排名信息">
+            <el-input v-model="editForm.rankingInfo" />
+          </el-form-item>
+
+          <el-divider content-position="left">内容与受众</el-divider>
+          <el-row :gutter="20">
+            <el-col :span="12">
+              <el-form-item label="内容风格">
+                <el-input v-model="editForm.contentStyle" />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="目标受众">
+                <el-input v-model="editForm.targetAudience" />
+              </el-form-item>
+            </el-col>
+          </el-row>
+          <el-form-item label="内容优势">
+            <el-input v-model="editForm.contentAdvantages" type="textarea" :rows="2" />
+          </el-form-item>
+
+          <el-divider content-position="left">合作与平台</el-divider>
+          <el-form-item label="合作平台">
+            <el-input v-model="editForm.collaborationPlatforms" type="textarea" :rows="2" />
+          </el-form-item>
+          <el-form-item label="分发平台">
+            <el-input v-model="editForm.distributionPlatforms" type="textarea" :rows="2" />
+          </el-form-item>
+          <el-form-item label="分发规则">
+            <el-input v-model="editForm.distributionRules" type="textarea" :rows="2" />
+          </el-form-item>
+          <el-form-item label="特殊福利">
+            <el-input v-model="editForm.specialBenefits" type="textarea" :rows="2" />
           </el-form-item>
           <el-form-item label="全网平台">
             <el-input v-model="editForm.allPlatforms" />
           </el-form-item>
-          <el-form-item label="达人简介">
-            <el-input v-model="editForm.kolIntroduction" type="textarea" :rows="3" />
+
+          <el-divider content-position="left">合作历史</el-divider>
+          <el-form-item label="合作行业">
+            <el-input v-model="editForm.cooperationIndustries" />
           </el-form-item>
+          <el-form-item label="历史合作品牌">
+            <el-input v-model="editForm.pastCooperationBrands" type="textarea" :rows="3" />
+          </el-form-item>
+
+          <el-divider content-position="left">荣誉与资质</el-divider>
+          <el-form-item label="认证信息">
+            <el-input v-model="editForm.certifications" type="textarea" :rows="2" />
+          </el-form-item>
+          <el-form-item label="获奖荣誉">
+            <el-input v-model="editForm.awardsHonors" type="textarea" :rows="2" />
+          </el-form-item>
+
+          <el-divider content-position="left">账号矩阵</el-divider>
+          <el-form-item label="关联账号">
+            <el-input v-model="editForm.relatedAccounts" type="textarea" :rows="2" />
+          </el-form-item>
+          <el-form-item label="账号矩阵">
+            <el-input v-model="editForm.accountMatrix" />
+          </el-form-item>
+
+          <el-divider content-position="left">其他信息</el-divider>
           <el-form-item label="备注">
-            <el-input v-model="editForm.remarks" type="textarea" :rows="2" />
+            <el-input v-model="editForm.remarks" type="textarea" :rows="3" />
           </el-form-item>
         </template>
 
         <!-- 省广星媒独家签约达人表单 -->
         <template v-else>
+          <el-divider content-position="left">基本信息</el-divider>
           <el-row :gutter="20">
             <el-col :span="12">
               <el-form-item label="昵称" prop="nickname">
@@ -221,7 +355,7 @@
             </el-col>
             <el-col :span="12">
               <el-form-item label="账号ID">
-                <el-input v-model="editForm.accountId" />
+                <el-input v-model="editForm.accountId" disabled />
               </el-form-item>
             </el-col>
           </el-row>
@@ -239,19 +373,33 @@
           </el-row>
           <el-row :gutter="20">
             <el-col :span="12">
+              <el-form-item label="所属机构">
+                <el-input v-model="editForm.affiliatedOrganization" />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
               <el-form-item label="主平台粉丝量(万)" prop="totalFans">
                 <el-input-number v-model="editForm.totalFans" :min="0" :precision="2" style="width: 100%" />
               </el-form-item>
             </el-col>
-            <el-col :span="12">
-              <el-form-item label="签约返点%" prop="contractRebateRate">
-                <el-input-number v-model="editForm.contractRebateRate" :min="0" :max="100" :precision="2" style="width: 100%" />
-              </el-form-item>
-            </el-col>
           </el-row>
+
+          <el-divider content-position="left">合同信息</el-divider>
           <el-form-item label="签约进度">
             <el-input v-model="editForm.contractStatus" />
           </el-form-item>
+          <el-row :gutter="20">
+            <el-col :span="12">
+              <el-form-item label="合同周期">
+                <el-input v-model="editForm.contractPeriod" placeholder="例如：2024年1月-2025年1月" />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="合同月数">
+                <el-input-number v-model="editForm.contractMonths" :min="0" style="width: 100%" />
+              </el-form-item>
+            </el-col>
+          </el-row>
           <el-row :gutter="20">
             <el-col :span="12">
               <el-form-item label="合同开始日期">
@@ -276,9 +424,19 @@
               </el-form-item>
             </el-col>
           </el-row>
+          <el-form-item label="签约返点%" prop="contractRebateRate">
+            <el-input-number v-model="editForm.contractRebateRate" :min="0" :max="100" :precision="2" style="width: 100%" />
+          </el-form-item>
+
+          <el-divider content-position="left">平台信息</el-divider>
+          <el-form-item label="平台账号">
+            <el-input v-model="editForm.platformAccounts" type="textarea" :rows="3" placeholder="各平台账号信息" />
+          </el-form-item>
           <el-form-item label="全网平台">
             <el-input v-model="editForm.allPlatforms" />
           </el-form-item>
+
+          <el-divider content-position="left">其他信息</el-divider>
           <el-form-item label="状态备注">
             <el-input v-model="editForm.statusRemarks" type="textarea" :rows="3" />
           </el-form-item>
@@ -296,7 +454,7 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue';
 import { ElMessage, ElMessageBox, type FormInstance, type FormRules } from 'element-plus';
-import { StarlinkInfluencerApi, StarmediaInfluencerApi } from '#/api/influencer-management';
+import { StarlinkInfluencerApi, StarmediaInfluencerApi } from '@/api/influencer-management';
 
 // Tab状态
 const activeTab = ref<'starlink' | 'starmedia'>('starlink');
