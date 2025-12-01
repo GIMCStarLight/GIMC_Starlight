@@ -15,26 +15,35 @@
         <!-- 第一行：昵称 + 粉丝标签 -->
         <div class="info-row">
           <span class="kol-name">{{ props.kolData?.account_name || '-' }}</span>
-          <el-tag v-if="props.kolData?.followers_w" size="small" type="success" class="followers-tag">
+          <el-tag v-if="props.kolData?.followers_w" size="small" class="category-tag">
             粉丝 {{ props.kolData?.followers_w }} 万
           </el-tag>
         </div>
-        <!-- 第二行：ID -->
+        <!-- 第二行：ID、机构、平台、达人类型 -->
         <div class="info-row">
-          <span class="info-label">ID：</span>
+          <span class="info-label">ID:</span>
           <span class="info-value">{{ props.kolData?.account_id || '-' }}</span>
-        </div>
-        <!-- 第三行：机构、平台、达人类型 -->
-        <div class="info-row">
-          <el-tag size="small" class="org-tag">
+
+          <div class="divider">|</div>
+
+          <span class="info-label">机构名</span>
+          <el-tag size="small" class="category-tag">
             <template #icon>
               <el-icon><OfficeBuilding /></el-icon>
             </template>
             {{ props.kolData?.org_name || '暂无机构' }}
           </el-tag>
-          <el-tag size="small" type="info" class="type-tags">
+
+          <div class="divider">|</div>
+
+          <span class="info-label">平台</span>
+          <el-tag size="small" class="category-tag">
                {{ props.kolData?.platform || '-' }}
           </el-tag>
+
+          <div class="divider">|</div>
+
+          <span class="info-label">达人类型</span>
           <el-tag size="small" class="category-tag">
             {{ props.kolData?.category || '未分类' }}
           </el-tag>
@@ -541,6 +550,13 @@ const handleClose = () => {
   align-items: center;
   gap: 8px;
   font-size: 14px;
+}
+
+.divider {
+  color: #d9d9d9;
+  font-size: 16px;
+  margin: 0 4px;
+  user-select: none;
 }
 
 .info-row:first-child {
