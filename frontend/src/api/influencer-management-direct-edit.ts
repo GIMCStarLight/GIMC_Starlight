@@ -1,4 +1,4 @@
-import { requestClient } from '../request';
+import { requestClient } from './request';
 
 /**
  * 星链计划达人API
