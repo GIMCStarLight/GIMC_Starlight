@@ -346,8 +346,9 @@ async function loadStarlinkData() {
       page: starlinkPage.value,
       limit: starlinkLimit.value,
     });
-    starlinkData.value = res.data;
-    starlinkTotal.value = res.total;
+    // 后端返回格式: { data: [...], pagination: { total, page, pageSize } }
+    starlinkData.value = res.data || res;
+    starlinkTotal.value = res.pagination?.total || res.total || 0;
   } catch (error: any) {
     ElMessage.error(error.message || '加载数据失败');
   } finally {
@@ -363,8 +364,9 @@ async function loadStarmediaData() {
       page: starmediaPage.value,
       limit: starmediaLimit.value,
     });
-    starmediaData.value = res.data;
-    starmediaTotal.value = res.total;
+    // 后端返回格式: { data: [...], pagination: { total, page, pageSize } }
+    starmediaData.value = res.data || res;
+    starmediaTotal.value = res.pagination?.total || res.total || 0;
   } catch (error: any) {
     ElMessage.error(error.message || '加载数据失败');
   } finally {
