@@ -1,7 +1,7 @@
 <template>
     <div class="standard-table">
-        <!-- 顶部提示条 -->
-        <el-alert v-if="selectedRows && selectedRows.length" type="info" :closable="false" show-icon class="alert">
+        <!-- 顶部提示条 - 已注释 -->
+        <!-- <el-alert v-if="selectedRows && selectedRows.length" type="info" :closable="false" show-icon class="alert">
             <template #default>
                 <div class="message">
                     已选择 <b>{{ selectedRows.length }}</b> 项
@@ -13,7 +13,7 @@
                     </template>
                 </div>
             </template>
-        </el-alert>
+        </el-alert> -->
 
         <!-- 表格 -->
         <el-table ref="elTable" v-loading="loading" :data="dataSource" :border="bordered" :size="size" :row-key="rowKey"

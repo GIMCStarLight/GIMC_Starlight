@@ -24,6 +24,12 @@
       </div>
       <!-- 自有达人数据的按钮 -->
       <div v-else-if="activeTab === 'private'" class="header-right">
+        <el-badge :value="selectedDouyinCount" :hidden="selectedDouyinCount === 0" type="primary">
+          <el-button @click="handlePrivateClearSelection" :disabled="selectedDouyinCount === 0">
+            <Icon icon="lucide:x-circle" />
+            清空选中
+          </el-button>
+        </el-badge>
         <el-button @click="navigateToImportHistory" class="action-btn">
           <Icon icon="lucide:clock" class="mr-1" />
           导入历史
@@ -174,11 +180,11 @@
               <el-tooltip placement="top" effect="light">
                 <template #content>
                   <div class="stats-tooltip-content">
-                    <div class="stats-tooltip-item">总计 <span class="stats-tooltip-number">{{ syncStats.total }}</span> 位达人</div>
-                    <div class="stats-tooltip-item">未匹配 <span class="stats-tooltip-number">{{ syncStats.unmatched }}</span> 位达人</div>
-                    <div class="stats-tooltip-item">待同步 <span class="stats-tooltip-number">{{ syncStats.pending }}</span> 位达人</div>
-                    <div class="stats-tooltip-item">已匹配 <span class="stats-tooltip-number">{{ syncStats.matched }}</span> 位达人</div>
-                    <div class="stats-tooltip-item">同步失败 <span class="stats-tooltip-number">{{ syncStats.rejected }}</span> 位达人</div>
+                    <div class="stats-tooltip-item">总计 <span class="stats-tooltip-number" style="color: #409eff; font-weight: 600;">{{ syncStats.total }}</span> 位达人</div>
+                    <div class="stats-tooltip-item">未匹配 <span class="stats-tooltip-number" style="color: #409eff; font-weight: 600;">{{ syncStats.unmatched }}</span> 位达人</div>
+                    <div class="stats-tooltip-item">待同步 <span class="stats-tooltip-number" style="color: #409eff; font-weight: 600;">{{ syncStats.pending }}</span> 位达人</div>
+                    <div class="stats-tooltip-item">已匹配 <span class="stats-tooltip-number" style="color: #409eff; font-weight: 600;">{{ syncStats.matched }}</span> 位达人</div>
+                    <div class="stats-tooltip-item">同步失败 <span class="stats-tooltip-number" style="color: #409eff; font-weight: 600;">{{ syncStats.rejected }}</span> 位达人</div>
                   </div>
                 </template>
                 <el-icon class="stats-info-icon"><InfoFilled /></el-icon>
@@ -568,10 +574,9 @@ const handlePublicExport = async () => {
   }
 }
 
-// Tab切换处理 - 不清除公海数据的选中状态
+// Tab切换处理
 const handleTabChange = async (tabName: string) => {
   log.debug('🔄 切换Tab:', tabName)
-  log.debug('🔄 切换前 selectedKolIds:', selectedKolIds.value.size, 'IDs:', Array.from(selectedKolIds.value))
 
   if (tabName === 'private') {
     // 切换到自有达人数据，加载原有数据
@@ -583,8 +588,6 @@ const handleTabChange = async (tabName: string) => {
     log.debug('🔄 切换到公海达人数据 tab')
     await loadPublicData()
   }
-  
-  log.debug('🔄 切换后 selectedKolIds:', selectedKolIds.value.size, 'IDs:', Array.from(selectedKolIds.value))
 }
 
 
@@ -741,16 +744,11 @@ const submitting = ref(false)
 const editDialogVisible = ref(false)
 const selectedRows = ref<any[]>([])
 const tableData = ref<any[]>([])
-const tableRef = ref() // 表格引用，用于恢复选中状态
+const tableRef = ref() // 表格引用
 const statistics = ref<any>({})
 const genderStats = computed(() => statistics.value?.genderStats || [])
 const evaluateDialogVisible = ref(false)
 const currentEvaluateAuthorId = ref('')
-
-// 跨页选中状态保持 - 存储所有选中的ID（使用string类型，因为API返回的id可能是字符串）
-const selectedKolIds = ref<Set<string>>(new Set())
-// 标记是否正在恢复选中状态（防止触发handleSelectionChange）
-const isRestoringSelection = ref(false)
 
 // 同步相关状态
 const batchSyncing = ref(false)
@@ -821,10 +819,6 @@ const currentStatusCount = computed(() => {
 
 // 方法
 const loadData = async () => {
-  // ⚠️ 关键修复：在加载数据开始时就设置标记，防止tableData更新时触发selection-change
-  isRestoringSelection.value = true
-  log.debug('🔒 [loadData] 设置isRestoringSelection = true')
-  
   loading.value = true
   try {
     const params = {
@@ -858,17 +852,10 @@ const loadData = async () => {
       total = (p?.total ?? body?.total ?? 0) as number
     }
     
-    // 恢复当前页面的选中状态（确保ID类型匹配）
-    items.forEach(item => {
-      item._isSelected = selectedKolIds.value.has(String(item.id))
-    })
-    
     tableData.value = items
     pagination.page = page
     pagination.limit = limit
     pagination.total = total
-    
-    log.debug('🔒 [loadData] tableData已更新，等待watch恢复选中状态')
   } catch (error: any) {
     log.error('API请求失败:', error)
     const status = error?.response?.status
@@ -879,12 +866,8 @@ const loadData = async () => {
     } else {
       ElMessage.error('加载数据失败: ' + (error?.message || '未知错误'))
     }
-    // ⚠️ 关键：即使加载失败，也要重置isRestoringSelection
-    isRestoringSelection.value = false
-    log.debug('🔓 [loadData] 加载失败，重置isRestoringSelection = false')
   } finally {
     loading.value = false
-    // 注意：不在这里重置isRestoringSelection，由watch处理
   }
 }
 
@@ -1121,53 +1104,12 @@ const formatDate = (v: any) => {
     return '-'
   }
 }
-// 表格选择变更 - 支持跨页选中
+// 表格选择变更 - StandardTable组件已经处理了跨页选中
 const handleSelectionChange = (rows: any[]) => {
-  // 如果正在恢复选中状态，忽略此次变化
-  if (isRestoringSelection.value) {
-    log.debug('🔒 [自有达人数据] 正在恢复选中状态，忽略selection-change事件')
-    return
-  }
-  
-  log.debug('📝 [handleSelectionChange] ===== 开始处理选中变化 =====')
-  log.debug('📝 [handleSelectionChange] 当前传入的rows:', rows.length, rows.map(r => r.id))
-  log.debug('📝 [handleSelectionChange] 处理前selectedKolIds:', selectedKolIds.value.size, 'IDs:', Array.from(selectedKolIds.value))
-  
-  // 更新当前页的选中状态
-  const currentPageIds = new Set(tableData.value.map(item => String(item.id)))
-  log.debug('📝 [handleSelectionChange] 当前页的所有ID:', Array.from(currentPageIds))
-  
-  // ⚠️ 关键修复：不删除当前页的ID，而是先记录当前页哪些应该保留
-  // 删除当前页所有ID
-  currentPageIds.forEach(id => selectedKolIds.value.delete(id))
-  log.debug('📝 [handleSelectionChange] 删除当前页ID后selectedKolIds:', selectedKolIds.value.size, 'IDs:', Array.from(selectedKolIds.value))
-  
-  // 添加当前页选中的ID（确保转为字符串）
-  rows.forEach(row => selectedKolIds.value.add(String(row.id)))
-  log.debug('📝 [handleSelectionChange] 添加当前页选中后selectedKolIds:', selectedKolIds.value.size, 'IDs:', Array.from(selectedKolIds.value))
-  
-  log.debug('[自有达人数据] 选中变化, 当前页选中:', rows.length, '总选中ID:', selectedKolIds.value.size, 'IDs:', Array.from(selectedKolIds.value))
-  
-  // ⚠️ 修复：更新selectedRows为所有选中的行（包括其他页的）
-  // 需要从tableData和selectedKolIds合并计算
-  updateSelectedRows()
-  
-  log.debug('📝 [handleSelectionChange] ===== 处理完成 =====')
+  selectedRows.value = rows
+  log.debug('[选中变化] 当前选中:', rows.length, '个记录')
 }
 
-// 更新selectedRows（用于批量同步等功能）
-const updateSelectedRows = () => {
-  // 从当前页的tableData中筛选出选中的行
-  const currentPageSelected = tableData.value.filter(row => 
-    selectedKolIds.value.has(String(row.id))
-  )
-  
-  // 注意：selectedRows只包含当前页的选中行
-  // 但selectedKolIds包含所有页的选中ID
-  selectedRows.value = currentPageSelected
-  
-  log.debug('[自有达人数据] 更新selectedRows:', selectedRows.value.length, '行')
-}
 const openMappingDialog = () => {
   mappingDialogVisible.value = true
 }
@@ -1200,16 +1142,20 @@ const loadSyncStats = async () => {
 }
 
 // ==========  同步功能 =========
-// 计算选中的抖音账号（可同步）
-const selectedDouyinRows = computed(() => {
-  return selectedRows.value.filter(row => canSync(row))
+// 计算选中的数量（用于批量同步按钮显示）
+const selectedDouyinCount = computed(() => {
+  return selectedRows.value.length
 })
 
-// ⚠️ 关键：计算所有页的选中数量（用于批量同步按钮显示）
-const selectedDouyinCount = computed(() => {
-  // 直接使用selectedKolIds的数量，包含所有页的选中
-  return selectedKolIds.value.size
-})
+// 自有达人数据 - 清空选中
+const handlePrivateClearSelection = () => {
+  selectedRows.value = []
+  // 清空表格选中状态
+  if (tableRef.value && tableRef.value.$refs?.elTable) {
+    tableRef.value.$refs.elTable.clearSelection()
+  }
+  ElMessage.success('已清空选中')
+}
 
 // 判断是否可以同步
 const canSync = (row: any): boolean => {
@@ -1290,7 +1236,7 @@ const handleSingleSync = async (row: any) => {
 // 批量同步
 const handleBatchSync = async () => {
   if (selectedDouyinCount.value === 0) {
-    ElMessage.warning('请选择需要同步的抖音账号')
+    ElMessage.warning('请选择需要同步的账号')
     return
   }
 
@@ -1306,10 +1252,7 @@ const handleBatchSync = async () => {
     )
 
     batchSyncing.value = true
-    // ⚠️ 关键修复：从tableData中找出所有选中的行，包括其他页的
-    // 但由于tableData只有当前页，我们直接使用selectedKolIds
-    // 注意：selectedKolIds存储的是字符串，需要转为数字
-    const kolIds = Array.from(selectedKolIds.value).map(id => Number(id))
+    const kolIds = selectedRows.value.map(row => Number(row.id))
     log.debug('[批量同步] 选中的KOL IDs:', kolIds)
     
     const result = await KolSyncApi.syncBatchKols(kolIds)
@@ -1493,614 +1436,231 @@ onMounted(() => {
   // 默认加载公海达人数据（因为activeTab默认为'public'）
   loadPublicData()
 })
-
-// 监听tableData变化，恢复选中状态
-watch(
-  () => tableData.value,
-  async (newData) => {
-    if (!tableRef.value || !newData.length) {
-      log.debug('[自有达人数据] watch跳过: tableRef或newData为空')
-      // 即使跳过，也要重置标记
-      isRestoringSelection.value = false
-      return
-    }
-    
-    // isRestoringSelection 已由 loadData() 设置为 true
-    
-    await nextTick()
-    
-    log.debug('[自有达人数据] 开始恢复选中状态, 数据条数:', newData.length, '选中ID数:', selectedKolIds.value.size)
-    log.debug('[自有达人数据] selectedKolIds内容:', Array.from(selectedKolIds.value))
-    log.debug('[自有达人数据] 当前页数据的ID:', newData.slice(0, 3).map(row => ({ id: row.id, type: typeof row.id })))
-    
-    // 清除所有选中
-    tableRef.value.clearSelection()
-    
-    // 恢复当前页的选中状态
-    let restoredCount = 0
-    newData.forEach(row => {
-      const rowIdStr = String(row.id)
-      const hasId = selectedKolIds.value.has(rowIdStr)
-      if (hasId) {
-        tableRef.value.toggleRowSelection(row, true)
-        restoredCount++
-        log.debug('[自有达人数据] ✅ 恢复选中:', rowIdStr)
-      }
-    })
-    
-    log.debug('[自有达人数据] 选中状态恢复完成, 恢复了', restoredCount, '个选中项')
-    
-    // ⚠️ 关键：恢复完成后更新selectedRows，确保批量同步按钮正确显示
-    updateSelectedRows()
-    
-    // 恢复完成后，重置标记
-    await nextTick()
-    isRestoringSelection.value = false
-    log.debug('🔓 [watch] 恢复完成，设置isRestoringSelection = false')
-  },
-  { deep: true }
-)
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .influencer-management {
   padding: 20px;
-  background: var(--el-bg-color-page);
-}
-
-/* ===== 页面标题 ===== */
-.page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0;
-  padding: 24px;
-  background: var(--el-bg-color);
-  border-radius: 8px 8px 0 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.header-left {
-  flex: 1;
-}
-
-.page-title {
-  margin: 0;
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--el-text-color-primary);
-}
-
-.header-right {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.action-btn {
-  border-radius: 6px;
-  white-space: nowrap;
-}
-
-.badge-count {
-  margin-left: 8px;
-}
-
-/* ===== Tab切换样式 ===== */
-.tabs-wrapper {
-  position: relative;
-  background: linear-gradient(to bottom, #fafafa, #ffffff);
-  padding: 20px 24px 0;
-  border-bottom: 1px solid #e8e8e8;
-  margin-bottom: 20px;
-  border-radius: 0 0 8px 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.data-tabs :deep(.el-tabs__header) {
-  margin-bottom: 0;
-  border-bottom: none;
-}
-
-.data-tabs :deep(.el-tabs__nav-wrap::after) {
-  display: none;
-}
-
-.data-tabs :deep(.el-tabs__item) {
-  padding: 12px 20px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--el-text-color-regular);
-  transition: all 0.3s ease;
-}
-
-.data-tabs :deep(.el-tabs__item:hover) {
-  color: var(--el-color-primary);
-}
-
-.data-tabs :deep(.el-tabs__item.is-active) {
-  color: var(--el-color-primary);
-  font-weight: 600;
-}
-
-.data-tabs :deep(.el-tabs__active-bar) {
-  height: 3px;
-  background: linear-gradient(90deg, var(--el-color-primary), var(--el-color-primary-light-3));
-}
-
-.tab-label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.tab-label .iconify {
-  font-size: 16px;
-}
-
-/* ===== 公海达人数据内容 ===== */
-.public-data-content {
-  margin-top: 20px;
-}
-
-.influencer-display-area {
-  background: var(--el-bg-color);
-  border-radius: 8px;
-  padding: 20px;
-  margin-top: 20px;
-}
-
-.display-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  padding: 16px;
-  background: var(--el-fill-color-extra-light);
-  border-radius: 8px;
-}
-
-.toolbar-left {
-  flex: 1;
-}
-
-.result-count {
-  font-size: 14px;
-  color: var(--el-text-color-regular);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.result-count strong {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--el-color-primary);
-}
-
-.stats-info-icon {
-  font-size: 16px;
-  color: var(--el-color-info);
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.stats-info-icon:hover {
-  color: var(--el-color-primary);
-}
-
-.stats-tooltip-content {
-  padding: 4px 0;
-}
-
-.stats-tooltip-item {
-  padding: 6px 0;
-  font-size: 13px;
-  color: var(--el-text-color-primary);
-  line-height: 1.5;
-}
-
-.stats-tooltip-number {
-  font-weight: 600;
-  color: var(--el-color-primary);
-  margin: 0 4px;
-}
-
-.toolbar-right {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-}
-
-.toolbar-group {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.group-label {
-  font-size: 13px;
-  color: var(--el-text-color-secondary);
-  white-space: nowrap;
-}
-
-.pagination-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 24px;
-  padding: 20px 0;
-}
-
-/* ===== 自有达人数据内容 ===== */
-.private-data-content {
-  margin-top: 20px;
-}
-
-/* 自有达人数据显示区域 */
-.private-display-area {
-  background: var(--el-bg-color);
-  border-radius: 8px;
-  padding: 20px;
-  margin-top: 20px;
-}
-
-/* ===== 同步统计卡片 ===== */
-.stats-cards {
-  margin-bottom: 24px;
-}
-
-.stat-card {
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 8px;
-  background: var(--el-fill-color-light);
-}
-
-.stat-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-}
-
-.stat-content {
-  display: flex;
-  align-items: center;
-  padding: 24px;
-  gap: 16px;
-}
-
-.stat-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  font-size: 28px;
-}
-
-.stat-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.stat-label {
-  font-size: 13px;
-  color: var(--el-text-color-secondary);
-  margin-bottom: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-weight: 500;
-}
-
-.stat-value {
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-/* 统计卡片颜色主题 */
-.stat-total .stat-icon {
-  background-color: #ecf5ff;
-  color: #409eff;
-}
-
-.stat-total .stat-value {
-  color: #409eff;
-}
-
-.stat-unmatched .stat-icon {
-  background-color: #f4f4f5;
-  color: #909399;
-}
-
-.stat-unmatched .stat-value {
-  color: #909399;
-}
-
-.stat-pending .stat-icon {
-  background-color: #fdf6ec;
-  color: #e6a23c;
-}
-
-.stat-pending .stat-value {
-  color: #e6a23c;
-}
-
-.stat-matched .stat-icon {
-  background-color: #f0f9ff;
-  color: #67c23a;
-}
-
-.stat-matched .stat-value {
-  color: #67c23a;
-}
-
-.stat-rejected .stat-icon {
-  background-color: #fef0f0;
-  color: #f56c6c;
-}
-
-.stat-rejected .stat-value {
-  color: #f56c6c;
-}
-
-/* ===== 表格样式 ===== */
-.account-cell {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.account-name {
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.high-followers {
-  color: #f56c6c;
-  font-weight: 600;
-}
-
-.price-range {
-  font-size: 13px;
-  color: var(--el-text-color-primary);
-}
-
-.price-info {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.price-separator {
-  color: var(--el-text-color-secondary);
-}
-
-.text-gray {
-  color: var(--el-text-color-placeholder);
-}
-
-.action-buttons {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.action-buttons :deep(.el-button) {
-  padding: 6px 12px;
-  height: auto;
-}
-
-/* ===== 分页 ===== */
-.pagination-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 24px;
-  padding: 16px 0;
-}
-
-.mx-2 {
-  margin: 0 8px;
-}
-
-.mr-1 {
-  margin-right: 6px;
-}
-
-.ml-2 {
-  margin-left: 8px;
-}
-
-/* ===== 加载对话框 ===== */
-.loading-content {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 20px 0;
-}
-
-.loading-content .el-icon {
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* ===== 映射配置 ===== */
-.mapping-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.mapping-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.mapping-col-letter {
-  width: 80px;
-  font-weight: 500;
-  color: var(--el-text-color-primary);
-}
-
-/* ===== 表格样式 ===== */
-.account-cell {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.account-name {
-  font-weight: 500;
-  color: var(--el-text-color-primary);
-}
-
-.org-name {
-  color: var(--el-text-color-regular);
-  font-size: 13px;
-}
-
-.high-followers {
-  color: #f56c6c;
-  font-weight: 600;
-}
-
-.price-range {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.price-info {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 12px;
-}
-
-.price-min,
-.price-max {
-  color: var(--el-text-color-primary);
-  font-weight: 500;
-}
-
-.price-separator {
-  color: var(--el-text-color-secondary);
-}
-
-.text-gray {
-  color: var(--el-text-color-placeholder);
-}
-
-.rebate-text {
-  color: var(--el-text-color-regular);
-  font-size: 13px;
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.action-buttons {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.ml-2 {
-  margin-left: 8px;
-}
-
-/* ===== 响应式设计 ===== */
-@media (max-width: 1200px) {
-  .quick-search-bar {
+  background-color: #f5f7fa;
+  min-height: 100vh;
+
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 16px 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .page-title {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 600;
+        color: #303133;
+      }
+    }
+
+    .header-right {
+      display: flex;
+      gap: 12px;
+
+      .action-btn {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        .badge-count {
+          margin-left: 4px;
+        }
+      }
+    }
+  }
+
+  .tabs-wrapper {
+    margin-bottom: 20px;
+
+    .data-tabs {
+      background: white;
+      padding: 0 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+      :deep(.el-tabs__header) {
+        margin-bottom: 0;
+      }
+
+      .tab-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .public-data-content,
+  .private-data-content {
+    .influencer-display-area,
+    .private-display-area {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+      .display-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #ebeef5;
+
+        .toolbar-left {
+          .result-count {
+            font-size: 14px;
+            color: #606266;
+
+            strong {
+              font-size: 18px;
+              font-weight: 600;
+              color: var(--el-color-primary);
+              margin: 0 4px;
+            }
+
+            .stats-info-icon {
+              font-size: 16px;
+              color: var(--el-color-info);
+              cursor: pointer;
+              margin-left: 8px;
+              transition: color 0.3s;
+              vertical-align: middle;
+
+              &:hover {
+                color: var(--el-color-primary);
+              }
+            }
+          }
+        }
+
+        .toolbar-right {
+          display: flex;
+          gap: 16px;
+          align-items: center;
+
+          .toolbar-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            .group-label {
+              font-size: 14px;
+              color: #909399;
+              white-space: nowrap;
+            }
+          }
+        }
+      }
+
+      .pagination-container {
+        margin-top: 20px;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  .stats-tooltip-content {
+    padding: 4px 0;
+
+    .stats-tooltip-item {
+      padding: 6px 0;
+      font-size: 13px;
+      color: var(--el-text-color-primary);
+      line-height: 1.5;
+
+      .stats-tooltip-number {
+        font-weight: 600;
+        color: var(--el-color-primary);
+        margin: 0 4px;
+      }
+    }
+  }
+
+  .org-name {
+    color: #606266;
+  }
+
+  .text-gray {
+    color: #909399;
+  }
+
+  .high-followers {
+    color: var(--el-color-danger);
+    font-weight: 600;
+  }
+
+  .price-range {
+    .price-info {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      .price-min,
+      .price-max {
+        font-weight: 500;
+        color: #303133;
+      }
+
+      .price-separator {
+        color: #909399;
+      }
+    }
+  }
+
+  .rebate-text {
+    color: #67c23a;
+    font-weight: 500;
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
     flex-wrap: wrap;
   }
-  
-  .search-input {
-    max-width: 100%;
-    flex: 1 1 100%;
-  }
-}
 
-@media (max-width: 768px) {
-  .influencer-management {
-    padding: 12px;
+  .mapping-grid {
+    max-height: 400px;
+    overflow-y: auto;
+
+    .mapping-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+
+      .mapping-col-letter {
+        width: 60px;
+        font-weight: 500;
+        color: #606266;
+      }
+    }
   }
-  
-  .top-bar {
-    flex-direction: column;
+
+  .loading-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 12px;
-    align-items: stretch;
-  }
-  
-  .bar-left,
-  .bar-right {
-    width: 100%;
-  }
-  
-  .bar-right {
-    flex-direction: column;
-  }
-  
-  .action-btn {
-    width: 100%;
-  }
-  
-  .quick-search-bar {
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .search-input {
-    max-width: 100%;
-    width: 100%;
-  }
-  
-  .stat-content {
-    padding: 16px;
-  }
-  
-  .stat-icon {
-    width: 44px;
-    height: 44px;
-    font-size: 20px;
-  }
-  
-  .stat-value {
-    font-size: 20px;
-  }
-  
-  .stat-label {
-    font-size: 12px;
-  }
-  
-  .action-buttons {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .page-title {
-    font-size: 18px;
-  }
-  
-  .stat-value {
-    font-size: 18px;
-  }
-  
-  .advanced-filter-panel .el-form-item {
-    margin-bottom: 12px;
+    padding: 20px;
+    color: #606266;
   }
 }
 </style>
