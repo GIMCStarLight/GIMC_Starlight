@@ -86,7 +86,7 @@
         :total="starlinkTotal"
         :page-sizes="[10, 20, 50, 100]"
         layout="total, sizes, prev, pager, next, jumper"
-        @current-change="loadStarlinkData"
+        @current-change="handleStarlinkPageChange"
         @size-change="handleStarlinkSizeChange"
         style="margin-top: 20px; justify-content: flex-end"
       />
@@ -154,7 +154,7 @@
         :total="starmediaTotal"
         :page-sizes="[10, 20, 50, 100]"
         layout="total, sizes, prev, pager, next, jumper"
-        @current-change="loadStarmediaData"
+        @current-change="handleStarmediaPageChange"
         @size-change="handleStarmediaSizeChange"
         style="margin-top: 20px; justify-content: flex-end"
       />
@@ -638,6 +638,15 @@ function handleStarlinkSizeChange() {
 
 function handleStarmediaSizeChange() {
   starmediaPage.value = 1;
+  loadStarmediaData();
+}
+
+// 页码改变
+function handleStarlinkPageChange() {
+  loadStarlinkData();
+}
+
+function handleStarmediaPageChange() {
   loadStarmediaData();
 }
 
