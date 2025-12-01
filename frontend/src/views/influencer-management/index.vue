@@ -249,7 +249,48 @@
             <el-input v-model="editForm.policyTiersSummary" placeholder="政策档位简要说明" />
           </el-form-item>
           <el-form-item label="政策档位详情">
-            <el-input v-model="editForm.policyTiers" type="textarea" :rows="3" placeholder="详细政策档位信息" />
+            <div class="policy-tiers-editor">
+              <!-- 政策档位表格 -->
+              <el-table :data="policyTiersData" border style="width: 100%; margin-bottom: 10px">
+                <el-table-column label="订单范围" width="150">
+                  <template #default="{ row, $index }">
+                    <el-input v-model="row.order_range" placeholder="例如：1-3 或 8+" size="small" />
+                  </template>
+                </el-table-column>
+                <el-table-column label="最小订单" width="120">
+                  <template #default="{ row, $index }">
+                    <el-input-number v-model="row.order_min" :min="0" size="small" style="width: 100%" />
+                  </template>
+                </el-table-column>
+                <el-table-column label="最大订单" width="120">
+                  <template #default="{ row, $index }">
+                    <el-input-number v-model="row.order_max" :min="0" size="small" style="width: 100%" placeholder="无上限留空" />
+                  </template>
+                </el-table-column>
+                <el-table-column label="返点率%" width="120">
+                  <template #default="{ row, $index }">
+                    <el-input-number v-model="row.rebate_rate" :min="0" :max="100" :precision="2" size="small" style="width: 100%" />
+                  </template>
+                </el-table-column>
+                <el-table-column label="CPM" width="120">
+                  <template #default="{ row, $index }">
+                    <el-input-number v-model="row.cpm" :min="0" :precision="2" size="small" style="width: 100%" />
+                  </template>
+                </el-table-column>
+                <el-table-column label="CPE" width="120">
+                  <template #default="{ row, $index }">
+                    <el-input-number v-model="row.cpe" :min="0" :precision="2" size="small" style="width: 100%" />
+                  </template>
+                </el-table-column>
+                <el-table-column label="操作" width="80" fixed="right">
+                  <template #default="{ row, $index }">
+                    <el-button type="danger" size="small" @click="removePolicyTier($index)" :icon="Delete">
+                    </el-button>
+                  </template>
+                </el-table-column>
+              </el-table>
+              <el-button type="primary" size="small" @click="addPolicyTier" :icon="Plus">添加档位</el-button>
+            </div>
           </el-form-item>
           <el-form-item label="政策备注">
             <el-input v-model="editForm.policyRemarks" type="textarea" :rows="2" />
@@ -452,9 +493,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted } from 'vue';
+import { ref, reactive, onMounted, watch, computed } from 'vue';
 import { ElMessage, ElMessageBox, type FormInstance, type FormRules } from 'element-plus';
+import { Delete, Plus } from '@element-plus/icons-vue';
 import { StarlinkInfluencerApi, StarmediaInfluencerApi } from '#/api/influencer-management-direct-edit';
+
+// 政策档位类型定义
+interface PolicyTier {
+  order_range: string;
+  order_min: number;
+  order_max: number | null;
+  rebate_rate: number;
+  cpm: number;
+  cpe: number;
+}
 
 // Tab状态
 const activeTab = ref<'starlink' | 'starmedia'>('starlink');
@@ -479,6 +531,43 @@ const editForm = reactive<any>({});
 const editFormRef = ref<FormInstance>();
 const saving = ref(false);
 const editingId = ref<number | null>(null);
+
+// 政策档位数据
+const policyTiersData = ref<PolicyTier[]>([]);
+
+// 监视 editForm.policyTiers 的变化，解析 JSON 字符串
+watch(
+  () => editForm.policyTiers,
+  (newValue) => {
+    if (typeof newValue === 'string' && newValue.trim()) {
+      try {
+        const parsed = JSON.parse(newValue);
+        if (Array.isArray(parsed)) {
+          policyTiersData.value = parsed;
+        }
+      } catch (e) {
+        // 如果解析失败，保持原有数据
+        console.warn('政策档位数据解析失败:', e);
+      }
+    } else if (!newValue) {
+      policyTiersData.value = [];
+    }
+  },
+  { immediate: true }
+);
+
+// 监视 policyTiersData 的变化，同步到 editForm.policyTiers
+watch(
+  policyTiersData,
+  (newValue) => {
+    if (newValue && newValue.length > 0) {
+      editForm.policyTiers = JSON.stringify(newValue);
+    } else {
+      editForm.policyTiers = '';
+    }
+  },
+  { deep: true }
+);
 
 // 表单校验规则
 const formRules: FormRules = {
@@ -622,6 +711,23 @@ function handleDelete(row: any, type: 'starlink' | 'starmedia') {
 onMounted(() => {
   loadStarlinkData();
 });
+
+// 添加政策档位
+function addPolicyTier() {
+  policyTiersData.value.push({
+    order_range: '',
+    order_min: 0,
+    order_max: null,
+    rebate_rate: 0,
+    cpm: 0,
+    cpe: 0,
+  });
+}
+
+// 删除政策档位
+function removePolicyTier(index: number) {
+  policyTiersData.value.splice(index, 1);
+}
 </script>
 
 <style scoped lang="scss">
@@ -662,6 +768,24 @@ onMounted(() => {
 
   :deep(.el-form-item__label) {
     font-weight: 500;
+  }
+
+  .policy-tiers-editor {
+    width: 100%;
+
+    :deep(.el-table) {
+      .el-input-number {
+        width: 100%;
+      }
+
+      .el-input__inner {
+        text-align: left;
+      }
+    }
+
+    .el-button {
+      margin-top: 10px;
+    }
   }
 }
 </style>
