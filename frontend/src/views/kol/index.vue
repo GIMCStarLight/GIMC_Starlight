@@ -171,7 +171,7 @@
           <div class="toolbar-left">
             <span class="result-count">
               找到 <strong>{{ pagination.total }}</strong> 位达人
-              <el-tooltip placement="top" effect="light">
+              <ToolTipPicker>
                 <template #content>
                   <div class="stats-tooltip-content">
                     <div class="stats-tooltip-item">总计 <span class="stats-tooltip-number">{{ syncStats.total }}</span> 位达人</div>
@@ -181,8 +181,10 @@
                     <div class="stats-tooltip-item">同步失败 <span class="stats-tooltip-number">{{ syncStats.rejected }}</span> 位达人</div>
                   </div>
                 </template>
-                <el-icon class="stats-info-icon"><InfoFilled /></el-icon>
-              </el-tooltip>
+                <template #trigger>
+                  <el-icon class="stats-info-icon"><InfoFilled /></el-icon>
+                </template>
+              </ToolTipPicker>
             </span>
           </div>
         </div>
@@ -225,15 +227,17 @@
 
         <!-- 粉丝列插槽 -->
         <template #followers_w="{ record }">
-          <span :class="{'high-followers': record.followers_w >= 100}">{{ record.followers_w }}</span>
+          <span>{{ record.followers_w }}</span>
         </template>
 
         <!-- 报价范围列插槽 -->
         <template #price_range="{ record }">
           <div class="price-range">
             <div v-if="record.star_quote_21_60s || record.star_quote_60s_plus" class="price-info">
+              <span class="price-currency">¥</span>
               <span class="price-min">{{ formatPrice(Math.min(record.star_quote_21_60s || 999999, record.star_quote_60s_plus || 999999)) }}</span>
               <span class="price-separator">~</span>
+              <span class="price-currency">¥</span>
               <span class="price-max">{{ formatPrice(Math.max(record.star_quote_21_60s || 0, record.star_quote_60s_plus || 0)) }}</span>
             </div>
             <span v-else class="text-gray">-</span>
@@ -242,9 +246,7 @@
 
         <!-- 配合度列插槽 -->
         <template #cooperation_degree="{ record }">
-          <el-tag v-if="record.cooperation_degree" :type="getCooperationDegreeType(record.cooperation_degree) as any" size="small">
-            {{ getCooperationDegreeText(record.cooperation_degree) }}
-          </el-tag>
+          <span v-if="record.cooperation_degree">{{ getCooperationDegreeText(record.cooperation_degree) }}</span>
           <span v-else class="text-gray">-</span>
         </template>
 
@@ -256,15 +258,21 @@
 
         <!-- 政策列插槽 -->
         <template #policy_level="{ record }">
-          <el-tag v-if="record.policy_level" :type="record.policy_level === 'A' ? 'danger' : record.policy_level === 'B' ? 'warning' : 'info'" size="small">
-            {{ record.policy_level }}
-          </el-tag>
+          <span v-if="record.policy_level">{{ record.policy_level }}</span>
           <span v-else class="text-gray">-</span>
         </template>
 
         <!-- 同步状态列插槽 -->
         <template #match_status="{ record }">
-          <SyncStatusTag :status="record.match_status || 'unmatched'" />
+          <el-tooltip
+            v-if="record.match_status === 'rejected'"
+            content="未匹配到达人公开数据，请检查账号ID等是否正确"
+            placement="top"
+            effect="dark"
+          >
+            <span>{{ getSyncStatusText(record.match_status || 'unmatched') }}</span>
+          </el-tooltip>
+          <span v-else>{{ getSyncStatusText(record.match_status || 'unmatched') }}</span>
         </template>
 
         <!-- 匹配达人列插槽 -->
@@ -278,33 +286,47 @@
         <!-- 操作列插槽 -->
         <template #actions="{ record }">
           <div class="action-buttons">
-            <el-button size="small" type="primary" link @click="handleView(record)">
-              <Icon icon="lucide:eye" class="mr-1" />
-              详情
-            </el-button>
-            <el-button 
-              v-if="canSync(record)" 
-              size="small" 
-              type="success" 
-              link 
-              @click="handleSingleSync(record)"
-            >
-              <Icon icon="lucide:refresh-cw" class="mr-1" />
-              同步
-            </el-button>
-            <el-button 
-              size="small" 
-              type="warning" 
-              link 
-              @click="handleEvaluate(record)"
-            >
-              <Icon icon="lucide:star" class="mr-1" />
-              评价
-            </el-button>
+            <!-- 详情图标 -->
+            <ToolTipPicker>
+              <template #content>
+                <div class="simple-tooltip-text">详情</div>
+              </template>
+              <template #trigger>
+                <div class="action-icon-wrapper" @click="handleView(record)">
+                  <Icon icon="lucide:eye" class="action-icon" />
+                </div>
+              </template>
+            </ToolTipPicker>
+
+            <!-- 同步图标 -->
+            <ToolTipPicker v-if="canSync(record)">
+              <template #content>
+                <div class="simple-tooltip-text">同步</div>
+              </template>
+              <template #trigger>
+                <div class="action-icon-wrapper" @click="handleSingleSync(record)">
+                  <Icon icon="lucide:refresh-cw" class="action-icon" />
+                </div>
+              </template>
+            </ToolTipPicker>
+
+            <!-- 评价图标 -->
+            <ToolTipPicker>
+              <template #content>
+                <div class="simple-tooltip-text">评价</div>
+              </template>
+              <template #trigger>
+                <div class="action-icon-wrapper" @click="handleEvaluate(record)">
+                  <Icon icon="lucide:message-circle" class="action-icon" />
+                </div>
+              </template>
+            </ToolTipPicker>
+
+            <!-- 更多操作下拉菜单 -->
             <el-dropdown trigger="click">
-              <el-button size="small" link>
-                <Icon icon="lucide:more-horizontal" />
-              </el-button>
+              <div class="action-icon-wrapper">
+                <Icon icon="lucide:more-horizontal" class="action-icon" />
+              </div>
               <template #dropdown>
                 <el-dropdown-menu>
                   <el-dropdown-item @click="handleEdit(record)">
@@ -405,6 +427,7 @@ import SyncStatusTag from './components/SyncStatusTag.vue'
 import KolDetailDialog from './components/KolDetailDialog.vue'
 import KolEditDialog from './components/KolEditDialog.vue'
 import KolQuickFilters from './components/KolQuickFilters.vue'
+import ToolTipPicker from '../../views/influencer-authors/components/ToolTipPicker.vue'
 import { log } from '../../utils/logger'
 import KolActionBar from './components/KolActionBar.vue'
 import SyncStatsCards from './components/SyncStatsCards.vue'
@@ -1074,6 +1097,18 @@ const getCooperationDegreeText = (degree: string): string => {
   return textMap[degree] || degree
 }
 
+// 获取同步状态文本
+const getSyncStatusText = (status: string): string => {
+  const statusMap: Record<string, string> = {
+    'unmatched': '未匹配',
+    'pending': '待同步',
+    'in_progress': '同步中',
+    'matched': '已匹配',
+    'rejected': '同步失败'
+  }
+  return statusMap[status] || '未匹配'
+}
+
 // 平台名称映射
 const getPlatformLabel = (platform: string): string => {
   const platformMap: Record<string, string> = {
@@ -1374,20 +1409,20 @@ const tableColumns = [
     width: 110
   },
   {
-    prop: 'price_range',
-    label: '报价范围',
-    width: 130
+    prop: 'matched_author_id',
+    label: '匹配达人',
+    width: 180
   },
   {
     prop: 'cooperation_degree',
     label: '配合度',
-    width: 100,
+    width: 90,
     align: 'center'
   },
   {
     prop: 'rebate_policy',
     label: '返点',
-    width: 120
+    width: 90
   },
   {
     prop: 'policy_level',
@@ -1401,14 +1436,16 @@ const tableColumns = [
     width: 110
   },
   {
-    prop: 'matched_author_id',
-    label: '匹配达人',
-    width: 180
+    prop: 'price_range',
+    label: '报价范围',
+    width: 180,
+    fixed: 'right'
   },
   {
     prop: 'actions',
     label: '操作',
-    width: 250
+    width: 200,
+    fixed: 'right'
   }
 ]
 
@@ -1604,6 +1641,15 @@ onMounted(() => {
     }
   }
 
+  :global(.stats-tooltip) {
+    &.el-tooltip__popper.is-dark {
+      &[data-popper-placement^="top"] > .el-popper__arrow::before {
+        border-top-color: var(--el-tooltip-bg-color);
+        margin-left: -2px; // 调整箭头水平位置
+      }
+    }
+  }
+
   .org-name {
     color: #606266;
   }
@@ -1618,15 +1664,25 @@ onMounted(() => {
   }
 
   .price-range {
+    display: flex;
+    justify-content: center; // 添加居中对齐
+
     .price-info {
       display: flex;
       align-items: center;
       gap: 4px;
 
+      .price-currency {
+        color: #1677ff;
+        font-weight: 500;
+        font-size: 12px;
+      }
+
       .price-min,
       .price-max {
         font-weight: 500;
-        color: #303133;
+        color: #1677ff; // 改为蓝色
+        font-size: 17px; // 放大3px (从14px到17px)
       }
 
       .price-separator {
@@ -1636,7 +1692,7 @@ onMounted(() => {
   }
 
   .rebate-text {
-    color: #67c23a;
+    color: #606266; // 改回正常灰色
     font-weight: 500;
   }
 
@@ -1645,6 +1701,38 @@ onMounted(() => {
     gap: 8px;
     align-items: center;
     flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .action-icon-wrapper {
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: var(--el-fill-color-light);
+    }
+
+    .action-icon {
+      font-size: 16px;
+      color: #909399;
+      transition: color 0.2s;
+
+      &:hover {
+        color: var(--el-color-primary);
+      }
+    }
+  }
+
+  .simple-tooltip-text {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--el-text-color-primary);
   }
 
   .mapping-grid {
