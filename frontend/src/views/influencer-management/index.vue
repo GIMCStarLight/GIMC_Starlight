@@ -230,13 +230,29 @@
           <el-divider content-position="left">政策与返点</el-divider>
           <el-row :gutter="20">
             <el-col :span="8">
-              <el-form-item label="最低返点%" prop="minRebateRate">
-                <el-input-number v-model="editForm.minRebateRate" :min="0" :max="100" :precision="2" style="width: 100%" />
+              <el-form-item label="最低返点%">
+                <el-input-number 
+                  :model-value="computedMinRebateRate" 
+                  disabled 
+                  :precision="2" 
+                  style="width: 100%" 
+                />
+                <div style="font-size: 12px; color: #909399; margin-top: 4px;">
+                  自动从政策档位中计算
+                </div>
               </el-form-item>
             </el-col>
             <el-col :span="8">
-              <el-form-item label="最高返点%" prop="maxRebateRate">
-                <el-input-number v-model="editForm.maxRebateRate" :min="0" :max="100" :precision="2" style="width: 100%" />
+              <el-form-item label="最高返点%">
+                <el-input-number 
+                  :model-value="computedMaxRebateRate" 
+                  disabled 
+                  :precision="2" 
+                  style="width: 100%" 
+                />
+                <div style="font-size: 12px; color: #909399; margin-top: 4px;">
+                  自动从政策档位中计算
+                </div>
               </el-form-item>
             </el-col>
             <el-col :span="8">
@@ -252,19 +268,32 @@
             <div class="policy-tiers-editor">
               <!-- 政策档位表格 -->
               <el-table :data="policyTiersData" border style="width: 100%; margin-bottom: 10px">
-                <el-table-column label="订单范围" width="150">
-                  <template #default="{ row, $index }">
-                    <el-input v-model="row.order_range" placeholder="例如：1-3 或 8+" size="small" />
-                  </template>
-                </el-table-column>
                 <el-table-column label="最小订单" width="120">
                   <template #default="{ row, $index }">
-                    <el-input-number v-model="row.order_min" :min="0" size="small" style="width: 100%" />
+                    <el-input-number 
+                      v-model="row.order_min" 
+                      :min="0" 
+                      size="small" 
+                      style="width: 100%" 
+                      @change="updateOrderRange(row)"
+                    />
                   </template>
                 </el-table-column>
                 <el-table-column label="最大订单" width="120">
                   <template #default="{ row, $index }">
-                    <el-input-number v-model="row.order_max" :min="0" size="small" style="width: 100%" placeholder="无上限留空" />
+                    <el-input-number 
+                      v-model="row.order_max" 
+                      :min="row.order_min || 0" 
+                      size="small" 
+                      style="width: 100%" 
+                      placeholder="无上限留空"
+                      @change="updateOrderRange(row)"
+                    />
+                  </template>
+                </el-table-column>
+                <el-table-column label="订单范围" width="150">
+                  <template #default="{ row }">
+                    <el-tag size="small">{{ row.order_range || '-' }}</el-tag>
                   </template>
                 </el-table-column>
                 <el-table-column label="返点率%" width="120">
@@ -576,6 +605,50 @@ watch(
   { deep: true }
 );
 
+/**
+ * 计算最低返点率（从政策档位中自动提取）
+ */
+const computedMinRebateRate = computed(() => {
+  if (!policyTiersData.value || policyTiersData.value.length === 0) {
+    return 0;
+  }
+  const rates = policyTiersData.value
+    .map(tier => tier.rebate_rate)
+    .filter(rate => rate != null && rate > 0);
+  return rates.length > 0 ? Math.min(...rates) : 0;
+});
+
+/**
+ * 计算最高返点率（从政策档位中自动提取）
+ */
+const computedMaxRebateRate = computed(() => {
+  if (!policyTiersData.value || policyTiersData.value.length === 0) {
+    return 0;
+  }
+  const rates = policyTiersData.value
+    .map(tier => tier.rebate_rate)
+    .filter(rate => rate != null && rate > 0);
+  return rates.length > 0 ? Math.max(...rates) : 0;
+});
+
+/**
+ * 根据最小/最大订单自动生成订单范围文本
+ */
+function updateOrderRange(tier: PolicyTier) {
+  if (tier.order_min == null) {
+    tier.order_range = '';
+    return;
+  }
+  
+  if (tier.order_max == null || tier.order_max === 0) {
+    // 无上限
+    tier.order_range = `${tier.order_min}+`;
+  } else {
+    // 有范围
+    tier.order_range = `${tier.order_min}-${tier.order_max}`;
+  }
+}
+
 // 表单校验规则
 const formRules: FormRules = {
   nickname: [{ required: true, message: '请输入昵称', trigger: 'blur' }],
@@ -720,6 +793,12 @@ function handleEdit(row: any, type: 'starlink' | 'starmedia') {
   // 显式解析政策档位数据（仅星链计划需要）
   if (type === 'starlink') {
     policyTiersData.value = parsePolicyTiers(row.policyTiers);
+    // 为每个档位生成订单范围（如果没有）
+    policyTiersData.value.forEach(tier => {
+      if (!tier.order_range) {
+        updateOrderRange(tier);
+      }
+    });
   }
   
   editDialogVisible.value = true;
@@ -736,7 +815,12 @@ async function handleSave() {
     try {
       // 保存前显式同步政策档位数据（防御性编程）
       if (activeTab.value === 'starlink') {
+        // 序列化政策档位
         editForm.policyTiers = serializePolicyTiers(policyTiersData.value);
+        // 自动计算最低/最高返点
+        editForm.minRebateRate = computedMinRebateRate.value;
+        editForm.maxRebateRate = computedMaxRebateRate.value;
+        
         await StarlinkInfluencerApi.update(editingId.value!, editForm);
         ElMessage.success('更新成功');
         loadStarlinkData();
@@ -800,14 +884,17 @@ onMounted(() => {
 
 // 添加政策档位
 function addPolicyTier() {
-  policyTiersData.value.push({
+  const newTier: PolicyTier = {
     order_range: '',
     order_min: 0,
     order_max: null,
     rebate_rate: 0,
     cpm: 0,
     cpe: 0,
-  });
+  };
+  policyTiersData.value.push(newTier);
+  // 自动生成订单范围
+  updateOrderRange(newTier);
 }
 
 // 删除政策档位
