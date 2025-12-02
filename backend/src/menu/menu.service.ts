@@ -293,6 +293,21 @@ export class MenuService {
               permissions: ['permission:read'],
             },
           },
+          {
+            id: '9-4',
+            name: '账号管理',
+            path: '/system/account',
+            component: '/system/account/index',
+            icon: 'account',
+            sort: 4,
+            parentId: '9',
+            meta: {
+              title: '账号管理',
+              icon: 'account',
+              requiresAuth: true,
+              permissions: ['account:view'],
+            },
+          },
         ],
       },
     ];

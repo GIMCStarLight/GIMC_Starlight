@@ -185,11 +185,11 @@ const extraContentStyle = computed((): CSSProperties => {
   };
 });
 
-const collapseStyle = computed((): CSSProperties => {
-  return {
-    height: `${props.collapseHeight}px`,
-  };
-});
+// const collapseStyle = computed((): CSSProperties => {
+//   return {
+//     height: `${props.collapseHeight}px`,
+//   };
+// });
 
 watchEffect(() => {
   extraVisible.value = props.fixedExtra ? true : extraVisible.value;
@@ -283,7 +283,7 @@ function handleMouseleave() {
       <slot></slot>
     </VbenScrollbar>
 
-    <div :style="collapseStyle"></div>
+    <!-- <div :style="collapseStyle"></div> -->
     <SidebarCollapseButton
       v-if="showCollapseButton && !isSidebarMixed"
       v-model:collapsed="collapse"
