@@ -55,18 +55,24 @@
             </template>
           </el-table-column>
         </el-table-column>
-        <el-table-column prop="hasGuaranteedMetrics" label="保数据" width="80" align="center">
+        <el-table-column label="政策档位" width="220">
           <template #default="{ row }">
-            <el-tag :type="row.hasGuaranteedMetrics ? 'success' : 'info'" size="small">
-              {{ row.hasGuaranteedMetrics ? '是' : '否' }}
-            </el-tag>
+            <div v-if="parsePolicyTiersDisplay(row.policyTiers).length > 0" style="font-size: 12px; line-height: 1.6;">
+              <div v-for="(tier, index) in parsePolicyTiersDisplay(row.policyTiers)" :key="index" style="margin: 2px 0;">
+                <el-tag size="small" type="info" style="margin-right: 4px;">
+                  {{ tier.order_range }}
+                </el-tag>
+                <span style="color: #606266;">返点{{ tier.rebate_rate }}%</span>
+                <span v-if="tier.cpm || tier.cpe" style="color: #909399; margin-left: 4px; font-size: 11px;">
+                  (CPM:{{ tier.cpm || 0 }} CPE:{{ tier.cpe || 0 }})
+                </span>
+              </div>
+            </div>
+            <span v-else style="color: #909399;">-</span>
           </template>
         </el-table-column>
         <el-table-column prop="currentOrderCount" label="累计订单" width="95" align="right" />
         <el-table-column prop="secondHalfOrderCount" label="下半年订单" width="105" align="right" />
-        <el-table-column prop="contentStyle" label="内容风格" width="120" show-overflow-tooltip />
-        <el-table-column prop="targetAudience" label="目标受众" width="120" show-overflow-tooltip />
-        <el-table-column prop="cooperationIndustries" label="合作行业" width="120" show-overflow-tooltip />
         <el-table-column prop="allPlatforms" label="全网平台" min-width="150" show-overflow-tooltip />
         <el-table-column label="操作" width="150" fixed="right">
           <template #default="{ row }">
@@ -647,6 +653,13 @@ function updateOrderRange(tier: PolicyTier) {
     // 有范围
     tier.order_range = `${tier.order_min}-${tier.order_max}`;
   }
+}
+
+/**
+ * 解析政策档位用于表格展示（只读）
+ */
+function parsePolicyTiersDisplay(jsonStr: string | null | undefined): PolicyTier[] {
+  return parsePolicyTiers(jsonStr);
 }
 
 // 表单校验规则
