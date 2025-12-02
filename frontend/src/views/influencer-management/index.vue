@@ -595,14 +595,20 @@ async function loadStarlinkData() {
     });
     console.log('Starlink API Response:', JSON.stringify(res, null, 2));
     console.log('Response keys:', Object.keys(res || {}));
-    console.log('res.data:', res?.data);
-    console.log('res.pagination:', res?.pagination);
     
-    // baseRequestClient 返回完整的响应对象：{ code, message, data, pagination }
-    if (res && res.data) {
-      // 确保 data 是数组
-      starlinkData.value = Array.isArray(res.data) ? res.data : [];
-      starlinkTotal.value = res.pagination?.total || 0;
+    // baseRequestClient 可能被包装了一层，检查双重嵌套
+    let actualData = res;
+    
+    // 如果有 data.data 结构，说明被包装了一层
+    if (res?.data?.data) {
+      actualData = res.data;
+      console.log('检测到双重嵌套，使用 res.data:', actualData);
+    }
+    
+    // 现在 actualData 应该是 { code, message, data, pagination }
+    if (actualData?.data) {
+      starlinkData.value = Array.isArray(actualData.data) ? actualData.data : [];
+      starlinkTotal.value = actualData.pagination?.total || 0;
     } else {
       console.warn('No data in response:', res);
       starlinkData.value = [];
@@ -635,11 +641,18 @@ async function loadStarmediaData() {
     });
     console.log('Starmedia API Response:', res);
     
-    // baseRequestClient 返回完整的响应对象：{ code, message, data, pagination }
-    if (res && res.data) {
-      // 确保 data 是数组
-      starmediaData.value = Array.isArray(res.data) ? res.data : [];
-      starmediaTotal.value = res.pagination?.total || 0;
+    // baseRequestClient 可能被包装了一层，检查双重嵌套
+    let actualData = res;
+    
+    // 如果有 data.data 结构，说明被包装了一层
+    if (res?.data?.data) {
+      actualData = res.data;
+    }
+    
+    // 现在 actualData 应该是 { code, message, data, pagination }
+    if (actualData?.data) {
+      starmediaData.value = Array.isArray(actualData.data) ? actualData.data : [];
+      starmediaTotal.value = actualData.pagination?.total || 0;
     } else {
       starmediaData.value = [];
       starmediaTotal.value = 0;
