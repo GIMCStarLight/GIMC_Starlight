@@ -132,5 +132,10 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  }
+  },
+  "main": "data-source-kol.js",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": []
 }

@@ -53,10 +53,14 @@ turbo/
  *.tgz
  .vercel/
 
-# 数据库本地文件
+# 数据库本地文件与备份
 *.sqlite
 *.sqlite3
 *.db
+backend/postgres-backups/
+*.sql.gz
+*.backup
+*.dump
 
 # 后端（NestJS）
 backend/node_modules/
@@ -88,6 +92,7 @@ frontend/.env.*
 
 # 爬虫（Python）
 crawler/__pycache__/
+crawler/**/__pycache__/
 crawler/.pytest_cache/
 crawler/.ruff_cache/
 crawler/.coverage
@@ -103,6 +108,14 @@ crawler/output/
 crawler/results/
 crawler/reports/
 crawler/.ipynb_checkpoints/
+
+# 爬虫账号缓存与浏览器配置（敏感数据）
+crawler/config/accounts/account_*/
+crawler/config/accounts/account_1/
+crawler/config/accounts/account_2/
+crawler/config/accounts/account_3/
+crawler/config/accounts/legacy_cookies/
+crawler/config/cookies.txt
 
 # 爬虫优化失败版（不跟踪）
 crawler_优化失败版/

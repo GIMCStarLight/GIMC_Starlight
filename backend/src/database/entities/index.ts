@@ -27,6 +27,10 @@ import { SupplierDatabase } from './supplier-database.entity';
 // KOL评论实体
 import { KolReviews } from './kol-reviews.entity';
 
+// 达人管理实体
+import { StarlinkInfluencer } from './starlink-influencer.entity';
+import { StarmediaInfluencer } from './starmedia-influencer.entity';
+
 // 导出所有实体
 export * from './kol-list.entity';
 export * from './kol-private-matches.entity';
@@ -42,6 +46,8 @@ export * from '../../modules/sqlbot/entities/sqlbot-config.entity';
 export * from './supplier-database.entity';
 export * from './kol-reviews.entity';
 export * from './author-raw-archive.entity';
+export * from './starlink-influencer.entity';
+export * from './starmedia-influencer.entity';
 
 // MySQL数据库实体 - 用户认证和权限管理系统
 export const MYSQL_ENTITIES = [
@@ -62,6 +68,8 @@ export const POSTGRES_ENTITIES = [
   SqlbotConfig,
   SupplierDatabase,
   KolReviews, // KolReviews 在 PostgreSQL 中使用
+  StarlinkInfluencer,
+  StarmediaInfluencer,
 ];
 
 // 兼容性：保留RBAC_ENTITIES别名（后续逐步移除）
