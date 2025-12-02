@@ -64,8 +64,8 @@ export class Permission {
 
   @Column({
     type: 'bigint',
-    unsigned: true,
     nullable: true,
+    name: 'parent_id',
     comment: '上级权限ID (0 表示顶级权限)',
     transformer: {
       to: (value: string | null) => (value ? parseInt(value) : null),
@@ -140,7 +140,8 @@ export class Permission {
   // 自关联：父权限
   @ManyToOne(() => Permission, (permission) => permission.children, {
     cascade: false,
+    onDelete: 'SET NULL',
   })
-  @JoinColumn({ name: 'parentId' })
+  @JoinColumn({ name: 'parent_id' })
   parent: Permission;
 }

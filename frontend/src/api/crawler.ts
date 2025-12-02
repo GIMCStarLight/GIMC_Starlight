@@ -8,11 +8,11 @@ const ENV: Record<string, any> =
   (typeof import.meta !== "undefined" && (import.meta as any)?.env) || {};
 const IS_PROD: boolean = !!ENV.PROD;
 
-// 爬虫服务基础URL（需要配置到环境变量中），生产默认走同源代理路径并指向 v1
-// dev 环境通过 vite 代理已将 /crawler-api 重写到 target 的 /api/v1
-// 这里默认使用 /crawler-api/api/v1，若需要可通过 VITE_CRAWLER_API_BASE_URL 覆盖
+// 爬虫服务基础URL（需要配置到环境变量中）
+// dev 环境: /crawler-api (通过 vite 代理转发到 http://localhost:8009/api/v1)
+// prod 环境: /crawler-api (通过 nginx 代理转发)
 const CRAWLER_API_BASE_URL = (
-  ENV.VITE_CRAWLER_API_BASE_URL || "/crawler-api/api/v1"
+  ENV.VITE_CRAWLER_API_BASE_URL || "/crawler-api"
 ).replace(/\/$/, "");
 
 // 可选：为线上环境注入 X-SQLBOT-TOKEN，以通过服务器侧的额外鉴权

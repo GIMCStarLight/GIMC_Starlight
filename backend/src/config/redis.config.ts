@@ -1,27 +1,22 @@
 import { CacheModuleOptions } from '@nestjs/cache-manager';
 import { ConfigService } from '@nestjs/config';
-import * as redisStore from 'cache-manager-redis-store';
+import { redisStore } from 'cache-manager-ioredis-yet';
 import { RedisOptions } from 'ioredis';
 
 /**
  * Redis缓存配置
  */
-export const getRedisConfig = (
+export const getRedisConfig = async (
   configService: ConfigService,
-): CacheModuleOptions => ({
-  store: redisStore,
-  host: configService.get<string>('REDIS_HOST', 'localhost'),
-  port: configService.get<number>('REDIS_PORT', 6379),
-  password: configService.get<string>('REDIS_PASSWORD') || undefined,
-  db: configService.get<number>('REDIS_DB', 0),
-  ttl: configService.get<number>('REDIS_TTL', 3600),
-  max: configService.get<number>('CACHE_MAX', 100),
-  retryAttempts: 3,
-  retryDelay: 1000,
-  lazyConnect: true,
-  keepAlive: 30000,
-  family: 4,
-  keyPrefix: 'gimcstar:',
+): Promise<CacheModuleOptions> => ({
+  store: await redisStore({
+    host: configService.get<string>('REDIS_HOST', 'localhost'),
+    port: configService.get<number>('REDIS_PORT', 6379),
+    password: configService.get<string>('REDIS_PASSWORD') || undefined,
+    db: configService.get<number>('REDIS_DB', 0),
+    ttl: configService.get<number>('REDIS_TTL', 3600) * 1000, // 转换为毫秒
+    keyPrefix: 'gimcstar:',
+  }),
 });
 
 /**

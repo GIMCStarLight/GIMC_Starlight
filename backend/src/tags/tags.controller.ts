@@ -10,6 +10,7 @@ import {
   ParseIntPipe,
   HttpCode,
   HttpStatus,
+  UseGuards,
 } from '@nestjs/common';
 import {
   ApiTags,
@@ -17,6 +18,7 @@ import {
   ApiResponse,
   ApiParam,
   ApiQuery,
+  ApiBearerAuth,
 } from '@nestjs/swagger';
 import { TagsService } from './tags.service';
 import {
@@ -27,13 +29,19 @@ import {
   PaginatedTagResponseDto,
   TagTreeResponseDto,
 } from './dto';
+import { Permissions } from '../auth/decorators/permissions.decorator';
+import { PermissionGuard } from '../auth/guards/permission.guard';
+import { JwtAuthGuard } from '../common/guards/auth.guard';
 
 @ApiTags('标签管理')
 @Controller('tags')
+@ApiBearerAuth('JWT-auth')
+@UseGuards(JwtAuthGuard, PermissionGuard)
 export class TagsController {
   constructor(private readonly tagsService: TagsService) {}
 
   @Post()
+  @Permissions('tag:create')
   @ApiOperation({ summary: '创建标签' })
   @ApiResponse({
     status: 201,
@@ -47,6 +55,7 @@ export class TagsController {
   }
 
   @Get()
+  @Permissions('tag:view')
   @ApiOperation({ summary: '分页查询标签列表' })
   @ApiResponse({
     status: 200,
@@ -131,6 +140,7 @@ export class TagsController {
   }
 
   @Get('tree')
+  @Permissions('tag:view')
   @ApiOperation({ summary: '获取标签树结构' })
   @ApiQuery({
     name: 'platform',
@@ -173,6 +183,7 @@ export class TagsController {
   }
 
   @Get(':id')
+  @Permissions('tag:view')
   @ApiOperation({ summary: '根据ID查询标签详情' })
   @ApiParam({ name: 'id', description: '标签ID' })
   @ApiResponse({
@@ -188,6 +199,7 @@ export class TagsController {
   }
 
   @Get(':id/ancestors')
+  @Permissions('tag:view')
   @ApiOperation({ summary: '获取标签的所有祖先' })
   @ApiParam({ name: 'id', description: '标签ID' })
   @ApiResponse({
@@ -203,6 +215,7 @@ export class TagsController {
   }
 
   @Get(':id/descendants')
+  @Permissions('tag:view')
   @ApiOperation({ summary: '获取标签的所有后代' })
   @ApiParam({ name: 'id', description: '标签ID' })
   @ApiResponse({
@@ -218,6 +231,7 @@ export class TagsController {
   }
 
   @Patch(':id')
+  @Permissions('tag:update')
   @ApiOperation({ summary: '更新标签' })
   @ApiParam({ name: 'id', description: '标签ID' })
   @ApiResponse({
@@ -235,6 +249,7 @@ export class TagsController {
   }
 
   @Patch(':id/move')
+  @Permissions('tag:update')
   @ApiOperation({ summary: '移动标签到新的父级' })
   @ApiParam({ name: 'id', description: '标签ID' })
   @ApiQuery({
@@ -258,6 +273,7 @@ export class TagsController {
   }
 
   @Delete(':id')
+  @Permissions('tag:delete')
   @ApiOperation({ summary: '删除标签' })
   @ApiParam({ name: 'id', description: '标签ID' })
   @ApiResponse({ status: 204, description: '删除成功' })
@@ -269,6 +285,7 @@ export class TagsController {
   }
 
   @Delete('batch')
+  @Permissions('tag:delete')
   @ApiOperation({ summary: '批量删除标签' })
   @ApiResponse({ status: 204, description: '删除成功' })
   @ApiResponse({ status: 400, description: '请求参数错误' })
@@ -280,6 +297,7 @@ export class TagsController {
   // 平台相关的便捷接口
 
   @Get('platform/:platform')
+  @Permissions('tag:view')
   @ApiOperation({ summary: '根据平台查询标签列表' })
   @ApiParam({
     name: 'platform',
@@ -299,6 +317,7 @@ export class TagsController {
   }
 
   @Get('platform/:platform/tree')
+  @Permissions('tag:view')
   @ApiOperation({ summary: '根据平台获取标签树结构' })
   @ApiParam({
     name: 'platform',
@@ -317,6 +336,7 @@ export class TagsController {
   }
 
   @Get('platform/:platform/roots')
+  @Permissions('tag:view')
   @ApiOperation({ summary: '根据平台获取根级标签' })
   @ApiParam({
     name: 'platform',

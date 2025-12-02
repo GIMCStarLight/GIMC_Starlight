@@ -5,7 +5,7 @@ import { TagsController } from './tags.controller';
 import { Tag } from '../database/entities/tag.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Tag], 'mysql')],
+  imports: [TypeOrmModule.forFeature([Tag], 'postgres')],
   controllers: [TagsController],
   providers: [TagsService],
   exports: [TagsService],

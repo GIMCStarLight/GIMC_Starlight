@@ -3,13 +3,13 @@ import {
   UnauthorizedException,
   ConflictException,
   BadRequestException,
+  Logger,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import * as bcrypt from 'bcryptjs';
-import { randomUUID } from 'crypto';
+import * as bcrypt from 'bcrypt';
 import { UserAuth, UserProfile } from '../../database/entities';
 import { LoginDto, RegisterDto, LoginResponseDto } from '../dto/login.dto';
 import { PermissionService } from './permission.service';
@@ -19,6 +19,8 @@ import {
 } from './verification.service';
 import { SessionService } from './session.service';
 import { JwtBlacklistService } from './jwt-blacklist.service';
+import { TokenService } from './token.service';
+import { UserValidationService } from './user-validation.service';
 
 /**
  * 认证服务
@@ -26,10 +28,12 @@ import { JwtBlacklistService } from './jwt-blacklist.service';
  */
 @Injectable()
 export class AuthService {
+  private readonly logger = new Logger(AuthService.name);
+
   constructor(
-    @InjectRepository(UserAuth, 'mysql')
+    @InjectRepository(UserAuth, 'postgres')
     private readonly userAuthRepository: Repository<UserAuth>,
-    @InjectRepository(UserProfile, 'mysql')
+    @InjectRepository(UserProfile, 'postgres')
     private readonly userProfileRepository: Repository<UserProfile>,
     private readonly jwtService: JwtService,
     private readonly configService: ConfigService,
@@ -37,6 +41,8 @@ export class AuthService {
     private readonly verificationService: VerificationService,
     private readonly sessionService: SessionService,
     private readonly jwtBlacklistService: JwtBlacklistService,
+    private readonly tokenService: TokenService,
+    private readonly userValidationService: UserValidationService,
   ) {}
 
   /**
@@ -47,31 +53,14 @@ export class AuthService {
   async login(loginDto: LoginDto): Promise<LoginResponseDto> {
     const { phone, password } = loginDto;
 
-    // 查找用户
-    const user = await this.userAuthRepository.findOne({
-      where: { phone },
-      relations: ['profile'],
-    });
-
-    if (!user) {
-      throw new UnauthorizedException('手机号或密码错误');
-    }
-
-    // 检查用户状态
-    if (user.status !== 1) {
-      throw new UnauthorizedException('账户已被禁用');
-    }
-
-    // 验证密码
-    const isPasswordValid = await bcrypt.compare(password, user.passwordHash);
-    if (!isPasswordValid) {
-      throw new UnauthorizedException('手机号或密码错误');
-    }
+    // 验证用户凭证（使用 UserValidationService）
+    const user = await this.userValidationService.validateUserCredentials(
+      phone,
+      password,
+    );
 
     // 更新最后登录时间
-    await this.userAuthRepository.update(user.id, {
-      lastLoginAt: new Date(),
-    });
+    await this.userValidationService.updateLastLoginTime(user.id);
 
     // 获取用户角色和权限
     const userRoles = await this.permissionService.getUserRoles(user.id);
@@ -79,38 +68,19 @@ export class AuthService {
       user.id,
     );
 
-    // 生成JWT令牌
-    const jti = randomUUID();
-    const refreshJti = randomUUID();
-
-    const payload = {
+    // 生成JWT令牌（使用 TokenService）
+    const tokens = this.tokenService.generateTokenPair({
       userId: user.id,
       username: user.phone,
       email: user.profile?.email,
       roles: userRoles.map((role) => role.code),
       permissions: userPermissions,
-      jti,
-      type: 'access',
-    };
-
-    const refreshPayload = {
-      userId: user.id,
-      username: user.phone,
-      jti: refreshJti,
-      type: 'refresh',
-    };
-
-    const accessToken = this.jwtService.sign(payload, {
-      expiresIn: this.configService.get<string>('JWT_EXPIRES_IN', '4h'),
-    });
-    const refreshToken = this.jwtService.sign(refreshPayload, {
-      expiresIn: this.configService.get<string>('JWT_REFRESH_EXPIRES_IN', '7d'),
     });
 
     // 创建用户会话
-    await this.sessionService.createSession(jti, {
+    await this.sessionService.createSession(tokens.jti, {
       userId: user.id,
-      username: user.profile?.name || '',
+      username: user.profile?.nickname || user.profile?.realName || '',
       phone: user.phone,
       email: user.profile?.email || '',
       roles: userRoles.map((role) => role.code),
@@ -121,49 +91,20 @@ export class AuthService {
       userAgent: 'Unknown', // 可以从请求头获取
     });
 
-    // 计算过期时间（秒）
-    const jwtExpiresIn = this.configService.get<string>('JWT_EXPIRES_IN', '4h');
-    const refreshExpiresIn = this.configService.get<string>(
-      'JWT_REFRESH_EXPIRES_IN',
-      '7d',
-    );
-
-    // 将时间字符串转换为秒数
-    const parseTimeToSeconds = (timeStr: string): number => {
-      const match = timeStr.match(/^(\d+)([smhd])$/);
-      if (!match) return 14400; // 默认4小时
-
-      const [, num, unit] = match;
-      const value = parseInt(num);
-
-      switch (unit) {
-        case 's':
-          return value;
-        case 'm':
-          return value * 60;
-        case 'h':
-          return value * 3600;
-        case 'd':
-          return value * 86400;
-        default:
-          return 14400;
-      }
-    };
-
     return {
-      accessToken,
-      refreshToken,
+      accessToken: tokens.accessToken,
+      refreshToken: tokens.refreshToken,
       tokenType: 'Bearer',
-      expiresIn: parseTimeToSeconds(jwtExpiresIn),
-      refreshExpiresIn: parseTimeToSeconds(refreshExpiresIn),
+      expiresIn: tokens.expiresIn,
+      refreshExpiresIn: tokens.refreshExpiresIn,
       user: {
         id: user.id,
         phone: user.phone,
-        name: user.profile?.name || '',
+        name: user.profile?.nickname || user.profile?.realName || '',
         email: user.profile?.email || undefined,
-        department: user.profile?.department || undefined,
-        position: user.profile?.position || undefined,
-        avatarUrl: user.profile?.avatarUrl || undefined,
+        department: undefined, // PostgreSQL表中没有此字段
+        position: undefined, // PostgreSQL表中没有此字段
+        avatarUrl: user.profile?.avatar || undefined,
         status: user.status,
         roles: userRoles.map((role) => role.code),
         permissions: userPermissions,
@@ -177,7 +118,7 @@ export class AuthService {
   /**
    * 用户注册
    * @param registerDto 注册信息
-   * @returns 注册响应
+   * @returns 登录响应
    */
   async register(registerDto: RegisterDto): Promise<LoginResponseDto> {
     const { phone, password, confirmPassword, name } = registerDto;
@@ -187,14 +128,8 @@ export class AuthService {
       throw new BadRequestException('密码和确认密码不一致');
     }
 
-    // 检查手机号是否已存在
-    const existingUser = await this.userAuthRepository.findOne({
-      where: { phone },
-    });
-
-    if (existingUser) {
-      throw new ConflictException('手机号已被注册');
-    }
+    // 检查手机号是否已存在（使用 UserValidationService）
+    await this.userValidationService.ensurePhoneNotExists(phone);
 
     // 加密密码
     const saltRounds = 12;
@@ -212,7 +147,7 @@ export class AuthService {
     // 创建用户资料记录
     const userProfile = this.userProfileRepository.create({
       userId: savedUser.id,
-      name: name || '',
+      nickname: name || '',
     });
 
     await this.userProfileRepository.save(userProfile);
@@ -223,38 +158,19 @@ export class AuthService {
       savedUser.id,
     );
 
-    // 生成JWT令牌
-    const jti = randomUUID();
-    const refreshJti = randomUUID();
-
-    const payload = {
+    // 生成JWT令牌（使用 TokenService）
+    const tokens = this.tokenService.generateTokenPair({
       userId: savedUser.id,
       username: savedUser.phone,
       email: undefined,
       roles: userRoles.map((role) => role.code),
       permissions: userPermissions,
-      jti,
-      type: 'access',
-    };
-
-    const refreshPayload = {
-      userId: savedUser.id,
-      username: savedUser.phone,
-      jti: refreshJti,
-      type: 'refresh',
-    };
-
-    const accessToken = this.jwtService.sign(payload, {
-      expiresIn: this.configService.get<string>('JWT_EXPIRES_IN', '4h'),
-    });
-    const refreshToken = this.jwtService.sign(refreshPayload, {
-      expiresIn: this.configService.get<string>('JWT_REFRESH_EXPIRES_IN', '7d'),
     });
 
     // 创建用户会话
-    await this.sessionService.createSession(jti, {
+    await this.sessionService.createSession(tokens.jti, {
       userId: savedUser.id,
-      username: savedUser.phone,
+      username: name || savedUser.phone,
       phone: savedUser.phone,
       email: undefined,
       roles: userRoles.map((role) => role.code),
@@ -266,11 +182,11 @@ export class AuthService {
     });
 
     return {
-      accessToken,
-      refreshToken,
+      accessToken: tokens.accessToken,
+      refreshToken: tokens.refreshToken,
       tokenType: 'Bearer',
-      expiresIn: 900, // 15分钟
-      refreshExpiresIn: 604800, // 7天
+      expiresIn: tokens.expiresIn,
+      refreshExpiresIn: tokens.refreshExpiresIn,
       user: {
         id: savedUser.id,
         phone: savedUser.phone,
@@ -311,16 +227,13 @@ export class AuthService {
 
       const payload = validationResult.payload;
 
-      // 检查令牌类型
-      if (payload.type !== 'refresh') {
+      // 检查令牌类型（使用 TokenService）
+      if (!this.tokenService.validateTokenType(payload, 'refresh')) {
         throw new UnauthorizedException('无效的刷新令牌');
       }
 
-      // 验证用户是否存在且有效
-      const user = await this.validateUser(payload.userId);
-      if (!user) {
-        throw new UnauthorizedException('用户不存在或已被禁用');
-      }
+      // 验证用户是否存在且有效（使用 UserValidationService）
+      const user = await this.userValidationService.validateUserExists(payload.userId);
 
       // 获取用户角色和权限
       const userRoles = await this.permissionService.getUserRoles(user.id);
@@ -334,35 +247,13 @@ export class AuthService {
         'token_refresh',
       );
 
-      // 生成新的访问令牌和刷新令牌
-      const newJti = randomUUID();
-      const newRefreshJti = randomUUID();
-
-      const newPayload = {
+      // 生成新的访问令牌和刷新令牌（使用 TokenService）
+      const tokens = this.tokenService.generateTokenPair({
         userId: user.id,
         username: user.phone,
         email: payload.email,
-        roles: userRoles,
+        roles: userRoles.map((role) => role.code),
         permissions: userPermissions,
-        jti: newJti,
-        type: 'access',
-      };
-
-      const newRefreshPayload = {
-        userId: user.id,
-        username: user.phone,
-        jti: newRefreshJti,
-        type: 'refresh',
-      };
-
-      const newAccessToken = this.jwtService.sign(newPayload, {
-        expiresIn: this.configService.get<string>('JWT_EXPIRES_IN', '4h'),
-      });
-      const newRefreshToken = this.jwtService.sign(newRefreshPayload, {
-        expiresIn: this.configService.get<string>(
-          'JWT_REFRESH_EXPIRES_IN',
-          '7d',
-        ),
       });
 
       // 更新会话活动时间
@@ -378,33 +269,11 @@ export class AuthService {
         '7d',
       );
 
-      // 将时间字符串转换为秒数
-      const parseTimeToSeconds = (timeStr: string): number => {
-        const match = timeStr.match(/^(\d+)([smhd])$/);
-        if (!match) return 14400; // 默认4小时
-
-        const [, num, unit] = match;
-        const value = parseInt(num);
-
-        switch (unit) {
-          case 's':
-            return value;
-          case 'm':
-            return value * 60;
-          case 'h':
-            return value * 3600;
-          case 'd':
-            return value * 86400;
-          default:
-            return 14400;
-        }
-      };
-
       return {
-        accessToken: newAccessToken,
-        refreshToken: newRefreshToken,
-        expiresIn: parseTimeToSeconds(jwtExpiresIn),
-        refreshExpiresIn: parseTimeToSeconds(refreshExpiresIn),
+        accessToken: tokens.accessToken,
+        refreshToken: tokens.refreshToken,
+        expiresIn: tokens.expiresIn,
+        refreshExpiresIn: tokens.refreshExpiresIn,
       };
     } catch (error) {
       if (error instanceof UnauthorizedException) {
@@ -420,6 +289,8 @@ export class AuthService {
    * @param refreshToken 刷新令牌（可选）
    */
   async logout(accessToken?: string, refreshToken?: string): Promise<void> {
+    let payload: any = null;
+    
     try {
       // 将访问令牌加入黑名单
       if (accessToken) {
@@ -432,7 +303,6 @@ export class AuthService {
       }
 
       // 解析令牌获取用户信息（优先使用accessToken，其次使用refreshToken）
-      let payload: any = null;
       if (accessToken) {
         payload = this.jwtService.decode(accessToken);
       } else if (refreshToken) {
@@ -444,8 +314,11 @@ export class AuthService {
         await this.sessionService.deleteSession(payload.jti);
       }
     } catch (error) {
-      // 登出操作即使失败也不应该抛出异常
-      // 登出操作失败
+      // 登出操作即使失败也不应该抛出异常，但需要记录日志
+      this.logger.warn('登出操作失败,但不影响流程', {
+        error: error instanceof Error ? error.message : String(error),
+        userId: payload?.userId,
+      });
     }
   }
 
@@ -550,10 +423,8 @@ export class AuthService {
       throw new UnauthorizedException('验证码错误或已过期');
     }
 
-    // 查找用户
-    const user = await this.userAuthRepository.findOne({
-      where: { phone },
-    });
+    // 查找用户（使用 UserValidationService）
+    const user = await this.userValidationService.findUserByPhone(phone);
 
     if (!user) {
       throw new UnauthorizedException('用户不存在');
@@ -580,36 +451,19 @@ export class AuthService {
       user.id,
     );
 
-    // 生成JWT令牌
-    const jti = randomUUID();
-    const refreshJti = randomUUID();
-
-    const payload = {
+    // 生成JWT令牌（使用 TokenService）
+    const tokens = this.tokenService.generateTokenPair({
       userId: user.id,
       username: user.phone,
       email: profile?.email,
-      roles: userRoles,
+      roles: userRoles.map((role) => role.code),
       permissions: userPermissions,
-      jti,
-      type: 'access',
-    };
-
-    const refreshPayload = {
-      userId: user.id,
-      username: user.phone,
-      jti: refreshJti,
-      type: 'refresh',
-    };
-
-    const accessToken = this.jwtService.sign(payload, { expiresIn: '15m' });
-    const refreshToken = this.jwtService.sign(refreshPayload, {
-      expiresIn: '7d',
     });
 
     // 创建用户会话
-    await this.sessionService.createSession(jti, {
+    await this.sessionService.createSession(tokens.jti, {
       userId: user.id,
-      username: user.profile?.name || '',
+      username: user.profile?.nickname || user.profile?.realName || '',
       phone: user.phone,
       email: user.profile?.email || '',
       roles: userRoles.map((role) => role.code),
@@ -620,26 +474,25 @@ export class AuthService {
       userAgent: 'Unknown',
     });
 
-    // 更新最后登录时间
-    user.lastLoginAt = new Date();
-    await this.userAuthRepository.save(user);
+    // 更新最后登录时间（使用 UserValidationService）
+    await this.userValidationService.updateLastLoginTime(user.id);
 
     return {
-      accessToken,
-      refreshToken,
+      accessToken: tokens.accessToken,
+      refreshToken: tokens.refreshToken,
       tokenType: 'Bearer',
-      expiresIn: 900,
-      refreshExpiresIn: 604800,
+      expiresIn: tokens.expiresIn,
+      refreshExpiresIn: tokens.refreshExpiresIn,
       user: {
         id: user.id,
         phone: user.phone,
-        name: profile?.name || '',
+        name: profile?.nickname || profile?.realName || '',
         email: profile?.email,
-        department: profile?.department,
-        position: profile?.position,
-        avatarUrl: profile?.avatarUrl,
+        department: undefined,
+        position: undefined,
+        avatarUrl: profile?.avatar,
         status: user.status,
-        roles: userRoles,
+        roles: userRoles.map((role) => role.code),
         permissions: userPermissions,
         createdAt: user.createdAt.toISOString(),
         updatedAt: user.updatedAt.toISOString(),
