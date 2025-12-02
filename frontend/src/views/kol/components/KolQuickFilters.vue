@@ -312,7 +312,19 @@ const removeFilterTag = (key: string) => {
 
 // 清空所有筛选
 const handleClearAll = () => {
-  localFilters.value = {}
+  // 保留原有的字段结构，只清空筛选相关的值
+  localFilters.value = {
+    platform: '',
+    account_name: '',
+    org_name: '',
+    category: '',
+    min_followers_w: undefined,
+    max_followers_w: undefined,
+    is_exclusive: undefined,
+    rebate_policy: undefined,
+    policy_level: '',
+    match_status: ''
+  }
   handleFilterChange()
 }
 </script>
