@@ -597,7 +597,8 @@ async function loadStarlinkData() {
     
     // baseRequestClient 返回完整的响应对象：{ code, message, data, pagination }
     if (res && res.data) {
-      starlinkData.value = res.data;
+      // 确保 data 是数组
+      starlinkData.value = Array.isArray(res.data) ? res.data : [];
       starlinkTotal.value = res.pagination?.total || 0;
     } else {
       starlinkData.value = [];
@@ -607,6 +608,9 @@ async function loadStarlinkData() {
   } catch (error: any) {
     console.error('加载数据失败:', error);
     ElMessage.error(error.message || '加载数据失败');
+    // 发生错误时也要确保数据是数组
+    starlinkData.value = [];
+    starlinkTotal.value = 0;
   } finally {
     starlinkLoading.value = false;
   }
@@ -624,7 +628,8 @@ async function loadStarmediaData() {
     
     // baseRequestClient 返回完整的响应对象：{ code, message, data, pagination }
     if (res && res.data) {
-      starmediaData.value = res.data;
+      // 确保 data 是数组
+      starmediaData.value = Array.isArray(res.data) ? res.data : [];
       starmediaTotal.value = res.pagination?.total || 0;
     } else {
       starmediaData.value = [];
@@ -634,6 +639,9 @@ async function loadStarmediaData() {
   } catch (error: any) {
     console.error('加载数据失败:', error);
     ElMessage.error(error.message || '加载数据失败');
+    // 发生错误时也要确保数据是数组
+    starmediaData.value = [];
+    starmediaTotal.value = 0;
   } finally {
     starmediaLoading.value = false;
   }
