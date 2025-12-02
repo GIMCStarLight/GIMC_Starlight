@@ -880,8 +880,21 @@ const handleSearch = () => {
 }
 
 const handleReset = () => {
-  Object.keys(searchForm).forEach(key => {
-    searchForm[key] = key === 'search' ? '' : undefined
+  // 重置所有筛选条件，保留默认排序
+  Object.assign(searchForm, {
+    platform: '',
+    account_name: '',
+    account_id: '',
+    org_name: '',
+    category: '',
+    min_followers_w: undefined,
+    max_followers_w: undefined,
+    is_exclusive: undefined,
+    rebate_policy: undefined,
+    policy_level: '',
+    match_status: '',
+    sort_by: 'id',
+    sort_order: 'DESC'
   })
   pagination.page = 1
   loadData()
