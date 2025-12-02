@@ -7,7 +7,7 @@ set -e
 
 # 配置变量
 SERVER_IP="192.168.102.168"
-SSH_KEY="/Users/samuel/Desktop/系统开发/others/192.168.102 (6).168_id_ed25519"  # SSH密钥路径
+SSH_KEY="/Users/samuel/Desktop/系统开发/others/192.168.102 (8).168_id_ed25519"  # SSH密钥路径
 SERVER_PATH="/www/wwwroot/gimcstar_proudction_env/gimcstar"  # 服务器部署路径
 LOCAL_PATH="/Users/samuel/Desktop/系统开发"
 BACKUP_DIR="/www/backup"  # 备份目录
@@ -183,6 +183,10 @@ update_backend() {
         --exclude 'dist' \
         --exclude 'logs' \
         --exclude '.env' \
+        --exclude 'postgres-backups' \
+        --exclude '*.sql.gz' \
+        --exclude '*.backup' \
+        --exclude '*.dump' \
         -e "ssh -i '$SSH_KEY'" \
         "$LOCAL_PATH/backend/" \
         "root@$SERVER_IP:$SERVER_PATH/backend/"
@@ -250,6 +254,7 @@ update_task_control() {
     log_info "同步crawler代码到服务器..."
     rsync -avz --delete \
         --exclude '__pycache__' \
+        --exclude '**/__pycache__' \
         --exclude '*.pyc' \
         --exclude '.pytest_cache' \
         --exclude 'venv' \
@@ -258,8 +263,11 @@ update_task_control() {
         --exclude 'results' \
         --exclude 'reports' \
         --exclude 'logs' \
+        --exclude 'config/accounts/account_*' \
+        --exclude 'config/accounts/legacy_cookies' \
         --exclude 'config/browser_profile' \
         --exclude 'config/cookies.json' \
+        --exclude 'config/cookies.txt' \
         --exclude 'config/storage_state.json' \
         -e "ssh -i '$SSH_KEY'" \
         "$LOCAL_PATH/crawler/" \
