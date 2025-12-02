@@ -7,7 +7,7 @@ set -e
 
 # 配置变量
 SERVER_IP="192.168.102.168"
-SSH_KEY="/Users/samuel/Desktop/系统开发/others/192.168.102 (6).168_id_ed25519"
+SSH_KEY="/Users/samuel/Desktop/系统开发/others/192.168.102 (8).168_id_ed25519"
 
 # 颜色输出
 RED='\033[0;31m'
