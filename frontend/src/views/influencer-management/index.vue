@@ -593,7 +593,10 @@ async function loadStarlinkData() {
       page: starlinkPage.value,
       limit: starlinkLimit.value,
     });
-    console.log('Starlink API Response:', res);
+    console.log('Starlink API Response:', JSON.stringify(res, null, 2));
+    console.log('Response keys:', Object.keys(res || {}));
+    console.log('res.data:', res?.data);
+    console.log('res.pagination:', res?.pagination);
     
     // baseRequestClient 返回完整的响应对象：{ code, message, data, pagination }
     if (res && res.data) {
@@ -601,12 +604,18 @@ async function loadStarlinkData() {
       starlinkData.value = Array.isArray(res.data) ? res.data : [];
       starlinkTotal.value = res.pagination?.total || 0;
     } else {
+      console.warn('No data in response:', res);
       starlinkData.value = [];
       starlinkTotal.value = 0;
     }
     console.log('Parsed data:', { data: starlinkData.value, total: starlinkTotal.value });
   } catch (error: any) {
     console.error('加载数据失败:', error);
+    console.error('Error details:', {
+      message: error.message,
+      response: error.response,
+      stack: error.stack
+    });
     ElMessage.error(error.message || '加载数据失败');
     // 发生错误时也要确保数据是数组
     starlinkData.value = [];
