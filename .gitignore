@@ -103,6 +103,9 @@ crawler/output/
 crawler/results/
 crawler/reports/
 crawler/.ipynb_checkpoints/
+
+# 爬虫优化失败版（不跟踪）
+crawler_优化失败版/
  
  # 爬虫报告与结果目录（顶层与嵌套全部忽略）
  crawler/report/

@@ -21,6 +21,8 @@ import { PermissionService } from './services/permission.service';
 import { VerificationService } from './services/verification.service';
 import { SessionService } from './services/session.service';
 import { JwtBlacklistService } from './services/jwt-blacklist.service';
+import { TokenService } from './services/token.service';
+import { UserValidationService } from './services/user-validation.service';
 
 // 控制器
 import { AuthController } from './auth.controller';
@@ -39,7 +41,7 @@ import { PermissionGuard, AnyPermissionGuard } from './guards/permission.guard';
     // TypeORM实体注册
     TypeOrmModule.forFeature(
       [UserAuth, UserProfile, Role, Permission, UserRole, RolePermission],
-      'mysql',
+      'postgres',
     ),
 
     // Passport模块
@@ -64,6 +66,8 @@ import { PermissionGuard, AnyPermissionGuard } from './guards/permission.guard';
     VerificationService,
     SessionService,
     JwtBlacklistService,
+    TokenService,
+    UserValidationService,
     JwtStrategy,
     PermissionGuard,
     AnyPermissionGuard,
@@ -74,6 +78,8 @@ import { PermissionGuard, AnyPermissionGuard } from './guards/permission.guard';
     VerificationService,
     SessionService,
     JwtBlacklistService,
+    TokenService,
+    UserValidationService,
     PermissionGuard,
     AnyPermissionGuard,
   ],

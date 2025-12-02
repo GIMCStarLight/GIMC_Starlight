@@ -54,7 +54,7 @@ export class Tag {
   /**
    * 父级标签ID（自引用外键）
    */
-  @Column({ type: 'int', nullable: true, comment: '父级标签ID' })
+  @Column({ name: 'parent_id', type: 'int', nullable: true, comment: '父级标签ID' })
   parentId: number | null;
 
   /**
@@ -66,7 +66,7 @@ export class Tag {
   /**
    * 是否启用
    */
-  @Column({ type: 'boolean', default: true, comment: '是否启用' })
+  @Column({ name: 'is_active', type: 'boolean', default: true, comment: '是否启用' })
   isActive: boolean;
 
   /**
@@ -78,13 +78,13 @@ export class Tag {
   /**
    * 创建时间
    */
-  @CreateDateColumn({ comment: '创建时间' })
+  @CreateDateColumn({ name: 'created_at', comment: '创建时间' })
   createdAt: Date;
 
   /**
    * 更新时间
    */
-  @UpdateDateColumn({ comment: '更新时间' })
+  @UpdateDateColumn({ name: 'updated_at', comment: '更新时间' })
   updatedAt: Date;
 
   // 关联关系
@@ -96,7 +96,7 @@ export class Tag {
     onDelete: 'CASCADE',
     nullable: true,
   })
-  @JoinColumn({ name: 'parentId' })
+  @JoinColumn({ name: 'parent_id' })
   parent: Tag | null;
 
   /**

@@ -17,7 +17,6 @@ import { UserAuth } from './user-auth.entity';
 export class UserProfile {
   @PrimaryColumn({
     type: 'bigint',
-    unsigned: true,
     name: 'user_id',
     comment: '用户ID',
   })
@@ -26,19 +25,18 @@ export class UserProfile {
   @Column({
     type: 'varchar',
     length: 50,
-    default: '',
-    comment: '真实姓名/昵称',
+    nullable: true,
+    comment: '昵称',
   })
-  name: string;
+  nickname: string;
 
   @Column({
     type: 'varchar',
-    length: 512,
+    length: 500,
     nullable: true,
-    name: 'avatar_url',
     comment: '头像URL',
   })
-  avatarUrl: string;
+  avatar: string;
 
   @Column({
     type: 'varchar',
@@ -50,33 +48,12 @@ export class UserProfile {
 
   @Column({
     type: 'varchar',
-    length: 100,
+    length: 50,
     nullable: true,
-    comment: '部门',
+    name: 'real_name',
+    comment: '真实姓名',
   })
-  department: string;
-
-  @Column({
-    type: 'varchar',
-    length: 100,
-    nullable: true,
-    comment: '职位',
-  })
-  position: string;
-
-  @Column({
-    type: 'json',
-    nullable: true,
-    comment: '用户个性化设置',
-  })
-  settings: Record<string, any>;
-
-  @Column({
-    type: 'json',
-    nullable: true,
-    comment: '预留的元数据字段',
-  })
-  metadata: Record<string, any>;
+  realName: string;
 
   @CreateDateColumn({
     type: 'timestamp',

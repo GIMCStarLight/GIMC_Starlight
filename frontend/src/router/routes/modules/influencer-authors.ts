@@ -18,7 +18,7 @@ const routes: RouteRecordRaw[] = [
       order: 1,  // 达人广场，排序第1
       title: '达人广场',
       requiresAuth: true,
-      permissions: ['influencer:view'],
+      permissions: ['influencer:filter:quick'],
     },
   },
   // 达人详情页（不显示在菜单中）
@@ -32,7 +32,7 @@ const routes: RouteRecordRaw[] = [
       title: '达人详情',
       hideInMenu: true,  // 不在菜单中显示
       requiresAuth: true,  // 需要登录
-      permissions: ['influencer:view'],  // 使用与达人广场相同的权限
+      permissions: ['influencer:filter:quick'],  // 使用与达人广场相同的权限
     },
   },
 ];

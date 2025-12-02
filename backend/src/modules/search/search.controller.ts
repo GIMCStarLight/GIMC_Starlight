@@ -109,7 +109,7 @@ export class SearchController {
             // 解析URL编码的数据
             const urlParams = new URLSearchParams(req.body);
             for (const [key, value] of urlParams) {
-              bodyParams[key] = value;
+              (bodyParams as any)[key] = value;
             }
             console.log(`Parsed body params: ${JSON.stringify(bodyParams)}`);
           } catch (error) {

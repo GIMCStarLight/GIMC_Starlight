@@ -4,9 +4,12 @@ import {
   NotFoundException,
   BadRequestException,
   ConflictException,
+  Inject,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, SelectQueryBuilder } from 'typeorm';
+import { Repository, SelectQueryBuilder, In } from 'typeorm';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
+import type { Cache } from 'cache-manager';
 import { KolList } from '../../database/entities/kol-list.entity';
 import {
   CreateKolListDto,
@@ -14,6 +17,7 @@ import {
   QueryKolListDto,
   BatchCreateKolListDto,
 } from './dto';
+import { SqlErrorUtil } from '../../common/utils/sql-error.util';
 
 export interface PaginationResult<T> {
   data: T[];
@@ -49,10 +53,13 @@ interface SqlLikeError {
 @Injectable()
 export class KolListService {
   private readonly logger = new Logger(KolListService.name);
+  private readonly CACHE_TTL = 3600; // 1小时缓存
+  private readonly CACHE_PREFIX = 'kol:dict:';
 
   constructor(
     @InjectRepository(KolList, 'postgres')
     private readonly kolRepository: Repository<KolList>,
+    @Inject(CACHE_MANAGER) private readonly cacheManager: Cache,
   ) {}
 
   // 对入参进行轻量清洗/规范化，避免脏数据导致插入失败
@@ -125,35 +132,11 @@ export class KolListService {
       if (error instanceof ConflictException) {
         throw error;
       }
-      const err = this.toSqlError(error);
-      const driverErr = err.driverError ?? err;
-      const code = driverErr.code ?? driverErr.errno;
-      const sqlMessageRaw = driverErr.sqlMessage ?? driverErr.message;
-      const sqlMessage = sqlMessageRaw ? String(sqlMessageRaw) : '';
-      const sql = driverErr.sql;
-      // 尝试从报错信息提取列名，帮助定位具体字段
-      let columnHint = '';
-      const tooLongMatch = /Data too long for column '(.*?)'/i.exec(sqlMessage);
-      const nullMatch = /Column '(.*?)' cannot be null/i.exec(sqlMessage);
-      const dupMatch = /Duplicate entry .* for key '(.*?)'/i.exec(sqlMessage);
-      if (tooLongMatch) columnHint = `字段超长: ${tooLongMatch[1]}`;
-      else if (nullMatch) columnHint = `字段为空: ${nullMatch[1]}`;
-      else if (dupMatch) columnHint = `唯一约束冲突: ${dupMatch[1]}`;
 
-      this.logger.error('创建KOL失败: ', {
-        code,
-        sqlMessage,
-        sql,
-        data: createDto,
-      });
-      const detail = [
-        code ? `MySQL代码=${code}` : '',
-        sqlMessage ? `原因=${sqlMessage}` : '',
-        columnHint ? `定位=${columnHint}` : '',
-      ]
-        .filter(Boolean)
-        .join(' | ');
-      throw new BadRequestException(`创建KOL失败: ${detail}`);
+      // 使用统一的SQL错误处理工具
+      const errorMessage = SqlErrorUtil.formatErrorMessage(error);
+      this.logger.error('创建KOL失败:', { error, data: createDto });
+      throw new BadRequestException(`创建KOL失败: ${errorMessage}`);
     }
   }
 
@@ -177,39 +160,20 @@ export class KolListService {
         result.createdItems.push(createdKol);
         result.successCount++;
       } catch (error: unknown) {
-        const err = this.toSqlError(error);
-        const driverErr = err.driverError ?? err;
-        const code = driverErr.code ?? driverErr.errno;
-        const sqlMessageRaw = driverErr.sqlMessage ?? driverErr.message;
-        const sqlMessage = sqlMessageRaw ? String(sqlMessageRaw) : '';
-        const tooLongMatch = /Data too long for column '(.*?)'/i.exec(
-          sqlMessage,
-        );
-        const nullMatch = /Column '(.*?)' cannot be null/i.exec(sqlMessage);
-        const dupMatch = /Duplicate entry .* for key '(.*?)'/i.exec(sqlMessage);
-        let columnHint = '';
-        if (tooLongMatch) columnHint = `字段超长: ${tooLongMatch[1]}`;
-        else if (nullMatch) columnHint = `字段为空: ${nullMatch[1]}`;
-        else if (dupMatch) columnHint = `唯一约束冲突: ${dupMatch[1]}`;
-        const detail = [
-          code ? `MySQL代码=${code}` : '',
-          sqlMessage ? `原因=${sqlMessage}` : '',
-          columnHint ? `定位=${columnHint}` : '',
-        ]
-          .filter(Boolean)
-          .join(' | ');
-
+        // 使用统一的SQL错误处理工具
+        const errorMessage = SqlErrorUtil.formatErrorMessage(error);
+        
         result.failedCount++;
         result.failedItems.push({
           index: i,
           data: kolData,
           error:
-            detail ||
+            errorMessage ||
             (error instanceof Error ? error.message : undefined) ||
             '创建KOL失败',
         });
         this.logger.warn(
-          `批量创建第 ${i + 1} 个KOL失败: ${detail || this.errMsg(error)}`,
+          `批量创建第 ${i + 1} 个KOL失败: ${errorMessage || this.errMsg(error)}`,
         );
       }
     }
@@ -355,29 +319,53 @@ export class KolListService {
 
   /**
    * 批量删除KOL
+   * 优化：使用单次SQL删除，避免N+1查询问题
    */
   async removeBatch(
     ids: number[],
   ): Promise<{ deletedCount: number; failedIds: number[] }> {
-    const result = {
-      deletedCount: 0,
-      failedIds: [] as number[],
-    };
-
-    for (const id of ids) {
-      try {
-        await this.remove(id);
-        result.deletedCount++;
-      } catch (error: unknown) {
-        result.failedIds.push(id);
-        this.logger.warn(`批量删除KOL失败 (ID: ${id}): ${this.errMsg(error)}`);
-      }
+    if (ids.length === 0) {
+      return { deletedCount: 0, failedIds: [] };
     }
 
-    this.logger.log(
-      `批量删除完成: 成功 ${result.deletedCount} 个，失败 ${result.failedIds.length} 个`,
-    );
-    return result;
+    try {
+      // 先验证所有ID是否存在
+      const existingKols = await this.kolRepository.find({
+        where: { id: In(ids) },
+        select: ['id'],
+      });
+
+      const existingIds = existingKols.map((kol) => kol.id);
+      const notFoundIds = ids.filter((id) => !existingIds.includes(id));
+
+      // 批量删除存在的记录
+      if (existingIds.length > 0) {
+        const deleteResult = await this.kolRepository.delete({
+          id: In(existingIds),
+        });
+
+        this.logger.log(
+          `批量删除KOL成功: ${deleteResult.affected || existingIds.length} 条记录`,
+        );
+      }
+
+      // 记录不存在的ID
+      if (notFoundIds.length > 0) {
+        this.logger.warn(
+          `以下ID不存在，无法删除: ${notFoundIds.join(', ')}`,
+        );
+      }
+
+      return {
+        deletedCount: existingIds.length,
+        failedIds: notFoundIds,
+      };
+    } catch (error: unknown) {
+      this.logger.error('批量删除KOL失败:', this.errMsg(error));
+      throw new BadRequestException(
+        `批量删除KOL失败: ${this.errMsg(error)}`,
+      );
+    }
   }
 
   /**
@@ -494,8 +482,19 @@ export class KolListService {
 
   /**
    * 获取平台列表（去重）
+   * 使用缓存优化，1小时过期
    */
   async getPlatforms(): Promise<string[]> {
+    const cacheKey = `${this.CACHE_PREFIX}platforms`;
+
+    // 尝试从缓存获取
+    const cached = await this.cacheManager.get<string[]>(cacheKey);
+    if (cached) {
+      this.logger.debug('从缓存读取平台列表');
+      return cached;
+    }
+
+    // 缓存未命中，查询数据库
     const rows = await this.kolRepository
       .createQueryBuilder('kol')
       .select('kol.platform', 'platform')
@@ -504,13 +503,31 @@ export class KolListService {
       .distinct(true)
       .orderBy('kol.platform', 'ASC')
       .getRawMany<{ platform: string }>();
-    return rows.map((r) => r.platform);
+
+    const platforms = rows.map((r) => r.platform);
+
+    // 存入缓存
+    await this.cacheManager.set(cacheKey, platforms, this.CACHE_TTL * 1000);
+    this.logger.debug(`平台列表已缓存: ${platforms.length} 个平台`);
+
+    return platforms;
   }
 
   /**
    * 获取分类列表（去重）
+   * 使用缓存优化，1小时过期
    */
   async getCategories(): Promise<string[]> {
+    const cacheKey = `${this.CACHE_PREFIX}categories`;
+
+    // 尝试从缓存获取
+    const cached = await this.cacheManager.get<string[]>(cacheKey);
+    if (cached) {
+      this.logger.debug('从缓存读取分类列表');
+      return cached;
+    }
+
+    // 缓存未命中，查询数据库
     const rows = await this.kolRepository
       .createQueryBuilder('kol')
       .select('kol.category', 'category')
@@ -519,13 +536,31 @@ export class KolListService {
       .distinct(true)
       .orderBy('kol.category', 'ASC')
       .getRawMany<{ category: string }>();
-    return rows.map((r) => r.category);
+
+    const categories = rows.map((r) => r.category);
+
+    // 存入缓存
+    await this.cacheManager.set(cacheKey, categories, this.CACHE_TTL * 1000);
+    this.logger.debug(`分类列表已缓存: ${categories.length} 个分类`);
+
+    return categories;
   }
 
   /**
    * 获取机构列表（去重）
+   * 使用缓存优化，1小时过期
    */
   async getOrganizations(): Promise<string[]> {
+    const cacheKey = `${this.CACHE_PREFIX}organizations`;
+
+    // 尝试从缓存获取
+    const cached = await this.cacheManager.get<string[]>(cacheKey);
+    if (cached) {
+      this.logger.debug('从缓存读取机构列表');
+      return cached;
+    }
+
+    // 缓存未命中，查询数据库
     const rows = await this.kolRepository
       .createQueryBuilder('kol')
       .select('kol.org_name', 'org_name')
@@ -534,6 +569,13 @@ export class KolListService {
       .distinct(true)
       .orderBy('kol.org_name', 'ASC')
       .getRawMany<{ org_name: string }>();
-    return rows.map((r) => r.org_name);
+
+    const organizations = rows.map((r) => r.org_name);
+
+    // 存入缓存
+    await this.cacheManager.set(cacheKey, organizations, this.CACHE_TTL * 1000);
+    this.logger.debug(`机构列表已缓存: ${organizations.length} 个机构`);
+
+    return organizations;
   }
 }

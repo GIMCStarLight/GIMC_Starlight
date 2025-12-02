@@ -90,7 +90,7 @@ export default class SeedHuahuoTags1758610867002 {
       }
 
       // 检查数据库中是否已存在相同的标签
-      const existingTag = await tagRepository.findOne({
+      const existingTag: any = await tagRepository.findOne({
         where: {
           name: levelValue,
           platform: '花火',
@@ -105,7 +105,7 @@ export default class SeedHuahuoTags1758610867002 {
       }
 
       // 创建新标签
-      const newTag = tagRepository.create({
+      const newTag: any = tagRepository.create({
         name: levelValue,
         platform: '花火',
         level: i + 1,
@@ -116,7 +116,7 @@ export default class SeedHuahuoTags1758610867002 {
         description: `花火平台${i + 1}级标签：${levelValue}`,
       });
 
-      const savedTag = await tagRepository.save(newTag);
+      const savedTag: any = await tagRepository.save(newTag);
       createdTags.set(currentPath, savedTag);
       parentTag = savedTag;
 

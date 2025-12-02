@@ -62,7 +62,14 @@ function createRequestClient(baseURL: string, options?: RequestClientOptions) {
     clearAllCache();
     
     // 直接执行登出，跳转到登录页
-    await authStore.logout();
+    // 注意：只有在用户已经登录的情况下才执行logout
+    // 如果用户本来就没有登录，直接跳转到登录页
+    if (accessStore.accessToken) {
+      await authStore.logout();
+    } else {
+      // 直接跳转到登录页，不调用logout API
+      window.location.href = '/login';
+    }
   }
 
   /**

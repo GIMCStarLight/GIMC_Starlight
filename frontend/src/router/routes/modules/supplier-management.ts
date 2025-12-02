@@ -12,9 +12,8 @@ const routes: RouteRecordRaw[] = [
       order: 5,
       title: '供应商管理',
       hideInMenu: false,
-      // 权限控制
-    //   requiresAuth: true,
-    //   permissions: ['ai:assistant:view'],
+      requiresAuth: true,
+      permissions: ['supplier:view'],
     },
     
   },
