@@ -175,6 +175,8 @@ interface KolFilters {
   policy_level?: string
   min_followers_w?: number
   max_followers_w?: number
+  sort_by?: string
+  sort_order?: string
 }
 
 const props = defineProps<{
@@ -292,19 +294,19 @@ const activeFilterTags = computed(() => {
 
 // 移除单个筛选标签
 const removeFilterTag = (key: string) => {
-  if (key === 'account_name') localFilters.value.account_name = undefined
-  else if (key === 'platform') localFilters.value.platform = undefined
-  else if (key === 'org_name') localFilters.value.org_name = undefined
-  else if (key === 'category') localFilters.value.category = undefined
-  else if (key === 'match_status') localFilters.value.match_status = undefined
+  if (key === 'account_name') localFilters.value.account_name = ''
+  else if (key === 'platform') localFilters.value.platform = ''
+  else if (key === 'org_name') localFilters.value.org_name = ''
+  else if (key === 'category') localFilters.value.category = ''
+  else if (key === 'match_status') localFilters.value.match_status = ''
   else if (key === 'is_exclusive') localFilters.value.is_exclusive = undefined
   else if (key === 'rebate_policy') localFilters.value.rebate_policy = undefined
-  else if (key === 'policy_level') localFilters.value.policy_level = undefined
+  else if (key === 'policy_level') localFilters.value.policy_level = ''
   else if (key === 'follower_range') {
     localFilters.value.min_followers_w = undefined
     localFilters.value.max_followers_w = undefined
   }
-  
+
   handleFilterChange()
 }
 
