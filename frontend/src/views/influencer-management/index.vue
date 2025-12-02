@@ -535,36 +535,43 @@ const editingId = ref<number | null>(null);
 // 政策档位数据
 const policyTiersData = ref<PolicyTier[]>([]);
 
-// 监视 editForm.policyTiers 的变化，解析 JSON 字符串
-watch(
-  () => editForm.policyTiers,
-  (newValue) => {
-    if (typeof newValue === 'string' && newValue.trim()) {
-      try {
-        const parsed = JSON.parse(newValue);
-        if (Array.isArray(parsed)) {
-          policyTiersData.value = parsed;
-        }
-      } catch (e) {
-        // 如果解析失败，保持原有数据
-        console.warn('政策档位数据解析失败:', e);
-      }
-    } else if (!newValue) {
-      policyTiersData.value = [];
-    }
-  },
-  { immediate: true }
-);
+/**
+ * 解析政策档位JSON字符串为数组
+ * 单向数据流：JSON字符串 → 数组对象
+ */
+function parsePolicyTiers(jsonStr: string | null | undefined): PolicyTier[] {
+  if (!jsonStr || typeof jsonStr !== 'string') {
+    return [];
+  }
+  
+  try {
+    const parsed = JSON.parse(jsonStr);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (e) {
+    console.warn('政策档位数据解析失败:', e, 'Input:', jsonStr);
+    return [];
+  }
+}
 
-// 监视 policyTiersData 的变化，同步到 editForm.policyTiers
+/**
+ * 序列化政策档位数组为JSON字符串
+ * 单向数据流：数组对象 → JSON字符串
+ */
+function serializePolicyTiers(tiers: PolicyTier[]): string {
+  if (!tiers || tiers.length === 0) {
+    return '';
+  }
+  return JSON.stringify(tiers);
+}
+
+/**
+ * 监听表格数据变化，实时同步到表单字段
+ * 这是唯一的自动同步点，确保用户编辑立即反映到 editForm
+ */
 watch(
   policyTiersData,
   (newValue) => {
-    if (newValue && newValue.length > 0) {
-      editForm.policyTiers = JSON.stringify(newValue);
-    } else {
-      editForm.policyTiers = '';
-    }
+    editForm.policyTiers = serializePolicyTiers(newValue);
   },
   { deep: true }
 );
@@ -706,7 +713,15 @@ function handleRowClick(row: any) {
 // 编辑
 function handleEdit(row: any, type: 'starlink' | 'starmedia') {
   editingId.value = row.id;
+  
+  // 复制数据到表单
   Object.assign(editForm, row);
+  
+  // 显式解析政策档位数据（仅星链计划需要）
+  if (type === 'starlink') {
+    policyTiersData.value = parsePolicyTiers(row.policyTiers);
+  }
+  
   editDialogVisible.value = true;
 }
 
@@ -719,7 +734,9 @@ async function handleSave() {
 
     saving.value = true;
     try {
+      // 保存前显式同步政策档位数据（防御性编程）
       if (activeTab.value === 'starlink') {
+        editForm.policyTiers = serializePolicyTiers(policyTiersData.value);
         await StarlinkInfluencerApi.update(editingId.value!, editForm);
         ElMessage.success('更新成功');
         loadStarlinkData();
@@ -728,13 +745,25 @@ async function handleSave() {
         ElMessage.success('更新成功');
         loadStarmediaData();
       }
+      
+      // 成功后关闭对话框并清理数据
       editDialogVisible.value = false;
+      resetEditForm();
     } catch (error: any) {
       ElMessage.error(error.message || '保存失败');
     } finally {
       saving.value = false;
     }
   });
+}
+
+/**
+ * 重置编辑表单和关联数据
+ */
+function resetEditForm() {
+  Object.keys(editForm).forEach(key => delete editForm[key]);
+  policyTiersData.value = [];
+  editingId.value = null;
 }
 
 // 删除
