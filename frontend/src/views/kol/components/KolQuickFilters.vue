@@ -138,12 +138,9 @@
     </div>
 
     <!-- 已选筛选条件展示 -->
-    <div v-if="hasActiveFilters" class="active-filters">
-      <div class="active-title">
-        <Icon icon="lucide:filter" class="mr-1" />
-        已选条件
-      </div>
-      <div class="active-tags">
+    <div v-if="hasActiveFilters" class="filter-summary">
+      <div class="summary-content">
+        <span class="summary-label">当前筛选:</span>
         <el-tag
           v-for="tag in activeFilterTags"
           :key="tag.key"
@@ -154,11 +151,10 @@
         >
           {{ tag.label }}
         </el-tag>
+        <el-button link type="primary" size="small" @click="handleClearAll">
+          清空全部
+        </el-button>
       </div>
-      <el-button link size="small" @click="handleClearAll">
-        <Icon icon="lucide:x-circle" class="mr-1" />
-        清空全部
-      </el-button>
     </div>
   </div>
 </template>
@@ -248,7 +244,10 @@ const handleFollowerChange = () => {
 
 // 是否有激活的筛选条件
 const hasActiveFilters = computed(() => {
-  return Object.values(localFilters.value).some(val => val !== undefined && val !== '')
+  const { sort_by, sort_order, ...filterValues } = localFilters.value
+  return Object.values(filterValues).some(val =>
+    val !== undefined && val !== null && val !== ''
+  )
 })
 
 // 激活的筛选条件标签
@@ -383,29 +382,23 @@ const handleClearAll = () => {
   white-space: nowrap;
 }
 
-.active-filters {
+.filter-summary {
   margin-top: 16px;
   padding-top: 16px;
   border-top: 1px dashed var(--el-border-color);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
 }
 
-.active-title {
-  font-size: 13px;
-  color: var(--el-text-color-secondary);
+.summary-content {
   display: flex;
   align-items: center;
-  font-weight: 500;
-}
-
-.active-tags {
-  display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  flex: 1;
+}
+
+.summary-label {
+  font-size: 13px;
+  color: var(--el-text-color-secondary);
+  font-weight: 500;
 }
 
 .mr-1 {
