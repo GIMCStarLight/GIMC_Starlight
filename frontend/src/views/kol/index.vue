@@ -24,12 +24,6 @@
       </div>
       <!-- 自有达人数据的按钮 -->
       <div v-else-if="activeTab === 'private'" class="header-right">
-        <el-badge :value="selectedDouyinCount" :hidden="selectedDouyinCount === 0" type="primary">
-          <el-button @click="handlePrivateClearSelection" :disabled="selectedDouyinCount === 0">
-            <Icon icon="lucide:x-circle" />
-            清空选中
-          </el-button>
-        </el-badge>
         <el-button @click="navigateToImportHistory" class="action-btn">
           <Icon icon="lucide:clock" class="mr-1" />
           导入历史
@@ -180,11 +174,11 @@
               <el-tooltip placement="top" effect="light">
                 <template #content>
                   <div class="stats-tooltip-content">
-                    <div class="stats-tooltip-item">总计 <span class="stats-tooltip-number" style="color: #409eff; font-weight: 600;">{{ syncStats.total }}</span> 位达人</div>
-                    <div class="stats-tooltip-item">未匹配 <span class="stats-tooltip-number" style="color: #409eff; font-weight: 600;">{{ syncStats.unmatched }}</span> 位达人</div>
-                    <div class="stats-tooltip-item">待同步 <span class="stats-tooltip-number" style="color: #409eff; font-weight: 600;">{{ syncStats.pending }}</span> 位达人</div>
-                    <div class="stats-tooltip-item">已匹配 <span class="stats-tooltip-number" style="color: #409eff; font-weight: 600;">{{ syncStats.matched }}</span> 位达人</div>
-                    <div class="stats-tooltip-item">同步失败 <span class="stats-tooltip-number" style="color: #409eff; font-weight: 600;">{{ syncStats.rejected }}</span> 位达人</div>
+                    <div class="stats-tooltip-item">总计 <span class="stats-tooltip-number">{{ syncStats.total }}</span> 位达人</div>
+                    <div class="stats-tooltip-item">未匹配 <span class="stats-tooltip-number">{{ syncStats.unmatched }}</span> 位达人</div>
+                    <div class="stats-tooltip-item">待同步 <span class="stats-tooltip-number">{{ syncStats.pending }}</span> 位达人</div>
+                    <div class="stats-tooltip-item">已匹配 <span class="stats-tooltip-number">{{ syncStats.matched }}</span> 位达人</div>
+                    <div class="stats-tooltip-item">同步失败 <span class="stats-tooltip-number">{{ syncStats.rejected }}</span> 位达人</div>
                   </div>
                 </template>
                 <el-icon class="stats-info-icon"><InfoFilled /></el-icon>
@@ -1147,16 +1141,6 @@ const selectedDouyinCount = computed(() => {
   return selectedRows.value.length
 })
 
-// 自有达人数据 - 清空选中
-const handlePrivateClearSelection = () => {
-  selectedRows.value = []
-  // 清空表格选中状态
-  if (tableRef.value && tableRef.value.$refs?.elTable) {
-    tableRef.value.$refs.elTable.clearSelection()
-  }
-  ElMessage.success('已清空选中')
-}
-
 // 判断是否可以同步
 const canSync = (row: any): boolean => {
   const platform = String(row.platform || '').trim();
@@ -1507,6 +1491,21 @@ onMounted(() => {
 
   .public-data-content,
   .private-data-content {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+
+    // 确保内部组件也是白色背景
+    :deep(.kol-quick-filters) {
+      background: white;
+    }
+
+    :deep(.filter-container) {
+      background: white;
+    }
+
     .influencer-display-area,
     .private-display-area {
       background: white;
@@ -1587,7 +1586,6 @@ onMounted(() => {
 
       .stats-tooltip-number {
         font-weight: 600;
-        color: var(--el-color-primary);
         margin: 0 4px;
       }
     }
