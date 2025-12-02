@@ -2,13 +2,13 @@ import { baseRequestClient } from './request';
 
 /**
  * 星链计划达人 API
- * 使用 baseRequestClient 获取完整响应（包括 pagination 信息）
  */
 export const StarlinkInfluencerApi = {
   /**
-   * 获取星链计划达人列表
+   * 获取星链计划达人列表 - 返回完整响应
    */
-  getList: (params: { page: number; limit: number }) => {
+  getList(params: { page: number; limit: number }) {
+    // 使用 baseRequestClient 不会自动提取 data
     return baseRequestClient.get('/starlink-influencers', { params });
   },
 
@@ -36,13 +36,13 @@ export const StarlinkInfluencerApi = {
 
 /**
  * 省广星媒独家签约达人 API
- * 使用 baseRequestClient 获取完整响应（包括 pagination 信息）
  */
 export const StarmediaInfluencerApi = {
   /**
-   * 获取省广星媒独家签约达人列表
+   * 获取省广星媒独家签约达人列表 - 返回完整响应
    */
-  getList: (params: { page: number; limit: number }) => {
+  getList(params: { page: number; limit: number }) {
+    // 使用 baseRequestClient 不会自动提取 data
     return baseRequestClient.get('/starmedia-influencers', { params });
   },
 
