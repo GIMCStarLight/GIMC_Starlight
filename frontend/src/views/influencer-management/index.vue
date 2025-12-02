@@ -652,16 +652,63 @@ function updateOrderRange(tier: PolicyTier) {
 // 表单校验规则
 const formRules: FormRules = {
   nickname: [{ required: true, message: '请输入昵称', trigger: 'blur' }],
-  fansCount: [{ type: 'number', min: 0, message: '粉丝量不能为负数', trigger: 'blur' }],
-  totalFans: [{ type: 'number', min: 0, message: '粉丝量不能为负数', trigger: 'blur' }],
-  minRebateRate: [
-    { type: 'number', min: 0, max: 100, message: '返点比例必须在0-100之间', trigger: 'blur' },
+  // 粉丝量验证（自定义验证器，兼容字符串和数字）
+  fansCount: [
+    {
+      validator: (rule: any, value: any, callback: any) => {
+        if (value === null || value === undefined || value === '') {
+          callback(); // 允许为空
+          return;
+        }
+        const num = typeof value === 'string' ? parseFloat(value) : value;
+        if (isNaN(num)) {
+          callback(new Error('粉丝量必须是数字'));
+        } else if (num < 0) {
+          callback(new Error('粉丝量不能为负数'));
+        } else {
+          callback();
+        }
+      },
+      trigger: 'blur'
+    }
   ],
-  maxRebateRate: [
-    { type: 'number', min: 0, max: 100, message: '返点比例必须在0-100之间', trigger: 'blur' },
+  totalFans: [
+    {
+      validator: (rule: any, value: any, callback: any) => {
+        if (value === null || value === undefined || value === '') {
+          callback(); // 允许为空
+          return;
+        }
+        const num = typeof value === 'string' ? parseFloat(value) : value;
+        if (isNaN(num)) {
+          callback(new Error('粉丝量必须是数字'));
+        } else if (num < 0) {
+          callback(new Error('粉丝量不能为负数'));
+        } else {
+          callback();
+        }
+      },
+      trigger: 'blur'
+    }
   ],
   contractRebateRate: [
-    { type: 'number', min: 0, max: 100, message: '签约返点必须在0-100之间', trigger: 'blur' },
+    {
+      validator: (rule: any, value: any, callback: any) => {
+        if (value === null || value === undefined || value === '') {
+          callback(); // 允许为空
+          return;
+        }
+        const num = typeof value === 'string' ? parseFloat(value) : value;
+        if (isNaN(num)) {
+          callback(new Error('签约返点必须是数字'));
+        } else if (num < 0 || num > 100) {
+          callback(new Error('签约返点必须在0-100之间'));
+        } else {
+          callback();
+        }
+      },
+      trigger: 'blur'
+    }
   ],
 };
 
