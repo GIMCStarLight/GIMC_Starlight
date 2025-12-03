@@ -2,10 +2,12 @@
 /dist
 /node_modules
 /build
+*.tsbuildinfo
 
 # Logs
 /logs
 *.log
+*.log.*
 npm-debug.log*
 pnpm-debug.log*
 yarn-debug.log*
@@ -41,13 +43,13 @@ lerna-debug.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.env.production
 .env.*.local
 .env.bak
 .env.backup
-.env.production
+*.env.bak.*
 
 # 配置备份文件
-.env.bak.*
 *.env.backup
 
 # temp directory
@@ -63,7 +65,36 @@ pids
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
-# Database backups
+# 数据库备份与导出
 postgres-backups/
-*.sql
 *.sql.gz
+*.sql.bak
+*.backup
+*.dump
+backup_*.sql
+dump_*.sql
+*.db
+*.sqlite
+*.sqlite3
+
+# 上传文件目录
+/uploads
+uploads/
+
+# 静态资源缓存
+xpack_static/*.bak
+
+# 锁文件
+yarn.lock
+package-lock.json
+
+# PM2
+pm2.log
+pm2-error.log
+.pm2/
+
+# 压缩文件
+*.zip
+*.tar
+*.gz
+*.rar

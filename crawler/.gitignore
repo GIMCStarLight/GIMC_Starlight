@@ -1,0 +1,94 @@
+# Python 字节码
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# 虚拟环境
+.venv/
+venv/
+ENV/
+env/
+
+# 测试与覆盖率
+.pytest_cache/
+.coverage
+.tox/
+htmlcov/
+coverage.xml
+*.cover
+.hypothesis/
+
+# 代码检查缓存
+.ruff_cache/
+.mypy_cache/
+.pylint.d/
+
+# 环境变量
+.env
+.env.*
+config/.env
+*.env.local
+
+# 日志文件
+*.log
+logs/
+**/logs/
+
+# 输出目录
+output/
+results/
+reports/
+report/
+result/
+**/output/
+**/results/
+**/reports/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# 账号配置与敏感数据
+config/accounts/account_*/
+config/accounts/legacy_cookies/
+config/cookies.txt
+cookies.txt
+*.cookie
+
+# 浏览器缓存与用户数据
+**/user_data_dir/
+**/browser_cache/
+**/Default/
+**/Cache/
+**/Code Cache/
+**/GPUCache/
+**/Service Worker/
+**/Session Storage/
+**/Local Storage/
+**/*.crdownload
+**/*.tmp
+**/*.temp
+
+# 数据文件
+*.csv.bak
+*.json.bak
+*.sqlite
+*.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# 临时文件
+*.bak
+*.backup
+tmp/
+temp/
+.temp/
