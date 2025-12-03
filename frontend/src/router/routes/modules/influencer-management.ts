@@ -17,7 +17,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('#/views/influencer-management/index.vue'),
     meta: {
       icon: ElUserIcon,
-      title: '达人管理',
+      title: '临时数据校验',
       order: 15,
       requiresAuth: true,
       permissions: ['influencer:manage'],
