@@ -61,6 +61,12 @@ defineSlots<{
 <style lang="scss">
 /* 弹窗样式 */
 .stats-tooltip {
+  max-width: 800px !important;
+  line-height: 1.6 !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  white-space: pre-wrap !important;
+
   .stats-tooltip-content {
     padding: 4px 0;
 

@@ -4,8 +4,8 @@
     <div class="page-header">
       <div class="header-left">
         <h1 class="page-title">
-          <el-icon class="title-icon"><Star /></el-icon>
-          达人评价管理
+          <!-- <el-icon class="title-icon"><Star /></el-icon> -->
+          达人评价分析
         </h1>
         <p class="page-description">全面管理和分析达人评价数据，提升合作质量</p>
       </div>
@@ -18,18 +18,19 @@
     </div>
 
     <!-- 统计卡片 -->
-    <ReviewStatsCards 
+    <!-- <ReviewStatsCards 
       :statistics="statistics" 
       :score-stats="scoreStats"
       @high-score-click="showHighScoreList"
-    />
+    /> -->
 
     <!-- 评分分布可视化卡片 -->
     <ScoreDistributionChart 
       :score-distribution="scoreDistribution"
       :score-stats="scoreStats"
+      :statistics="statistics"
     />
-
+ <el-card class="table-card" shadow="never">
     <!-- 搜索筛选区域 -->
     <ReviewSearchForm 
       :search-form="searchForm"
@@ -40,11 +41,11 @@
     />
 
     <!-- 评价列表 -->
-    <el-card class="table-card" shadow="never">
+   
       <template #header>
         <div class="card-header">
           <span class="card-title">
-            <el-icon><List /></el-icon>
+            <!-- <el-icon><List /></el-icon> -->
             评价列表
           </span>
           <div class="card-extra">
@@ -76,113 +77,96 @@
         </div>
       </template>
 
-      <el-table
-        v-loading="loading"
-        :data="tableData"
-        stripe
-        style="width: 100%"
+      <StandardTable
+        :loading="loading"
+        :columns="tableColumns"
+        :data-source="tableData"
+        :pagination="{
+          current: pagination.page,
+          pageSize: pagination.limit,
+          total: pagination.total
+        }"
+        :selected-rows="selectedReviews"
+        row-key="id"
+        @update:selected-rows="handleSelectionChange"
+        @change="handleTableChange"
         @sort-change="handleSortChange"
-        @selection-change="handleSelectionChange"
-        :empty-text="pagination.total === 0 ? '暂无评价数据' : '加载中...'"
       >
-        <el-table-column type="selection" width="55" />
-        <el-table-column prop="influencerNickName" label="达人昵称" width="140">
-          <template #default="{ row }">
-            <div class="user-cell">
-              <el-avatar :size="32" :src="row.influencerAvatarUri">
-                {{ row.influencerNickName?.substring(0, 1) || '达' }}
-              </el-avatar>
-              <span class="user-name">{{ row.influencerNickName || '未知达人' }}</span>
-            </div>
-          </template>
-        </el-table-column>
-        <el-table-column prop="reviewer" label="评价人" width="120">
-          <template #default="{ row }">
-            <el-tag type="info" size="small">{{ row.reviewer }}</el-tag>
-          </template>
-        </el-table-column>
-        <el-table-column prop="score" label="评分" width="180" sortable>
-          <template #default="{ row }">
-            <div class="score-display">
-              <el-rate
-                :model-value="row.score"
-                disabled
-                show-score
-                text-color="#ff9900"
-                score-template="{value}分"
-              />
-            </div>
-          </template>
-        </el-table-column>
-        <el-table-column prop="content" label="评价内容" min-width="300">
-          <template #default="{ row }">
-            <div class="content-cell">
-              <el-tooltip
-                v-if="row.content && row.content.length > 80"
-                :content="row.content"
-                placement="top"
-                effect="light"
-              >
-                <div class="content-preview">{{ row.content.substring(0, 80) }}...</div>
-              </el-tooltip>
-              <div v-else class="content-preview">{{ row.content || '-' }}</div>
-            </div>
-          </template>
-        </el-table-column>
-        <el-table-column prop="status" label="状态" width="100">
-          <template #default="{ row }">
-            <el-tag 
-              :type="row.status === 'approved' ? 'success' : row.status === 'pending' ? 'warning' : 'danger'"
-              size="small"
-            >
-              {{ row.status === 'approved' ? '已审核' : row.status === 'pending' ? '待审核' : '已拒绝' }}
-            </el-tag>
-          </template>
-        </el-table-column>
-        <el-table-column prop="createdAt" label="评价时间" width="160" sortable>
-          <template #default="{ row }">
-            <div class="time-cell">
-              <el-icon><Clock /></el-icon>
-              {{ formatDate(row.createdAt) }}
-            </div>
-          </template>
-        </el-table-column>
-        <el-table-column label="操作" width="150" fixed="right">
-          <template #default="{ row }">
-            <el-button
-              link
-              type="primary"
-              size="small"
-              @click="handleView(row)"
-            >
-              <el-icon><View /></el-icon>
-              查看
-            </el-button>
-            <el-button
-              link
-              type="danger"
-              size="small"
-              @click="handleDelete(row)"
-            >
-              <el-icon><Delete /></el-icon>
-              删除
-            </el-button>
-          </template>
-        </el-table-column>
-      </el-table>
+        <!-- 达人昵称列 -->
+        <template #influencerNickName="{ record }">
+          <div class="user-cell">
+            <el-avatar :size="32" :src="record.influencerAvatarUri">
+              {{ record.influencerNickName?.substring(0, 1) || '达' }}
+            </el-avatar>
+            <span class="user-name">{{ record.influencerNickName || '未知达人' }}</span>
+          </div>
+        </template>
 
-      <!-- 分页 -->
-      <div class="pagination-wrapper">
-        <el-pagination
-          v-model:current-page="pagination.page"
-          v-model:page-size="pagination.limit"
-          :page-sizes="[10, 20, 50, 100]"
-          :total="pagination.total"
-          layout="total, sizes, prev, pager, next, jumper"
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-        />
-      </div>
+  
+        <!-- 评分列 -->
+        <template #score="{ record }">
+          <div class="score-display">
+            <el-rate
+              :model-value="record.score"
+              disabled
+              text-color="#ff9900"
+            />
+          </div>
+        </template>
+
+        <!-- 评价内容列 -->
+        <template #content="{ record }">
+          <div class="content-cell">
+            <ToolTipPicker v-if="record.content && record.content.length >45 ">
+              <template #content>
+                <div class="tooltip-content">{{ record.content }}</div>
+              </template>
+              <template #trigger>
+                <div class="content-preview">{{ record.content.substring(0, 45) }}...</div>
+              </template>
+            </ToolTipPicker>
+            <div v-else class="content-preview">{{ record.content || '-' }}</div>
+          </div>
+        </template>
+
+    
+        <!-- 评价时间列 -->
+        <template #createdAt="{ record }">
+          <div class="time-cell">
+            <!-- <el-icon><Clock /></el-icon> -->
+            {{ formatDate(record.createdAt) }}
+          </div>
+        </template>
+
+        <!-- 操作列 -->
+        <template #action="{ record }">
+          <div class="action-buttons">
+            <!-- 查看图标 -->
+            <ToolTipPicker>
+              <template #content>
+                <div class="simple-tooltip-text">查看</div>
+              </template>
+              <template #trigger>
+                <div class="action-icon-wrapper" @click="handleView(record)">
+                  <el-icon class="action-icon"><View /></el-icon>
+                </div>
+              </template>
+            </ToolTipPicker>
+
+            <!-- 删除图标 -->
+            <ToolTipPicker>
+              <template #content>
+                <div class="simple-tooltip-text">删除</div>
+              </template>
+              <template #trigger>
+                <div class="action-icon-wrapper" @click="handleDelete(record)">
+                  <el-icon class="action-icon"><Delete /></el-icon>
+                </div>
+              </template>
+            </ToolTipPicker>
+          </div>
+        </template>
+      </StandardTable>
     </el-card>
 
     <!-- 评价详情对话框 -->
@@ -294,6 +278,8 @@ import { log } from '../../utils/logger'
 import ReviewStatsCards from './components/ReviewStatsCards.vue'
 import ScoreDistributionChart from './components/ScoreDistributionChart.vue'
 import ReviewSearchForm from './components/ReviewSearchForm.vue'
+import StandardTable from '../kol/components/StandardTable.vue'
+import ToolTipPicker from '../influencer-authors/components/ToolTipPicker.vue'
 
 // 页面状态
 const loading = ref(false)
@@ -360,10 +346,62 @@ const editForm = reactive({
   content: ''
 })
 
+// 表格列配置
+const tableColumns = [
+  {
+    prop: 'influencerNickName',
+    label: '达人昵称',
+    width: 140
+  },
+  {
+    prop: 'reviewer',
+    label: '评价人',
+    width: 120
+  },
+  {
+    prop: 'score',
+    label: '评分',
+    width: 180,
+    sortable: true
+  },
+  {
+    prop: 'content',
+    label: '评价内容',
+    minWidth: 300
+  },
+  {
+    prop: 'status',
+    label: '状态',
+    width: 100,
+    formatter: (record: KolReviewInfo) => {
+      return record.status === 'approved' ? '已审核' : record.status === 'pending' ? '待审核' : '已拒绝'
+    }
+  },
+  {
+    prop: 'createdAt',
+    label: '评价时间',
+    width: 160,
+    sortable: true
+  },
+  {
+    prop: 'action',
+    label: '操作',
+    width: 150,
+    fixed: 'right'
+  }
+]
+
 // 格式化日期
 const formatDate = (dateString: string) => {
   if (!dateString) return '-'
-  return new Date(dateString).toLocaleString('zh-CN')
+  const date = new Date(dateString)
+  return date.toLocaleString('zh-CN', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit'
+  }).replace(/\//g, '-')
 }
 
 // 获取所有评价数据
@@ -651,6 +689,13 @@ const handleDelete = async (row: KolReviewInfo) => {
 // 选择变化
 const handleSelectionChange = (val: KolReviewInfo[]) => {
   selectedReviews.value = val
+}
+
+// 表格变化(分页/排序)
+const handleTableChange = (paginationInfo: any) => {
+  pagination.page = paginationInfo.current
+  pagination.limit = paginationInfo.pageSize
+  loadReviews()
 }
 
 // 批量通过
@@ -1162,6 +1207,7 @@ onMounted(() => {
 .score-display {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .content-cell {
@@ -1176,9 +1222,10 @@ onMounted(() => {
 .time-cell {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  color: #606266;
-  font-size: 13px;
+  color: #31343B;
+  font-size: 16px;
 }
 
 .pagination-wrapper {
@@ -1187,6 +1234,73 @@ onMounted(() => {
   margin-top: 24px;
   padding-top: 16px;
   border-top: 1px solid #ebeef5;
+}
+
+/* 表格样式 */
+:deep(.standard-table) {
+  .ant-table-thead > tr > th {
+    text-align: center;
+    color: #31343B;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .ant-table-tbody > tr > td {
+    text-align: center;
+    color: #31343B;
+    font-size: 14px;
+  }
+
+  /* 达人昵称列标题左对齐 */
+  .ant-table-thead > tr > th:nth-child(2) {
+    text-align: left !important;
+    padding-left: 16px !important;
+  }
+
+  /* 达人昵称列内容左对齐 */
+  /* .ant-table-tbody > tr > td:nth-child(2) {
+    text-align: left !important;
+    padding-left: 16px !important;
+  } */
+}
+
+/* 操作按钮样式 */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.action-icon-wrapper {
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: var(--el-fill-color-light);
+  }
+
+  .action-icon {
+    font-size: 16px;
+    color: #909399;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--el-color-primary);
+    }
+  }
+}
+
+.simple-tooltip-text {
+  font-size: 12px;
+  color: #606266;
+  padding: 2px 4px;
 }
 
 /* 详情对话框样式 */
@@ -1220,7 +1334,11 @@ onMounted(() => {
   align-items: center;
   gap: 6px;
 }
-
+.tooltip-content{
+  font-size: 14px;
+  color: #606266;
+  padding: 4px 8px;
+}
 .content-text {
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   border: 1px solid #e4e7ed;

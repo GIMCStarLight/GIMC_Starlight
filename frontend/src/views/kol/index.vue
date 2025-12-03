@@ -175,10 +175,10 @@
                 <template #content>
                   <div class="stats-tooltip-content">
                     <div class="stats-tooltip-item">总计 <span class="stats-tooltip-number">{{ syncStats.total }}</span> 位达人</div>
-                    <div class="stats-tooltip-item">未匹配 <span class="stats-tooltip-number">{{ syncStats.unmatched }}</span> 位达人</div>
-                    <div class="stats-tooltip-item">待同步 <span class="stats-tooltip-number">{{ syncStats.pending }}</span> 位达人</div>
-                    <div class="stats-tooltip-item">已匹配 <span class="stats-tooltip-number">{{ syncStats.matched }}</span> 位达人</div>
-                    <div class="stats-tooltip-item">同步失败 <span class="stats-tooltip-number">{{ syncStats.rejected }}</span> 位达人</div>
+                    <div class="stats-tooltip-item">未匹配 <span class="stats-tooltip-number">{{ syncStats.unmatched }}</span> 位达人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;待同步 <span class="stats-tooltip-number">{{ syncStats.pending }}</span> 位达人</div>
+                    <!-- <div class="stats-tooltip-item">待同步 <span class="stats-tooltip-number">{{ syncStats.pending }}</span> 位达人</div> -->
+                    <div class="stats-tooltip-item">已匹配 <span class="stats-tooltip-number">{{ syncStats.matched }}</span> 位达人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;同步失败 <span class="stats-tooltip-number">{{ syncStats.rejected }}</span> 位达人</div>
+                    <!-- <div class="stats-tooltip-item">同步失败 <span class="stats-tooltip-number">{{ syncStats.rejected }}</span> 位达人</div> -->
                   </div>
                 </template>
                 <template #trigger>
@@ -203,7 +203,6 @@
         :selected-rows="selectedRows"
         @update:selected-rows="handleSelectionChange"
         @change="handleTableChange"
-        bordered
         row-key="id"
       >
         <!-- 平台列插槽 -->
@@ -235,10 +234,10 @@
           <div class="price-range">
             <div v-if="record.star_quote_21_60s || record.star_quote_60s_plus" class="price-info">
               <span class="price-currency">¥</span>
-              <span class="price-min">{{ formatPrice(Math.min(record.star_quote_21_60s || 999999, record.star_quote_60s_plus || 999999)) }}</span>
-              <span class="price-separator">~</span>
-              <span class="price-currency">¥</span>
-              <span class="price-max">{{ formatPrice(Math.max(record.star_quote_21_60s || 0, record.star_quote_60s_plus || 0)) }}</span>
+              <span class="price-min">{{ formatPrice(Math.min(record.star_quote_21_60s || Infinity, record.star_quote_60s_plus || Infinity)) }}</span>
+              <span v-if="(record.star_quote_21_60s || 0) !== (record.star_quote_60s_plus || 0)" class="price-separator">~</span>
+              <span v-if="(record.star_quote_21_60s || 0) !== (record.star_quote_60s_plus || 0)" class="price-currency">¥</span>
+              <span v-if="(record.star_quote_21_60s || 0) !== (record.star_quote_60s_plus || 0)" class="price-max">{{ formatPrice(Math.max(record.star_quote_21_60s || 0, record.star_quote_60s_plus || 0)) }}</span>
             </div>
             <span v-else class="text-gray">-</span>
           </div>
@@ -1072,7 +1071,8 @@ const handleImportCompleted = () => {
 // 格式化报价显示
 const formatPrice = (v: any) => {
   const n = Number(v)
-  if (!Number.isFinite(n) || n <= 0) return '-'
+  if (!Number.isFinite(n)) return '-'
+  if (n === 0) return '0'
   return n.toLocaleString('zh-CN')
 }
 
@@ -1637,9 +1637,9 @@ onMounted(() => {
       .stats-tooltip-number {
         font-weight: 600;
         margin: 0 4px;
-      }
     }
   }
+}
 
   :global(.stats-tooltip) {
     &.el-tooltip__popper.is-dark {

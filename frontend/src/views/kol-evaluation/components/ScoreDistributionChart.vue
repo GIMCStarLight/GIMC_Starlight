@@ -1,32 +1,16 @@
 <template>
   <el-card class="distribution-card" shadow="never" v-if="scoreDistribution.length > 0">
-    <div class="distribution-header">
+    <!-- <div class="distribution-header">
       <el-icon class="distribution-icon"><DataAnalysis /></el-icon>
       <span class="distribution-title">评分分布分析</span>
-    </div>
+    </div> -->
     <div class="distribution-content">
       <el-row :gutter="16">
-        <el-col :span="24" :lg="16">
-          <div class="distribution-chart">
-            <div v-for="item in scoreDistribution" :key="item.score" class="chart-item">
-              <div class="chart-label">
-                <el-rate :model-value="item.score" disabled :max="5" size="small" />
-                <span class="score-text">{{ item.score }}分</span>
-              </div>
-              <div class="chart-bar-wrapper">
-                <div 
-                  class="chart-bar" 
-                  :style="{ width: getBarWidth(item.count) + '%' }"
-                  :class="getBarClass(item.score)"
-                >
-                  <span class="bar-count">{{ item.count }}个达人</span>
-                </div>
-              </div>
-              <div class="chart-percent">{{ getPercent(item.count) }}%</div>
-            </div>
-          </div>
-        </el-col>
-        <el-col :span="24" :lg="8">
+        <!-- <el-col :span="24" :lg="12">
+          <div ref="chartRef" class="distribution-chart" style="width: 100%; height: 400px;"></div>
+        </el-col> -->
+        <el-col :span="24" :lg="12">
+          <!-- 原汇总卡片已注释
           <div class="distribution-summary">
             <div class="summary-item">
               <el-icon class="summary-icon summary-icon-excellent"><Star /></el-icon>
@@ -57,6 +41,12 @@
               </div>
             </div>
           </div>
+          -->
+          <!-- 新增的 ECharts 图表 -->
+          <div ref="statsChartRef" class="stats-chart" style="width: 100%; height: 400px;"></div>
+        </el-col>
+        <el-col :span="24" :lg="12">
+          <div ref="chartRef" class="distribution-chart" style="width: 100%; height: 400px;"></div>
         </el-col>
       </el-row>
     </div>
@@ -64,8 +54,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref, onMounted, watch, nextTick } from 'vue'
 import { DataAnalysis, Star, Select, Minus, WarningFilled } from '@element-plus/icons-vue'
+import * as echarts from 'echarts'
+import type { ECharts } from 'echarts'
 
 interface ScoreItem {
   score: number
@@ -83,6 +75,12 @@ interface ScoreStats {
   poorPercent?: number | string
 }
 
+interface Statistics {
+  totalInfluencers?: number
+  totalReviews?: number
+  todayReviews?: number
+}
+
 defineOptions({
   name: 'ScoreDistributionChart',
 })
@@ -90,24 +88,218 @@ defineOptions({
 const props = defineProps<{
   scoreDistribution: ScoreItem[]
   scoreStats: ScoreStats
+  statistics?: Statistics
 }>()
 
-const getBarWidth = (count: number) => {
-  const maxCount = Math.max(...props.scoreDistribution.map(d => d.count), 1)
-  return Math.min((count / maxCount) * 100, 100)
-}
+const chartRef = ref<HTMLElement>()
+const statsChartRef = ref<HTMLElement>()
+let chartInstance: ECharts | null = null
+let statsChartInstance: ECharts | null = null
 
-const getBarClass = (score: number) => {
-  if (score >= 5) return 'bar-excellent'
-  if (score >= 4) return 'bar-good'
-  if (score >= 3) return 'bar-average'
-  return 'bar-poor'
-}
 
-const getPercent = (count: number) => {
+const initChart = () => {
+  if (!chartRef.value) return
+  
+  // 检查容器高度
+  if (chartRef.value.offsetHeight === 0) {
+    setTimeout(() => initChart(), 100)
+    return
+  }
+  
+  // 销毁旧实例
+  if (chartInstance) {
+    chartInstance.dispose()
+  }
+  
+  chartInstance = echarts.init(chartRef.value)
+  
   const total = props.scoreDistribution.reduce((sum, d) => sum + d.count, 0)
-  return total > 0 ? ((count / total) * 100).toFixed(1) : '0.0'
+  
+  const option = {
+    tooltip: {
+      trigger: 'item',
+      formatter: '{c}个达人 ({d}%)'
+    },
+    legend: {
+      orient: 'vertical',
+      right: '15%',
+      top: 'center',
+      itemGap: 12,
+      itemWidth: 10,
+      itemHeight: 10,
+      textStyle: {
+        fontSize: 13,
+        color: '#333'
+      },
+      formatter: function(name: string) {
+        return name.length > 10 ? name.substring(0, 10) + '...' : name;
+      }
+    },
+    series: [
+      {
+        name: '评分分布',
+        type: 'pie',
+         // roseType: 'area',
+        radius: ['40%', '55%'],
+        center: ['35%', '50%'],
+        avoidLabelOverlap: true,
+        label: {
+          position: 'outside',
+          formatter: (params: any) => {
+            // 通过名称找到对应的分数
+            let score = '';
+            if (params.name === '优秀达人') {
+              score = '5';
+            } else if (params.name === '良好达人') {
+              score = '4';
+            } else if (params.name === '一般达人') {
+              score = '3';
+            } else if (params.name === '待改进') {
+              score = '1-2';
+            }
+            return `${params.name}\n${score}分`
+          },
+          lineHeight: 25,
+          fontSize: 14,
+          color: '#333'
+        },
+        labelLine: {
+          length: 25,
+          length2: 70,
+          maxSurfaceAngle: 90
+        },
+        labelLayout: (params: any) => {
+          const isLeft = params.labelRect.x < chartInstance!.getWidth() / 2
+          const points = params.labelLinePoints
+          // 调整引导线终点
+          points[2][0] = isLeft
+            ? params.labelRect.x
+            : params.labelRect.x + params.labelRect.width
+          
+          // 同时调整标签位置，让文字紧贴线的末端
+          return {
+            labelLinePoints: points,
+            x: points[2][0],
+            verticalAlign: 'middle',
+            align: isLeft ? 'left' : 'right'
+          }
+        },
+        data: props.scoreDistribution.map(item => {
+          let scoreName = '';
+          if (item.score >= 5) {
+            scoreName = '优秀达人';
+          } else if (item.score >= 4) {
+            scoreName = '良好达人';
+          } else if (item.score >= 3) {
+            scoreName = '一般达人';
+          } else {
+            scoreName = '待改进';
+          }
+          return {
+            name: `${scoreName}`,
+            value: item.count,
+          };
+        })
+      }
+    ]
+  }
+  
+  chartInstance.setOption(option)
 }
+
+const initStatsChart = () => {
+  if (!statsChartRef.value) return
+  
+  if (statsChartRef.value.offsetHeight === 0) {
+    setTimeout(() => initStatsChart(), 100)
+    return
+  }
+  
+  if (statsChartInstance) {
+    statsChartInstance.dispose()
+  }
+  
+  statsChartInstance = echarts.init(statsChartRef.value)
+  
+  // 使用正确的数据源
+  // 已评价达人数 = 后端统计的唯一达人数量
+  const totalInfluencers = props.statistics?.totalInfluencers || 0
+  // 总评价数 = 所有评价记录数
+  const totalReviews = props.statistics?.totalReviews || 0
+  // 优质达人数 = 4-5分的达人数
+  const highScoreInfluencers = (props.scoreStats.excellentCount || 0) + (props.scoreStats.goodCount || 0)
+  // 今日新增评价数
+  const todayReviews = props.statistics?.todayReviews || 0
+  
+  const option = {
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      }
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    xAxis: {
+      type: 'category',
+      data: ['总评价数', '已评价达人', '优质达人(4-5分)', '今日新增'],
+      axisLabel: {
+        fontSize: 12,
+        color: '#666'
+      }
+    },
+    yAxis: {
+      type: 'value',
+      axisLabel: {
+        fontSize: 12,
+        color: '#666'
+      }
+    },
+    series: [
+      {
+        name: '统计数据',
+        type: 'bar',
+        data: [
+          totalReviews,
+          totalInfluencers,
+          highScoreInfluencers,
+          todayReviews
+        ],
+        label: {
+          show: true,
+          position: 'top',
+          fontSize: 12,
+          color: '#333'
+        }
+      }
+    ]
+  }
+  
+  statsChartInstance.setOption(option)
+}
+
+onMounted(() => {
+  nextTick(() => {
+    initChart()
+    initStatsChart()
+  })
+  
+  window.addEventListener('resize', () => {
+    chartInstance?.resize()
+    statsChartInstance?.resize()
+  })
+})
+
+watch(() => props.scoreDistribution, () => {
+  nextTick(() => {
+    initChart()
+    initStatsChart()
+  })
+}, { deep: true })
 </script>
 
 <style scoped lang="scss">
@@ -116,7 +308,7 @@ const getPercent = (count: number) => {
   border-radius: 8px;
 
   :deep(.el-card__body) {
-    padding: 24px;
+    padding-top: 24px;
   }
 }
 
@@ -137,85 +329,14 @@ const getPercent = (count: number) => {
 
 .distribution-content {
   .distribution-chart {
-    padding: 0;
-  }
-
-  .chart-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  .chart-label {
-    width: 140px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-  }
-
-  .score-text {
-    font-weight: 500;
-    color: #4b5563;
-  }
-
-  .chart-bar-wrapper {
-    flex: 1;
-    height: 32px;
-    background: #f3f4f6;
-    border-radius: 6px;
-    overflow: hidden;
-  }
-
-  .chart-bar {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 12px;
-    transition: width 0.3s ease;
-    border-radius: 6px;
-
-    &.bar-excellent {
-      background: linear-gradient(90deg, #34d399, #10b981);
-    }
-
-    &.bar-good {
-      background: linear-gradient(90deg, #60a5fa, #3b82f6);
-    }
-
-    &.bar-average {
-      background: linear-gradient(90deg, #fbbf24, #f59e0b);
-    }
-
-    &.bar-poor {
-      background: linear-gradient(90deg, #f87171, #ef4444);
-    }
-  }
-
-  .bar-count {
-    color: white;
-    font-size: 13px;
-    font-weight: 500;
-    white-space: nowrap;
-  }
-
-  .chart-percent {
-    width: 60px;
-    text-align: right;
-    font-size: 14px;
-    font-weight: 500;
-    color: #6b7280;
+    padding: 0px 0;
+    min-height: 400px;
   }
 
   .distribution-summary {
     padding: 16px;
-    background: #f9fafb;
+    background: #0c76df;
+    // background: #f9fafb;
     border-radius: 8px;
   }
 

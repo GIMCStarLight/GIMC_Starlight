@@ -11,6 +11,7 @@
             :pagination="false"
             :row-selection="selectedRows !== undefined ? rowSelection : null"
             :scroll="{ x: 'max-content' }"
+            @change="handleTableChange"
         >
             <!-- 自定义单元格插槽 -->
             <template #bodyCell="{ text, record, index, column }">
@@ -66,7 +67,8 @@ const emit = defineEmits([
     'selectedRowChange',
     'expandChange',
     'change',
-    'clear'
+    'clear',
+    'sortChange'
 ])
 
 // 分页相关
@@ -116,6 +118,17 @@ function onPageSizeChange(current, size) {
     emit('change', { ...props.pagination, current: 1, pageSize: size })
 }
 
+/* ---------- 表格变化(排序) ---------- */
+function handleTableChange(pagination, filters, sorter) {
+    // 触发排序事件
+    if (sorter && sorter.field) {
+        emit('sortChange', {
+            prop: sorter.field,
+            order: sorter.order === 'ascend' ? 'ascending' : sorter.order === 'descend' ? 'descending' : null
+        })
+    }
+}
+
 /* ---------- Ant Design 列配置转换 ---------- */
 const antColumns = computed(() => {
     return props.columns.map(col => ({
@@ -130,7 +143,7 @@ const antColumns = computed(() => {
             title: '点击排序'
         } : false,
         customRender: col.formatter ? ({ text, record }) => col.formatter(record, null, text) : undefined,
-        ellipsis: true,
+        ellipsis: col.ellipsis !== undefined ? col.ellipsis : true,
         fixed: col.fixed
     }))
 })

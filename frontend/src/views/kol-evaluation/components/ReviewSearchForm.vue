@@ -1,18 +1,19 @@
 <template>
   <el-card class="search-card" shadow="never">
     <div class="search-header">
-      <el-icon class="search-icon"><Filter /></el-icon>
-      <span class="search-title">筛选条件</span>
+      <!-- <el-icon class="search-icon"><Filter /></el-icon> -->
+      <!-- <span class="search-title">快速搜索</span> -->
     </div>
     <el-form :model="formData" label-width="80px">
       <el-row :gutter="16">
         <el-col :xs="24" :sm="12" :md="8" :lg="6">
-          <el-form-item label="达人 ID">
+          <el-form-item label="达人 ID" class="no-label-width">
             <el-input
               v-model="formData.authorId"
               placeholder="请输入达人 ID"
               clearable
               prefix-icon="Search"
+              style="width: 100%"
               @input="handleInput"
             />
           </el-form-item>
@@ -24,6 +25,7 @@
               placeholder="请输入评价人"
               clearable
               prefix-icon="User"
+              style="width: 100%"
               @input="handleInput"
             />
           </el-form-item>
@@ -34,6 +36,7 @@
               v-model="formData.scoreRange"
               placeholder="请选择评分"
               clearable
+              style="width: 100%"
               @change="handleInput"
             >
               <el-option label="⭐ 1分" value="1-1" />
@@ -64,18 +67,20 @@
       </el-row>
       <el-row>
         <el-col :span="24" class="search-actions">
-          <el-button type="primary" @click="handleSearch" :loading="loading">
-            <el-icon><Search /></el-icon>
-            搜索
-          </el-button>
-          <el-button @click="handleReset">
-            <el-icon><Refresh /></el-icon>
-            重置
-          </el-button>
           <div class="search-stats">
-            <el-tag v-if="(total ?? 0) > 0" type="info" size="large">
-              找到 <strong>{{ total }}</strong> 条评价
-            </el-tag>
+            <span class="result-count">
+              共找到 <strong>{{ total || 0 }}</strong> 条评价
+            </span>
+          </div>
+          <div class="search-buttons">
+            <el-button type="primary" @click="handleSearch" :loading="loading">
+              <el-icon><Search /></el-icon>
+              搜索
+            </el-button>
+            <el-button @click="handleReset">
+              <el-icon><Refresh /></el-icon>
+              重置
+            </el-button>
           </div>
         </el-col>
       </el-row>
@@ -173,6 +178,11 @@ watch(() => props.modelValue, (newVal) => {
   margin-bottom: 16px;
   border-radius: 8px;
 
+  :deep(.el-card) {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
   :deep(.el-card__body) {
     padding: 20px;
   }
@@ -196,16 +206,25 @@ watch(() => props.modelValue, (newVal) => {
 .search-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
   padding-top: 8px;
 
   .search-stats {
-    margin-left: auto;
+    .result-count {
+      font-size: 14px;
+      color: #606266;
+      strong {
+        font-size: 18px;
+          font-weight: 600;
+          color: var(--el-color-primary);
+          margin: 0 4px;
+      }
+      }
+  }
 
-    strong {
-      color: #3b82f6;
-      font-size: 16px;
-    }
+  .search-buttons {
+    display: flex;
+    gap: 12px;
   }
 }
 
@@ -215,5 +234,12 @@ watch(() => props.modelValue, (newVal) => {
 
 :deep(.el-button) {
   min-width: 100px;
+}
+
+.no-label-width {
+  :deep(.el-form-item__label) {
+    width: auto !important;
+    min-width: auto !important;
+  }
 }
 </style>
