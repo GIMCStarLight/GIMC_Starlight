@@ -1,0 +1,42 @@
+# 日志目录
+dev-logs/
+logs/
+*.log
+*.log.*
+
+# 数据目录
+data/
+backups/
+
+# 备份文件
+*.backup
+*.dump
+*.sql.gz
+*.sql.bak
+backup_*.sql
+dump_*.sql
+
+# SSH 密钥文件(保护敏感信息)
+*.pem
+*.key
+*_id_rsa
+*_id_ed25519
+*_id_ecdsa
+id_rsa*
+id_ed25519*
+id_ecdsa*
+!*.pub
+
+# 临时文件
+*.tmp
+*.temp
+*.bak
+tmp/
+temp/
+
+# 压缩文件
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
