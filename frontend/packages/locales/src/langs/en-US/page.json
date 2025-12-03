@@ -145,5 +145,59 @@
   "policyManagement": {
     "title": "Policy Management",
     "policyVersionManagement": "Policy Version Management"
+  },
+  "workOrder": {
+    "title": "Work Order Management",
+    "list": "Work Order List",
+    "create": "Create Work Order",
+    "detail": "Work Order Detail",
+    "edit": "Edit Work Order",
+    "delete": "Delete Work Order",
+    "all": "All Work Orders",
+    "myCreated": "Created by Me",
+    "assignedToMe": "Assigned to Me",
+    "title_field": "Work Order Title",
+    "type": "Transaction Type",
+    "status": "Status",
+    "priority": "Priority",
+    "description": "Description",
+    "modules": "Related Modules",
+    "creator": "Creator",
+    "assignee": "Assignee",
+    "createdAt": "Created At",
+    "updatedAt": "Updated At",
+    "expectedCompletionAt": "Expected Completion",
+    "statistics": {
+      "total": "Total",
+      "pending": "Pending",
+      "received": "Received",
+      "inProgress": "In Progress",
+      "completed": "Completed",
+      "myCreated": "Created by Me",
+      "assignedToMe": "Assigned to Me"
+    },
+    "types": {
+      "new_feature": "New Feature",
+      "system_refactor": "System Refactor",
+      "bug_fix": "Bug Fix",
+      "optimization": "Optimization",
+      "requirement_change": "Requirement Change",
+      "other": "Other"
+    },
+    "statuses": {
+      "pending": "Pending",
+      "received": "Received",
+      "in_progress": "In Progress",
+      "testing": "Testing",
+      "completed": "Completed",
+      "rejected": "Rejected",
+      "cancelled": "Cancelled"
+    },
+    "priorities": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "urgent": "Urgent"
+    }
   }
 }

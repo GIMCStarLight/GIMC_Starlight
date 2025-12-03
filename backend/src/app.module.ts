@@ -45,6 +45,7 @@ import { SupplierDatabaseModule } from './modules/supplier-database/supplier-dat
 import { InfluencerV2Module } from './modules/influencer-v2/influencer-v2.module';
 import { UploadModule } from './modules/upload/upload.module';
 import { InfluencerManagementModule } from './modules/influencer-management/influencer-management.module';
+import { WorkOrderModule } from './modules/work-order/work-order.module';
 
 /**
  * 主应用模块
@@ -157,6 +158,7 @@ import { InfluencerManagementModule } from './modules/influencer-management/infl
     InfluencerV2Module,
     UploadModule,
     InfluencerManagementModule,
+    WorkOrderModule,
   ],
   controllers: [AppController],
   providers: [AppService],

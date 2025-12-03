@@ -1,7 +1,13 @@
 <template>
   <div class="influencer-management">
-    <!-- 顶部操作栏 -->
-    <KolActionBar 
+    <!-- Tab切换: 省广达人库 / 已建联达人 -->
+    <el-tabs v-model="activeTab" class="kol-tabs" @tab-change="handleTabChange">
+      <!-- Tab 1: 省广达人库 -->
+      <el-tab-pane label="省广达人库" name="sgkol">
+        <keep-alive>
+          <div v-if="activeTab === 'sgkol'" class="tab1-content">
+        <!-- 顶部操作栏 -->
+        <KolActionBar 
       :selected-count="selectedDouyinRows.length"
       :batch-syncing="batchSyncing"
       :retrying="retrying"
@@ -69,7 +75,7 @@
           </template>
         </el-table-column>
         <el-table-column prop="account_id" label="账号ID" width="140" show-overflow-tooltip />
-        <el-table-column prop="org_name" label="机构名" width="130" show-overflow-tooltip>
+        <el-table-column prop="org_name" label="达人属性" width="130" show-overflow-tooltip>
           <template #default="{ row }">
             <span v-if="row.org_name" class="org-name">{{ row.org_name }}</span>
             <span v-else class="text-gray">-</span>
@@ -212,6 +218,82 @@
       @edit="handleDetailEdit"
       @sync-updated="handleSyncUpdated"
     />
+          </div>
+        </keep-alive>
+      </el-tab-pane>
+
+      <!-- Tab 2: 已建联达人 -->
+      <el-tab-pane label="已建联达人" name="matched">
+        <div class="matched-influencers-container">
+          <el-alert
+            title="此页面展示从抖音达人广场中筛选出的已建立合作关系的达人"
+            type="info"
+            :closable="false"
+            show-icon
+            class="tab-tip"
+          />
+          
+          <!-- 筛选组件 -->
+          <DouyinQuickFilter 
+            v-if="activeTab === 'matched'"
+            @filter-change="handleTab2FilterChange" 
+          />
+
+          <!-- 工具栏 -->
+          <div class="display-toolbar">
+            <div class="toolbar-left">
+              <span class="result-count">
+                找到 <strong>{{ tab2TotalCount }}</strong> 位已建联达人
+              </span>
+            </div>
+            <div class="toolbar-right">
+              <!-- 视图切换 -->
+              <div class="toolbar-group">
+                <span class="group-label">视图</span>
+                <el-select v-model="tab2ViewMode" size="default" style="width: 100px">
+                  <el-option label="卡片" value="card" />
+                  <el-option label="列表" value="table" />
+                </el-select>
+              </div>
+              
+              <!-- 卡片尺寸 -->
+              <div v-if="tab2ViewMode === 'card'" class="toolbar-group">
+                <span class="group-label">尺寸</span>
+                <el-select v-model="tab2CardSize" size="default" style="width: 100px">
+                  <el-option label="紧凑" value="compact" />
+                  <el-option label="标准" value="standard" />
+                  <el-option label="详细" value="detailed" />
+                </el-select>
+              </div>
+            </div>
+          </div>
+
+          <!-- 达人列表 -->
+          <DouyinGrid
+            v-if="activeTab === 'matched'"
+            :view-mode="tab2ViewMode"
+            :card-size="tab2CardSize"
+            :loading="tab2Loading"
+            platform="douyin"
+            @update-data="updateTab2Data"
+            @evaluate="handleEvaluate"
+          />
+
+          <!-- 分页 -->
+          <div class="pagination-container">
+            <el-pagination
+              v-model:current-page="tab2CurrentPage"
+              v-model:page-size="tab2PageSize"
+              :page-sizes="[20, 40, 60, 100]"
+              :total="tab2TotalCount"
+              layout="total, sizes, prev, pager, next, jumper"
+              @size-change="handleTab2SizeChange"
+              @current-change="handleTab2PageChange"
+            />
+          </div>
+        </div>
+      </el-tab-pane>
+    </el-tabs>
   </div>
 </template>
 
@@ -235,8 +317,113 @@ import KolQuickFilters from './components/KolQuickFilters.vue'
 import { log } from '../../utils/logger'
 import KolActionBar from './components/KolActionBar.vue'
 import SyncStatsCards from './components/SyncStatsCards.vue'
+import DouyinQuickFilter from '../influencer-authors/components/platform-filters/DouyinQuickFilter.vue'
+import DouyinGrid from '../influencer-authors/components/platform-grids/DouyinGrid.vue'
+import { useInfluencerSquareStore } from '../../store'
 
 const router = useRouter()
+
+// Tab切换状态
+const activeTab = ref('sgkol') // 默认显示Tab1(省广达人库)
+
+// Tab2(已建联达人)状态
+const tab2ViewMode = ref<'card' | 'table'>('card')
+const tab2CardSize = ref<'compact' | 'standard' | 'detailed'>('standard')
+const tab2Loading = ref(false)
+const tab2CurrentPage = ref(1)
+const tab2PageSize = ref(20)
+const tab2TotalCount = ref(0)
+const tab2Filters = ref<any>({})
+
+// Tab2使用influencer store
+const influencerStore = useInfluencerSquareStore()
+
+// Tab切换处理
+const handleTabChange = (tabName: string) => {
+  log.debug('[Tab切换]', tabName)
+  
+  // 切换到Tab2时,自动设置已建联筛选
+  if (tabName === 'matched') {
+    // 初始化Tab2筛选条件
+    tab2Filters.value = { 
+      platform: 'douyin',
+      matchedOnly: true // 关键: 只显示已建联达人
+    }
+    
+    // 设置influencer store的状态
+    influencerStore.setFilters(tab2Filters.value)
+    influencerStore.setCurrentPage(tab2CurrentPage.value)
+    influencerStore.setPageSize(tab2PageSize.value)
+    
+    // 加载数据
+    tab2Loading.value = true
+    influencerStore.loadInfluencers().finally(() => {
+      tab2Loading.value = false
+      // 更新总数
+      tab2TotalCount.value = influencerStore.totalCount
+    })
+  }
+  // 切换到Tab1时,不影响原有逻辑
+}
+
+// Tab2筛选变化处理
+const handleTab2FilterChange = (filters: any) => {
+  log.debug('[Tab2筛选变化]', filters)
+  
+  // 合并筛选条件,强制保持platform=douyin和matchedOnly=true
+  tab2Filters.value = {
+    ...filters,
+    platform: 'douyin',
+    matchedOnly: true // 保持已建联筛选
+  }
+  
+  // 更新store状态
+  influencerStore.setFilters(tab2Filters.value)
+  influencerStore.setCurrentPage(1) // 筛选变化后重置到第一页
+  tab2CurrentPage.value = 1
+  
+  // 加载数据
+  tab2Loading.value = true
+  influencerStore.loadInfluencers().finally(() => {
+    tab2Loading.value = false
+    tab2TotalCount.value = influencerStore.totalCount
+  })
+}
+
+// Tab2数据更新回调
+const updateTab2Data = () => {
+  tab2TotalCount.value = influencerStore.totalCount
+  log.debug('[Tab2数据更新]', {
+    totalCount: tab2TotalCount.value,
+    influencersCount: influencerStore.influencers.length
+  })
+}
+
+// Tab2分页处理
+const handleTab2PageChange = (page: number) => {
+  tab2CurrentPage.value = page
+  influencerStore.setCurrentPage(page)
+  
+  tab2Loading.value = true
+  influencerStore.loadInfluencers().finally(() => {
+    tab2Loading.value = false
+    tab2TotalCount.value = influencerStore.totalCount
+  })
+}
+
+const handleTab2SizeChange = (size: number) => {
+  tab2PageSize.value = size
+  tab2CurrentPage.value = 1
+  
+  influencerStore.setPageSize(size)
+  influencerStore.setCurrentPage(1)
+  
+  tab2Loading.value = true
+  influencerStore.loadInfluencers().finally(() => {
+    tab2Loading.value = false
+    tab2TotalCount.value = influencerStore.totalCount
+  })
+}
 
 // 导航到导入历史页面
 const navigateToImportHistory = () => {
@@ -844,6 +1031,103 @@ onMounted(() => {
 .influencer-management {
   padding: 20px;
   background: var(--el-bg-color-page);
+}
+
+/* ===== Tab切换样式 ===== */
+.kol-tabs {
+  background: #fff;
+  padding: 0 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.05);
+}
+
+.kol-tabs :deep(.el-tabs__header) {
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--el-border-color-light);
+}
+
+.kol-tabs :deep(.el-tabs__item) {
+  font-size: 15px;
+  font-weight: 500;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 24px;
+}
+
+.kol-tabs :deep(.el-tabs__nav-wrap::after) {
+  display: none;
+}
+
+.kol-tabs :deep(.el-tab-pane) {
+  padding: 20px 0;
+}
+
+/* Tab2容器样式 */
+.matched-influencers-container {
+  min-height: 400px;
+}
+
+.tab-tip {
+  margin-bottom: 20px;
+}
+
+.placeholder-content {
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Tab2工具栏 */
+.display-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  margin-bottom: 16px;
+}
+
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.group-label {
+  font-size: 14px;
+  color: var(--el-text-color-secondary);
+  white-space: nowrap;
+}
+
+.result-count {
+  font-size: 14px;
+  color: var(--el-text-color-regular);
+}
+
+.result-count strong {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--el-color-primary);
+  margin: 0 4px;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  margin-top: 24px;
 }
 
 /* ===== 顶部操作栏 ===== */
