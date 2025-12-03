@@ -1,39 +1,55 @@
-# 项目根 .gitignore（macOS / Node / Python / 通用）
+# 项目根 .gitignore(macOS / Node / Python / 通用)
 
 # 操作系统与编辑器
 .DS_Store
 Thumbs.db
 *.swp
 *.swo
+*.bak
 .idea/
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
 !.vscode/tasks.json
 !.vscode/launch.json
- .history/
+.history/
+.cursor/
+*.sublime-project
+*.sublime-workspace
 
 # 通用缓存与日志
 *.log
+*.log.*
 logs/
 tmp/
 temp/
 .cache/
 .tmp/
 .temp/
- .prettiercache
- .pnpm-store/
- **/.cache/
- **/coverage/
- **/dist/
- **/build/
- .venv/
- venv/
+.prettiercache
+.pnpm-store/
+**/.cache/
+**/coverage/
+**/dist/
+**/build/
+.venv/
+venv/
+*.pid
+*.seed
+*.pid.lock
 
-# 环境变量与密钥（示例文件除外）
+# 环境变量与密钥(示例文件除外)
 .env
 .env.*
 !.env.example
+!.env.development
+!.env.production
+!.env.preview
+!.env.analyze
+*.env.local
+*.env.backup
+*.env.bak
+.env.bak.*
 
 # TypeScript 构建
 *.tsbuildinfo
@@ -41,26 +57,41 @@ temp/
 # Node/JS 通用
 node_modules/
 dist/
+dist-ssr/
 build/
 coverage/
 .eslintcache
+.stylelintcache
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
 turbo/
- .turbo/
- *.tgz
- .vercel/
+.turbo/
+*.tgz
+.vercel/
+.nitro/
+.output/
+yarn.lock
+package-lock.json
 
 # 数据库本地文件与备份
 *.sqlite
 *.sqlite3
 *.db
+*.db-shm
+*.db-wal
 backend/postgres-backups/
+postgres-backups/
+**/postgres-backups/
 *.sql.gz
+*.sql.bak
 *.backup
 *.dump
+*.bak.sql
+backup_*.sql
+dump_*.sql
 
 # 后端（NestJS）
 backend/node_modules/
@@ -90,9 +121,13 @@ frontend/.env.*
 !frontend/.env.production
 !frontend/.env.analyze
 
-# 爬虫（Python）
-crawler/__pycache__/
-crawler/**/__pycache__/
+# 爬虫(Python)
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
 crawler/.pytest_cache/
 crawler/.ruff_cache/
 crawler/.coverage
@@ -103,48 +138,96 @@ crawler/.env
 crawler/config/.env
 crawler/*.log
 crawler/logs/
- crawler/**/logs/
+crawler/**/logs/
 crawler/output/
 crawler/results/
 crawler/reports/
 crawler/.ipynb_checkpoints/
+*.ipynb_checkpoints/
+htmlcov/
+coverage.xml
+.tox/
+.pytest_cache/
 
-# 爬虫账号缓存与浏览器配置（敏感数据）
+# 爬虫账号缓存与浏览器配置(敏感数据)
 crawler/config/accounts/account_*/
 crawler/config/accounts/account_1/
 crawler/config/accounts/account_2/
 crawler/config/accounts/account_3/
 crawler/config/accounts/legacy_cookies/
 crawler/config/cookies.txt
+crawler/**/user_data_dir/
+crawler/**/browser_cache/
+crawler/**/Default/
+crawler/**/Cache/
+crawler/**/Code Cache/
+crawler/**/GPUCache/
+crawler/**/*.crdownload
+crawler/**/*.tmp
 
-# 爬虫优化失败版（不跟踪）
+# 爬虫优化失败版(不跟踪)
 crawler_优化失败版/
- 
- # 爬虫报告与结果目录（顶层与嵌套全部忽略）
- crawler/report/
- crawler/result/
- crawler/reports/
- crawler/results/
- crawler/**/report/
- crawler/**/result/
- crawler/**/reports/
- crawler/**/results/
- *.pyc
- *.pyo
- *.pyd
- htmlcov/
- coverage.xml
+
+# 爬虫报告与结果目录(顶层与嵌套全部忽略)
+crawler/report/
+crawler/result/
+crawler/reports/
+crawler/results/
+crawler/**/report/
+crawler/**/result/
+crawler/**/reports/
+crawler/**/results/
+*.pyc
+*.pyo
+*.pyd
 
 # 其它大型或生成数据
 others/dev-logs/
 others/data/
 others/logs/
+others/backups/
+others/*.backup
+others/*.dump
 
-# 文档文件（按要求忽略）
+# SSH密钥文件
+*.pem
+*.key
+*_id_rsa
+*_id_ed25519
+*_id_ecdsa
+id_rsa*
+id_ed25519*
+id_ecdsa*
+!*.pub
+
+# 压缩文件与归档
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+dist.zip
+dist.tar
+*-dist.zip
+*-dist.tar
+
+# 临时数据与测试文件
+test-data/
+test-output/
+*.test.local
+*.spec.local
+
+# PM2日志与配置
+pm2.log
+pm2-error.log
+.pm2/
+
+# 文档文件(按要求忽略)
 *.md
 *.MD
 
 # whitelist project docs (override md ignore)
 !README.md
-!docs/github-setup.md
-!.github/pull_request_template.md
+!docs/**/*.md
+!.github/**/*.md
+!crawler/docs/**/*.md
