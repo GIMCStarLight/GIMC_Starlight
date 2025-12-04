@@ -13,7 +13,9 @@ const loading = ref(false)
 const rawData = ref<Record<string, any>>({})
 const activeTab = ref('overview')
 const radarChartRef = ref<HTMLElement | null>(null)
+const priceCpmChartRef = ref<HTMLElement | null>(null)
 let radarChart: echarts.ECharts | null = null
+let priceCpmChart: echarts.ECharts | null = null
 
 // 加载达人完整数据
 const loadInfluencerFullData = async () => {
@@ -216,7 +218,7 @@ const formatContactInfo = (info: any): string => {
 // 初始化雷达图
 const initRadarChart = () => {
   if (!radarChartRef.value || radarChartRef.value.offsetHeight === 0) return
-  
+
   if (radarChart) radarChart.dispose()
   radarChart = echarts.init(radarChartRef.value)
 
@@ -234,11 +236,174 @@ const initRadarChart = () => {
   })
 }
 
-// 监听activeTab变化,切换到overview时初始化图表
+// 初始化价格CPM对比图
+const initPriceCpmChart = () => {
+  if (!priceCpmChartRef.value || priceCpmChartRef.value.offsetHeight === 0) return
+
+  if (priceCpmChart) priceCpmChart.dispose()
+  priceCpmChart = echarts.init(priceCpmChartRef.value)
+
+  const priceData = [
+    Number(pricingData.value.price1To20.replace(/[^\d]/g, '') || 0),
+    Number(pricingData.value.price20To60.replace(/[^\d]/g, '') || 0),
+    Number(pricingData.value.price60Plus.replace(/[^\d]/g, '') || 0)
+  ]
+
+  const cpmData = [
+    Number(rawData.value.prospective_1_20_cpm || 0),
+    Number(rawData.value.prospective_20_60_cpm || 0),
+    Number(rawData.value.prospective_60_cpm || 0)
+  ]
+
+  const option = {
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      },
+      formatter: function(params: any) {
+        let result = params[0].name + '<br/>'
+        params.forEach((item: any) => {
+          if (item.seriesName === '报价') {
+            result += `${item.marker}${item.seriesName}: ¥${item.value.toLocaleString()}<br/>`
+          } else {
+            result += `${item.marker}${item.seriesName}: ¥${item.value}<br/>`
+          }
+        })
+        return result
+      }
+    },
+    legend: {
+      data: ['报价', '预期CPM'],
+      top: 10
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    xAxis: {
+      type: 'category',
+      data: ['1-20秒', '20-60秒', '60秒+'],
+      axisLabel: {
+        fontSize: 12
+      }
+    },
+    yAxis: [
+      {
+        type: 'value',
+        name: '报价(元)',
+        position: 'left',
+        axisLabel: {
+          fontSize: 12,
+          formatter: function(value: number) {
+            if (value >= 10000) {
+              return (value / 10000).toFixed(1) + 'w'
+            } else if (value >= 1000) {
+              return (value / 1000).toFixed(1) + 'k'
+            }
+            return value.toString()
+          }
+        },
+        nameTextStyle: {
+          color: '#188df0'
+        },
+        splitLine: {
+          show: false
+        }
+      },
+      {
+        type: 'value',
+        name: 'CPM(元)',
+        position: 'right',
+        axisLabel: {
+          fontSize: 12,
+          formatter: function(value: number) {
+            return value.toString()
+          }
+        },
+        nameTextStyle: {
+          color: '#52c41a'
+        },
+        splitLine: {
+          show: false
+        }
+      }
+    ],
+    series: [
+      {
+        name: '报价',
+        type: 'bar',
+        yAxisIndex: 0,
+        data: priceData,
+        barWidth: '25%',
+        barMaxWidth: 40,
+        itemStyle: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: '#188df0' },
+            { offset: 1, color: '#83bff6' }
+          ])
+        },
+        label: {
+          show: true,
+          position: 'top',
+          fontSize: 11,
+          color: '#188df0',
+          padding: [0, 0, 8, 0],
+          backgroundColor: 'rgba(82, 196, 26, 0.1)',
+          borderRadius: 4,
+          formatter: function(params: any) {
+            if (params.value >= 10000) {
+              return (params.value / 10000).toFixed(1) + 'w'
+            } else if (params.value >= 1000) {
+              return (params.value / 1000).toFixed(1) + 'k'
+            }
+            return params.value.toString()
+          }
+        }
+      },
+      {
+        name: '预期CPM',
+        type: 'bar',
+        yAxisIndex: 1,
+        data: cpmData,
+        barWidth: '25%',
+        barMaxWidth: 40,
+        itemStyle: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: '#52c41a' },
+            { offset: 1, color: '#95de64' }
+          ])
+        },
+        label: {
+          show: true,
+          position: 'top',
+          fontSize: 11,
+          color: '#52c41a',
+          padding: [0, 0, 8, 0],
+          backgroundColor: 'rgba(82, 196, 26, 0.1)',
+          borderRadius: 4,
+          formatter: function(params: any) {
+            return params.value.toString()
+          }
+        }
+      }
+    ]
+  }
+
+  priceCpmChart.setOption(option)
+}
+
+// 监听activeTab变化,切换到对应tab时初始化图表
 watch(activeTab, (newVal) => {
   if (newVal === 'overview') {
     nextTick(() => {
       setTimeout(initRadarChart, 100)
+    })
+  } else if (newVal === 'pricing') {
+    nextTick(() => {
+      setTimeout(initPriceCpmChart, 100)
     })
   }
 })
@@ -253,10 +418,19 @@ onMounted(async () => {
   if (activeTab.value === 'overview') {
     nextTick(() => setTimeout(initRadarChart, 100))
   }
+
+  // 添加窗口resize监听
+  window.addEventListener('resize', () => {
+    radarChart?.resize()
+    priceCpmChart?.resize()
+  })
 })
 
 onUnmounted(() => {
   radarChart?.dispose()
+  priceCpmChart?.dispose()
+  // 移除resize监听器
+  window.removeEventListener('resize', () => {})
 })
 </script>
 
@@ -392,28 +566,88 @@ onUnmounted(() => {
           <!-- Tab 2: 价格与ROI -->
           <el-tab-pane label="价格与ROI" name="pricing">
             <div class="tab-content">
-              <div class="data-module">
-                <h3 class="module-title">💵 报价体系</h3>
-                <el-descriptions :column="3" border size="large">
-                  <el-descriptions-item label="1-20秒报价">¥{{ pricingData.price1To20 }}</el-descriptions-item>
-                  <el-descriptions-item label="20-60秒报价">¥{{ pricingData.price20To60 }}</el-descriptions-item>
-                  <el-descriptions-item label="60秒+报价">¥{{ pricingData.price60Plus }}</el-descriptions-item>
-                </el-descriptions>
-              </div>
+              <el-row :gutter="16">
+                <el-col :span="24" :lg="12">
+                  <div class="data-module">
+                    <!-- <h3 class="module-title">💵 价格CPM对比</h3> -->
+                    <div ref="priceCpmChartRef" class="price-cpm-chart" style="width: 100%; height: 400px;"></div>
+                  </div>
+                </el-col>
+                <el-col :span="24" :lg="12">
+                  <div class="data-module">
+                    <h3 class="module-title">预期数据</h3>
+                    <el-row :gutter="12" class="status-info">
+                      <el-col :span="12">
+                        <el-card shadow="never">
+                          <div class="price-info-item">
+                            <span class="price-info-label">预期播放量</span>
+                            <div class="price-info-value">
+                              <span class="price-amount">
+                                <span class="price-number">{{ pricingData.expectedPlayNum || '-' }}</span>
+                              </span>
+                            </div>
+                          </div>
+                        </el-card>
+                      </el-col>
+                      <el-col :span="12">
+                        <el-card shadow="never">
+                          <div class="price-info-item">
+                            <span class="price-info-label">预期自然播放量</span>
+                            <div class="price-info-value">
+                              <span class="price-amount">
+                                <span class="price-number">{{ formatNumber(rawData.expected_natural_play_num) || '-' }}</span>
+                              </span>
+                            </div>
+                          </div>
+                        </el-card>
+                      </el-col>
+                    </el-row>
 
-              <div class="data-module" style="margin-top: 20px;">
-                <h3 class="module-title">📊 预期数据</h3>
-                <el-descriptions :column="2" border>
-                  <el-descriptions-item label="预期播放量">{{ pricingData.expectedPlayNum }}</el-descriptions-item>
-                  <el-descriptions-item label="预期自然播放量">{{ formatNumber(rawData.expected_natural_play_num) }}</el-descriptions-item>
-                  <el-descriptions-item label="推广预期播放量">{{ pricingData.prospectiveVv }}</el-descriptions-item>
-                  <el-descriptions-item label="CPM建议价格">¥{{ rawData.assign_cpm_suggest_price }}</el-descriptions-item>
-                  <el-descriptions-item label="1-20秒预期CPM">¥{{ Number(rawData.prospective_1_20_cpm || 0).toFixed(2) }}</el-descriptions-item>
-                  <el-descriptions-item label="20-60秒预期CPM">¥{{ Number(rawData.prospective_20_60_cpm || 0).toFixed(2) }}</el-descriptions-item>
-                  <el-descriptions-item label="60秒+预期CPM">¥{{ Number(rawData.prospective_60_cpm || 0).toFixed(2) }}</el-descriptions-item>
-                  <el-descriptions-item label="预期CPA等级">{{ rawData.expected_cpa3_level }}</el-descriptions-item>
-                </el-descriptions>
-              </div>
+                    <el-row :gutter="12" class="status-info">
+                      <el-col :span="12">
+                        <el-card shadow="never">
+                          <div class="price-info-item">
+                            <span class="price-info-label">推广预期播放量</span>
+                            <div class="price-info-value">
+                              <span class="price-amount">
+                                <span class="price-number">{{ pricingData.prospectiveVv || '-' }}</span>
+                              </span>
+                            </div>
+                          </div>
+                        </el-card>
+                      </el-col>
+                      <el-col :span="12">
+                        <el-card shadow="never">
+                          <div class="price-info-item">
+                            <span class="price-info-label">CPM建议价格</span>
+                            <div class="price-info-value">
+                              <span class="price-amount">
+                                ¥<span class="price-number">{{ rawData.assign_cpm_suggest_price || '-' }}</span>
+                              </span>
+                            </div>
+                          </div>
+                        </el-card>
+                      </el-col>
+                    </el-row>
+
+                    <el-row :gutter="12" class="status-info">
+                      <el-col :span="12">
+                        <el-card shadow="never">
+                          <div class="price-info-item">
+                            <span class="price-info-label">预期CPA等级</span>
+                            <div class="price-info-value">
+                              <span class="price-amount">
+                                <span class="price-number">{{ rawData.expected_cpa3_level || '-' }}</span>
+                              </span>
+                            </div>
+                          </div>
+                        </el-card>
+                      </el-col>
+                      
+                    </el-row>
+                  </div>
+                </el-col>
+              </el-row>
             </div>
           </el-tab-pane>
 
@@ -983,5 +1217,42 @@ onUnmounted(() => {
 /* Tab容器左右padding与内容保持一致 */
 :deep(.el-tabs__header) {
   padding: 0 20px;
+}
+
+/* 预期数据卡片样式 */
+.status-info {
+  margin-top: 12px;
+}
+
+.price-info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-info-label {
+  color: #909399;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.price-info-value {
+  margin-top: 4px;
+}
+
+.price-amount {
+  font-size: 18px;
+  font-weight: 400;
+  color: #409eff;
+}
+
+.price-amount .price-number {
+  margin-left: 2px;
+}
+
+.price-amount.empty {
+  font-size: 16px;
+  color: #999;
+  font-weight: 500;
 }
 </style>

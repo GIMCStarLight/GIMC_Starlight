@@ -142,7 +142,7 @@ const initChart = () => {
         name: '评分分布',
         type: 'pie',
          // roseType: 'area',
-        radius: ['40%', '55%'],
+        radius: ['30%', '55%'],
         center: ['35%', '50%'],
         avoidLabelOverlap: true,
         label: {
