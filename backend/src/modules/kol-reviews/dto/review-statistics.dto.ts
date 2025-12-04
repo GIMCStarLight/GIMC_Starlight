@@ -39,4 +39,7 @@ export class ReviewStatisticsDto {
 
   @ApiPropertyOptional({ description: '按审核状态分布', example: { pending: 50, approved: 1100, rejected: 50 } })
   auditStatusDistribution?: Record<string, number>;
+
+  @ApiProperty({ description: '待审核评价数', example: 50 })
+  pendingReviews: number;
 }

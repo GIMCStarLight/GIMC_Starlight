@@ -293,6 +293,7 @@ const statistics = ref({
   totalReviews: 0,
   averageScore: 0 as string | number,
   todayReviews: 0,
+  pendingReviews: 0,
   scoreDistribution: [] as Array<{ score: number; count: number }>
 })
 
@@ -503,6 +504,7 @@ const loadStatistics = async () => {
       totalReviews: stats.totalReviews || 0,
       averageScore: stats.averageScore || 0,
       todayReviews: stats.todayReviews || 0,
+      pendingReviews: stats.pendingReviews || 0,
       scoreDistribution: stats.scoreDistribution || []
     }
     

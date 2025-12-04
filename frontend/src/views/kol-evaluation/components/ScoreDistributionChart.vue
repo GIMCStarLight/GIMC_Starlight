@@ -79,6 +79,8 @@ interface Statistics {
   totalInfluencers?: number
   totalReviews?: number
   todayReviews?: number
+  pendingReviews?: number
+  averageScore?: number | string
 }
 
 defineOptions({
@@ -186,18 +188,48 @@ const initChart = () => {
         },
         data: props.scoreDistribution.map(item => {
           let scoreName = '';
+          let colorGradient: any = null;
+
           if (item.score >= 5) {
             scoreName = '优秀达人';
+            // 绿色渐变
+            colorGradient = new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#67c23a' },
+              { offset: 0.5, color: '#529b2e' },
+              { offset: 1, color: '#3e8e41' }
+            ]);
           } else if (item.score >= 4) {
             scoreName = '良好达人';
+            // 蓝色渐变
+            colorGradient = new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#83bff6' },
+              { offset: 0.5, color: '#0e7bd8' },
+              { offset: 1, color: '#188df0' }
+            ]);
           } else if (item.score >= 3) {
             scoreName = '一般达人';
+            // 橙色渐变
+            colorGradient = new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#fcb88b' },
+              { offset: 0.5, color: '#d68910' },
+              { offset: 1, color: '#f39c12' }
+            ]);
           } else {
             scoreName = '待改进';
+            // 红色渐变
+            colorGradient = new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#ff9a9e' },
+              { offset: 0.5, color: '#ff6b6b' },
+              { offset: 1, color: '#ee5a6f' }
+            ]);
           }
+
           return {
             name: `${scoreName}`,
             value: item.count,
+            itemStyle: {
+              color: colorGradient
+            }
           };
         })
       }
@@ -230,7 +262,17 @@ const initStatsChart = () => {
   const highScoreInfluencers = (props.scoreStats.excellentCount || 0) + (props.scoreStats.goodCount || 0)
   // 今日新增评价数
   const todayReviews = props.statistics?.todayReviews || 0
-  
+  // 待审核评价数
+  const pendingReviews = props.statistics?.pendingReviews || 0
+  // 平均评分
+  const averageScore = props.statistics?.averageScore || 0
+
+  // 计算Y轴最大值
+  const allData = [totalReviews, totalInfluencers, highScoreInfluencers, todayReviews, pendingReviews]
+  const maxValue = Math.max(...allData)
+  // 向上取整到最近的10的倍数
+  const yAxisMax = Math.ceil(maxValue / 10) * 10
+
   const option = {
     tooltip: {
       trigger: 'axis',
@@ -246,7 +288,7 @@ const initStatsChart = () => {
     },
     xAxis: {
       type: 'category',
-      data: ['总评价数', '已评价达人', '优质达人(4-5分)', '今日新增'],
+      data: ['总评价数', '已评价达人', '优质达人(4-5分)', '今日新增', '待审核', '平均打分'],
       axisLabel: {
         fontSize: 12,
         color: '#666'
@@ -254,6 +296,7 @@ const initStatsChart = () => {
     },
     yAxis: {
       type: 'value',
+      max: yAxisMax,
       axisLabel: {
         fontSize: 12,
         color: '#666'
@@ -267,13 +310,23 @@ const initStatsChart = () => {
           totalReviews,
           totalInfluencers,
           highScoreInfluencers,
-          todayReviews
+          todayReviews,
+          pendingReviews,
+          Number(averageScore)
         ],
         label: {
           show: true,
           position: 'top',
           fontSize: 12,
           color: '#333'
+        },
+        barWidth: '40%', // 调整柱子宽度，使用百分比相对于可用空间
+        barMaxWidth: 60, // 设置最大宽度（像素）
+        itemStyle: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: '#188df0' },
+            { offset: 1, color: '#83bff6' }
+          ])
         }
       }
     ]

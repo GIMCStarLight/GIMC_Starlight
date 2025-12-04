@@ -304,11 +304,15 @@ onUnmounted(() => {
             <div class="meta-info">
               <span class="meta-item">
                 <span class="label">星图ID:</span>
-                <span class="value">{{ rawData.id }}</span>
+                <a-typography-paragraph copyable class="value-copyable">
+                  {{ rawData.id }}
+                </a-typography-paragraph>
               </span>
               <span class="meta-item">
                 <span class="label">核心用户ID:</span>
-                <span class="value">{{ rawData.core_user_id }}</span>
+                <a-typography-paragraph copyable class="value-copyable">
+                  {{ rawData.core_user_id }}
+                </a-typography-paragraph>
               </span>
             </div>
           </div>
@@ -752,6 +756,29 @@ onUnmounted(() => {
   color: #606266;
   font-family: monospace;
   font-weight: 500;
+}
+
+.meta-item .value-copyable {
+  color: #606266;
+  font-family: monospace;
+  font-weight: 500;
+  margin: 0;
+  display: inline;
+}
+
+/* 覆盖 ant-design typography 的默认样式 */
+:deep(.value-copyable.ant-typography) {
+  margin-bottom: 0;
+  line-height: 1.5;
+  display: inline;
+}
+
+:deep(.value-copyable .ant-typography-copy) {
+  color: #909399;
+  margin-left: 6px;
+  position: relative;
+  top: -5px;
+  vertical-align: middle;
 }
 
 /* Tab内容 */

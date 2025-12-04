@@ -134,7 +134,7 @@ export class KolReviewsService {
 
   // 获取统计数据
   async getStatistics(): Promise<any> {
-    const [totalReviews, avgScore, scoreDistribution] = await Promise.all([
+    const [totalReviews, avgScore, scoreDistribution, pendingReviews] = await Promise.all([
       this.kolReviewsRepository.count({ where: { isDeleted: false } }),
       this.kolReviewsRepository
         .createQueryBuilder('review')
@@ -149,6 +149,12 @@ export class KolReviewsService {
         .groupBy('review.score')
         .orderBy('review.score', 'ASC')
         .getRawMany(),
+      this.kolReviewsRepository.count({
+        where: {
+          isDeleted: false,
+          status: KolReviewStatus.PENDING
+        }
+      }),
     ]);
 
     // 获取总达人数
@@ -172,6 +178,7 @@ export class KolReviewsService {
       totalInfluencers: parseInt(uniqueAuthors.count),
       averageScore: parseFloat(avgScore.average).toFixed(1),
       todayReviews,
+      pendingReviews,
       scoreDistribution: scoreDistribution.map((item) => ({
         score: item.score,
         count: parseInt(item.count),
