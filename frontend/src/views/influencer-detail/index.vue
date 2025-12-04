@@ -13,8 +13,12 @@ const loading = ref(false)
 const rawData = ref<Record<string, any>>({})
 const activeTab = ref('overview')
 const radarChartRef = ref<HTMLElement | null>(null)
+const growthChartRef = ref<HTMLElement | null>(null)
+const growthRateRadarRef = ref<HTMLElement | null>(null)
 const priceCpmChartRef = ref<HTMLElement | null>(null)
 let radarChart: echarts.ECharts | null = null
+let growthChart: echarts.ECharts | null = null
+let growthRateRadar: echarts.ECharts | null = null
 let priceCpmChart: echarts.ECharts | null = null
 
 // 加载达人完整数据
@@ -117,6 +121,66 @@ const radarChartData = computed(() => {
         color: '#409EFF'
       }
     }]
+  }
+})
+
+// 计算属性：增长与互动率雷达图数据
+const growthRateRadarData = computed(() => {
+  // 从字符串中提取数值
+  const getNumericValue = (str: string) => {
+    if (!str) return 0
+    const num = parseFloat(str.replace('%', ''))
+    return isNaN(num) ? 0 : num
+  }
+
+  const rate15d = getNumericValue(fansGrowth.value.rate15d)
+  const rate30d = getNumericValue(fansGrowth.value.rate30d)
+  const interactRate = getNumericValue(engagementData.value.interactRate)
+  const playOverRate = getNumericValue(engagementData.value.playOverRate)
+
+  const maxValue = Math.max(rate15d, rate30d, interactRate, playOverRate, 10)
+
+  return {
+    indicators: [
+      { name: '15天增长率', max: maxValue },
+      { name: '30天增长率', max: maxValue },
+      { name: '互动率', max: maxValue },
+      { name: '完播率', max: maxValue }
+    ],
+    data: [{
+      value: [rate15d, rate30d, interactRate, playOverRate],
+      name: '增长与互动率',
+      areaStyle: {
+        color: 'rgba(103, 194, 58, 0.3)'
+      },
+      lineStyle: {
+        color: '#67C23A',
+        width: 2
+      },
+      itemStyle: {
+        color: '#67C23A'
+      }
+    }]
+  }
+})
+
+// 计算属性：增长与互动量数据
+const growthChartData = computed(() => {
+  // 提取数值
+  const getNumericValue = (str: string) => {
+    if (!str) return 0
+    const num = parseInt(str.replace(/[,，]/g, ''))
+    return isNaN(num) ? 0 : num
+  }
+
+  return {
+    categories: ['15天增长', '30天增长', '播放量中位数', '互动量中位数'],
+    values: [
+      getNumericValue(fansGrowth.value.increment15d),
+      getNumericValue(fansGrowth.value.increment30d),
+      getNumericValue(engagementData.value.vvMedian),
+      getNumericValue(engagementData.value.interactionMedian)
+    ]
   }
 })
 
@@ -224,14 +288,186 @@ const initRadarChart = () => {
 
   radarChart.setOption({
     tooltip: { trigger: 'item' },
+    legend: {
+      show: true,
+      top: 10,
+      left: 'center',
+      textStyle: {
+        fontSize: 12,
+        color: '#666'
+      }
+    },
     radar: {
       indicator: radarChartData.value.indicators,
-      center: ['50%', '50%'],
-      radius: '70%'
+      center: ['50%', '55%'],
+      radius: '60%',
+      splitNumber: 4,
+      axisName: {
+        color: '#666',
+        fontSize: 12
+      },
+      splitLine: {
+        lineStyle: {
+          color: '#E4E7ED'
+        }
+      },
+      splitArea: {
+        show: true,
+        areaStyle: {
+          color: ['#F5F7FA', '#FFFFFF']
+        }
+      }
     },
     series: [{
       type: 'radar',
       data: radarChartData.value.data
+    }]
+  })
+}
+
+// 初始化增长与互动量柱状图
+const initGrowthChart = () => {
+  if (!growthChartRef.value || growthChartRef.value.offsetHeight === 0) return
+
+  if (growthChart) growthChart.dispose()
+  growthChart = echarts.init(growthChartRef.value)
+
+  const maxValue = Math.max(...growthChartData.value.values)
+
+  const option = {
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      },
+      formatter: function(params: any) {
+        return `${params[0].name}: ${params[0].value.toLocaleString()}`
+      }
+    },
+    legend: {
+      show: true,
+      top: 11,
+      left: 'center',
+      textStyle: {
+        fontSize: 12,
+        color: '#666'
+      }
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    xAxis: {
+      type: 'category',
+      data: growthChartData.value.categories,
+      axisLabel: {
+        fontSize: 12,
+        color: '#666',
+        rotate: 30
+      }
+    },
+    yAxis: {
+      type: 'value',
+      axisLabel: {
+        fontSize: 12,
+        color: '#666',
+        formatter: function(value: number) {
+          if (value >= 1000000) {
+            return (value / 1000000).toFixed(1) + 'M'
+          } else if (value >= 1000) {
+            return (value / 1000).toFixed(1) + 'K'
+          }
+          return value.toString()
+        }
+      },
+      splitLine: {
+        show: false
+      }
+    },
+    series: [
+      {
+        name: '粉丝增量与数值',
+        type: 'bar',
+        data: growthChartData.value.values,
+        barWidth: '30%',
+        barMaxWidth: 50,
+        itemStyle: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: '#409EFF' },
+            { offset: 1, color: '#83BFF6' }
+          ])
+        },
+        label: {
+          show: true,
+          position: 'top',
+          fontSize: 11,
+          color: '#409EFF',
+          formatter: function(params: any) {
+            return params.value.toLocaleString()
+          }
+        }
+      }
+    ]
+  }
+
+  growthChart.setOption(option)
+}
+
+// 初始化增长与互动率雷达图
+const initGrowthRateRadar = () => {
+  if (!growthRateRadarRef.value || growthRateRadarRef.value.offsetHeight === 0) return
+
+  if (growthRateRadar) growthRateRadar.dispose()
+  growthRateRadar = echarts.init(growthRateRadarRef.value)
+
+  growthRateRadar.setOption({
+    tooltip: {
+      trigger: 'item',
+      formatter: function(params: any) {
+        const indicators = ['15天增长率', '30天增长率', '互动率', '完播率']
+        const values = params.value
+        let result = `${params.name}<br/>`
+        indicators.forEach((indicator, index) => {
+          result += `${indicator}: ${values[index].toFixed(2)}%<br/>`
+        })
+        return result
+      }
+    },
+    legend: {
+      show: true,
+      top: 10,
+      left: 'center',
+      textStyle: {
+        fontSize: 12,
+        color: '#666'
+      }
+    },
+    radar: {
+      indicator: growthRateRadarData.value.indicators,
+      center: ['50%', '55%'],
+      radius: '60%',
+      splitNumber: 4,
+      axisName: {
+        color: '#666',
+        fontSize: 12
+      },
+      splitLine: {
+        lineStyle: {
+          color: '#E4E7ED'
+        }
+      },
+      splitArea: {
+        show: true,
+        areaStyle: {
+          color: ['#F5F7FA', '#FFFFFF']
+        }
+      }
+    },
+    series: [{
+      type: 'radar',
+      data: growthRateRadarData.value.data
     }]
   })
 }
@@ -400,6 +636,8 @@ watch(activeTab, (newVal) => {
   if (newVal === 'overview') {
     nextTick(() => {
       setTimeout(initRadarChart, 100)
+      setTimeout(initGrowthChart, 150)
+      setTimeout(initGrowthRateRadar, 200)
     })
   } else if (newVal === 'pricing') {
     nextTick(() => {
@@ -416,18 +654,26 @@ const goBack = () => {
 onMounted(async () => {
   await loadInfluencerFullData()
   if (activeTab.value === 'overview') {
-    nextTick(() => setTimeout(initRadarChart, 100))
+    nextTick(() => {
+      setTimeout(initRadarChart, 100)
+      setTimeout(initGrowthChart, 150)
+      setTimeout(initGrowthRateRadar, 200)
+    })
   }
 
   // 添加窗口resize监听
   window.addEventListener('resize', () => {
     radarChart?.resize()
+    growthChart?.resize()
+    growthRateRadar?.resize()
     priceCpmChart?.resize()
   })
 })
 
 onUnmounted(() => {
   radarChart?.dispose()
+  growthChart?.dispose()
+  growthRateRadar?.dispose()
   priceCpmChart?.dispose()
   // 移除resize监听器
   window.removeEventListener('resize', () => {})
@@ -524,36 +770,26 @@ onUnmounted(() => {
           <el-tab-pane label="数据概览" name="overview">
             <div class="tab-content">
               <el-row :gutter="20">
-                <!-- 左侧：粉丝增长和互动数据上下排列 -->
-                <el-col :span="12">
-                  <!-- 粉丝增长 -->
+                <!-- 数据可视化区域 -->
+                <el-col :span="8">
                   <div class="data-module">
-                    <h3 class="module-title">粉丝增长数据</h3>
-                    <el-descriptions :column="2" border>
-                      <el-descriptions-item label="15天增长">{{ fansGrowth.increment15d }}</el-descriptions-item>
-                      <el-descriptions-item label="30天增长">{{ fansGrowth.increment30d }}</el-descriptions-item>
-                      <el-descriptions-item label="15天增长率">{{ fansGrowth.rate15d }}</el-descriptions-item>
-                      <el-descriptions-item label="30天增长率">{{ fansGrowth.rate30d }}</el-descriptions-item>
-                      <!-- <el-descriptions-item label="当前粉丝" :span="2">{{ formatNumber(rawData.follower) }}</el-descriptions-item> -->
-                    </el-descriptions>
-                  </div>
-
-                  <!-- 互动数据 -->
-                  <div class="data-module" style="margin-top: 50px;">
-                    <h3 class="module-title">互动表现数据</h3>
-                    <el-descriptions :column="2" border>
-                      <el-descriptions-item label="互动率(30天)">{{ engagementData.interactRate }}</el-descriptions-item>
-                      <el-descriptions-item label="完播率(30天)">{{ engagementData.playOverRate }}</el-descriptions-item>
-                      <el-descriptions-item label="播放量中位数">{{ engagementData.vvMedian }}</el-descriptions-item>
-                      <el-descriptions-item label="互动量中位数">{{ engagementData.interactionMedian }}</el-descriptions-item>
-                    </el-descriptions>
+                    <!-- <h3 class="module-title">增长与互动量</h3> -->
+                    <div ref="growthChartRef" class="radar-chart" style="width: 100%;"></div>
                   </div>
                 </el-col>
 
-                <!-- 右侧：营销能力指标 -->
-                <el-col :span="12">
+                <!-- 比率数据雷达图 -->
+                <el-col :span="8">
+                  <div class="data-module">
+                    <!-- <h3 class="module-title" style="margin-bottom: 0;">增长与互动率</h3> -->
+                    <div ref="growthRateRadarRef" class="radar-chart" style="width: 100%;"></div>
+                  </div>
+                </el-col>
+
+                <!-- 营销能力指标 -->
+                <el-col :span="8">
                   <div class="data-module" style="height: 100%;">
-                    <h3 class="module-title" style="margin-bottom: 0;">营销能力指数</h3>
+                    <!-- <h3 class="module-title" style="margin-bottom: 0;">营销能力指数</h3> -->
                     <div class="radar-chart-container">
                       <div ref="radarChartRef" class="radar-chart"></div>
                     </div>
@@ -1210,7 +1446,7 @@ onUnmounted(() => {
 
 .radar-chart {
   width: 100%;
-  height: 300px;
+  height: 350px;
   max-width: 400px;
 }
 
