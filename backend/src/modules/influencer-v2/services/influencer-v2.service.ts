@@ -2,7 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, SelectQueryBuilder } from 'typeorm';
 import { AuthorCoreView } from '../entities/author-core.view';
-import { AuthorRawArchive } from '../../../database/entities/author-raw-archive.entity';
+import { AuthorFansMetrics } from '../entities/author-fans-metrics.entity';
 import { KolList, MatchStatus } from '../../../database/entities/kol-list.entity';
 import { InfluencerQueryDto } from '../dto/influencer-query.dto';
 import {
@@ -22,8 +22,8 @@ export class InfluencerV2Service {
   constructor(
     @InjectRepository(AuthorCoreView, 'crawler')
     private readonly authorCoreRepository: Repository<AuthorCoreView>,
-    @InjectRepository(AuthorRawArchive, 'crawler')
-    private readonly authorRawArchiveRepository: Repository<AuthorRawArchive>,
+    @InjectRepository(AuthorFansMetrics, 'crawler')
+    private readonly authorFansMetricsRepository: Repository<AuthorFansMetrics>,
     @InjectRepository(KolList, 'postgres')
     private readonly kolListRepo: Repository<KolList>,
   ) {}
@@ -114,6 +114,11 @@ export class InfluencerV2Service {
 
       const publicData = result[0].raw_attribute_datas || {};
 
+      // 查询粉丝增长指标数据（获取30天增长率）
+      const fansMetrics = await this.authorFansMetricsRepository.findOne({
+        where: { author_id: authorId }
+      });
+
       // 查询私域数据（如果已匹配）
       const kolRecord = await this.kolListRepo.findOne({
         where: {
@@ -123,16 +128,24 @@ export class InfluencerV2Service {
         },
       });
 
+      // 构建基础数据
+      const baseData = {
+        ...publicData,
+        // 添加30天增长率数据（如果存在）
+        fans_increment_rate_within_30d: String(fansMetrics?.fans_increment_rate_30d || 0),
+        fans_increment_within_30d: String(fansMetrics?.fans_increment_30d || 0),
+      };
+
       // 合并私域字段
       if (kolRecord) {
         return {
           data: {
-            ...publicData,
+            ...baseData,
             // 私域标识
             is_matched: true,
             match_status: kolRecord.match_status,
             matched_at: kolRecord.matched_at,
-            
+
             // 私域独有字段
             org_name: kolRecord.org_name,
             category: kolRecord.category,
@@ -153,7 +166,7 @@ export class InfluencerV2Service {
 
       return {
         data: {
-          ...publicData,
+          ...baseData,
           is_matched: false,
         },
       };

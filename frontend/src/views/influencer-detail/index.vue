@@ -64,6 +64,7 @@ const fansGrowth = computed(() => {
     increment15d: formatNumber(rawData.value.fans_increment_within_15d),
     increment30d: formatNumber(rawData.value.fans_increment_within_30d),
     rate15d: formatPercent(rawData.value.fans_increment_rate_within_15d),
+    rate30d: formatPercent(rawData.value.fans_increment_rate_within_30d),
   }
 })
 
@@ -358,7 +359,8 @@ onUnmounted(() => {
                       <el-descriptions-item label="15天增长">{{ fansGrowth.increment15d }}</el-descriptions-item>
                       <el-descriptions-item label="30天增长">{{ fansGrowth.increment30d }}</el-descriptions-item>
                       <el-descriptions-item label="15天增长率">{{ fansGrowth.rate15d }}</el-descriptions-item>
-                      <el-descriptions-item label="当前粉丝">{{ formatNumber(rawData.follower) }}</el-descriptions-item>
+                      <el-descriptions-item label="30天增长率">{{ fansGrowth.rate30d }}</el-descriptions-item>
+                      <!-- <el-descriptions-item label="当前粉丝" :span="2">{{ formatNumber(rawData.follower) }}</el-descriptions-item> -->
                     </el-descriptions>
                   </div>
 
