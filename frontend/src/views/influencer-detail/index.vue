@@ -551,7 +551,7 @@ const initPriceCpmChart = () => {
       },
       {
         type: 'value',
-        name: 'CPM(元)',
+        name: '预期CPM(元)',
         position: 'right',
         axisLabel: {
           fontSize: 12,
@@ -560,7 +560,7 @@ const initPriceCpmChart = () => {
           }
         },
         nameTextStyle: {
-          color: '#52c41a'
+          color: '#FF69B4'
         },
         splitLine: {
           show: false
@@ -608,17 +608,17 @@ const initPriceCpmChart = () => {
         barMaxWidth: 40,
         itemStyle: {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: '#52c41a' },
-            { offset: 1, color: '#95de64' }
+            { offset: 0, color: '#FF69B4' },
+            { offset: 1, color: '#FFB6C1' }
           ])
         },
         label: {
           show: true,
           position: 'top',
           fontSize: 11,
-          color: '#52c41a',
+          color: '#FF69B4',
           padding: [0, 0, 8, 0],
-          backgroundColor: 'rgba(82, 196, 26, 0.1)',
+          backgroundColor: 'rgba(255, 105, 180, 0.1)',
           borderRadius: 4,
           formatter: function(params: any) {
             return params.value.toString()
@@ -811,7 +811,7 @@ onUnmounted(() => {
                 </el-col>
                 <el-col :span="24" :lg="12">
                   <div class="data-module">
-                    <h3 class="module-title">预期数据</h3>
+                    <!-- <h3 class="module-title">预期数据</h3> -->
                     <el-row :gutter="12" class="status-info">
                       <el-col :span="12">
                         <el-card shadow="never">

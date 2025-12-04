@@ -126,56 +126,56 @@ watch(() => props.authorId, () => {
     <!-- 统计卡片 -->
     <el-row :gutter="16" class="statistics-row">
       <el-col :span="6">
-        <el-card shadow="hover" class="stat-card">
-          <div class="stat-content">
-            <div class="stat-icon total">
-              <IconifyIcon icon="lucide:message-square" />
-            </div>
-            <div class="stat-info">
-              <div class="stat-value">{{ statistics.total }}</div>
-              <div class="stat-label">总评价数</div>
-            </div>
-          </div>
-        </el-card>
-      </el-col>
-      
-      <el-col :span="6">
-        <el-card shadow="hover" class="stat-card">
-          <div class="stat-content">
-            <div class="stat-icon score">
-              <IconifyIcon icon="lucide:star" />
-            </div>
-            <div class="stat-info">
-              <div class="stat-value">{{ statistics.avgScore }}</div>
-              <div class="stat-label">平均评分</div>
+        <el-card shadow="never">
+          <div class="price-info-item">
+            <span class="price-info-label">总评价数</span>
+            <div class="price-info-value">
+              <span class="price-amount">
+                <span class="price-number">{{ statistics.total }}</span>
+                <span class="price-unit">条</span>
+              </span>
             </div>
           </div>
         </el-card>
       </el-col>
-      
+
       <el-col :span="6">
-        <el-card shadow="hover" class="stat-card">
-          <div class="stat-content">
-            <div class="stat-icon approved">
-              <IconifyIcon icon="lucide:check-circle" />
-            </div>
-            <div class="stat-info">
-              <div class="stat-value">{{ statistics.approved }}</div>
-              <div class="stat-label">已通过</div>
+        <el-card shadow="never">
+          <div class="price-info-item">
+            <span class="price-info-label">平均评分</span>
+            <div class="price-info-value">
+              <span class="price-amount">
+                <span class="price-number">{{ statistics.avgScore }}</span>
+                <span class="price-unit">分</span>
+              </span>
             </div>
           </div>
         </el-card>
       </el-col>
-      
+
       <el-col :span="6">
-        <el-card shadow="hover" class="stat-card">
-          <div class="stat-content">
-            <div class="stat-icon pending">
-              <IconifyIcon icon="lucide:clock" />
+        <el-card shadow="never">
+          <div class="price-info-item">
+            <span class="price-info-label">已通过</span>
+            <div class="price-info-value">
+              <span class="price-amount">
+                <span class="price-number">{{ statistics.approved }}</span>
+                <span class="price-unit">条</span>
+              </span>
             </div>
-            <div class="stat-info">
-              <div class="stat-value">{{ statistics.pending }}</div>
-              <div class="stat-label">待审核</div>
+          </div>
+        </el-card>
+      </el-col>
+
+      <el-col :span="6">
+        <el-card shadow="never">
+          <div class="price-info-item">
+            <span class="price-info-label">待审核</span>
+            <div class="price-info-value">
+              <span class="price-amount">
+                <span class="price-number">{{ statistics.pending }}</span>
+                <span class="price-unit">条</span>
+              </span>
             </div>
           </div>
         </el-card>
@@ -290,63 +290,44 @@ watch(() => props.authorId, () => {
   margin-bottom: 20px;
 }
 
-.stat-card {
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.stat-card:hover {
-  transform: translateY(-2px);
-}
-
-.stat-content {
+/* 预期播放量数据项样式 */
+.price-info-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 15px;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
 }
 
-.stat-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: white;
+.price-info-item:hover {
+  background-color: #f8f9fa;
 }
 
-.stat-icon.total {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.price-info-label {
+  color: #909399;
+  font-size: 13px;
+  font-weight: 500;
 }
 
-.stat-icon.score {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+.price-info-value {
+  margin-top: 4px;
 }
 
-.stat-icon.approved {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+.price-amount {
+  font-size: 18px;
+  font-weight: 400;
+  color: #409eff;
 }
 
-.stat-icon.pending {
-  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+.price-amount .price-number {
+  margin-left: 2px;
 }
 
-.stat-info {
-  flex: 1;
-}
-
-.stat-value {
-  font-size: 24px;
-  font-weight: 600;
-  color: #303133;
-  line-height: 1;
-  margin-bottom: 5px;
-}
-
-.stat-label {
+.price-unit {
   font-size: 13px;
   color: #909399;
+  font-weight: normal;
+  margin-left: 4px;
 }
 
 /* 操作栏样式 */
