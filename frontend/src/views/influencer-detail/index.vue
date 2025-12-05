@@ -6,6 +6,7 @@ import { ElMessage } from 'element-plus'
 import * as echarts from 'echarts'
 import { getInfluencerFullData } from '../../api/influencer-v2'
 import KolReviewsTab from '../../components/KolReviewsTab/index.vue'
+import SingleCard from '../../components/SingleCard/index.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -195,6 +196,36 @@ const pricingData = computed(() => {
   }
 })
 
+// 价格卡片数据
+const pricingCards = computed(() => [
+  {
+    label: '预期播放量',
+    value: pricingData.value.expectedPlayNum || '-',
+    unit: ''
+  },
+  {
+    label: '预期自然播放量',
+    value: formatNumber(rawData.value.expected_natural_play_num) || '-',
+    unit: ''
+  },
+  {
+    label: '推广预期播放量',
+    value: pricingData.value.prospectiveVv || '-',
+    unit: ''
+  },
+  {
+    label: 'CPM建议价格',
+    value: '',
+    unit: '',
+    slotContent: rawData.value.assign_cpm_suggest_price || '-'
+  },
+  {
+    label: '预期CPA等级',
+    value: rawData.value.expected_cpa3_level || '-',
+    unit: ''
+  }
+])
+
 // 计算属性：电商数据
 const ecommerceData = computed(() => {
   return {
@@ -205,6 +236,42 @@ const ecommerceData = computed(() => {
     score: rawData.value.ecom_score,
     watchPv: rawData.value.ecom_watch_pv_30d,
   }
+})
+
+// 电商卡片数据
+const ecommerceCards = computed(() => {
+  return [
+    {
+      label: '电商开通',
+      value: ecommerceData.value.enable ? '✓ 已开通' : '✗ 未开通',
+      unit: ''
+    },
+    {
+      label: '电商等级',
+      value: ecommerceData.value.level || '-',
+      unit: ''
+    },
+    {
+      label: '电商评分',
+      value: ecommerceData.value.score || '-',
+      unit: ''
+    },
+    {
+      label: '电商观看PV(30天)',
+      value: ecommerceData.value.watchPv || '-',
+      unit: '万'
+    },
+    {
+      label: 'GMV区间(30天)',
+      value: ecommerceData.value.gmvRange || '-',
+      unit: ''
+    },
+    {
+      label: 'GPM区间(30天)',
+      value: ecommerceData.value.gpmRange || '-',
+      unit: ''
+    }
+  ]
 })
 
 // 计算属性：最近作品
@@ -812,74 +879,22 @@ onUnmounted(() => {
                 <el-col :span="24" :lg="12">
                   <div class="data-module">
                     <!-- <h3 class="module-title">预期数据</h3> -->
-                    <el-row :gutter="12" class="status-info">
-                      <el-col :span="12">
-                        <el-card shadow="never">
-                          <div class="price-info-item">
-                            <span class="price-info-label">预期播放量</span>
-                            <div class="price-info-value">
-                              <span class="price-amount">
-                                <span class="price-number">{{ pricingData.expectedPlayNum || '-' }}</span>
-                              </span>
-                            </div>
-                          </div>
-                        </el-card>
+                    <el-row :gutter="12">
+                      <el-col
+                        v-for="(card, index) in pricingCards"
+                        :key="index"
+                        :span="12"
+                      >
+                        <SingleCard
+                          :label="card.label"
+                          :value="card.value"
+                          :unit="card.unit"
+                        >
+                          <template v-if="card.slotContent">
+                            ¥{{ card.slotContent }}
+                          </template>
+                        </SingleCard>
                       </el-col>
-                      <el-col :span="12">
-                        <el-card shadow="never">
-                          <div class="price-info-item">
-                            <span class="price-info-label">预期自然播放量</span>
-                            <div class="price-info-value">
-                              <span class="price-amount">
-                                <span class="price-number">{{ formatNumber(rawData.expected_natural_play_num) || '-' }}</span>
-                              </span>
-                            </div>
-                          </div>
-                        </el-card>
-                      </el-col>
-                    </el-row>
-
-                    <el-row :gutter="12" class="status-info">
-                      <el-col :span="12">
-                        <el-card shadow="never">
-                          <div class="price-info-item">
-                            <span class="price-info-label">推广预期播放量</span>
-                            <div class="price-info-value">
-                              <span class="price-amount">
-                                <span class="price-number">{{ pricingData.prospectiveVv || '-' }}</span>
-                              </span>
-                            </div>
-                          </div>
-                        </el-card>
-                      </el-col>
-                      <el-col :span="12">
-                        <el-card shadow="never">
-                          <div class="price-info-item">
-                            <span class="price-info-label">CPM建议价格</span>
-                            <div class="price-info-value">
-                              <span class="price-amount">
-                                ¥<span class="price-number">{{ rawData.assign_cpm_suggest_price || '-' }}</span>
-                              </span>
-                            </div>
-                          </div>
-                        </el-card>
-                      </el-col>
-                    </el-row>
-
-                    <el-row :gutter="12" class="status-info">
-                      <el-col :span="12">
-                        <el-card shadow="never">
-                          <div class="price-info-item">
-                            <span class="price-info-label">预期CPA等级</span>
-                            <div class="price-info-value">
-                              <span class="price-amount">
-                                <span class="price-number">{{ rawData.expected_cpa3_level || '-' }}</span>
-                              </span>
-                            </div>
-                          </div>
-                        </el-card>
-                      </el-col>
-                      
                     </el-row>
                   </div>
                 </el-col>
@@ -891,15 +906,20 @@ onUnmounted(() => {
           <el-tab-pane label="电商能力" name="ecommerce">
             <div class="tab-content">
               <div class="data-module">
-                <h3 class="module-title">电商基础信息</h3>
-                <el-descriptions :column="2" border>
-                  <el-descriptions-item label="电商开通">{{ ecommerceData.enable ? '✓ 已开通' : '✗ 未开通' }}</el-descriptions-item>
-                  <el-descriptions-item label="电商等级">{{ ecommerceData.level || '-' }}</el-descriptions-item>
-                  <el-descriptions-item label="电商评分">{{ ecommerceData.score }}</el-descriptions-item>
-                  <el-descriptions-item label="电商观看PV(30天)">{{ ecommerceData.watchPv }}万</el-descriptions-item>
-                  <el-descriptions-item label="GMV区间(30天)">{{ ecommerceData.gmvRange || '-' }}</el-descriptions-item>
-                  <el-descriptions-item label="GPM区间(30天)">{{ ecommerceData.gpmRange || '-' }}</el-descriptions-item>
-                </el-descriptions>
+                <!-- <h3 class="module-title">电商基础信息</h3> -->
+                <el-row :gutter="16">
+                  <el-col
+                    v-for="(item, index) in ecommerceCards"
+                    :key="index"
+                    :span="6"
+                  >
+                    <SingleCard
+                      :label="item.label"
+                      :value="item.value"
+                      :unit="item.unit"
+                    />
+                  </el-col>
+                </el-row>
               </div>
             </div>
           </el-tab-pane>
@@ -1455,40 +1475,4 @@ onUnmounted(() => {
   padding: 0 20px;
 }
 
-/* 预期数据卡片样式 */
-.status-info {
-  margin-top: 12px;
-}
-
-.price-info-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.price-info-label {
-  color: #909399;
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.price-info-value {
-  margin-top: 4px;
-}
-
-.price-amount {
-  font-size: 18px;
-  font-weight: 400;
-  color: #409eff;
-}
-
-.price-amount .price-number {
-  margin-left: 2px;
-}
-
-.price-amount.empty {
-  font-size: 16px;
-  color: #999;
-  font-weight: 500;
-}
 </style>

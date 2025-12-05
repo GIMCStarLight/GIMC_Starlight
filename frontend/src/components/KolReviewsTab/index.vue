@@ -5,6 +5,7 @@ import { ElMessage } from 'element-plus'
 import { IconifyIcon } from '@vben/icons'
 import { getKolReviewsByAuthorIdApi, type KolReviewInfo } from '../../api/kol-reviews'
 import EvaluateDialog from '../EvaluateDialog/index.vue'
+import SingleCard from '../SingleCard/index.vue'
 
 interface Props {
   authorId: string
@@ -95,16 +96,16 @@ const getScoreDesc = (score: number) => {
 // 计算统计数据
 const statistics = computed(() => {
   const total = reviews.value.length
-  const avgScore = total > 0 
+  const avgScore = total > 0
     ? (reviews.value.reduce((sum, r) => sum + r.score, 0) / total).toFixed(1)
     : '0.0'
-  
+
   const statusCount = reviews.value.reduce((acc, r) => {
     const status = r.status || 'unknown'
     acc[status] = (acc[status] || 0) + 1
     return acc
   }, {} as Record<string, number>)
-  
+
   return {
     total,
     avgScore,
@@ -113,6 +114,30 @@ const statistics = computed(() => {
     rejected: statusCount.rejected || 0
   }
 })
+
+// 统计卡片数据
+const statisticsCards = computed(() => [
+  {
+    label: '总评价数',
+    value: statistics.value.total,
+    unit: '条'
+  },
+  {
+    label: '平均评分',
+    value: statistics.value.avgScore,
+    unit: '分'
+  },
+  {
+    label: '已通过',
+    value: statistics.value.approved,
+    unit: '条'
+  },
+  {
+    label: '待审核',
+    value: statistics.value.pending,
+    unit: '条'
+  }
+])
 
 watch(() => props.authorId, () => {
   if (props.authorId) {
@@ -125,60 +150,8 @@ watch(() => props.authorId, () => {
   <div class="kol-reviews-tab">
     <!-- 统计卡片 -->
     <el-row :gutter="16" class="statistics-row">
-      <el-col :span="6">
-        <el-card shadow="never">
-          <div class="price-info-item">
-            <span class="price-info-label">总评价数</span>
-            <div class="price-info-value">
-              <span class="price-amount">
-                <span class="price-number">{{ statistics.total }}</span>
-                <span class="price-unit">条</span>
-              </span>
-            </div>
-          </div>
-        </el-card>
-      </el-col>
-
-      <el-col :span="6">
-        <el-card shadow="never">
-          <div class="price-info-item">
-            <span class="price-info-label">平均评分</span>
-            <div class="price-info-value">
-              <span class="price-amount">
-                <span class="price-number">{{ statistics.avgScore }}</span>
-                <span class="price-unit">分</span>
-              </span>
-            </div>
-          </div>
-        </el-card>
-      </el-col>
-
-      <el-col :span="6">
-        <el-card shadow="never">
-          <div class="price-info-item">
-            <span class="price-info-label">已通过</span>
-            <div class="price-info-value">
-              <span class="price-amount">
-                <span class="price-number">{{ statistics.approved }}</span>
-                <span class="price-unit">条</span>
-              </span>
-            </div>
-          </div>
-        </el-card>
-      </el-col>
-
-      <el-col :span="6">
-        <el-card shadow="never">
-          <div class="price-info-item">
-            <span class="price-info-label">待审核</span>
-            <div class="price-info-value">
-              <span class="price-amount">
-                <span class="price-number">{{ statistics.pending }}</span>
-                <span class="price-unit">条</span>
-              </span>
-            </div>
-          </div>
-        </el-card>
+      <el-col :span="6" v-for="(card, index) in statisticsCards" :key="index">
+        <SingleCard :label="card.label" :value="card.value" :unit="card.unit" />
       </el-col>
     </el-row>
 
@@ -288,45 +261,6 @@ watch(() => props.authorId, () => {
   margin-bottom: 20px;
 }
 
-/* 预期播放量数据项样式 */
-.price-info-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 16px;
-  transition: all 0.3s ease;
-}
-
-.price-info-item:hover {
-  background-color: #f8f9fa;
-}
-
-.price-info-label {
-  color: #909399;
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.price-info-value {
-  margin-top: 4px;
-}
-
-.price-amount {
-  font-size: 18px;
-  font-weight: 400;
-  color: #409eff;
-}
-
-.price-amount .price-number {
-  margin-left: 2px;
-}
-
-.price-unit {
-  font-size: 13px;
-  color: #909399;
-  font-weight: normal;
-  margin-left: 4px;
-}
 
 /* 操作栏样式 */
 .action-bar {
