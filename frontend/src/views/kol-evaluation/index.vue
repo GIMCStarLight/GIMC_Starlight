@@ -88,6 +88,7 @@
         }"
         :selected-rows="selectedReviews"
         row-key="id"
+        class="evaluation-table"
         @update:selected-rows="handleSelectionChange"
         @change="handleTableChange"
         @sort-change="handleSortChange"
@@ -362,13 +363,13 @@ const tableColumns = [
   {
     prop: 'score',
     label: '评分',
-    width: 180,
+    width: 200,
     sortable: true
   },
   {
     prop: 'content',
     label: '评价内容',
-    minWidth: 300
+    minWidth: 280
   },
   {
     prop: 'status',
@@ -1352,4 +1353,14 @@ onMounted(() => {
   white-space: pre-wrap;
   word-break: break-word;
 }
+
+/* 评价表格自定义样式 */
+.evaluation-table :deep(.ant-table-thead > tr > th:nth-child(5)) {
+  text-align: center !important; /* 表头居中 */
+}
+
+.evaluation-table :deep(.ant-table-tbody > tr > td:nth-child(5)) {
+  text-align: left !important; /* 数据左对齐 */
+}
+
 </style>

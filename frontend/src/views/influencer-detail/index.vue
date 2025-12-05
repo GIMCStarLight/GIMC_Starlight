@@ -8,6 +8,7 @@ import { getInfluencerFullData } from '../../api/influencer-v2'
 import KolReviewsTab from '../../components/KolReviewsTab/index.vue'
 import SingleCard from '../../components/SingleCard/index.vue'
 import RadarChart from './components/RadarChart.vue'
+import StandardTable from '../kol/components/StandardTable.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -289,6 +290,17 @@ const recentWorks = computed(() => {
     return []
   }
 })
+
+// 表格列配置
+const worksTableColumns = [
+  { prop: 'index', label: '#', width: 50, formatter: (row: any, index: number, text: any) => (index || 0) + 1 },
+  { prop: 'item_title', label: '作品标题', minWidth: 200, formatter: (row) => row.item_title || '未命名作品' },
+  { prop: 'vv', label: '播放量', width: 120, formatter: (row) => formatNumber(row.vv) },
+  { prop: 'like_cnt', label: '点赞', width: 100, formatter: (row) => formatNumber(row.like_cnt) },
+  { prop: 'comment_cnt', label: '评论', width: 100, formatter: (row) => formatNumber(row.comment_cnt) },
+  { prop: 'share_cnt', label: '分享', width: 100, formatter: (row) => formatNumber(row.share_cnt) },
+  { prop: 'is_high_quality_item', label: '高质量', width: 80, formatter: (row) => row.is_high_quality_item === '1' ? '是' : '否' }
+]
 
 // 计算属性：内容标签
 const contentTags = computed(() => {
@@ -950,40 +962,13 @@ onUnmounted(() => {
               <div class="data-module">
                 <div class="result-count">最近 <strong>10</strong> 个作品</div>
                 <div v-if="recentWorks.length > 0">
-                  <el-table :data="recentWorks" stripe border>
-                    <el-table-column type="index" label="#" width="50" />
-                    <el-table-column prop="item_title" label="作品标题" min-width="200">
-                      <template #default="{ row }">
-                        {{ row.item_title || '未命名作品' }}
-                      </template>
-                    </el-table-column>
-                    <el-table-column prop="vv" label="播放量" width="120">
-                      <template #default="{ row }">
-                        {{ formatNumber(row.vv) }}
-                      </template>
-                    </el-table-column>
-                    <el-table-column prop="like_cnt" label="点赞" width="100">
-                      <template #default="{ row }">
-                        {{ formatNumber(row.like_cnt) }}
-                      </template>
-                    </el-table-column>
-                    <el-table-column prop="comment_cnt" label="评论" width="100">
-                      <template #default="{ row }">
-                        {{ formatNumber(row.comment_cnt) }}
-                      </template>
-                    </el-table-column>
-                    <el-table-column prop="share_cnt" label="分享" width="100">
-                      <template #default="{ row }">
-                        {{ formatNumber(row.share_cnt) }}
-                      </template>
-                    </el-table-column>
-                    <el-table-column prop="is_high_quality_item" label="高质量" width="80">
-                      <template #default="{ row }">
-                        <el-tag v-if="row.is_high_quality_item === '1'" type="success" size="small">是</el-tag>
-                        <el-tag v-else type="info" size="small">否</el-tag>
-                      </template>
-                    </el-table-column>
-                  </el-table>
+                  <StandardTable
+                    :columns="worksTableColumns"
+                    :data-source="recentWorks"
+                    :pagination="false"
+                    bordered
+                    class="works-table"
+                  />
                 </div>
                 <el-empty v-else description="暂无作品数据" :image-size="100" />
               </div>
@@ -1468,6 +1453,15 @@ onUnmounted(() => {
 /* Tab容器左右padding与内容保持一致 */
 :deep(.el-tabs__header) {
   padding: 0 20px;
+}
+
+/* 作品表格自定义样式 */
+.works-table :deep(.ant-table-thead > tr > th:nth-child(2)) {
+  text-align: center !important; /* 表头居中 */
+}
+
+.works-table :deep(.ant-table-tbody > tr > td:nth-child(2)) {
+  text-align: left !important; /* 数据左对齐 */
 }
 
 </style>

@@ -142,7 +142,7 @@ const antColumns = computed(() => {
         showSorterTooltip: col.sortable ? {
             title: '点击排序'
         } : false,
-        customRender: col.formatter ? ({ text, record }) => col.formatter(record, null, text) : undefined,
+        customRender: col.formatter ? ({ text, record, index }) => col.formatter(record, index, text) : undefined,
         ellipsis: col.ellipsis !== undefined ? col.ellipsis : true,
         fixed: col.fixed
     }))
