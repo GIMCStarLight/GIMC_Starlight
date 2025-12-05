@@ -320,6 +320,59 @@ const wordAssociationIndex = computed(() => {
   }
 })
 
+// 计算属性：词语关联指数雷达图数据
+const wordAssociationRadarData = computed(() => {
+  const association = wordAssociationIndex.value
+  const entries = Object.entries(association)
+
+  if (entries.length === 0) {
+    return {
+      indicators: [],
+      seriesData: []
+    }
+  }
+
+  // 先计算数值
+  const values = entries.map(([, value]) => Number(value) * 100)
+  const maxValue = Math.max(...values, 5) // 至少为5，确保有足够的空间显示差异
+
+  // 转换为雷达图格式
+  const indicators = entries.map(([name]) => ({
+    name: name,
+    max: maxValue
+  }))
+
+  return {
+    indicators,
+    seriesData: [{
+      name: '词语关联指数',
+      value: values,
+      areaStyle: {
+        color: 'rgba(255, 99, 132, 0.3)'
+      },
+      lineStyle: {
+        color: '#FF6384',
+        width: 2
+      },
+      itemStyle: {
+        color: '#FF6384'
+      }
+    }]
+  }
+})
+
+// 自定义 tooltip 格式化函数
+const wordAssociationTooltipFormatter = (params: any) => {
+  const association = wordAssociationIndex.value
+  const indicators = Object.keys(association)
+  const values = params.value
+  let result = `${params.name}<br/>`
+  indicators.forEach((indicator, index) => {
+    result += `${indicator}: ${values[index].toFixed(1)}%<br/>`
+  })
+  return result
+}
+
 // 格式化日期
 const formatDate = (dateStr: any) => {
   if (!dateStr) return '-'
@@ -875,14 +928,15 @@ onUnmounted(() => {
 
                 <!-- 词语关联指数 -->
                 <el-col :span="12">
-                  <div class="data-module">
+                  <div class="data-module" style="height: 400px;">
                     <h3 class="module-title">词语关联指数</h3>
-                    <div v-if="Object.keys(wordAssociationIndex).length > 0" class="word-association">
-                      <div v-for="(value, word) in wordAssociationIndex" :key="word" class="word-item">
-                        <div class="word-text">{{ word }}</div>
-                        <div class="word-value">{{ (Number(value) * 100).toFixed(1) }}%</div>
-                      </div>
-                    </div>
+                    <RadarChart
+                      v-if="Object.keys(wordAssociationIndex).length > 0"
+                      :indicators="wordAssociationRadarData.indicators"
+                      :series-data="wordAssociationRadarData.seriesData"
+                      :tooltip-formatter="wordAssociationTooltipFormatter"
+                      height="350px"
+                    />
                     <el-empty v-else description="暂无词语关联数据" :image-size="60" />
                   </div>
                 </el-col>
@@ -1295,49 +1349,6 @@ onUnmounted(() => {
   gap: 8px;
 }
 
-/* 词语关联指数样式 */
-.word-association {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-height: 500px;
-  overflow-y: auto;
-}
-
-.word-item {
-  background: #fff;
-  border: 2px solid #e4e7ed;
-  border-radius: 8px;
-  padding: 16px;
-  text-align: center;
-  transition: all 0.3s ease;
-  cursor: default;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.word-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-color: #409eff;
-}
-
-.word-text {
-  font-size: 16px;
-  font-weight: 600;
-  color: #303133;
-}
-
-.word-value {
-  font-size: 18px;
-  font-weight: 700;
-  color: #409eff;
-  background: rgba(64, 158, 255, 0.1);
-  padding: 6px 12px;
-  border-radius: 6px;
-  min-width: 80px;
-}
 
 /* JSON查看器 */
 .json-viewer {

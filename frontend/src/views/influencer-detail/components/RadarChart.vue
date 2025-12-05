@@ -52,8 +52,17 @@ const initChart = () => {
   if (!chartRef.value) return
   if (!props.indicators || props.indicators.length === 0) return
 
+  // 等待容器渲染完成
+  const containerHeight = chartRef.value.offsetHeight
+  if (containerHeight === 0) {
+    console.log('Container height is 0, retrying...')
+    setTimeout(initChart, 100)
+    return
+  }
+
   if (chart) chart.dispose()
   chart = echarts.init(chartRef.value)
+  
   const option: echarts.EChartsOption = {
     tooltip: {
       trigger: 'item',
@@ -89,12 +98,28 @@ const initChart = () => {
         }
       }
     },
+    animation: true,
+    animationDuration: 1000,
+    animationDurationUpdate: 500,
+    animationEasing: 'cubicInOut' as any,
+    animationEasingUpdate: 'cubicInOut' as any,
+    animationThreshold: 2000,
+    progressiveThreshold: 3000,
+    progressive: 400,
+    hoverLayerThreshold: 3000,
+    useUTC: false,
     series: [{
       type: 'radar',
       data: props.seriesData
     }]
   }
+  
   chart.setOption(option)
+  
+  // 强制 resize 确保正确显示
+  setTimeout(() => {
+    chart?.resize()
+  }, 50)
 }
 
 const resize = () => {
@@ -116,7 +141,7 @@ watch(
 
 onMounted(() => {
   nextTick(() => {
-    setTimeout(initChart, 100)
+    setTimeout(initChart, 200)
   })
   window.addEventListener('resize', resize)
 })
@@ -130,5 +155,7 @@ onUnmounted(() => {
 <style scoped>
 .radar-chart-container {
   width: 100%;
+  height: 100%;
+  min-height: 300px;
 }
 </style>
