@@ -886,13 +886,18 @@ onUnmounted(() => {
                         :span="12"
                       >
                         <SingleCard
+                          v-if="!card.slotContent"
+                          :label="card.label"
+                          :value="card.value"
+                          :unit="card.unit"
+                        />
+                        <SingleCard
+                          v-else
                           :label="card.label"
                           :value="card.value"
                           :unit="card.unit"
                         >
-                          <template v-if="card.slotContent">
-                            ¥{{ card.slotContent }}
-                          </template>
+                          ¥{{ card.slotContent }}
                         </SingleCard>
                       </el-col>
                     </el-row>

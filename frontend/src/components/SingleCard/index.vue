@@ -3,11 +3,9 @@
     <div class="price-info-item">
       <span class="price-info-label">{{ label }}</span>
       <div class="price-info-value">
-        <!-- /�I���� -->
         <span v-if="$slots.default" class="price-amount">
           <slot />
         </span>
-        <!-- ؤ>:< -->
         <span v-else class="price-amount">
           <span class="price-number">{{ displayValue }}</span>
           <span v-if="unit" class="price-unit">{{ unit }}</span>
@@ -21,9 +19,9 @@
 import { computed } from 'vue'
 
 interface Props {
-  label: string           // ~�W
-  value?: string | number  // p<
-  unit?: string           // UM�W
+  label: string           
+  value?: string | number  
+  unit?: string        
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -31,7 +29,7 @@ const props = withDefaults(defineProps<Props>(), {
   unit: ''
 })
 
-// ��>:�<z<pW<
+
 const displayValue = computed(() => {
   if (props.value === null || props.value === undefined || props.value === '') {
     return '-'
@@ -100,7 +98,7 @@ const displayValue = computed(() => {
   margin-left: 4px;
 }
 
-// /Element Plus��	�h
+
 :deep(.el-card__body) {
   padding: 16px;
 }
