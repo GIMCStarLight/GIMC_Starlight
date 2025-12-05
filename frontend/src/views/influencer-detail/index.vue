@@ -722,7 +722,7 @@ onUnmounted(() => {
           </template>
           返回列表
         </el-button>
-        <h1 class="page-title">达人详情 - 完整数据版</h1>
+        <!-- <h1 class="page-title">达人详情 - 完整数据版</h1> -->
       </div>
 
       <!-- 核心信息卡片 -->
@@ -901,7 +901,7 @@ onUnmounted(() => {
                 <!-- 内容主题标签和标签关系 -->
                 <el-col :span="12">
                   <div class="data-module">
-                    <h3 class="module-title">🎨 内容主题标签(180天)</h3>
+                    <h3 class="module-title">内容主题标签(180天)</h3>
                     <div v-if="contentTags.length > 0" class="tags-wrapper">
                       <el-tag v-for="(tag, index) in contentTags" :key="index" class="tag-item" type="success">
                         {{ tag }}
@@ -911,12 +911,12 @@ onUnmounted(() => {
                   </div>
 
                   <div class="data-module" style="margin-top: 20px;">
-                    <h3 class="module-title">🔗 标签关系</h3>
+                    <h3 class="module-title">标签关系</h3>
                     <div v-if="Object.keys(tagsRelation).length > 0" class="tags-relation">
                       <div v-for="(values, key) in tagsRelation" :key="key" class="relation-item">
                         <div class="relation-key">{{ key }}</div>
                         <div class="relation-values">
-                          <el-tag v-for="(val, idx) in values" :key="idx" size="small" type="info">
+                          <el-tag v-for="(val, idx) in values" :key="idx" size="small" type="success">
                             {{ val }}
                           </el-tag>
                         </div>
@@ -929,13 +929,13 @@ onUnmounted(() => {
                 <!-- 词语关联指数 -->
                 <el-col :span="12">
                   <div class="data-module" style="height: 400px;">
-                    <h3 class="module-title">词语关联指数</h3>
+                    <!-- <h3 class="module-title">词语关联指数</h3> -->
                     <RadarChart
                       v-if="Object.keys(wordAssociationIndex).length > 0"
                       :indicators="wordAssociationRadarData.indicators"
                       :series-data="wordAssociationRadarData.seriesData"
                       :tooltip-formatter="wordAssociationTooltipFormatter"
-                      height="350px"
+                      height="400px"
                     />
                     <el-empty v-else description="暂无词语关联数据" :image-size="60" />
                   </div>
@@ -948,7 +948,7 @@ onUnmounted(() => {
           <el-tab-pane label="最近作品" name="works">
             <div class="tab-content">
               <div class="data-module">
-                <h3 class="module-title">🎬 最近10个作品</h3>
+                <div class="result-count">最近 <strong>10</strong> 个作品</div>
                 <div v-if="recentWorks.length > 0">
                   <el-table :data="recentWorks" stripe border>
                     <el-table-column type="index" label="#" width="50" />
@@ -1285,6 +1285,22 @@ onUnmounted(() => {
   border-bottom: 2px solid #e4e7ed;
 }
 
+.result-count {
+  font-size: 14px !important;
+  color: #606266 !important;
+  font-weight: normal !important;
+  margin: 0 0 16px 0 !important;
+  padding-bottom: 10px !important;
+ 
+
+  strong {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--el-color-primary);
+    margin: 0 4px;
+  }
+}
+
 /* 营销指数卡片 */
 .index-card {
   background: #fff;
@@ -1337,7 +1353,7 @@ onUnmounted(() => {
 }
 
 .relation-key {
-  font-weight: 600;
+  /* font-weight: 600; */
   color: #303133;
   margin-bottom: 10px;
   font-size: 16px;
