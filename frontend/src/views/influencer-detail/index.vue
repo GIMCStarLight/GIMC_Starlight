@@ -7,19 +7,16 @@ import * as echarts from 'echarts'
 import { getInfluencerFullData } from '../../api/influencer-v2'
 import KolReviewsTab from '../../components/KolReviewsTab/index.vue'
 import SingleCard from '../../components/SingleCard/index.vue'
+import RadarChart from './components/RadarChart.vue'
 
 const route = useRoute()
 const router = useRouter()
 const loading = ref(false)
 const rawData = ref<Record<string, any>>({})
 const activeTab = ref('overview')
-const radarChartRef = ref<HTMLElement | null>(null)
 const growthChartRef = ref<HTMLElement | null>(null)
-const growthRateRadarRef = ref<HTMLElement | null>(null)
 const priceCpmChartRef = ref<HTMLElement | null>(null)
-let radarChart: echarts.ECharts | null = null
 let growthChart: echarts.ECharts | null = null
-let growthRateRadar: echarts.ECharts | null = null
 let priceCpmChart: echarts.ECharts | null = null
 
 // 加载达人完整数据
@@ -85,7 +82,7 @@ const engagementData = computed(() => {
   }
 })
 
-// 计算属性：营销指数
+// 计算属性:营销指数
 const marketingIndices = computed(() => {
   return [
     { name: '转化指数', value: Number(rawData.value.link_convert_index || 0), color: '#67C23A' },
@@ -95,12 +92,10 @@ const marketingIndices = computed(() => {
   ]
 })
 
-// 计算属性：雷达图数据
-const radarChartData = computed(() => {
+// 计算属性：营销能力雷达图数据
+const marketingRadarData = computed(() => {
   const indices = marketingIndices.value
   const maxValue = Math.max(...indices.map(item => item.value), 10)
-
-  // 如果最大值小于100，则使用100作为最大值，让线条起伏更明显
   const radarMax = maxValue < 100 ? 100 : maxValue
 
   return {
@@ -108,7 +103,7 @@ const radarChartData = computed(() => {
       name: item.name,
       max: radarMax
     })),
-    data: [{
+    seriesData: [{
       value: indices.map(item => item.value),
       name: '营销指数',
       areaStyle: {
@@ -148,7 +143,7 @@ const growthRateRadarData = computed(() => {
       { name: '互动率', max: maxValue },
       { name: '完播率', max: maxValue }
     ],
-    data: [{
+    seriesData: [{
       value: [rate15d, rate30d, interactRate, playOverRate],
       name: '增长与互动率',
       areaStyle: {
@@ -164,6 +159,17 @@ const growthRateRadarData = computed(() => {
     }]
   }
 })
+
+// 自定义 tooltip 格式化函数
+const growthRateTooltipFormatter = (params: any) => {
+  const indicators = ['15天增长率', '30天增长率', '互动率', '完播率']
+  const values = params.value
+  let result = `${params.name}<br/>`
+  indicators.forEach((indicator, index) => {
+    result += `${indicator}: ${values[index].toFixed(2)}%<br/>`
+  })
+  return result
+}
 
 // 计算属性：增长与互动量数据
 const growthChartData = computed(() => {
@@ -304,6 +310,16 @@ const tagsRelation = computed(() => {
   }
 })
 
+// 计算属性：词语关联指数
+const wordAssociationIndex = computed(() => {
+  try {
+    const association = JSON.parse(rawData.value.author_thin_mid_word_association_index || '{}')
+    return typeof association === 'object' ? association : {}
+  } catch {
+    return {}
+  }
+})
+
 // 格式化日期
 const formatDate = (dateStr: any) => {
   if (!dateStr) return '-'
@@ -344,52 +360,6 @@ const formatContactInfo = (info: any): string => {
   } catch {
     return String(info)
   }
-}
-
-// 初始化雷达图
-const initRadarChart = () => {
-  if (!radarChartRef.value || radarChartRef.value.offsetHeight === 0) return
-
-  if (radarChart) radarChart.dispose()
-  radarChart = echarts.init(radarChartRef.value)
-
-  radarChart.setOption({
-    tooltip: { trigger: 'item' },
-    legend: {
-      show: true,
-      top: 10,
-      left: 'center',
-      textStyle: {
-        fontSize: 12,
-        color: '#666'
-      }
-    },
-    radar: {
-      indicator: radarChartData.value.indicators,
-      center: ['50%', '55%'],
-      radius: '60%',
-      splitNumber: 4,
-      axisName: {
-        color: '#666',
-        fontSize: 12
-      },
-      splitLine: {
-        lineStyle: {
-          color: '#E4E7ED'
-        }
-      },
-      splitArea: {
-        show: true,
-        areaStyle: {
-          color: ['#F5F7FA', '#FFFFFF']
-        }
-      }
-    },
-    series: [{
-      type: 'radar',
-      data: radarChartData.value.data
-    }]
-  })
 }
 
 // 初始化增长与互动量柱状图
@@ -480,63 +450,6 @@ const initGrowthChart = () => {
   }
 
   growthChart.setOption(option)
-}
-
-// 初始化增长与互动率雷达图
-const initGrowthRateRadar = () => {
-  if (!growthRateRadarRef.value || growthRateRadarRef.value.offsetHeight === 0) return
-
-  if (growthRateRadar) growthRateRadar.dispose()
-  growthRateRadar = echarts.init(growthRateRadarRef.value)
-
-  growthRateRadar.setOption({
-    tooltip: {
-      trigger: 'item',
-      formatter: function(params: any) {
-        const indicators = ['15天增长率', '30天增长率', '互动率', '完播率']
-        const values = params.value
-        let result = `${params.name}<br/>`
-        indicators.forEach((indicator, index) => {
-          result += `${indicator}: ${values[index].toFixed(2)}%<br/>`
-        })
-        return result
-      }
-    },
-    legend: {
-      show: true,
-      top: 10,
-      left: 'center',
-      textStyle: {
-        fontSize: 12,
-        color: '#666'
-      }
-    },
-    radar: {
-      indicator: growthRateRadarData.value.indicators,
-      center: ['50%', '55%'],
-      radius: '60%',
-      splitNumber: 4,
-      axisName: {
-        color: '#666',
-        fontSize: 12
-      },
-      splitLine: {
-        lineStyle: {
-          color: '#E4E7ED'
-        }
-      },
-      splitArea: {
-        show: true,
-        areaStyle: {
-          color: ['#F5F7FA', '#FFFFFF']
-        }
-      }
-    },
-    series: [{
-      type: 'radar',
-      data: growthRateRadarData.value.data
-    }]
-  })
 }
 
 // 初始化价格CPM对比图
@@ -702,9 +615,7 @@ const initPriceCpmChart = () => {
 watch(activeTab, (newVal) => {
   if (newVal === 'overview') {
     nextTick(() => {
-      setTimeout(initRadarChart, 100)
-      setTimeout(initGrowthChart, 150)
-      setTimeout(initGrowthRateRadar, 200)
+      setTimeout(initGrowthChart, 100)
     })
   } else if (newVal === 'pricing') {
     nextTick(() => {
@@ -722,25 +633,19 @@ onMounted(async () => {
   await loadInfluencerFullData()
   if (activeTab.value === 'overview') {
     nextTick(() => {
-      setTimeout(initRadarChart, 100)
-      setTimeout(initGrowthChart, 150)
-      setTimeout(initGrowthRateRadar, 200)
+      setTimeout(initGrowthChart, 200)
     })
   }
 
   // 添加窗口resize监听
   window.addEventListener('resize', () => {
-    radarChart?.resize()
     growthChart?.resize()
-    growthRateRadar?.resize()
     priceCpmChart?.resize()
   })
 })
 
 onUnmounted(() => {
-  radarChart?.dispose()
   growthChart?.dispose()
-  growthRateRadar?.dispose()
   priceCpmChart?.dispose()
   // 移除resize监听器
   window.removeEventListener('resize', () => {})
@@ -849,17 +754,24 @@ onUnmounted(() => {
                 <el-col :span="8">
                   <div class="data-module">
                     <!-- <h3 class="module-title" style="margin-bottom: 0;">增长与互动率</h3> -->
-                    <div ref="growthRateRadarRef" class="radar-chart" style="width: 100%;"></div>
+                    <RadarChart
+                      :indicators="growthRateRadarData.indicators"
+                      :series-data="growthRateRadarData.seriesData"
+                      :tooltip-formatter="growthRateTooltipFormatter"
+                      height="400px"
+                    />
                   </div>
                 </el-col>
 
                 <!-- 营销能力指标 -->
                 <el-col :span="8">
-                  <div class="data-module" style="height: 100%;">
+                  <div class="data-module">
                     <!-- <h3 class="module-title" style="margin-bottom: 0;">营销能力指数</h3> -->
-                    <div class="radar-chart-container">
-                      <div ref="radarChartRef" class="radar-chart"></div>
-                    </div>
+                    <RadarChart
+                      :indicators="marketingRadarData.indicators"
+                      :series-data="marketingRadarData.seriesData"
+                      height="400px"
+                    />
                   </div>
                 </el-col>
               </el-row>
@@ -932,30 +844,49 @@ onUnmounted(() => {
           <!-- Tab 4: 内容标签 -->
           <el-tab-pane label="内容标签" name="tags">
             <div class="tab-content">
-              <div class="data-module">
-                <h3 class="module-title">🎨 内容主题标签(180天)</h3>
-                <div v-if="contentTags.length > 0" class="tags-wrapper">
-                  <el-tag v-for="(tag, index) in contentTags" :key="index" class="tag-item" type="success">
-                    {{ tag }}
-                  </el-tag>
-                </div>
-                <el-empty v-else description="暂无标签数据" :image-size="80" />
-              </div>
-
-              <div class="data-module" style="margin-top: 20px;">
-                <h3 class="module-title">🔗 标签关系</h3>
-                <div v-if="Object.keys(tagsRelation).length > 0" class="tags-relation">
-                  <div v-for="(values, key) in tagsRelation" :key="key" class="relation-item">
-                    <div class="relation-key">{{ key }}</div>
-                    <div class="relation-values">
-                      <el-tag v-for="(val, idx) in values" :key="idx" size="small" type="info">
-                        {{ val }}
+              <el-row :gutter="20">
+                <!-- 内容主题标签和标签关系 -->
+                <el-col :span="12">
+                  <div class="data-module">
+                    <h3 class="module-title">🎨 内容主题标签(180天)</h3>
+                    <div v-if="contentTags.length > 0" class="tags-wrapper">
+                      <el-tag v-for="(tag, index) in contentTags" :key="index" class="tag-item" type="success">
+                        {{ tag }}
                       </el-tag>
                     </div>
+                    <el-empty v-else description="暂无标签数据" :image-size="60" />
                   </div>
-                </div>
-                <el-empty v-else description="暂无标签关系数据" :image-size="80" />
-              </div>
+
+                  <div class="data-module" style="margin-top: 20px;">
+                    <h3 class="module-title">🔗 标签关系</h3>
+                    <div v-if="Object.keys(tagsRelation).length > 0" class="tags-relation">
+                      <div v-for="(values, key) in tagsRelation" :key="key" class="relation-item">
+                        <div class="relation-key">{{ key }}</div>
+                        <div class="relation-values">
+                          <el-tag v-for="(val, idx) in values" :key="idx" size="small" type="info">
+                            {{ val }}
+                          </el-tag>
+                        </div>
+                      </div>
+                    </div>
+                    <el-empty v-else description="暂无标签关系数据" :image-size="60" />
+                  </div>
+                </el-col>
+
+                <!-- 词语关联指数 -->
+                <el-col :span="12">
+                  <div class="data-module">
+                    <h3 class="module-title">词语关联指数</h3>
+                    <div v-if="Object.keys(wordAssociationIndex).length > 0" class="word-association">
+                      <div v-for="(value, word) in wordAssociationIndex" :key="word" class="word-item">
+                        <div class="word-text">{{ word }}</div>
+                        <div class="word-value">{{ (Number(value) * 100).toFixed(1) }}%</div>
+                      </div>
+                    </div>
+                    <el-empty v-else description="暂无词语关联数据" :image-size="60" />
+                  </div>
+                </el-col>
+              </el-row>
             </div>
           </el-tab-pane>
 
@@ -1287,9 +1218,9 @@ onUnmounted(() => {
   padding: 16px 20px;
 }
 
-.data-module {
+/* .data-module {
   margin-bottom: 20px;
-}
+} */
 
 .module-title {
   font-size: 18px;
@@ -1362,6 +1293,50 @@ onUnmounted(() => {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+/* 词语关联指数样式 */
+.word-association {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.word-item {
+  background: #fff;
+  border: 2px solid #e4e7ed;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: default;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.word-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #409eff;
+}
+
+.word-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #303133;
+}
+
+.word-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #409eff;
+  background: rgba(64, 158, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 6px;
+  min-width: 80px;
 }
 
 /* JSON查看器 */
@@ -1458,21 +1433,9 @@ onUnmounted(() => {
   margin-bottom: 2px;
 }
 
-/* 雷达图容器样式 */
-.radar-chart-container {
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
-  /* padding: 20px; */
-  background: #fff;
-  border-radius: 8px;
-  /* border: 1px solid #e4e7ed; */
-}
-
 .radar-chart {
   width: 100%;
-  height: 350px;
-  max-width: 400px;
+  height: 400px;
 }
 
 /* Tab容器左右padding与内容保持一致 */
