@@ -185,11 +185,9 @@ watch(() => props.authorId, () => {
     <!-- 操作栏 -->
     <div class="action-bar">
       <el-button type="primary" @click="handleAddReview">
-        <IconifyIcon icon="lucide:plus" class="btn-icon" />
-        添加评价
+       添加评价
       </el-button>
       <el-button @click="loadReviews">
-        <IconifyIcon icon="lucide:refresh-cw" class="btn-icon" />
         刷新
       </el-button>
     </div>
@@ -334,12 +332,9 @@ watch(() => props.authorId, () => {
 .action-bar {
   margin-bottom: 20px;
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 
-.btn-icon {
-  margin-right: 4px;
-}
 
 /* 评价列表样式 */
 .reviews-list {

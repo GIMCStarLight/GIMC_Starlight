@@ -274,8 +274,8 @@ watch(() => props.authorId, (newVal) => {
 
             <!-- 新增评价区域 -->
             <div class="new-review-section">
-                <h4 class="section-title">{{ existingReviews.length > 0 ? '添加新评价' : '评价达人' }}</h4>
-                
+                <!-- <h4 class="section-title">{{ existingReviews.length > 0 ? '添加新评价' : '评价达人' }}</h4>
+                 -->
                 <!-- 达人信息卡片 -->
                 <div v-if="authorInfo.nickName" class="author-card" v-loading="loadingAuthorInfo">
                     <el-avatar :size="50" :src="authorInfo.avatarUri" class="author-avatar">
