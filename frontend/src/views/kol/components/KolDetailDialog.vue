@@ -113,9 +113,6 @@
             />
           </div>
 
-          <!-- 分割线 -->
-          <el-divider />
-
           <!-- 报价信息 -->
           <div class="info-section">
             <div class="section-header">
@@ -156,9 +153,6 @@
               </el-col>
             </el-row>
           </div>
-
-          <!-- 分割线 -->
-          <el-divider />
 
           <!-- 合作信息 -->
           <div class="info-section">
@@ -581,14 +575,6 @@ const handleClose = () => {
   margin-top: 12px;
 }
 
-/* .status-card {
-  flex: 1;
-  background: white;
-  border-radius: 8px;
-  padding: 16px;
-  border: 1px solid #e4e7ed;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-} */
 
 .status-item {
   display: flex;
@@ -725,72 +711,6 @@ const handleClose = () => {
   background-color: #c0c4cc;
 }
 
-/* 报价信息样式 */
-.price-info-section {
-  background: transparent;
-  border: none;
-  padding: 0 16px;
-  box-shadow: none;
-}
-
-/* .price-info-cards {
-  display: flex;
-  gap: 12px;
-}
-
-.price-info-card {
-  flex: 1;
-  background: white;
-  border-radius: 8px;
-  padding: 16px;
-  border: 1px solid #e4e7ed;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-} */
-
-.price-info-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.price-info-label {
-  color: #909399;
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.price-info-value {
-  margin-top: 4px;
-}
-
-.price-amount {
-  font-size: 18px;
-  font-weight: 400;
-  color: #409eff;
-}
-
-.price-amount .price-number {
-  margin-left: 2px;
-}
-
-.price-amount.empty {
-  font-size: 16px;
-  color: #999;
-  font-weight: 500;
-}
-
-/* 合作信息区域样式 */
-.cooperation-section {
-  background: transparent;
-  border: none;
-  padding: 0;
-  box-shadow: none;
-}
-
-/* 合作信息区域使用与同步状态区域一致的样式 */
-.cooperation-section .status-info {
-  margin-top: 12px;
-}
 
 
 </style>

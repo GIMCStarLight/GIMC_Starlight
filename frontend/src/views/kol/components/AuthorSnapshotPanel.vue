@@ -50,52 +50,54 @@
         <!-- 统计数据（互动率和达人等级），采用与同步状态区域一致的样式 -->
         <el-row :gutter="12" class="status-info">
           <el-col :span="12">
-            <el-card shadow="never">
-              <div class="price-info-item">
-                <span class="price-info-label">互动率</span>
-                <div class="price-info-value">
-                  <span class="price-amount">
-                    <span class="price-number">{{ ((snapshot.interact_rate_within_30d || 0) * 100).toFixed(2) }}%</span>
-                  </span>
-                </div>
-              </div>
-            </el-card>
+            <SingleCard
+              label="互动率"
+              :value="((snapshot.interact_rate_within_30d || 0) * 100).toFixed(2) + '%'"
+              unit=""
+            />
           </el-col>
           <el-col :span="12">
-            <el-card shadow="never">
-              <div class="price-info-item">
-                <span class="price-info-label">达人等级</span>
-                <div class="price-info-value">
-                  <span class="price-amount">
-                    <span class="price-number">{{ snapshot.grade || '-' }}</span>
-                  </span>
-                </div>
-              </div>
-            </el-card>
+            <SingleCard
+              label="达人等级"
+              :value="snapshot.grade || '-'"
+              unit=""
+            />
           </el-col>
         </el-row>
 
         <!-- 报价信息数据项，采用卡片式布局 -->
           <el-row :gutter="12" class="price-info-cards">
             <el-col :span="12">
-              <el-card shadow="never">
-                <div class="price-info-item">
-                  <span class="price-info-label">20-60s 视频报价</span>
-                  <div class="price-info-value">
-                    <span class="price-amount">{{ formatPrice(snapshot.price_20_60) || '-' }}</span>
-                  </div>
-                </div>
-              </el-card>
+              <SingleCard
+                v-if="!snapshot.price_20_60"
+                label="20-60s 视频报价"
+                value="-"
+                unit=""
+              />
+              <SingleCard
+                v-else
+                label="20-60s 视频报价"
+                value=""
+                unit=""
+              >
+                ¥{{ snapshot.price_20_60.toLocaleString() }}
+              </SingleCard>
             </el-col>
             <el-col :span="12">
-              <el-card shadow="never">
-                <div class="price-info-item">
-                  <span class="price-info-label">60s+ 视频报价</span>
-                  <div class="price-info-value">
-                    <span class="price-amount">{{ formatPrice(snapshot.price_60) || '-' }}</span>
-                  </div>
-                </div>
-              </el-card>
+              <SingleCard
+                v-if="!snapshot.price_60"
+                label="60s+ 视频报价"
+                value="-"
+                unit=""
+              />
+              <SingleCard
+                v-else
+                label="60s+ 视频报价"
+                value=""
+                unit=""
+              >
+                ¥{{ snapshot.price_60.toLocaleString() }}
+              </SingleCard>
             </el-col>
           </el-row>
         </div>
@@ -130,28 +132,18 @@
         <!-- 地理位置和数据同步时间，采用与同步状态区域一致的样式，在同一行显示 -->
         <el-row :gutter="12" class="status-info">
           <el-col :span="12">
-            <el-card shadow="never">
-              <div class="price-info-item">
-                <span class="price-info-label">地理位置</span>
-                <div class="price-info-value">
-                  <span class="price-amount">
-                    <span class="price-number">{{ snapshot.province }} {{ snapshot.city }}</span>
-                  </span>
-                </div>
-              </div>
-            </el-card>
+            <SingleCard
+              label="地理位置"
+              :value="`${snapshot.province || ''} ${snapshot.city || ''}`.trim() || '-'"
+              unit=""
+            />
           </el-col>
           <el-col :span="12">
-            <el-card shadow="never">
-              <div class="price-info-item">
-                <span class="price-info-label">数据同步时间</span>
-                <div class="price-info-value">
-                  <span class="price-amount">
-                    <span class="price-number">{{ formatDateTime(snapshot.synced_at) }}</span>
-                  </span>
-                </div>
-              </div>
-            </el-card>
+            <SingleCard
+              label="数据同步时间"
+              :value="formatDateTime(snapshot.synced_at)"
+              unit=""
+            />
           </el-col>
         </el-row>
       </div>
@@ -175,6 +167,7 @@ import {
   IdcardOutlined
 } from '@ant-design/icons-vue'
 import SyncStatusTag from './SyncStatusTag.vue'
+import SingleCard from '../../../components/SingleCard/index.vue'
 
 interface AuthorSnapshot {
   author_id: string
@@ -234,11 +227,6 @@ const formatPercent = (value: number | null | undefined): string => {
   return `${(value * 100).toFixed(2)}%`
 }
 
-// 格式化价格
-const formatPrice = (price: number | null | undefined): string => {
-  if (!price) return '-'
-  return `¥${price.toLocaleString()}`
-}
 
 // 格式化日期时间
 const formatDateTime = (dateStr: string): string => {
@@ -408,32 +396,6 @@ const formatDateTime = (dateStr: string): string => {
   margin-top: 12px;
 }
 
-// 报价信息卡片样式 - 基础信息区域使用
-.price-info-cards {
-  margin-top: 12px;
-}
-
-.price-info-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.price-info-label {
-  color: #909399;
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.price-info-value {
-  margin-top: 4px;
-}
-
-.price-amount {
-  font-size: 18px;
-  font-weight: 400;
-  color: #409eff;
-}
 
 
 // 同步时间提示
