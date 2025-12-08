@@ -146,11 +146,15 @@ export const useInfluencerSquareStore = defineStore('influencer-square', () => {
   
   // 切换达人选中状态
   const toggleInfluencerSelection = (authorId: string) => {
-    if (selectedInfluencerIds.value.has(authorId)) {
-      selectedInfluencerIds.value.delete(authorId)
+    const newSet = new Set(selectedInfluencerIds.value)
+    if (newSet.has(authorId)) {
+      newSet.delete(authorId)
     } else {
-      selectedInfluencerIds.value.add(authorId)
+      newSet.add(authorId)
     }
+    // 触发响应式更新
+    selectedInfluencerIds.value = newSet
+    
     // 更新当前页达人的 isSelected 状态
     const influencer = influencers.value.find(item => item.author_id === authorId)
     if (influencer) {
@@ -158,15 +162,37 @@ export const useInfluencerSquareStore = defineStore('influencer-square', () => {
     }
   }
   
+  // 设置单个达人的选中状态
+  const setInfluencerSelectionSingle = (authorId: string, selected: boolean) => {
+    const newSet = new Set(selectedInfluencerIds.value)
+    if (selected) {
+      newSet.add(authorId)
+    } else {
+      newSet.delete(authorId)
+    }
+    // 触发响应式更新
+    selectedInfluencerIds.value = newSet
+    
+    // 更新当前页达人的 isSelected 状态
+    const influencer = influencers.value.find(item => item.author_id === authorId)
+    if (influencer) {
+      influencer.isSelected = selected
+    }
+  }
+  
   // 批量设置选中状态
   const setInfluencerSelection = (authorIds: string[], selected: boolean) => {
+    const newSet = new Set(selectedInfluencerIds.value)
     authorIds.forEach(authorId => {
       if (selected) {
-        selectedInfluencerIds.value.add(authorId)
+        newSet.add(authorId)
       } else {
-        selectedInfluencerIds.value.delete(authorId)
+        newSet.delete(authorId)
       }
     })
+    // 触发响应式更新
+    selectedInfluencerIds.value = newSet
+    
     // 更新当前页达人的 isSelected 状态
     influencers.value.forEach(item => {
       if (authorIds.includes(item.author_id)) {
@@ -177,7 +203,7 @@ export const useInfluencerSquareStore = defineStore('influencer-square', () => {
   
   // 清空所有选中
   const clearSelection = () => {
-    selectedInfluencerIds.value.clear()
+    selectedInfluencerIds.value = new Set()
     influencers.value.forEach(item => {
       item.isSelected = false
     })
@@ -213,6 +239,7 @@ export const useInfluencerSquareStore = defineStore('influencer-square', () => {
     setFilters,
     resetFilters,
     toggleInfluencerSelection,
+    setInfluencerSelectionSingle,
     setInfluencerSelection,
     clearSelection,
   }
