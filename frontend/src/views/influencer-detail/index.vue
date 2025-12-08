@@ -9,6 +9,7 @@ import KolReviewsTab from '../../components/KolReviewsTab/index.vue'
 import SingleCard from '../../components/SingleCard/index.vue'
 import RadarChart from './components/RadarChart.vue'
 import StandardTable from '../kol/components/StandardTable.vue'
+import TabSeven from './components/TabSeven.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -385,47 +386,6 @@ const wordAssociationTooltipFormatter = (params: any) => {
   return result
 }
 
-// 格式化日期
-const formatDate = (dateStr: any) => {
-  if (!dateStr) return '-'
-  try {
-    const date = new Date(dateStr)
-    return date.toLocaleString('zh-CN')
-  } catch {
-    return String(dateStr)
-  }
-}
-
-// 获取政策等级类型
-const getPolicyLevelType = (level: string): string => {
-  const types: Record<string, string> = {
-    'A': 'danger',
-    'B': 'warning',
-    'C': 'info',
-  }
-  return types[level] || 'info'
-}
-
-// 获取配合度星级
-const getCooperationStars = (degree: string): number => {
-  const stars: Record<string, number> = {
-    'high': 5,
-    'medium': 3,
-    'low': 1,
-  }
-  return stars[degree] || 0
-}
-
-// 格式化联系方式
-const formatContactInfo = (info: any): string => {
-  if (!info) return '-'
-  if (typeof info === 'string') return info
-  try {
-    return JSON.stringify(info, null, 2)
-  } catch {
-    return String(info)
-  }
-}
 
 // 初始化增长与互动量柱状图
 const initGrowthChart = () => {
@@ -986,102 +946,7 @@ onUnmounted(() => {
 
           <!-- Tab 7: 私域信息（仅已匹配达人显示） -->
           <el-tab-pane v-if="rawData.is_matched" label="合作信息" name="private">
-            <div class="tab-content">
-              <!-- 匹配状态标识 -->
-              <div class="private-header">
-                <el-tag type="success" size="large" effect="dark">
-                  ✅ 已建联
-                </el-tag>
-                <span v-if="rawData.matched_at" class="matched-time">
-                  匹配时间：{{ formatDate(rawData.matched_at) }}
-                </span>
-              </div>
-
-              <!-- 基础信息模块 -->
-              <div class="data-module">
-                <h3 class="module-title">🏢 机构信息</h3>
-                <el-descriptions :column="2" border size="large">
-                  <el-descriptions-item label="所属机构">
-                    <span class="highlight-text">{{ rawData.org_name || '-' }}</span>
-                  </el-descriptions-item>
-                  <el-descriptions-item label="分类标签">
-                    <el-tag v-if="rawData.category" type="info" size="small">
-                      {{ rawData.category }}
-                    </el-tag>
-                    <span v-else>-</span>
-                  </el-descriptions-item>
-                  <el-descriptions-item label="年框机构">
-                    {{ rawData.annual_contract_org || '-' }}
-                  </el-descriptions-item>
-                  <el-descriptions-item label="是否独家">
-                    <el-tag v-if="rawData.is_exclusive === 1" type="danger" size="small" effect="dark">
-                      ⭐ 独家资源
-                    </el-tag>
-                    <el-tag v-else type="info" size="small">-</el-tag>
-                  </el-descriptions-item>
-                </el-descriptions>
-              </div>
-
-              <!-- 返点政策模块 -->
-              <div class="data-module">
-                <h3 class="module-title">💰 返点政策</h3>
-                <el-descriptions :column="2" border size="large">
-                  <el-descriptions-item label="返点政策">
-                    <span class="policy-text">{{ rawData.rebate_policy || '-' }}</span>
-                  </el-descriptions-item>
-                  <el-descriptions-item label="返点区间">
-                    <span class="rebate-highlight">{{ rawData.rebate_range || '-' }}</span>
-                  </el-descriptions-item>
-                  <el-descriptions-item label="政策等级">
-                    <el-tag v-if="rawData.policy_level" :type="getPolicyLevelType(rawData.policy_level)" size="small">
-                      {{ rawData.policy_level }}级
-                    </el-tag>
-                    <span v-else>-</span>
-                  </el-descriptions-item>
-                  <el-descriptions-item label="返点账期">
-                    {{ rawData.rebate_period || '-' }}
-                  </el-descriptions-item>
-                  <el-descriptions-item label="支付账期">
-                    {{ rawData.pay_period || '-' }}
-                  </el-descriptions-item>
-                </el-descriptions>
-              </div>
-
-              <!-- 合作信息模块 -->
-              <div class="data-module">
-                <h3 class="module-title">🤝 合作信息</h3>
-                <el-descriptions :column="1" border size="large">
-                  <el-descriptions-item label="配合度">
-                    <el-rate 
-                      v-if="rawData.cooperation_degree" 
-                      :model-value="getCooperationStars(rawData.cooperation_degree)" 
-                      disabled 
-                      show-text
-                      :texts="['很差', '较差', '一般', '较好', '非常好']"
-                    />
-                    <span v-else>-</span>
-                  </el-descriptions-item>
-                  <el-descriptions-item label="合作简介">
-                    <div v-if="rawData.cooperation_intro" class="intro-box">
-                      {{ rawData.cooperation_intro }}
-                    </div>
-                    <span v-else>-</span>
-                  </el-descriptions-item>
-                  <el-descriptions-item label="联系方式">
-                    <div v-if="rawData.contact_info" class="contact-box">
-                      <pre>{{ formatContactInfo(rawData.contact_info) }}</pre>
-                    </div>
-                    <span v-else>-</span>
-                  </el-descriptions-item>
-                  <el-descriptions-item label="备注">
-                    <div v-if="rawData.remark" class="remark-box">
-                      {{ rawData.remark }}
-                    </div>
-                    <span v-else>-</span>
-                  </el-descriptions-item>
-                </el-descriptions>
-              </div>
-            </div>
+            <TabSeven :raw-data="rawData" />
           </el-tab-pane>
 
         </el-tabs>
@@ -1376,59 +1241,6 @@ onUnmounted(() => {
   }
 }
 
-/* 私域信息样式 */
-.private-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
-  padding: 16px;
-  background: linear-gradient(135deg, #e6f7ff 0%, #bae7ff 100%);
-  border-radius: 8px;
-  border-left: 4px solid #1890ff;
-}
-
-.matched-time {
-  font-size: 14px;
-  color: #606266;
-  font-weight: 500;
-}
-
-.highlight-text {
-  color: #1890ff;
-  font-weight: 600;
-  font-size: 16px;
-}
-
-.policy-text {
-  color: #303133;
-  font-weight: 500;
-}
-
-.rebate-highlight {
-  color: #f56c6c;
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.intro-box,
-.contact-box,
-.remark-box {
-  background: #fafafa;
-  border: 1px solid #e4e7ed;
-  border-radius: 6px;
-  padding: 12px;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #606266;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-
-.contact-box pre {
-  margin: 0;
-  font-family: inherit;
-}
 
 /* Tab间距设置 */
 :deep(.el-tabs__item) {
