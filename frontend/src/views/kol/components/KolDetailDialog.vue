@@ -87,29 +87,18 @@
 
             <el-row :gutter="12" class="status-info">
               <el-col :span="12">
-                <el-card shadow="never">
-                  <div class="price-info-item">
-                    <span class="price-info-label">匹配置信度</span>
-                    <div class="price-info-value">
-                      <span v-if="kolData.match_confidence" class="price-amount">
-                        <span class="price-number">{{ (kolData.match_confidence * 100).toFixed(1) }}%</span>
-                      </span>
-                      <span v-else class="price-amount empty">-</span>
-                    </div>
-                  </div>
-                </el-card>
+                <SingleCard
+                  label="匹配置信度"
+                  :value="kolData.match_confidence ? `${(kolData.match_confidence * 100).toFixed(1)}%` : '-'"
+                  unit=""
+                />
               </el-col>
               <el-col :span="12">
-                <el-card shadow="never">
-                  <div class="price-info-item">
-                    <span class="price-info-label">匹配时间</span>
-                    <div class="price-info-value">
-                      <span class="price-amount">
-                        <span class="price-number">{{ kolData.matched_at ? formatDateTime(kolData.matched_at) : '-' }}</span>
-                      </span>
-                    </div>
-                  </div>
-                </el-card>
+                <SingleCard
+                  label="匹配时间"
+                  :value="kolData.matched_at ? formatDateTime(kolData.matched_at) : '-'"
+                  unit=""
+                />
               </el-col>
             </el-row>
 
@@ -134,30 +123,36 @@
             </div>
             <el-row :gutter="12" class="price-info-cards">
               <el-col :span="12">
-                <el-card shadow="never">
-                  <div class="price-info-item">
-                    <span class="price-info-label">21-60s报价</span>
-                    <div class="price-info-value">
-                      <span v-if="kolData.star_quote_21_60s" class="price-amount">
-                        ¥<span class="price-number">{{ kolData.star_quote_21_60s.toLocaleString() }}</span>
-                      </span>
-                      <span v-else class="price-amount empty">-</span>
-                    </div>
-                  </div>
-                </el-card>
+                <SingleCard
+                  v-if="!kolData.star_quote_21_60s"
+                  label="21-60s报价"
+                  value="-"
+                  unit=""
+                />
+                <SingleCard
+                  v-else
+                  label="21-60s报价"
+                  value=""
+                  unit=""
+                >
+                  ¥{{ kolData.star_quote_21_60s.toLocaleString() }}
+                </SingleCard>
               </el-col>
               <el-col :span="12">
-                <el-card shadow="never">
-                  <div class="price-info-item">
-                    <span class="price-info-label">60s+报价</span>
-                    <div class="price-info-value">
-                      <span v-if="kolData.star_quote_60s_plus" class="price-amount">
-                        ¥<span class="price-number">{{ kolData.star_quote_60s_plus.toLocaleString() }}</span>
-                      </span>
-                      <span v-else class="price-amount empty">-</span>
-                    </div>
-                  </div>
-                </el-card>
+                <SingleCard
+                  v-if="!kolData.star_quote_60s_plus"
+                  label="60s+报价"
+                  value="-"
+                  unit=""
+                />
+                <SingleCard
+                  v-else
+                  label="60s+报价"
+                  value=""
+                  unit=""
+                >
+                  ¥{{ kolData.star_quote_60s_plus.toLocaleString() }}
+                </SingleCard>
               </el-col>
             </el-row>
           </div>
@@ -174,136 +169,86 @@
             <!-- 采用与同步状态区域一致的卡片式布局 -->
             <el-row :gutter="12" class="status-info">
               <el-col :span="12">
-                <el-card shadow="never">
-                  <div class="price-info-item">
-                    <span class="price-info-label">返点区间</span>
-                    <div class="price-info-value">
-                      <span class="price-amount">
-                        <span class="price-number">{{ kolData.rebate_range || '-' }}</span>
-                      </span>
-                    </div>
-                  </div>
-                </el-card>
+                <SingleCard
+                  label="返点区间"
+                  :value="kolData.rebate_range || '-'"
+                  unit=""
+                />
               </el-col>
               <el-col :span="12">
-                <el-card shadow="never">
-                  <div class="price-info-item">
-                    <span class="price-info-label">政策等级</span>
-                    <div class="price-info-value">
-                      <span class="price-amount">
-                        <span class="price-number">{{ kolData.policy_level || '-' }}</span>
-                      </span>
-                    </div>
-                  </div>
-                </el-card>
+                <SingleCard
+                  label="政策等级"
+                  :value="kolData.policy_level || '-'"
+                  unit=""
+                />
               </el-col>
             </el-row>
 
             <el-row :gutter="12" class="status-info">
               <el-col :span="12">
-                <el-card shadow="never">
-                  <div class="price-info-item">
-                    <span class="price-info-label">返点政策</span>
-                    <div class="price-info-value">
-                      <span class="price-amount">
-                        <span class="price-number">{{ String(kolData.rebate_policy) === '1' ? '有' : '无' }}</span>
-                      </span>
-                    </div>
-                  </div>
-                </el-card>
+                <SingleCard
+                  label="返点政策"
+                  :value="String(kolData.rebate_policy) === '1' ? '有' : '无'"
+                  unit=""
+                />
               </el-col>
               <el-col :span="12">
-                <el-card shadow="never">
-                  <div class="price-info-item">
-                    <span class="price-info-label">返点账期</span>
-                    <div class="price-info-value">
-                      <span class="price-amount">
-                        <span class="price-number">{{ kolData.rebate_period || '-' }}</span>
-                      </span>
-                    </div>
-                  </div>
-                </el-card>
+                <SingleCard
+                  label="返点账期"
+                  :value="kolData.rebate_period || '-'"
+                  unit=""
+                />
               </el-col>
             </el-row>
 
             <el-row :gutter="12" class="status-info">
               <el-col :span="12">
-                <el-card shadow="never">
-                  <div class="price-info-item">
-                    <span class="price-info-label">是否独家</span>
-                    <div class="price-info-value">
-                      <span class="price-amount">
-                        <span class="price-number">{{ kolData.is_exclusive === 1 ? '是' : '否' }}</span>
-                      </span>
-                    </div>
-                  </div>
-                </el-card>
+                <SingleCard
+                  label="是否独家"
+                  :value="kolData.is_exclusive === 1 ? '是' : '否'"
+                  unit=""
+                />
               </el-col>
               <el-col :span="12">
-                <el-card shadow="never">
-                  <div class="price-info-item">
-                    <span class="price-info-label">配合度</span>
-                    <div class="price-info-value">
-                      <span class="price-amount">
-                        <span class="price-number">{{ cooperationDegreeText(kolData.cooperation_degree) }}</span>
-                      </span>
-                    </div>
-                  </div>
-                </el-card>
+                <SingleCard
+                  label="配合度"
+                  :value="cooperationDegreeText(kolData.cooperation_degree)"
+                  unit=""
+                />
               </el-col>
             </el-row>
 
             <el-row :gutter="12" class="status-info">
               <el-col :span="12">
-                <el-card shadow="never">
-                  <div class="price-info-item">
-                    <span class="price-info-label">年框机构</span>
-                    <div class="price-info-value">
-                      <span class="price-amount">
-                        <span class="price-number">{{ kolData.annual_contract_org || '-' }}</span>
-                      </span>
-                    </div>
-                  </div>
-                </el-card>
+                <SingleCard
+                  label="年框机构"
+                  :value="kolData.annual_contract_org || '-'"
+                  unit=""
+                />
               </el-col>
               <el-col :span="12">
-                <el-card shadow="never">
-                  <div class="price-info-item">
-                    <span class="price-info-label">资源属性</span>
-                    <div class="price-info-value">
-                      <span class="price-amount">
-                        <span class="price-number">{{ resourceAttributeText(kolData.resource_attribute) }}</span>
-                      </span>
-                    </div>
-                  </div>
-                </el-card>
+                <SingleCard
+                  label="资源属性"
+                  :value="resourceAttributeText(kolData.resource_attribute)"
+                  unit=""
+                />
               </el-col>
             </el-row>
 
             <el-row :gutter="12" class="status-info">
               <el-col :span="12">
-                <el-card shadow="never">
-                  <div class="price-info-item">
-                    <span class="price-info-label">支付账期</span>
-                    <div class="price-info-value">
-                      <span class="price-amount">
-                        <span class="price-number">{{ kolData.pay_period || '-' }}</span>
-                      </span>
-                    </div>
-                  </div>
-                </el-card>
+                <SingleCard
+                  label="支付账期"
+                  :value="kolData.pay_period || '-'"
+                  unit=""
+                />
               </el-col>
               <el-col :span="12">
-                <el-card shadow="never">
-                  <div class="price-info-item">
-                    <span class="price-info-label">合作简介</span>
-                    <div class="price-info-value">
-                      <span class="price-amount">
-                        <span class="price-number">{{ kolData.cooperation_intro || '-' }}</span>
-                      </span>
-                    </div>
-                  </div>
-                </el-card>
+                <SingleCard
+                  label="合作简介"
+                  :value="kolData.cooperation_intro || '-'"
+                  unit=""
+                />
               </el-col>
             </el-row>
           </div>
@@ -349,6 +294,7 @@ import { Refresh, Edit, OfficeBuilding } from '@element-plus/icons-vue'
 import { KolSyncApi } from '../../../api/kol-sync.api'
 import SyncStatusTag from './SyncStatusTag.vue'
 import AuthorSnapshotPanel from './AuthorSnapshotPanel.vue'
+import SingleCard from '../../../components/SingleCard/index.vue'
 
 interface KolData {
   id: number

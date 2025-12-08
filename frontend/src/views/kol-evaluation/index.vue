@@ -276,7 +276,6 @@ import {
 import { requestClient } from '../../api/request'
 import { getReviewStatisticsApi, deleteKolReviewApi, updateKolReviewApi, batchAuditKolReviewsApi, type KolReviewInfo } from '../../api/kol-reviews'
 import { log } from '../../utils/logger'
-import ReviewStatsCards from './components/ReviewStatsCards.vue'
 import ScoreDistributionChart from './components/ScoreDistributionChart.vue'
 import ReviewSearchForm from './components/ReviewSearchForm.vue'
 import StandardTable from '../kol/components/StandardTable.vue'
