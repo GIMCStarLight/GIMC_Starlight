@@ -947,7 +947,7 @@ const handleUpdateData = () => {
   &:hover {
     background-color: var(--el-fill-color-light);
   }
-  
+
   .action-icon {
     font-size: 16px;
     color: #909399;
@@ -955,6 +955,18 @@ const handleUpdateData = () => {
 
     &:hover {
       color: var(--el-color-primary);
+    }
+
+    &.rotating {
+      animation: rotate 1s linear infinite;
+    }
+  }
+
+  &.is-updating {
+    .action-icon {
+      &.rotating {
+        animation: rotate 1s linear infinite;
+      }
     }
   }
   &.is-favorited {
@@ -1088,5 +1100,14 @@ const handleUpdateData = () => {
   font-size: 12px;
   color: #606266;
   padding: 2px 4px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 </style>

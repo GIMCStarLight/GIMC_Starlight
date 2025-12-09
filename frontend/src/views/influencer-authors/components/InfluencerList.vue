@@ -46,11 +46,75 @@
       </template>
       
       <template #actions="{ record }">
-        <el-button size="small" type="primary" link @click="handleViewDetail(record)">查看</el-button>
-        <el-button size="small" type="success" link @click="handleCompare(record)">对比</el-button>
-        <el-button size="small" type="warning" link @click="handleFavorite(record)">收藏</el-button>
-        <el-button size="small" type="info" link @click="handleEvaluate(record)">评价</el-button>
-        <el-button size="small" type="warning" link @click="handleUpdateData(record)" :loading="record.updating">{{ record.updating ? '更新中...' : '更新数据' }}</el-button>
+        <div class="table-actions">
+          <!-- 查看详情 -->
+          <ToolTipPicker>
+            <template #content>
+              <div class="simple-tooltip-text">查看详情</div>
+            </template>
+            <template #trigger>
+              <div class="action-icon-wrapper" @click="handleViewDetail(record)">
+                <Icon icon="lucide:eye" class="action-icon" />
+              </div>
+            </template>
+          </ToolTipPicker>
+
+          <!-- 对比 -->
+          <ToolTipPicker>
+            <template #content>
+              <div class="simple-tooltip-text">对比</div>
+            </template>
+            <template #trigger>
+              <div class="action-icon-wrapper" @click="handleCompare(record)">
+                <Icon icon="lucide:git-compare" class="action-icon" />
+              </div>
+            </template>
+          </ToolTipPicker>
+
+          <!-- 评价 -->
+          <ToolTipPicker>
+            <template #content>
+              <div class="simple-tooltip-text">评价</div>
+            </template>
+            <template #trigger>
+              <div class="action-icon-wrapper" @click="handleEvaluate(record)">
+                <Icon icon="lucide:message-circle-more" class="action-icon" />
+              </div>
+            </template>
+          </ToolTipPicker>
+
+          <!-- 收藏 -->
+          <ToolTipPicker>
+            <template #content>
+              <div class="simple-tooltip-text">{{ record.isFavorited ? '取消收藏' : '收藏' }}</div>
+            </template>
+            <template #trigger>
+              <div
+                class="action-icon-wrapper"
+                :class="{ 'is-favorited': record.isFavorited }"
+                @click="handleFavorite(record)"
+              >
+                <Icon :icon="record.isFavorited ? 'heroicons:star-solid' : 'lucide:star-off'" class="action-icon" />
+              </div>
+            </template>
+          </ToolTipPicker>
+
+          <!-- 更新数据 -->
+          <ToolTipPicker>
+            <template #content>
+              <div class="simple-tooltip-text">{{ record.updating ? '更新中...' : '更新数据' }}</div>
+            </template>
+            <template #trigger>
+              <div
+                class="action-icon-wrapper update-btn"
+                :class="{ 'is-updating': record.updating }"
+                @click="handleUpdateData(record)"
+              >
+                <Icon icon="lucide:refresh-cw" class="action-icon" :class="{ 'rotating': record.updating }" />
+              </div>
+            </template>
+          </ToolTipPicker>
+        </div>
       </template>
       
       <template #matchStatus="{ record }">
@@ -78,8 +142,10 @@
 <script setup>
 import { ref } from 'vue'
 import { ElMessage } from 'element-plus'
+import { IconifyIcon as Icon } from '@vben/icons'
 import { useRouter } from 'vue-router'
 import StandardTable from '../../../components/standTable/index.vue'
+import ToolTipPicker from './ToolTipPicker.vue'
 
 const props = defineProps({
   influencers: {
@@ -112,7 +178,7 @@ const tableColumns = [
   { label: '返点账期', prop: 'rebate_period', dataIndex: 'rebate_period', width: 120, formatter: (row) => row.rebate_period || '-' },
   { label: '支付账期', prop: 'pay_period', dataIndex: 'pay_period', width: 120, formatter: (row) => row.pay_period || '-' },
   { label: '星图ID', prop: 'starId', dataIndex: 'star_id', width: 160 },
-  { label: '操作', prop: 'actions', width: 320, fixed: 'right' },
+  { label: '操作', prop: 'actions', width: 200, fixed: 'right' },
 ]
 
 function formatFollower(count) {
@@ -258,5 +324,67 @@ function handleUpdateData(data) {
   .growth-negative {
     color: #909399;
   }
+
+  // 操作按钮样式
+  .table-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+
+    .action-icon-wrapper {
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background-color: var(--el-fill-color-light);
+      }
+
+      .action-icon {
+        font-size: 16px;
+        color: #909399;
+        transition: color 0.2s;
+
+        &:hover {
+          color: var(--el-color-primary);
+        }
+      }
+
+      &.is-favorited {
+        .action-icon {
+          color: var(--el-color-warning);
+          transform: scale(1.2);
+        }
+      }
+
+      &.is-updating {
+        .action-icon {
+          &.rotating {
+            animation: rotate 1s linear infinite;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.simple-tooltip-text {
+  font-size: 12px;
+  color: #606266;
+  padding: 2px 4px;
 }
 </style>
