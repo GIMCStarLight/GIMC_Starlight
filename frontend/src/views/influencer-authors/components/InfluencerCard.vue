@@ -326,7 +326,7 @@
               :class="{ 'is-favorited': data.isFavorited }"
               @click.stop="handleFavorite"
             >
-              <Icon :icon="data.isFavorited ? 'heroicons:star-solid' : 'lucide:star-off'" class="action-icon" />
+              <Icon :icon="data.isFavorited ? 'heroicons:star-solid' : 'lucide:star'" class="action-icon" />
             </div>
           </template>
         </ToolTipPicker>
@@ -514,18 +514,17 @@ const getTierLabel = (tier: string): string => {
   }
   return labels[tier as keyof typeof labels] || '未知'
 }
-
+//if (rate >= 0.1) return 'lucide:arrow-up'→ trending-down红色、trending-up绿色、lucide:minus横岗
 const getGrowthIcon = (rate: number): string => {
-  if (rate >= 0.2) return 'lucide:trending-up'
-  if (rate >= 0.1) return 'lucide:arrow-up'
-  if (rate >= 0) return 'lucide:minus'
-  return 'lucide:trending-down'
+  if (rate >= 0.0001) return 'lucide:trending-up'
+  if (rate <= 0) return 'lucide:trending-down'
+  return ''
 }
 
 const getGrowthClass = (rate: number): string => {
-  if (rate >= 0.1) return 'growth-high'
-  if (rate >= 0) return 'growth-medium'
-  return 'growth-low'
+  if (rate >= 0.0001) return 'growth-high'
+  if (rate <= 0) return 'growth-low'
+  return 'growth-medium'
 }
 
 const getInteractClass = (rate: number): string => {
@@ -800,15 +799,16 @@ const handleUpdateData = () => {
         font-weight: 600;
 
         &.growth-high {
-          color: var(--el-color-success);
+          color: var(--el-color-danger);
+          
         }
 
         &.growth-medium {
-          color: var(--el-color-primary);
+          color: #333;
         }
 
         &.growth-low {
-          color: var(--el-color-danger);
+          color: var(--el-color-success);
         }
       }
     }

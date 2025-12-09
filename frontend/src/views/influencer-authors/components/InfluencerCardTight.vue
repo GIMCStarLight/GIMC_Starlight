@@ -296,7 +296,7 @@
                 :class="{ 'is-favorited': item.isFavorited }"
                 @click.stop="handleFavorite(item)"
               >
-                <Icon :icon="item.isFavorited ? 'heroicons:star-solid' : 'lucide:star-off'" class="action-icon" />
+                <Icon :icon="item.isFavorited ? 'heroicons:star-solid' : 'lucide:star'" class="action-icon" />
               </div>
             </template>
           </ToolTipPicker>

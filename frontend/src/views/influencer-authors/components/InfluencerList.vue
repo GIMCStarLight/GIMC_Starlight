@@ -9,19 +9,38 @@
       @update:selected-rows="handleTableSelectionChange"
       @sortChange="handleSortChange"
     >
-      <template #avatar="{ record }">
-        <div class="avatar-wrapper">
-          <img v-if="record.avatar_uri" :src="record.avatar_uri" :alt="record.nick_name" class="table-avatar" loading="lazy" />
-          <div v-else class="table-avatar avatar-placeholder"></div>
+      <template #authorInfo="{ record }">
+        <div class="author-info-cell">
+          <div class="author-avatar-wrapper">
+            <img v-if="record.avatar_uri" :src="record.avatar_uri" :alt="record.nick_name" class="author-avatar-img" loading="lazy" />
+            <div v-else class="author-avatar-img avatar-placeholder"></div>
+          </div>
+          <div class="author-detail-info">
+            <div class="author-name-row">
+              <span class="author-name">{{ record.nick_name }}</span>
+            </div>
+            <div class="author-meta-row">
+              <span class="author-gender">{{ formatGender(record.gender) }}</span>
+              <div class="meta-divider"></div>
+              <span class="author-location">{{ record.city || record.province || '-' }}</span>
+            </div>
+          </div>
         </div>
       </template>
       
       <template #growth="{ record }">
-        <span :class="getGrowthClass(record.fans_increment_rate_30d)">{{ formatPercent(record.fans_increment_rate_30d) }}</span>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 4px;">
+          <Icon
+            v-if="getGrowthIcon(record.fans_increment_rate_30d)"
+            :icon="getGrowthIcon(record.fans_increment_rate_30d)"
+            :style="{ color: getGrowthColor(record.fans_increment_rate_30d), fontSize: '14px' }"
+          />
+          <span :class="getGrowthClass(record.fans_increment_rate_30d)">{{ formatPercent(record.fans_increment_rate_30d) }}</span>
+        </div>
       </template>
       
       <template #starIndex="{ record }">
-        <el-tag v-if="record.star_index !== undefined && record.star_index !== null" type="success" size="small">{{ formatNumber(record.star_index) }}</el-tag>
+        <span v-if="record.star_index !== undefined && record.star_index !== null">{{ formatNumber(record.star_index) }}</span>
         <span v-else>-</span>
       </template>
       
@@ -31,17 +50,25 @@
       </template>
       
       <template #featureTags="{ record }">
-        <div class="tags-container">
-          <el-tag v-if="record.star_excellent_author" type="warning" size="small">优质</el-tag>
-          <el-tag v-if="record.is_black_horse_author" type="danger" size="small">黑马</el-tag>
-          <el-tag v-if="record.e_commerce_enable" type="success" size="small">电商</el-tag>
-          <el-tag v-if="record.is_rising_star" type="info" size="small">新星</el-tag>
+        <div class="feature-tags-cell">
+          <el-tag v-if="record.star_excellent_author" size="small" effect="plain" class="tag-item">优质达人</el-tag>
+          <el-tag v-if="record.is_black_horse_author" size="small" effect="plain" class="tag-item">黑马达人</el-tag>
+          <el-tag v-if="record.e_commerce_enable" size="small" effect="plain" class="tag-item">电商达人</el-tag>
+          <el-tag v-if="record.is_rising_star" size="small" effect="plain" class="tag-item">新星达人</el-tag>
         </div>
       </template>
       
       <template #contentTags="{ record }">
-        <div class="content-tags">
-          <el-tag v-for="(tag, index) in getContentTags(record)" :key="index" size="small" effect="plain" style="margin-right: 4px">{{ tag }}</el-tag>
+        <div class="content-tags-cell">
+          <el-tag 
+            v-for="(tag, index) in getContentTags(record)" 
+            :key="index" 
+            size="small" 
+            effect="plain"
+            class="tag-item"
+          >
+            {{ tag }}
+          </el-tag>
         </div>
       </template>
       
@@ -94,7 +121,7 @@
                 :class="{ 'is-favorited': record.isFavorited }"
                 @click="handleFavorite(record)"
               >
-                <Icon :icon="record.isFavorited ? 'heroicons:star-solid' : 'lucide:star-off'" class="action-icon" />
+                <Icon :icon="record.isFavorited ? 'heroicons:star-solid' : 'lucide:star'" class="action-icon" />
               </div>
             </template>
           </ToolTipPicker>
@@ -127,11 +154,7 @@
         <span v-else>-</span>
       </template>
       
-      <template #policyLevel="{ record }">
-        <el-tag v-if="record.policy_level" :type="getPolicyLevelType(record.policy_level)" size="small">{{ record.policy_level }}级</el-tag>
-        <span v-else>-</span>
-      </template>
-      
+        
       <template #starId="{ record }">
         <div style="font-family: monospace; font-size: 12px;">{{ record.star_id }}</div>
       </template>
@@ -157,28 +180,26 @@ const props = defineProps({
 const router = useRouter()
 const tableRef = ref()
 const selectedRows = ref([])
-
+//{ label: '星图ID', prop: 'starId', dataIndex: 'star_id', width: 160, align: 'center' },
 const tableColumns = [
-  { label: '头像', prop: 'avatar', width: 80, align: 'center' },
-  { label: '昵称', prop: 'nick_name', dataIndex: 'nick_name', width: 150 },
-  { label: '粉丝数', prop: 'follower', dataIndex: 'follower', width: 120, align: 'right', sortable: true, formatter: (row) => formatFollower(row.follower) },
-  { label: '粉丝增长率', prop: 'growth', dataIndex: 'fans_increment_rate_30d', width: 120, align: 'right', sortable: true },
-  { label: '互动率', prop: 'interact_rate_30d', dataIndex: 'interact_rate_30d', width: 100, align: 'right', sortable: true, formatter: (row) => formatPercent(row.interact_rate_30d) },
-  { label: '完播率', prop: 'play_over_rate_30d', dataIndex: 'play_over_rate_30d', width: 100, align: 'right', sortable: true, formatter: (row) => formatPercent(row.play_over_rate_30d) },
-  { label: '星图指数', prop: 'starIndex', dataIndex: 'star_index', width: 110, align: 'right', sortable: true },
-  { label: '60s报价', prop: 'price', dataIndex: 'price_60', width: 120, align: 'right', sortable: true },
-  { label: '特征标签', prop: 'featureTags', width: 200 },
-  { label: '内容标签', prop: 'contentTags', width: 250 },
-  { label: '地域', prop: 'province', dataIndex: 'province', width: 100, formatter: (row) => row.province || '-' },
+  { label: '达人信息', prop: 'authorInfo', width: 200, align: 'center' },
+  { label: '粉丝数', prop: 'follower', dataIndex: 'follower', width: 120, align: 'center', sortable: true, formatter: (row) => formatFollower(row.follower) },
+  { label: '星图指数', prop: 'starIndex', dataIndex: 'star_index', width: 100, align: 'center', sortable: true },
+  { label: '粉丝增长率', prop: 'growth', dataIndex: 'fans_increment_rate_30d', width: 100, align: 'center', sortable: true },
+  { label: '互动率', prop: 'interact_rate_30d', dataIndex: 'interact_rate_30d', width: 100, align: 'center', sortable: true, formatter: (row) => formatPercent(row.interact_rate_30d) },
+  { label: '完播率', prop: 'play_over_rate_30d', dataIndex: 'play_over_rate_30d', width: 100, align: 'center', sortable: true, formatter: (row) => formatPercent(row.play_over_rate_30d) },
+  { label: '特征标签', prop: 'featureTags', width: 150, align: 'center' },
+  { label: '内容标签', prop: 'contentTags', width: 150, align: 'center' },
+  { label: '地域', prop: 'province', dataIndex: 'province', width: 100, align: 'center', formatter: (row) => row.province || '-' },
   { label: '匹配状态', prop: 'matchStatus', width: 100, align: 'center' },
-  { label: '所属机构', prop: 'org_name', dataIndex: 'org_name', width: 150, formatter: (row) => row.org_name || '-' },
-  { label: '返点政策', prop: 'rebate_policy', dataIndex: 'rebate_policy', width: 150, formatter: (row) => row.rebate_policy || '-' },
+  { label: '所属机构', prop: 'org_name', dataIndex: 'org_name', width: 150, align: 'center', formatter: (row) => row.org_name || '-' },
+  { label: '返点政策', prop: 'rebate_policy', dataIndex: 'rebate_policy', width: 150, align: 'center', formatter: (row) => row.rebate_policy || '-' },
   { label: '返点区间', prop: 'rebateRange', dataIndex: 'rebate_range', width: 120, align: 'center' },
-  { label: '政策等级', prop: 'policyLevel', dataIndex: 'policy_level', width: 100, align: 'center' },
-  { label: '返点账期', prop: 'rebate_period', dataIndex: 'rebate_period', width: 120, formatter: (row) => row.rebate_period || '-' },
-  { label: '支付账期', prop: 'pay_period', dataIndex: 'pay_period', width: 120, formatter: (row) => row.pay_period || '-' },
-  { label: '星图ID', prop: 'starId', dataIndex: 'star_id', width: 160 },
-  { label: '操作', prop: 'actions', width: 200, fixed: 'right' },
+  { label: '政策等级', prop: 'policyLevel', dataIndex: 'policy_level', width: 100, align: 'center', formatter: (row) => row.policy_level ? `${row.policy_level}级` : '-' },
+  { label: '返点账期', prop: 'rebate_period', dataIndex: 'rebate_period', width: 120, align: 'center', formatter: (row) => row.rebate_period || '-' },
+  { label: '支付账期', prop: 'pay_period', dataIndex: 'pay_period', width: 120, align: 'center', formatter: (row) => row.pay_period || '-' },
+  { label: '60s报价', prop: 'price', dataIndex: 'price_60', width: 120, align: 'center', sortable: true, fixed: 'right' },
+  { label: '操作', prop: 'actions', width: 200, align: 'center', fixed: 'right' },
 ]
 
 function formatFollower(count) {
@@ -193,7 +214,14 @@ function formatPercent(value) {
 
 function formatNumber(value) {
   if (value === undefined || value === null) return '-'
-  return value.toLocaleString()
+  const roundedValue = Math.round(value * 10) / 10
+  return roundedValue.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })
+}
+
+function formatGender(gender) {
+  if (gender === 1) return '男'
+  if (gender === 2) return '女'
+  return '-'
 }
 
 function formatPrice(value) {
@@ -206,10 +234,21 @@ function formatPrice(value) {
 
 function getGrowthClass(rate) {
   if (!rate) return ''
-  if (rate > 0.1) return 'growth-high'
-  if (rate > 0.05) return 'growth-medium'
-  if (rate > 0) return 'growth-low'
-  return 'growth-negative'
+  if (rate >= 0.001) return 'growth-high'
+  if (rate >= 0) return ''
+  return 'growth-low'
+}
+
+function getGrowthIcon(rate) {
+  if (rate >= 0.01) return 'lucide:trending-up'
+  if (rate > 0) return null
+  return 'lucide:trending-down'
+}
+
+function getGrowthColor(rate) {
+  if (rate >= 0.01) return '#f56c6c' // red
+  if (rate > 0) return '#333' // gray
+  return '#67c23a' // green
 }
 
 function getContentTags(row) {
@@ -217,14 +256,6 @@ function getContentTags(row) {
   return Array.isArray(tags) ? tags.slice(0, 3) : []
 }
 
-function getPolicyLevelType(level) {
-  const types = {
-    'A': 'danger',
-    'B': 'warning',
-    'C': 'info',
-  }
-  return types[level] || 'info'
-}
 
 function handleTableSelectionChange(rows) {
   selectedRows.value = rows
@@ -268,53 +299,138 @@ function handleUpdateData(data) {
 
 <style scoped lang="scss">
 .influencer-list {
-  .avatar-wrapper {
+  // 达人信息单元格样式
+  .author-info-cell {
     display: flex;
     align-items: center;
-    justify-content: center;
-  }
+    gap: 12px;
+    padding: 8px 0;
 
-  .table-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
+    .author-avatar-wrapper {
+      padding-left: 20px;
+      flex-shrink: 0;
 
-  .avatar-placeholder {
-    background-color: #f0f0f0;
+      .author-avatar-img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .avatar-placeholder {
+        background-color: #f0f0f0;
+      }
+    }
+
+    .author-detail-info {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      .author-name-row {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        .author-name {
+          font-size: 14px;
+          font-weight: 500;
+          color: var(--el-text-color-primary);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+
+      .author-meta-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        color: var(--el-text-color-secondary);
+
+        .author-gender {
+          color: var(--el-text-color-regular);
+        }
+
+        .meta-divider {
+          width: 1px;
+          height: 12px;
+          background-color: var(--el-border-color);
+        }
+
+        .author-location {
+          color: var(--el-text-color-regular);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
   }
 
   .price-text {
-    color: #f56c6c;
     font-weight: 500;
+    color: #1677ff; // 改为蓝色
+    font-size: 17px;
   }
 
-  .tags-container {
+  // 特征标签单元格
+  .feature-tags-cell {
     display: flex;
-    gap: 4px;
     flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 0;
+
+    .tag-item {
+      margin: 0;
+      font-size: 12px;
+      padding: 0 8px;
+      height: 22px;
+      line-height: 22px;
+      border-radius: 2px;
+      background-color: var(--el-fill-color-light);
+      border: 1px solid var(--el-border-color-lighter);
+      color: var(--el-text-color-regular);
+    }
   }
 
-  .content-tags {
+  // 内容标签单元格
+  .content-tags-cell {
     display: flex;
-    gap: 4px;
     flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 0;
+
+    .tag-item {
+      margin: 0;
+      font-size: 12px;
+      padding: 0 8px;
+      height: 22px;
+      line-height: 22px;
+      border-radius: 2px;
+      background-color: var(--el-fill-color-light);
+      border: 1px solid var(--el-border-color-lighter);
+      color: var(--el-text-color-regular);
+    }
   }
 
   .rebate-highlight {
-    color: #67c23a;
     font-weight: 500;
+    color: #1677ff; // 改为蓝色
+    font-size: 15px;
   }
 
   .growth-high {
     color: #f56c6c;
     font-weight: 600;
-  }
-
-  .growth-medium {
-    color: #e6a23c;
-    font-weight: 500;
   }
 
   .growth-low {

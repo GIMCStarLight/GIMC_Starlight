@@ -10,7 +10,7 @@
             :size="size"
             :pagination="false"
             :row-selection="selectedRows !== undefined ? rowSelection : null"
-            :scroll="{ x: 'max-content' }"
+            :scroll="{ x: scrollX }"
             @change="handleTableChange"
         >
             <!-- 自定义单元格插槽 -->
@@ -136,16 +136,24 @@ const antColumns = computed(() => {
         dataIndex: col.dataIndex || col.prop,
         key: col.prop || col.label,
         width: col.width,
-        align: col.align || 'center', // 默认居中
+        align: col.align,
         sorter: col.sortable ? true : false,
         sortDirections: ['descend', 'ascend'],
         showSorterTooltip: col.sortable ? {
             title: '点击排序'
         } : false,
         customRender: col.formatter ? ({ text, record, index }) => col.formatter(record, index, text) : undefined,
-        ellipsis: col.ellipsis !== undefined ? col.ellipsis : true,
+        ellipsis: col.ellipsis,
         fixed: col.fixed
     }))
+})
+
+/* ---------- 计算表格总宽度 ---------- */
+const scrollX = computed(() => {
+    const totalWidth = props.columns.reduce((sum, col) => {
+        return sum + (col.width || 100)
+    }, 0)
+    return totalWidth
 })
 
 /* ---------- 行选择配置 ---------- */
@@ -212,16 +220,19 @@ watch(
         justify-content: flex-end;
     }
 
-    // 表头居中
+    // 强制使用固定表格布局，让 width 属性生效
+    :deep(.ant-table) {
+        table-layout: fixed !important;
+    }
+
+    // 表头样式（不强制对齐，由配置决定）
     :deep(.ant-table-thead > tr > th) {
-        text-align: center;
         color: #31343B;
         font-size: 12px;
     }
 
-    // 单元格内容居中
+    // 单元格样式（不强制对齐，由配置决定）
     :deep(.ant-table-tbody > tr > td) {
-        text-align: center;
         color: #31343B;
         font-size: 14px;
     }
