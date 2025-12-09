@@ -12,57 +12,59 @@
   >
     <!-- 第一层：核心识别信息 -->
     <div class="card-header">
-      <div class="avatar-section">
-        <img 
-          v-lazy="data.avatar_uri" 
-          :alt="data.nick_name"
-          class="avatar-img"
-        />
-        <div class="tier-badge" :class="`tier-${data.influencer_tier}`">
-          {{ getTierLabel(data.influencer_tier) }}
-        </div>
-      </div>
-      
-      <div class="basic-info">
-        <div class="name-line">
-          <h3 class="nick-name">{{ data.nick_name }}</h3>
-          <div class="special-badges">
-            <el-tag 
-              v-if="data.star_excellent_author" 
-              type="warning" 
-              size="small"
-              effect="dark"
-            >
-              ⭐ 优质
-            </el-tag>
-            <el-tag 
-              v-if="data.is_black_horse_author" 
-              type="danger" 
-              size="small"
-            >
-              🐴 黑马
-            </el-tag>
-            <el-tag 
-              v-if="data.star_qianchuan_high_potential" 
-              type="success" 
-              size="small"
-            >
-              🚀 高潜
-            </el-tag>
+      <div class="header-content">
+        <div class="avatar-section">
+          <img
+            v-lazy="data.avatar_uri"
+            :alt="data.nick_name"
+            class="avatar-img"
+          />
+          <div class="tier-badge" :class="`tier-${data.influencer_tier}`">
+            {{ getTierLabel(data.influencer_tier) }}
           </div>
         </div>
-        
-        <div class="star-id">@星图ID: {{ data.star_id }}</div>
-        
-        <div class="meta-info">
-          <span class="location">
-            <Icon icon="lucide:map-pin" />
-            {{ data.province }}{{ data.city }}
-          </span>
-          <span class="follower">
-            <Icon icon="lucide:users" />
-            {{ formatFollower(data.follower) }}
-          </span>
+
+        <div class="basic-info">
+          <div class="name-line">
+            <h3 class="nick-name">{{ data.nick_name }}</h3>
+            <div class="special-badges">
+              <el-tag
+                v-if="data.star_excellent_author"
+                type="warning"
+                size="small"
+                effect="dark"
+              >
+                优质
+              </el-tag>
+              <el-tag
+                v-if="data.is_black_horse_author"
+                type="danger"
+                size="small"
+              >
+                黑马
+              </el-tag>
+              <el-tag
+                v-if="data.star_qianchuan_high_potential"
+                type="success"
+                size="small"
+              >
+                高潜
+              </el-tag>
+            </div>
+          </div>
+
+          <div class="star-id">@星图ID: {{ data.star_id }}</div>
+
+          <div class="meta-info">
+            <span class="location">
+              <Icon icon="lucide:map-pin" />
+              {{ data.province }}{{ data.city }}
+            </span>
+            <span class="follower">
+              <Icon icon="lucide:users" />
+              {{ formatFollower(data.follower) }}
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -603,11 +605,15 @@ const handleUpdateData = () => {
     padding: 20px;
     border-bottom: 1px solid var(--el-border-color-lighter);
 
-    .avatar-section {
+    .header-content {
       display: flex;
-      align-items: center;
-      margin-bottom: 12px;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .avatar-section {
       position: relative;
+      flex-shrink: 0;
 
       .avatar-img {
         width: 60px;
@@ -660,6 +666,7 @@ const handleUpdateData = () => {
 
     .basic-info {
       flex: 1;
+      min-width: 0; /* 防止内容溢出 */
 
       .name-line {
         display: flex;
@@ -682,6 +689,10 @@ const handleUpdateData = () => {
           display: flex;
           gap: 4px;
           flex-shrink: 0;
+
+          :deep(.el-tag) {
+            font-style: italic;
+          }
         }
       }
 

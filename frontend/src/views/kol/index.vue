@@ -435,7 +435,7 @@ import DouyinQuickFilter from '../influencer-authors/components/platform-filters
 import { useInfluencerSquareStore } from '../../store/modules/influencer-square'
 import { storeToRefs } from 'pinia'
 import { InfluencerNormalizer } from '../../utils/influencer-normalizer'
-import StandardTable from './components/StandardTable.vue'
+import StandardTable from '@/components/standTable/index.vue'
 
 const router = useRouter()
 

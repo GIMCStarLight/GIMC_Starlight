@@ -278,7 +278,7 @@ import { getReviewStatisticsApi, deleteKolReviewApi, updateKolReviewApi, batchAu
 import { log } from '../../utils/logger'
 import ScoreDistributionChart from './components/ScoreDistributionChart.vue'
 import ReviewSearchForm from './components/ReviewSearchForm.vue'
-import StandardTable from '../kol/components/StandardTable.vue'
+import StandardTable from '../../components/standTable/index.vue'
 import ToolTipPicker from '../influencer-authors/components/ToolTipPicker.vue'
 
 // 页面状态

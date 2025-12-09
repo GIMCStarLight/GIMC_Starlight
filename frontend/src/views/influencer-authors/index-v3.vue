@@ -150,6 +150,9 @@
         :loading="loading"
         :platform="currentPlatform"
         :use-store-selection="true"
+        @view-detail="handleViewDetail"
+        @compare="handleCompare"
+        @favorite="handleFavorite"
         @update-data="updateInfluencerData"
         @evaluate="handleEvaluate"
       />
@@ -183,6 +186,7 @@ import { ref, computed, watch, markRaw, onActivated } from 'vue'
 import { IconifyIcon as Icon } from '@vben/icons'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { log } from '#/utils/logger'
+import { useRouter } from 'vue-router'
 import EvaluateDialog from '#/components/EvaluateDialog/index.vue'
 import { useInfluencerSquareStore } from '#/store'
 import { storeToRefs } from 'pinia'
@@ -230,6 +234,7 @@ const platforms = ref<PlatformConfig[]>([
 ])
 
 const currentPlatform = ref('douyin')
+const router = useRouter()
 
 log.debug('🎯 [index-v3] 页面组件初始化')
 
@@ -657,6 +662,34 @@ const handleEvaluate = (influencer: any) => {
   evaluateDialogVisible.value = true
 }
 
+// 查看详情
+const handleViewDetail = (data: any) => {
+  log.debug('📤 [跳转详情] author_id:', data.author_id, 'nick_name:', data.nick_name)
+  const targetPath = `/influencer-detail/${data.author_id}`
+  log.debug('📤 [跳转详情] 目标路径:', targetPath)
+
+  try {
+    router.push(targetPath)
+    log.debug('✅ [跳转详情] 路由跳转成功')
+  } catch (error) {
+    log.error('❌ [跳转详情] 路由跳转失败:', error)
+    ElMessage.error('跳转失败: ' + (error as Error).message)
+  }
+}
+
+// 对比达人
+const handleCompare = (data: any) => {
+  log.debug('对比达人:', data)
+  ElMessage.info('对比功能开发中...')
+}
+
+// 收藏达人
+const handleFavorite = (data: any) => {
+  log.debug('收藏达人:', data)
+  data.isFavorited = !data.isFavorited
+  ElMessage.success(data.isFavorited ? '已收藏' : '取消收藏')
+}
+
 // 评价提交成功后
 const handleReviewSubmitted = () => {
   ElMessage.success('评价已提交')
@@ -879,8 +912,7 @@ if (typeof window !== 'undefined') {
       align-items: center;
       margin-bottom: 20px;
       padding-bottom: 16px;
-      border-bottom: 1px solid var(--el-border-color-lighter);
-
+      
       .toolbar-left {
         .result-count {
           font-size: 14px;

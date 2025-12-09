@@ -85,6 +85,7 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SingleCard: typeof import('./src/components/SingleCard/index.vue')['default']
     SqlbotEmbedded: typeof import('./src/components/SqlbotEmbedded/index.vue')['default']
+    StandTable: typeof import('./src/components/standTable/index.vue')['default']
     TagFilter: typeof import('./src/components/TagFilter/index.vue')['default']
     TagSelector: typeof import('./src/components/TagSelector/index.vue')['default']
   }
@@ -168,6 +169,7 @@ declare global {
   const RouterView: typeof import('vue-router')['RouterView']
   const SingleCard: typeof import('./src/components/SingleCard/index.vue')['default']
   const SqlbotEmbedded: typeof import('./src/components/SqlbotEmbedded/index.vue')['default']
+  const StandTable: typeof import('./src/components/standTable/index.vue')['default']
   const TagFilter: typeof import('./src/components/TagFilter/index.vue')['default']
   const TagSelector: typeof import('./src/components/TagSelector/index.vue')['default']
 }

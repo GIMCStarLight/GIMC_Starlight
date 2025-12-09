@@ -8,7 +8,7 @@ import { getInfluencerFullData } from '../../api/influencer-v2'
 import KolReviewsTab from '../../components/KolReviewsTab/index.vue'
 import SingleCard from '../../components/SingleCard/index.vue'
 import RadarChart from './components/RadarChart.vue'
-import StandardTable from '../kol/components/StandardTable.vue'
+import StandardTable from '../../components/standTable/index.vue'
 import TabSeven from './components/TabSeven.vue'
 
 const route = useRoute()
