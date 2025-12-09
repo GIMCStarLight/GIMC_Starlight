@@ -1,0 +1,96 @@
+{
+  "cookies": [
+    {
+      "name": "security_iframe_cookie_detect",
+      "value": "1",
+      "domain": "lf3-static.bytednsdoc.com",
+      "path": "/obj/eden-cn/fapybjlz_lm_zlp/ljhwZthlaukjlkulzlp/security",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "gd_random",
+      "value": "eyJtYXRjaCI6dHJ1ZSwicGVyY2VudCI6MC40NTgxMDg4MTQ1OTQxNjE2NH0=.GWc8deNv3NhoRrOrWHXbvu9uuotKOLuSgrRFHlrUGCE=",
+      "domain": "agent.oceanengine.com",
+      "path": "/admin",
+      "expires": 1765779169.295645,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "passport_csrf_token",
+      "value": "c13c99015159f6125287f92755e6de47",
+      "domain": ".oceanengine.com",
+      "path": "/",
+      "expires": 1770358360.239379,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "passport_csrf_token_default",
+      "value": "c13c99015159f6125287f92755e6de47",
+      "domain": ".oceanengine.com",
+      "path": "/",
+      "expires": 1770358360.239419,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "s_v_web_id",
+      "value": "verify_miwr8nc9_HAA2L0ii_Ey43_4y96_APyz_8TAo3Fm7vRuo",
+      "domain": "agent.oceanengine.com",
+      "path": "/",
+      "expires": 1770358362,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ttwid",
+      "value": "1%7CeWyiJSQSYUHlTfzlk3VSkGq3jeBGua50l1RbqThGv0A%7C1765174363%7Cd685d78fd3f955dc0e171c4f077159af27930bf7dd6f8c1c32099766c08a0975",
+      "domain": ".bytedance.com",
+      "path": "/",
+      "expires": 1796710363.157807,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "x-web-secsdk-uid",
+      "value": "fbd84f33-fb04-4b93-b740-c39b31751d90",
+      "domain": "agent.oceanengine.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "gd_random",
+      "value": "eyJtYXRjaCI6dHJ1ZSwicGVyY2VudCI6MC40NTgxMDg4MTQ1OTQxNjE2NH0=.GWc8deNv3NhoRrOrWHXbvu9uuotKOLuSgrRFHlrUGCE=",
+      "domain": "agent.oceanengine.com",
+      "path": "/",
+      "expires": 1765779176.201769,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ttwid",
+      "value": "1%7CeWyiJSQSYUHlTfzlk3VSkGq3jeBGua50l1RbqThGv0A%7C1765174376%7C0d6e19ba80b407fc2f018575aecaaccc7650a03b15a212e32280e24f2f8c5097",
+      "domain": ".oceanengine.com",
+      "path": "/",
+      "expires": 1796710376.878898,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    }
+  ],
+  "timestamp": "2025-12-08T14:13:05.116350",
+  "url": "https://agent.oceanengine.com/admin/star-agent/vue2/market"
+}

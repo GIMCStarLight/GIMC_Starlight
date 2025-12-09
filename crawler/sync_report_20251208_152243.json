@@ -1,0 +1,2204 @@
+{
+  "total_count": 24336,
+  "total_success": 0,
+  "total_failed": 0,
+  "total_partial": 0,
+  "batch_results": [
+    {
+      "batch_num": 1,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 11.621634006500244,
+      "timestamp": "2025-12-08T14:30:16.271686"
+    },
+    {
+      "batch_num": 2,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 10.433596134185791,
+      "timestamp": "2025-12-08T14:30:31.710486"
+    },
+    {
+      "batch_num": 3,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 9.668339967727661,
+      "timestamp": "2025-12-08T14:30:46.380482"
+    },
+    {
+      "batch_num": 4,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 10.360527038574219,
+      "timestamp": "2025-12-08T14:31:01.746205"
+    },
+    {
+      "batch_num": 5,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 11.528144121170044,
+      "timestamp": "2025-12-08T14:31:18.279533"
+    },
+    {
+      "batch_num": 6,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 9.574388265609741,
+      "timestamp": "2025-12-08T14:31:32.859202"
+    },
+    {
+      "batch_num": 7,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 10.616183042526245,
+      "timestamp": "2025-12-08T14:31:48.477021"
+    },
+    {
+      "batch_num": 8,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 9.052925825119019,
+      "timestamp": "2025-12-08T14:32:02.532134"
+    },
+    {
+      "batch_num": 9,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 10.556712865829468,
+      "timestamp": "2025-12-08T14:32:18.092917"
+    },
+    {
+      "batch_num": 10,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.720234870910645,
+      "timestamp": "2025-12-08T14:32:31.815284"
+    },
+    {
+      "batch_num": 11,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 12.373943090438843,
+      "timestamp": "2025-12-08T14:32:49.194304"
+    },
+    {
+      "batch_num": 12,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 11.004222393035889,
+      "timestamp": "2025-12-08T14:33:05.203334"
+    },
+    {
+      "batch_num": 13,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 9.358365058898926,
+      "timestamp": "2025-12-08T14:33:19.566938"
+    },
+    {
+      "batch_num": 14,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 9.829606771469116,
+      "timestamp": "2025-12-08T14:33:34.401754"
+    },
+    {
+      "batch_num": 15,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 12.816750764846802,
+      "timestamp": "2025-12-08T14:33:52.222399"
+    },
+    {
+      "batch_num": 16,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.5992910861969,
+      "timestamp": "2025-12-08T14:34:05.825886"
+    },
+    {
+      "batch_num": 17,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 9.500715017318726,
+      "timestamp": "2025-12-08T14:34:20.327757"
+    },
+    {
+      "batch_num": 18,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.959502935409546,
+      "timestamp": "2025-12-08T14:34:33.292570"
+    },
+    {
+      "batch_num": 19,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.776479959487915,
+      "timestamp": "2025-12-08T14:34:46.073285"
+    },
+    {
+      "batch_num": 20,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.629422903060913,
+      "timestamp": "2025-12-08T14:34:58.707813"
+    },
+    {
+      "batch_num": 21,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.368653059005737,
+      "timestamp": "2025-12-08T14:35:12.081779"
+    },
+    {
+      "batch_num": 22,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.90212607383728,
+      "timestamp": "2025-12-08T14:35:24.987079"
+    },
+    {
+      "batch_num": 23,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.265763998031616,
+      "timestamp": "2025-12-08T14:35:38.258111"
+    },
+    {
+      "batch_num": 24,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 9.160944938659668,
+      "timestamp": "2025-12-08T14:35:52.424256"
+    },
+    {
+      "batch_num": 25,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 9.466048002243042,
+      "timestamp": "2025-12-08T14:36:06.895572"
+    },
+    {
+      "batch_num": 26,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 11.054419040679932,
+      "timestamp": "2025-12-08T14:36:22.953643"
+    },
+    {
+      "batch_num": 27,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.682456016540527,
+      "timestamp": "2025-12-08T14:36:35.641343"
+    },
+    {
+      "batch_num": 28,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.21753478050232,
+      "timestamp": "2025-12-08T14:36:48.860934"
+    },
+    {
+      "batch_num": 29,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.417011976242065,
+      "timestamp": "2025-12-08T14:37:01.283192"
+    },
+    {
+      "batch_num": 30,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.787445068359375,
+      "timestamp": "2025-12-08T14:37:15.072845"
+    },
+    {
+      "batch_num": 31,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.091415882110596,
+      "timestamp": "2025-12-08T14:37:28.169487"
+    },
+    {
+      "batch_num": 32,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.101048946380615,
+      "timestamp": "2025-12-08T14:37:41.275690"
+    },
+    {
+      "batch_num": 33,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.259943962097168,
+      "timestamp": "2025-12-08T14:37:53.540896"
+    },
+    {
+      "batch_num": 34,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.42472505569458,
+      "timestamp": "2025-12-08T14:38:06.969994"
+    },
+    {
+      "batch_num": 35,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.156394004821777,
+      "timestamp": "2025-12-08T14:38:19.131561"
+    },
+    {
+      "batch_num": 36,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.0458149909973145,
+      "timestamp": "2025-12-08T14:38:31.178952"
+    },
+    {
+      "batch_num": 37,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.48534607887268,
+      "timestamp": "2025-12-08T14:38:44.669554"
+    },
+    {
+      "batch_num": 38,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 10.272731065750122,
+      "timestamp": "2025-12-08T14:38:59.947575"
+    },
+    {
+      "batch_num": 39,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.913536787033081,
+      "timestamp": "2025-12-08T14:39:12.862085"
+    },
+    {
+      "batch_num": 40,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.838647842407227,
+      "timestamp": "2025-12-08T14:39:25.705124"
+    },
+    {
+      "batch_num": 41,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.994601011276245,
+      "timestamp": "2025-12-08T14:39:37.704976"
+    },
+    {
+      "batch_num": 42,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.463021278381348,
+      "timestamp": "2025-12-08T14:39:50.173261"
+    },
+    {
+      "batch_num": 43,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.497550964355469,
+      "timestamp": "2025-12-08T14:40:02.676067"
+    },
+    {
+      "batch_num": 44,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.627861976623535,
+      "timestamp": "2025-12-08T14:40:15.309190"
+    },
+    {
+      "batch_num": 45,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.405869960784912,
+      "timestamp": "2025-12-08T14:40:27.720336"
+    },
+    {
+      "batch_num": 46,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.695369005203247,
+      "timestamp": "2025-12-08T14:40:39.420997"
+    },
+    {
+      "batch_num": 47,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 9.338580131530762,
+      "timestamp": "2025-12-08T14:40:53.764889"
+    },
+    {
+      "batch_num": 48,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.877454280853271,
+      "timestamp": "2025-12-08T14:41:07.647621"
+    },
+    {
+      "batch_num": 49,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.992041826248169,
+      "timestamp": "2025-12-08T14:41:19.644886"
+    },
+    {
+      "batch_num": 50,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.283442974090576,
+      "timestamp": "2025-12-08T14:41:32.933580"
+    },
+    {
+      "batch_num": 51,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.940443277359009,
+      "timestamp": "2025-12-08T14:41:44.879291"
+    },
+    {
+      "batch_num": 52,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.408443927764893,
+      "timestamp": "2025-12-08T14:41:58.289157"
+    },
+    {
+      "batch_num": 53,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.9443230628967285,
+      "timestamp": "2025-12-08T14:42:10.238739"
+    },
+    {
+      "batch_num": 54,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.600681304931641,
+      "timestamp": "2025-12-08T14:42:21.844769"
+    },
+    {
+      "batch_num": 55,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.486429929733276,
+      "timestamp": "2025-12-08T14:42:34.336508"
+    },
+    {
+      "batch_num": 56,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.532679796218872,
+      "timestamp": "2025-12-08T14:42:46.874463"
+    },
+    {
+      "batch_num": 57,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.177489757537842,
+      "timestamp": "2025-12-08T14:42:59.057268"
+    },
+    {
+      "batch_num": 58,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.329067945480347,
+      "timestamp": "2025-12-08T14:43:11.391605"
+    },
+    {
+      "batch_num": 59,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.337293863296509,
+      "timestamp": "2025-12-08T14:43:23.734164"
+    },
+    {
+      "batch_num": 60,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.385022163391113,
+      "timestamp": "2025-12-08T14:43:37.123642"
+    },
+    {
+      "batch_num": 61,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.653158187866211,
+      "timestamp": "2025-12-08T14:43:48.778800"
+    },
+    {
+      "batch_num": 62,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.909116983413696,
+      "timestamp": "2025-12-08T14:44:00.690517"
+    },
+    {
+      "batch_num": 63,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.2065489292144775,
+      "timestamp": "2025-12-08T14:44:12.902300"
+    },
+    {
+      "batch_num": 64,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 9.772078037261963,
+      "timestamp": "2025-12-08T14:44:27.679650"
+    },
+    {
+      "batch_num": 65,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.4860289096832275,
+      "timestamp": "2025-12-08T14:44:39.169357"
+    },
+    {
+      "batch_num": 66,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 10.504941701889038,
+      "timestamp": "2025-12-08T14:44:54.679565"
+    },
+    {
+      "batch_num": 67,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.951271295547485,
+      "timestamp": "2025-12-08T14:45:06.635612"
+    },
+    {
+      "batch_num": 68,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.562108993530273,
+      "timestamp": "2025-12-08T14:45:18.202990"
+    },
+    {
+      "batch_num": 69,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.575187921524048,
+      "timestamp": "2025-12-08T14:45:30.783424"
+    },
+    {
+      "batch_num": 70,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.404414176940918,
+      "timestamp": "2025-12-08T14:45:43.193114"
+    },
+    {
+      "batch_num": 71,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.159805059432983,
+      "timestamp": "2025-12-08T14:45:55.358172"
+    },
+    {
+      "batch_num": 72,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.295317888259888,
+      "timestamp": "2025-12-08T14:46:07.658795"
+    },
+    {
+      "batch_num": 73,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.168222904205322,
+      "timestamp": "2025-12-08T14:46:19.832265"
+    },
+    {
+      "batch_num": 74,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.044703960418701,
+      "timestamp": "2025-12-08T14:46:32.882248"
+    },
+    {
+      "batch_num": 75,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.35344386100769,
+      "timestamp": "2025-12-08T14:46:44.237107"
+    },
+    {
+      "batch_num": 76,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.038433074951172,
+      "timestamp": "2025-12-08T14:46:57.279513"
+    },
+    {
+      "batch_num": 77,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.766079902648926,
+      "timestamp": "2025-12-08T14:47:11.050903"
+    },
+    {
+      "batch_num": 78,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 9.000511169433594,
+      "timestamp": "2025-12-08T14:47:25.053251"
+    },
+    {
+      "batch_num": 79,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 12.011584997177124,
+      "timestamp": "2025-12-08T14:47:42.070068"
+    },
+    {
+      "batch_num": 80,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.642031908035278,
+      "timestamp": "2025-12-08T14:47:54.716683"
+    },
+    {
+      "batch_num": 81,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.528039932250977,
+      "timestamp": "2025-12-08T14:48:07.249992"
+    },
+    {
+      "batch_num": 82,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.45084810256958,
+      "timestamp": "2025-12-08T14:48:19.704609"
+    },
+    {
+      "batch_num": 83,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.43179702758789,
+      "timestamp": "2025-12-08T14:48:33.140457"
+    },
+    {
+      "batch_num": 84,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.298476934432983,
+      "timestamp": "2025-12-08T14:48:45.440471"
+    },
+    {
+      "batch_num": 85,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.941609144210815,
+      "timestamp": "2025-12-08T14:48:57.384889"
+    },
+    {
+      "batch_num": 86,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.805779933929443,
+      "timestamp": "2025-12-08T14:49:10.194826"
+    },
+    {
+      "batch_num": 87,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 9.141939878463745,
+      "timestamp": "2025-12-08T14:49:24.337485"
+    },
+    {
+      "batch_num": 88,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.48624587059021,
+      "timestamp": "2025-12-08T14:49:36.828961"
+    },
+    {
+      "batch_num": 89,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.738945007324219,
+      "timestamp": "2025-12-08T14:49:49.573155"
+    },
+    {
+      "batch_num": 90,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.842288970947266,
+      "timestamp": "2025-12-08T14:50:02.420716"
+    },
+    {
+      "batch_num": 91,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.405672788619995,
+      "timestamp": "2025-12-08T14:50:14.829903"
+    },
+    {
+      "batch_num": 92,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.199426889419556,
+      "timestamp": "2025-12-08T14:50:27.031562"
+    },
+    {
+      "batch_num": 93,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.303660154342651,
+      "timestamp": "2025-12-08T14:50:39.340506"
+    },
+    {
+      "batch_num": 94,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.437419176101685,
+      "timestamp": "2025-12-08T14:50:50.783166"
+    },
+    {
+      "batch_num": 95,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.689320802688599,
+      "timestamp": "2025-12-08T14:51:04.477712"
+    },
+    {
+      "batch_num": 96,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.61233115196228,
+      "timestamp": "2025-12-08T14:51:16.094736"
+    },
+    {
+      "batch_num": 97,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.253349781036377,
+      "timestamp": "2025-12-08T14:51:28.353384"
+    },
+    {
+      "batch_num": 98,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.417051076889038,
+      "timestamp": "2025-12-08T14:51:40.775753"
+    },
+    {
+      "batch_num": 99,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.950114965438843,
+      "timestamp": "2025-12-08T14:51:52.731101"
+    },
+    {
+      "batch_num": 100,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.284124851226807,
+      "timestamp": "2025-12-08T14:52:06.020459"
+    },
+    {
+      "batch_num": 101,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.772773027420044,
+      "timestamp": "2025-12-08T14:52:18.797347"
+    },
+    {
+      "batch_num": 102,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.08459186553955,
+      "timestamp": "2025-12-08T14:52:31.887208"
+    },
+    {
+      "batch_num": 103,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.464843988418579,
+      "timestamp": "2025-12-08T14:52:44.355538"
+    },
+    {
+      "batch_num": 104,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.2374327182769775,
+      "timestamp": "2025-12-08T14:52:56.598303"
+    },
+    {
+      "batch_num": 105,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.217265129089355,
+      "timestamp": "2025-12-08T14:53:09.820887"
+    },
+    {
+      "batch_num": 106,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.529293060302734,
+      "timestamp": "2025-12-08T14:53:22.355437"
+    },
+    {
+      "batch_num": 107,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.15313196182251,
+      "timestamp": "2025-12-08T14:53:35.513826"
+    },
+    {
+      "batch_num": 108,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.72515869140625,
+      "timestamp": "2025-12-08T14:53:48.244238"
+    },
+    {
+      "batch_num": 109,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.737685203552246,
+      "timestamp": "2025-12-08T14:53:59.987134"
+    },
+    {
+      "batch_num": 110,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.108066082000732,
+      "timestamp": "2025-12-08T14:54:12.100468"
+    },
+    {
+      "batch_num": 111,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.92974591255188,
+      "timestamp": "2025-12-08T14:54:24.033144"
+    },
+    {
+      "batch_num": 112,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.573338985443115,
+      "timestamp": "2025-12-08T14:54:36.611697"
+    },
+    {
+      "batch_num": 113,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.670876979827881,
+      "timestamp": "2025-12-08T14:54:48.287764"
+    },
+    {
+      "batch_num": 114,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.1869471073150635,
+      "timestamp": "2025-12-08T14:55:00.479913"
+    },
+    {
+      "batch_num": 115,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.1508870124816895,
+      "timestamp": "2025-12-08T14:55:12.635456"
+    },
+    {
+      "batch_num": 116,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.615933895111084,
+      "timestamp": "2025-12-08T14:55:24.256713"
+    },
+    {
+      "batch_num": 117,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.14093017578125,
+      "timestamp": "2025-12-08T14:55:37.402903"
+    },
+    {
+      "batch_num": 118,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.520793914794922,
+      "timestamp": "2025-12-08T14:55:49.925822"
+    },
+    {
+      "batch_num": 119,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.441006183624268,
+      "timestamp": "2025-12-08T14:56:03.372071"
+    },
+    {
+      "batch_num": 120,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.738594055175781,
+      "timestamp": "2025-12-08T14:56:16.114204"
+    },
+    {
+      "batch_num": 121,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.550725221633911,
+      "timestamp": "2025-12-08T14:56:28.668290"
+    },
+    {
+      "batch_num": 122,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.978365898132324,
+      "timestamp": "2025-12-08T14:56:41.647426"
+    },
+    {
+      "batch_num": 123,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.55184006690979,
+      "timestamp": "2025-12-08T14:56:54.204509"
+    },
+    {
+      "batch_num": 124,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.082359075546265,
+      "timestamp": "2025-12-08T14:57:06.292170"
+    },
+    {
+      "batch_num": 125,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.251557111740112,
+      "timestamp": "2025-12-08T14:57:18.548970"
+    },
+    {
+      "batch_num": 126,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.515529870986938,
+      "timestamp": "2025-12-08T14:57:32.069609"
+    },
+    {
+      "batch_num": 127,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.655848264694214,
+      "timestamp": "2025-12-08T14:57:43.730740"
+    },
+    {
+      "batch_num": 128,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.81196403503418,
+      "timestamp": "2025-12-08T14:57:56.547570"
+    },
+    {
+      "batch_num": 129,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.136146068572998,
+      "timestamp": "2025-12-08T14:58:09.688326"
+    },
+    {
+      "batch_num": 130,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.757919073104858,
+      "timestamp": "2025-12-08T14:58:21.448519"
+    },
+    {
+      "batch_num": 131,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.007174968719482,
+      "timestamp": "2025-12-08T14:58:33.460508"
+    },
+    {
+      "batch_num": 132,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.266590118408203,
+      "timestamp": "2025-12-08T14:58:45.728989"
+    },
+    {
+      "batch_num": 133,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.505566120147705,
+      "timestamp": "2025-12-08T14:58:59.239864"
+    },
+    {
+      "batch_num": 134,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.293244123458862,
+      "timestamp": "2025-12-08T14:59:11.538375"
+    },
+    {
+      "batch_num": 135,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.232696056365967,
+      "timestamp": "2025-12-08T14:59:23.773258"
+    },
+    {
+      "batch_num": 136,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.0044167041778564,
+      "timestamp": "2025-12-08T14:59:35.782909"
+    },
+    {
+      "batch_num": 137,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.67414116859436,
+      "timestamp": "2025-12-08T14:59:48.462322"
+    },
+    {
+      "batch_num": 138,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.731713056564331,
+      "timestamp": "2025-12-08T15:00:01.195330"
+    },
+    {
+      "batch_num": 139,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 14.183710813522339,
+      "timestamp": "2025-12-08T15:00:20.383697"
+    },
+    {
+      "batch_num": 140,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.343097925186157,
+      "timestamp": "2025-12-08T15:00:33.729547"
+    },
+    {
+      "batch_num": 141,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.463961839675903,
+      "timestamp": "2025-12-08T15:00:47.198814"
+    },
+    {
+      "batch_num": 142,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.963999032974243,
+      "timestamp": "2025-12-08T15:01:00.163780"
+    },
+    {
+      "batch_num": 143,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.104722261428833,
+      "timestamp": "2025-12-08T15:01:11.273685"
+    },
+    {
+      "batch_num": 144,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.798197031021118,
+      "timestamp": "2025-12-08T15:01:24.075166"
+    },
+    {
+      "batch_num": 145,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.041664123535156,
+      "timestamp": "2025-12-08T15:01:37.119699"
+    },
+    {
+      "batch_num": 146,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.490246057510376,
+      "timestamp": "2025-12-08T15:01:49.614675"
+    },
+    {
+      "batch_num": 147,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.034734964370728,
+      "timestamp": "2025-12-08T15:02:02.654662"
+    },
+    {
+      "batch_num": 148,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.39762282371521,
+      "timestamp": "2025-12-08T15:02:16.052672"
+    },
+    {
+      "batch_num": 149,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.995690107345581,
+      "timestamp": "2025-12-08T15:02:28.052909"
+    },
+    {
+      "batch_num": 150,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.9737708568573,
+      "timestamp": "2025-12-08T15:02:40.030765"
+    },
+    {
+      "batch_num": 151,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.129507780075073,
+      "timestamp": "2025-12-08T15:02:52.165857"
+    },
+    {
+      "batch_num": 152,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.354637145996094,
+      "timestamp": "2025-12-08T15:03:04.521919"
+    },
+    {
+      "batch_num": 153,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.08118200302124,
+      "timestamp": "2025-12-08T15:03:17.607663"
+    },
+    {
+      "batch_num": 154,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.974620342254639,
+      "timestamp": "2025-12-08T15:03:29.587199"
+    },
+    {
+      "batch_num": 155,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.786244630813599,
+      "timestamp": "2025-12-08T15:03:43.377537"
+    },
+    {
+      "batch_num": 156,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.9298741817474365,
+      "timestamp": "2025-12-08T15:03:56.309324"
+    },
+    {
+      "batch_num": 157,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.179969072341919,
+      "timestamp": "2025-12-08T15:04:09.490550"
+    },
+    {
+      "batch_num": 158,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.426156044006348,
+      "timestamp": "2025-12-08T15:04:21.918666"
+    },
+    {
+      "batch_num": 159,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.518157005310059,
+      "timestamp": "2025-12-08T15:04:34.440949"
+    },
+    {
+      "batch_num": 160,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.290862083435059,
+      "timestamp": "2025-12-08T15:04:46.736605"
+    },
+    {
+      "batch_num": 161,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.053538084030151,
+      "timestamp": "2025-12-08T15:04:58.793346"
+    },
+    {
+      "batch_num": 162,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.450363874435425,
+      "timestamp": "2025-12-08T15:05:12.248840"
+    },
+    {
+      "batch_num": 163,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.474993944168091,
+      "timestamp": "2025-12-08T15:05:24.728234"
+    },
+    {
+      "batch_num": 164,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.827794790267944,
+      "timestamp": "2025-12-08T15:05:38.561275"
+    },
+    {
+      "batch_num": 165,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.163639068603516,
+      "timestamp": "2025-12-08T15:05:50.725503"
+    },
+    {
+      "batch_num": 166,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.639645099639893,
+      "timestamp": "2025-12-08T15:06:03.370323"
+    },
+    {
+      "batch_num": 167,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.174220085144043,
+      "timestamp": "2025-12-08T15:06:15.549770"
+    },
+    {
+      "batch_num": 168,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.584866762161255,
+      "timestamp": "2025-12-08T15:06:28.139907"
+    },
+    {
+      "batch_num": 169,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 9.5627760887146,
+      "timestamp": "2025-12-08T15:06:42.707901"
+    },
+    {
+      "batch_num": 170,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.427085876464844,
+      "timestamp": "2025-12-08T15:06:55.137444"
+    },
+    {
+      "batch_num": 171,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.6179280281066895,
+      "timestamp": "2025-12-08T15:07:07.760574"
+    },
+    {
+      "batch_num": 172,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.115383863449097,
+      "timestamp": "2025-12-08T15:07:19.881152"
+    },
+    {
+      "batch_num": 173,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.606078863143921,
+      "timestamp": "2025-12-08T15:07:31.492514"
+    },
+    {
+      "batch_num": 174,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.288323640823364,
+      "timestamp": "2025-12-08T15:07:44.785075"
+    },
+    {
+      "batch_num": 175,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.807591199874878,
+      "timestamp": "2025-12-08T15:07:58.596253"
+    },
+    {
+      "batch_num": 176,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.723680019378662,
+      "timestamp": "2025-12-08T15:08:12.325192"
+    },
+    {
+      "batch_num": 177,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.253689050674438,
+      "timestamp": "2025-12-08T15:08:25.584102"
+    },
+    {
+      "batch_num": 178,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.183218955993652,
+      "timestamp": "2025-12-08T15:08:38.772317"
+    },
+    {
+      "batch_num": 179,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.921005964279175,
+      "timestamp": "2025-12-08T15:08:51.694629"
+    },
+    {
+      "batch_num": 180,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 10.307111978530884,
+      "timestamp": "2025-12-08T15:09:07.006951"
+    },
+    {
+      "batch_num": 181,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.349062204360962,
+      "timestamp": "2025-12-08T15:09:19.361312"
+    },
+    {
+      "batch_num": 182,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.954654216766357,
+      "timestamp": "2025-12-08T15:09:31.318381"
+    },
+    {
+      "batch_num": 183,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.230921983718872,
+      "timestamp": "2025-12-08T15:09:43.551209"
+    },
+    {
+      "batch_num": 184,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.401921033859253,
+      "timestamp": "2025-12-08T15:09:55.958219"
+    },
+    {
+      "batch_num": 185,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.69718074798584,
+      "timestamp": "2025-12-08T15:10:09.660368"
+    },
+    {
+      "batch_num": 186,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.73179316520691,
+      "timestamp": "2025-12-08T15:10:23.395607"
+    },
+    {
+      "batch_num": 187,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.442796945571899,
+      "timestamp": "2025-12-08T15:10:35.840233"
+    },
+    {
+      "batch_num": 188,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.331165790557861,
+      "timestamp": "2025-12-08T15:10:48.173368"
+    },
+    {
+      "batch_num": 189,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.220223903656006,
+      "timestamp": "2025-12-08T15:11:01.396589"
+    },
+    {
+      "batch_num": 190,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.719572067260742,
+      "timestamp": "2025-12-08T15:11:14.119204"
+    },
+    {
+      "batch_num": 191,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.395435094833374,
+      "timestamp": "2025-12-08T15:11:26.519895"
+    },
+    {
+      "batch_num": 192,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.793724775314331,
+      "timestamp": "2025-12-08T15:11:39.318674"
+    },
+    {
+      "batch_num": 193,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.773983955383301,
+      "timestamp": "2025-12-08T15:11:51.095984"
+    },
+    {
+      "batch_num": 194,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.264283180236816,
+      "timestamp": "2025-12-08T15:12:03.363487"
+    },
+    {
+      "batch_num": 195,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.210596084594727,
+      "timestamp": "2025-12-08T15:12:15.577781"
+    },
+    {
+      "batch_num": 196,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.817439079284668,
+      "timestamp": "2025-12-08T15:12:28.396422"
+    },
+    {
+      "batch_num": 197,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.986084938049316,
+      "timestamp": "2025-12-08T15:12:41.385534"
+    },
+    {
+      "batch_num": 198,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.861088037490845,
+      "timestamp": "2025-12-08T15:12:54.251843"
+    },
+    {
+      "batch_num": 199,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.762885093688965,
+      "timestamp": "2025-12-08T15:13:07.018687"
+    },
+    {
+      "batch_num": 200,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.933043003082275,
+      "timestamp": "2025-12-08T15:13:20.957078"
+    },
+    {
+      "batch_num": 201,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 9.416921138763428,
+      "timestamp": "2025-12-08T15:13:35.375823"
+    },
+    {
+      "batch_num": 202,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.18301796913147,
+      "timestamp": "2025-12-08T15:13:48.562766"
+    },
+    {
+      "batch_num": 203,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.375669956207275,
+      "timestamp": "2025-12-08T15:13:59.942593"
+    },
+    {
+      "batch_num": 204,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.395363092422485,
+      "timestamp": "2025-12-08T15:14:12.340627"
+    },
+    {
+      "batch_num": 205,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.319108247756958,
+      "timestamp": "2025-12-08T15:14:23.664886"
+    },
+    {
+      "batch_num": 206,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.694799900054932,
+      "timestamp": "2025-12-08T15:14:35.363894"
+    },
+    {
+      "batch_num": 207,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.065046072006226,
+      "timestamp": "2025-12-08T15:14:47.434144"
+    },
+    {
+      "batch_num": 208,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.7717390060424805,
+      "timestamp": "2025-12-08T15:15:00.206601"
+    },
+    {
+      "batch_num": 209,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.004389047622681,
+      "timestamp": "2025-12-08T15:15:12.216507"
+    },
+    {
+      "batch_num": 210,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.034792900085449,
+      "timestamp": "2025-12-08T15:15:24.254080"
+    },
+    {
+      "batch_num": 211,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.460809946060181,
+      "timestamp": "2025-12-08T15:15:36.719457"
+    },
+    {
+      "batch_num": 212,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.410080194473267,
+      "timestamp": "2025-12-08T15:15:49.134790"
+    },
+    {
+      "batch_num": 213,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.069253206253052,
+      "timestamp": "2025-12-08T15:16:01.206457"
+    },
+    {
+      "batch_num": 214,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.876466989517212,
+      "timestamp": "2025-12-08T15:16:15.088217"
+    },
+    {
+      "batch_num": 215,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.541287899017334,
+      "timestamp": "2025-12-08T15:16:27.631060"
+    },
+    {
+      "batch_num": 216,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.236284971237183,
+      "timestamp": "2025-12-08T15:16:40.868316"
+    },
+    {
+      "batch_num": 217,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.794836044311523,
+      "timestamp": "2025-12-08T15:16:53.668408"
+    },
+    {
+      "batch_num": 218,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 9.155200004577637,
+      "timestamp": "2025-12-08T15:17:07.828178"
+    },
+    {
+      "batch_num": 219,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.865966081619263,
+      "timestamp": "2025-12-08T15:17:20.699367"
+    },
+    {
+      "batch_num": 220,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.703296899795532,
+      "timestamp": "2025-12-08T15:17:32.407928"
+    },
+    {
+      "batch_num": 221,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.804746150970459,
+      "timestamp": "2025-12-08T15:17:45.213101"
+    },
+    {
+      "batch_num": 222,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.682039976119995,
+      "timestamp": "2025-12-08T15:17:57.900424"
+    },
+    {
+      "batch_num": 223,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 9.940797090530396,
+      "timestamp": "2025-12-08T15:18:12.846382"
+    },
+    {
+      "batch_num": 224,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.14155912399292,
+      "timestamp": "2025-12-08T15:18:25.989810"
+    },
+    {
+      "batch_num": 225,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 10.406766653060913,
+      "timestamp": "2025-12-08T15:18:41.401891"
+    },
+    {
+      "batch_num": 226,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.28719425201416,
+      "timestamp": "2025-12-08T15:18:54.690816"
+    },
+    {
+      "batch_num": 227,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 9.807226181030273,
+      "timestamp": "2025-12-08T15:19:09.503292"
+    },
+    {
+      "batch_num": 228,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.559704780578613,
+      "timestamp": "2025-12-08T15:19:23.068082"
+    },
+    {
+      "batch_num": 229,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.126331090927124,
+      "timestamp": "2025-12-08T15:19:35.199708"
+    },
+    {
+      "batch_num": 230,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.7004430294036865,
+      "timestamp": "2025-12-08T15:19:47.901640"
+    },
+    {
+      "batch_num": 231,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.347796201705933,
+      "timestamp": "2025-12-08T15:20:00.253211"
+    },
+    {
+      "batch_num": 232,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.223134994506836,
+      "timestamp": "2025-12-08T15:20:13.481581"
+    },
+    {
+      "batch_num": 233,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.742308855056763,
+      "timestamp": "2025-12-08T15:20:26.226919"
+    },
+    {
+      "batch_num": 234,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.875225067138672,
+      "timestamp": "2025-12-08T15:20:38.103824"
+    },
+    {
+      "batch_num": 235,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.07603120803833,
+      "timestamp": "2025-12-08T15:20:51.185093"
+    },
+    {
+      "batch_num": 236,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.894651889801025,
+      "timestamp": "2025-12-08T15:21:05.085061"
+    },
+    {
+      "batch_num": 237,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.046674966812134,
+      "timestamp": "2025-12-08T15:21:18.135080"
+    },
+    {
+      "batch_num": 238,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 9.74199891090393,
+      "timestamp": "2025-12-08T15:21:32.880853"
+    },
+    {
+      "batch_num": 239,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.648499965667725,
+      "timestamp": "2025-12-08T15:21:45.534605"
+    },
+    {
+      "batch_num": 240,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.475696802139282,
+      "timestamp": "2025-12-08T15:21:58.014060"
+    },
+    {
+      "batch_num": 241,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 8.539813041687012,
+      "timestamp": "2025-12-08T15:22:11.558980"
+    },
+    {
+      "batch_num": 242,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 7.31306004524231,
+      "timestamp": "2025-12-08T15:22:23.876492"
+    },
+    {
+      "batch_num": 243,
+      "kol_count": 100,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 6.6961212158203125,
+      "timestamp": "2025-12-08T15:22:35.575594"
+    },
+    {
+      "batch_num": 244,
+      "kol_count": 36,
+      "success_count": 0,
+      "failed_count": 0,
+      "partial_count": 0,
+      "duration": 2.5350191593170166,
+      "timestamp": "2025-12-08T15:22:43.113402"
+    }
+  ]
+}
