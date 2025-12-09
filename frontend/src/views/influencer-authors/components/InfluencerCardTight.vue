@@ -248,39 +248,84 @@
 
       <!-- 操作按钮区域 -->
       <div class="card-section actions-section">
+        <div class="action-buttons">
+          <!-- 查看详情 -->
+          <ToolTipPicker>
+            <template #content>
+              <div class="simple-tooltip-text">查看详情</div>
+            </template>
+            <template #trigger>
+              <div class="action-icon-wrapper" @click.stop="handleViewDetail(item)">
+                <Icon icon="lucide:eye" class="action-icon" />
+              </div>
+            </template>
+          </ToolTipPicker>
 
-        <el-button size="small" @click.stop="handleViewDetail(item)">
-          <Icon icon="lucide:eye" />
-          详情
-        </el-button>
-        <el-button size="small" @click.stop="handleCompare(item)">
-          <Icon icon="lucide:git-compare" />
-          对比
-        </el-button>
-        <el-button size="small" @click.stop="handleEvaluate(item)">
-          <Icon icon="lucide:star" />
-          评价
-        </el-button>
-        <el-button
-          size="small"
-          :type="item.isFavorited ? 'warning' : 'default'"
-          @click.stop="handleFavorite(item)"
-        >
-          <Icon :icon="item.isFavorited ? 'lucide:star' : 'lucide:star-off'" />
-        </el-button>
-        <el-button
-          size="small"
-          type="warning"
-          @click.stop="handleUpdateData(item)"
-          :loading="item.updating"
-        >
-          <Icon icon="lucide:refresh-cw" />
-          {{ item.updating ? '更新中...' : '更新' }}
-        </el-button>
-        <el-checkbox
-          :model-value="item.isSelected"
-          @update:model-value="(val: boolean) => handleSelectionChange(item, val)"
-        />
+          <!-- 对比 -->
+          <ToolTipPicker>
+            <template #content>
+              <div class="simple-tooltip-text">对比</div>
+            </template>
+            <template #trigger>
+              <div class="action-icon-wrapper" @click.stop="handleCompare(item)">
+                <Icon icon="lucide:git-compare" class="action-icon" />
+              </div>
+            </template>
+          </ToolTipPicker>
+
+          <!-- 评价 -->
+          <ToolTipPicker>
+            <template #content>
+              <div class="simple-tooltip-text">评价</div>
+            </template>
+            <template #trigger>
+              <div class="action-icon-wrapper" @click.stop="handleEvaluate(item)">
+                <Icon icon="lucide:message-circle-more" class="action-icon" />
+              </div>
+            </template>
+          </ToolTipPicker>
+
+          <!-- 收藏 -->
+          <ToolTipPicker>
+            <template #content>
+              <div class="simple-tooltip-text">{{ item.isFavorited ? '取消收藏' : '收藏' }}</div>
+            </template>
+            <template #trigger>
+              <div
+                class="action-icon-wrapper"
+                :class="{ 'is-favorited': item.isFavorited }"
+                @click.stop="handleFavorite(item)"
+              >
+                <Icon :icon="item.isFavorited ? 'heroicons:star-solid' : 'lucide:star-off'" class="action-icon" />
+              </div>
+            </template>
+          </ToolTipPicker>
+
+          <!-- 更新数据 -->
+          <ToolTipPicker>
+            <template #content>
+              <div class="simple-tooltip-text">{{ item.updating ? '更新中...' : '更新数据' }}</div>
+            </template>
+            <template #trigger>
+              <div
+                class="action-icon-wrapper update-btn"
+                :class="{ 'is-updating': item.updating }"
+                @click.stop="handleUpdateData(item)"
+              >
+                <Icon icon="lucide:refresh-cw" class="action-icon" :class="{ 'rotating': item.updating }" />
+              </div>
+            </template>
+          </ToolTipPicker>
+        </div>
+
+        <div class="selection-indicator">
+          <el-checkbox
+            :model-value="item.isSelected"
+            @update:model-value="(val: boolean) => handleSelectionChange(item, val)"
+          >
+            已选
+          </el-checkbox>
+        </div>
       </div>
     </div>
   </div>
@@ -294,6 +339,7 @@ import { IconifyIcon as Icon } from '@vben/icons'
 import { useInfluencerSquareStore } from '#/store'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
+import ToolTipPicker from './ToolTipPicker.vue'
 
 const props = defineProps<{
   cardSize: 'compact' | 'standard' | 'detailed'
@@ -944,18 +990,88 @@ const emit = defineEmits<{
 
     // 操作按钮区域
     .actions-section {
-      gap: 6px;
-      justify-content: end;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      flex: 1;
+      min-width: 0;
+      align-items: flex-start;
+      justify-content: space-between;
 
-      :deep(.el-button) {
-        padding: 4px 8px;
-        font-size: 13px;
+      .action-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        flex: 1;
+        min-width: 0;
+        justify-content: end;
 
-        .iconify {
-          font-size: 15px;
+        .action-icon-wrapper {
+          cursor: pointer;
+          padding: 4px;
+          border-radius: 4px;
+          transition: background-color 0.2s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            background-color: var(--el-fill-color-light);
+          }
+
+          .action-icon {
+            font-size: 16px;
+            color: #909399;
+            transition: color 0.2s;
+
+            &:hover {
+              color: var(--el-color-primary);
+            }
+          }
+
+          &.is-favorited {
+            .action-icon {
+              color: var(--el-color-warning);
+              transform: scale(1.2);
+            }
+          }
+
+          &.is-updating {
+            .action-icon {
+              &.rotating {
+                animation: rotate 1s linear infinite;
+              }
+            }
+          }
+        }
+      }
+
+      .selection-indicator {
+        flex-shrink: 0;
+
+        :deep(.el-checkbox) {
+          .el-checkbox__label {
+            font-size: 12px;
+            padding-left: 6px;
+          }
         }
       }
     }
   }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.simple-tooltip-text {
+  font-size: 12px;
+  color: #606266;
+  padding: 2px 4px;
 }
 </style>

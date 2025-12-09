@@ -279,34 +279,73 @@
     <!-- 第五层：快速操作 -->
     <div class="card-actions">
       <div class="action-buttons">
-        <el-button size="small" @click.stop="handleViewDetail">
-          <Icon icon="lucide:eye" />
-          详情
-        </el-button>
-        <el-button size="small" @click.stop="handleCompare">
-          <Icon icon="lucide:git-compare" />
-          对比
-        </el-button>
-        <el-button size="small" @click.stop="handleEvaluate">
-          <Icon icon="lucide:star" />
-          评价
-        </el-button>
-        <el-button 
-          size="small" 
-          :type="data.isFavorited ? 'warning' : 'default'"
-          @click.stop="handleFavorite"
-        >
-          <Icon :icon="data.isFavorited ? 'lucide:star' : 'lucide:star-off'" />
-        </el-button>
-        <el-button 
-          size="small" 
-          type="warning"
-          @click.stop="handleUpdateData"
-          :loading="data.updating"
-        >
-          <Icon icon="lucide:refresh-cw" />
-          {{ data.updating ? '更新中...' : '更新' }}
-        </el-button>
+        <!-- 查看详情 -->
+        <ToolTipPicker>
+          <template #content>
+            <div class="simple-tooltip-text">查看详情</div>
+          </template>
+          <template #trigger>
+            <div class="action-icon-wrapper" @click.stop="handleViewDetail">
+              <Icon icon="lucide:eye" class="action-icon" />
+            </div>
+          </template>
+        </ToolTipPicker>
+
+        <!-- 对比 -->
+        <ToolTipPicker>
+          <template #content>
+            <div class="simple-tooltip-text">对比</div>
+          </template>
+          <template #trigger>
+            <div class="action-icon-wrapper" @click.stop="handleCompare">
+              <Icon icon="lucide:git-compare" class="action-icon" />
+            </div>
+          </template>
+        </ToolTipPicker>
+
+        <!-- 评价 -->
+        <ToolTipPicker>
+          <template #content>
+            <div class="simple-tooltip-text">评价</div>
+          </template>
+          <template #trigger>
+            <div class="action-icon-wrapper" @click.stop="handleEvaluate">
+              <Icon icon="lucide:message-circle-more" class="action-icon" />
+            </div>
+          </template>
+        </ToolTipPicker>
+
+        <!-- 收藏 -->
+        <ToolTipPicker>
+          <template #content>
+            <div class="simple-tooltip-text">{{ data.isFavorited ? '取消收藏' : '收藏' }}</div>
+          </template>
+          <template #trigger>
+            <div 
+              class="action-icon-wrapper" 
+              :class="{ 'is-favorited': data.isFavorited }"
+              @click.stop="handleFavorite"
+            >
+              <Icon :icon="data.isFavorited ? 'heroicons:star-solid' : 'lucide:star-off'" class="action-icon" />
+            </div>
+          </template>
+        </ToolTipPicker>
+
+        <!-- 更新数据 -->
+        <ToolTipPicker>
+          <template #content>
+            <div class="simple-tooltip-text">{{ data.updating ? '更新中...' : '更新数据' }}</div>
+          </template>
+          <template #trigger>
+            <div 
+              class="action-icon-wrapper update-btn" 
+              :class="{ 'is-updating': data.updating }"
+              @click.stop="handleUpdateData"
+            >
+              <Icon icon="lucide:refresh-cw" class="action-icon" :class="{ 'rotating': data.updating }" />
+            </div>
+          </template>
+        </ToolTipPicker>
       </div>
       
       <div class="selection-indicator">
@@ -326,6 +365,7 @@ import { log } from '../../../utils/logger'
 import { ref, computed, toRefs } from 'vue'
 import { IconifyIcon as Icon } from '@vben/icons'
 import { ElMessage } from 'element-plus'
+import ToolTipPicker from './ToolTipPicker.vue'
 
 interface InfluencerCardData {
   // 基础信息
@@ -892,9 +932,38 @@ const handleUpdateData = () => {
     .action-buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 8px;
       flex: 1;
       min-width: 0;
+.action-icon-wrapper {
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: var(--el-fill-color-light);
+  }
+  
+  .action-icon {
+    font-size: 16px;
+    color: #909399;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--el-color-primary);
+    }
+  }
+  &.is-favorited {
+      .action-icon {
+        color: var(--el-color-warning);
+        transform: scale(1.2);
+      }
+    }
+}
 
       :deep(.el-button) {
         padding: 5px 10px;
@@ -1013,5 +1082,11 @@ const handleUpdateData = () => {
       }
     }
   }
+}
+
+.simple-tooltip-text {
+  font-size: 12px;
+  color: #606266;
+  padding: 2px 4px;
 }
 </style>
