@@ -6,7 +6,7 @@
         <h2 class="page-title">省广达人库</h2>
       </div>
       <!-- 公海达人数据的按钮 -->
-      <div v-if="activeTab === 'public'" class="header-right">
+      <div v-if="activeTab === 'public'">
         <el-badge :value="publicSelectedCount" :hidden="publicSelectedCount === 0" type="primary">
           <el-button @click="handlePublicClearSelection" :disabled="publicSelectedCount === 0">
             <Icon icon="lucide:x-circle" />
@@ -23,7 +23,7 @@
         </el-button>
       </div>
       <!-- 自有达人数据的按钮 -->
-      <div v-else-if="activeTab === 'private'" class="header-right">
+      <div v-else-if="activeTab === 'private'">
         <el-button @click="navigateToImportHistory" class="action-btn">
           <Icon icon="lucide:clock" class="mr-1" />
           导入历史
@@ -1498,21 +1498,6 @@ onMounted(() => {
         font-size: 20px;
         font-weight: 600;
         color: #303133;
-      }
-    }
-
-    .header-right {
-      display: flex;
-      gap: 12px;
-
-      .action-btn {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-
-        .badge-count {
-          margin-left: 4px;
-        }
       }
     }
   }
