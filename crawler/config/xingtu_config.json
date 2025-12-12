@@ -1,0 +1,18 @@
+{
+  "star_id": "1843934177451019",
+  "base_url": "https://agent.oceanengine.com",
+  "cookie_file": "config/cookies.txt",
+  "qps": 5,
+  "retry_max": 3,
+  "retry_backoff_ms": 1000,
+  "timeout": 20,
+  "platform_defaults": {
+    "platform_source": 1,
+    "platform_channel": 1
+  },
+  "batch_fetch": {
+    "max_workers": 3,
+    "qps_per_worker": 2,
+    "output_dir": "results/batch_authors"
+  }
+}
