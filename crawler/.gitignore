@@ -46,6 +46,9 @@ result/
 **/results/
 **/reports/
 
+# 网络请求捕获数据
+captured_data/
+
 # Jupyter
 .ipynb_checkpoints/
 *.ipynb_checkpoints/
