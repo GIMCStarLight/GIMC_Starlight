@@ -239,6 +239,7 @@ const ecommerceData = computed(() => {
   return {
     enable: rawData.value.e_commerce_enable === '1' || rawData.value.e_commerce_enable === true,
     level: rawData.value.author_ecom_level,
+    video: rawData.value.star_ecom_video_num_30d,
     gmvRange: rawData.value.ecom_gmv_30d_range,
     gpmRange: rawData.value.ecom_gpm_30d_range,
     score: rawData.value.ecom_score,
@@ -257,6 +258,11 @@ const ecommerceCards = computed(() => {
     {
       label: '电商等级',
       value: ecommerceData.value.level || '-',
+      unit: ''
+    },
+    {
+      label: '电商视频',
+      value: ecommerceData.value.video || '-',
       unit: ''
     },
     {

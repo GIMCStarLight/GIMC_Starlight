@@ -177,12 +177,11 @@
       </div>
     </div>
     
-    <!-- 第四层：专项能力（条件显示）-->
-    <div 
+    <!-- 第四层：电商能力（条件显示）-->
+    <!-- <div 
       v-if="showSpecialCapabilities" 
       class="special-capabilities"
     >
-      <!-- 电商能力 -->
       <div 
         v-if="data.e_commerce_enable && data.star_ecom_video_num_30d > 0"
         class="capability-item ecommerce"
@@ -200,7 +199,7 @@
           <span v-if="data.ecom_score">评分: {{ data.ecom_score.toFixed(2) }}</span>
         </div>
       </div>
-    </div>
+    </div> -->
     
     <!-- 私域信息区域（仅已匹配达人显示）-->
     <div v-if="data.is_matched" class="private-section">
@@ -764,17 +763,22 @@ const handleUpdateData = () => {
 
     .tags-section {
       margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
       .section-title {
         font-size: 12px;
         color: var(--el-text-color-secondary);
-        margin-bottom: 8px;
+        flex-shrink: 0;
       }
 
       .tags-list {
         display: flex;
         flex-wrap: wrap;
         gap: 6px;
+        justify-content: center;
+        align-items: center;
       }
     }
 
@@ -782,10 +786,8 @@ const handleUpdateData = () => {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 8px 12px;
-      background: var(--el-fill-color-lighter);
-      border-radius: 6px;
-
+      padding: 4px 0px;
+      
       .growth-label {
         font-size: 12px;
         color: var(--el-text-color-secondary);
