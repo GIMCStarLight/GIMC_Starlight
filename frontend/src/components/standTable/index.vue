@@ -120,11 +120,23 @@ function onPageSizeChange(current, size) {
 
 /* ---------- 表格变化(排序) ---------- */
 function handleTableChange(pagination, filters, sorter) {
+    console.log('表格变化 - sorter:', sorter)
+    
     // 触发排序事件
-    if (sorter && sorter.field) {
+    // Ant Design Table 的 sorter 对象包含: field(dataIndex), order(ascend/descend/null), column 等
+    const sortField = sorter?.field || sorter?.columnKey || sorter?.column?.dataIndex
+    const sortOrder = sorter?.order
+    
+    if (sortField) {
         emit('sortChange', {
-            prop: sorter.field,
-            order: sorter.order === 'ascend' ? 'ascending' : sorter.order === 'descend' ? 'descending' : null
+            prop: sortField,
+            order: sortOrder === 'ascend' ? 'ascending' : sortOrder === 'descend' ? 'descending' : null
+        })
+    } else if (sorter && !sortOrder) {
+        // 用户取消了排序（第三次点击）
+        emit('sortChange', {
+            prop: null,
+            order: null
         })
     }
 }

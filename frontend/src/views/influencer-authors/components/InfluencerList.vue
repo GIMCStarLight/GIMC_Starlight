@@ -169,6 +169,7 @@ import { IconifyIcon as Icon } from '@vben/icons'
 import { useRouter } from 'vue-router'
 import StandardTable from '../../../components/standTable/index.vue'
 import ToolTipPicker from './ToolTipPicker.vue'
+import { useInfluencerSquareStore } from '#/store'
 
 const props = defineProps({
   influencers: {
@@ -178,6 +179,7 @@ const props = defineProps({
 })
 
 const router = useRouter()
+const store = useInfluencerSquareStore()
 const tableRef = ref()
 const selectedRows = ref([])
 //{ label: '星图ID', prop: 'starId', dataIndex: 'star_id', width: 160, align: 'center' },
@@ -261,8 +263,41 @@ function handleTableSelectionChange(rows) {
   selectedRows.value = rows
 }
 
+/**
+ * 表格列 dataIndex 到后端 sortBy 字段的映射
+ * 后端支持: follower, star_index, interact_rate, price, growth_rate, gmv
+ */
+const sortFieldMap = {
+  'follower': 'follower',
+  'star_index': 'star_index',
+  'fans_increment_rate_30d': 'growth_rate',
+  'interact_rate_30d': 'interact_rate',
+  'play_over_rate_30d': 'interact_rate', // 完播率映射到互动率
+  'price_60': 'price'
+}
+
 function handleSortChange(sort) {
   console.log('排序变化:', sort)
+  
+  if (!sort || !sort.prop || !sort.order) {
+    // 如果没有排序，恢复默认排序
+    store.setSortBy('star_index_desc')
+    store.loadInfluencers()
+    return
+  }
+  
+  // 获取映射后的排序字段
+  const mappedField = sortFieldMap[sort.prop] || sort.prop
+  
+  // 根据排序方向确定后缀
+  const orderSuffix = sort.order === 'ascending' ? '_asc' : '_desc'
+  
+  // 构建排序选项
+  const sortOption = `${mappedField}${orderSuffix}`
+  
+  console.log('应用排序:', sortOption)
+  store.setSortBy(sortOption)
+  store.loadInfluencers()
 }
 
 function handleViewDetail(data) {

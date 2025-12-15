@@ -170,11 +170,18 @@ export type CardSize = 'compact' | 'standard' | 'detailed'
 
 /**
  * 排序选项
+ * 后端支持的 sortBy: follower, star_index, interact_rate, price, growth_rate, gmv
+ * sortOrder: ASC | DESC (主要影响 price 的排序方向)
  */
 export type SortOption = 
   | 'recommended'
   | 'follower_desc'
+  | 'follower_asc'
   | 'star_index_desc'
+  | 'star_index_asc'
   | 'interact_rate_desc'
+  | 'interact_rate_asc'
+  | 'growth_rate_desc'
+  | 'growth_rate_asc'
   | 'price_asc'
   | 'price_desc'
