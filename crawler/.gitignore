@@ -57,8 +57,9 @@ captured_data/
 *.ipynb_checkpoints/
 
 # 账号配置与敏感数据
-config/accounts/account_*/
-config/accounts/legacy_cookies/
+config/accounts/
+config/auto_cookie_fetcher_config/browser_profile/
+config/browser_profile/
 config/cookies.txt
 config/cookies.json
 config/cookie_meta.json
@@ -67,6 +68,7 @@ config/storage_state.enc
 config/.cookie_key
 config/test_cookies.txt
 tools/account_manager/config/accounts/
+tools/account_manager/config/browser_profile/
 cookies.txt
 *.cookie
 
