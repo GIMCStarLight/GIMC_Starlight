@@ -45,6 +45,9 @@ result/
 **/output/
 **/results/
 **/reports/
+debug/
+sync_progress.json
+sync_report_*.json
 
 # 网络请求捕获数据
 captured_data/
@@ -57,12 +60,20 @@ captured_data/
 config/accounts/account_*/
 config/accounts/legacy_cookies/
 config/cookies.txt
+config/cookies.json
+config/cookie_meta.json
+config/storage_state.json
+config/storage_state.enc
+config/.cookie_key
+config/test_cookies.txt
+tools/account_manager/config/accounts/
 cookies.txt
 *.cookie
 
 # 浏览器缓存与用户数据
 **/user_data_dir/
 **/browser_cache/
+**/browser_profile/
 **/Default/
 **/Cache/
 **/Code Cache/
