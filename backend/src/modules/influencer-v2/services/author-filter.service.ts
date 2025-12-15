@@ -94,6 +94,16 @@ export class AuthorFilterService {
         'mv.is_cpm_project_author',
         'mv.is_ad_star_cur_high_quality_author',
         
+        // 爬虫数据字段（来自 get_author_base_info 和 get_author_platform_channel_info_v2）
+        'mv.unique_id',
+        'mv.sec_uid',
+        'mv.short_id',
+        'mv.has_phone',
+        'mv.mcn_name',
+        'mv.self_intro',
+        'mv.platform',
+        'mv.platform_channel',
+        
         // 计算字段(快速筛选用)
         'mv.growth_level',
         'mv.quality_tier',

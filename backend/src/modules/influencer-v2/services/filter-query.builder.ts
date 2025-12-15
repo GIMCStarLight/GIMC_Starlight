@@ -24,7 +24,7 @@ export class FilterQueryBuilder {
     filters: AuthorFilterQueryDto,
   ): void {
     // 如果需要机构筛选,添加kol_list表JOIN
-    if (filters.orgName) {
+    if (filters.orgName || filters.mcnOrOrgName) {
       queryBuilder.leftJoin(
         'kol_list',
         'kol_filter',
@@ -268,6 +268,16 @@ export class FilterQueryBuilder {
       queryBuilder.andWhere('kol_filter.org_name = :orgName', {
         orgName: filters.orgName,
       });
+    }
+
+    // MCN/合作机构筛选 - 模糊匹配mcn_name(公域)或org_name(私域)
+    if (filters.mcnOrOrgName) {
+      queryBuilder.andWhere(
+        '(mv.mcn_name ILIKE :mcnOrOrg OR kol_filter.org_name ILIKE :mcnOrOrg)',
+        {
+          mcnOrOrg: `%${filters.mcnOrOrgName}%`,
+        },
+      );
     }
 
     // 认证标签

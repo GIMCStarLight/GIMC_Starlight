@@ -15,6 +15,17 @@
       </div>
       <div class="basic-item">
         <el-input 
+          :model-value="modelValue.mcnOrOrgName"
+          @update:model-value="handleUpdate('mcnOrOrgName', $event)"
+          placeholder="MCN/合作机构" 
+          clearable 
+          size="default"
+        >
+          <template #prefix><Icon icon="lucide:building-2" /></template>
+        </el-input>
+      </div>
+      <div class="basic-item">
+        <el-input 
           :model-value="modelValue.province"
           @update:model-value="handleUpdate('province', $event)"
           placeholder="省份(如: 北京)" 
@@ -55,6 +66,7 @@ import { IconifyIcon as Icon } from '@vben/icons'
 
 interface BasicInfo {
   keyword?: string
+  mcnOrOrgName?: string
   province?: string
   city?: string
   gender?: 'M' | 'F' | 'U' | undefined
@@ -94,7 +106,7 @@ const handleUpdate = (key: keyof BasicInfo, value: any) => {
 .basic-info-grid {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 12px;
 }
 

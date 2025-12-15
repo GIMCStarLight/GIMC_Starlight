@@ -69,6 +69,31 @@ export class AuthorCore {
   @Column({ type: 'boolean', default: false })
   star_qianchuan_high_potential: boolean;
 
+  // 爬虫数据字段（来自 get_author_base_info 和 get_author_platform_channel_info_v2）
+  @Column({ type: 'text', nullable: true })
+  unique_id: string;
+
+  @Column({ type: 'text', nullable: true })
+  sec_uid: string;
+
+  @Column({ type: 'text', nullable: true })
+  short_id: string;
+
+  @Column({ type: 'boolean', default: false })
+  has_phone: boolean;
+
+  @Column({ type: 'text', nullable: true })
+  mcn_name: string;
+
+  @Column({ type: 'text', nullable: true })
+  self_intro: string;
+
+  @Column({ type: 'integer', array: true, nullable: true })
+  platform: number[];
+
+  @Column({ type: 'integer', array: true, nullable: true })
+  platform_channel: number[];
+
   @CreateDateColumn({ type: 'timestamp' })
   created_at: Date;
 

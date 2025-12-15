@@ -74,6 +74,16 @@ SELECT
     c.is_cpm_project_author,
     c.is_ad_star_cur_high_quality_author,
     
+    -- 爬虫数据字段（来自 get_author_base_info 和 get_author_platform_channel_info_v2）
+    c.unique_id,
+    c.sec_uid,
+    c.short_id,
+    c.has_phone,
+    c.mcn_name,
+    c.self_intro,
+    c.platform,
+    c.platform_channel,
+    
     -- 计算字段(快速筛选用)
     c.star_index,
     f.growth_level,

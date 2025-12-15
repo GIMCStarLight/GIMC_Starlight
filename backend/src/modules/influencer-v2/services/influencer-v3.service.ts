@@ -186,6 +186,7 @@ export class InfluencerV3Service {
   /**
    * 批量获取达人完整数据（用于导出）
    * 从 authors_raw_archive 表查询最新的原始数据
+   * 并从 authors_core 表获取爬虫字段（mcn_name, platform, self_intro等）
    */
   async batchGetInfluencers(authorIds: string[]): Promise<any[]> {
     try {
@@ -202,9 +203,9 @@ export class InfluencerV3Service {
       for (let i = 0; i < authorIds.length; i += batchSize) {
         const batchIds = authorIds.slice(i, i + batchSize);
         
-        // 查询每个达人的最新原始数据
+        // 1. 查询每个达人的最新原始数据
         // 使用 DISTINCT ON 获取每个 author_id 的最新记录
-        const query = `
+        const rawQuery = `
           SELECT DISTINCT ON (author_id) 
             author_id,
             raw_attribute_datas,
@@ -215,19 +216,56 @@ export class InfluencerV3Service {
         `;
         
         this.logger.log(`执行SQL查询, batchIds: ${JSON.stringify(batchIds)}`);
-        const rawData = await this.authorCoreRepo.query(query, [batchIds]);
+        const rawData = await this.authorCoreRepo.query(rawQuery, [batchIds]);
         this.logger.log(`SQL查询结果数量: ${rawData.length}`);
         
         if (rawData.length > 0) {
           this.logger.log(`第一条原始数据示例: ${JSON.stringify(rawData[0]).substring(0, 200)}`);
         }
         
-        // 解析 JSON 数据并添加到结果
-        const parsedData = rawData.map((row: any) => ({
-          author_id: row.author_id,
-          data_timestamp: row.created_at,
-          ...row.raw_attribute_datas,
-        }));
+        // 2. 查询 authors_core 表获取爬虫字段
+        const coreQuery = `
+          SELECT 
+            author_id,
+            unique_id,
+            sec_uid,
+            short_id,
+            has_phone,
+            mcn_name,
+            self_intro,
+            platform,
+            platform_channel
+          FROM authors_core
+          WHERE author_id = ANY($1)
+        `;
+        
+        const coreData = await this.authorCoreRepo.query(coreQuery, [batchIds]);
+        this.logger.log(`authors_core 查询结果数量: ${coreData.length}`);
+        
+        // 创建 author_id -> coreData 的映射
+        const coreDataMap = new Map();
+        coreData.forEach((row: any) => {
+          coreDataMap.set(row.author_id, row);
+        });
+        
+        // 3. 解析 JSON 数据并合并爬虫字段
+        const parsedData = rawData.map((row: any) => {
+          const crawlerData = coreDataMap.get(row.author_id) || {};
+          return {
+            author_id: row.author_id,
+            data_timestamp: row.created_at,
+            ...row.raw_attribute_datas,
+            // 爬虫字段（来自 authors_core）
+            unique_id: crawlerData.unique_id,
+            sec_uid: crawlerData.sec_uid,
+            short_id: crawlerData.short_id,
+            has_phone: crawlerData.has_phone,
+            mcn_name: crawlerData.mcn_name,
+            self_intro: crawlerData.self_intro,
+            platform: crawlerData.platform,
+            platform_channel: crawlerData.platform_channel,
+          };
+        });
         
         this.logger.log(`解析后数据数量: ${parsedData.length}`);
         if (parsedData.length > 0) {
@@ -237,7 +275,7 @@ export class InfluencerV3Service {
         results.push(...parsedData);
       }
 
-      this.logger.log(`成功获取${results.length}个达人的完整原始数据`);
+      this.logger.log(`成功获取${results.length}个达人的完整原始数据（包含爬虫字段）`);
       return results;
     } catch (error) {
       this.logger.error('批量获取达人原始数据失败', error);
@@ -685,6 +723,16 @@ export class InfluencerV3Service {
       is_black_horse_author: author.is_black_horse_author || false,
       star_qianchuan_high_potential:
         author.star_qianchuan_high_potential || false,
+
+      // 爬虫数据字段
+      mcn_name: author.mcn_name || '',
+      unique_id: author.unique_id || '',
+      sec_uid: author.sec_uid || '',
+      short_id: author.short_id || '',
+      has_phone: author.has_phone || false,
+      self_intro: author.self_intro || '',
+      platform: author.platform || [],
+      platform_channel: author.platform_channel || [],
 
       // 内容标签
       primary_tags: primaryTags,

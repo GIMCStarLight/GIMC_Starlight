@@ -63,6 +63,10 @@
             <Icon icon="lucide:users" />
             {{ formatFollower(data.follower) }}
           </span>
+          <span v-if="data.mcn_name" class="mcn-info" :title="'MCN: ' + data.mcn_name">
+            <Icon icon="lucide:building-2" />
+            {{ truncateMcnName(data.mcn_name) }}
+          </span>
         </div>
       </div>
     </div>
@@ -395,6 +399,16 @@ interface InfluencerCardData {
   remark?: string
   annual_contract_org?: string
   matched_at?: Date
+  
+  // 爬虫数据字段
+  mcn_name?: string
+  unique_id?: string
+  sec_uid?: string
+  short_id?: string
+  has_phone?: boolean
+  self_intro?: string
+  platform?: number[]
+  platform_channel?: number[]
 }
 
 const props = defineProps<{
@@ -454,6 +468,12 @@ const formatNumber = (num: number): string => {
   if (!num && num !== 0) return '-'
   // 直接显示原始数值，不进行万/亿转换
   return num.toLocaleString()
+}
+
+// 截断MCN名称，最多显示10个字符
+const truncateMcnName = (name: string): string => {
+  if (!name) return ''
+  return name.length > 10 ? name.substring(0, 10) + '...' : name
 }
 
 const getStarRating = (index: number): number => {
@@ -697,11 +717,21 @@ const handleUpdateData = () => {
         gap: 16px;
         font-size: 13px;
         color: var(--el-text-color-regular);
+        flex-wrap: wrap;
 
         span {
           display: flex;
           align-items: center;
           gap: 4px;
+        }
+        
+        .mcn-info {
+          color: var(--el-color-primary);
+          font-weight: 500;
+          
+          .iconify {
+            color: var(--el-color-primary);
+          }
         }
       }
     }

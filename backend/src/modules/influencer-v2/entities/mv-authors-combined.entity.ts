@@ -59,6 +59,32 @@ export class MvAuthorsCombined {
   @Column()
   is_ad_star_cur_high_quality_author: boolean;
 
+  // ========== 爬虫数据字段 ==========
+
+  @Column({ nullable: true })
+  unique_id: string;
+
+  @Column({ nullable: true })
+  sec_uid: string;
+
+  @Column({ nullable: true })
+  short_id: string;
+
+  @Column({ nullable: true })
+  has_phone: boolean;
+
+  @Column({ nullable: true })
+  mcn_name: string;
+
+  @Column({ nullable: true })
+  self_intro: string;
+
+  @Column('integer', { array: true, nullable: true })
+  platform: number[];
+
+  @Column('integer', { array: true, nullable: true })
+  platform_channel: number[];
+
   // ========== 计算字段(快速筛选用) ==========
 
   @Column('double precision', { nullable: true })

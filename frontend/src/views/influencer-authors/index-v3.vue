@@ -399,8 +399,76 @@ const handleExport = async () => {
     log.debug('字段总数:', allFields.length)
     log.debug('字段列表:', allFields)
     
-    // 创建CSV内容（包含所有字段）
-    const headers = allFields
+    // 字段名映射表：英文 -> 中文
+    const fieldNameMap: Record<string, string> = {
+      // 基础信息
+      author_id: '达人ID',
+      nick_name: '昵称',
+      avatar_uri: '头像URL',
+      follower: '粉丝数',
+      province: '省份',
+      city: '城市',
+      gender: '性别',
+      age: '年龄',
+      
+      // 爬虫字段（新增）
+      mcn_name: 'MCN机构',
+      platform: '支持平台',
+      platform_channel: '平台渠道',
+      self_intro: '自我介绍',
+      unique_id: '唯一ID',
+      sec_uid: '加密UID',
+      short_id: '短ID',
+      has_phone: '是否有电话',
+      
+      // 数据表现
+      vv_median_30d: '30日播放量中位数',
+      interact_rate_30d: '30日互动率',
+      play_over_rate_30d: '30日完播率',
+      fans_increment_rate_30d: '30日粉丝增长率',
+      
+      // 营销指标
+      star_index: '星图指数',
+      link_convert_index: '转化指数',
+      link_shopping_index: '种草指数',
+      link_spread_index: '传播指数',
+      
+      // 电商数据
+      e_commerce_enable: '是否开通电商',
+      author_ecom_level: '电商等级',
+      ecom_gmv_30d_range: '30日GMV区间',
+      star_ecom_video_num_30d: '30日带货视频数',
+      
+      // 价格信息
+      price_1_20: '1-20s报价',
+      price_20_60: '20-60s报价',
+      price_60_plus: '60s+报价',
+      
+      // 认证标签
+      star_excellent_author: '星图优质作者',
+      is_black_horse_author: '黑马作者',
+      is_rising_star: '新星作者',
+      star_qianchuan_high_potential: '千川高潜作者',
+      
+      // 预期指标
+      expected_play_num: '预期播放量',
+      promotion_prospective_20_60_cpm: '预期CPM(20-60s)',
+      sn_prospective_20_60_cpe: '预期CPE(20-60s)',
+      
+      // 内容标签
+      primary_tags: '主要标签',
+      secondary_tags: '次要标签',
+      
+      // 时间戳
+      data_timestamp: '数据采集时间',
+      created_at: '创建时间',
+      updated_at: '更新时间',
+    }
+    
+    // 创建CSV表头（使用中文名称，未映射的保留英文）
+    const headers = allFields.map(field => fieldNameMap[field] || field)
+    
+    // 创建CSV内容
     const rows = fullData.map(item => 
       allFields.map(field => {
         const value = item[field]
