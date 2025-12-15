@@ -537,16 +537,21 @@ class AutoCookieFetcher:
 
     def save_cookie_metadata(self, cookies: List[Dict]):
         try:
+            # 过滤出有效的过期时间戳（排除已过期的）
+            current_time = time.time()
             expires_timestamps = [
                 cookie["expires"]
                 for cookie in cookies
-                if cookie.get("expires") and cookie["expires"] > 0
+                if cookie.get("expires") and cookie["expires"] > current_time
             ]
             if expires_timestamps:
                 min_expires = min(expires_timestamps)
                 expires_at = datetime.fromtimestamp(min_expires)
+                logger.debug("Cookie过期时间: %s (来自%d个有效cookie)", expires_at.isoformat(), len(expires_timestamps))
             else:
+                # 如果没有有效的过期时间，设置为7天后
                 expires_at = datetime.now() + timedelta(days=7)
+                logger.warning("未找到有效的cookie过期时间，默认设置为7天后")
 
             metadata = {
                 "created_at": datetime.now().isoformat(),
@@ -928,6 +933,10 @@ class AutoCookieFetcher:
                 except Exception as e:
                     logger.warning("导航目标页失败: %s", e)
 
+                # 强制等待以确保cookie完全设置
+                time.sleep(2)
+                
+                # 重新获取最新的cookies
                 final_cookies = context.cookies()
                 logger.info("准备保存 storage_state，当前 cookie 数: %d", len(final_cookies))
                 logger.debug("最终 cookie 列表: %s", [c["name"] for c in final_cookies])
@@ -942,7 +951,10 @@ class AutoCookieFetcher:
                     save_debug(self.page, "insufficient_auth_cookies")
                     return False
 
+                # 获取storage_state时强制包含最新cookies
                 storage_state = context.storage_state()
+                # 确保storage_state中的cookies是最新的
+                storage_state["cookies"] = final_cookies
                 if not self.save_storage_state(storage_state, encrypt=True):
                     logger.error("保存 storage_state 失败")
                     return False

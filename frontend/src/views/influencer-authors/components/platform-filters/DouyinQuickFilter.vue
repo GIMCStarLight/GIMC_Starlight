@@ -214,11 +214,13 @@ const filters = ref<QuickFilterParams>({})
 // 基础信息筛选
 const basicInfo = ref<{
   keyword: string
+  mcnOrOrgName: string
   gender: 'M' | 'F' | 'U' | undefined
   province: string
   city: string
 }>({
   keyword: '',
+  mcnOrOrgName: '',
   gender: undefined,
   province: '',
   city: ''
@@ -361,6 +363,7 @@ const hasActiveFilters = computed(() => {
   return selectedCooperation.value !== '' ||
     selectedTags.value.length > 0 ||
     basicInfo.value.keyword !== '' ||
+    basicInfo.value.mcnOrOrgName !== '' ||
     basicInfo.value.gender !== undefined ||
     basicInfo.value.province !== '' ||
     basicInfo.value.city !== '' ||
@@ -374,6 +377,9 @@ const activeFilterTags = computed(() => {
   // 1. 基础信息
   if (basicInfo.value.keyword) {
     tags.push({ key: 'keyword', label: `关键词: ${basicInfo.value.keyword}` })
+  }
+  if (basicInfo.value.mcnOrOrgName) {
+    tags.push({ key: 'mcnOrOrgName', label: `MCN/机构: ${basicInfo.value.mcnOrOrgName}` })
   }
   if (basicInfo.value.gender) {
     const genderLabel = basicInfo.value.gender === 'M' ? '男' : basicInfo.value.gender === 'F' ? '女' : '未知'
@@ -656,6 +662,9 @@ const removeFilter = (key: string) => {
     case 'keyword':
       basicInfo.value.keyword = ''
       break
+    case 'mcnOrOrgName':
+      basicInfo.value.mcnOrOrgName = ''
+      break
     case 'gender':
       basicInfo.value.gender = undefined
       break
@@ -734,6 +743,7 @@ const removeFilter = (key: string) => {
 const clearAllFilters = () => {
   basicInfo.value = {
     keyword: '',
+    mcnOrOrgName: '',
     gender: undefined,
     province: '',
     city: ''
@@ -871,6 +881,7 @@ const emitFilterChange = useDebounceFn(() => {
   const params: any = {
     // 基础信息
     keyword: basicInfo.value.keyword || undefined,
+    mcnOrOrgName: basicInfo.value.mcnOrOrgName || undefined,
     gender: basicInfo.value.gender,
     province: basicInfo.value.province || undefined,
     city: basicInfo.value.city || undefined,

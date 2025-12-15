@@ -99,6 +99,10 @@ export class AdvancedFilterDto extends QuickFilterDto {
 
   @IsOptional()
   @IsString()
+  mcnOrOrgName?: string; // MCN/合作机构搜索(模糊匹配mcn_name或org_name)
+
+  @IsOptional()
+  @IsString()
   province?: string;
 
   @IsOptional()

@@ -134,13 +134,38 @@ def main():
         print(f"错误: Cookie文件不存在: {cookie_file}")
         sys.exit(1)
 
+    # 自动从cookie文件路径提取账号ID和star_id
+    star_id = args.star_id
+    cookie_path_str = str(cookie_file)
+    
+    # 如果cookie文件在accounts目录下，尝试从account_pool.json读取star_id
+    if "accounts/" in cookie_path_str and star_id == "1843934177451019":  # 使用默认值时才自动提取
+        try:
+            import re
+            match = re.search(r"accounts/(account_\d+)/", cookie_path_str)
+            if match:
+                account_id = match.group(1)
+                account_pool_path = PROJECT_ROOT / "tools/account_manager/config/account_pool.json"
+                if account_pool_path.exists():
+                    import json
+                    with open(account_pool_path) as f:
+                        pool_config = json.load(f)
+                    for acc in pool_config.get("accounts", []):
+                        if acc["account_id"] == account_id:
+                            if "star_id" in acc:
+                                star_id = acc["star_id"]
+                                print(f"[自动提取] 使用账号 {account_id} 的 star_id: {star_id}")
+                            break
+        except Exception as e:
+            print(f"[警告] 自动提取star_id失败: {e}，使用默认值")
+
     # 创建输出目录
     output_dir = PROJECT_ROOT / args.output_dir
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # 初始化客户端
     client = AuthorInfoClient(
-        star_id=args.star_id,
+        star_id=star_id,
         cookie_file=str(cookie_file),
         qps=args.qps,
     )

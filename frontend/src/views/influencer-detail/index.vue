@@ -179,6 +179,31 @@ const formatContactInfo = (info: any): string => {
   }
 }
 
+// 平台名称映射
+const getPlatformName = (platformId: number): string => {
+  const platformMap: Record<number, string> = {
+    1: '抖音',
+    2: '快手',
+    3: '视频号',
+    4: '小红书',
+    5: '微博',
+    6: 'B站',
+  }
+  return platformMap[platformId] || `平台${platformId}`
+}
+
+// 渠道名称映射
+const getChannelName = (channelId: number): string => {
+  const channelMap: Record<number, string> = {
+    1: '通用渠道',
+    2: '小店随心推',
+    3: '千川',
+    10: '巨量引擎',
+    21: '星图',
+  }
+  return channelMap[channelId] || `渠道${channelId}`
+}
+
 // 返回上一页
 const goBack = () => {
   router.back()
@@ -445,7 +470,128 @@ onMounted(() => {
             />
           </el-tab-pane>
 
-          <!-- Tab 7: 私域信息（仅已匹配达人显示） -->
+          <!-- Tab 7: 爬虫数据 -->
+          <el-tab-pane label="🕷️ 爬虫数据" name="crawler">
+            <div class="tab-content">
+              <!-- get_author_base_info 数据模块 -->
+              <div class="data-module">
+                <h3 class="module-title">📋 达人基础信息（get_author_base_info）</h3>
+                <el-descriptions :column="2" border size="large">
+                  <el-descriptions-item label="达人ID">
+                    <span class="mono-text">{{ rawData.author_id || rawData.id || '-' }}</span>
+                  </el-descriptions-item>
+                  <el-descriptions-item label="星图ID">
+                    <span class="mono-text">{{ rawData.star_id || rawData.id || '-' }}</span>
+                  </el-descriptions-item>
+                  <el-descriptions-item label="核心用户ID">
+                    <span class="mono-text">{{ rawData.core_user_id || '-' }}</span>
+                  </el-descriptions-item>
+                  <el-descriptions-item label="昵称">
+                    {{ rawData.nick_name || '-' }}
+                  </el-descriptions-item>
+                  <el-descriptions-item label="抖音号（unique_id）">
+                    <span class="mono-text">{{ rawData.unique_id || '-' }}</span>
+                  </el-descriptions-item>
+                  <el-descriptions-item label="抖音短ID（short_id）">
+                    <span class="mono-text">{{ rawData.short_id || '-' }}</span>
+                  </el-descriptions-item>
+                  <el-descriptions-item label="安全ID（sec_uid）">
+                    <span class="mono-text">{{ rawData.sec_uid || '-' }}</span>
+                  </el-descriptions-item>
+                  <el-descriptions-item label="是否有手机号">
+                    <el-tag :type="rawData.has_phone ? 'success' : 'info'" size="small">
+                      {{ rawData.has_phone ? '✓ 已绑定' : '✗ 未绑定' }}
+                    </el-tag>
+                  </el-descriptions-item>
+                  <el-descriptions-item label="MCN机构">
+                    <span class="highlight-text">{{ rawData.mcn_name || '-' }}</span>
+                  </el-descriptions-item>
+                  <el-descriptions-item label="支持平台">
+                    <div v-if="rawData.platform && rawData.platform.length > 0" class="platform-tags">
+                      <el-tag 
+                        v-for="(platformId, idx) in rawData.platform" 
+                        :key="idx"
+                        type="primary"
+                        size="small"
+                        class="platform-tag"
+                      >
+                        {{ getPlatformName(platformId) }}
+                      </el-tag>
+                    </div>
+                    <span v-else>-</span>
+                  </el-descriptions-item>
+                  <el-descriptions-item label="支持渠道">
+                    <div v-if="rawData.platform_channel && rawData.platform_channel.length > 0" class="channel-tags">
+                      <el-tag 
+                        v-for="(channelId, idx) in rawData.platform_channel" 
+                        :key="idx"
+                        type="success"
+                        size="small"
+                        class="channel-tag"
+                      >
+                        {{ getChannelName(channelId) }}
+                      </el-tag>
+                    </div>
+                    <span v-else>-</span>
+                  </el-descriptions-item>
+                </el-descriptions>
+              </div>
+
+              <!-- get_author_platform_channel_info_v2 数据模块 -->
+              <div class="data-module" style="margin-top: 24px;">
+                <h3 class="module-title">🎯 平台渠道信息（get_author_platform_channel_info_v2）</h3>
+                <el-descriptions :column="1" border size="large">
+                  <el-descriptions-item label="自我介绍（self_intro）">
+                    <div v-if="rawData.self_intro" class="intro-box">
+                      {{ rawData.self_intro }}
+                    </div>
+                    <span v-else class="text-muted">暂无自我介绍</span>
+                  </el-descriptions-item>
+                </el-descriptions>
+              </div>
+
+              <!-- 其他爬虫数据字段 -->
+              <div class="data-module" style="margin-top: 24px;">
+                <h3 class="module-title">🔍 其他爬虫字段</h3>
+                <el-descriptions :column="2" border size="large">
+                  <el-descriptions-item label="头像URI">
+                    <div class="avatar-preview">
+                      <el-avatar :size="50" :src="rawData.avatar_uri" />
+                      <span class="mono-text small">{{ rawData.avatar_uri || '-' }}</span>
+                    </div>
+                  </el-descriptions-item>
+                  <el-descriptions-item label="粉丝数">
+                    {{ formatNumber(rawData.follower) }}
+                  </el-descriptions-item>
+                  <el-descriptions-item label="性别">
+                    {{ formatGender(rawData.gender) }}
+                  </el-descriptions-item>
+                  <el-descriptions-item label="地区">
+                    {{ rawData.province || '' }} {{ rawData.city || '' }}
+                  </el-descriptions-item>
+                  <el-descriptions-item label="作者类型">
+                    <el-tag :type="rawData.author_type === 1 ? 'warning' : 'info'" size="small">
+                      {{ rawData.author_type === 1 ? 'Mega作者' : '普通作者' }}
+                    </el-tag>
+                  </el-descriptions-item>
+                  <el-descriptions-item label="作者状态">
+                    {{ rawData.author_status || '-' }}
+                  </el-descriptions-item>
+                  <el-descriptions-item label="等级">
+                    {{ rawData.grade || '-' }}
+                  </el-descriptions-item>
+                  <el-descriptions-item label="星图指数">
+                    {{ formatNumber(rawData.star_index) }}
+                  </el-descriptions-item>
+                  <el-descriptions-item label="最后爬取时间">
+                    {{ formatDate(rawData.last_crawled_at) }}
+                  </el-descriptions-item>
+                </el-descriptions>
+              </div>
+            </div>
+          </el-tab-pane>
+
+          <!-- Tab 8: 私域信息（仅已匹配达人显示） -->
           <el-tab-pane v-if="rawData.is_matched" label="🔗 合作信息" name="private">
             <div class="tab-content">
               <!-- 匹配状态标识 -->
@@ -845,5 +991,58 @@ onMounted(() => {
 .contact-box pre {
   margin: 0;
   font-family: inherit;
+}
+
+/* 爬虫数据样式 */
+.mono-text {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  color: #606266;
+  font-size: 13px;
+  background: #f5f7fa;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.mono-text.small {
+  font-size: 11px;
+  color: #909399;
+  display: block;
+  margin-top: 4px;
+  word-break: break-all;
+}
+
+.platform-tags,
+.channel-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.platform-tag,
+.channel-tag {
+  margin-right: 0 !important;
+}
+
+.avatar-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.text-muted {
+  color: #909399;
+  font-style: italic;
+}
+
+.intro-box {
+  background: #fafafa;
+  border: 1px solid #e4e7ed;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #606266;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 </style>

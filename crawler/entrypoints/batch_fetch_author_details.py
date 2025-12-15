@@ -31,20 +31,48 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from adapters.xingtu import AuthorInfoClient
 from services.author_detail_saver import AuthorDetailSaver
+from services.rate_limiter import TimeWindowQPSLimiter
+from services.adaptive_qps import AdaptiveQpsPolicy, AdaptiveQpsConfig
 import psycopg2
 
 
 class BatchFetchOrchestrator:
     """批量采集任务编排器"""
     
-    def __init__(self, db_config: dict, cookie_file: str, star_id: str, qps: int = 5):
+    def __init__(self, db_config: dict, cookie_file: str, star_id: str, qps: int = 2, 
+                 enable_adaptive: bool = True):
         self.db_config = db_config
         self.cookie_file = cookie_file
         self.star_id = star_id
         self.qps = qps
+        self.enable_adaptive = enable_adaptive
         
         # 数据库连接
         self.db_saver = AuthorDetailSaver(db_config)
+        
+        # 初始化自适应QPS策略
+        if enable_adaptive:
+            qps_config = AdaptiveQpsConfig(
+                min_qps=1,
+                max_qps=qps,
+                step=1,
+                backoff_base=0.6,  # 失败时降到60%
+                success_needed=5,   # 连续5次成功才升级
+                upgrade_cooldown_sec=300  # 5分钟冷却
+            )
+            self.adaptive_policy = AdaptiveQpsPolicy(qps, qps_config)
+        else:
+            self.adaptive_policy = None
+        
+        # 反爬统计
+        self.stats = {
+            'total_requests': 0,
+            'failed_requests': 0,
+            'code_31157_count': 0,  # 频控
+            'code_10255_count': 0,  # 权限
+            'consecutive_401': 0,
+            'last_429_403_time': 0
+        }
         
     def get_missing_author_ids(self, limit: int = None) -> List[str]:
         """获取缺少详情字段的author_id列表"""
@@ -93,27 +121,47 @@ class BatchFetchOrchestrator:
         return author_ids
     
     def fetch_batch(self, author_ids: List[str], batch_num: int, total_batches: int) -> Tuple[int, int]:
-        """采集一批达人
+        """采集一批达人（带反爬机制）
         
         Returns:
             (成功数, 失败数)
         """
+        # 动态QPS
+        current_qps = self.qps
+        if self.adaptive_policy:
+            current_qps = max(1, int(self.adaptive_policy.current_qps))
+        
         client = AuthorInfoClient(
             star_id=self.star_id,
             cookie_file=self.cookie_file,
-            qps=self.qps
+            qps=current_qps
         )
         
         success = 0
         failed = 0
+        batch_stats = {'failed': 0, 'total': len(author_ids)}
         
-        print(f"\n[批次 {batch_num}/{total_batches}] 开始采集 {len(author_ids)} 个达人")
+        print(f"\n[批次 {batch_num}/{total_batches}] 开始采集 {len(author_ids)} 个达人 (QPS={current_qps})")
         
         for i, author_id in enumerate(author_ids, 1):
+            self.stats['total_requests'] += 1
+            
             try:
+                # 检查429/403冷却
+                self._check_cooldown()
+                
+                # 检查连续401暂停
+                if self.stats['consecutive_401'] >= 3:
+                    print(f"  [警告] 连续{self.stats['consecutive_401']}次401错误，暂停30秒...")
+                    time.sleep(30)
+                    self.stats['consecutive_401'] = 0
+                
                 # 获取数据
                 info = client.get_complete_info(author_id)
                 essential = client.extract_essential_fields(info)
+                
+                # 重置401计数
+                self.stats['consecutive_401'] = 0
                 
                 # 保存到数据库
                 if self.db_saver.save_author_detail(essential):
@@ -125,10 +173,52 @@ class BatchFetchOrchestrator:
                 
             except Exception as e:
                 failed += 1
-                print(f"  [{i}/{len(author_ids)}] {author_id} - 采集失败: {e}")
+                batch_stats['failed'] += 1
+                self.stats['failed_requests'] += 1
+                
+                error_msg = str(e)
+                
+                # 识别错误类型
+                if '31157' in error_msg:
+                    self.stats['code_31157_count'] += 1
+                    print(f"  [{i}/{len(author_ids)}] {author_id} - 频控ban (31157)")
+                    print("  [严重] 账号被频控，停止采集！")
+                    break
+                elif '10255' in error_msg:
+                    self.stats['code_10255_count'] += 1
+                    print(f"  [{i}/{len(author_ids)}] {author_id} - 权限不足 (10255)")
+                elif '401' in error_msg:
+                    self.stats['consecutive_401'] += 1
+                    print(f"  [{i}/{len(author_ids)}] {author_id} - 未授权 (401) [连续{self.stats['consecutive_401']}次]")
+                elif '429' in error_msg or '403' in error_msg:
+                    self.stats['last_429_403_time'] = time.time()
+                    print(f"  [{i}/{len(author_ids)}] {author_id} - 触发限流 (429/403)，冷却60秒...")
+                    time.sleep(60)
+                else:
+                    print(f"  [{i}/{len(author_ids)}] {author_id} - 采集失败: {e}")
+        
+        # 自适应QPS调整
+        if self.adaptive_policy:
+            new_qps = self.adaptive_policy.adjust(
+                pages_done=batch_stats['total'],
+                failed_pages=batch_stats['failed'],
+                authors_total=success
+            )
+            if new_qps != current_qps:
+                print(f"  [自适应] QPS调整: {current_qps} -> {new_qps}")
         
         client.close()
         return success, failed
+    
+    def _check_cooldown(self):
+        """检查429/403冷却时间"""
+        if self.stats['last_429_403_time'] > 0:
+            elapsed = time.time() - self.stats['last_429_403_time']
+            if elapsed < 60:  # 60秒冷却
+                wait = 60 - elapsed
+                print(f"  [冷却] 等待 {wait:.1f}秒...")
+                time.sleep(wait)
+                self.stats['last_429_403_time'] = 0
     
     def run(self, author_ids: List[str], batch_size: int = 50, workers: int = 1) -> dict:
         """执行批量采集任务
@@ -219,7 +309,9 @@ def main():
     # 爬虫配置
     parser.add_argument("--cookie-file", default="config/cookies.txt", help="Cookie文件")
     parser.add_argument("--star-id", default="1843934177451019", help="星图账号ID")
-    parser.add_argument("--qps", type=int, default=5, help="每秒请求数")
+    parser.add_argument("--qps", type=int, default=2, help="每秒请求数（默认2，避免频控）")
+    parser.add_argument("--enable-adaptive", action="store_true", default=True, help="启用自适应QPS")
+    parser.add_argument("--no-adaptive", dest="enable_adaptive", action="store_false", help="禁用自适应QPS")
     
     # 数据库配置
     parser.add_argument("--db-host", default="192.168.102.168", help="数据库主机")
@@ -244,8 +336,11 @@ def main():
         db_config=db_config,
         cookie_file=cookie_file,
         star_id=args.star_id,
-        qps=args.qps
+        qps=args.qps,
+        enable_adaptive=args.enable_adaptive
     )
+    
+    print(f"[配置] QPS={args.qps}, 自适应={'开启' if args.enable_adaptive else '关闭'}")
     
     # 获取待采集ID列表
     author_ids = []

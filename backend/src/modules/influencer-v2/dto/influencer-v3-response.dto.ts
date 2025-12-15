@@ -38,6 +38,31 @@ export class InfluencerV3CardDataDto {
   @ApiProperty({ description: '是否千川高潜' })
   star_qianchuan_high_potential: boolean;
 
+  // 爬虫数据字段（来自 get_author_base_info 和 get_author_platform_channel_info_v2）
+  @ApiProperty({ description: 'MCN机构名称', required: false })
+  mcn_name?: string;
+
+  @ApiProperty({ description: '抖音号（unique_id）', required: false })
+  unique_id?: string;
+
+  @ApiProperty({ description: '安全ID（sec_uid）', required: false })
+  sec_uid?: string;
+
+  @ApiProperty({ description: '抖音短ID（short_id）', required: false })
+  short_id?: string;
+
+  @ApiProperty({ description: '是否有手机号', required: false })
+  has_phone?: boolean;
+
+  @ApiProperty({ description: '自我介绍（self_intro）', required: false })
+  self_intro?: string;
+
+  @ApiProperty({ description: '支持平台数组', required: false, type: [Number] })
+  platform?: number[];
+
+  @ApiProperty({ description: '支持渠道数组', required: false, type: [Number] })
+  platform_channel?: number[];
+
   // 内容标签
   @ApiProperty({ description: '主要标签数组' })
   primary_tags: string[];

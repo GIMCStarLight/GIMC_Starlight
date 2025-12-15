@@ -2,6 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, SelectQueryBuilder } from 'typeorm';
 import { AuthorCoreView } from '../entities/author-core.view';
+import { AuthorCore } from '../entities/author-core.entity';
 import { AuthorRawArchive } from '../../../database/entities/author-raw-archive.entity';
 import { KolList, MatchStatus } from '../../../database/entities/kol-list.entity';
 import { InfluencerQueryDto } from '../dto/influencer-query.dto';
@@ -22,6 +23,8 @@ export class InfluencerV2Service {
   constructor(
     @InjectRepository(AuthorCoreView, 'crawler')
     private readonly authorCoreRepository: Repository<AuthorCoreView>,
+    @InjectRepository(AuthorCore, 'crawler')
+    private readonly authorCoreEntityRepository: Repository<AuthorCore>,
     @InjectRepository(AuthorRawArchive, 'crawler')
     private readonly authorRawArchiveRepository: Repository<AuthorRawArchive>,
     @InjectRepository(KolList, 'postgres')
@@ -102,19 +105,62 @@ export class InfluencerV2Service {
     data: Record<string, any>;
   }> {
     try {
-      // 查询公海原始数据
-      const result = await this.authorCoreRepository.query(
+      // 1. 查询 authors_core 表获取爬虫数据字段（使用 AuthorCore 实体）
+      const coreData = await this.authorCoreEntityRepository.findOne({
+        where: { author_id: authorId },
+      });
+
+      if (!coreData) {
+        throw new Error('达人基础数据不存在');
+      }
+
+      // 2. 查询原始归档数据（如果存在）
+      const archiveResult = await this.authorCoreRepository.query(
         'SELECT raw_attribute_datas FROM authors_raw_archive WHERE author_id = $1 ORDER BY created_at DESC LIMIT 1',
         [authorId]
       );
 
-      if (!result || result.length === 0) {
-        throw new Error('达人原始数据不存在');
-      }
+      const rawData = archiveResult && archiveResult.length > 0 
+        ? archiveResult[0].raw_attribute_datas || {} 
+        : {};
 
-      const publicData = result[0].raw_attribute_datas || {};
+      // 3. 合并 authors_core 的爬虫字段到原始数据中
+      const publicData = {
+        ...rawData,
+        // 确保爬虫数据字段覆盖原始数据
+        author_id: coreData.author_id,
+        star_id: coreData.star_id,
+        core_user_id: coreData.core_user_id,
+        nick_name: coreData.nick_name,
+        avatar_uri: coreData.avatar_uri,
+        gender: coreData.gender,
+        city: coreData.city,
+        province: coreData.province,
+        author_type: coreData.author_type,
+        author_status: coreData.author_status,
+        grade: coreData.grade,
+        follower: coreData.follower,
+        star_index: coreData.star_index,
+        star_excellent_author: coreData.star_excellent_author,
+        is_black_horse_author: coreData.is_black_horse_author,
+        is_cocreate_author: coreData.is_cocreate_author,
+        is_cpm_project_author: coreData.is_cpm_project_author,
+        is_short_drama: coreData.is_short_drama,
+        is_ad_star_cur_high_quality_author: coreData.is_ad_star_cur_high_quality_author,
+        star_qianchuan_high_potential: coreData.star_qianchuan_high_potential,
+        last_crawled_at: coreData.last_crawled_at,
+        // 爬虫数据字段（来自 get_author_base_info 和 get_author_platform_channel_info_v2）
+        unique_id: coreData.unique_id,
+        sec_uid: coreData.sec_uid,
+        short_id: coreData.short_id,
+        has_phone: coreData.has_phone,
+        mcn_name: coreData.mcn_name,
+        self_intro: coreData.self_intro,
+        platform: coreData.platform,
+        platform_channel: coreData.platform_channel,
+      };
 
-      // 查询私域数据（如果已匹配）
+      // 4. 查询私域数据（如果已匹配）
       const kolRecord = await this.kolListRepo.findOne({
         where: {
           matched_author_id: authorId,
@@ -123,7 +169,7 @@ export class InfluencerV2Service {
         },
       });
 
-      // 合并私域字段
+      // 5. 合并私域字段
       if (kolRecord) {
         return {
           data: {
