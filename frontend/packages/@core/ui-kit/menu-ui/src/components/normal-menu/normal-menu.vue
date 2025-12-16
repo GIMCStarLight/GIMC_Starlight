@@ -44,7 +44,7 @@ function menuIcon(menu: MenuRecordRaw) {
     ]"
     class="relative"
   >
-    <template v-for="menu in menus" :key="menu.path">
+    <template v-for="menu in menus.filter(menu => menu && (menu.name || menu.path))" :key="menu.path">
       <li
         :class="[e('item'), is('active', activePath === menu.path)]"
         @click="() => emit('select', menu)"

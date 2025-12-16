@@ -149,6 +149,7 @@
         :card-size="cardSize"
         :loading="loading"
         :platform="currentPlatform"
+        :use-store-selection="true"
         @update-data="updateInfluencerData"
         @evaluate="handleEvaluate"
       />
@@ -178,7 +179,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, markRaw } from 'vue'
+import { ref, computed, watch, markRaw, onActivated } from 'vue'
 import { IconifyIcon as Icon } from '@vben/icons'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { log } from '#/utils/logger'
@@ -260,19 +261,41 @@ const currentFilters = ref<AdvancedFilterParams>({})
 // 仅展示已匹配达人开关
 const matchedOnly = ref(false)
 
+// 初始化/重置筛选条件的函数
+const initializeFilters = () => {
+  log.debug('🔄 [index-v3] 初始化筛选条件')
+  
+  // 重置UI状态
+  matchedOnly.value = false
+  
+  // 清空store的所有筛选条件
+  store.resetFilters()
+  
+  // 只设置平台筛选
+  currentFilters.value = {
+    platform: currentPlatform.value !== 'all' ? currentPlatform.value : undefined
+  }
+  store.setFilters(currentFilters.value)
+  
+  log.debug('🔄 [index-v3] 筛选条件已初始化，matchedOnly:', matchedOnly.value)
+}
+
 // 平台切换处理
 const handlePlatformChange = (platformValue: string) => {
   log.debug('🔄 平台切换:', platformValue)
   currentPlatform.value = platformValue
-  
+
   // 清空筛选条件
   currentFilters.value = {}
-  
+
   // 根据平台设置筛选条件
   if (platformValue !== 'all') {
     currentFilters.value.platform = platformValue
   }
-  
+
+  // 重置多选框状态
+  store.$reset()
+
   // 重新加载数据
   store.setFilters(currentFilters.value)
   store.setCurrentPage(1)
@@ -715,7 +738,23 @@ defineExpose({
 
 // 初始化加载数据
 log.debug('🎯 [index-v3] 开始加载初始数据')
+// ⚠️ 关键：先初始化筛选条件，确保不带matchedOnly
+initializeFilters()
+// 然后加载数据
 store.loadInfluencers()
+
+// 页面激活时（从其他页面切换回来）
+onActivated(() => {
+  log.debug('🔄 [index-v3] 页面被激活')
+  
+  // 重置筛选条件
+  initializeFilters()
+  
+  // 重新加载数据
+  store.loadInfluencers()
+  
+  log.debug('🔄 [index-v3] 页面激活完成，显示全部达人')
+})
 
 // 暴露调试变量到 window，便于控制台查看与触发刷新
 if (typeof window !== 'undefined') {
