@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>省广星芒系统 - 实际架构图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 1600px;
+            width: 100%;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #1e293b;
+            margin-bottom: 10px;
+            font-size: 36px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        
+        svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .layer-title {
+            font-size: 16px;
+            font-weight: bold;
+            fill: white;
+        }
+        
+        .module-title {
+            font-size: 13px;
+            font-weight: 600;
+            fill: #1e293b;
+        }
+        
+        .tech-stack {
+            font-size: 10px;
+            fill: #64748b;
+            font-style: italic;
+        }
+        
+        .feature-text {
+            font-size: 11px;
+            fill: #475569;
+        }
+        
+        .highlight-text {
+            font-size: 11px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>省广星芒系统技术架构</h1>
+        
+        <svg viewBox="0 0 1400 1200" xmlns="http://www.w3.org/2000/svg">
+            <!-- 定义渐变色 -->
+            <defs>
+                <linearGradient id="frontendGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+                </linearGradient>
+                
+                <linearGradient id="backendGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+                </linearGradient>
+                
+                <linearGradient id="dataGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+                </linearGradient>
+                
+                <linearGradient id="crawlerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+                </linearGradient>
+                
+                <!-- 箭头 -->
+                <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#94a3b8" />
+                </marker>
+            </defs>
+            
+            <!-- 标题 -->
+            <text x="700" y="40" text-anchor="middle" style="font-size: 24px; font-weight: bold; fill: #1e293b;">
+                省广星芒系统 (GIMCStarLightSystem)
+            </text>
+            <text x="700" y="65" text-anchor="middle" style="font-size: 14px; fill: #64748b;">
+                240+ Commits | 15+ Modules | 7 Platforms Supported
+            </text>
+            
+            <!-- ==================== 前端层 ==================== -->
+            <rect x="50" y="100" width="1300" height="200" rx="15" fill="url(#frontendGradient)" opacity="0.1" stroke="url(#frontendGradient)" stroke-width="2"/>
+            
+            <rect x="60" y="110" width="120" height="35" rx="8" fill="url(#frontendGradient)"/>
+            <text class="layer-title" x="120" y="133" text-anchor="middle">前端层</text>
+            
+            <!-- Vue3 核心页面 -->
+            <rect x="80" y="160" width="180" height="120" rx="10" fill="white" stroke="#10b981" stroke-width="2"/>
+            <text class="module-title" x="170" y="180" text-anchor="middle">核心页面</text>
+            <text class="tech-stack" x="90" y="195">Vue3 + TypeScript + Vite</text>
+            <text class="feature-text" x="90" y="215">• KOL管理 (Tab切换)</text>
+            <text class="feature-text" x="90" y="230">• 达人广场V3</text>
+            <text class="feature-text" x="90" y="245">• 工单管理系统</text>
+            <text class="feature-text" x="90" y="260">• 用户/角色/权限</text>
+            
+            <!-- 通用组件 -->
+            <rect x="290" y="160" width="200" height="120" rx="10" fill="white" stroke="#10b981" stroke-width="2"/>
+            <text class="module-title" x="390" y="180" text-anchor="middle">通用组件库</text>
+            <text class="tech-stack" x="300" y="195">Element Plus + TailwindCSS</text>
+            <text class="feature-text" x="300" y="215">• ImportDataDialog</text>
+            <text class="feature-text" x="300" y="230">• FilterPanel 高级筛选</text>
+            <text class="feature-text" x="300" y="245">• EvaluateDialog 评价</text>
+            <text class="feature-text" x="300" y="260">• v-permission 指令</text>
+            
+            <!-- 状态管理 -->
+            <rect x="520" y="160" width="180" height="120" rx="10" fill="white" stroke="#10b981" stroke-width="2"/>
+            <text class="module-title" x="610" y="180" text-anchor="middle">状态与路由</text>
+            <text class="tech-stack" x="530" y="195">Pinia + Vue Router</text>
+            <text class="feature-text" x="530" y="215">• KOL Store</text>
+            <text class="feature-text" x="530" y="230">• Supplier Store</text>
+            <text class="feature-text" x="530" y="245">• Influencer Store</text>
+            <text class="feature-text" x="530" y="260">• 动态路由权限</text>
+            
+            <!-- HTTP请求 -->
+            <rect x="730" y="160" width="180" height="120" rx="10" fill="white" stroke="#10b981" stroke-width="2"/>
+            <text class="module-title" x="820" y="180" text-anchor="middle">请求封装</text>
+            <text class="tech-stack" x="740" y="195">Axios Interceptor</text>
+            <text class="feature-text" x="740" y="215">• 统一请求拦截</text>
+            <text class="feature-text" x="740" y="230">• Token自动刷新</text>
+            <text class="feature-text" x="740" y="245">• 错误统一处理</text>
+            <text class="feature-text" x="740" y="260">• Loading全局控制</text>
+            
+            <!-- 工具库 -->
+            <rect x="940" y="160" width="180" height="120" rx="10" fill="white" stroke="#10b981" stroke-width="2"/>
+            <text class="module-title" x="1030" y="180" text-anchor="middle">工具库</text>
+            <text class="tech-stack" x="950" y="195">Utils & Helpers</text>
+            <text class="feature-text" x="950" y="215">• 日期格式化</text>
+            <text class="feature-text" x="950" y="230">• 数值转换</text>
+            <text class="feature-text" x="950" y="245">• Excel导出</text>
+            <text class="feature-text" x="950" y="260">• 文件上传</text>
+            
+            <!-- 构建工具 -->
+            <rect x="1150" y="160" width="170" height="120" rx="10" fill="white" stroke="#10b981" stroke-width="2"/>
+            <text class="module-title" x="1235" y="180" text-anchor="middle">构建与优化</text>
+            <text class="tech-stack" x="1160" y="195">Vite + ESLint</text>
+            <text class="feature-text" x="1160" y="215">• 热模块替换</text>
+            <text class="feature-text" x="1160" y="230">• 代码分割</text>
+            <text class="feature-text" x="1160" y="245">• Tree Shaking</text>
+            <text class="feature-text" x="1160" y="260">• 代码规范检查</text>
+            
+            <!-- 箭头：前端 → 后端 -->
+            <path d="M 700 300 L 700 340" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+            <text x="710" y="325" style="font-size: 11px; fill: #64748b;">HTTP/HTTPS</text>
+            
+            <!-- ==================== 后端层 ==================== -->
+            <rect x="50" y="340" width="1300" height="280" rx="15" fill="url(#backendGradient)" opacity="0.1" stroke="url(#backendGradient)" stroke-width="2"/>
+            
+            <rect x="60" y="350" width="120" height="35" rx="8" fill="url(#backendGradient)"/>
+            <text class="layer-title" x="120" y="373" text-anchor="middle">后端层</text>
+            
+            <!-- 认证授权 -->
+            <rect x="80" y="400" width="220" height="200" rx="10" fill="white" stroke="#3b82f6" stroke-width="2"/>
+            <text class="module-title" x="190" y="420" text-anchor="middle">认证授权模块</text>
+            <text class="tech-stack" x="90" y="435">NestJS 11 + JWT + Redis</text>
+            <text class="feature-text" x="90" y="455">• AuthModule (双Token)</text>
+            <text class="feature-text" x="90" y="470">• UsersModule</text>
+            <text class="feature-text" x="90" y="485">• RolesModule (层级)</text>
+            <text class="feature-text" x="90" y="500">• PermissionsModule</text>
+            <text class="feature-text" x="90" y="515">• MenuModule (动态)</text>
+            <text class="highlight-text" x="90" y="535" fill="#2563eb">✓ RBAC权限体系</text>
+            <text class="highlight-text" x="90" y="550" fill="#2563eb">✓ 令牌黑名单</text>
+            <text class="highlight-text" x="90" y="565" fill="#2563eb">✓ 权限装饰器</text>
+            
+            <!-- 业务模块 -->
+            <rect x="330" y="400" width="380" height="200" rx="10" fill="white" stroke="#3b82f6" stroke-width="2"/>
+            <text class="module-title" x="520" y="420" text-anchor="middle">核心业务模块</text>
+            <text class="tech-stack" x="340" y="435">TypeORM + PostgreSQL</text>
+            
+            <g transform="translate(340, 450)">
+                <text class="feature-text" x="0" y="0">• KolListModule (自有资源)</text>
+                <text class="feature-text" x="0" y="20">• KolReviewsModule (评价)</text>
+                <text class="feature-text" x="0" y="40">• KolSyncModule (数据同步)</text>
+                <text class="feature-text" x="0" y="60">• InfluencerV2/V3 (公海)</text>
+                <text class="feature-text" x="0" y="80">• WorkOrderModule (工单)</text>
+                
+                <text class="feature-text" x="200" y="0">• SupplierModule</text>
+                <text class="feature-text" x="200" y="20">• UploadModule (导入)</text>
+                <text class="feature-text" x="200" y="40">• SearchModule</text>
+                <text class="feature-text" x="200" y="60">• TagsModule</text>
+                <text class="feature-text" x="200" y="80">• SqlBotModule (AI)</text>
+            </g>
+            
+            <!-- 通用能力 -->
+            <rect x="740" y="400" width="280" height="200" rx="10" fill="white" stroke="#3b82f6" stroke-width="2"/>
+            <text class="module-title" x="880" y="420" text-anchor="middle">通用能力层</text>
+            <text class="tech-stack" x="750" y="435">NestJS Framework</text>
+            <text class="feature-text" x="750" y="455">• ResponseUtil 统一响应</text>
+            <text class="feature-text" x="750" y="470">• GlobalException 异常处理</text>
+            <text class="feature-text" x="750" y="485">• class-validator 参数验证</text>
+            <text class="feature-text" x="750" y="500">• Winston 日志追踪</text>
+            <text class="feature-text" x="750" y="515">• Swagger API文档</text>
+            <text class="feature-text" x="750" y="530">• Rate Limit 限流</text>
+            <text class="feature-text" x="750" y="545">• Redis 缓存</text>
+            <text class="feature-text" x="750" y="560">• 多数据库连接</text>
+            
+            <!-- 数据处理 -->
+            <rect x="1050" y="400" width="270" height="200" rx="10" fill="white" stroke="#3b82f6" stroke-width="2"/>
+            <text class="module-title" x="1185" y="420" text-anchor="middle">数据处理</text>
+            <text class="tech-stack" x="1060" y="435">Async Queue + Excel</text>
+            <text class="feature-text" x="1060" y="455">• Excel/CSV 解析</text>
+            <text class="feature-text" x="1060" y="470">• 异步导入导出</text>
+            <text class="feature-text" x="1060" y="485">• 分批处理 (500条/批)</text>
+            <text class="feature-text" x="1060" y="500">• 进度追踪</text>
+            <text class="feature-text" x="1060" y="515">• 数据验证</text>
+            <text class="feature-text" x="1060" y="530">• 失败记录导出</text>
+            <text class="feature-text" x="1060" y="545">• 中文表头</text>
+            <text class="feature-text" x="1060" y="560">• MCN/平台/简介</text>
+            
+            <!-- 箭头：后端 → 数据库/采集 -->
+            <path d="M 400 620 L 400 680" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+            <path d="M 1000 620 L 1000 680" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+            
+            <!-- ==================== 数据层 ==================== -->
+            <rect x="50" y="680" width="630" height="200" rx="15" fill="url(#dataGradient)" opacity="0.1" stroke="url(#dataGradient)" stroke-width="2"/>
+            
+            <rect x="60" y="690" width="120" height="35" rx="8" fill="url(#dataGradient)"/>
+            <text class="layer-title" x="120" y="713" text-anchor="middle">数据层</text>
+            
+            <!-- PostgreSQL -->
+            <rect x="80" y="740" width="260" height="120" rx="10" fill="white" stroke="#8b5cf6" stroke-width="2"/>
+            <text class="module-title" x="210" y="760" text-anchor="middle">业务数据库</text>
+            <text class="tech-stack" x="90" y="775">PostgreSQL 14+</text>
+            <text class="feature-text" x="90" y="795">• RBAC权限表 (6张)</text>
+            <text class="feature-text" x="90" y="810">• KOL资源表</text>
+            <text class="feature-text" x="90" y="825">• 工单管理表</text>
+            <text class="feature-text" x="90" y="840">• 导入历史表</text>
+            
+            <!-- 爬虫数据库 -->
+            <rect x="370" y="740" width="280" height="120" rx="10" fill="white" stroke="#8b5cf6" stroke-width="2"/>
+            <text class="module-title" x="510" y="760" text-anchor="middle">数据采集库</text>
+            <text class="tech-stack" x="380" y="775">PostgreSQL (Crawler DB)</text>
+            <text class="feature-text" x="380" y="795">• authors_core (达人核心)</text>
+            <text class="feature-text" x="380" y="810">• 50+字段标准化</text>
+            <text class="feature-text" x="380" y="825">• 7平台数据清洗</text>
+            <text class="feature-text" x="380" y="840">• 跨库关联查询</text>
+            
+            <!-- 迁移工具 -->
+            <rect x="80" y="900" width="570" height="60" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+            <text class="module-title" x="365" y="920" text-anchor="middle" fill="#92400e">数据库迁移 (MySQL → PostgreSQL)</text>
+            <text class="feature-text" x="90" y="940" fill="#92400e">migrate-mysql-to-postgres.ts | verify-migration.ts | 数据一致性验证 100%</text>
+            
+            <!-- ==================== 采集层 ==================== -->
+            <rect x="720" y="680" width="630" height="280" rx="15" fill="url(#crawlerGradient)" opacity="0.1" stroke="url(#crawlerGradient)" stroke-width="2"/>
+            
+            <rect x="730" y="690" width="150" height="35" rx="8" fill="url(#crawlerGradient)"/>
+            <text class="layer-title" x="805" y="713" text-anchor="middle">数据采集层</text>
+            
+            <!-- 采集器架构 -->
+            <rect x="750" y="740" width="280" height="200" rx="10" fill="white" stroke="#f59e0b" stroke-width="2"/>
+            <text class="module-title" x="890" y="760" text-anchor="middle">采集器架构</text>
+            <text class="tech-stack" x="760" y="775">Python 3.11 + Async</text>
+            <text class="feature-text" x="760" y="795">• 适配器模式 (Adapters)</text>
+            <text class="feature-text" x="760" y="810">• 数据平台适配器</text>
+            <text class="feature-text" x="760" y="825">• 达人信息采集 (50+字段)</text>
+            <text class="feature-text" x="760" y="840">• MCN/机构搜索</text>
+            <text class="feature-text" x="760" y="855">• 批量同步调度</text>
+            <text class="feature-text" x="760" y="870">• 数据清洗管道</text>
+            <text class="feature-text" x="760" y="885">• 结构化存储</text>
+            <text class="highlight-text" x="760" y="910" fill="#d97706">日均同步数千条</text>
+            
+            <!-- 核心能力 -->
+            <rect x="1060" y="740" width="260" height="200" rx="10" fill="white" stroke="#f59e0b" stroke-width="2"/>
+            <text class="module-title" x="1190" y="760" text-anchor="middle">核心能力</text>
+            <text class="tech-stack" x="1070" y="775">High Availability</text>
+            <text class="feature-text" x="1070" y="795">• 会话管理</text>
+            <text class="feature-text" x="1070" y="810">• 自动续期机制</text>
+            <text class="feature-text" x="1070" y="825">• 令牌桶限流</text>
+            <text class="feature-text" x="1070" y="840">• 指数退避重试</text>
+            <text class="feature-text" x="1070" y="855">• 断点续传</text>
+            <text class="feature-text" x="1070" y="870">• 异常恢复</text>
+            <text class="feature-text" x="1070" y="885">• 分布式任务调度</text>
+            <text class="highlight-text" x="1070" y="910" fill="#d97706">数据完整率 99%+</text>
+            
+            <!-- ==================== 部署层 ==================== -->
+            <rect x="50" y="1000" width="1300" height="140" rx="15" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+            
+            <text x="700" y="1030" text-anchor="middle" style="font-size: 16px; font-weight: bold; fill: #1e293b;">
+                部署与运维
+            </text>
+            
+            <!-- Docker -->
+            <rect x="100" y="1050" width="200" height="70" rx="8" fill="white" stroke="#64748b" stroke-width="1.5"/>
+            <text class="module-title" x="200" y="1070" text-anchor="middle">容器化</text>
+            <text class="feature-text" x="110" y="1090">• Docker Compose</text>
+            <text class="feature-text" x="110" y="1105">• Multi-stage Build</text>
+            
+            <!-- Nginx -->
+            <rect x="330" y="1050" width="200" height="70" rx="8" fill="white" stroke="#64748b" stroke-width="1.5"/>
+            <text class="module-title" x="430" y="1070" text-anchor="middle">反向代理</text>
+            <text class="feature-text" x="340" y="1090">• Nginx 负载均衡</text>
+            <text class="feature-text" x="340" y="1105">• SSL/TLS</text>
+            
+            <!-- PM2 -->
+            <rect x="560" y="1050" width="200" height="70" rx="8" fill="white" stroke="#64748b" stroke-width="1.5"/>
+            <text class="module-title" x="660" y="1070" text-anchor="middle">进程管理</text>
+            <text class="feature-text" x="570" y="1090">• PM2 守护进程</text>
+            <text class="feature-text" x="570" y="1105">• 自动重启</text>
+            
+            <!-- 部署脚本 -->
+            <rect x="790" y="1050" width="200" height="70" rx="8" fill="white" stroke="#64748b" stroke-width="1.5"/>
+            <text class="module-title" x="890" y="1070" text-anchor="middle">自动化部署</text>
+            <text class="feature-text" x="800" y="1090">• deploy.sh</text>
+            <text class="feature-text" x="800" y="1105">• CI/CD Pipeline</text>
+            
+            <!-- 监控 -->
+            <rect x="1020" y="1050" width="200" height="70" rx="8" fill="white" stroke="#64748b" stroke-width="1.5"/>
+            <text class="module-title" x="1120" y="1070" text-anchor="middle">监控日志</text>
+            <text class="feature-text" x="1030" y="1090">• Winston 日志</text>
+            <text class="feature-text" x="1030" y="1105">• 错误追踪</text>
+            
+            <!-- 底部标注 -->
+            <text x="700" y="1180" text-anchor="middle" style="font-size: 12px; fill: #64748b; font-style: italic;">
+                完整技术栈：Vue3 + NestJS 11 + PostgreSQL + Redis + Python 3.11 | 240+ Commits | 从0到1全栈实现
+            </text>
+        </svg>
+    </div>
+</body>
+</html>

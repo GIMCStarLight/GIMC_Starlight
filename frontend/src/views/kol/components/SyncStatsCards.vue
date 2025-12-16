@@ -87,9 +87,6 @@ defineProps<{
 </script>
 
 <style scoped lang="scss">
-
-*/
-
 // 新的样式 - 参考 KolDetailDialog.vue
 .stats-cards {
   margin-bottom: 20px;

@@ -10,7 +10,6 @@ import { initStores } from '@vben/stores';
 
 import { useTitle } from '@vueuse/core';
 import { ElLoading } from 'element-plus';
-import Antd from 'ant-design-vue';
 // import 'element-plus/dist/index.css';
 
 import { $t, setupI18n } from '#/locales';
@@ -37,9 +36,6 @@ async function bootstrap(namespace: string) {
   //   zIndex: 2000,
   // });
   const app = createApp(App);
-
-  // 注册 Ant Design Vue
-  app.use(Antd);
 
   // 注册Element Plus提供的v-loading指令
   app.directive('loading', ElLoading.directive);

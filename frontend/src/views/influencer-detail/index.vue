@@ -1116,29 +1116,43 @@ onUnmounted(() => {
   color: #606266;
   white-space: pre-wrap;
   word-break: break-word;
+}
+
 /* Tab间距设置 */
 :deep(.el-tabs__item) {
   margin-right: 25px;
+}
+
 /* Tab底部灰色条改为阴影 */
 :deep(.el-tabs__nav-wrap::after) {
   display: none;
+}
+
 :deep(.el-tabs__nav-wrap) {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 2px;
+}
+
 /* 雷达图容器样式 */
 .radar-chart-container {
+  display: flex;
   justify-content: center;
   /* align-items: center; */
   /* padding: 20px; */
   background: #fff;
   border-radius: 8px;
   /* border: 1px solid #e4e7ed; */
+}
+
 .radar-chart {
   width: 100%;
   height: 300px;
   max-width: 400px;
+}
+
 /* Tab容器左右padding与内容保持一致 */
 :deep(.el-tabs__header) {
   padding: 0 20px;
+}
 }
 </style>

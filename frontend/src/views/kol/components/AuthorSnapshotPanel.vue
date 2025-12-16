@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <a-card :bordered="false" class="snapshot-card">
+    <el-card class="snapshot-card">
 
       <!-- 有数据时显示 -->
       <div v-if="snapshot" class="snapshot-content">
@@ -41,8 +41,8 @@
 
           <span class="info-label">性别:</span>
           <span class="info-value">
-            <ManOutlined v-if="snapshot.gender === 1"/>
-            <WomanOutlined v-else-if="snapshot.gender === 2"/>
+            <span v-if="snapshot.gender === 1">♂ 男</span>
+            <span v-else-if="snapshot.gender === 2">♀ 女</span>
             <span v-else>-</span>
           </span>
         </div>
@@ -157,23 +157,19 @@
       </div>
 
       <!-- 无数据时显示 -->
-      <a-empty v-else description="暂无匹配的公海达人信息">
-        <template #image>
-          <InboxOutlined :style="{ fontSize: '64px', color: '#d9d9d9' }" />
+      <el-empty description="暂无匹配的公海达人信息">
+        <template #default>
+          <div style="text-align: center; color: #d9d9d9; font-size: 64px;">
+            📄
+          </div>
         </template>
-      </a-empty>
-    </a-card>
+      </el-empty>
+    </el-card>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import {
-  ManOutlined,
-  WomanOutlined,
-  InboxOutlined,
-  IdcardOutlined
-} from '@ant-design/icons-vue'
 import SyncStatusTag from './SyncStatusTag.vue'
 
 interface AuthorSnapshot {

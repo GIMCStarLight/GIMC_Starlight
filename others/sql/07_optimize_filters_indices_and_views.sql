@@ -123,7 +123,7 @@ SELECT
     -- 电商能力 (使用实际字段名)
     ec.e_commerce_enable,
     ec.author_ecom_level,
-    ec.star_ecom_video_num_30d AS ecom_video_count_30d,
+    ec.star_ecom_video_num_30d,
     ec.gmv_30d,
     ec.ecom_capability_tier,
     ec.is_ecom_active,
