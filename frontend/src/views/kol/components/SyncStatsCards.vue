@@ -1,66 +1,64 @@
 <template>
-  <el-row :gutter="16" class="stats-cards">
-    <el-col :xs="24" :sm="12" :md="6" :lg="4">
-      <el-card shadow="hover" class="stat-card stat-total">
-        <div class="stat-content">
-          <div class="stat-icon">
-            <Icon icon="lucide:database" :size="32" />
-          </div>
-          <div class="stat-info">
-            <div class="stat-label">总计</div>
-            <div class="stat-value">{{ stats.total }}</div>
-          </div>
-        </div>
-      </el-card>
-    </el-col>
-    <el-col :xs="24" :sm="12" :md="6" :lg="4">
-      <el-card shadow="hover" class="stat-card stat-unmatched">
-        <div class="stat-content">
-          <div class="stat-icon">
-            <Icon icon="lucide:help-circle" :size="32" />
-          </div>
-          <div class="stat-info">
-            <div class="stat-label">未匹配</div>
-            <div class="stat-value">{{ stats.unmatched }}</div>
+  
+
+  <!-- 新的布局样式 - 参考 KolDetailDialog.vue 103-112 行 -->
+  <el-row :gutter="32" class="stats-cards" justify="center">
+    <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+      <el-card shadow="never">
+        <div class="price-info-item">
+          <span class="price-info-label">总计</span>
+          <div class="price-info-value">
+            <span class="price-amount">
+              <span class="price-number">{{ stats.total }}</span>
+            </span>
           </div>
         </div>
       </el-card>
     </el-col>
-    <el-col :xs="24" :sm="12" :md="6" :lg="4">
-      <el-card shadow="hover" class="stat-card stat-pending">
-        <div class="stat-content">
-          <div class="stat-icon">
-            <Icon icon="lucide:clock" :size="32" />
-          </div>
-          <div class="stat-info">
-            <div class="stat-label">待同步</div>
-            <div class="stat-value">{{ stats.pending }}</div>
-          </div>
-        </div>
-      </el-card>
-    </el-col>
-    <el-col :xs="24" :sm="12" :md="6" :lg="4">
-      <el-card shadow="hover" class="stat-card stat-matched">
-        <div class="stat-content">
-          <div class="stat-icon">
-            <Icon icon="lucide:check-circle" :size="32" />
-          </div>
-          <div class="stat-info">
-            <div class="stat-label">已匹配</div>
-            <div class="stat-value">{{ stats.matched }}</div>
+    <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+      <el-card shadow="never">
+        <div class="price-info-item">
+          <span class="price-info-label">未匹配</span>
+          <div class="price-info-value">
+            <span class="price-amount">
+              <span class="price-number">{{ stats.unmatched }}</span>
+            </span>
           </div>
         </div>
       </el-card>
     </el-col>
-    <el-col :xs="24" :sm="12" :md="6" :lg="4">
-      <el-card shadow="hover" class="stat-card stat-rejected">
-        <div class="stat-content">
-          <div class="stat-icon">
-            <Icon icon="lucide:x-circle" :size="32" />
+    <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+      <el-card shadow="never">
+        <div class="price-info-item">
+          <span class="price-info-label">待同步</span>
+          <div class="price-info-value">
+            <span class="price-amount">
+              <span class="price-number">{{ stats.pending }}</span>
+            </span>
           </div>
-          <div class="stat-info">
-            <div class="stat-label">同步失败</div>
-            <div class="stat-value">{{ stats.rejected }}</div>
+        </div>
+      </el-card>
+    </el-col>
+    <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+      <el-card shadow="never">
+        <div class="price-info-item">
+          <span class="price-info-label">已匹配</span>
+          <div class="price-info-value">
+            <span class="price-amount">
+              <span class="price-number">{{ stats.matched }}</span>
+            </span>
+          </div>
+        </div>
+      </el-card>
+    </el-col>
+    <el-col :xs="24" :sm="12" :md="8" :lg="4" :xl="4">
+      <el-card shadow="never">
+        <div class="price-info-item">
+          <span class="price-info-label">同步失败</span>
+          <div class="price-info-value">
+            <span class="price-amount">
+              <span class="price-number">{{ stats.rejected }}</span>
+            </span>
           </div>
         </div>
       </el-card>
@@ -89,83 +87,40 @@ defineProps<{
 </script>
 
 <style scoped lang="scss">
+// 新的样式 - 参考 KolDetailDialog.vue
 .stats-cards {
   margin-bottom: 20px;
 }
 
-.stat-card {
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  }
-
-  :deep(.el-card__body) {
-    padding: 20px;
-  }
-}
-
-.stat-content {
+.price-info-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 16px;
 }
 
-.stat-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-
-  .stat-total & {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-  }
-
-  .stat-unmatched & {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    color: white;
-  }
-
-  .stat-pending & {
-    background: linear-gradient(135deg, #ffa726 0%, #fb8c00 100%);
-    color: white;
-  }
-
-  .stat-matched & {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    color: white;
-  }
-
-  .stat-rejected & {
-    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-    color: white;
-  }
-}
-
-.stat-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.stat-label {
-  font-size: 14px;
-  color: #6b7280;
+.price-info-label {
+  color: #909399;
+  font-size: 16px;
   font-weight: 500;
 }
 
-.stat-value {
-  font-size: 28px;
-  font-weight: 700;
-  color: #1f2937;
-  line-height: 1;
+.price-info-value {
+  margin-top: 4px;
+}
+
+.price-amount {
+  font-size: 20px;
+  font-weight: 400;
+  color: #409eff;
+
+  &.empty {
+    font-size: 16px;
+    color: #999;
+    font-weight: 500;
+  }
+}
+
+.price-number {
+  margin-left: 2px;
 }
 </style>

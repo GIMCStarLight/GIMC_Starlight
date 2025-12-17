@@ -58,6 +58,11 @@ async function handleLogin(values: any) {
     password: values.password,
   };
   
+  // 调试：打印实际发送的数据
+  console.log('准备发送登录请求，数据:', loginData);
+  console.log('phone类型:', typeof loginData.phone, '值:', loginData.phone);
+  console.log('password类型:', typeof loginData.password, '值长度:', loginData.password?.length);
+  
   // 发送登录请求
   try {
     // 传入onSuccess回调，延迟跳转

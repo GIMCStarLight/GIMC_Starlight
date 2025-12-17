@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字整合营销平台 - 系统架构图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 1400px;
+            width: 100%;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        
+        svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* SVG样式 */
+        .layer-box {
+            fill: white;
+            stroke-width: 2;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+            transition: all 0.3s ease;
+        }
+        
+        .layer-box:hover {
+            filter: drop-shadow(0 8px 12px rgba(0,0,0,0.2));
+            transform: translateY(-2px);
+        }
+        
+        .module-box {
+            fill: white;
+            stroke-width: 1.5;
+            transition: all 0.3s ease;
+        }
+        
+        .module-box:hover {
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+        }
+        
+        .layer-title {
+            font-size: 18px;
+            font-weight: bold;
+            fill: white;
+        }
+        
+        .module-title {
+            font-size: 14px;
+            font-weight: 600;
+            fill: #2d3748;
+        }
+        
+        .module-desc {
+            font-size: 11px;
+            fill: #4a5568;
+        }
+        
+        .arrow {
+            fill: none;
+            stroke: #cbd5e0;
+            stroke-width: 2;
+            marker-end: url(#arrowhead);
+        }
+        
+        .core-capability {
+            font-size: 13px;
+            font-weight: 500;
+            fill: #2d3748;
+        }
+        
+        .legend-text {
+            font-size: 12px;
+            fill: #4a5568;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>数字整合营销平台系统架构</h1>
+        <p class="subtitle">从数据采集到战略决策的完整闭环</p>
+        
+        <svg viewBox="0 0 1200 1400" xmlns="http://www.w3.org/2000/svg">
+            <!-- 定义箭头标记 -->
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#cbd5e0" />
+                </marker>
+                
+                <!-- 渐变定义 -->
+                <linearGradient id="dataGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                </linearGradient>
+                
+                <linearGradient id="intelligenceGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+                </linearGradient>
+                
+                <linearGradient id="causalGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+                </linearGradient>
+                
+                <linearGradient id="activationGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            
+            <!-- 标题区域 -->
+            <text x="600" y="30" text-anchor="middle" style="font-size: 20px; font-weight: bold; fill: #2d3748;">
+                省广星芒系统 → 数字整合营销平台
+            </text>
+            
+            <!-- 第一层：数据层 (Data Layer) -->
+            <rect class="layer-box" x="50" y="80" width="1100" height="220" rx="15" 
+                  stroke="url(#dataGradient)" fill="url(#dataGradient)" opacity="0.1"/>
+            
+            <rect x="60" y="90" width="180" height="40" rx="8" fill="url(#dataGradient)"/>
+            <text class="layer-title" x="150" y="115" text-anchor="middle">统一数据中心</text>
+            
+            <!-- 多源API连接器 -->
+            <rect class="module-box" x="80" y="150" width="300" height="130" rx="10" 
+                  stroke="#667eea"/>
+            <text class="module-title" x="230" y="175" text-anchor="middle">多源API连接器</text>
+            <text class="module-desc" x="90" y="195">• 社媒平台 (抖音/小红书/微博)</text>
+            <text class="module-desc" x="90" y="215">• 电商平台 (天猫/Shopify/小程序)</text>
+            <text class="module-desc" x="90" y="235">• 广告平台 (巨量引擎/磁力引擎)</text>
+            <text class="module-desc" x="90" y="255">• 分钟级时效 + CDC增量同步</text>
+            
+            <!-- 第一方数据接入器 -->
+            <rect class="module-box" x="420" y="150" width="300" height="130" rx="10" 
+                  stroke="#667eea"/>
+            <text class="module-title" x="570" y="175" text-anchor="middle">第一方数据接入器</text>
+            <text class="module-desc" x="430" y="195">• CRM高价值客户数据</text>
+            <text class="module-desc" x="430" y="215">• 私域流量用户行为</text>
+            <text class="module-desc" x="430" y="235">• 线下门店销售记录</text>
+            <text class="module-desc" x="430" y="255">• PII加密 + 隐私增强技术</text>
+            
+            <!-- 数据协调引擎 -->
+            <rect class="module-box" x="760" y="150" width="350" height="130" rx="10" 
+                  stroke="#667eea"/>
+            <text class="module-title" x="935" y="175" text-anchor="middle">数据协调引擎 (ETL/ELT)</text>
+            <text class="module-desc" x="770" y="195">• 异构数据清洗与标准化</text>
+            <text class="module-desc" x="770" y="215">• 身份解析 (确定性+概率性匹配)</text>
+            <text class="module-desc" x="770" y="235">• 360度用户画像构建</text>
+            <text class="module-desc" x="770" y="255">• 单一事实来源 (SSOT)</text>
+            
+            <!-- 箭头：数据层 → 智能层 -->
+            <path class="arrow" d="M 600 300 L 600 350" />
+            
+            <!-- 第二层：情境智能引擎 (Intelligence Layer) -->
+            <rect class="layer-box" x="50" y="350" width="530" height="260" rx="15" 
+                  stroke="url(#intelligenceGradient)" fill="url(#intelligenceGradient)" opacity="0.1"/>
+            
+            <rect x="60" y="360" width="180" height="40" rx="8" fill="url(#intelligenceGradient)"/>
+            <text class="layer-title" x="150" y="385" text-anchor="middle">情境智能引擎</text>
+            
+            <!-- 实时趋势探测器 -->
+            <rect class="module-box" x="80" y="420" width="220" height="170" rx="10" 
+                  stroke="#f093fb"/>
+            <text class="module-title" x="190" y="445" text-anchor="middle">实时趋势探测器</text>
+            <text class="module-desc" x="90" y="465">• 流处理 (Kafka/Flink)</text>
+            <text class="module-desc" x="90" y="485">• NLP话题建模</text>
+            <text class="module-desc" x="90" y="505">• 动态知识图谱</text>
+            <text class="module-desc" x="90" y="525">• 时序异常检测</text>
+            <text class="module-desc" x="90" y="545">• 品牌风险预警</text>
+            <text class="module-desc" x="90" y="565" style="fill: #e53e3e; font-weight: 600;">→ 响应式营销</text>
+            
+            <!-- 受众对话分析器 -->
+            <rect class="module-box" x="330" y="420" width="220" height="170" rx="10" 
+                  stroke="#f093fb"/>
+            <text class="module-title" x="440" y="445" text-anchor="middle">受众对话分析器</text>
+            <text class="module-desc" x="340" y="465">• 多渠道UGC采集</text>
+            <text class="module-desc" x="340" y="485">• 方面级情感分析</text>
+            <text class="module-desc" x="340" y="505">• 驱动/阻碍因子</text>
+            <text class="module-desc" x="340" y="525">• 痛点自动提炼</text>
+            <text class="module-desc" x="340" y="545">• 洞察可视化下钻</text>
+            <text class="module-desc" x="340" y="565" style="fill: #e53e3e; font-weight: 600;">→ 用户为中心</text>
+            
+            <!-- 第三层：影响者洞察 -->
+            <rect class="layer-box" x="620" y="350" width="530" height="260" rx="15" 
+                  stroke="url(#intelligenceGradient)" fill="url(#intelligenceGradient)" opacity="0.1"/>
+            
+            <rect x="630" y="360" width="200" height="40" rx="8" fill="url(#intelligenceGradient)"/>
+            <text class="layer-title" x="730" y="385" text-anchor="middle">内容传播洞察引擎</text>
+            
+            <!-- 真实性评分 -->
+            <rect class="module-box" x="650" y="420" width="220" height="110" rx="10" 
+                  stroke="#f093fb"/>
+            <text class="module-title" x="760" y="445" text-anchor="middle">真实性评分引擎</text>
+            <text class="module-desc" x="660" y="465">• 评论质量分析 (LLM)</text>
+            <text class="module-desc" x="660" y="485">• 行为稳定性检测</text>
+            <text class="module-desc" x="660" y="505">• 多因子信任评分</text>
+            
+            <!-- 内容共鸣度分析 -->
+            <rect class="module-box" x="900" y="420" width="220" height="110" rx="10" 
+                  stroke="#f093fb"/>
+            <text class="module-title" x="1010" y="445" text-anchor="middle">内容共鸣度分析</text>
+            <text class="module-desc" x="910" y="465">• 多模态AI解析</text>
+            <text class="module-desc" x="910" y="485">• 创意元素归因</text>
+            <text class="module-desc" x="910" y="505">• 深度互动关联</text>
+            
+            <!-- 授权效果度量 -->
+            <rect class="module-box" x="650" y="550" width="470" height="40" rx="10" 
+                  stroke="#f093fb" stroke-dasharray="5,5"/>
+            <text class="module-desc" x="660" y="575">授权效果度量 (付费增值)：Uplift模型 + 真实转化归因</text>
+            
+            <!-- 箭头：智能层 → 因果层 -->
+            <path class="arrow" d="M 300 610 L 300 670" />
+            <path class="arrow" d="M 900 610 L 900 670" />
+            
+            <!-- 第四层：因果衡量引擎 (Causal Measurement) -->
+            <rect class="layer-box" x="50" y="670" width="1100" height="240" rx="15" 
+                  stroke="url(#causalGradient)" fill="url(#causalGradient)" opacity="0.1"/>
+            
+            <rect x="60" y="680" width="180" height="40" rx="8" fill="url(#causalGradient)"/>
+            <text class="layer-title" x="150" y="705" text-anchor="middle">因果衡量引擎</text>
+            
+            <!-- 因果MMM -->
+            <rect class="module-box" x="80" y="740" width="300" height="150" rx="10" 
+                  stroke="#4facfe"/>
+            <text class="module-title" x="230" y="765" text-anchor="middle">因果营销组合模型</text>
+            <text class="module-desc" x="90" y="785">• 贝叶斯层级建模</text>
+            <text class="module-desc" x="90" y="805">• Adstock延迟效应</text>
+            <text class="module-desc" x="90" y="825">• 饱和曲线 + 混杂控制</text>
+            <text class="module-desc" x="90" y="845">• 增量ROI + 置信区间</text>
+            <text class="module-desc" x="90" y="865" style="fill: #2b6cb0; font-weight: 600;">→ 财务就绪证明</text>
+            
+            <!-- 实验套件 -->
+            <rect class="module-box" x="420" y="740" width="300" height="150" rx="10" 
+                  stroke="#4facfe"/>
+            <text class="module-title" x="570" y="765" text-anchor="middle">实验套件</text>
+            <text class="module-desc" x="430" y="785">• GeoLift / A/B测试</text>
+            <text class="module-desc" x="430" y="805">• CausalImpact分析</text>
+            <text class="module-desc" x="430" y="825">• 观测+实验联合推断</text>
+            <text class="module-desc" x="430" y="845">• 校准MMM参数</text>
+            <text class="module-desc" x="430" y="865" style="fill: #2b6cb0; font-weight: 600;">→ 双重保险</text>
+            
+            <!-- 预算优化器 -->
+            <rect class="module-box" x="760" y="740" width="350" height="150" rx="10" 
+                  stroke="#4facfe"/>
+            <text class="module-title" x="935" y="765" text-anchor="middle">场景规划与预算优化</text>
+            <text class="module-desc" x="770" y="785">• 交互式What-if模拟</text>
+            <text class="module-desc" x="770" y="805">• 约束优化求解 (OR-Tools)</text>
+            <text class="module-desc" x="770" y="825">• CVaR风险控制</text>
+            <text class="module-desc" x="770" y="845">• 响应曲线可视化</text>
+            <text class="module-desc" x="770" y="865" style="fill: #2b6cb0; font-weight: 600;">→ 艺术变科学</text>
+            
+            <!-- 箭头：因果层 → 执行层 -->
+            <path class="arrow" d="M 600 910 L 600 970" />
+            
+            <!-- 第五层：动态营销工作台 (Activation Layer) -->
+            <rect class="layer-box" x="50" y="970" width="1100" height="180" rx="15" 
+                  stroke="url(#activationGradient)" fill="url(#activationGradient)" opacity="0.1"/>
+            
+            <rect x="60" y="980" width="200" height="40" rx="8" fill="url(#activationGradient)"/>
+            <text class="layer-title" x="160" y="1005" text-anchor="middle">动态营销工作台</text>
+            
+            <!-- AI内容中心 -->
+            <rect class="module-box" x="120" y="1040" width="450" height="90" rx="10" 
+                  stroke="#43e97b"/>
+            <text class="module-title" x="345" y="1065" text-anchor="middle">AI内容与合规中心</text>
+            <text class="module-desc" x="130" y="1085">• 上下文感知内容生成 (RAG + LLM)</text>
+            <text class="module-desc" x="130" y="1105">• 自动化合规检查 (敏感词/极限词/品牌安全)</text>
+            
+            <!-- 营销知识平台 -->
+            <rect class="module-box" x="630" y="1040" width="450" height="90" rx="10" 
+                  stroke="#43e97b"/>
+            <text class="module-title" x="855" y="1065" text-anchor="middle">营销知识与洞察平台</text>
+            <text class="module-desc" x="640" y="1085">• "策略-执行-结果"案例库 (图+向量数据库)</text>
+            <text class="module-desc" x="640" y="1105">• 智能检索 + 增长策略卡片自动挖掘</text>
+            
+            <!-- 底部核心能力三角 -->
+            <rect x="50" y="1200" width="1100" height="150" rx="15" fill="#f7fafc" stroke="#e2e8f0" stroke-width="2"/>
+            
+            <text x="600" y="1230" text-anchor="middle" style="font-size: 18px; font-weight: bold; fill: #2d3748;">
+                核心能力建设方向
+            </text>
+            
+            <!-- Why -->
+            <rect x="120" y="1250" width="280" height="70" rx="10" fill="#fff5f5" stroke="#fc8181" stroke-width="2"/>
+            <text class="core-capability" x="260" y="1275" text-anchor="middle" fill="#c53030">Why (归因分析)</text>
+            <text class="module-desc" x="130" y="1295">是谁在搞鬼？真实民意还是算法攻击？</text>
+            <text class="module-desc" x="130" y="1310" style="font-weight: 600;">→ 图论 + 网络科学</text>
+            
+            <!-- What If -->
+            <rect x="460" y="1250" width="280" height="70" rx="10" fill="#fffaf0" stroke="#f6ad55" stroke-width="2"/>
+            <text class="core-capability" x="600" y="1275" text-anchor="middle" fill="#c05621">What If (反事实推断)</text>
+            <text class="module-desc" x="470" y="1295">如果不做这件事，会发生什么？</text>
+            <text class="module-desc" x="470" y="1310" style="font-weight: 600;">→ 因果推断 + 贝叶斯统计</text>
+            
+            <!-- Now What -->
+            <rect x="800" y="1250" width="280" height="70" rx="10" fill="#f0fff4" stroke="#68d391" stroke-width="2"/>
+            <text class="core-capability" x="940" y="1275" text-anchor="middle" fill="#276749">Now What (博弈决策)</text>
+            <text class="module-desc" x="810" y="1295">基于数据，我该如何反击？</text>
+            <text class="module-desc" x="810" y="1310" style="font-weight: 600;">→ 博弈论 + 自动化决策</text>
+            
+            <!-- 底部标注 -->
+            <text x="600" y="1380" text-anchor="middle" class="legend-text" style="font-style: italic;">
+                从"传播执行工具" → "战略决策支持系统" | 服务数亿资产级别的战略决策
+            </text>
+        </svg>
+    </div>
+</body>
+</html>

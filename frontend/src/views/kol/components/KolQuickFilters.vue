@@ -138,12 +138,9 @@
     </div>
 
     <!-- 已选筛选条件展示 -->
-    <div v-if="hasActiveFilters" class="active-filters">
-      <div class="active-title">
-        <Icon icon="lucide:filter" class="mr-1" />
-        已选条件
-      </div>
-      <div class="active-tags">
+    <div v-if="hasActiveFilters" class="filter-summary">
+      <div class="summary-content">
+        <span class="summary-label">当前筛选:</span>
         <el-tag
           v-for="tag in activeFilterTags"
           :key="tag.key"
@@ -154,11 +151,10 @@
         >
           {{ tag.label }}
         </el-tag>
+        <el-button link type="primary" size="small" @click="handleClearAll">
+          清空全部
+        </el-button>
       </div>
-      <el-button link size="small" @click="handleClearAll">
-        <Icon icon="lucide:x-circle" class="mr-1" />
-        清空全部
-      </el-button>
     </div>
   </div>
 </template>
@@ -179,6 +175,8 @@ interface KolFilters {
   policy_level?: string
   min_followers_w?: number
   max_followers_w?: number
+  sort_by?: string
+  sort_order?: string
 }
 
 const props = defineProps<{
@@ -248,7 +246,10 @@ const handleFollowerChange = () => {
 
 // 是否有激活的筛选条件
 const hasActiveFilters = computed(() => {
-  return Object.values(localFilters.value).some(val => val !== undefined && val !== '')
+  const { sort_by, sort_order, ...filterValues } = localFilters.value
+  return Object.values(filterValues).some(val =>
+    val !== undefined && val !== null && val !== ''
+  )
 })
 
 // 激活的筛选条件标签
@@ -293,25 +294,37 @@ const activeFilterTags = computed(() => {
 
 // 移除单个筛选标签
 const removeFilterTag = (key: string) => {
-  if (key === 'account_name') localFilters.value.account_name = undefined
-  else if (key === 'platform') localFilters.value.platform = undefined
-  else if (key === 'org_name') localFilters.value.org_name = undefined
-  else if (key === 'category') localFilters.value.category = undefined
-  else if (key === 'match_status') localFilters.value.match_status = undefined
+  if (key === 'account_name') localFilters.value.account_name = ''
+  else if (key === 'platform') localFilters.value.platform = ''
+  else if (key === 'org_name') localFilters.value.org_name = ''
+  else if (key === 'category') localFilters.value.category = ''
+  else if (key === 'match_status') localFilters.value.match_status = ''
   else if (key === 'is_exclusive') localFilters.value.is_exclusive = undefined
   else if (key === 'rebate_policy') localFilters.value.rebate_policy = undefined
-  else if (key === 'policy_level') localFilters.value.policy_level = undefined
+  else if (key === 'policy_level') localFilters.value.policy_level = ''
   else if (key === 'follower_range') {
     localFilters.value.min_followers_w = undefined
     localFilters.value.max_followers_w = undefined
   }
-  
+
   handleFilterChange()
 }
 
 // 清空所有筛选
 const handleClearAll = () => {
-  localFilters.value = {}
+  // 保留原有的字段结构，只清空筛选相关的值
+  localFilters.value = {
+    platform: '',
+    account_name: '',
+    org_name: '',
+    category: '',
+    min_followers_w: undefined,
+    max_followers_w: undefined,
+    is_exclusive: undefined,
+    rebate_policy: undefined,
+    policy_level: '',
+    match_status: ''
+  }
   handleFilterChange()
 }
 </script>
@@ -383,29 +396,23 @@ const handleClearAll = () => {
   white-space: nowrap;
 }
 
-.active-filters {
+.filter-summary {
   margin-top: 16px;
   padding-top: 16px;
   border-top: 1px dashed var(--el-border-color);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
 }
 
-.active-title {
-  font-size: 13px;
-  color: var(--el-text-color-secondary);
+.summary-content {
   display: flex;
   align-items: center;
-  font-weight: 500;
-}
-
-.active-tags {
-  display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  flex: 1;
+}
+
+.summary-label {
+  font-size: 13px;
+  color: var(--el-text-color-secondary);
+  font-weight: 500;
 }
 
 .mr-1 {
