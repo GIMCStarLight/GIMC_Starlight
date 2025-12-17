@@ -1154,5 +1154,4 @@ onUnmounted(() => {
 :deep(.el-tabs__header) {
   padding: 0 20px;
 }
-}
 </style>
