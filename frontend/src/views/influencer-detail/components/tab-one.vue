@@ -457,11 +457,11 @@
                             <div class="section-title">总结</div>
                             <p class="section-content">
                                 月度连接总用户数 
-                                <strong>19,480.8w，环比 -24.5%</strong>
+                                <span>19,480.8w，环比 -24.5%</span>
                             </p>
                             <p class="section-content">
                                 位于行业内 
-                                <strong>TOP 5‰</strong>
+                                <span>TOP 5‰</span>
                             </p>
                         </section>
 
@@ -469,11 +469,11 @@
                             <div class="section-title">连接用户类型</div>
                             <p class="section-content">
                                 触达用户 
-                                <strong>31-40岁居多，男性居多</strong>
+                                <span>31-40岁居多，男性居多</span>
                             </p>
                             <p class="section-content">
                                 集中 
-                                <strong>分布在一线城市</strong>
+                                <span>分布在一线城市</span>
                             </p>
                         </section>
                     </div>
@@ -739,7 +739,7 @@ const initFunnelChart = () => {
             {
                 name: '达人结构',
                 type: 'funnel',
-                left: '10%',
+                left: '5%',
                 top: '0%',
                 bottom: '10%',
                 width: '90%',
@@ -1528,8 +1528,8 @@ onMounted(() => {
                         align-items: flex-start;
 
                         .left-chart {
-                            flex: 0 0 400px;
-                            
+                            flex: 1;
+
                             .funnel-chart {
                                 width: 100%;
                                 height: 300px;
