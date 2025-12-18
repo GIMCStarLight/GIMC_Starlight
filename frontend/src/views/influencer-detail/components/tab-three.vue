@@ -364,16 +364,17 @@
                     <p class="title">年龄分布</p>
                     <div class="base-chart age-chart" ref="ageChartRef"></div>
                 </div>
-            </div>
-         </div>
+                 <!-- 省份分布 -->
+                <div class="chart-container">
+                    <p class="title">省份分布</p>
+                    <div class="base-chart map-chart" ref="provinceChartRef"></div>
+                </div>
 
-        <!-- 省份分布模块 -->
-        <div class="mudule-six">
-            <div class="title-wrapper">
-                <div class="title">省份分布</div>
-            </div>
-            <div class="province-map-container">
-                <div class="base-chart map-chart" ref="provinceChartRef"></div>
+                <!-- 设备分布 -->
+                <div class="chart-container">
+                    <p class="title">设备分布</p>
+                    <div class="base-chart device-pie-chart" ref="devicePieChartRef"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -396,6 +397,7 @@ const selectedFirstTag = ref('个人视频')
 const selectedSecondTag = ref('生活家居')
 const activeFilter = ref('-1')
 const provinceChartRef = ref<HTMLElement>()
+const devicePieChartRef = ref<HTMLElement>()
 
 // 切换卡片选中状态
 const handleCardClick = (index: number) => {
@@ -1071,7 +1073,9 @@ const initProvinceMap = () => {
                 name: '省份分布',
                 type: 'map',
                 map: 'china',
-                roam: false,
+                roam: true,
+                center: [105, 35], // 地图中心点（经度, 纬度）
+                zoom: 1.5,
                 emphasis: {
                     label: {
                         show: true,
@@ -1136,6 +1140,62 @@ const initProvinceMap = () => {
     })
 }
 
+// 初始化设备分布图
+const initDevicePieChart = () => {
+    if (!devicePieChartRef.value) return
+
+    const myChart = echarts.init(devicePieChartRef.value)
+
+    const deviceData = [
+        { name: '安卓', value: 68.9 },
+        { name: '苹果', value: 24.3 },
+        { name: '其他', value: 6.8 }
+    ]
+
+    const option = {
+        color: ['#1890ff', '#ff6b9d', '#ffc069'],
+        series: [
+            {
+                type: 'pie',
+                radius: ['40%', '70%'],
+                center: ['50%', '50%'],
+                data: deviceData,
+                label: {
+                    show: true,
+                    position: 'outside',
+                    formatter: '{b}: {c}%',
+                    fontSize: 12
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: 14,
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: true,
+                    length: 20,
+                    length2: 15,
+                    lineStyle: {
+                        width: 1
+                    }
+                }
+            }
+        ],
+        tooltip: {
+            trigger: 'item',
+            formatter: '{b}: {c}%'
+        }
+    }
+
+    myChart.setOption(option)
+
+    window.addEventListener('resize', () => {
+        myChart.resize()
+    })
+}
+
 onMounted(() => {
     nextTick(() => {
         initTrendChart()
@@ -1146,6 +1206,7 @@ onMounted(() => {
         initGenderChart()
         initAgeChart()
         initProvinceMap()
+        initDevicePieChart()
     })
 })
 </script>
@@ -1453,11 +1514,11 @@ onMounted(() => {
 
         .charts-content {
             padding: 0 40px;
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
 
             .chart-container {
-                flex: 1;
                 padding: 20px;
                 border: 1px solid #e6e4e4;
                 border-radius: 10px;
@@ -1520,6 +1581,14 @@ onMounted(() => {
                     &.age-chart {
                         height: 274px;
                     }
+
+                    &.map-chart {
+                        height: 274px;
+                    }
+
+                    &.device-pie-chart {
+                        height: 274px;
+                    }
                 }
             }
         }
@@ -1559,18 +1628,4 @@ onMounted(() => {
     }
 }
 
-.mudule-six {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-
-    .province-map-container {
-        margin-top: 20px;
-
-        .map-chart {
-            width: 100%;
-            height: 500px;
-        }
-    }
-}
 </style>
