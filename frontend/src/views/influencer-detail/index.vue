@@ -5,11 +5,12 @@
                 <a-card :bordered="false" class="influencer-card">
                     <!-- 顶部用户信息 -->
                     <div class="author-info-section">
-                        <a-avatar :size="48" src="data:image/png;base64,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" />
+                        <a-avatar :size="48" :src="authorData.avatar_uri" />
                         <div class="author-info-content">
-                            <div class="author-name"></div>
+                            <div class="author-name">{{ authorData.nick_name || '暂无昵称' }}</div>
                             <div class="author-id">
-                                <span class="id-label">星图ID:</span>
+                                <span class="id-label">星图ID：{{ authorData.id
+ || '-' }}</span>
                                 <a-typography-text copyable />
                             </div>
                         </div>
@@ -17,22 +18,24 @@
 
                     <!-- 数据指标 -->
                     <div class="data-metrics">
+                        
                         <div class="metric-item">
-                            <div class="metric-label">月连接用户数</div>
-                            <div class="metric-value">19,669.1w</div>
+                            <div class="metric-label">月涨粉数</div>
+                            <div class="metric-value">{{ formatNumber(authorData.fans_increment_within_30d) }}</div>
                         </div>
                         <div class="metric-item">
-                            <div class="metric-label">月深度用户数</div>
-                            <div class="metric-value">10,814.1w</div>
+                            <div class="metric-label">月平均互动数</div>
+                            <div class="metric-value">{{ formatNumber(authorData.interaction_median_30d) }}</div>
                         </div>
                         <div class="metric-item">
                             <div class="metric-label">粉丝数</div>
-                            <div class="metric-value">-</div>
+                            <div class="metric-value">{{ formatNumber(authorData.follower) }}</div>
                         </div>
-                        <div class="metric-item">
+                         <div class="metric-item">
                             <div class="metric-label">月涨粉率</div>
-                            <div class="metric-value">0.06%</div>
+                            <div class="metric-value">{{ formatPercent(authorData.fans_increment_rate_within_30d) }}</div>
                         </div>
+                       
                     </div>
 
                     <!-- 达人推荐 -->
@@ -49,7 +52,12 @@
                     <div class="info-section">
                         <div class="section-label">达人类型</div>
                         <div class="section-content">
-                            <a-tag>暂无标签</a-tag>
+                            <a-space :size="8" wrap>
+                                <a-tag v-if="authorData.star_excellent_author === '1' || authorData.star_excellent_author === 1">星图优质作者</a-tag>
+                                <a-tag v-if="authorData.is_black_horse_author === '1' || authorData.is_black_horse_author === 1 || authorData.is_black_horse_author === true">黑马作者</a-tag>
+                                <a-tag v-if="authorData.star_qianchuan_high_potential === '1' || authorData.star_qianchuan_high_potential === 1">千川高潜力</a-tag>
+                                <a-tag v-if="!(authorData.star_excellent_author === '1' || authorData.star_excellent_author === 1) && !(authorData.is_black_horse_author === '1' || authorData.is_black_horse_author === 1 || authorData.is_black_horse_author === true) && !(authorData.star_qianchuan_high_potential === '1' || authorData.star_qianchuan_high_potential === 1)">暂无标签</a-tag>
+                            </a-space>
                         </div>
                     </div>
 
@@ -58,9 +66,9 @@
                         <div class="section-label">行业标签</div>
                         <div class="section-content">
                             <a-space :size="8" wrap>
-                                <a-tag>日化</a-tag>
-                                <a-tag>家居建材</a-tag>
-                                <a-tag>医药健康</a-tag>
+                                <a-tag v-if="authorData.category">{{ authorData.category }}</a-tag>
+                                <a-tag v-for="(tag, index) in authorData.content_theme_labels_180d" :key="index">{{ tag }}</a-tag>
+                                <a-tag v-if="!authorData.category && (!authorData.content_theme_labels_180d || authorData.content_theme_labels_180d.length === 0)">暂无标签</a-tag>
                             </a-space>
                         </div>
                     </div>
@@ -69,29 +77,13 @@
                     <div class="basic-info">
                         <div class="info-item">
                             <span class="info-label">性别</span>
-                            <span class="info-value">--</span>
+                            <span class="info-value">{{ formatGender(authorData.gender) }}</span>
                         </div>
                         <div class="info-item">
                             <span class="info-label">地区</span>
-                            <span class="info-value">--</span>
+                            <span class="info-value">{{ authorData.province && authorData.city ? `${authorData.province} ${authorData.city}` : '--' }}</span>
                         </div>
                     </div>
-
-                    <!-- 操作按钮 -->
-                    <!-- <div class="action-buttons">
-                        <a-button type="text" size="small">
-                            <template #icon>
-                                <database-outlined />
-                            </template>
-                            入库
-                        </a-button>
-                        <a-button type="text" size="small">
-                            <template #icon>
-                                <message-outlined />
-                            </template>
-                            联系
-                        </a-button>
-                    </div> -->
                 </a-card>
 
                 <!-- 价格信息卡片 -->
@@ -109,7 +101,7 @@
                                                 <div class="price-value">
                                                     <div class="star-price">
                                                         <span class="unit">￥</span>
-                                                        <span class="price-number">280,000</span>
+                                                        <span class="price-number">{{ authorData.price_1_20?.toLocaleString() || '0' }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -128,7 +120,7 @@
                                                 <div class="price-value">
                                                     <div class="star-price">
                                                         <span class="unit">￥</span>
-                                                        <span class="price-number">381,600</span>
+                                                        <span class="price-number">{{ authorData.price_20_60?.toLocaleString() || '0' }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -147,7 +139,7 @@
                                                 <div class="price-value">
                                                     <div class="star-price">
                                                         <span class="unit">￥</span>
-                                                        <span class="price-number">583,000</span>
+                                                        <span class="price-number">{{ authorData.price_60?.toLocaleString() || '0' }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -166,7 +158,7 @@
                                                 <div class="price-value">
                                                     <div class="star-price">
                                                         <span class="unit">￥</span>
-                                                        <span class="price-number">550,000</span>
+                                                        <span class="price-number">-</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -185,7 +177,7 @@
                                                 <div class="price-value">
                                                     <div class="star-price">
                                                         <span class="unit">￥</span>
-                                                        <span class="price-number">583,000</span>
+                                                        <span class="price-number">-</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -196,21 +188,6 @@
                             </div>
                         </div>
                     </div>
-                    <section class="fold-control">
-                        <div class="fold-btn">
-                            <span class="fold-tips">
-                                <span class="i-icon i-icon-xt-icon-double-down">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" fill="none">
-                                        <g>
-                                            <path d="M37.586 7.586 24 21.172 10.414 7.586l-2.828 2.828 15 15a2 2 0 0 0 2.828 0l15-15-2.828-2.828Z" fill="currentColor"></path>
-                                            <path d="M37.586 21.586 24 35.172 10.414 21.586l-2.828 2.828 15 15a2 2 0 0 0 2.828 0l15-15-2.828-2.828Z" fill="currentColor"></path>
-                                        </g>
-                                    </svg>
-                                </span>
-                                达人还支持抖音短视频合集任务等其他3报价方式
-                            </span>
-                        </div>
-                    </section>
                     <div>
                         <div class="desc">想要获取更好的营销效果？尝试让达人同步进行直播</div>
                         <button type="button" class="action el-button el-button--primary is-round">
@@ -246,14 +223,117 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 import { DatabaseOutlined, MessageOutlined } from '@ant-design/icons-vue';
+import { getInfluencerFullData } from '#/api/influencer-v2';
 import TabOne from './components/tab-one.vue';
 import TabTwo from './components/tab-two.vue';
 import TabThree from './components/tab-three.vue';
 import TabFour from './components/tab-four.vue';
 
 const activeTab = ref('overview');
+const route = useRoute();
+
+// 格式化数字显示
+const formatNumber = (num: number | string): string => {
+    const number = typeof num === 'string' ? parseFloat(num) : num;
+    if (isNaN(number) || number === 0) return '-';
+
+    if (number >= 10000) {
+        return (number / 10000).toFixed(1) + 'w';
+    }
+    return Math.floor(number).toString();
+};
+
+// 格式化性别
+const formatGender = (gender: any) => {
+    if (gender === '1' || gender === 1) return '男';
+    if (gender === '2' || gender === 2) return '女';
+    return '未知';
+};
+
+// 格式化百分比
+const formatPercent = (val: any) => {
+    const n = Number(val);
+    if (!n || isNaN(n)) return '-';
+    // 如果是小数形式，转换为百分比
+    if (n < 1) {
+        return (n * 100).toFixed(2) + '%';
+    }
+    // 如果已经是百分比形式，直接返回
+    return n + '%';
+};
+
+// 作者详细信息数据
+const authorData = ref({
+    // 基本信息
+    id: '',
+    avatar_uri: '',
+    nick_name: '',
+    core_user_id: '',
+    star_id: '',
+
+    // 数据指标
+    fans_increment_within_30d: 0,
+    interaction_median_30d: 0,
+    follower: 0,
+    fans_increment_rate_within_30d: '0%',
+
+    // 标签信息
+    star_excellent_author: '' as string | number | boolean,
+    is_black_horse_author: '' as string | number | boolean,
+    star_qianchuan_high_potential: '' as string | number,
+    category: '',
+    tags_relation: '' as string,
+    content_theme_labels_180d: [] as string[],
+
+    // 个人信息
+    gender: '',
+    province: '',
+    city: '',
+
+    // 价格信息
+    price_1_20: 0,
+    price_20_60: 0,
+    price_60: 0,
+    assign_task_price_list: [] as number[],
+
+    // 机构信息
+    org_name: '',
+    cooperation_degree: '',
+    annual_contract_org: '',
+});
+
+// 获取作者详情数据
+const fetchAuthorData = async () => {
+    const authorId = route.params.id;
+    try {
+        // 使用现有的API函数
+        const data = await getInfluencerFullData(authorId as string);
+        console.log('API返回结果:', data);
+
+        // 直接映射API字段，减少数据转化
+        authorData.value = {
+            ...data,
+            // 确保必要的默认值
+            id: data.id || authorId,
+            nick_name: data.nick_name || '暂无昵称',
+            avatar_uri: data.avatar_uri || '',
+            star_id: data.star_id || '--',
+            // 确保数组类型的字段安全
+            content_theme_labels_180d: Array.isArray(data.content_theme_labels_180d) ? data.content_theme_labels_180d : [],
+            assign_task_price_list: Array.isArray(data.assign_task_price_list) ? data.assign_task_price_list : []
+        };
+    } catch (error) {
+        console.error('获取作者数据失败:', error);
+    }
+};
+
+// 页面加载时获取数据
+onMounted(() => {
+    fetchAuthorData();
+});
 </script>
 
 <style scoped lang="scss">
@@ -282,17 +362,34 @@ const activeTab = ref('overview');
                         flex: 1;
                         
                         .author-name {
-                            font-size: 14px;
+                            font-size: 16px;
                             line-height: 22px;
                             margin-bottom: 4px;
                         }
                         
                         .author-id {
-                            font-size: 12px;
+                            font-size: 13px;
                             color: #666;
-                            
+                            display: flex;
+                            align-items: center;
+                            gap: 4px;
+
                             .id-label {
-                                margin-right: 4px;
+                                margin-right: 0px;
+                            }
+
+                            // 修复ant-design typography组件的对齐问题
+                            :deep(.ant-typography) {
+                                display: inline;
+                                margin-bottom: 0;
+                                line-height: 1.5;
+                            }
+
+                            :deep(.ant-typography-copy) {
+                                vertical-align: middle;
+                                position: relative;
+                                top: -4px;
+                                color: #999;
                             }
                         }
                     }
@@ -309,15 +406,14 @@ const activeTab = ref('overview');
                     
                     .metric-item {
                         .metric-label {
-                            font-size: 12px;
-                            color: #666;
-                            margin-bottom: 4px;
+                            font-size: 14px;
+                            color: #999;
                         }
                         
                         .metric-value {
-                            font-size: 16px;
-                            font-weight: 600;
-                            color: #000;
+                            font-size: 18px;
+                            font-weight: 500;
+                            color: #111;
                         }
                     }
                 }
@@ -363,14 +459,6 @@ const activeTab = ref('overview');
                     }
                 }
 
-                // 操作按钮
-                .action-buttons {
-                    display: flex;
-                    justify-content: space-around;
-                    padding-top: 8px;
-                }
-
-               
             }
              // 价格信息卡片
                 .price-info {
@@ -440,27 +528,6 @@ const activeTab = ref('overview');
                                             color: #666;
                                         }
                                     }
-                                }
-                            }
-                        }
-                    }
-
-                    .fold-control {
-                        .fold-btn {
-                            text-align: center;
-                            margin: 16px 0;
-
-                            .fold-tips {
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                font-size: 14px;
-                                color: #666;
-                                cursor: pointer;
-
-                                .i-icon {
-                                    margin-right: 4px;
-                                    color: #666;
                                 }
                             }
                         }
