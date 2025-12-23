@@ -219,8 +219,9 @@
                                     class="video-player-cover cover-card md normal"
                                     @mouseenter="handleMouseEnter"
                                     @mouseleave="handleMouseLeave"
+                                    @click="playVideo($event, '/test.mp4')"
                                 >
-                                    <span class="play-icon" @click="playVideo($event, '/test.mp4')">
+                                    <span class="play-icon">
                                         <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
                                             <path d="M6 4v16l14-8L6 4Z" fill="currentColor" stroke="none"/>
                                         </svg>
@@ -259,8 +260,9 @@
                                     class="video-player-cover cover-card md normal"
                                     @mouseenter="handleMouseEnter"
                                     @mouseleave="handleMouseLeave"
+                                    @click="playVideo($event, '/test.mp4')"
                                 >
-                                    <span class="play-icon" @click="playVideo($event, '/test.mp4')">
+                                    <span class="play-icon">
                                         <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
                                             <path d="M6 4v16l14-8L6 4Z" fill="currentColor" stroke="none"/>
                                         </svg>
@@ -299,8 +301,9 @@
                                     class="video-player-cover cover-card md normal"
                                     @mouseenter="handleMouseEnter"
                                     @mouseleave="handleMouseLeave"
+                                    @click="playVideo($event, '/test.mp4')"
                                 >
-                                    <span class="play-icon" @click="playVideo($event, '/test.mp4')">
+                                    <span class="play-icon">
                                         <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
                                             <path d="M6 4v16l14-8L6 4Z" fill="currentColor" stroke="none"/>
                                         </svg>
@@ -339,8 +342,9 @@
                                     class="video-player-cover cover-card md normal"
                                     @mouseenter="handleMouseEnter"
                                     @mouseleave="handleMouseLeave"
+                                    @click="playVideo($event, '/test.mp4')"
                                 >
-                                    <span class="play-icon" @click="playVideo($event, '/test.mp4')">
+                                    <span class="play-icon">
                                         <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
                                             <path d="M6 4v16l14-8L6 4Z" fill="currentColor" stroke="none"/>
                                         </svg>
@@ -482,9 +486,87 @@
         </div>
         </div>
     </div>
+
+    <!-- Video Detail Dialog -->
+    <el-dialog
+        v-model="videoDialogVisible"
+        title=""
+        width="800px"
+        :show-close="true"
+        :close-on-click-modal="true"
+        @close="closeVideoDialog"
+        class="video-detail-dialog"
+    >
+        <div class="video-detail-content">
+            <!-- Left: Video Player -->
+            <div class="video-left">
+                <div class="video-wrapper">
+                    <video
+                        v-if="currentVideo.videoSrc"
+                        :src="currentVideo.videoSrc"
+                        controls
+                        autoplay
+                        class="video-player"
+                    ></video>
+                </div>
+            </div>
+
+            <!-- Right: Video Info -->
+            <div class="video-right">
+                <!-- Author Info -->
+                <div class="author-info">
+                    <div class="author-avatar">
+                        <div class="user-avatar">
+                            <img :src="currentVideo.author.avatar || ''" alt="author" class="user-avatar-image" />
+                        </div>
+                    </div>
+                    <div class="info-container">
+                        <div class="info-container--header">
+                            <span class="name text-ellipsis">{{ currentVideo.author.name }}</span>
+                        </div>
+                        <div class="common-info">
+                            <div v-if="currentVideo.author.certifier" class="author-certifier">
+                                {{ currentVideo.author.certifier }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Stats -->
+                <div class="video-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">播放量</span>
+                        <span class="stat-value">{{ currentVideo.stats.play }}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">点赞量</span>
+                        <span class="stat-value">{{ currentVideo.stats.like }}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">评论量</span>
+                        <span class="stat-value">{{ currentVideo.stats.comment }}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">转发量</span>
+                        <span class="stat-value">{{ currentVideo.stats.share }}</span>
+                    </div>
+                </div>
+
+                <!-- Publish Time -->
+                <div v-if="currentVideo.publishTime" class="publish-time">
+                    发布时间：{{ currentVideo.publishTime }}
+                </div>
+
+                <div class="video-title">
+                    <span class="label">视频标题</span>
+                    <span class="text-ellipsis-l2">{{ currentVideo.title }}</span>
+                </div>
+            </div>
+        </div>
+    </el-dialog>
 </template>
 <script lang="ts" setup>
-import { ref, onMounted, nextTick } from 'vue'
+import { ref, onMounted, nextTick, reactive } from 'vue'
 import * as echarts from 'echarts'
 import { QuestionCircleOutlined } from '@ant-design/icons-vue'
 
@@ -494,6 +576,26 @@ const videoType = ref('1')
 const timeRange = ref('30')
 const radarChartRef = ref<HTMLElement>()
 const funnelChartRef = ref<HTMLElement>()
+
+// Video dialog state
+const videoDialogVisible = ref(false)
+const currentVideo = reactive({
+    title: '',
+    cover: '',
+    videoSrc: '',
+    author: {
+        avatar: '',
+        name: '',
+        certifier: ''
+    },
+    publishTime: '',
+    stats: {
+        play: '',
+        like: '',
+        comment: '',
+        share: ''
+    }
+})
 
 // Table columns configuration
 const tableColumns = [
@@ -582,9 +684,28 @@ const handleMoreVideos = () => {
 }
 
 const playVideo = (event: MouseEvent, videoSrc: string) => {
-    console.log('Play video:', videoSrc)
-    // TODO: Implement video playback logic
-    // Could open a modal or navigate to video page
+    // Find the video data from the clicked element
+    const videoItem = (event.target as HTMLElement).closest('.list-item')
+    if (videoItem) {
+        const title = videoItem.querySelector('.text-ellipsis')?.textContent || ''
+        const playValue = videoItem.querySelectorAll('.info-row .value')[0]?.textContent || ''
+        const likeValue = videoItem.querySelectorAll('.info-row .value')[1]?.textContent || ''
+        const commentValue = videoItem.querySelectorAll('.info-row .value')[2]?.textContent || ''
+
+        // Update current video data
+        currentVideo.title = title
+        currentVideo.videoSrc = videoSrc
+        currentVideo.stats.play = playValue
+        currentVideo.stats.like = likeValue
+        currentVideo.stats.comment = commentValue
+    }
+
+    // Open dialog
+    videoDialogVisible.value = true
+}
+
+const closeVideoDialog = () => {
+    videoDialogVisible.value = false
 }
 
 
@@ -1592,4 +1713,156 @@ onMounted(() => {
         }
     }
 
+</style>
+
+<style lang="scss">
+.video-detail-dialog {
+    .el-dialog__header {
+        padding: 0;
+        display: none !important;
+    }
+
+    // .el-dialog__body {
+    //     padding: 0 !important;
+    // }
+
+    .video-detail-content {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 0 !important;
+        width: 100% !important;
+
+        .video-left {
+            flex: 0 0 55% !important;
+            width: 55% !important;
+            max-width: 55% !important;
+
+            .video-wrapper {
+                width: 100%;
+                aspect-ratio: 20/18;
+                //height: 280px;
+                background: #333;
+                border-radius: 8px 0 0 8px;
+                overflow: hidden;
+
+                .video-player {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+        }
+
+        .video-right {
+            flex: 1 !important;
+            width: 45% !important;
+            max-width: 45% !important;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            background: #fff;
+            border-radius: 0 8px 8px 0;
+
+            .video-title {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+
+                .label {
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: #999;
+                }
+
+                .text-ellipsis-l2 {
+                    font-size: 16px;
+                    color: #333;
+                    line-height: 1.8;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    line-clamp: 2;
+                }
+            }
+
+            .author-info {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                .author-avatar {
+                    .user-avatar {
+                        width: 56px;
+                        height: 56px;
+                        border-radius: 50%;
+                        overflow: hidden;
+
+                        .user-avatar-image {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                }
+
+                .info-container {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+
+                    .info-container--header {
+                        display: flex;
+                        align-items: center;
+
+                        .name {
+                            font-size: 16px;
+                            font-weight: 500;
+                            color: #333;
+                            line-height: 24px;
+                        }
+                    }
+
+                    .common-info {
+                        font-size: 14px;
+                        line-height: 22px;
+
+                        .author-certifier {
+                            color: #999;
+                        }
+                    }
+                }
+            }
+
+            .video-stats {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+
+                .stat-item {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+
+                    .stat-label {
+                        font-size: 16px;
+                        color: #999;
+                    }
+
+                    .stat-value {
+                        font-size: 18px;
+                        font-weight: 400;
+                        color: #333;
+                    }
+                }
+            }
+
+            .publish-time {
+                font-size: 12px;
+                color: #999;
+            }
+        }
+    }
+}
 </style>
