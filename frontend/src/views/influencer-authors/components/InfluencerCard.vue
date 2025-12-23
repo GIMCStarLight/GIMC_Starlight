@@ -206,7 +206,7 @@
       <div class="section-header">
         <div class="section-title">
           <Icon icon="lucide:building-2" />
-          合作信息
+          合作状态
         </div>
         <el-tag type="success" size="small" effect="dark">
           已建联
@@ -848,11 +848,11 @@ const handleUpdateData = () => {
           color: var(--el-text-color-primary);
 
           &.interact-high {
-            color: var(--el-color-success);
+            color: var(--el-color-danger);
           }
 
           &.interact-low {
-            color: var(--el-color-danger);
+            color: var(--el-color-success);
           }
 
           &.star-index {
@@ -1005,14 +1005,20 @@ const handleUpdateData = () => {
   /* 私域信息区域 */
   .private-section {
     padding: 16px 20px;
-    border-top: 2px solid var(--el-color-success-light-7);
-    background: linear-gradient(135deg, var(--el-color-success-light-9) 0%, var(--el-fill-color) 100%);
+    //border-top: 2px solid var(--el-color-success-light-7);
+    //background: linear-gradient(135deg, var(--el-color-success-light-9) 0%, var(--el-fill-color) 100%);
+    border-top: 1px solid var(--el-border-color-lighter);
 
     .section-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 12px;
+
+      // 已建联标签斜体样式
+      :deep(.el-tag) {
+        font-style: italic;
+      }
 
       .section-title {
         display: flex;
@@ -1021,7 +1027,6 @@ const handleUpdateData = () => {
         font-size: 14px;
         font-weight: 600;
         color: var(--el-color-success);
-
         .iconify {
           font-size: 16px;
         }

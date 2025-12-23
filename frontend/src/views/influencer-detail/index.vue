@@ -53,22 +53,32 @@
                         <div class="section-label">达人类型</div>
                         <div class="section-content">
                             <a-space :size="8" wrap>
-                                <a-tag v-if="authorData.star_excellent_author === '1' || authorData.star_excellent_author === 1">星图优质作者</a-tag>
-                                <a-tag v-if="authorData.is_black_horse_author === '1' || authorData.is_black_horse_author === 1 || authorData.is_black_horse_author === true">黑马作者</a-tag>
-                                <a-tag v-if="authorData.star_qianchuan_high_potential === '1' || authorData.star_qianchuan_high_potential === 1">千川高潜力</a-tag>
-                                <a-tag v-if="!(authorData.star_excellent_author === '1' || authorData.star_excellent_author === 1) && !(authorData.is_black_horse_author === '1' || authorData.is_black_horse_author === 1 || authorData.is_black_horse_author === true) && !(authorData.star_qianchuan_high_potential === '1' || authorData.star_qianchuan_high_potential === 1)">暂无标签</a-tag>
+                                <a-tag v-for="(key, index) in tagsRelationKeys" :key="index">{{ key }}</a-tag>
+                                <a-tag v-if="!tagsRelationKeys || tagsRelationKeys.length === 0">暂无标签</a-tag>
                             </a-space>
                         </div>
                     </div>
 
-                    <!-- 行业标签 -->
+                    <!-- 内容主题 -->
                     <div class="info-section">
-                        <div class="section-label">行业标签</div>
+                        <div class="section-label">内容主题</div>
                         <div class="section-content">
                             <a-space :size="8" wrap>
-                                <a-tag v-if="authorData.category">{{ authorData.category }}</a-tag>
-                                <a-tag v-for="(tag, index) in authorData.content_theme_labels_180d" :key="index">{{ tag }}</a-tag>
-                                <a-tag v-if="!authorData.category && (!authorData.content_theme_labels_180d || authorData.content_theme_labels_180d.length === 0)">暂无标签</a-tag>
+                                <template v-if="authorData.content_theme_labels_180d && authorData.content_theme_labels_180d.length > 0">
+                                    <a-tag v-if="authorData.content_theme_labels_180d[0]">{{ authorData.content_theme_labels_180d[0] }}</a-tag>
+                                    <a-tag v-if="authorData.content_theme_labels_180d[1]">{{ authorData.content_theme_labels_180d[1] }}</a-tag>
+                                    <ToolTipPicker v-if="authorData.content_theme_labels_180d.length > 2">
+                                        <template #content>
+                                            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; max-width: 400px;">
+                                                <a-tag v-for="(tag, index) in authorData.content_theme_labels_180d.slice(2)" :key="index">{{ tag }}</a-tag>
+                                            </div>
+                                        </template>
+                                        <template #trigger>
+                                            <a-tag>+{{ authorData.content_theme_labels_180d.length - 2 }}</a-tag>
+                                        </template>
+                                    </ToolTipPicker>
+                                </template>
+                                <a-tag v-else>暂无标签</a-tag>
                             </a-space>
                         </div>
                     </div>
@@ -223,7 +233,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { DatabaseOutlined, MessageOutlined } from '@ant-design/icons-vue';
 import { getInfluencerFullData } from '#/api/influencer-v2';
@@ -231,6 +241,7 @@ import TabOne from './components/tab-one.vue';
 import TabTwo from './components/tab-two.vue';
 import TabThree from './components/tab-three.vue';
 import TabFour from './components/tab-four.vue';
+import ToolTipPicker from '../influencer-authors/components/ToolTipPicker.vue';
 
 const activeTab = ref('overview');
 const route = useRoute();
@@ -264,6 +275,18 @@ const formatPercent = (val: any) => {
     // 如果已经是百分比形式，直接返回
     return n + '%';
 };
+
+// 解析 tags_relation，获取键名
+const tagsRelationKeys = computed(() => {
+    const tagsRelation = authorData.value.tags_relation;
+    if (!tagsRelation || typeof tagsRelation !== 'string') return [];
+    try {
+        const parsed = JSON.parse(tagsRelation);
+        return Object.keys(parsed);
+    } catch {
+        return [];
+    }
+});
 
 // 作者详细信息数据
 const authorData = ref({
@@ -312,6 +335,8 @@ const fetchAuthorData = async () => {
         // 使用现有的API函数
         const data = await getInfluencerFullData(authorId as string);
         console.log('API返回结果:', data);
+        console.log('content_theme_labels_180d:', data.content_theme_labels_180d);
+        console.log('content_theme_labels_180d type:', typeof data.content_theme_labels_180d);
 
         // 直接映射API字段，减少数据转化
         authorData.value = {
@@ -322,7 +347,9 @@ const fetchAuthorData = async () => {
             avatar_uri: data.avatar_uri || '',
             star_id: data.star_id || '--',
             // 确保数组类型的字段安全
-            content_theme_labels_180d: Array.isArray(data.content_theme_labels_180d) ? data.content_theme_labels_180d : [],
+            content_theme_labels_180d: Array.isArray(data.content_theme_labels_180d)
+                ? data.content_theme_labels_180d
+                : (typeof data.content_theme_labels_180d === 'string' ? JSON.parse(data.content_theme_labels_180d) : []),
             assign_task_price_list: Array.isArray(data.assign_task_price_list) ? data.assign_task_price_list : []
         };
     } catch (error) {
