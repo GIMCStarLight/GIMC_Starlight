@@ -27,21 +27,14 @@ interface RadarSeriesData {
 }
 
 interface RadarChartProps {
-  // 雷达图指标数据
   indicators: RadarIndicator[]
-  // 雷达图系列数据
   seriesData: RadarSeriesData[]
-  // 图表高度
   height?: string
-  // 图例名称（可选）
-  legendName?: string
-  // 自定义 tooltip 格式化函数（可选）
   tooltipFormatter?: (params: any) => string
 }
 
 const props = withDefaults(defineProps<RadarChartProps>(), {
   height: '350px',
-  legendName: '',
   tooltipFormatter: undefined
 })
 
@@ -49,20 +42,13 @@ const chartRef = ref<HTMLElement | null>(null)
 let chart: echarts.ECharts | null = null
 
 const initChart = () => {
-  if (!chartRef.value) return
-  if (!props.indicators || props.indicators.length === 0) return
+  if (!chartRef.value || !props.indicators?.length) return
 
-  // 等待容器渲染完成
-  const containerHeight = chartRef.value.offsetHeight
-  if (containerHeight === 0) {
-    console.log('Container height is 0, retrying...')
-    setTimeout(initChart, 100)
-    return
+  if (chart) {
+    chart.dispose()
   }
-
-  if (chart) chart.dispose()
   chart = echarts.init(chartRef.value)
-  
+
   const option: echarts.EChartsOption = {
     tooltip: {
       trigger: 'item',
@@ -98,51 +84,48 @@ const initChart = () => {
         }
       }
     },
-    animation: true,
-    animationDuration: 1000,
-    animationDurationUpdate: 500,
-    animationEasing: 'cubicInOut' as any,
-    animationEasingUpdate: 'cubicInOut' as any,
-    animationThreshold: 2000,
-    progressiveThreshold: 3000,
-    progressive: 400,
-    hoverLayerThreshold: 3000,
-    useUTC: false,
+    series: [{
+      type: 'radar',
+      data: props.seriesData,
+      animation: true,
+      animationDuration: 1000,
+      animationEasing: 'cubicOut'
+    }]
+  }
+
+  chart.setOption(option)
+}
+
+const updateChart = () => {
+  if (!chart || !props.indicators?.length) return
+
+  const option: echarts.EChartsOption = {
+    radar: {
+      indicator: props.indicators
+    },
     series: [{
       type: 'radar',
       data: props.seriesData
     }]
   }
-  
+
   chart.setOption(option)
-  
-  // 强制 resize 确保正确显示
-  setTimeout(() => {
-    chart?.resize()
-  }, 50)
 }
 
 const resize = () => {
   chart?.resize()
 }
 
-// 监听数据变化
 watch(
   () => [props.indicators, props.seriesData],
   () => {
-    if (props.indicators && props.indicators.length > 0) {
-      nextTick(() => {
-        setTimeout(initChart, 100)
-      })
-    }
+    nextTick(updateChart)
   },
   { deep: true }
 )
 
 onMounted(() => {
-  nextTick(() => {
-    setTimeout(initChart, 200)
-  })
+  nextTick(initChart)
   window.addEventListener('resize', resize)
 })
 
@@ -156,6 +139,5 @@ onUnmounted(() => {
 .radar-chart-container {
   width: 100%;
   height: 100%;
-  min-height: 300px;
 }
 </style>

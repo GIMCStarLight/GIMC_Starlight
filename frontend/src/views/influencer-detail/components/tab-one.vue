@@ -67,17 +67,7 @@
                             <span class="highlight">26</span>
                         </span>
                     </div>
-                    <div class="describe">
-                        <div>
-                            <span class="dot full"></span>
-                            <span>达人指数</span>
-                        </div>
-                        <div class="median">
-                            <span class="dot compare"></span>
-                            <span>行业均值</span>
-                        </div>
-                    </div>
-                    <div class="radar-chart-container" ref="radarChartRef"></div>
+                    <RadarChart :indicators="radarIndicators" :seriesData="radarSeriesData" height="240px" />
                 </div>
 
                 <!-- Right side - Analysis table -->
@@ -93,8 +83,8 @@
                             <template v-if="column.key === 'name'">
                                 <span class="icon-tooltip-label">
                                     <span class="text">{{ record.name }}</span>
-                                    <a-tooltip title="指标说明">
-                                        <QuestionCircleOutlined />
+                                    <a-tooltip :title="getIndicatorDescription(record.name)">
+                                        <InfoCircleOutlined />
                                     </a-tooltip>
                                 </span>
                             </template>
@@ -195,7 +185,7 @@
 “近期”指达人近30天数据，如果近30天无视频，则取近60天；如果近60天无视频，则取近90天数据。`"
                                 class="icon right"
                             >
-                                <QuestionCircleOutlined />
+                                <InfoCircleOutlined />
                             </a-tooltip>
                         </span>
                     </div>
@@ -453,7 +443,7 @@
                                 <template #title>
                                     <span>该类达人，近30天的所有受众中，观看互动受众占比较高，传播效率高。</span>
                                 </template>
-                                <QuestionCircleOutlined class="question-icon" />
+                                <InfoCircleOutlined class="question-icon" />
                             </a-tooltip>
                         </div>
 
@@ -568,14 +558,40 @@
 <script lang="ts" setup>
 import { ref, onMounted, nextTick, reactive } from 'vue'
 import * as echarts from 'echarts'
-import { QuestionCircleOutlined } from '@ant-design/icons-vue'
+import { InfoCircleOutlined } from '@ant-design/icons-vue'
+import RadarChart from './RadarChart.vue'
 
 const selectedIndustry = ref('')
 const excludeAdTraffic = ref(true)
 const videoType = ref('1')
 const timeRange = ref('30')
-const radarChartRef = ref<HTMLElement>()
 const funnelChartRef = ref<HTMLElement>()
+
+// 雷达图数据
+const radarIndicators = [
+    { name: '传播指数', max: 100 },
+    { name: '种草指数', max: 100 },
+    { name: '转化指数', max: 100 },
+    { name: '性价比指数', max: 100 },
+    { name: '合作指数', max: 100 }
+]
+
+const radarSeriesData = [
+    {
+        name: '达人指数',
+        value: [98.3, 98.7, 98.7, 72.1, 82.9],
+        areaStyle: { color: 'rgba(24, 144, 255, 0.2)' },
+        lineStyle: { color: '#1890ff', width: 1 },
+        itemStyle: { color: '#1890ff' }
+    },
+    {
+        name: '行业均值',
+        value: [53, 54, 55, 64, 76],
+        areaStyle: { color: 'rgba(254, 54, 112, 0.15)' },
+        lineStyle: { color: '#fe346e', width: 1 },
+        itemStyle: { color: '#fe346e' }
+    }
+]
 
 // Video dialog state
 const videoDialogVisible = ref(false)
@@ -679,6 +695,18 @@ const handleMore = () => {
     console.log('查看更多')
 }
 
+// 获取指标说明
+const getIndicatorDescription = (name: string) => {
+    const descriptions: Record<string, string> = {
+        '传播指数': '基于达人近30日有效播放、互动、完播率、行业达人浓度等数据，以达人发布视频后引导来的行业5A人数为目标，进行机器学习得到的达人传播实力的排名，是评估达人作品传播能力的重要指标。',
+        '种草指数': '基于达人近30日互动、完播率、行业达人浓度等数据，以达人发布视频后引导来的行业A3人数及A3占比为目标，进行机器学习得到的达人种草实力的排名，是评估达人种草能力的重要指标。',
+        '转化指数': '基于达人近30日购物车、LINK等组件点击转化情况及下单下载等数据，以达人发布视频后引导来的行业A4人数及投后报告中转化效果人数为目标，进行机器学习得到的达人转化实力的排名，是评估达人转化能力的重要指标。',
+        '性价比指数': '基于达人历史/预估订单CPM/GPM、粉丝粘性、爆量比例等数据加权得出，是评估达人商业性价比的重要指标。',
+        '合作指数': '基于达人消息回复率、信用分、客户评价和信息完善度等数据加权得出，是评估达人合作度的重要指标。'
+    }
+    return descriptions[name] || ''
+}
+
 const handleMoreVideos = () => {
     console.log('查看更多视频')
 }
@@ -734,93 +762,6 @@ const handleMouseLeave = (event: MouseEvent) => {
     if (playIcon) {
         playIcon.style.opacity = '1'
     }
-}
-
-// Initialize radar chart
-const initRadarChart = () => {
-    if (!radarChartRef.value) return
-
-    // Clear any existing chart
-    echarts.dispose(radarChartRef.value)
-    const myChart = echarts.init(radarChartRef.value)
-
-    const option = {
-        // Set global color palette to avoid any default green colors
-        color: ['#1890ff', '#fe346e'],
-        radar: {
-            indicator: [
-                { name: '传播指数', max: 100 },
-                { name: '种草指数', max: 100 },
-                { name: '转化指数', max: 100 },
-                { name: '性价比指数', max: 100 },
-                { name: '合作指数', max: 100 }
-            ],
-            radius: '70%',
-            axisName: {
-                color: '#666',
-                fontSize: 12
-            },
-            splitLine: {
-                lineStyle: {
-                    color: '#e6e6e6'
-                }
-            },
-            splitArea: {
-                areaStyle: {
-                    color: ['#f5f5f5', '#fff']
-                }
-            }
-        },
-        tooltip: {
-            trigger: 'item'
-        },
-        series: [{
-            type: 'radar',
-            data: [
-                {
-                    value: [98.3, 98.7, 98.7, 72.1, 82.9],
-                    name: '达人指数',
-                    areaStyle: {
-                        color: 'rgba(24, 144, 255, 0.2)'
-                    },
-                    lineStyle: {
-                        color: '#1890ff',
-                        width: 1
-                    },
-                    symbol: 'circle',
-                    symbolSize: 6
-                },
-                {
-                    value: [53, 54, 55, 64, 76],
-                    name: '行业均值',
-                    areaStyle: {
-                        color: 'rgba(254, 54, 112, 0.15)'
-                    },
-                    lineStyle: {
-                        color: '#fe346e',
-                        width: 1
-                    },
-                    symbol: 'circle',
-                    symbolSize: 6
-                }
-            ]
-        }],
-        // legend: {
-        //     data: ['达人指数', '行业均值'],
-        //     bottom: 10,
-        //     icon: 'circle',
-        //     textStyle: {
-        //         fontSize: 12
-        //     }
-        // }
-    }
-
-    myChart.setOption(option, true)
-
-    // Make chart responsive
-    window.addEventListener('resize', () => {
-        myChart.resize()
-    })
 }
 
 // Initialize funnel chart
@@ -983,7 +924,6 @@ const initFunnelChart = () => {
 
 onMounted(() => {
     nextTick(() => {
-        initRadarChart()
         initFunnelChart()
     })
 })
@@ -1117,43 +1057,6 @@ onMounted(() => {
                             }
                         }
                     }
-
-                    .describe {
-                        display: flex;
-                        gap: 24px;
-                        margin-bottom: 16px;
-                        font-size: 14px;
-
-                        div {
-                            display: flex;
-                            align-items: center;
-                            gap: 8px;
-                        }
-
-                        .dot {
-                            display: inline-block;
-                            width: 8px;
-                            height: 8px;
-                            border-radius: 50%;
-
-                            &.full {
-                                background-color: #1890ff;
-                            }
-
-                            &.compare {
-                                background-color: #fe346e;
-                            }
-                        }
-
-                        .median {
-                            color: #999;
-                        }
-                    }
-
-                    .radar-chart-container {
-                        width: 100%;
-                        height: 240px;
-                    }
                 }
 
                 .star-analysis {
@@ -1179,7 +1082,7 @@ onMounted(() => {
 
                             .anticon {
                                 color: #999;
-                                cursor: help;
+                                // cursor: help;
 
                                 &:hover {
                                     color: #1890ff;
@@ -1392,7 +1295,7 @@ onMounted(() => {
 
                             .icon {
                                 color: #999;
-                                cursor: help;
+                                // cursor: help;
 
                                 &:hover {
                                     color: #1890ff;
