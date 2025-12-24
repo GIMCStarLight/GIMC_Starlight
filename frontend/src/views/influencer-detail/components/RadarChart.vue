@@ -56,8 +56,8 @@ const initChart = () => {
     },
     legend: {
       show: true,
-      top: 10,
-      left: 'center',
+      icon: 'circle',
+      left: 0,
       textStyle: {
         fontSize: 12,
         color: '#666'
@@ -65,8 +65,8 @@ const initChart = () => {
     },
     radar: {
       indicator: props.indicators,
-      center: ['50%', '55%'],
-      radius: '60%',
+      center: ['50%', '60%'],
+      radius: '70%',
       splitNumber: 4,
       axisName: {
         color: '#666',
