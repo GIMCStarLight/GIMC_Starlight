@@ -14,9 +14,9 @@ import time
 @dataclass
 class AdaptiveQpsConfig:
     """自适应QPS配置"""
-    min_qps: int = 1
-    max_qps: int = 2
-    step: int = 1
+    min_qps: float = 0.1  # 支持小数，最小0.1
+    max_qps: float = 2.0
+    step: float = 0.5  # 支持小数步长
     backoff_base: float = 0.7
     backoff_max_power: int = 3
     success_needed: int = 3
@@ -33,7 +33,7 @@ class AdaptiveQpsPolicy:
     """
 
     def __init__(self, current_qps: float, config: AdaptiveQpsConfig):
-        self.current_qps = float(max(1, int(current_qps)))
+        self.current_qps = float(max(0.1, current_qps))  # 支持最小0.1 QPS
         self.cfg = config
         self.success_streak = 0
         self.failure_streak = 0
@@ -58,9 +58,9 @@ class AdaptiveQpsPolicy:
         fr_threshold = float(self.cfg.failure_rate_threshold)
         now_ts = time.time()
 
-        qps_min = max(1, int(self.cfg.min_qps))
-        qps_max = max(qps_min, int(self.cfg.max_qps))
-        qps_step = max(1, int(self.cfg.step))
+        qps_min = max(0.1, float(self.cfg.min_qps))  # 支持小数
+        qps_max = max(qps_min, float(self.cfg.max_qps))
+        qps_step = max(0.1, float(self.cfg.step))
         backoff_base = float(self.cfg.backoff_base)
         max_power = max(1, int(self.cfg.backoff_max_power))
         success_needed = max(1, int(self.cfg.success_needed))
@@ -83,16 +83,16 @@ class AdaptiveQpsPolicy:
                 severity_level = 0
 
             power = min(max_power, self.failure_streak + severity_level)
-            target_backoff = int(math.floor(float(self.current_qps) * (backoff_base ** power)))
-            step_backoff = int(self.current_qps) - qps_step
-            new_qps = float(max(qps_min, min(target_backoff, step_backoff)))
-            if int(new_qps) < int(self.current_qps):
+            target_backoff = float(self.current_qps) * (backoff_base ** power)
+            step_backoff = self.current_qps - qps_step
+            new_qps = max(qps_min, min(target_backoff, step_backoff))
+            if new_qps < self.current_qps:
                 print(
-                    f"[adaptive-qps] fail_rate={fail_rate:.2f} threshold={fr_threshold:.2f} streak={self.failure_streak} severity={severity_level} backoff_base={backoff_base} => next_qps={int(new_qps)}"
+                    f"[adaptive-qps] fail_rate={fail_rate:.2f} threshold={fr_threshold:.2f} streak={self.failure_streak} severity={severity_level} backoff_base={backoff_base} => next_qps={new_qps:.2f}"
                 )
                 self.current_qps = new_qps
             else:
-                self.current_qps = float(max(qps_min, int(self.current_qps)))
+                self.current_qps = max(qps_min, self.current_qps)
         else:
             # 成功事件：带冷却时间的缓慢升级
             self.failure_streak = 0
@@ -100,10 +100,10 @@ class AdaptiveQpsPolicy:
             can_upgrade = (self.success_streak >= success_needed) and (
                 (self.last_upgrade_ts == 0.0) or ((now_ts - self.last_upgrade_ts) >= upgrade_cooldown_sec)
             )
-            next_qps = float(min(qps_max, int(self.current_qps) + (qps_step if can_upgrade else 0)))
-            if can_upgrade and int(next_qps) > int(self.current_qps):
+            next_qps = min(qps_max, self.current_qps + (qps_step if can_upgrade else 0))
+            if can_upgrade and next_qps > self.current_qps:
                 print(
-                    f"[adaptive-qps] success_streak={self.success_streak} upgrade_cooldown={upgrade_cooldown_sec}s => next_qps={int(next_qps)}"
+                    f"[adaptive-qps] success_streak={self.success_streak} upgrade_cooldown={upgrade_cooldown_sec}s => next_qps={next_qps:.2f}"
                 )
                 self.current_qps = next_qps
                 self.last_upgrade_ts = now_ts
@@ -130,9 +130,9 @@ def create_adaptive_qps_policy(current_qps: float = 2.0, config: AdaptiveQpsConf
 
 
 def create_qps_config(
-    min_qps: int = 1,
-    max_qps: int = 2,
-    step: int = 1,
+    min_qps: float = 0.1,
+    max_qps: float = 2.0,
+    step: float = 0.5,
     backoff_base: float = 0.7,
     backoff_max_power: int = 3,
     success_needed: int = 3,
@@ -142,9 +142,9 @@ def create_qps_config(
     """创建QPS配置
     
     Args:
-        min_qps: 最小QPS
-        max_qps: 最大QPS
-        step: QPS调整步长
+        min_qps: 最小QPS（支持小数）
+        max_qps: 最大QPS（支持小数）
+        step: QPS调整步长（支持小数）
         backoff_base: 退避基数
         backoff_max_power: 最大退避幂次
         success_needed: 升级所需连续成功次数

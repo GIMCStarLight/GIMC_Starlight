@@ -15,17 +15,29 @@ class TimeWindowQPSLimiter:
     不超过设定的 QPS 限制。
     """
     
-    def __init__(self, qps: int, window_ms: int = 1000):
+    def __init__(self, qps: float, window_ms: int = 1000):
         """初始化限速器
         
         Args:
-            qps: 每秒允许的请求数
+            qps: 每秒允许的请求数（支持小数，如0.5表示每2秒1个请求）
             window_ms: 时间窗口大小（毫秒）
         """
-        self.qps = max(1, int(qps))
+        if qps <= 0:
+            raise ValueError(f"qps必须大于0，当前值: {qps}")
+        
+        self.qps = float(qps)
         self.window_ms = max(1, int(window_ms))
         self._lock = Lock()
         self._times = deque()
+        
+        # 对于QPS < 1的情况，使用更大的时间窗口
+        if self.qps < 1:
+            # 例如QPS=0.5时，窗口扩大到2000ms
+            self.effective_window_ms = int(self.window_ms / self.qps)
+            self.effective_qps = 1
+        else:
+            self.effective_window_ms = self.window_ms
+            self.effective_qps = int(self.qps)
 
     def acquire(self):
         """获取请求许可
@@ -38,16 +50,16 @@ class TimeWindowQPSLimiter:
             now = int(time.time() * 1000)
             with self._lock:
                 # 清理窗口外的时间戳
-                cutoff = now - self.window_ms
+                cutoff = now - self.effective_window_ms
                 while self._times and self._times[0] < cutoff:
                     self._times.popleft()
                 
-                if len(self._times) < self.qps:
+                if len(self._times) < self.effective_qps:
                     self._times.append(now)
                     return
                 
                 # 需要等待到最早时间戳移出窗口
-                wait_ms = self._times[0] + self.window_ms - now
+                wait_ms = self._times[0] + self.effective_window_ms - now
             
             if wait_ms > 0:
                 time.sleep(wait_ms / 1000.0)
@@ -60,12 +72,12 @@ class TimeWindowQPSLimiter:
         now = int(time.time() * 1000)
         with self._lock:
             # 清理窗口外的时间戳
-            cutoff = now - self.window_ms
+            cutoff = now - self.effective_window_ms
             while self._times and self._times[0] < cutoff:
                 self._times.popleft()
             
             # 计算当前窗口内的请求数
-            return len(self._times) * (1000.0 / self.window_ms)
+            return len(self._times) * (1000.0 / self.effective_window_ms)
 
     def reset(self):
         """重置限速器状态"""
@@ -73,11 +85,11 @@ class TimeWindowQPSLimiter:
             self._times.clear()
 
 
-def create_qps_limiter(qps: int, window_ms: int = 1000) -> TimeWindowQPSLimiter:
+def create_qps_limiter(qps: float, window_ms: int = 1000) -> TimeWindowQPSLimiter:
     """创建 QPS 限速器的工厂函数
     
     Args:
-        qps: 每秒允许的请求数
+        qps: 每秒允许的请求数（支持小数，如0.5表示每2秒1个请求）
         window_ms: 时间窗口大小（毫秒）
         
     Returns:
@@ -86,11 +98,11 @@ def create_qps_limiter(qps: int, window_ms: int = 1000) -> TimeWindowQPSLimiter:
     return TimeWindowQPSLimiter(qps=qps, window_ms=window_ms)
 
 
-def calculate_dynamic_sleep_ms(qps: int, floor_ms: int = 0) -> int:
+def calculate_dynamic_sleep_ms(qps: float, floor_ms: int = 0) -> int:
     """根据 QPS 计算动态 sleep 时间
     
     Args:
-        qps: 目标 QPS
+        qps: 目标 QPS（支持小数）
         floor_ms: 最小 sleep 时间（毫秒）
         
     Returns:

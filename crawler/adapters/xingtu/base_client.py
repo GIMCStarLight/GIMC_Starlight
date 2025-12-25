@@ -34,7 +34,7 @@ class XingtuBaseClient:
         star_id: str,
         cookie: str = None,
         cookie_file: str = None,
-        qps: int = 5,
+        qps: float = 5,
         retry_max: int = 3,
         retry_backoff_ms: int = 1000,
         user_agent: str = None,
@@ -45,7 +45,7 @@ class XingtuBaseClient:
             star_id: 星图账户ID
             cookie: Cookie字符串（优先使用）
             cookie_file: Cookie文件路径
-            qps: 每秒请求数限制
+            qps: 每秒请求数限制（支持小数，如0.5表示每2秒1个请求）
             retry_max: 最大重试次数
             retry_backoff_ms: 重试退避时间(ms)
             user_agent: 自定义UA

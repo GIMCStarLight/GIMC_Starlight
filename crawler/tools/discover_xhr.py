@@ -6,7 +6,7 @@ from pathlib import Path
 # 保存到crawler根目录下的captured_data文件夹
 OUT = Path(__file__).parent.parent / "captured_data" / "discover_out"
 OUT.mkdir(parents=True, exist_ok=True)
-TARGET = "https://agent.oceanengine.com/admin/star-agent/vue2/author/douyin/6629722292110753806"
+TARGET = "https://www.xingtu.cn/ad/creator/index"
 
 # heuristics to capture relevant endpoints
 RELEVANT_KEYWORDS = ["/api", "/star", "/author", "list", "search", "market", "page", "query", "author", "stars"]
