@@ -222,7 +222,7 @@
 
                 <!-- Tab 内容在卡片外 -->
                 <div class="tab-content-container">
-                    <TabOne v-if="activeTab === 'overview'" />
+                    <TabOne v-if="activeTab === 'overview'" @switch-tab="activeTab = $event" />
                     <TabTwo v-if="activeTab === 'content_performance'" />
                     <TabThree v-if="activeTab === 'connected_users'" />
                     <TabFour v-if="activeTab === 'business_capabilities'" />

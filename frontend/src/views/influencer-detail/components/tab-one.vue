@@ -136,35 +136,11 @@
                 <div class="card-panel-body">
                     <div class="colum-information-template">
                         <div class="main-data">
-                            <div class="data">
+                            <div v-for="(item, index) in contentData" :key="index" class="data">
                                 <span class="icon-tooltip-label label top-label">
-                                    <span class="text">发布作品</span>
+                                    <span class="text">{{ item.label }}</span>
                                 </span>
-                                <div class="value">8</div>
-                            </div>
-                            <div class="data">
-                                <span class="icon-tooltip-label label top-label">
-                                    <span class="text">平均时长</span>
-                                </span>
-                                <div class="value">230s</div>
-                            </div>
-                            <div class="data">
-                                <span class="icon-tooltip-label label top-label">
-                                    <span class="text">平均点赞</span>
-                                </span>
-                                <div class="value">24.3w</div>
-                            </div>
-                            <div class="data">
-                                <span class="icon-tooltip-label label top-label">
-                                    <span class="text">平均评论</span>
-                                </span>
-                                <div class="value">7,986</div>
-                            </div>
-                            <div class="data">
-                                <span class="icon-tooltip-label label top-label">
-                                    <span class="text">平均转发</span>
-                                </span>
-                                <div class="value">3.2w</div>
+                                <div class="value">{{ item.value }}</div>
                             </div>
                         </div>
                     </div>
@@ -561,6 +537,11 @@ import * as echarts from 'echarts'
 import { InfoCircleOutlined } from '@ant-design/icons-vue'
 import RadarChart from './RadarChart.vue'
 
+// 定义 emit
+const emit = defineEmits<{
+    switchTab: [tab: string]
+}>()
+
 const selectedIndustry = ref('')
 const excludeAdTraffic = ref(true)
 const videoType = ref('1')
@@ -591,6 +572,15 @@ const radarSeriesData = [
         lineStyle: { color: '#fe346e', width: 1 },
         itemStyle: { color: '#fe346e' }
     }
+]
+
+// 内容数据
+const contentData = [
+    { label: '发布作品', value: '8' },
+    { label: '平均时长', value: '230s' },
+    { label: '平均点赞', value: '24.3w' },
+    { label: '平均评论', value: '7,986' },
+    { label: '平均转发', value: '3.2w' }
 ]
 
 // Video dialog state
@@ -708,7 +698,7 @@ const getIndicatorDescription = (name: string) => {
 }
 
 const handleMoreVideos = () => {
-    console.log('查看更多视频')
+    emit('switchTab', 'content_performance')
 }
 
 const playVideo = (event: MouseEvent, videoSrc: string) => {
