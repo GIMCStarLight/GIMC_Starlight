@@ -695,13 +695,17 @@ class AutoCookieFetcher:
                 self.browser = None
                 self.page = context.pages[0] if context.pages else context.new_page()
             else:
+                # Linux服务器无头模式额外参数
+                launch_args = [
+                    "--disable-dev-shm-usage",
+                    "--no-sandbox",
+                    "--disable-setuid-sandbox",
+                    "--disable-gpu",
+                ]
                 browser = p.chromium.launch(
                     headless=self.headless,
                     slow_mo=random.randint(50, 150),
-                    args=[
-                        "--disable-dev-shm-usage",
-                        "--no-sandbox",
-                    ],
+                    args=launch_args,
                 )
                 context_options = {
                     "viewport": profile_params["viewport"],
@@ -880,32 +884,19 @@ class AutoCookieFetcher:
                 time.sleep(human_delay(1000, 2000))
                 random_scroll(self.page, rnd=random.Random(seed))
 
-                has_critical_security, sec_type = self.detect_security_challenge(self.page)
-                if has_critical_security:
-                    logger.error("检测到需要人工干预的验证码: %s，脚本无法自动处理", sec_type)
-                    png, _ = save_debug(self.page, "critical_security_challenge")
-                    notify_human(
-                        f"检测到需要人工干预的验证码: {sec_type}. 请人工完成验证.",
-                        screenshot_path=png,
-                        webhook_url=self.webhook,
-                    )
-                    logger.info("提示：请在浏览器中手动完成验证码，脚本将继续等待登录成功")
-                else:
-                    logger.info("未检测到需要人工干预的验证码，继续自动登录流程")
-
+                # 自动填写登录表单（无验证码场景）
                 if username and password:
-                    if has_critical_security:
-                        logger.info("检测到验证码，跳过自动填写，请人工在浏览器中完成登录")
-                    else:
-                        filled = self._fill_login_form(username, password, seed=seed)
-                        if not filled:
-                            logger.warning("自动填写失败，请人工在打开的浏览器中登录")
-                        else:
-                            logger.info("已填写账号/密码，等待登录成功（如有验证码请人工完成）")
+                    filled = self._fill_login_form(username, password, seed=seed)
+                    if not filled:
+                        logger.error("自动填写登录表单失败")
+                        save_debug(self.page, "fill_form_failed")
+                        return False
+                    logger.info("已填写账号/密码，等待登录成功")
                 else:
-                    logger.info("未提供账号/密码，请在浏览器中手动登录")
+                    logger.error("未提供账号/密码，无法自动登录")
+                    return False
 
-                wait_time = 600 if has_critical_security else 300
+                wait_time = 60  # 无验证码场景，减少等待时间
                 logger.info("等待登录完成（最多 %d 秒）...", wait_time)
                 ok = self.wait_for_login_success(self.page, max_wait=wait_time)
                 if not ok:
@@ -1638,7 +1629,7 @@ def main():
         logger.info("使用代理: %s", proxy)
 
     fetcher = AutoCookieFetcher(
-        headless=False,
+        headless=True,  # Linux服务器默认使用无头模式
         timeout=args.timeout,
         webhook=args.webhook,
         use_persistent=True,
