@@ -13,7 +13,7 @@
     <!-- 第一层：核心识别信息 -->
     <div class="card-header">
       <div class="header-content">
-        <div class="avatar-section">
+        <div class="avatar-section" @click.stop="handleViewDetail">
           <img
             v-lazy="data.avatar_uri"
             :alt="data.nick_name"
@@ -57,11 +57,25 @@
 
           <div class="meta-info">
             <span class="location">
-              <Icon icon="lucide:map-pin" />
+              <ToolTipPicker>
+                <template #content>
+                  <div class="simple-tooltip-text">所在地区</div>
+                </template>
+                <template #trigger>
+                  <Icon icon="lucide:map-pin" />
+                </template>
+              </ToolTipPicker>
               {{ data.province }}{{ data.city }}
             </span>
             <span class="follower">
-              <Icon icon="lucide:users" />
+              <ToolTipPicker>
+                <template #content>
+                  <div class="simple-tooltip-text">粉丝数量</div>
+                </template>
+                <template #trigger>
+                  <Icon icon="lucide:users" />
+                </template>
+              </ToolTipPicker>
               {{ formatFollower(data.follower) }}
             </span>
           </div>
@@ -167,7 +181,7 @@
           </div>
           <div class="price-item" v-if="data.price_20_60">
             <span class="duration">21-60s</span>
-            <span class="price highlighted">{{ formatPrice(data.price_20_60) }}</span>
+            <span class="price">{{ formatPrice(data.price_20_60) }}</span>
           </div>
           <div class="price-item" v-if="data.price_60">
             <span class="duration">60s+</span>
@@ -233,9 +247,7 @@
         
         <div v-if="data.policy_level" class="info-item">
           <span class="label">政策等级:</span>
-          <el-tag :type="getPolicyLevelType(data.policy_level)" size="small">
-            {{ data.policy_level }}级
-          </el-tag>
+          <span class="value">{{ data.policy_level }}级</span>
         </div>
         
         <div v-if="data.cooperation_degree" class="info-item">
@@ -542,15 +554,6 @@ const getEcomLevelType = (level: string): string => {
   return types[level] || 'info'
 }
 
-const getPolicyLevelType = (level: string): string => {
-  const types: Record<string, string> = {
-    'A': 'danger',
-    'B': 'warning',
-    'C': 'info',
-  }
-  return types[level] || 'info'
-}
-
 const getCooperationStars = (degree: string): number => {
   const stars: Record<string, number> = {
     'high': 5,
@@ -652,6 +655,12 @@ const handleUpdateData = () => {
     .avatar-section {
       position: relative;
       flex-shrink: 0;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
 
       .avatar-img {
         width: 60px;
@@ -882,11 +891,6 @@ const handleUpdateData = () => {
           .price {
             font-weight: 600;
             color: var(--el-color-primary);
-
-            &.highlighted {
-              color: var(--el-color-danger);
-              font-size: 14px;
-            }
           }
         }
       }
@@ -1058,8 +1062,8 @@ const handleUpdateData = () => {
           white-space: nowrap;
 
           &.highlighted {
-            color: var(--el-color-danger);
-            font-weight: 600;
+            //color: var(--el-color-danger);
+            font-weight: 500;
             font-size: 13px;
           }
         }

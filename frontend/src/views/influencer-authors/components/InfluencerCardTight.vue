@@ -162,7 +162,7 @@
             </div>
             <div class="price-item" v-if="item.price_20_60">
               <span class="duration">21-60s</span>
-              <span class="price highlighted">{{ formatPrice(item.price_20_60) }}</span>
+              <span class="price">{{ formatPrice(item.price_20_60) }}</span>
             </div>
             <div class="price-item" v-if="item.price_60">
               <span class="duration">60s+</span>
@@ -211,13 +211,11 @@
           </div>
           <div v-if="item.rebate_range" class="info-item">
             <span class="label">返点:</span>
-            <span class="value highlighted">{{ item.rebate_range }}</span>
+            <span class="value">{{ item.rebate_range }}</span>
           </div>
           <div v-if="item.policy_level" class="info-item">
             <span class="label">政策等级:</span>
-            <el-tag :type="getPolicyLevelType(item.policy_level)" size="small">
-              {{ item.policy_level }}级
-            </el-tag>
+            <span class="value">{{ item.policy_level }}级</span>
           </div>
           <div v-if="item.cooperation_degree" class="info-item">
             <span class="label">配合度:</span>
@@ -413,15 +411,6 @@ const getStarRating = (index: number): number => {
 }
 
 const getEcomLevelType = (level: string): string => {
-  const types: Record<string, string> = {
-    'A': 'danger',
-    'B': 'warning',
-    'C': 'info',
-  }
-  return types[level] || 'info'
-}
-
-const getPolicyLevelType = (level: string): string => {
   const types: Record<string, string> = {
     'A': 'danger',
     'B': 'warning',
@@ -861,11 +850,6 @@ const emit = defineEmits<{
           font-weight: 600;
           color: var(--el-color-primary);
           white-space: nowrap;
-
-          &.highlighted {
-            color: var(--el-color-danger);
-            font-size: 12px;
-          }
         }
       }
     }
@@ -960,11 +944,6 @@ const emit = defineEmits<{
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-
-            &.highlighted {
-              color: var(--el-color-danger);
-              font-weight: 600;
-            }
           }
         }
       }
