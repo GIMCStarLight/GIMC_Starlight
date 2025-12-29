@@ -134,8 +134,10 @@
           :use-store-selection="false"
           platform="douyin"
           @update-data="updatePublicInfluencerData"
-          @evaluate="handleEvaluate"
+          @evaluate="handlePublicEvaluate"
           @selection-change="handleKolPublicSelectionChange"
+          @view-detail="handlePublicViewDetail"
+          @favorite="handlePublicFavorite"
         />
 
         <!-- 分页 -->
@@ -1355,6 +1357,31 @@ const handleDetailEdit = (row: any) => {
 const handleViewAuthor = (authorId: string) => {
   // 跳转到达人详情页面
   router.push(`/influencer-detail/${authorId}`)
+}
+
+// 公海达人数据 - 查看详情（跳转到达人详情页）
+const handlePublicViewDetail = (data: any) => {
+  log.debug('[公海达人] 查看详情:', data)
+  router.push(`/influencer-detail/${data.author_id}`)
+}
+
+// 公海达人数据 - 评价达人
+const handlePublicEvaluate = (data: any) => {
+  log.debug('[公海达人] 评价达人:', data)
+  // 公海达人数据使用 author_id（达人广场的数据结构）
+  currentEvaluateAuthorId.value = data.author_id || ''
+  if (!currentEvaluateAuthorId.value) {
+    ElMessage.warning('该达人缺少 ID，无法评价')
+    return
+  }
+  evaluateDialogVisible.value = true
+}
+
+// 公海达人数据 - 收藏达人
+const handlePublicFavorite = (data: any) => {
+  log.debug('[公海达人] 收藏达人:', data)
+  data.isFavorited = !data.isFavorited
+  ElMessage.success(data.isFavorited ? '已收藏' : '取消收藏')
 }
 
 // 评价达人
