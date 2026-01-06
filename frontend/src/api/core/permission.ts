@@ -16,6 +16,13 @@ export namespace PermissionApi {
     createdAt: string;
     updatedAt: string;
     children?: PermissionInfo[];
+    frontendMeta?: {
+      routePath?: string; // 前端路由路径
+      componentPath?: string; // 组件路径
+      elementLocator?: string; // UI元素定位器
+      pageLocation?: string; // 页面位置描述
+      businessModule?: string; // 业务模块
+    };
   }
 
   /** 权限列表查询参数 */
@@ -64,6 +71,13 @@ export namespace PermissionApi {
     parentId?: string;
     sort?: number;
     status?: number;
+    frontendMeta?: {
+      routePath?: string;
+      componentPath?: string;
+      elementLocator?: string;
+      pageLocation?: string;
+      businessModule?: string;
+    };
   }
 }
 

@@ -464,7 +464,31 @@ watch(searchKeyword, (newVal) => {
                 </div>
                 
                 <div class="permission-meta">
-                  <span v-if="permission.code" class="meta-code">{{ permission.code }}</span>
+                  <!-- 权限代码 -->
+                  <span v-if="permission.code" class="meta-code">
+                    <Icon icon="lucide:code" :size="12" />
+                    {{ permission.code }}
+                  </span>
+                  
+                  <!-- 页面位置描述 (高亮显示) -->
+                  <span v-if="permission.frontendMeta?.pageLocation" class="meta-location">
+                    <Icon icon="lucide:map-pin" :size="12" />
+                    {{ permission.frontendMeta.pageLocation }}
+                  </span>
+                  
+                  <!-- 前端路由 -->
+                  <span v-if="permission.frontendMeta?.routePath" class="meta-route">
+                    <Icon icon="lucide:route" :size="12" />
+                    {{ permission.frontendMeta.routePath }}
+                  </span>
+                  
+                  <!-- 业务模块 -->
+                  <span v-if="permission.frontendMeta?.businessModule" class="meta-module">
+                    <Icon icon="lucide:package" :size="12" />
+                    {{ permission.frontendMeta.businessModule }}
+                  </span>
+                  
+                  <!-- 资源和描述 (降低优先级) -->
                   <span v-if="permission.resource" class="meta-text">
                     资源: {{ permission.resource }}
                   </span>
@@ -683,19 +707,56 @@ watch(searchKeyword, (newVal) => {
 .permission-meta {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 
 .meta-text {
   font-size: 12px;
-  color: #6b7280;
+  color: #9ca3af;
   line-height: 1.4;
 }
 
 .meta-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-size: 11px;
   color: #9ca3af;
   font-family: 'Monaco', 'Consolas', monospace;
+}
+
+/* 前端元数据样式 - 高亮显示 */
+.meta-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #3b82f6;
+  font-weight: 500;
+  line-height: 1.5;
+  background: #eff6ff;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.meta-route {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #059669;
+  font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.meta-module {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #8b5cf6;
+  background: #f5f3ff;
+  padding: 2px 6px;
+  border-radius: 3px;
 }
 
 /* 空状态 */
