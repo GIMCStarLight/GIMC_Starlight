@@ -8,6 +8,8 @@ import { computed, h, nextTick, onMounted, reactive, ref, watch } from 'vue';
 
 import { IconifyIcon as Icon } from '@vben/icons';
 
+import PermissionSelector from './components/PermissionSelector.vue';
+
 import {
   ElButton,
   ElDialog,
@@ -278,7 +280,6 @@ const permissionLoading = ref(false);
 const permissionTree = ref<PermissionApi.PermissionInfo[]>([]);
 const selectedPermissions = ref<string[]>([]);
 const currentRole = ref<null | RoleApi.RoleInfo>(null);
-const permissionTreeRef = ref();
 
 const treeProps = {
   children: 'children',
@@ -624,12 +625,9 @@ const handleSavePermissions = async () => {
 
   try {
     permissionLoading.value = true;
-    const checkedKeys = permissionTreeRef.value.getCheckedKeys();
-    const halfCheckedKeys = permissionTreeRef.value.getHalfCheckedKeys();
-    const allPermissions = [...checkedKeys, ...halfCheckedKeys];
     
-    // 过滤掉非权限ID，只保留实际的权限ID（数字ID）
-    const permissionIds = allPermissions.filter(id => 
+    // 直接使用 selectedPermissions，它已经包含了所有选中的权限ID
+    const permissionIds = selectedPermissions.value.filter(id => 
       typeof id === 'string' && /^\d+$/.test(id)
     );
 
@@ -896,7 +894,7 @@ watch(
     <ElDialog
       v-model="permissionDialogVisible"
       title="分配权限"
-      width="800px"
+      width="1100px"
       :close-on-click-modal="false"
     >
       <div class="mb-4">
@@ -906,29 +904,10 @@ watch(
         <p class="text-sm text-gray-500">请选择该角色应该拥有的权限</p>
       </div>
 
-      <ElTree
-        ref="permissionTreeRef"
-        :data="permissionTree"
-        :props="treeProps"
-        show-checkbox
-        node-key="id"
-        :default-checked-keys="selectedPermissions"
-        class="permission-tree"
-      >
-        <template #default="{ node, data }">
-          <div class="flex items-center">
-            <Icon
-              :icon="getPermissionIcon(data)"
-              class="mr-2"
-              size="16"
-            />
-            <span>{{ data.name }}</span>
-            <ElTag v-if="data.code" type="info" size="small" class="ml-2">
-              {{ data.code }}
-            </ElTag>
-          </div>
-        </template>
-      </ElTree>
+      <PermissionSelector
+        v-model="selectedPermissions"
+        :permission-tree="permissionTree"
+      />
 
       <template #footer>
         <div class="dialog-footer">
