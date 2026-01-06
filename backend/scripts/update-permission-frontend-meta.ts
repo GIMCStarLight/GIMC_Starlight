@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 import PostgresDataSource from '../data-source-postgres';
 import { Permission } from '../src/database/entities/permission.entity';
@@ -168,6 +169,194 @@ const permissionMetaMappings: PermissionMetaMapping[] = [
       componentPath: 'src/views/tags/index.vue',
       pageLocation: '标签管理 > 标签列表',
       businessModule: '标签管理',
+    },
+  },
+
+  // ===== 财务管理模块 =====
+  {
+    code: 'finance:access',
+    frontendMeta: {
+      routePath: '/financial-management',
+      componentPath: 'src/views/financial-management/index.vue',
+      pageLocation: '财务管理 > 返点政策管理',
+      businessModule: '财务管理',
+    },
+  },
+  {
+    code: 'finance:rebate:view',
+    frontendMeta: {
+      routePath: '/financial-management',
+      componentPath: 'src/views/financial-management/index.vue',
+      pageLocation: '财务管理 > 返点政策管理 > 政策列表',
+      businessModule: '财务管理',
+    },
+  },
+  {
+    code: 'finance:rebate:policy:create',
+    frontendMeta: {
+      routePath: '/financial-management',
+      componentPath: 'src/views/financial-management/index.vue',
+      elementLocator: '#create-policy-btn',
+      pageLocation: '财务管理 > 返点政策管理 > 顶部操作栏 > 新建政策按钮',
+      businessModule: '财务管理',
+    },
+  },
+  {
+    code: 'finance:rebate:flow:view',
+    frontendMeta: {
+      routePath: '/rebate-flow',
+      componentPath: 'src/views/rebate-flow/index.vue',
+      pageLocation: '财务管理 > 返点流水',
+      businessModule: '财务管理',
+    },
+  },
+  {
+    code: 'finance:rebate:flow:export',
+    frontendMeta: {
+      routePath: '/rebate-flow',
+      componentPath: 'src/views/rebate-flow/index.vue',
+      elementLocator: '#export-flow-btn',
+      pageLocation: '财务管理 > 返点流水 > 顶部操作栏 > 导出按钮',
+      businessModule: '财务管理',
+    },
+  },
+
+  // ===== 供应商管理模块 =====
+  {
+    code: 'supplier:view',
+    frontendMeta: {
+      routePath: '/supplier-management',
+      componentPath: 'src/views/supplier-management/index.vue',
+      pageLocation: '供应商管理 > 供应商列表',
+      businessModule: '供应商管理',
+    },
+  },
+  {
+    code: 'supplier:create',
+    frontendMeta: {
+      routePath: '/supplier-management',
+      componentPath: 'src/views/supplier-management/index.vue',
+      elementLocator: '#create-supplier-btn',
+      pageLocation: '供应商管理 > 顶部操作栏 > 新建供应商按钮',
+      businessModule: '供应商管理',
+    },
+  },
+
+  // ===== AI助手模块 =====
+  {
+    code: 'ai:assistant:view',
+    frontendMeta: {
+      routePath: '/ai-assistant',
+      componentPath: 'src/views/ai-assistant/index.vue',
+      pageLocation: 'AI助手 > AI对话界面',
+      businessModule: 'AI助手',
+    },
+  },
+  {
+    code: 'ai:assistant:chat',
+    frontendMeta: {
+      routePath: '/ai-assistant',
+      componentPath: 'src/views/ai-assistant/index.vue',
+      elementLocator: '#chat-input',
+      pageLocation: 'AI助手 > AI对话 > 输入框',
+      businessModule: 'AI助手',
+    },
+  },
+  {
+    code: 'ai:number:selection:view',
+    frontendMeta: {
+      routePath: '/ai-number-selection',
+      componentPath: 'src/views/ai-number-selection/index.vue',
+      pageLocation: 'AI助手 > AI选号',
+      businessModule: 'AI助手',
+    },
+  },
+
+  // ===== 达人管理模块 =====
+  {
+    code: 'influencer:view',
+    frontendMeta: {
+      routePath: '/influencer-management',
+      componentPath: 'src/views/influencer-management/index.vue',
+      pageLocation: '达人管理 > 达人列表',
+      businessModule: '达人管理',
+    },
+  },
+  {
+    code: 'influencer:create',
+    frontendMeta: {
+      routePath: '/influencer-management',
+      componentPath: 'src/views/influencer-management/index.vue',
+      elementLocator: '#create-influencer-btn',
+      pageLocation: '达人管理 > 顶部操作栏 > 新建达人按钮',
+      businessModule: '达人管理',
+    },
+  },
+  {
+    code: 'influencer:export',
+    frontendMeta: {
+      routePath: '/influencer-management',
+      componentPath: 'src/views/influencer-management/index.vue',
+      elementLocator: '#export-influencer-btn',
+      pageLocation: '达人管理 > 顶部操作栏 > 导出按钮',
+      businessModule: '达人管理',
+    },
+  },
+
+  // ===== KOL额外权限 =====
+  {
+    code: 'kol:create',
+    frontendMeta: {
+      routePath: '/kol',
+      componentPath: 'src/views/kol/index.vue',
+      elementLocator: '#create-kol-btn',
+      pageLocation: 'KOL数据管理 > 顶部操作栏 > 新建KOL按钮',
+      businessModule: 'KOL数据管理',
+    },
+  },
+  {
+    code: 'kol:update',
+    frontendMeta: {
+      routePath: '/kol',
+      componentPath: 'src/views/kol/index.vue',
+      elementLocator: '.edit-kol-btn',
+      pageLocation: 'KOL数据管理 > KOL列表 > 操作列 > 编辑按钮',
+      businessModule: 'KOL数据管理',
+    },
+  },
+  {
+    code: 'kol:delete',
+    frontendMeta: {
+      routePath: '/kol',
+      componentPath: 'src/views/kol/index.vue',
+      elementLocator: '.delete-kol-btn',
+      pageLocation: 'KOL数据管理 > KOL列表 > 操作列 > 删除按钮',
+      businessModule: 'KOL数据管理',
+    },
+  },
+  {
+    code: 'kol:review:view',
+    frontendMeta: {
+      routePath: '/kol-evaluation',
+      componentPath: 'src/views/kol-evaluation/index.vue',
+      pageLocation: 'KOL数据管理 > KOL评估',
+      businessModule: 'KOL数据管理',
+    },
+  },
+
+  // ===== 数据导出权限 =====
+  {
+    code: 'data:export',
+    frontendMeta: {
+      pageLocation: '全局 > 数据导出功能',
+      businessModule: '数据管理',
+    },
+  },
+  {
+    code: 'data:export_sensitive',
+    frontendMeta: {
+      pageLocation: '全局 > 敏感数据导出功能',
+      businessModule: '数据管理',
     },
   },
 
