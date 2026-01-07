@@ -17,7 +17,7 @@ export class StarmediaInfluencer {
   @Column({ type: 'varchar', length: 50, unique: true, name: 'account_id' })
   accountId: string;
 
-  @Column({ type: 'varchar', length: 100 })
+  @Column({ type: 'varchar', length: 100, name: 'account_name' })
   nickname: string;
 
   @Column({ type: 'varchar', length: 200, nullable: true, name: 'influencer_overview' })
@@ -26,10 +26,10 @@ export class StarmediaInfluencer {
   @Column({ type: 'varchar', length: 100, default: '省广星媒', name: 'affiliated_organization' })
   affiliatedOrganization: string;
 
-  @Column({ type: 'varchar', length: 100, nullable: true, name: 'influencer_category' })
+  @Column({ type: 'varchar', length: 100, nullable: true, name: 'category' })
   influencerCategory: string;
 
-  @Column({ type: 'decimal', precision: 10, scale: 2, nullable: true, name: 'total_fans' })
+  @Column({ type: 'decimal', precision: 10, scale: 2, nullable: true, name: 'followers_w' })
   totalFans: number;
 
   @Column({ type: 'varchar', length: 100, nullable: true, name: 'contract_status' })
