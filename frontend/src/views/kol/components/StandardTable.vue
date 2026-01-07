@@ -1,50 +1,65 @@
 <template>
     <div class="standard-table">
-        <!-- Ant Design Table -->
-        <a-table
-            :loading="loading"
-            :columns="antColumns"
-            :data-source="dataSource"
-            :row-key="rowKey"
-            :bordered="bordered"
+        <!-- Element Plus Table -->
+        <el-table
+            :data="dataSource"
+            :border="bordered"
             :size="size"
-            :pagination="false"
-            :row-selection="selectedRows !== undefined ? rowSelection : null"
-            :scroll="{ x: 'max-content' }"
+            :row-key="rowKey"
+            v-loading="loading"
+            @selection-change="handleSelectionChange"
+            style="width: 100%"
         >
-            <!-- 自定义单元格插槽 -->
-            <template #bodyCell="{ text, record, index, column }">
-                <template v-for="col in columns" :key="col.prop">
+            <!-- 多选列 -->
+            <el-table-column
+                v-if="selectedRows !== undefined"
+                type="selection"
+                width="55"
+                :reserve-selection="true"
+            />
+            
+            <!-- 数据列 -->
+            <el-table-column
+                v-for="col in columns"
+                :key="col.prop"
+                :prop="col.prop"
+                :label="col.label"
+                :width="col.width"
+                :min-width="col.minWidth"
+                :align="col.align || 'center'"
+                :sortable="col.sortable"
+                :fixed="col.fixed"
+            >
+                <template #default="{ row, $index }">
                     <slot 
-                        v-if="$slots[col.prop] && column.dataIndex === (col.dataIndex || col.prop)" 
+                        v-if="$slots[col.prop]" 
                         :name="col.prop" 
-                        :text="text" 
-                        :record="record" 
-                        :index="index" 
+                        :record="row"
+                        :text="row[col.prop]"
+                        :index="$index" 
                     />
+                    <span v-else>{{ row[col.prop] }}</span>
                 </template>
-            </template>
-        </a-table>
+            </el-table-column>
+        </el-table>
 
-        <!-- Ant Design Pagination -->
-        <a-pagination
+        <!-- Element Plus Pagination -->
+        <el-pagination
             v-if="pagination !== false"
-            v-model:current="currentPage"
+            v-model:current-page="currentPage"
             v-model:page-size="currentPageSize"
+            :page-sizes="[10, 20, 50, 100]"
             :total="pagination.total"
-            :show-size-changer="true"
-            :show-quick-jumper="true"
-            :show-total="total => `共 ${total} 条`"
-            :page-size-options="['10', '20', '50', '100']"
+            layout="total, sizes, prev, pager, next, jumper"
             class="pagination"
-            @change="onPageChange"
-            @showSizeChange="onPageSizeChange"
+            @size-change="onPageSizeChange"
+            @current-change="onPageChange"
         />
     </div>
 </template>
 
 <script setup>
-import { computed, reactive, watch, ref } from 'vue'
+import { computed, watch, ref, reactive } from 'vue'
 
 const props = defineProps({
     bordered: Boolean,
@@ -116,62 +131,31 @@ function onPageSizeChange(current, size) {
     emit('change', { ...props.pagination, current: 1, pageSize: size })
 }
 
-/* ---------- Ant Design 列配置转换 ---------- */
-const antColumns = computed(() => {
-    return props.columns.map(col => ({
-        title: col.label,
-        dataIndex: col.dataIndex || col.prop,
-        key: col.prop || col.label,
-        width: col.width,
-        align: col.align || 'center', // 默认居中
-        sorter: col.sortable ? true : false,
-        sortDirections: ['descend', 'ascend'],
-        showSorterTooltip: col.sortable ? {
-            title: '点击排序'
-        } : false,
-        customRender: col.formatter ? ({ text, record }) => col.formatter(record, null, text) : undefined,
-        ellipsis: true,
-        fixed: col.fixed
-    }))
-})
-
-/* ---------- 行选择配置 ---------- */
-const rowSelection = computed(() => {
-    if (props.selectedRows === undefined) return null
+/* ---------- Element Plus 选择变更 ---------- */
+function handleSelectionChange(selection) {
+    // Element Plus Table 的 selection-change 返回当前页选中的行
+    const currentPageKeys = dataSource.value.map(getRowKey)
     
-    return {
-        selectedRowKeys: selectedRowKeys.value,
-        onChange: (selectedKeys, selectedRows) => {
-            // Ant Design Table 的 onChange 会直接返回当前页选中的行
-            // 我们需要合并其他页的选中状态
-            const currentPageKeys = props.dataSource.map(getRowKey)
-            
-            // 保留其他页的选中项
-            const otherPagesSelected = (props.selectedRows || []).filter(
-                row => !currentPageKeys.includes(getRowKey(row))
-            )
-            
-            // 合并当前页选中项（去重）
-            const selectedRowsMap = new Map()
-            
-            // 先添加其他页的选中项
-            otherPagesSelected.forEach(row => {
-                selectedRowsMap.set(getRowKey(row), row)
-            })
-            
-            // 再添加当前页的选中项（会自动覆盖重复的）
-            selectedRows.forEach(row => {
-                selectedRowsMap.set(getRowKey(row), row)
-            })
-            
-            const newSelectedRows = Array.from(selectedRowsMap.values())
-            
-            emit('update:selectedRows', newSelectedRows)
-            emit('selectedRowChange', newSelectedRows.map(getRowKey), newSelectedRows)
-        },
-        preserveSelectedRowKeys: true, // 保留选中状态
-    }
-})
+    // 保留其他页的选中项
+    const otherPagesSelected = (props.selectedRows || []).filter(
+        row => !currentPageKeys.includes(getRowKey(row))
+    )
+    
+    // 合并当前页选中项
+    const selectedRowsMap = new Map()
+    otherPagesSelected.forEach(row => {
+        selectedRowsMap.set(getRowKey(row), row)
+    })
+    selection.forEach(row => {
+        selectedRowsMap.set(getRowKey(row), row)
+    })
+    
+    const newSelectedRows = Array.from(selectedRowsMap.values())
+    emit('update:selectedRows', newSelectedRows)
+    emit('selectedRowChange', newSelectedRows.map(getRowKey), newSelectedRows)
+}
+
+const dataSource = computed(() => props.dataSource)
 
 /* ---------- 顶部总计 ---------- */
 const needTotalList = reactive(
@@ -200,14 +184,14 @@ watch(
     }
 
     // 表头居中
-    :deep(.ant-table-thead > tr > th) {
+    :deep(.el-table th) {
         text-align: center;
         color: #31343B;
         font-size: 12px;
     }
 
     // 单元格内容居中
-    :deep(.ant-table-tbody > tr > td) {
+    :deep(.el-table td) {
         text-align: center;
         color: #31343B;
         font-size: 14px;

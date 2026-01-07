@@ -365,7 +365,7 @@
   <!-- 导入加载弹窗 -->
   <el-dialog v-model="importLoading" title="正在导入" width="360px" :close-on-click-modal="false" :show-close="false">
     <div class="loading-content">
-      <el-icon class="is-loading" :size="24"><LoadingIcon /></el-icon>
+      <el-icon class="is-loading" :size="24"><Loading /></el-icon>
       <span>正在解析 Excel，请稍候…</span>
     </div>
   </el-dialog>
@@ -373,7 +373,7 @@
   <!-- 上传加载弹窗 -->
   <el-dialog v-model="uploadLoading" title="正在上传" width="360px" :close-on-click-modal="false" :show-close="false">
     <div class="loading-content">
-      <el-icon class="is-loading" :size="24"><LoadingIcon /></el-icon>
+      <el-icon class="is-loading" :size="24"><Loading /></el-icon>
       <span>正在上传到数据库，请稍候…</span>
     </div>
   </el-dialog>
@@ -411,8 +411,8 @@
 
 <script setup lang="ts">
 import { ref, reactive, onMounted, computed, watch, nextTick } from 'vue'
-import { ElMessage, ElMessageBox } from 'element-plus'
-import { InfoFilled } from '@element-plus/icons-vue'
+import { ElMessage, ElMessageBox, ElLoading } from 'element-plus'
+import { InfoFilled, Loading } from '@element-plus/icons-vue'
 import { IconifyIcon as Icon } from '@vben/icons'
 import { requestClient } from '../../api/request'
 import { Excel, mapExcelKolList } from '../../utils/excel'
@@ -437,8 +437,20 @@ import { useInfluencerSquareStore } from '../../store/modules/influencer-square'
 import { storeToRefs } from 'pinia'
 import { InfluencerNormalizer } from '../../utils/influencer-normalizer'
 import StandardTable from './components/StandardTable.vue'
+import { useFieldPermissions } from '../../composables/useFieldPermissions'
 
 const router = useRouter()
+
+// 字段权限控制
+const { hasFieldGroupPermission, isSuperAdmin } = useFieldPermissions('kol')
+
+// KOL字段权限检查
+const canViewBasic = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:basic'))
+const canViewPrice = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:price'))
+const canViewRebate = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:rebate'))
+const canViewContact = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:contact'))
+const canViewCooperation = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:cooperation'))
+const canViewMatch = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:match'))
 
 // 达人广场Store（用于公海达人数据）
 const influencerStore = useInfluencerSquareStore()
@@ -598,8 +610,11 @@ const handleTabChange = async (tabName: string) => {
   if (tabName === 'private') {
     // 切换到自有达人数据，加载原有数据
     log.debug('🔄 切换到自有达人数据 tab')
+    log.debug('🔄 当前 pagination:', pagination)
+    log.debug('🔄 当前 searchForm:', searchForm)
     await loadData()
     await loadSyncStats()
+    log.debug('🔄 数据加载完成, tableData.length:', tableData.value.length, 'total:', pagination.total)
   } else if (tabName === 'public') {
     // 切换到公海达人数据，加载达人广场数据
     log.debug('🔄 切换到公海达人数据 tab')
@@ -848,7 +863,9 @@ const loadData = async () => {
         delete params[key]
       }
     })
+    log.debug('[loadData] 请求参数:', params)
     const response = await requestClient.get('kol-lists', { params, responseReturn: 'raw' })
+    log.debug('[loadData] API响应:', response)
     const body = (response && (response as any).data !== undefined) ? (response as any).data : response
     let items: any[] = []
     let page = 1
@@ -873,11 +890,18 @@ const loadData = async () => {
     pagination.page = page
     pagination.limit = limit
     pagination.total = total
+    log.debug('[loadData] 加载完成:', { itemsCount: items.length, page, limit, total })
   } catch (error: any) {
-    log.error('API请求失败:', error)
+    log.error('[loadData] API请求失败:', error)
+    log.error('[loadData] 错误详情:', {
+      message: error?.message,
+      status: error?.response?.status,
+      data: error?.response?.data
+    })
     const status = error?.response?.status
     if (status === 404 || status === 204) {
       // 空数据场景：不提示错误，展示空表格
+      log.debug('[loadData] 空数据场景，status:', status)
       tableData.value = []
       pagination.total = 0
     } else {
@@ -1375,71 +1399,83 @@ const handleReviewSubmitted = () => {
   // 可以在这里刷新列表或做其他操作
 }
 
-// 表格列配置
-const tableColumns = [
+// 表格列配置 - 字段权限控制
+const baseColumns = [
   {
     prop: 'platform',
     label: '平台',
-    width: 90
+    width: 90,
+    permission: 'kol:field:basic'
   },
   {
     prop: 'account_name',
     label: '账号名称',
-    width: 180
+    width: 180,
+    permission: 'kol:field:basic'
   },
   {
     prop: 'account_id',
     label: '账号ID',
-    width: 140
+    width: 140,
+    permission: 'kol:field:basic'
   },
   {
     prop: 'org_name',
     label: '机构名',
-    width: 130
+    width: 130,
+    permission: 'kol:field:cooperation'
   },
   {
     prop: 'followers_w',
     label: '粉丝(万)',
     width: 100,
-    sortable: true
+    sortable: true,
+    permission: 'kol:field:basic'
   },
   {
     prop: 'category',
     label: '类型',
-    width: 110
+    width: 110,
+    permission: 'kol:field:basic'
   },
   {
     prop: 'matched_author_id',
     label: '匹配达人',
-    width: 180
+    width: 180,
+    permission: 'kol:field:match'
   },
   {
     prop: 'cooperation_degree',
     label: '配合度',
     width: 90,
-    align: 'center'
+    align: 'center',
+    permission: 'kol:field:cooperation'
   },
   {
     prop: 'rebate_policy',
     label: '返点',
-    width: 90
+    width: 90,
+    permission: 'kol:field:rebate'
   },
   {
     prop: 'policy_level',
     label: '政策',
     width: 80,
-    align: 'center'
+    align: 'center',
+    permission: 'kol:field:rebate'
   },
   {
     prop: 'match_status',
     label: '同步状态',
-    width: 110
+    width: 110,
+    permission: 'kol:field:match'
   },
   {
     prop: 'price_range',
     label: '报价范围',
     width: 180,
-    fixed: 'right'
+    fixed: 'right',
+    permission: 'kol:field:price'
   },
   {
     prop: 'actions',
@@ -1448,6 +1484,22 @@ const tableColumns = [
     fixed: 'right'
   }
 ]
+
+// 根据权限过滤表格列
+const tableColumns = computed(() => {
+  // 超级管理员显示所有列
+  if (isSuperAdmin.value) {
+    return baseColumns
+  }
+  
+  // 根据权限过滤列
+  return baseColumns.filter(col => {
+    // 操作列始终显示
+    if (!col.permission) return true
+    // 检查列的权限
+    return hasFieldGroupPermission(col.permission)
+  })
+})
 
 // 分页处理（适配 StandardTable 组件）
 const handleTableChange = (paginationData: any) => {
@@ -1467,8 +1519,11 @@ const handleTableChange = (paginationData: any) => {
 
 // 生命周期
 onMounted(() => {
+  log.debug('[onMounted] activeTab:', activeTab.value)
   // 默认加载公海达人数据（因为activeTab默认为'public'）
   loadPublicData()
+  // 同时预加载自有达人数据的统计信息
+  loadSyncStats()
 })
 </script>
 
