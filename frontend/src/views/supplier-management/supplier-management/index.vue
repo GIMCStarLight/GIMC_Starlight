@@ -123,23 +123,34 @@
         @selection-change="handleSelectionChange"
       >
         <el-table-column type="selection" width="55" />
-        <el-table-column prop="supplier_full_name" label="供应商全称" min-width="200" />
-        <el-table-column prop="agency_name" label="机构名" min-width="150" />
-        <el-table-column prop="supplier_type" label="供应商性质" width="120" />
-        <el-table-column prop="current_policy_gradient" label="当前政策梯度" width="140" />
-        <el-table-column prop="primary_contact_name" label="一级对接人" width="120" />
-        <el-table-column prop="primary_contact_phone_wechat" label="联系方式" width="150" />
-        <el-table-column prop="is_proxy_order" label="是否代下单" width="100">
+        
+        <!-- 基本信息字段 -->
+        <el-table-column v-if="canViewBasic" prop="supplier_full_name" label="供应商全称" min-width="200" />
+        <el-table-column v-if="canViewBasic" prop="agency_name" label="机构名" min-width="150" />
+        <el-table-column v-if="canViewBasic" prop="supplier_type" label="供应商性质" width="120" />
+        
+        <!-- 财务信息字段 -->
+        <el-table-column v-if="canViewFinance" prop="current_policy_gradient" label="当前政策梯度" width="140" />
+        <el-table-column v-if="canViewFinance" prop="tax_rate_percent" label="税率(%)" width="100" />
+        <el-table-column v-if="canViewFinance" prop="payment_term" label="账期" width="120" />
+        
+        <!-- 联系人信息字段 -->
+        <el-table-column v-if="canViewContact" prop="primary_contact_name" label="一级对接人" width="120" />
+        <el-table-column v-if="canViewContact" prop="primary_contact_phone_wechat" label="联系方式" width="150" />
+        
+        <!-- 资源信息字段 -->
+        <el-table-column v-if="canViewResource" prop="is_proxy_order" label="是否代下单" width="100">
           <template #default="{ row }">
             <el-tag :type="row.is_proxy_order ? 'success' : 'info'" size="small">
               {{ row.is_proxy_order ? '是' : '否' }}
             </el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="tax_rate_percent" label="税率(%)" width="100" />
-        <el-table-column prop="payment_term" label="账期" width="120" />
-        <el-table-column prop="resource_type" label="资源类型" width="120" />
-        <el-table-column prop="contract_follow_up_person" label="跟进人" width="100" />
+        <el-table-column v-if="canViewResource" prop="resource_type" label="资源类型" width="120" />
+        
+        <!-- 合同信息字段 -->
+        <el-table-column v-if="canViewContract" prop="contract_follow_up_person" label="跟进人" width="100" />
+        
         <el-table-column label="操作" width="250" fixed="right">
           <template #default="{ row }">
             <el-button type="primary" size="small" @click="handleView(row)">查看</el-button>
@@ -172,7 +183,7 @@
     >
       <div class="supplier-detail">
         <!-- 基本信息 -->
-        <el-card class="section-card" shadow="never">
+        <el-card v-if="canViewBasic" class="section-card" shadow="never">
           <template #header>
             <div class="section-header">
               <span class="section-title">基本信息</span>
@@ -193,7 +204,7 @@
         </el-card>
 
         <!-- 政策与财务 -->
-        <el-card class="section-card" shadow="never">
+        <el-card v-if="canViewFinance" class="section-card" shadow="never">
           <template #header>
             <div class="section-header">
               <span class="section-title">政策与财务</span>
@@ -210,7 +221,7 @@
         </el-card>
 
         <!-- 2024年政策 -->
-        <el-card class="section-card" shadow="never">
+        <el-card v-if="canViewPolicy" class="section-card" shadow="never">
           <template #header>
             <div class="section-header">
               <span class="section-title">2024年政策</span>
@@ -224,7 +235,7 @@
         </el-card>
 
         <!-- 2025年政策 -->
-        <el-card class="section-card" shadow="never">
+        <el-card v-if="canViewPolicy" class="section-card" shadow="never">
           <template #header>
             <div class="section-header">
               <span class="section-title">2025年政策</span>
@@ -238,7 +249,7 @@
         </el-card>
 
         <!-- 联系人信息 -->
-        <el-card class="section-card" shadow="never">
+        <el-card v-if="canViewContact" class="section-card" shadow="never">
           <template #header>
             <div class="section-header">
               <span class="section-title">联系人信息</span>
@@ -255,7 +266,7 @@
         </el-card>
 
         <!-- 合同信息 -->
-        <el-card class="section-card" shadow="never">
+        <el-card v-if="canViewContract" class="section-card" shadow="never">
           <template #header>
             <div class="section-header">
               <span class="section-title">合同信息</span>
@@ -271,7 +282,7 @@
         </el-card>
 
         <!-- 资源信息 -->
-        <el-card class="section-card" shadow="never">
+        <el-card v-if="canViewResource" class="section-card" shadow="never">
           <template #header>
             <div class="section-header">
               <span class="section-title">资源信息</span>
@@ -565,7 +576,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive, onMounted, computed } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { log } from '../../../utils/logger'
 import { Excel, mapExcelSupplier } from '../../../utils/excel'
@@ -580,6 +591,18 @@ import {
   type CreateSupplierDto,
   type SupplierListParams
 } from '../../../api/supplier'
+import { useFieldPermissions } from '../../../composables/useFieldPermissions'
+
+// 字段级权限控制
+const { hasFieldGroupPermission, isSuperAdmin } = useFieldPermissions('supplier')
+
+// 各字段组权限检查
+const canViewBasic = computed(() => isSuperAdmin.value || hasFieldGroupPermission('supplier:field:basic'))
+const canViewFinance = computed(() => isSuperAdmin.value || hasFieldGroupPermission('supplier:field:finance'))
+const canViewPolicy = computed(() => isSuperAdmin.value || hasFieldGroupPermission('supplier:field:policy'))
+const canViewContact = computed(() => isSuperAdmin.value || hasFieldGroupPermission('supplier:field:contact'))
+const canViewContract = computed(() => isSuperAdmin.value || hasFieldGroupPermission('supplier:field:contract'))
+const canViewResource = computed(() => isSuperAdmin.value || hasFieldGroupPermission('supplier:field:resource'))
 
 // 响应式数据
 const drawerVisible = ref(false)  // 详情浮窗

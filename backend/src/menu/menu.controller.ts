@@ -1,4 +1,4 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Controller, Get, UseGuards, Request, Logger } from '@nestjs/common';
 import {
   ApiTags,
   ApiOperation,
@@ -61,8 +61,63 @@ export class MenuController {
   })
   @ApiResponse({ status: 401, description: '未授权访问' })
   @ApiResponse({ status: 403, description: '权限不足' })
-  async getAllMenus() {
-    const result = await this.menuService.getAllMenus();
-    return ResponseUtil.success(result, '获取菜单列表成功');
+  async getAllMenus(@Request() req: any) {
+    // 获取用户权限码
+    const userPermissions: string[] = req.user?.permissions || [];
+    Logger.debug(`用户权限: ${userPermissions.join(', ')}`, 'MenuController');
+    
+    // 获取所有菜单
+    const allMenus = await this.menuService.getAllMenus();
+    
+    // 根据权限过滤菜单
+    const filteredMenus = this.filterMenusByPermissions(allMenus, userPermissions);
+    
+    return ResponseUtil.success(filteredMenus, '获取菜单列表成功');
+  }
+  
+  /**
+   * 根据用户权限过滤菜单
+   */
+  private filterMenusByPermissions(menus: any[], userPermissions: string[]): any[] {
+    // 检查是否是超级管理员（有通配符权限）
+    const isSuperAdmin = userPermissions.includes('*') || userPermissions.includes('*:*');
+    
+    if (isSuperAdmin) {
+      Logger.debug('超级管理员，返回所有菜单', 'MenuController');
+      return menus;
+    }
+    
+    return menus.filter(menu => {
+      // 检查菜单是否有权限要求
+      const requiredPermissions = menu.meta?.permissions || [];
+      
+      // 如果没有权限要求，默认显示
+      if (requiredPermissions.length === 0) {
+        // 如果有子菜单，递归过滤
+        if (menu.children && menu.children.length > 0) {
+          menu.children = this.filterMenusByPermissions(menu.children, userPermissions);
+          // 如果过滤后没有子菜单，隐藏父菜单
+          return menu.children.length > 0;
+        }
+        return true;
+      }
+      
+      // 检查用户是否有任一所需权限（OR逻辑）
+      const hasPermission = requiredPermissions.some((perm: string) => userPermissions.includes(perm));
+      
+      if (hasPermission) {
+        // 如果有子菜单，递归过滤
+        if (menu.children && menu.children.length > 0) {
+          menu.children = this.filterMenusByPermissions(menu.children, userPermissions);
+          // 如果子菜单全被过滤，隐藏父菜单
+          if (menu.children.length === 0) {
+            return false;
+          }
+        }
+        return true;
+      }
+      
+      return false;
+    });
   }
 }

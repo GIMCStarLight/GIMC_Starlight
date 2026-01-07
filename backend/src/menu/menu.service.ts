@@ -249,6 +249,20 @@ export class MenuService {
         },
       },
       {
+        id: '11',
+        name: '供应商管理',
+        path: '/supplier-management',
+        component: '/supplier-management/index',
+        icon: 'lucide:truck',
+        sort: 9,
+        meta: {
+          title: '供应商管理',
+          icon: 'lucide:truck',
+          requiresAuth: true,
+          permissions: ['supplier:view'],
+        },
+      },
+      {
         id: '9',
         name: '系统管理',
         path: '/system',
@@ -259,7 +273,8 @@ export class MenuService {
           title: '系统管理',
           icon: 'system',
           requiresAuth: true,
-          permissions: ['system:read'],
+          // 系统管理父菜单：只要有任一子菜单权限即显示
+          permissions: ['user:view', 'role:view', 'permission:view'],
         },
         children: [
           {
@@ -289,7 +304,7 @@ export class MenuService {
               title: '角色管理',
               icon: 'role',
               requiresAuth: true,
-              permissions: ['role:read'],
+              permissions: ['role:view'],
             },
           },
           {
@@ -304,22 +319,7 @@ export class MenuService {
               title: '权限管理',
               icon: 'permission',
               requiresAuth: true,
-              permissions: ['permission:read'],
-            },
-          },
-          {
-            id: '9-4',
-            name: '账号管理',
-            path: '/system/account',
-            component: '/system/account/index',
-            icon: 'account',
-            sort: 4,
-            parentId: '9',
-            meta: {
-              title: '账号管理',
-              icon: 'account',
-              requiresAuth: true,
-              permissions: ['account:view'],
+              permissions: ['permission:view'],
             },
           },
         ],

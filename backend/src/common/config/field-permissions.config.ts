@@ -211,10 +211,72 @@ export const KOL_FIELD_PERMISSIONS = {
   ],
 };
 
+// 供应商管理字段权限配置
+export const SUPPLIER_FIELD_PERMISSIONS = {
+  // 基本信息
+  'supplier:field:basic': [
+    'supplier_full_name', 'supplierFullName',
+    'supplier_short_name', 'supplierShortName',
+    'supplier_english_name', 'supplierEnglishName',
+    'agency_name', 'agencyName',
+    'supplier_type', 'supplierType',
+    'supplier_website', 'supplierWebsite',
+    'supplier_description', 'supplierDescription',
+  ],
+  
+  // 财务信息（敏感）
+  'supplier:field:finance': [
+    'current_policy_gradient', 'currentPolicyGradient',
+    'tax_rate_percent', 'taxRatePercent',
+    'payment_term', 'paymentTerm',
+    'settlement_method', 'settlementMethod',
+    'billing_entity', 'billingEntity',
+    'collection_entity', 'collectionEntity',
+  ],
+  
+  // 年度政策（敏感）
+  'supplier:field:policy': [
+    'policy_2024_gradient', 'policy2024Gradient',
+    'cooperation_mode_2024', 'cooperationMode2024',
+    'notes_2024', 'notes2024',
+    'policy_2025_gradient', 'policy2025Gradient',
+    'cooperation_mode_2025', 'cooperationMode2025',
+    'notes_2025', 'notes2025',
+  ],
+  
+  // 联系人信息（敏感）
+  'supplier:field:contact': [
+    'primary_contact_name', 'primaryContactName',
+    'primary_contact_phone_wechat', 'primaryContactPhoneWechat',
+    'secondary_contact_name', 'secondaryContactName',
+    'secondary_contact_phone_wechat', 'secondaryContactPhoneWechat',
+    'tertiary_contact_name', 'tertiaryContactName',
+    'tertiary_contact_phone_wechat', 'tertiaryContactPhoneWechat',
+  ],
+  
+  // 合同信息
+  'supplier:field:contract': [
+    'contract_follow_up_person', 'contractFollowUpPerson',
+    'contract_status', 'contractStatus',
+    'contract_start_date', 'contractStartDate',
+    'contract_end_date', 'contractEndDate',
+    'contract_notes', 'contractNotes',
+  ],
+  
+  // 资源信息
+  'supplier:field:resource': [
+    'resource_type', 'resourceType',
+    'main_platform', 'mainPlatform',
+    'is_proxy_order', 'isProxyOrder',
+    'resource_notes', 'resourceNotes',
+  ],
+};
+
 // 所有字段权限配置
 export const ALL_FIELD_PERMISSIONS: Record<string, string[]> = {
   ...INFLUENCER_FIELD_PERMISSIONS,
   ...KOL_FIELD_PERMISSIONS,
+  ...SUPPLIER_FIELD_PERMISSIONS,
 };
 
 // 获取权限对应的字段列表
@@ -223,7 +285,7 @@ export function getFieldsByPermission(permissionCode: string): string[] {
 }
 
 // 获取资源类型的所有字段权限
-export function getFieldPermissionsByResource(resource: 'influencer' | 'kol'): Record<string, string[]> {
+export function getFieldPermissionsByResource(resource: 'influencer' | 'kol' | 'supplier'): Record<string, string[]> {
   const prefix = `${resource}:field:`;
   return Object.entries(ALL_FIELD_PERMISSIONS)
     .filter(([code]) => code.startsWith(prefix))
@@ -236,7 +298,7 @@ export function getFieldPermissionsByResource(resource: 'influencer' | 'kol'): R
 // 根据用户权限获取允许的字段
 export function getAllowedFields(
   userPermissions: string[],
-  resource: 'influencer' | 'kol',
+  resource: 'influencer' | 'kol' | 'supplier',
 ): string[] {
   const resourcePermissions = getFieldPermissionsByResource(resource);
   const allowedFields: Set<string> = new Set();
@@ -253,7 +315,7 @@ export function getAllowedFields(
 // 检查字段是否需要权限
 export function isFieldProtected(
   fieldName: string,
-  resource: 'influencer' | 'kol',
+  resource: 'influencer' | 'kol' | 'supplier',
 ): boolean {
   const resourcePermissions = getFieldPermissionsByResource(resource);
   return Object.values(resourcePermissions).some(fields => 
@@ -264,7 +326,7 @@ export function isFieldProtected(
 // 获取字段对应的权限代码
 export function getPermissionForField(
   fieldName: string,
-  resource: 'influencer' | 'kol',
+  resource: 'influencer' | 'kol' | 'supplier',
 ): string | null {
   const resourcePermissions = getFieldPermissionsByResource(resource);
   

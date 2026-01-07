@@ -22,9 +22,9 @@ export interface ColumnConfig {
 
 /**
  * 字段级权限控制 Composable
- * @param resource 资源类型: 'influencer' | 'kol'
+ * @param resource 资源类型: 'influencer' | 'kol' | 'supplier'
  */
-export function useFieldPermissions(resource: 'influencer' | 'kol') {
+export function useFieldPermissions(resource: 'influencer' | 'kol' | 'supplier') {
   const accessStore = useAccessStore()
   
   // 获取用户所有权限代码
