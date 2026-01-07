@@ -15,7 +15,7 @@ const emit = defineEmits<{
 
 const selectedPermissions = ref<string[]>([])
 const searchKeyword = ref('')
-const typeFilter = ref<'all' | 'MENU' | 'BUTTON' | 'API'>('all')
+const typeFilter = ref<'all' | 'MENU' | 'BUTTON' | 'API' | 'FIELD'>('all')
 const expandedCategories = ref<string[]>([])
 
 // 功能分类配置
@@ -32,6 +32,12 @@ const categories: PermissionCategory[] = [
     icon: 'lucide:users',
     color: '#3b82f6',
     keywords: ['kol', 'influencer', 'author', 'data', '达人', '作者', '数据', 'import', 'export'],
+  },
+  {
+    name: '字段权限',
+    icon: 'lucide:columns',
+    color: '#f97316',
+    keywords: ['field', '字段'],
   },
   {
     name: '财务管理',
@@ -85,13 +91,14 @@ const categories: PermissionCategory[] = [
 
 // 权限类型统计
 const typeCount = computed(() => {
-  let menu = 0, button = 0, api = 0
+  let menu = 0, button = 0, api = 0, field = 0
   const countTypes = (permissions: PermissionApi.PermissionInfo[]): void => {
     permissions.forEach(permission => {
       if (permission.status === 1) {
         if (permission.type === 'MENU') menu++
         else if (permission.type === 'BUTTON') button++
         else if (permission.type === 'API') api++
+        else if (permission.type === 'FIELD') field++
       }
       if (permission.children && permission.children.length > 0) {
         countTypes(permission.children)
@@ -99,7 +106,7 @@ const typeCount = computed(() => {
     })
   }
   countTypes(props.permissionTree)
-  return { MENU: menu, BUTTON: button, API: api }
+  return { MENU: menu, BUTTON: button, API: api, FIELD: field }
 })
 
 // 扁平化权限并分类
@@ -119,28 +126,35 @@ const categorizedPermissions = computed(() => {
         const permName = String(permission.name || '')
         const permCode = permission.code || ''
         const permResource = permission.resource || ''
+        const permType = permission.type || ''
         
-        // 查找匹配的分类
-        let matched = false
-        for (const cat of categories) {
-          if (cat.keywords.length === 0) continue // 跳过"其他功能"
-          
-          const matchKeyword = cat.keywords.some(keyword => 
-            permName.toLowerCase().includes(keyword.toLowerCase()) ||
-            permCode.toLowerCase().includes(keyword.toLowerCase()) ||
-            permResource.toLowerCase().includes(keyword.toLowerCase())
-          )
-          
-          if (matchKeyword) {
-            result[cat.name].push(permission)
-            matched = true
-            break
+        // 优先按类型分类：FIELD 类型直接放入"字段权限"分类
+        if (permType === 'FIELD') {
+          result['字段权限'].push(permission)
+        } else {
+          // 查找匹配的分类
+          let matched = false
+          for (const cat of categories) {
+            if (cat.keywords.length === 0) continue // 跳过"其他功能"
+            if (cat.name === '字段权限') continue // 跳过"字段权限"，已经处理过
+            
+            const matchKeyword = cat.keywords.some(keyword => 
+              permName.toLowerCase().includes(keyword.toLowerCase()) ||
+              permCode.toLowerCase().includes(keyword.toLowerCase()) ||
+              permResource.toLowerCase().includes(keyword.toLowerCase())
+            )
+            
+            if (matchKeyword) {
+              result[cat.name].push(permission)
+              matched = true
+              break
+            }
           }
-        }
-        
-        // 未匹配的放入"其他功能"
-        if (!matched) {
-          result['其他功能'].push(permission)
+          
+          // 未匹配的放入"其他功能"
+          if (!matched) {
+            result['其他功能'].push(permission)
+          }
         }
       }
       
@@ -292,6 +306,7 @@ const getPermissionTypeLabel = (type: string) => {
     MENU: '菜单',
     BUTTON: '按钮',
     API: '接口',
+    FIELD: '字段',
   }
   return labels[type] || type
 }
@@ -301,6 +316,7 @@ const getPermissionTypeColor = (type: string) => {
     MENU: '',
     BUTTON: 'success',
     API: 'warning',
+    FIELD: 'danger',
   }
   return colors[type] || 'info'
 }
@@ -394,6 +410,9 @@ watch(searchKeyword, (newVal) => {
           </ElRadioButton>
           <ElRadioButton label="API">
             接口 ({{ typeCount.API }})
+          </ElRadioButton>
+          <ElRadioButton label="FIELD">
+            字段 ({{ typeCount.FIELD }})
           </ElRadioButton>
         </ElRadioGroup>
       </div>

@@ -18,6 +18,7 @@ export enum PermissionType {
   API = 'API',
   BUTTON = 'BUTTON',
   MENU = 'MENU',
+  FIELD = 'FIELD',  // 字段级权限
 }
 
 /**
@@ -108,6 +109,7 @@ export class Permission {
 
   @Column({
     type: 'jsonb',
+    name: 'frontend_meta',
     nullable: true,
     comment: '前端映射元数据: {routePath, componentPath, elementLocator, pageLocation, businessModule}',
   })

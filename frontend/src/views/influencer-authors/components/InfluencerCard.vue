@@ -59,7 +59,7 @@
             <Icon icon="lucide:map-pin" />
             {{ data.province }}{{ data.city }}
           </span>
-          <span class="follower">
+          <span v-if="canViewFollower" class="follower">
             <Icon icon="lucide:users" />
             {{ formatFollower(data.follower) }}
           </span>
@@ -95,7 +95,7 @@
         </div>
       </div>
       
-      <div class="growth-indicator" v-if="data.fans_increment_rate_30d !== undefined">
+      <div v-if="canViewFollower && data.fans_increment_rate_30d !== undefined" class="growth-indicator">
         <span class="growth-label">30天增长</span>
         <span 
           class="growth-value"
@@ -110,7 +110,7 @@
     <!-- 第三层：核心数据指标 -->
     <div class="core-metrics">
       <!-- 互动数据 -->
-      <div class="metric-group">
+      <div v-if="canViewInteraction" class="metric-group">
         <div class="group-title">互动数据</div>
         <div class="metric-item">
           <span class="metric-label">互动率</span>
@@ -205,7 +205,7 @@
     </div>
     
     <!-- 私域信息区域（仅已匹配达人显示）-->
-    <div v-if="data.is_matched" class="private-section">
+    <div v-if="data.is_matched && canViewCooperationSection" class="private-section">
       <div class="section-header">
         <div class="section-title">
           <Icon icon="lucide:building-2" />
@@ -217,31 +217,31 @@
       </div>
       
       <div class="private-info-grid">
-        <div v-if="data.org_name" class="info-item">
+        <div v-if="canViewOrgName && data.org_name" class="info-item">
           <span class="label">机构:</span>
           <span class="value">{{ data.org_name }}</span>
         </div>
         
-        <div v-if="data.is_exclusive === 1" class="info-item exclusive">
+        <div v-if="canViewIsExclusive && data.is_exclusive === 1" class="info-item exclusive">
           <el-tag type="danger" size="small" effect="dark">
             <Icon icon="lucide:star" />
             独家资源
           </el-tag>
         </div>
         
-        <div v-if="data.rebate_range" class="info-item">
+        <div v-if="canViewRebateRange && data.rebate_range" class="info-item">
           <span class="label">返点:</span>
           <span class="value highlighted">{{ data.rebate_range }}</span>
         </div>
         
-        <div v-if="data.policy_level" class="info-item">
+        <div v-if="canViewPolicyLevel && data.policy_level" class="info-item">
           <span class="label">政策等级:</span>
           <el-tag :type="getPolicyLevelType(data.policy_level)" size="small">
             {{ data.policy_level }}级
           </el-tag>
         </div>
         
-        <div v-if="data.cooperation_degree" class="info-item">
+        <div v-if="canViewCooperationDegree && data.cooperation_degree" class="info-item">
           <span class="label">配合度:</span>
           <el-rate 
             :model-value="getCooperationStars(data.cooperation_degree)" 
@@ -250,18 +250,18 @@
           />
         </div>
         
-        <div v-if="data.rebate_period" class="info-item">
+        <div v-if="canViewRebatePeriod && data.rebate_period" class="info-item">
           <span class="label">账期:</span>
           <span class="value">{{ data.rebate_period }}</span>
         </div>
         
-        <div v-if="data.annual_contract_org" class="info-item">
+        <div v-if="canViewAnnualContractOrg && data.annual_contract_org" class="info-item">
           <span class="label">年框:</span>
           <span class="value">{{ data.annual_contract_org }}</span>
         </div>
       </div>
       
-      <div v-if="data.cooperation_intro" class="cooperation-intro">
+      <div v-if="canViewCooperationIntro && data.cooperation_intro" class="cooperation-intro">
         <div class="intro-label">
           <Icon icon="lucide:info" />
           合作简介
@@ -269,7 +269,7 @@
         <p>{{ data.cooperation_intro }}</p>
       </div>
       
-      <div v-if="data.remark" class="remark-section">
+      <div v-if="canViewRemark && data.remark" class="remark-section">
         <div class="remark-label">
           <Icon icon="lucide:message-square" />
           备注
@@ -328,6 +328,7 @@ import { log } from '../../../utils/logger'
 import { ref, computed, toRefs } from 'vue'
 import { IconifyIcon as Icon } from '@vben/icons'
 import { ElMessage } from 'element-plus'
+import { useFieldPermissions } from '../../../composables/useFieldPermissions'
 
 interface InfluencerCardData {
   // 基础信息
@@ -428,8 +429,40 @@ const emit = defineEmits<{
 const isHovering = ref(false)
 const { data, cardSize } = toRefs(props)
 
+// 字段权限控制
+const { hasFieldGroupPermission, isSuperAdmin } = useFieldPermissions('influencer')
+
+// 字段权限检查计算属性
+const canViewFollower = computed(() => isSuperAdmin.value || hasFieldGroupPermission('influencer:field:follower'))
+const canViewInteraction = computed(() => isSuperAdmin.value || hasFieldGroupPermission('influencer:field:interaction'))
+const canViewPrice = computed(() => isSuperAdmin.value || hasFieldGroupPermission('influencer:field:price'))
+const canViewContact = computed(() => isSuperAdmin.value || hasFieldGroupPermission('influencer:field:contact'))
+const canViewEcommerce = computed(() => isSuperAdmin.value || hasFieldGroupPermission('influencer:field:ecommerce'))
+const canViewMarketing = computed(() => isSuperAdmin.value || hasFieldGroupPermission('influencer:field:marketing'))
+const canViewProspective = computed(() => isSuperAdmin.value || hasFieldGroupPermission('influencer:field:prospective'))
+
+// 细粒度合作信息字段权限
+const canViewOrgName = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:org_name'))
+const canViewIsExclusive = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:is_exclusive'))
+const canViewRebateRange = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:rebate_range'))
+const canViewPolicyLevel = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:policy_level'))
+const canViewCooperationDegree = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:cooperation_degree'))
+const canViewRebatePeriod = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:rebate_period'))
+const canViewAnnualContractOrg = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:annual_contract_org'))
+const canViewCooperationIntro = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:cooperation_intro'))
+const canViewRemark = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:remark'))
+
+// 合作信息区块显示条件：任意一个字段权限即可
+const canViewCooperationSection = computed(() => 
+  canViewOrgName.value || canViewIsExclusive.value || canViewRebateRange.value || 
+  canViewPolicyLevel.value || canViewCooperationDegree.value || canViewRebatePeriod.value ||
+  canViewAnnualContractOrg.value || canViewCooperationIntro.value || canViewRemark.value
+)
+
 // 计算属性
 const showMarketingMetrics = computed(() => {
+  // 先检查权限
+  if (!canViewMarketing.value) return false
   const d = props.data
   const hasConvert = d.link_convert_index !== undefined && d.link_convert_index !== null
   const hasShopping = d.link_shopping_index !== undefined && d.link_shopping_index !== null
@@ -438,10 +471,14 @@ const showMarketingMetrics = computed(() => {
 })
 
 const showPriceInfo = computed(() => {
+  // 先检查权限
+  if (!canViewPrice.value) return false
   return props.data.price_1_20 > 0 || props.data.price_20_60 > 0 || props.data.price_60 > 0
 })
 
 const showSpecialCapabilities = computed(() => {
+  // 先检查权限
+  if (!canViewEcommerce.value) return false
   // 只有当电商开通且有电商视频时才显示
   return props.data.e_commerce_enable && props.data.star_ecom_video_num_30d > 0
 })

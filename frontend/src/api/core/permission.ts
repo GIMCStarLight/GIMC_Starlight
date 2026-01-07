@@ -6,7 +6,7 @@ export namespace PermissionApi {
     id: string;
     name: string;
     code: string;
-    type: 'MENU' | 'BUTTON' | 'API';
+    type: 'MENU' | 'BUTTON' | 'API' | 'FIELD';
     resource?: string;
     action?: string;
     description?: string;
@@ -52,7 +52,7 @@ export namespace PermissionApi {
   export interface CreatePermissionParams {
     name: string;
     code: string;
-    type: 'MENU' | 'BUTTON' | 'API';
+    type: 'MENU' | 'BUTTON' | 'API' | 'FIELD';
     resource?: string;
     action?: string;
     description?: string;
@@ -64,7 +64,7 @@ export namespace PermissionApi {
   export interface UpdatePermissionParams {
     name?: string;
     code?: string;
-    type?: 'MENU' | 'BUTTON' | 'API';
+    type?: 'MENU' | 'BUTTON' | 'API' | 'FIELD';
     resource?: string;
     action?: string;
     description?: string;
