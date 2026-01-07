@@ -5,7 +5,7 @@
       <div class="header-left">
         <h2 class="page-title">省广达人库</h2>
       </div>
-      <!-- 公海达人数据的按钮 -->
+      <!-- 已建联达人的按钮 -->
       <div v-if="activeTab === 'public'" class="header-right">
         <el-badge :value="publicSelectedCount" :hidden="publicSelectedCount === 0" type="primary">
           <el-button @click="handlePublicClearSelection" :disabled="publicSelectedCount === 0">
@@ -22,7 +22,7 @@
           导出选中 ({{ publicSelectedCount }})
         </el-button>
       </div>
-      <!-- 自有达人数据的按钮 -->
+      <!-- 省广达人库的按钮 -->
       <div v-else-if="activeTab === 'private'" class="header-right">
         <el-button @click="navigateToImportHistory" class="action-btn">
           <Icon icon="lucide:clock" class="mr-1" />
@@ -58,26 +58,26 @@
     <!-- Tab切换 -->
     <div class="tabs-wrapper">
       <el-tabs v-model="activeTab" @tab-change="handleTabChange as any" class="data-tabs">
-        <el-tab-pane label="公海达人数据" name="public">
+        <el-tab-pane label="已建联达人" name="public">
           <template #label>
             <div class="tab-label">
               <Icon icon="lucide:users" />
-              <span>公海达人数据</span>
+              <span>已建联达人</span>
             </div>
           </template>
         </el-tab-pane>
-        <el-tab-pane label="自有达人数据" name="private">
+        <el-tab-pane label="省广达人库" name="private">
           <template #label>
             <div class="tab-label">
               <Icon icon="lucide:database" />
-              <span>自有达人数据</span>
+              <span>省广达人库</span>
             </div>
           </template>
         </el-tab-pane>
       </el-tabs>
     </div>
 
-    <!-- 公海达人数据Tab内容 -->
+    <!-- 已建联达人Tab内容 -->
     <div v-if="activeTab === 'public'" class="public-data-content">
       <!-- 达人广场的抖音组件 -->
       <DouyinQuickFilter @filter-change="handlePublicFilterChange" />
@@ -153,7 +153,7 @@
       </div>
     </div>
 
-    <!-- 自有达人数据Tab内容 -->
+    <!-- 省广达人库Tab内容 -->
     <div v-else-if="activeTab === 'private'" class="private-data-content">
       <!-- 智能筛选组件 -->
       <KolQuickFilters :filters="searchForm" @filter-change="handleFilterChange" />
@@ -164,7 +164,7 @@
       <!-- 筛选条件卡片 -->
       <!-- 已移至高级筛选弹窗中，此处删除旧代码 -->
       
-      <!-- 自有达人数据显示区域 -->
+      <!-- 省广达人库显示区域 -->
       <div class="private-display-area">
         <!-- 工具栏 -->
         <div class="display-toolbar">
@@ -452,7 +452,7 @@ const canViewContact = computed(() => isSuperAdmin.value || hasFieldGroupPermiss
 const canViewCooperation = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:cooperation'))
 const canViewMatch = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:match'))
 
-// 达人广场Store（用于公海达人数据）
+// 达人广场Store（用于已建联达人）
 const influencerStore = useInfluencerSquareStore()
 const { 
   influencers: publicInfluencers, 
@@ -467,7 +467,7 @@ const kolPublicSelectedCount = computed(() => kolPublicSelectedIds.value.size)
 // Tab切换状态
 const activeTab = ref('public') // 'public' 或 'private'
 
-// 公海达人数据相关状态
+// 已建联达人相关状态
 const publicLoading = ref(false)
 const publicTotalCount = ref(0)
 const publicCurrentPage = ref(1)
@@ -481,7 +481,7 @@ const publicFilterParams = ref<any>({})
 const publicSelectedCount = computed(() => kolPublicSelectedCount.value)
 const publicRefreshing = ref(false)
 
-// 公海达人数据 - 清空选中
+// 已建联达人 - 清空选中
 const handlePublicClearSelection = () => {
   kolPublicSelectedIds.value.clear()
   // 清空当前页面达人的isSelected状态
@@ -493,7 +493,7 @@ const handlePublicClearSelection = () => {
   ElMessage.success('已清空选中')
 }
 
-// 公海达人数据 - 刷新视图
+// 已建联达人 - 刷新视图
 const handlePublicRefresh = async () => {
   publicRefreshing.value = true
   try {
@@ -505,7 +505,7 @@ const handlePublicRefresh = async () => {
   }
 }
 
-// 公海达人数据 - 导出选中
+// 已建联达人 - 导出选中
 const handlePublicExport = async () => {
   if (kolPublicSelectedCount.value === 0) {
     ElMessage.warning('请先选中要导出的达人')
@@ -608,22 +608,22 @@ const handleTabChange = async (tabName: string) => {
   log.debug('🔄 切换Tab:', tabName)
 
   if (tabName === 'private') {
-    // 切换到自有达人数据，加载原有数据
-    log.debug('🔄 切换到自有达人数据 tab')
+    // 切换到省广达人库，加载原有数据
+    log.debug('🔄 切换到省广达人库 tab')
     log.debug('🔄 当前 pagination:', pagination)
     log.debug('🔄 当前 searchForm:', searchForm)
     await loadData()
     await loadSyncStats()
     log.debug('🔄 数据加载完成, tableData.length:', tableData.value.length, 'total:', pagination.total)
   } else if (tabName === 'public') {
-    // 切换到公海达人数据，加载达人广场数据
-    log.debug('🔄 切换到公海达人数据 tab')
+    // 切换到已建联达人，加载达人广场数据
+    log.debug('🔄 切换到已建联达人 tab')
     await loadPublicData()
   }
 }
 
 
-// 加载公海达人数据
+// 加载已建联达人数据
 const loadPublicData = async () => {
   try {
     log.debug('开始加载省广达人库公海数据...')
@@ -660,11 +660,11 @@ const loadPublicData = async () => {
   }
 }
 
-// 公海达人数据 - 筛选变化
+// 已建联达人 - 筛选变化
 const handlePublicFilterChange = async (filters: any) => {
   publicFilterParams.value = filters
   publicCurrentPage.value = 1
-  log.debug('公海达人数据筛选变化:', filters)
+  log.debug('已建联达人筛选变化:', filters)
 
   // 使用 store 的筛选方法，保持matchedOnly
   influencerStore.setFilters({
@@ -685,9 +685,9 @@ const handlePublicFilterChange = async (filters: any) => {
   }
 }
 
-// 公海达人数据 - 排序变化
+// 已建联达人 - 排序变化
 const handlePublicSortChange = async () => {
-  log.debug('公海达人数据排序变化:', publicSortBy.value)
+  log.debug('已建联达人排序变化:', publicSortBy.value)
   publicCurrentPage.value = 1
 
   // 使用 store 的排序方法
@@ -705,7 +705,7 @@ const handlePublicSortChange = async () => {
   }
 }
 
-// 公海达人数据 - 分页处理
+// 已建联达人 - 分页处理
 const handlePublicSizeChange = async (size: number) => {
   publicPageSize.value = size
   publicCurrentPage.value = 1
@@ -742,12 +742,12 @@ const handlePublicPageChange = async (page: number) => {
   }
 }
 
-// 公海达人数据 - 更新达人
+// 已建联达人 - 更新达人
 const updatePublicInfluencerData = (data: any) => {
-  log.debug('更新公海达人数据:', data)
+  log.debug('更新已建联达人数据:', data)
 }
 
-// 公海达人数据 - 处理选中状态变化（与达人广场独立）
+// 已建联达人 - 处理选中状态变化（与达人广场独立）
 const handleKolPublicSelectionChange = (data: any, selected: boolean) => {
   log.debug('省广达人库公海数据选中状态变化:', data.author_id, selected)
   
