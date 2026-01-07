@@ -100,7 +100,7 @@ export class MenuService {
         id: '6',
         name: '财务管理',
         path: '/financial-management',
-        component: 'Layout',
+        component: 'BasicLayout',
         icon: 'finance',
         sort: 5,
         meta: {
@@ -144,7 +144,7 @@ export class MenuService {
             id: '6-3',
             name: '返点流程跟进',
             path: '/financial-management/rebate-flow',
-            component: '/financial-management/rebate-flow/index',
+            component: '/rebate-flow/index',
             icon: 'workflow',
             sort: 3,
             parentId: '6',
@@ -161,7 +161,7 @@ export class MenuService {
         id: '7',
         name: '政策管理',
         path: '/policy-management',
-        component: 'Layout',
+        component: 'BasicLayout',
         icon: 'policy-management',
         sort: 6,
         meta: {
@@ -192,7 +192,7 @@ export class MenuService {
         id: '8',
         name: '资源管理',
         path: '/resource-management',
-        component: 'Layout',
+        component: 'BasicLayout',
         icon: 'resource',
         sort: 7,
         meta: {
@@ -252,9 +252,9 @@ export class MenuService {
         id: '11',
         name: '供应商管理',
         path: '/supplier-management',
-        component: '/supplier-management/index',
+        component: '/supplier-management/supplier-management/index',
         icon: 'lucide:truck',
-        sort: 9,
+        sort: 3,
         meta: {
           title: '供应商管理',
           icon: 'lucide:truck',
@@ -266,7 +266,7 @@ export class MenuService {
         id: '9',
         name: '系统管理',
         path: '/system',
-        component: 'Layout',
+        component: 'BasicLayout',
         icon: 'system',
         sort: 10,
         meta: {

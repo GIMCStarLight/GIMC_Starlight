@@ -232,6 +232,10 @@
     "title": "智能问数",
     "description": "智能选号系统，为您提供精准的号码推荐服务"
   },
+  "supplier": {
+    "title": "供应商管理",
+    "description": "管理供应商数据和信息维护"
+  },
   "tagFilter": {
     "title": "标签筛选",
     "description": "通过多维度筛选条件，精准找到符合需求的标签",
