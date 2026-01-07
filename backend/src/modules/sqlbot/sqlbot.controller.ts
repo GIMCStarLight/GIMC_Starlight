@@ -21,16 +21,17 @@ import { Roles } from '../../common/decorators/auth.decorator';
 import { ApiEndpoint } from '../../common/decorators/api.decorator';
 import { Permissions } from '../../auth/decorators/permissions.decorator';
 import { PermissionGuard } from '../../auth/guards/permission.guard';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('SQLBot管理')
 @Controller('sqlbot')
+@UseGuards(AuthGuard('jwt'), PermissionGuard)
 @ApiBearerAuth('JWT-auth')
 export class SqlbotController {
   constructor(private readonly sqlbotService: SqlbotService) {}
 
   @Post('config')
-  @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('admin', 'SUPER_ADMIN')
+  @Permissions('sqlbot:config:create')
   @ApiEndpoint({
     summary: '创建SQLBot配置',
     description: '创建新的SQLBot嵌入配置',
@@ -43,7 +44,6 @@ export class SqlbotController {
   }
 
   @Get('config')
-  @UseGuards(JwtAuthGuard, PermissionGuard)
   @Permissions('sqlbot:config:view')
   @ApiEndpoint({
     summary: '获取SQLBot配置',
@@ -55,8 +55,7 @@ export class SqlbotController {
   }
 
   @Put('config/:id')
-  @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('admin', 'SUPER_ADMIN')
+  @Permissions('sqlbot:config:update')
   @ApiEndpoint({
     summary: '更新SQLBot配置',
     description: '更新指定的SQLBot配置',
@@ -70,8 +69,7 @@ export class SqlbotController {
   }
 
   @Delete('config/:id')
-  @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('admin', 'SUPER_ADMIN')
+  @Permissions('sqlbot:config:delete')
   @ApiEndpoint({
     summary: '删除SQLBot配置',
     description: '删除指定的SQLBot配置',
@@ -81,8 +79,7 @@ export class SqlbotController {
   }
 
   @Get('datasource')
-  @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('admin', 'SUPER_ADMIN')
+  @Permissions('sqlbot:datasource:view')
   @ApiOperation({
     summary: '获取数据源信息',
     description: '为SQLBot高级应用提供数据源信息',
@@ -149,7 +146,6 @@ export class SqlbotController {
   }
 
   @Get('token')
-  @UseGuards(JwtAuthGuard, PermissionGuard)
   @Permissions('sqlbot:token:generate')
   @ApiOperation({
     summary: '获取SQLBot嵌入Token',

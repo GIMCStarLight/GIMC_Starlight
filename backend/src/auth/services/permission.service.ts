@@ -84,13 +84,14 @@ export class PermissionService {
     const permissions = new Set<string>();
 
     // 查询该角色直接拥有的权限
-    const rolePermissions = await this.rolePermissionRepository.find({
-      where: { roleId },
-      relations: ['permission'],
-    });
+    const rolePermissions = await this.rolePermissionRepository
+      .createQueryBuilder('rp')
+      .leftJoinAndSelect('rp.permission', 'permission')
+      .where('rp.roleId = :roleId', { roleId })
+      .select(['rp.id', 'permission.code'])
+      .getMany();
 
     // 获取角色直接权限
-
     rolePermissions.forEach((rp) => {
       permissions.add(rp.permission.code);
     });

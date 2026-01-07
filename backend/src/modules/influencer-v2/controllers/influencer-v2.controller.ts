@@ -27,17 +27,21 @@ import {
   InfluencerDetailResponseDto,
 } from '../dto/influencer-response.dto';
 import { InfluencerV2StatsDto } from '../dto/influencer-v2-stats.dto';
+import { PermissionGuard } from '../../../auth/guards/permission.guard';
+import { Permissions } from '../../../auth/decorators/permissions.decorator';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('影响者管理')
 @Controller('influencer-manager')
-// @UseGuards(JwtAuthGuard)
-// @ApiBearerAuth()
+@UseGuards(AuthGuard('jwt'), PermissionGuard)
+@ApiBearerAuth('JWT-auth')
 export class InfluencerV2Controller {
   private readonly logger = new Logger(InfluencerV2Controller.name);
 
   constructor(private readonly influencerService: InfluencerV2Service) {}
 
   @Get()
+  @Permissions('kol:view')
   @ApiOperation({
     summary: '获取影响者列表',
     description: '根据条件筛选和分页获取影响者列表',
@@ -99,6 +103,7 @@ export class InfluencerV2Controller {
   }
 
   @Get('stats')
+  @Permissions('kol:view')
   @ApiOperation({
     summary: '获取影响者统计信息',
     description: '获取影响者的性别、类型、等级等统计数据',
@@ -121,6 +126,7 @@ export class InfluencerV2Controller {
   }
 
   @Get(':authorId')
+  @Permissions('kol:view')
   @ApiOperation({
     summary: '获取影响者详情',
     description: '根据作者ID获取影响者详细信息',
@@ -150,6 +156,7 @@ export class InfluencerV2Controller {
   }
 
   @Get(':authorId/full-data')
+  @Permissions('kol:view')
   @ApiOperation({
     summary: '获取达人完整原始数据',
     description: '获取包含123个字段的完整原始数据',

@@ -39,17 +39,21 @@ import {
   MatchNotFoundException,
   KolMatchException,
 } from '../exceptions/kol-match.exception';
+import { PermissionGuard } from '../../../auth/guards/permission.guard';
+import { Permissions } from '../../../auth/decorators/permissions.decorator';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('KOL匹配管理')
 @Controller('kol-match')
-@UseGuards(JwtAuthGuard)
-@ApiBearerAuth()
+@UseGuards(AuthGuard('jwt'), PermissionGuard)
+@ApiBearerAuth('JWT-auth')
 export class KolMatchController {
   private readonly logger = new Logger(KolMatchController.name);
 
   constructor(private readonly kolMatchService: KolMatchService) {}
 
   @Get()
+  @Permissions('kol:match:view')
   @ApiOperation({ summary: '查询匹配结果' })
   @ApiResponse({
     status: HttpStatus.OK,
@@ -84,6 +88,7 @@ export class KolMatchController {
   }
 
   @Post('batch')
+  @Permissions('kol:match:operate')
   @ApiOperation({ summary: '批量匹配私域达人' })
   @ApiResponse({
     status: HttpStatus.OK,
@@ -138,6 +143,7 @@ export class KolMatchController {
   }
 
   @Get(':privateKolId/candidates')
+  @Permissions('kol:match:view')
   @ApiOperation({ summary: '获取单个达人的匹配候选' })
   @ApiParam({ name: 'privateKolId', description: '私域达人ID' })
   @ApiResponse({
@@ -170,6 +176,7 @@ export class KolMatchController {
   }
 
   @Put(':privateKolId/confirm')
+  @Permissions('kol:match:operate')
   @ApiOperation({ summary: '确认匹配' })
   @ApiParam({ name: 'privateKolId', description: '私域达人ID' })
   @ApiResponse({
@@ -211,6 +218,7 @@ export class KolMatchController {
   }
 
   @Put(':privateKolId/reject')
+  @Permissions('kol:match:operate')
   @ApiOperation({ summary: '拒绝匹配' })
   @ApiParam({ name: 'privateKolId', description: '私域达人ID' })
   @ApiResponse({
@@ -252,6 +260,7 @@ export class KolMatchController {
   }
 
   @Get('list')
+  @Permissions('kol:match:view')
   @ApiOperation({ summary: '获取匹配列表' })
   @ApiResponse({
     status: HttpStatus.OK,
@@ -283,6 +292,7 @@ export class KolMatchController {
   }
 
   @Get('statistics')
+  @Permissions('kol:match:view')
   @ApiOperation({ 
     summary: '获取匹配统计信息',
     description: '获取私域达人与公海达人的匹配统计数据，包括匹配率、平台分布等',

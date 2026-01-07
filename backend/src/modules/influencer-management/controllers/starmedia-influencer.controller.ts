@@ -8,18 +8,25 @@ import {
   Query,
   HttpException,
   HttpStatus,
+  UseGuards,
 } from '@nestjs/common';
-import { ApiTags, ApiOperation } from '@nestjs/swagger';
+import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 import { StarmediaInfluencerService } from '../services/starmedia-influencer.service';
+import { PermissionGuard } from '../../../auth/guards/permission.guard';
+import { Permissions } from '../../../auth/decorators/permissions.decorator';
 
 @ApiTags('省广星媒独家签约达人管理')
 @Controller('starmedia-influencers')
+@UseGuards(AuthGuard('jwt'), PermissionGuard)
+@ApiBearerAuth('JWT-auth')
 export class StarmediaInfluencerController {
   constructor(
     private readonly starmediaService: StarmediaInfluencerService,
   ) {}
 
   @Get()
+  @Permissions('influencer:starmedia:view')
   @ApiOperation({ summary: '获取省广星媒独家签约达人列表' })
   async findAll(
     @Query('page') page = 1,
@@ -36,6 +43,7 @@ export class StarmediaInfluencerController {
   }
 
   @Get(':id')
+  @Permissions('influencer:starmedia:view')
   @ApiOperation({ summary: '获取单个省广星媒独家签约达人详情' })
   async findOne(@Param('id') id: string) {
     try {
@@ -53,6 +61,7 @@ export class StarmediaInfluencerController {
   }
 
   @Put(':id')
+  @Permissions('influencer:starmedia:update')
   @ApiOperation({ summary: '更新省广星媒独家签约达人信息' })
   async update(
     @Param('id') id: string,
@@ -69,6 +78,7 @@ export class StarmediaInfluencerController {
   }
 
   @Delete(':id')
+  @Permissions('influencer:starmedia:delete')
   @ApiOperation({ summary: '删除省广星媒独家签约达人' })
   async delete(@Param('id') id: string) {
     try {

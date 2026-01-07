@@ -8,6 +8,8 @@ import {
   Logger,
   HttpException,
   HttpStatus,
+  UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
 import {
   ApiTags,
@@ -15,7 +17,9 @@ import {
   ApiResponse,
   ApiQuery,
   ApiParam,
+  ApiBearerAuth,
 } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 import { InfluencerV3Service } from '../services/influencer-v3.service';
 import { InfluencerV3QueryDto } from '../dto/influencer-v3-query.dto';
 import {
@@ -23,15 +27,24 @@ import {
   InfluencerV3DetailResponseDto,
   InfluencerV3StatsResponseDto,
 } from '../dto/influencer-v3-response.dto';
+import { PermissionGuard } from '../../../auth/guards/permission.guard';
+import { Permissions } from '../../../auth/decorators/permissions.decorator';
+import { FieldFilterInterceptor } from '../../../common/interceptors/field-filter.interceptor';
+import { FilterFields, SkipFieldFilter } from '../../../common/decorators/field-filter.decorator';
 
 @ApiTags('达人广场')
 @Controller('influencer-authors')
+@UseGuards(AuthGuard('jwt'), PermissionGuard)
+@UseInterceptors(FieldFilterInterceptor)
+@FilterFields('influencer')
+@ApiBearerAuth('JWT-auth')
 export class InfluencerV3Controller {
   private readonly logger = new Logger(InfluencerV3Controller.name);
 
   constructor(private readonly influencerV3Service: InfluencerV3Service) {}
 
   @Get('list')
+  @Permissions('kol:view')
   @ApiOperation({
     summary: '获取达人列表（V3）',
     description: '基于15表结构和30+标签体系的达人列表查询',
@@ -79,6 +92,8 @@ export class InfluencerV3Controller {
   }
 
   @Get('stats')
+  @Permissions('kol:view')
+  @SkipFieldFilter() // 统计接口不需要字段过滤
   @ApiOperation({
     summary: '获取达人统计信息（V3）',
     description: '获取总数、优质达人、黑马达人、电商达人等统计数据',
@@ -104,6 +119,7 @@ export class InfluencerV3Controller {
   }
 
   @Get('detail/:authorId')
+  @Permissions('kol:view')
   @ApiOperation({
     summary: '获取达人详情（V3）',
     description: '根据作者ID获取达人完整详细信息（基于15表结构）',
@@ -136,6 +152,7 @@ export class InfluencerV3Controller {
   }
 
   @Post('batch-export')
+  @Permissions('kol:export')
   @ApiOperation({
     summary: '批量获取达人完整数据（用于导出）',
     description: '根据author_id列表批量获取达人的所有字段数据',

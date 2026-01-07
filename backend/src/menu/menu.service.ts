@@ -84,13 +84,13 @@ export class MenuService {
       // },
       {
         id: '5',
-        name: 'AI选号',
+        name: '智能问数',
         path: '/ai-number-selection',
         component: '/ai-number-selection/index',
         icon: 'lucide:brain-circuit',
         sort: 4,
         meta: {
-          title: 'AI选号',
+          title: '智能问数',
           icon: 'lucide:brain-circuit',
           requiresAuth: true,
           permissions: ['ai:number:selection:view'],

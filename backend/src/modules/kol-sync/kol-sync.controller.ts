@@ -7,6 +7,7 @@ import {
   HttpStatus,
   Logger,
   ParseIntPipe,
+  UseGuards,
 } from '@nestjs/common';
 import {
   ApiTags,
@@ -14,7 +15,11 @@ import {
   ApiResponse,
   ApiParam,
   ApiBody,
+  ApiBearerAuth,
 } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
+import { PermissionGuard } from '../../auth/guards/permission.guard';
+import { Permissions } from '../../auth/decorators/permissions.decorator';
 import {
   KolSyncService,
   SyncResult,
@@ -31,12 +36,15 @@ import { SingleSyncKolDto, BatchSyncRequestDto, SyncStatsDto } from './dto';
 
 @ApiTags('KOL数据同步')
 @Controller('kol-sync')
+@UseGuards(AuthGuard('jwt'), PermissionGuard)
+@ApiBearerAuth('JWT-auth')
 export class KolSyncController {
   private readonly logger = new Logger(KolSyncController.name);
 
   constructor(private readonly kolSyncService: KolSyncService) {}
 
   @Post('single')
+  @Permissions('kol:sync:trigger')
   @ApiOperation({
     summary: '同步单个KOL数据',
     description: '根据KOL ID和抖音账号ID触发单个私域达人与公海达人的数据同步',
@@ -92,6 +100,7 @@ export class KolSyncController {
   }
 
   @Post('batch')
+  @Permissions('kol:sync:batch')
   @ApiOperation({
     summary: '批量同步KOL数据',
     description:
@@ -164,6 +173,7 @@ export class KolSyncController {
   }
 
   @Post('retry/:id')
+  @Permissions('kol:sync:retry')
   @ApiOperation({
     summary: '重试同步失败的KOL',
     description: '手动重试单个同步失败的KOL数据',
@@ -181,6 +191,7 @@ export class KolSyncController {
   }
 
   @Post('retry-failed')
+  @Permissions('kol:sync:retry')
   @ApiOperation({
     summary: '批量重试所有失败的同步任务',
     description: '自动查找所有同步失败的KOL并重新尝试同步',
@@ -195,6 +206,7 @@ export class KolSyncController {
   }
 
   @Get('stats')
+  @Permissions('kol:sync:status')
   @ApiOperation({
     summary: '获取同步统计信息',
     description: '获取KOL数据同步的整体统计信息，包括匹配率、同步成功率等',

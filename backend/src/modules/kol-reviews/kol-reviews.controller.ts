@@ -1,15 +1,21 @@
-import { Controller, Get, Post, Patch, Delete, Body, Param, Query, ValidationPipe, ParseIntPipe } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse, ApiParam } from '@nestjs/swagger';
+import { Controller, Get, Post, Patch, Delete, Body, Param, Query, ValidationPipe, ParseIntPipe, UseGuards } from '@nestjs/common';
+import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiBearerAuth } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 import { KolReviewsService } from './kol-reviews.service';
 import { QueryKolReviewsDto, CreateKolReviewDto, UpdateKolReviewDto, BatchAuditDto, BatchDeleteDto, ReviewStatisticsDto } from './dto';
+import { PermissionGuard } from '../../auth/guards/permission.guard';
+import { Permissions } from '../../auth/decorators/permissions.decorator';
 
 @Controller('kol-reviews')
 @ApiTags('KOL评价管理')
+@UseGuards(AuthGuard('jwt'), PermissionGuard)
+@ApiBearerAuth('JWT-auth')
 export class KolReviewsController {
   constructor(private readonly kolReviewsService: KolReviewsService) {}
 
   // 查询评论列表
   @Get()
+  @Permissions('kol:review:view')
   @ApiOperation({ summary: '获取评价列表', description: '支持分页、筛选、排序' })
   @ApiResponse({ status: 200, description: '查询成功' })
   findAll(@Query(new ValidationPipe({ transform: true })) query: QueryKolReviewsDto) {
@@ -18,6 +24,7 @@ export class KolReviewsController {
 
   // 获取统计数据
   @Get('statistics')
+  @Permissions('kol:review:view')
   @ApiOperation({ 
     summary: '获取评价统计数据',
     description: '获取达人评价的统计信息，包括总评价数、平均评分、评分分布等',
@@ -33,6 +40,7 @@ export class KolReviewsController {
 
   // 根据authorId查询评论
   @Get('author/:authorId')
+  @Permissions('kol:review:view')
   @ApiOperation({ summary: '获取指定达人的评价列表' })
   @ApiResponse({ status: 200, description: '查询成功' })
   findByAuthorId(@Param('authorId') authorId: string) {
@@ -41,6 +49,7 @@ export class KolReviewsController {
 
   // 批量审核 - 必须在 :id/audit 之前
   @Post('batch/audit')
+  @Permissions('kol:review:batch:audit')
   @ApiOperation({ summary: '批量审核评价' })
   @ApiResponse({ status: 200, description: '批量审核成功' })
   batchAudit(@Body(ValidationPipe) data: BatchAuditDto) {
@@ -49,6 +58,7 @@ export class KolReviewsController {
 
   // 批量删除
   @Post('batch/delete')
+  @Permissions('kol:review:batch:delete')
   @ApiOperation({ summary: '批量删除评价' })
   @ApiResponse({ status: 200, description: '批量删除成功' })
   batchRemove(@Body(ValidationPipe) data: BatchDeleteDto) {
@@ -57,6 +67,7 @@ export class KolReviewsController {
 
   // 根据ID查询评论
   @Get(':id')
+  @Permissions('kol:review:view')
   @ApiOperation({ summary: '获取评价详情' })
   @ApiParam({ name: 'id', description: '评价ID' })
   @ApiResponse({ status: 200, description: '查询成功' })
@@ -67,6 +78,7 @@ export class KolReviewsController {
 
   // 插入评论
   @Post()
+  @Permissions('kol:review:create')
   @ApiOperation({ summary: '创建评价' })
   @ApiResponse({ status: 201, description: '创建成功' })
   @ApiResponse({ status: 400, description: '参数错误或重复评价' })
@@ -76,6 +88,7 @@ export class KolReviewsController {
 
   // 更新评论
   @Patch(':id')
+  @Permissions('kol:review:update')
   @ApiOperation({ summary: '更新评价' })
   @ApiParam({ name: 'id', description: '评价ID' })
   @ApiResponse({ status: 200, description: '更新成功' })
@@ -89,6 +102,7 @@ export class KolReviewsController {
 
   // 审核评价
   @Post(':id/audit')
+  @Permissions('kol:review:approve')
   @ApiOperation({ summary: '审核评价' })
   @ApiParam({ name: 'id', description: '评价ID' })
   @ApiResponse({ status: 200, description: '审核成功' })
@@ -102,6 +116,7 @@ export class KolReviewsController {
 
   // 删除评价（软删除）
   @Delete(':id')
+  @Permissions('kol:review:delete')
   @ApiOperation({ summary: '删除评价' })
   @ApiParam({ name: 'id', description: '评价ID' })
   @ApiResponse({ status: 200, description: '删除成功' })

@@ -1,14 +1,20 @@
-import { Controller, Get, Post, Body, Param, Query } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { Controller, Get, Post, Body, Param, Query, UseGuards } from '@nestjs/common';
+import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 import { SourceAccountService } from './source-account.service';
 import { PlatformType } from '../../common/enums/platform-type.enum';
+import { PermissionGuard } from '../../auth/guards/permission.guard';
+import { Permissions } from '../../auth/decorators/permissions.decorator';
 
 @ApiTags('来源账户映射')
 @Controller('source-account')
+@UseGuards(AuthGuard('jwt'), PermissionGuard)
+@ApiBearerAuth('JWT-auth')
 export class SourceAccountController {
   constructor(private readonly sourceAccountService: SourceAccountService) {}
 
   @Get('platform/:platform/uid/:uid')
+  @Permissions('source:account:view')
   @ApiOperation({ summary: '根据平台UID查找来源账户' })
   @ApiResponse({ status: 200, description: '查找成功' })
   async findByPlatformUid(
@@ -30,6 +36,7 @@ export class SourceAccountController {
   }
 
   @Get('influencer/:influencerId')
+  @Permissions('source:account:view')
   @ApiOperation({ summary: '根据达人ID查找所有来源账户' })
   @ApiResponse({ status: 200, description: '查找成功' })
   async findByInfluencerId(@Param('influencerId') influencerId: string) {
@@ -44,6 +51,7 @@ export class SourceAccountController {
   }
 
   @Get('xingtu/:xingtuId/influencer')
+  @Permissions('source:account:view')
   @ApiOperation({ summary: '根据星图ID查找达人ID' })
   @ApiResponse({ status: 200, description: '查找成功' })
   async findInfluencerByXingtuId(@Param('xingtuId') xingtuId: string) {
@@ -58,6 +66,7 @@ export class SourceAccountController {
   }
 
   @Post()
+  @Permissions('source:account:create')
   @ApiOperation({ summary: '创建或更新来源账户映射' })
   @ApiResponse({ status: 201, description: '创建/更新成功' })
   async createOrUpdate(

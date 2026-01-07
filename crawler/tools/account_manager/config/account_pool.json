@@ -5,12 +5,11 @@
       "account_name": "账号1",
       "username": "wanzhehua@gimc.cn",
       "password": "clpWXFxWEQQaIw==",
-      "star_id": "1843934177451019",
       "created_at": "2025-11-19T16:11:42.247971",
       "last_used_at": null,
-      "expires_at": "2025-12-25T21:42:18.425228",
+      "expires_at": "2026-01-07T02:44:16.167101",
       "status": "active",
-      "cookie_count": 32,
+      "cookie_count": 29,
       "proxy_ip": null,
       "error_count": 0,
       "use_count": 0
@@ -20,12 +19,11 @@
       "account_name": "账号2",
       "username": "3620752704@qq.com",
       "password": "CRwBA1tRdlFGUUk=",
-      "star_id": "1849653025995147",
       "created_at": "2025-11-19T16:14:33.769642",
       "last_used_at": null,
-      "expires_at": "2025-12-25T21:43:13.207036",
+      "expires_at": "2026-01-07T02:45:11.510177",
       "status": "active",
-      "cookie_count": 32,
+      "cookie_count": 29,
       "proxy_ip": null,
       "error_count": 0,
       "use_count": 0
@@ -35,12 +33,11 @@
       "account_name": "账号3",
       "username": "2935441131@qq.com",
       "password": "CRwBA1tRdlFGUUk=",
-      "star_id": "1849653069603081",
       "created_at": "2025-11-19T16:15:20.389914",
       "last_used_at": null,
-      "expires_at": "2025-12-25T21:44:07.958343",
+      "expires_at": "2026-01-07T02:45:58.751449",
       "status": "active",
-      "cookie_count": 32,
+      "cookie_count": 29,
       "proxy_ip": null,
       "error_count": 0,
       "use_count": 0
@@ -49,5 +46,5 @@
   "rotation_strategy": "least_used",
   "auto_refresh": false,
   "refresh_before_expire_hours": 2,
-  "updated_at": "2025-12-25T09:44:27.728093"
+  "updated_at": "2026-01-06T14:46:20.006987"
 }

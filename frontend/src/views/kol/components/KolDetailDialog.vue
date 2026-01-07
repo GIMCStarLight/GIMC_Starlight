@@ -28,12 +28,13 @@
             <div class="divider">|</div>
 
             <span class="info-label">机构名</span>
-            <el-tag size="small" class="category-tag">
+            <el-tag v-if="canViewOrgName" size="small" class="category-tag">
               <template #icon>
                 <el-icon><OfficeBuilding /></el-icon>
               </template>
               {{ kolData.org_name || '暂无机构' }}
             </el-tag>
+            <el-tag v-else size="small" type="info" class="category-tag">***</el-tag>
 
             <div class="divider">|</div>
 
@@ -128,7 +129,7 @@
           <el-divider />
 
           <!-- 报价信息 -->
-          <div class="info-section">
+          <div v-if="canViewPrice" class="info-section">
             <div class="section-header">
               <h4>报价信息</h4>
             </div>
@@ -166,14 +167,14 @@
           <el-divider />
 
           <!-- 合作信息 -->
-          <div class="info-section">
+          <div v-if="canViewCooperationSection" class="info-section">
             <div class="section-header">
               <h4>合作信息</h4>
             </div>
 
             <!-- 采用与同步状态区域一致的卡片式布局 -->
-            <el-row :gutter="12" class="status-info">
-              <el-col :span="12">
+            <el-row v-if="canViewRebateRange || canViewPolicyLevel" :gutter="12" class="status-info">
+              <el-col v-if="canViewRebateRange" :span="12">
                 <el-card shadow="never">
                   <div class="price-info-item">
                     <span class="price-info-label">返点区间</span>
@@ -185,7 +186,7 @@
                   </div>
                 </el-card>
               </el-col>
-              <el-col :span="12">
+              <el-col v-if="canViewPolicyLevel" :span="12">
                 <el-card shadow="never">
                   <div class="price-info-item">
                     <span class="price-info-label">政策等级</span>
@@ -199,8 +200,8 @@
               </el-col>
             </el-row>
 
-            <el-row :gutter="12" class="status-info">
-              <el-col :span="12">
+            <el-row v-if="canViewRebateRange || canViewRebatePeriod" :gutter="12" class="status-info">
+              <el-col v-if="canViewRebateRange" :span="12">
                 <el-card shadow="never">
                   <div class="price-info-item">
                     <span class="price-info-label">返点政策</span>
@@ -212,7 +213,7 @@
                   </div>
                 </el-card>
               </el-col>
-              <el-col :span="12">
+              <el-col v-if="canViewRebatePeriod" :span="12">
                 <el-card shadow="never">
                   <div class="price-info-item">
                     <span class="price-info-label">返点账期</span>
@@ -226,8 +227,8 @@
               </el-col>
             </el-row>
 
-            <el-row :gutter="12" class="status-info">
-              <el-col :span="12">
+            <el-row v-if="canViewIsExclusive || canViewCooperationDegree" :gutter="12" class="status-info">
+              <el-col v-if="canViewIsExclusive" :span="12">
                 <el-card shadow="never">
                   <div class="price-info-item">
                     <span class="price-info-label">是否独家</span>
@@ -239,7 +240,7 @@
                   </div>
                 </el-card>
               </el-col>
-              <el-col :span="12">
+              <el-col v-if="canViewCooperationDegree" :span="12">
                 <el-card shadow="never">
                   <div class="price-info-item">
                     <span class="price-info-label">配合度</span>
@@ -253,8 +254,8 @@
               </el-col>
             </el-row>
 
-            <el-row :gutter="12" class="status-info">
-              <el-col :span="12">
+            <el-row v-if="canViewAnnualContractOrg || canViewCooperationDegree" :gutter="12" class="status-info">
+              <el-col v-if="canViewAnnualContractOrg" :span="12">
                 <el-card shadow="never">
                   <div class="price-info-item">
                     <span class="price-info-label">年框机构</span>
@@ -266,7 +267,7 @@
                   </div>
                 </el-card>
               </el-col>
-              <el-col :span="12">
+              <el-col v-if="canViewCooperationDegree" :span="12">
                 <el-card shadow="never">
                   <div class="price-info-item">
                     <span class="price-info-label">资源属性</span>
@@ -280,8 +281,8 @@
               </el-col>
             </el-row>
 
-            <el-row :gutter="12" class="status-info">
-              <el-col :span="12">
+            <el-row v-if="canViewRebatePeriod || canViewCooperationIntro" :gutter="12" class="status-info">
+              <el-col v-if="canViewRebatePeriod" :span="12">
                 <el-card shadow="never">
                   <div class="price-info-item">
                     <span class="price-info-label">支付账期</span>
@@ -293,7 +294,7 @@
                   </div>
                 </el-card>
               </el-col>
-              <el-col :span="12">
+              <el-col v-if="canViewCooperationIntro" :span="12">
                 <el-card shadow="never">
                   <div class="price-info-item">
                     <span class="price-info-label">合作简介</span>
@@ -317,7 +318,7 @@
       </div>
 
       <!-- 备注 -->
-      <div v-if="kolData.remark" class="info-section">
+      <div v-if="canViewRemark && kolData.remark" class="info-section">
         <h4 class="section-title">备注</h4>
         <div class="remark-content">{{ kolData.remark }}</div>
       </div>
@@ -349,6 +350,7 @@ import { Refresh, Edit, OfficeBuilding } from '@element-plus/icons-vue'
 import { KolSyncApi } from '../../../api/kol-sync.api'
 import SyncStatusTag from './SyncStatusTag.vue'
 import AuthorSnapshotPanel from './AuthorSnapshotPanel.vue'
+import { useFieldPermissions } from '../../../composables/useFieldPermissions'
 
 interface KolData {
   id: number
@@ -403,6 +405,29 @@ const visible = computed({
   get: () => props.modelValue,
   set: (value) => emit('update:modelValue', value)
 })
+
+// 字段权限控制
+const { hasFieldGroupPermission, isSuperAdmin } = useFieldPermissions('kol')
+
+// 细粒度字段权限
+const canViewPrice = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:price'))
+const canViewOrgName = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:org_name'))
+const canViewIsExclusive = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:is_exclusive'))
+const canViewRebateRange = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:rebate_range'))
+const canViewPolicyLevel = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:policy_level'))
+const canViewCooperationDegree = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:cooperation_degree'))
+const canViewRebatePeriod = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:rebate_period'))
+const canViewAnnualContractOrg = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:annual_contract_org'))
+const canViewCooperationIntro = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:cooperation_intro'))
+const canViewRemark = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:remark'))
+const canViewMatch = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:match'))
+
+// 合作信息区块显示条件
+const canViewCooperationSection = computed(() => 
+  canViewOrgName.value || canViewIsExclusive.value || canViewRebateRange.value ||
+  canViewPolicyLevel.value || canViewCooperationDegree.value || canViewRebatePeriod.value ||
+  canViewAnnualContractOrg.value || canViewCooperationIntro.value
+)
 
 // 判断是否可以重试同步
 const canRetrySync = computed(() => {
