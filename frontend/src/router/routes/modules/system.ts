@@ -55,6 +55,16 @@ const routes: RouteRecordRaw[] = [
           title: $t('page.system.account.title'),
         },
       },
+      {
+        name: 'SystemInfluencerSorting',
+        path: '/system/influencer-sorting',
+        component: () => import('#/views/system/influencer-sorting/index.vue'),
+        meta: {
+          affixTab: false,
+          icon: 'lucide:arrow-up-down',
+          title: '达人排序管理',
+        },
+      },
     ],
   },
 ];
