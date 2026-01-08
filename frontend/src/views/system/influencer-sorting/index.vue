@@ -335,14 +335,6 @@
             </div>
           </div>
         </div>
-        
-        <a-alert
-          v-if="privateMaxScore > 100"
-          message="总和不能超过100分"
-          type="error"
-          show-icon
-          class="score-warning"
-        />
       </div>
     </a-card>
 
@@ -488,14 +480,6 @@
             </div>
           </div>
         </div>
-        
-        <a-alert
-          v-if="qualityMaxScore > 100"
-          message="总和不能超过100分"
-          type="error"
-          show-icon
-          class="score-warning"
-        />
       </div>
     </a-card>
 
@@ -567,7 +551,7 @@ const privateWeights = reactive({
   policyC: 12,
   policyD: 6,
   // 其他
-  exclusive: 20,
+  exclusive: 15,
   rebate: 10,
   annual: 5
 })
@@ -579,7 +563,7 @@ const qualityWeights = reactive({
   darkHorse: 20,
   highPotential: 15,
   // 其他
-  followers: 35,
+  followers: 30,
   interaction: 20,
   growth: 15,
   starIndex: 10
