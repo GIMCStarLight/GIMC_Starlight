@@ -810,6 +810,12 @@ const handleReset = () => {
 
     .page-header-right {
       flex-shrink: 0;
+
+      :deep(.ant-btn) {
+        .anticon {
+          vertical-align: middle;
+        }
+      }
     }
 
     .page-title {
