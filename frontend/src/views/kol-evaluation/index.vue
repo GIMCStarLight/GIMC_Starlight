@@ -178,64 +178,71 @@
       :close-on-click-modal="false"
     >
       <div v-if="currentReview" class="review-detail">
-        <el-descriptions :column="2" border size="large">
-          <el-descriptions-item label="评价ID" label-class-name="detail-label">
-            <el-tag>{{ currentReview.id }}</el-tag>
-          </el-descriptions-item>
-          <el-descriptions-item label="达人昵称" label-class-name="detail-label">
-            <div class="detail-user">
-              <el-avatar :size="24" :src="currentReview.influencerAvatarUri">
-                {{ currentReview.influencerNickName?.substring(0, 1) }}
-              </el-avatar>
-              <span>{{ currentReview.influencerNickName || '未知达人' }}</span>
-            </div>
-          </el-descriptions-item>
-          <el-descriptions-item label="评价人" label-class-name="detail-label">
-            <el-tag type="info">{{ currentReview.reviewer }}</el-tag>
-          </el-descriptions-item>
-          <el-descriptions-item label="评分" label-class-name="detail-label">
+        <!-- 头部：头像+昵称 + 星级 -->
+        <div class="detail-header">
+          <div class="header-left">
+            <el-avatar :size="48" :src="currentReview.influencerAvatarUri">
+              {{ currentReview.influencerNickName?.substring(0, 1) || '达' }}
+            </el-avatar>
+            <span class="user-nickname">{{ currentReview.influencerNickName || '未知达人' }}</span>
+          </div>
+          <div class="header-right">
             <el-rate
-              v-model="currentReview.score"
+              :model-value="currentReview.score"
               disabled
               show-score
               text-color="#ff9900"
               score-template="{value}分"
             />
-          </el-descriptions-item>
-          <el-descriptions-item label="状态" label-class-name="detail-label">
-            <el-tag 
-              :type="currentReview.status === 'approved' ? 'success' : currentReview.status === 'pending' ? 'warning' : 'danger'"
-            >
+          </div>
+        </div>
+
+        <!-- 用户信息：Grid 两列布局 -->
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">评价ID</span>
+            <span class="info-value">{{ currentReview.id }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">评价人</span>
+            <span class="info-value">{{ currentReview.reviewer }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">状态</span>
+            <el-tag :type="currentReview.status === 'approved' ? 'success' : currentReview.status === 'pending' ? 'warning' : 'danger'" size="small">
               {{ currentReview.status === 'approved' ? '已审核' : currentReview.status === 'pending' ? '待审核' : '已拒绝' }}
             </el-tag>
-          </el-descriptions-item>
-          <el-descriptions-item label="评价类型" label-class-name="detail-label">
-            <el-tag type="primary">{{ currentReview.reviewType || 'internal' }}</el-tag>
-          </el-descriptions-item>
-          <el-descriptions-item label="评价时间" label-class-name="detail-label" :span="2">
-            <el-icon><Clock /></el-icon>
-            {{ formatDate(currentReview.createdAt) }}
-          </el-descriptions-item>
-          <el-descriptions-item label="更新时间" label-class-name="detail-label" :span="2">
-            <el-icon><Clock /></el-icon>
-            {{ formatDate(currentReview.updatedAt) }}
-          </el-descriptions-item>
-        </el-descriptions>
-        
-        <div class="content-section">
-          <h4><el-icon><Document /></el-icon> 评价内容</h4>
-          <div class="content-text">
+          </div>
+          <div class="info-item">
+            <span class="info-label">评价类型</span>
+            <el-tag type="info" size="small">{{ currentReview.reviewType || 'internal' }}</el-tag>
+          </div>
+          <div class="info-item">
+            <span class="info-label">评价时间</span>
+            <span class="info-value">{{ formatDate(currentReview.createdAt) }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">更新时间</span>
+            <span class="info-value">{{ formatDate(currentReview.updatedAt) }}</span>
+          </div>
+        </div>
+
+        <!-- 基础信息区：卡片式内容框 -->
+        <div class="content-card">
+          <div class="card-title">评价内容</div>
+          <div class="card-content">
             {{ currentReview.content || '暂无评价内容' }}
           </div>
         </div>
 
-        <div v-if="currentReview.reviewTags && currentReview.reviewTags.length > 0" class="tags-section">
-          <h4><el-icon><PriceTag /></el-icon> 评价标签</h4>
-          <el-space wrap>
-            <el-tag v-for="tag in currentReview.reviewTags" :key="tag" type="success">
+        <!-- 标签区：多个默认颜色的标签 -->
+        <div v-if="currentReview.reviewTags && currentReview.reviewTags.length > 0" class="tags-card">
+          <div class="card-title">评价标签</div>
+          <div class="tags-wrapper">
+            <el-tag type="info" v-for="tag in currentReview.reviewTags" :key="tag" size="small">
               {{ tag }}
             </el-tag>
-          </el-space>
+          </div>
         </div>
       </div>
 
@@ -249,24 +256,21 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted, computed } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { 
-  User, 
-  ChatDotRound, 
-  Star, 
-  TrendCharts, 
-  Search, 
-  Refresh, 
+import {
+  User,
+  ChatDotRound,
+  Star,
+  TrendCharts,
+  Search,
+  Refresh,
   Download,
   Plus,
   Filter,
   List,
-  Clock,
   View,
   Delete,
   Check,
   Close,
-  Document,
-  PriceTag,
   Medal,
   DataAnalysis,
   Select,
@@ -1230,6 +1234,10 @@ onMounted(() => {
   font-size: 16px;
 }
 
+.time-cell :deep(.el-icon) {
+  vertical-align: middle;
+}
+
 .pagination-wrapper {
   display: flex;
   justify-content: center;
@@ -1307,50 +1315,104 @@ onMounted(() => {
 
 /* 详情对话框样式 */
 .review-detail {
-  padding: 10px 0;
+  padding: 0;
 }
 
-:deep(.detail-label) {
+/* 头部：头像+昵称 + 星级 */
+.detail-header {
+  /* background-color: #409eff; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #ebeef5;
+}
+
+.header-left {
+  display: flex;
+  /* align-items: center; */
+  gap: 12px;
+}
+
+.user-nickname {
+  font-size: 16px;
   font-weight: 600;
-  color: #606266;
+  color: #303133;
 }
 
-.detail-user {
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+/* 用户信息：Grid 两列布局 */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 0px;
+  padding: 20px;
+  border-bottom: 1px solid #ebeef5;
+}
+
+.info-item {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.content-section,
-.tags-section {
-  margin-top: 24px;
+.info-label {
+  font-size: 13px;
+  color: #909399;
+  min-width: 70px;
 }
 
-.content-section h4,
-.tags-section h4 {
-  margin: 0 0 12px 0;
-  font-size: 15px;
+.info-value {
+  font-size: 14px;
+  color: #666;
+}
+
+/* 基础信息区：卡片式内容框 */
+.content-card{
+  padding: 20px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #ebeef5;
+}
+.tags-card {
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.content-card:last-child,
+.tags-card:last-child {
+  margin-bottom: 0;
+}
+
+.card-title {
+  font-size: 14px;
   font-weight: 600;
   color: #303133;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  margin-bottom: 12px;
 }
-.tooltip-content{
-  font-size: 14px;
-  color: #606266;
-  padding: 4px 8px;
-}
-.content-text {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  border: 1px solid #e4e7ed;
-  border-radius: 8px;
-  padding: 16px;
+
+.card-content {
+  font-size: 16px;
+  color: #666;
   line-height: 1.8;
-  color: #303133;
-  min-height: 100px;
   white-space: pre-wrap;
   word-break: break-word;
+}
+
+/* 标签区 */
+.tags-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tooltip-content{
+  font-size: 16px;
+  color: #606266;
+  padding: 4px 8px;
 }
 
 /* 评价表格自定义样式 */
