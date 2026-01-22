@@ -18,15 +18,19 @@ import { SearchService } from './search.service';
 import { JwtAuthGuard } from '../common/guards/auth.guard';
 import { SearchInfluencerDto, SearchSuggestionDto } from './dto/search.dto';
 import { ApiResponseDto } from '../common/dto/response.dto';
+import { PermissionGuard } from '../auth/guards/permission.guard';
+import { Permissions } from '../auth/decorators/permissions.decorator';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('搜索')
 @Controller('search')
-@UseGuards(JwtAuthGuard)
-@ApiBearerAuth()
+@UseGuards(AuthGuard('jwt'), PermissionGuard)
+@ApiBearerAuth('JWT-auth')
 export class SearchController {
   constructor(private readonly searchService: SearchService) {}
 
   @Get('influencers')
+  @Permissions('search:influencer')
   @ApiOperation({ summary: '搜索达人' })
   @ApiResponse({
     status: 200,
@@ -43,6 +47,7 @@ export class SearchController {
   }
 
   @Get('suggestions')
+  @Permissions('search:influencer')
   @ApiOperation({ summary: '获取搜索建议' })
   @ApiResponse({
     status: 200,
@@ -62,6 +67,7 @@ export class SearchController {
 
   @Post('reindex')
   @HttpCode(HttpStatus.OK)
+  @Permissions('search:reindex')
   @ApiOperation({ summary: '重建搜索索引' })
   @ApiResponse({
     status: 200,
@@ -78,6 +84,7 @@ export class SearchController {
   }
 
   @Get('hot-keywords')
+  @Permissions('search:influencer')
   @ApiOperation({ summary: '获取热门搜索关键词' })
   @ApiResponse({
     status: 200,
@@ -95,6 +102,7 @@ export class SearchController {
 
   @Post('clear-cache')
   @HttpCode(HttpStatus.OK)
+  @Permissions('search:cache:clear')
   @ApiOperation({ summary: '清除搜索缓存' })
   @ApiResponse({
     status: 200,

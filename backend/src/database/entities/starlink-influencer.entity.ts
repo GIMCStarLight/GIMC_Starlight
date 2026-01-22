@@ -14,10 +14,10 @@ export class StarlinkInfluencer {
   @Column({ type: 'integer', unique: true, name: 'kol_serial_number' })
   kolSerialNumber: number;
 
-  @Column({ type: 'varchar', length: 100 })
+  @Column({ type: 'varchar', length: 100, name: 'account_name' })
   nickname: string;
 
-  @Column({ type: 'varchar', length: 500, nullable: true, name: 'profile_url' })
+  @Column({ type: 'varchar', length: 500, nullable: true, name: 'home_link' })
   profileUrl: string;
 
   @Column({ type: 'varchar', length: 500, nullable: true, name: 'star_platform_url' })
@@ -26,19 +26,19 @@ export class StarlinkInfluencer {
   @Column({ type: 'varchar', length: 50, nullable: true, name: 'primary_platform' })
   primaryPlatform: string;
 
-  @Column({ type: 'varchar', length: 100, nullable: true, name: 'account_category' })
+  @Column({ type: 'varchar', length: 100, nullable: true, name: 'category' })
   accountCategory: string;
 
-  @Column({ type: 'decimal', precision: 10, scale: 2, nullable: true, name: 'fans_count' })
+  @Column({ type: 'decimal', precision: 10, scale: 2, nullable: true, name: 'followers_w' })
   fansCount: number;
 
-  @Column({ type: 'decimal', precision: 12, scale: 2, nullable: true, name: 'price_1_20s' })
+  @Column({ type: 'decimal', precision: 12, scale: 2, nullable: true, name: 'star_quote_1_20s' })
   price1To20s: number;
 
-  @Column({ type: 'decimal', precision: 12, scale: 2, nullable: true, name: 'price_21_60s' })
+  @Column({ type: 'decimal', precision: 12, scale: 2, nullable: true, name: 'star_quote_21_60s' })
   price21To60s: number;
 
-  @Column({ type: 'decimal', precision: 12, scale: 2, nullable: true, name: 'price_60s_plus' })
+  @Column({ type: 'decimal', precision: 12, scale: 2, nullable: true, name: 'star_quote_60s_plus' })
   price60sPlus: number;
 
   @Column({ type: 'text', nullable: true, name: 'policy_tiers' })
@@ -89,7 +89,7 @@ export class StarlinkInfluencer {
   @Column({ type: 'varchar', length: 500, nullable: true, name: 'cooperation_industries' })
   cooperationIndustries: string;
 
-  @Column({ type: 'text', nullable: true })
+  @Column({ type: 'text', nullable: true, name: 'certifications' })
   certifications: string;
 
   @Column({ type: 'text', nullable: true, name: 'awards_honors' })
@@ -116,7 +116,7 @@ export class StarlinkInfluencer {
   @Column({ type: 'integer', default: 0, name: 'second_half_order_count' })
   secondHalfOrderCount: number;
 
-  @Column({ type: 'text', nullable: true })
+  @Column({ type: 'text', nullable: true, name: 'remarks' })
   remarks: string;
 
   @CreateDateColumn({ name: 'created_at' })

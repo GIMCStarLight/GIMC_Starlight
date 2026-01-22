@@ -229,8 +229,12 @@
     "rebatePolicyConfig": "返利政策配置"
   },
   "aiNumberSelection": {
-    "title": "AI选号",
+    "title": "智能问数",
     "description": "智能选号系统，为您提供精准的号码推荐服务"
+  },
+  "supplier": {
+    "title": "供应商管理",
+    "description": "管理供应商数据和信息维护"
   },
   "tagFilter": {
     "title": "标签筛选",

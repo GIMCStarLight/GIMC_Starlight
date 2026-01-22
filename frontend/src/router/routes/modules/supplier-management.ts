@@ -1,21 +1,29 @@
 import type { RouteRecordRaw } from 'vue-router';
 
+import { BasicLayout } from '#/layouts';
 import { $t } from '#/locales';
 
 const routes: RouteRecordRaw[] = [
   {
+    component: BasicLayout,
+    meta: {
+      icon: 'lucide:truck',
+      order: 3,
+      title: $t('page.supplier.title'),
+    },
     name: 'SupplierManagement',
     path: '/supplier-management',
-    component: () => import('#/views/supplier-management/supplier-management/index.vue'),
-    meta: {
-      icon: 'lucide:user-pen',
-      order: 5,
-      title: '供应商管理',
-      hideInMenu: false,
-      requiresAuth: true,
-      permissions: ['supplier:view'],
-    },
-    
+    children: [
+      {
+        name: 'SupplierManagementIndex',
+        path: '',
+        component: () => import('#/views/supplier-management/supplier-management/index.vue'),
+        meta: {
+          icon: 'lucide:truck',
+          title: $t('page.supplier.title'),
+        },
+      },
+    ],
   },
 ];
 

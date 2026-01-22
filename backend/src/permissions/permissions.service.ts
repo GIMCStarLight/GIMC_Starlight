@@ -375,6 +375,7 @@ export class PermissionsService {
         parentId: permission.parentId,
         sort: permission.sort,
         status: permission.status || 1,
+        frontendMeta: permission.frontendMeta,
         children: [],
       };
 
@@ -465,6 +466,7 @@ export class PermissionsService {
         status: permission.status || 1,
         createdAt: permission.createdAt,
         updatedAt: permission.updatedAt,
+        frontendMeta: permission.frontendMeta,
         children: [],
       };
 

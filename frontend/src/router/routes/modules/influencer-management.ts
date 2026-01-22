@@ -21,6 +21,7 @@ const routes: RouteRecordRaw[] = [
       order: 15,
       requiresAuth: true,
       permissions: ['influencer:manage'],
+      hideInMenu: true,
     },
   },
 ];

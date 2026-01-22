@@ -8,18 +8,25 @@ import {
   Query,
   HttpException,
   HttpStatus,
+  UseGuards,
 } from '@nestjs/common';
-import { ApiTags, ApiOperation } from '@nestjs/swagger';
+import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 import { StarlinkInfluencerService } from '../services/starlink-influencer.service';
+import { PermissionGuard } from '../../../auth/guards/permission.guard';
+import { Permissions } from '../../../auth/decorators/permissions.decorator';
 
 @ApiTags('星链计划达人管理')
 @Controller('starlink-influencers')
+@UseGuards(AuthGuard('jwt'), PermissionGuard)
+@ApiBearerAuth('JWT-auth')
 export class StarlinkInfluencerController {
   constructor(
     private readonly starlinkService: StarlinkInfluencerService,
   ) {}
 
   @Get()
+  @Permissions('influencer:starlink:view')
   @ApiOperation({ summary: '获取星链计划达人列表' })
   async findAll(
     @Query('page') page = 1,
@@ -36,6 +43,7 @@ export class StarlinkInfluencerController {
   }
 
   @Get(':id')
+  @Permissions('influencer:starlink:view')
   @ApiOperation({ summary: '获取单个星链计划达人详情' })
   async findOne(@Param('id') id: string) {
     try {
@@ -53,6 +61,7 @@ export class StarlinkInfluencerController {
   }
 
   @Put(':id')
+  @Permissions('influencer:starlink:update')
   @ApiOperation({ summary: '更新星链计划达人信息' })
   async update(
     @Param('id') id: string,
@@ -69,6 +78,7 @@ export class StarlinkInfluencerController {
   }
 
   @Delete(':id')
+  @Permissions('influencer:starlink:delete')
   @ApiOperation({ summary: '删除星链计划达人' })
   async delete(@Param('id') id: string) {
     try {

@@ -13,6 +13,7 @@ import {
   ValidationPipe,
   UsePipes,
   UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
 import {
   ApiTags,
@@ -38,11 +39,15 @@ import { KolList, MatchStatus } from '../../database/entities/kol-list.entity';
 import { Permissions } from '../../auth/decorators/permissions.decorator';
 import { PermissionGuard } from '../../auth/guards/permission.guard';
 import { JwtAuthGuard } from '../../common/guards/auth.guard';
+import { FieldFilterInterceptor } from '../../common/interceptors/field-filter.interceptor';
+import { FilterFields, SkipFieldFilter } from '../../common/decorators/field-filter.decorator';
 
 @ApiTags('KOL达人管理')
 @Controller('kol-lists')
 @ApiBearerAuth('JWT-auth')
 @UseGuards(JwtAuthGuard, PermissionGuard)
+@UseInterceptors(FieldFilterInterceptor)
+@FilterFields('kol')
 @UsePipes(
   new ValidationPipe({
     transform: true,
@@ -204,6 +209,7 @@ export class KolListController {
 
   @Get('platforms')
   @Permissions('kol:view')
+  @SkipFieldFilter() // 枚举接口不需要字段过滤
   @ApiOperation({
     summary: '获取平台列表',
     description: '返回已存在的KOL平台枚举',
@@ -220,6 +226,7 @@ export class KolListController {
 
   @Get('categories')
   @Permissions('kol:view')
+  @SkipFieldFilter() // 枚举接口不需要字段过滤
   @ApiOperation({
     summary: '获取分类列表',
     description: '返回已存在的KOL分类枚举',
@@ -236,6 +243,7 @@ export class KolListController {
 
   @Get('organizations')
   @Permissions('kol:view')
+  @SkipFieldFilter() // 枚举接口不需要字段过滤
   @ApiOperation({
     summary: '获取机构列表',
     description: '返回已存在的机构名称枚举',

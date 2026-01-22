@@ -11,11 +11,14 @@ export class StarlinkInfluencerService {
   ) {}
 
   async findAll(page = 1, limit = 20) {
-    const [data, total] = await this.starlinkRepository.findAndCount({
-      order: { id: 'ASC' },
-      skip: (page - 1) * limit,
-      take: limit,
-    });
+    // 使用 QueryBuilder 来确保使用正确的数据库列名
+    const queryBuilder = this.starlinkRepository.createQueryBuilder('starlink');
+    
+    const [data, total] = await queryBuilder
+      .orderBy('starlink.id', 'ASC')
+      .skip((page - 1) * limit)
+      .take(limit)
+      .getManyAndCount();
 
     return {
       data,

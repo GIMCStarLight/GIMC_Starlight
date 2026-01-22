@@ -6,6 +6,7 @@ import { ElMessage } from 'element-plus'
 import * as echarts from 'echarts'
 import { getInfluencerFullData } from '../../api/influencer-v2'
 import KolReviewsTab from '../../components/KolReviewsTab/index.vue'
+import { useFieldPermissions } from '../../composables/useFieldPermissions'
 
 const route = useRoute()
 const router = useRouter()
@@ -14,6 +15,28 @@ const rawData = ref<Record<string, any>>({})
 const activeTab = ref('overview')
 const radarChartRef = ref<HTMLElement | null>(null)
 let radarChart: echarts.ECharts | null = null
+
+// 字段权限控制
+const { hasFieldGroupPermission, isSuperAdmin } = useFieldPermissions('kol')
+
+// 细粒度字段权限
+const canViewPrice = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:price'))
+const canViewOrgName = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:org_name'))
+const canViewIsExclusive = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:is_exclusive'))
+const canViewRebateRange = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:rebate_range'))
+const canViewPolicyLevel = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:policy_level'))
+const canViewCooperationDegree = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:cooperation_degree'))
+const canViewRebatePeriod = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:rebate_period'))
+const canViewAnnualContractOrg = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:annual_contract_org'))
+const canViewCooperationIntro = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:cooperation_intro'))
+const canViewRemark = computed(() => isSuperAdmin.value || hasFieldGroupPermission('kol:field:remark'))
+
+// 合作信息Tab显示条件
+const canViewCooperationTab = computed(() => 
+  canViewOrgName.value || canViewIsExclusive.value || canViewRebateRange.value ||
+  canViewPolicyLevel.value || canViewCooperationDegree.value || canViewRebatePeriod.value ||
+  canViewAnnualContractOrg.value || canViewCooperationIntro.value || canViewRemark.value
+)
 
 // 加载达人完整数据
 const loadInfluencerFullData = async () => {
@@ -538,12 +561,12 @@ onUnmounted(() => {
             />
           </el-tab-pane>
 
-          <!-- Tab 7: 爬虫数据 -->
-          <el-tab-pane label="🕷️ 爬虫数据" name="crawler">
+          <!-- Tab 7: 其他信息 -->
+          <el-tab-pane label="其他信息" name="crawler">
             <div class="tab-content">
               <!-- get_author_base_info 数据模块 -->
               <div class="data-module">
-                <h3 class="module-title">📋 达人基础信息（get_author_base_info）</h3>
+                <h3 class="module-title">达人基础信息</h3>
                 <el-descriptions :column="2" border size="large">
                   <el-descriptions-item label="达人ID">
                     <span class="mono-text">{{ rawData.author_id || rawData.id || '-' }}</span>
@@ -607,7 +630,7 @@ onUnmounted(() => {
 
               <!-- get_author_platform_channel_info_v2 数据模块 -->
               <div class="data-module" style="margin-top: 24px;">
-                <h3 class="module-title">🎯 平台渠道信息（get_author_platform_channel_info_v2）</h3>
+                <h3 class="module-title">平台渠道信息</h3>
                 <el-descriptions :column="1" border size="large">
                   <el-descriptions-item label="自我介绍（self_intro）">
                     <div v-if="rawData.self_intro" class="intro-box">
@@ -618,9 +641,9 @@ onUnmounted(() => {
                 </el-descriptions>
               </div>
 
-              <!-- 其他爬虫数据字段 -->
+              <!-- 其他技术数据字段 -->
               <div class="data-module" style="margin-top: 24px;">
-                <h3 class="module-title">🔍 其他爬虫字段</h3>
+                <h3 class="module-title">其他技术字段</h3>
                 <el-descriptions :column="2" border size="large">
                   <el-descriptions-item label="头像URI">
                     <div class="avatar-preview">
@@ -651,7 +674,7 @@ onUnmounted(() => {
                   <el-descriptions-item label="星图指数">
                     {{ formatNumber(rawData.star_index) }}
                   </el-descriptions-item>
-                  <el-descriptions-item label="最后爬取时间">
+                  <el-descriptions-item label="最后更新时间">
                     {{ formatDate(rawData.last_crawled_at) }}
                   </el-descriptions-item>
                 </el-descriptions>
@@ -660,12 +683,12 @@ onUnmounted(() => {
           </el-tab-pane>
 
           <!-- Tab 8: 私域信息（仅已匹配达人显示） -->
-          <el-tab-pane v-if="rawData.is_matched" label="🔗 合作信息" name="private">
+          <el-tab-pane v-if="rawData.is_matched && canViewCooperationTab" label="合作信息" name="private">
             <div class="tab-content">
               <!-- 匹配状态标识 -->
               <div class="private-header">
                 <el-tag type="success" size="large" effect="dark">
-                  ✅ 已建联
+                  已建联
                 </el-tag>
                 <span v-if="rawData.matched_at" class="matched-time">
                   匹配时间：{{ formatDate(rawData.matched_at) }}
@@ -673,10 +696,10 @@ onUnmounted(() => {
               </div>
 
               <!-- 基础信息模块 -->
-              <div class="data-module">
-                <h3 class="module-title">🏢 机构信息</h3>
+              <div v-if="canViewOrgName || canViewIsExclusive || canViewAnnualContractOrg" class="data-module">
+                <h3 class="module-title">机构信息</h3>
                 <el-descriptions :column="2" border size="large">
-                  <el-descriptions-item label="所属机构">
+                  <el-descriptions-item v-if="canViewOrgName" label="所属机构">
                     <span class="highlight-text">{{ rawData.org_name || '-' }}</span>
                   </el-descriptions-item>
                   <el-descriptions-item label="分类标签">
@@ -685,12 +708,12 @@ onUnmounted(() => {
                     </el-tag>
                     <span v-else>-</span>
                   </el-descriptions-item>
-                  <el-descriptions-item label="年框机构">
+                  <el-descriptions-item v-if="canViewAnnualContractOrg" label="年框机构">
                     {{ rawData.annual_contract_org || '-' }}
                   </el-descriptions-item>
-                  <el-descriptions-item label="是否独家">
+                  <el-descriptions-item v-if="canViewIsExclusive" label="是否独家">
                     <el-tag v-if="rawData.is_exclusive === 1" type="danger" size="small" effect="dark">
-                      ⭐ 独家资源
+                      独家资源
                     </el-tag>
                     <el-tag v-else type="info" size="small">-</el-tag>
                   </el-descriptions-item>
@@ -698,35 +721,35 @@ onUnmounted(() => {
               </div>
 
               <!-- 返点政策模块 -->
-              <div class="data-module">
-                <h3 class="module-title">💰 返点政策</h3>
+              <div v-if="canViewRebateRange || canViewPolicyLevel || canViewRebatePeriod" class="data-module">
+                <h3 class="module-title">返点政策</h3>
                 <el-descriptions :column="2" border size="large">
-                  <el-descriptions-item label="返点政策">
+                  <el-descriptions-item v-if="canViewRebateRange" label="返点政策">
                     <span class="policy-text">{{ rawData.rebate_policy || '-' }}</span>
                   </el-descriptions-item>
-                  <el-descriptions-item label="返点区间">
+                  <el-descriptions-item v-if="canViewRebateRange" label="返点区间">
                     <span class="rebate-highlight">{{ rawData.rebate_range || '-' }}</span>
                   </el-descriptions-item>
-                  <el-descriptions-item label="政策等级">
+                  <el-descriptions-item v-if="canViewPolicyLevel" label="政策等级">
                     <el-tag v-if="rawData.policy_level" :type="getPolicyLevelType(rawData.policy_level)" size="small">
                       {{ rawData.policy_level }}级
                     </el-tag>
                     <span v-else>-</span>
                   </el-descriptions-item>
-                  <el-descriptions-item label="返点账期">
+                  <el-descriptions-item v-if="canViewRebatePeriod" label="返点账期">
                     {{ rawData.rebate_period || '-' }}
                   </el-descriptions-item>
-                  <el-descriptions-item label="支付账期">
+                  <el-descriptions-item v-if="canViewRebatePeriod" label="支付账期">
                     {{ rawData.pay_period || '-' }}
                   </el-descriptions-item>
                 </el-descriptions>
               </div>
 
               <!-- 合作信息模块 -->
-              <div class="data-module">
-                <h3 class="module-title">🤝 合作信息</h3>
+              <div v-if="canViewCooperationDegree || canViewCooperationIntro || canViewRemark" class="data-module">
+                <h3 class="module-title">合作信息</h3>
                 <el-descriptions :column="1" border size="large">
-                  <el-descriptions-item label="配合度">
+                  <el-descriptions-item v-if="canViewCooperationDegree" label="配合度">
                     <el-rate 
                       v-if="rawData.cooperation_degree" 
                       :model-value="getCooperationStars(rawData.cooperation_degree)" 
@@ -736,7 +759,7 @@ onUnmounted(() => {
                     />
                     <span v-else>-</span>
                   </el-descriptions-item>
-                  <el-descriptions-item label="合作简介">
+                  <el-descriptions-item v-if="canViewCooperationIntro" label="合作简介">
                     <div v-if="rawData.cooperation_intro" class="intro-box">
                       {{ rawData.cooperation_intro }}
                     </div>
@@ -748,7 +771,7 @@ onUnmounted(() => {
                     </div>
                     <span v-else>-</span>
                   </el-descriptions-item>
-                  <el-descriptions-item label="备注">
+                  <el-descriptions-item v-if="canViewRemark" label="备注">
                     <div v-if="rawData.remark" class="remark-box">
                       {{ rawData.remark }}
                     </div>
@@ -1065,7 +1088,7 @@ onUnmounted(() => {
   font-family: inherit;
 }
 
-/* 爬虫数据样式 */
+/* 其他信息样式 */
 .mono-text {
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
   color: #606266;

@@ -18,6 +18,7 @@ export enum PermissionType {
   API = 'API',
   BUTTON = 'BUTTON',
   MENU = 'MENU',
+  FIELD = 'FIELD',  // 字段级权限
 }
 
 /**
@@ -105,6 +106,20 @@ export class Permission {
     comment: '状态: 0=禁用, 1=启用',
   })
   status: number;
+
+  @Column({
+    type: 'jsonb',
+    name: 'frontend_meta',
+    nullable: true,
+    comment: '前端映射元数据: {routePath, componentPath, elementLocator, pageLocation, businessModule}',
+  })
+  frontendMeta: {
+    routePath?: string; // 前端路由路径 (如: /system/user)
+    componentPath?: string; // 组件路径 (如: src/views/system/user/index.vue)
+    elementLocator?: string; // UI元素定位 (如: #export-btn, .user-create-button)
+    pageLocation?: string; // 页面位置描述 (如: 用户管理页面 > 顶部操作栏 > 导出按钮)
+    businessModule?: string; // 业务模块 (如: 用户管理, KOL数据管理)
+  };
 
   @CreateDateColumn({
     type: 'timestamp',

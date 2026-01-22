@@ -812,6 +812,7 @@ watch(
             <ElOption label="菜单" value="MENU" />
             <ElOption label="按钮" value="BUTTON" />
             <ElOption label="接口" value="API" />
+            <ElOption label="字段" value="FIELD" />
           </ElSelect>
         </ElFormItem>
         <ElFormItem label="状态">

@@ -1,0 +1,29 @@
+{
+  "description": "作品投放数据采集专用账号池",
+  "api_endpoint": "/h/api/gateway/handler_get/",
+  "accounts": [
+    {
+      "account_id": "item_account_1",
+      "account_name": "作品数据账号1",
+      "username": "weipinhuisg@163.com",
+      "password": "WPH@8989",
+      "star_id": "1849728353273928",
+      "created_at": "2025-12-26T10:30:00",
+      "last_used_at": "2025-12-26T17:20:18.754165",
+      "expires_at": "2025-12-31T17:16:34.476089",
+      "status": "active",
+      "cookie_count": 10,
+      "cookie_file": "tools/account_manager/config/accounts/item_account_1/cookies.txt",
+      "proxy_ip": null,
+      "error_count": 0,
+      "use_count": 0,
+      "notes": "专门用于GetItemTrendStat等作品投放数据接口"
+    }
+  ],
+  "rotation_strategy": "least_used",
+  "auto_refresh": false,
+  "refresh_before_expire_hours": 2,
+  "qps_limit": 0.5,
+  "notes": "此账号池与达人采集账号池隔离，确保cookie和star_id独立管理",
+  "updated_at": "2025-12-26T17:20:18.754221"
+}
