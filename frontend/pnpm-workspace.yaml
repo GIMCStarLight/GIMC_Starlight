@@ -16,7 +16,7 @@ catalog:
   '@changesets/git': ^3.0.4
   '@clack/prompts': ^0.10.1
   '@commitlint/cli': ^19.8.1
-  '@commitlint/config-conventional': ^19.8.1
+  '@commitlint/config-conventional': ^20.2.0
   '@ctrl/tinycolor': ^4.1.0
   '@element-plus/icons-vue': ^2.3.1
   '@eslint/js': ^9.30.1
