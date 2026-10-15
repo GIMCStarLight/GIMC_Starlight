@@ -60,7 +60,7 @@
 
       <!-- AI 欢迎头部 -->
       <div class="ai-welcome-section">
-        <h1 class="welcome-title">我是 省广星芒✨ 智能助手</h1>
+        <h1 class="welcome-title">我是星芒✨智能助手</h1>
         <p class="welcome-subtitle">
           可以帮你管理供应商、达人信息，查询数据报表，执行各种系统操作
         </p>

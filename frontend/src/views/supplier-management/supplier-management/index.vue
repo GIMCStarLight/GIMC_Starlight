@@ -126,7 +126,9 @@
         
         <!-- 基本信息字段 -->
         <el-table-column v-if="canViewBasic" prop="supplier_full_name" label="供应商全称" min-width="200" />
-        <el-table-column v-if="canViewBasic" prop="agency_name" label="机构名" min-width="150" />
+        <el-table-column v-if="canViewBasic" prop="agency_name" label="机构名" min-width="150">
+          <template #default="{ row }">{{ sanitizeBrandText(row.agency_name) }}</template>
+        </el-table-column>
         <el-table-column v-if="canViewBasic" prop="supplier_type" label="供应商性质" width="120" />
         
         <!-- 财务信息字段 -->
@@ -191,7 +193,7 @@
           </template>
           <el-descriptions :column="2" border>
             <el-descriptions-item label="供应商全称">{{ currentSupplier?.supplier_full_name }}</el-descriptions-item>
-            <el-descriptions-item label="机构名">{{ currentSupplier?.agency_name || '-' }}</el-descriptions-item>
+            <el-descriptions-item label="机构名">{{ sanitizeBrandText(currentSupplier?.agency_name) }}</el-descriptions-item>
             <el-descriptions-item label="供应商性质">{{ currentSupplier?.supplier_type || '-' }}</el-descriptions-item>
             <el-descriptions-item label="供应商简称">{{ currentSupplier?.supplier_short_name || '-' }}</el-descriptions-item>
             <el-descriptions-item label="英文名">{{ currentSupplier?.supplier_english_name || '-' }}</el-descriptions-item>
@@ -592,6 +594,7 @@ import {
   type SupplierListParams
 } from '../../../api/supplier'
 import { useFieldPermissions } from '../../../composables/useFieldPermissions'
+import { sanitizeBrandText } from '../../../utils/display-text'
 
 // 字段级权限控制
 const { hasFieldGroupPermission, isSuperAdmin } = useFieldPermissions('supplier')

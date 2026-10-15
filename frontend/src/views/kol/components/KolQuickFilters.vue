@@ -163,6 +163,7 @@
 import { ref, computed, watch } from 'vue'
 import { IconifyIcon as Icon } from '@vben/icons'
 import DiscreteRangePicker from '../../influencer-authors/components/DiscreteRangePicker.vue'
+import { sanitizeBrandText } from '../../../utils/display-text'
 
 interface KolFilters {
   account_name?: string
@@ -263,7 +264,7 @@ const activeFilterTags = computed(() => {
     tags.push({ key: 'platform', label: `平台: ${localFilters.value.platform}` })
   }
   if (localFilters.value.org_name) {
-    tags.push({ key: 'org_name', label: `机构: ${localFilters.value.org_name}` })
+    tags.push({ key: 'org_name', label: `机构: ${sanitizeBrandText(localFilters.value.org_name, '')}` })
   }
   if (localFilters.value.category) {
     tags.push({ key: 'category', label: `分类: ${localFilters.value.category}` })

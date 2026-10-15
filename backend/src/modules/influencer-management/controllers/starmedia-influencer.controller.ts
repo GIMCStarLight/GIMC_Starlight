@@ -16,7 +16,7 @@ import { StarmediaInfluencerService } from '../services/starmedia-influencer.ser
 import { PermissionGuard } from '../../../auth/guards/permission.guard';
 import { Permissions } from '../../../auth/decorators/permissions.decorator';
 
-@ApiTags('省广星媒独家签约达人管理')
+@ApiTags('星媒独家签约达人管理')
 @Controller('starmedia-influencers')
 @UseGuards(AuthGuard('jwt'), PermissionGuard)
 @ApiBearerAuth('JWT-auth')
@@ -27,7 +27,7 @@ export class StarmediaInfluencerController {
 
   @Get()
   @Permissions('influencer:starmedia:view')
-  @ApiOperation({ summary: '获取省广星媒独家签约达人列表' })
+  @ApiOperation({ summary: '获取星媒独家签约达人列表' })
   async findAll(
     @Query('page') page = 1,
     @Query('limit') limit = 20,
@@ -44,7 +44,7 @@ export class StarmediaInfluencerController {
 
   @Get(':id')
   @Permissions('influencer:starmedia:view')
-  @ApiOperation({ summary: '获取单个省广星媒独家签约达人详情' })
+  @ApiOperation({ summary: '获取单个星媒独家签约达人详情' })
   async findOne(@Param('id') id: string) {
     try {
       const data = await this.starmediaService.findOne(+id);
@@ -62,7 +62,7 @@ export class StarmediaInfluencerController {
 
   @Put(':id')
   @Permissions('influencer:starmedia:update')
-  @ApiOperation({ summary: '更新省广星媒独家签约达人信息' })
+  @ApiOperation({ summary: '更新星媒独家签约达人信息' })
   async update(
     @Param('id') id: string,
     @Body() updateData: any,
@@ -79,7 +79,7 @@ export class StarmediaInfluencerController {
 
   @Delete(':id')
   @Permissions('influencer:starmedia:delete')
-  @ApiOperation({ summary: '删除省广星媒独家签约达人' })
+  @ApiOperation({ summary: '删除星媒独家签约达人' })
   async delete(@Param('id') id: string) {
     try {
       const success = await this.starmediaService.delete(+id);

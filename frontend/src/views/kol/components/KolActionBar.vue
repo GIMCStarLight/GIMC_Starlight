@@ -1,7 +1,7 @@
 <template>
   <div class="top-bar">
     <div class="bar-left">
-      <h1 class="page-title">省广达人库</h1>
+      <h1 class="page-title">达人库</h1>
     </div>
     <div class="bar-right">
       <el-button @click="emit('import-history')" class="action-btn">

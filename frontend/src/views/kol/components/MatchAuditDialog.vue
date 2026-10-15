@@ -27,7 +27,7 @@
           <div class="info-row">
             <div class="info-item">
               <label>机构:</label>
-              <span>{{ kolData.orgName || '-' }}</span>
+              <span>{{ sanitizeBrandText(kolData.orgName) }}</span>
             </div>
             <div class="info-item">
               <label>类型:</label>
@@ -117,7 +117,9 @@
             </template>
           </el-table-column>
           
-          <el-table-column prop="orgName" label="机构" width="120" show-overflow-tooltip />
+          <el-table-column prop="orgName" label="机构" width="120" show-overflow-tooltip>
+            <template #default="{ row }">{{ sanitizeBrandText(row.orgName) }}</template>
+          </el-table-column>
           <el-table-column prop="category" label="类型" width="100" />
           
           <el-table-column label="操作" width="120">
@@ -202,6 +204,7 @@
 import { ref, reactive, computed, watch } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { log } from '../../../utils/logger'
+import { sanitizeBrandText } from '../../../utils/display-text'
 import { 
   type ExtendedKolInfo,
   type MatchCandidate,

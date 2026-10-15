@@ -219,7 +219,7 @@
       <div class="private-info-grid">
         <div v-if="canViewOrgName && data.org_name" class="info-item">
           <span class="label">机构:</span>
-          <span class="value">{{ data.org_name }}</span>
+          <span class="value">{{ sanitizeBrandText(data.org_name) }}</span>
         </div>
         
         <div v-if="canViewIsExclusive && data.is_exclusive === 1" class="info-item exclusive">
@@ -329,6 +329,7 @@ import { ref, computed, toRefs } from 'vue'
 import { IconifyIcon as Icon } from '@vben/icons'
 import { ElMessage } from 'element-plus'
 import { useFieldPermissions } from '../../../composables/useFieldPermissions'
+import { sanitizeBrandText } from '../../../utils/display-text'
 
 interface InfluencerCardData {
   // 基础信息

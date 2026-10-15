@@ -1,0 +1,266 @@
+import type {
+  CandidateRecommendation,
+  SelectionCriteria,
+  SelectionExample,
+  UnsupportedRequirement,
+} from './types';
+
+export const selectionExamples: SelectionExample[] = [
+  {
+    accent: '#7c5cff',
+    description: '女性 · 200–500万粉丝 · 种草优先',
+    icon: '👶',
+    id: 'maternal',
+    text: '找10位母婴亲子类女性达人，粉丝200万到500万，20到60秒报价不超过8万元，互动率至少1%，优先种草指数高，排除剧情搞笑',
+    title: '母婴种草',
+  },
+  {
+    accent: '#1687ff',
+    description: '300万+粉丝 · 曝光优先',
+    icon: '🚗',
+    id: 'auto',
+    text: '找10位汽车类达人，粉丝300万以上，报价不超过15万元，优先传播指数和预期播放量高的达人',
+    title: '汽车曝光',
+  },
+  {
+    accent: '#06a77d',
+    description: '电商达人 · 转化优先',
+    icon: '💻',
+    id: 'digital',
+    text: '找10位科技数码达人，需要开通电商，报价不超过10万元，优先转化指数和购物指数高',
+    title: '科技数码转化',
+  },
+];
+
+const baseBreakdown = [
+  { key: 'contentFit', label: '内容标签', max: 30, score: 30 },
+  { key: 'goalFit', label: '营销目标', max: 25, score: 22 },
+  { key: 'engagement', label: '互动表现', max: 15, score: 13 },
+  { key: 'expectedPerformance', label: '预期效果', max: 15, score: 12 },
+  { key: 'budgetFit', label: '预算适配', max: 10, score: 8 },
+  { key: 'quality', label: '质量认证', max: 5, score: 4 },
+];
+
+export const maternalCriteria: SelectionCriteria = {
+  cities: [],
+  ecommerceRequired: false,
+  excludeTags: ['剧情搞笑'],
+  followerMax: 5_000_000,
+  followerMin: 2_000_000,
+  gender: 'F',
+  includeTags: ['母婴亲子'],
+  interactRateMin: 0.01,
+  marketingGoal: 'seeding',
+  price20To60Max: 80_000,
+  provinces: [],
+};
+
+export const unsupportedRequirements: UnsupportedRequirement[] = [
+  {
+    reason: '云端暂无达人简介与近期作品数据，本轮不参与筛选和评分。',
+    text: '真实宝妈人设',
+  },
+];
+
+export const fixtureCandidates: CandidateRecommendation[] = [
+  {
+    authorId: '6938471028457213',
+    city: '杭州市',
+    dataConfidence: 0.94,
+    ecommerceEnabled: true,
+    expectedPlayNum: 1_286_000,
+    follower: 3_482_000,
+    interactRate30d: 0.0418,
+    linkConvertIndex: 86.4,
+    linkShoppingIndex: 94.2,
+    linkSpreadIndex: 88.1,
+    matchScore: 89,
+    nickName: '安安的育儿日记',
+    playOverRate30d: 0.367,
+    price20To60: 68_000,
+    primaryTags: ['母婴亲子', '生活', '测评'],
+    province: '浙江省',
+    reasons: [
+      '内容标签命中「母婴亲子」，满足核心品类要求',
+      '购物指数位于候选集前 8%，符合种草目标',
+      '20–60秒报价 ¥68,000，处于预算范围内',
+    ],
+    risks: ['当前没有近期作品数据，无法验证具体内容风格'],
+    scoreBreakdown: baseBreakdown.map((item) => ({ ...item })),
+    starId: '6839989503663276045',
+  },
+  {
+    authorId: '6817712222643421198',
+    city: '福州市',
+    dataConfidence: 0.91,
+    ecommerceEnabled: true,
+    expectedPlayNum: 1_054_000,
+    follower: 2_967_000,
+    interactRate30d: 0.0386,
+    linkConvertIndex: 91.2,
+    linkShoppingIndex: 90.7,
+    linkSpreadIndex: 84.9,
+    matchScore: 86,
+    nickName: '林怡伦',
+    playOverRate30d: 0.342,
+    price20To60: 72_000,
+    primaryTags: ['母婴亲子', '生活'],
+    province: '福建省',
+    reasons: [
+      '母婴亲子内容标签稳定，品类相关度高',
+      '转化指数与购物指数均位于候选集前列',
+      '粉丝规模 296.7 万，符合目标区间',
+    ],
+    risks: ['完播率数据覆盖正常，但暂无作品级证据'],
+    scoreBreakdown: baseBreakdown.map((item, index) => ({
+      ...item,
+      score: Math.max(0, item.score - (index === 1 ? 1 : 0)),
+    })),
+    starId: '6817712222643421198',
+  },
+  {
+    authorId: '6758700959607554056',
+    city: '宁波市',
+    dataConfidence: 0.88,
+    ecommerceEnabled: true,
+    expectedPlayNum: 936_000,
+    follower: 4_265_000,
+    interactRate30d: 0.0329,
+    linkConvertIndex: 83.7,
+    linkShoppingIndex: 92.1,
+    linkSpreadIndex: 80.3,
+    matchScore: 83,
+    nickName: '何丹彤',
+    playOverRate30d: 0.321,
+    price20To60: 78_000,
+    primaryTags: ['母婴亲子', '生活家居'],
+    province: '浙江省',
+    reasons: [
+      '内容标签同时命中「母婴亲子」和「生活家居」',
+      '购物指数表现突出，适合产品种草',
+      '报价低于预算上限，预算利用率较高',
+    ],
+    risks: ['报价接近预算上限，组合投放空间有限'],
+    scoreBreakdown: baseBreakdown.map((item, index) => ({
+      ...item,
+      score: Math.max(0, item.score - (index === 4 ? 2 : 1)),
+    })),
+    starId: '6758700959607554056',
+  },
+  {
+    authorId: '6661816528813424653',
+    city: '成都市',
+    dataConfidence: 0.86,
+    ecommerceEnabled: true,
+    expectedPlayNum: 872_000,
+    follower: 2_314_000,
+    interactRate30d: 0.0461,
+    linkConvertIndex: 78.5,
+    linkShoppingIndex: 88.4,
+    linkSpreadIndex: 79.8,
+    matchScore: 81,
+    nickName: '罗休休',
+    playOverRate30d: 0.389,
+    price20To60: 52_000,
+    primaryTags: ['母婴亲子', '生活', '美食'],
+    province: '四川省',
+    reasons: [
+      '互动率 4.61%，在当前候选人中表现突出',
+      '报价 ¥52,000，为组合投放保留充足预算',
+      '母婴亲子标签满足核心筛选条件',
+    ],
+    risks: ['传播指数相对头部候选人偏低'],
+    scoreBreakdown: baseBreakdown.map((item, index) => ({
+      ...item,
+      score: Math.max(0, item.score - (index === 1 ? 3 : 1)),
+    })),
+    starId: '6661816528813424653',
+  },
+  {
+    authorId: '6677781900548898828',
+    city: '南京市',
+    dataConfidence: 0.83,
+    ecommerceEnabled: false,
+    expectedPlayNum: 806_000,
+    follower: 3_716_000,
+    interactRate30d: 0.0294,
+    linkConvertIndex: 80.1,
+    linkShoppingIndex: 84.6,
+    linkSpreadIndex: 87.5,
+    matchScore: 78,
+    nickName: '叶公子',
+    playOverRate30d: 0.304,
+    price20To60: 61_000,
+    primaryTags: ['母婴亲子', '生活'],
+    province: '江苏省',
+    reasons: [
+      '传播指数位于候选集前 20%，兼顾内容扩散',
+      '粉丝规模 371.6 万，符合目标区间',
+      '报价 ¥61,000，预算适配度良好',
+    ],
+    risks: ['当前未标记电商能力，不适合强带货目标'],
+    scoreBreakdown: baseBreakdown.map((item, index) => ({
+      ...item,
+      score: Math.max(0, item.score - (index > 1 ? 2 : 1)),
+    })),
+    starId: '6677781900548898828',
+  },
+  {
+    authorId: '6865227740275032072',
+    city: '朝阳区',
+    dataConfidence: 0.81,
+    ecommerceEnabled: true,
+    expectedPlayNum: 768_000,
+    follower: 4_781_000,
+    interactRate30d: 0.0258,
+    linkConvertIndex: 82.6,
+    linkShoppingIndex: 86.3,
+    linkSpreadIndex: 90.4,
+    matchScore: 76,
+    nickName: '特别乌啦啦',
+    playOverRate30d: 0.296,
+    price20To60: 75_000,
+    primaryTags: ['母婴亲子', '生活', '旅行'],
+    province: '北京市',
+    reasons: [
+      '传播指数位于候选集前 10%，具备较强扩散能力',
+      '母婴亲子标签满足核心要求',
+      '粉丝量接近区间上限，覆盖规模较大',
+    ],
+    risks: ['互动率低于头部候选人，建议结合传播目标使用'],
+    scoreBreakdown: baseBreakdown.map((item, index) => ({
+      ...item,
+      score: Math.max(0, item.score - index),
+    })),
+    starId: '6865227740275032072',
+  },
+];
+
+export function criteriaForExample(id: string): SelectionCriteria {
+  if (id === 'auto') {
+    return {
+      cities: [],
+      ecommerceRequired: false,
+      excludeTags: [],
+      followerMin: 3_000_000,
+      includeTags: ['汽车'],
+      marketingGoal: 'awareness',
+      price20To60Max: 150_000,
+      provinces: [],
+    };
+  }
+
+  if (id === 'digital') {
+    return {
+      cities: [],
+      ecommerceRequired: true,
+      excludeTags: [],
+      includeTags: ['科技数码'],
+      marketingGoal: 'conversion',
+      price20To60Max: 100_000,
+      provinces: [],
+    };
+  }
+
+  return { ...maternalCriteria };
+}

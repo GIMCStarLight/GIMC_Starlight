@@ -413,7 +413,7 @@ export const SCENARIO_OPTIONS = [
  * 认证类型标签映射
  */
 export const CERT_TYPE_LABELS: Record<string, string> = {
-  shenguangxingmei: '省广星媒',
+  shenguangxingmei: '星媒机构',
   xingliandaren: '星链计划',
   excellentAuthor: '优质达人',
   risingStart: '新星达人',

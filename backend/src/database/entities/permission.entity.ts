@@ -36,7 +36,7 @@ export class Permission {
     unique: true,
     comment: '权限代码 (如: user:create, tag:delete, button:export_sensitive)',
   })
-  @Index('idx_code')
+  @Index('idx_permissions_code')
   code: string;
 
   @Column({
@@ -52,7 +52,7 @@ export class Permission {
     default: PermissionType.API,
     comment: '权限类型',
   })
-  @Index('idx_type')
+  @Index('idx_permissions_type')
   type: PermissionType;
 
   @Column({

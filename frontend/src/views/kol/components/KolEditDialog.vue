@@ -31,7 +31,7 @@
             <template #icon>
               <el-icon><OfficeBuilding /></el-icon>
             </template>
-            {{ props.kolData?.org_name || '暂无机构' }}
+            {{ sanitizeBrandText(props.kolData?.org_name, '暂无机构') }}
           </el-tag>
 
           <div class="divider">|</div>
@@ -94,6 +94,7 @@ import { log } from '../../../utils/logger'
 import { KolListApi } from '../../../api/kol-match.api'
 import { useVbenForm, z } from '@vben/common-ui'
 import type { VbenFormSchema } from '@vben/common-ui'
+import { sanitizeBrandText } from '../../../utils/display-text'
 
 interface Props {
   modelValue: boolean

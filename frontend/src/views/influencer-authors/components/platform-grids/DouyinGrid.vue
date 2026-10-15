@@ -221,7 +221,7 @@
           <div class="private-info">
             <div v-if="item.org_name" class="info-item">
               <span class="label">机构:</span>
-              <span class="value">{{ item.org_name }}</span>
+              <span class="value">{{ sanitizeBrandText(item.org_name) }}</span>
             </div>
             <div v-if="item.is_exclusive === 1" class="info-item">
               <el-tag type="danger" size="small" effect="dark">
@@ -316,6 +316,7 @@ import InfluencerCard from '../InfluencerCard.vue'
 import { useInfluencerSquareStore } from '#/store'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
+import { sanitizeBrandText } from '../../../../utils/display-text'
 
 const props = defineProps<{
   viewMode: 'card' | 'table'

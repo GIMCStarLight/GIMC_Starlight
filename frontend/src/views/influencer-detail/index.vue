@@ -7,6 +7,7 @@ import * as echarts from 'echarts'
 import { getInfluencerFullData } from '../../api/influencer-v2'
 import KolReviewsTab from '../../components/KolReviewsTab/index.vue'
 import { useFieldPermissions } from '../../composables/useFieldPermissions'
+import { sanitizeBrandText } from '../../utils/display-text'
 
 const route = useRoute()
 const router = useRouter()
@@ -700,7 +701,7 @@ onUnmounted(() => {
                 <h3 class="module-title">机构信息</h3>
                 <el-descriptions :column="2" border size="large">
                   <el-descriptions-item v-if="canViewOrgName" label="所属机构">
-                    <span class="highlight-text">{{ rawData.org_name || '-' }}</span>
+                    <span class="highlight-text">{{ sanitizeBrandText(rawData.org_name) }}</span>
                   </el-descriptions-item>
                   <el-descriptions-item label="分类标签">
                     <el-tag v-if="rawData.category" type="info" size="small">

@@ -120,9 +120,30 @@ export class InfluencerV2Service {
         [authorId]
       );
 
-      const rawData = archiveResult && archiveResult.length > 0 
-        ? archiveResult[0].raw_attribute_datas || {} 
+      let rawData = archiveResult && archiveResult.length > 0
+        ? archiveResult[0].raw_attribute_datas || {}
         : {};
+
+      // 精简部署不会迁移体积较大的 authors_raw_archive，但会保留已经
+      // 类型化展开的 authors_raw_archive_parsed。原始归档缺失时，从解析表
+      // 重建与 raw_attribute_datas 等价的对象，保证详情页仍能展示完整指标。
+      if (!archiveResult || archiveResult.length === 0) {
+        const parsedResult = await this.authorCoreRepository.query(
+          `SELECT to_jsonb(parsed) - ARRAY[
+              'source_archive_id', 'source_author_id', 'source_run_id',
+              'source_created_at', 'raw_payload_md5', 'raw_key_count', 'parsed_at'
+            ]::text[] AS raw_attribute_datas
+           FROM authors_raw_archive_parsed parsed
+           WHERE source_author_id = $1
+           ORDER BY source_created_at DESC NULLS LAST
+           LIMIT 1`,
+          [authorId],
+        );
+
+        rawData = parsedResult && parsedResult.length > 0
+          ? parsedResult[0].raw_attribute_datas || {}
+          : {};
+      }
 
       // 3. 合并 authors_core 的爬虫字段到原始数据中
       const publicData = {

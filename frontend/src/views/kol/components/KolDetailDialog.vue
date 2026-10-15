@@ -32,7 +32,7 @@
               <template #icon>
                 <el-icon><OfficeBuilding /></el-icon>
               </template>
-              {{ kolData.org_name || '暂无机构' }}
+              {{ sanitizeBrandText(kolData.org_name, '暂无机构') }}
             </el-tag>
             <el-tag v-else size="small" type="info" class="category-tag">***</el-tag>
 
@@ -351,6 +351,7 @@ import { KolSyncApi } from '../../../api/kol-sync.api'
 import SyncStatusTag from './SyncStatusTag.vue'
 import AuthorSnapshotPanel from './AuthorSnapshotPanel.vue'
 import { useFieldPermissions } from '../../../composables/useFieldPermissions'
+import { sanitizeBrandText } from '../../../utils/display-text'
 
 interface KolData {
   id: number

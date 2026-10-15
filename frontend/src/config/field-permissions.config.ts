@@ -108,7 +108,7 @@ export const INFLUENCER_FIELD_PERMISSIONS: Record<string, string[]> = {
   ],
 }
 
-// 省广达人库字段权限配置
+// 达人库字段权限配置
 export const KOL_FIELD_PERMISSIONS: Record<string, string[]> = {
   // 基础信息 - 默认所有人可见
   'kol:field:basic': [

@@ -211,8 +211,8 @@
     "rebatePolicyConfig": "Rebate Policy Configuration"
   },
   "aiNumberSelection": {
-    "title": "AI Number Selection",
-    "description": "Intelligent number selection system providing precise number recommendations"
+    "title": "AI Influencer Matching",
+    "description": "Describe a campaign brief and get explainable influencer recommendations"
   },
   "influencerAuthors": {
     "title": "Influencer Data",

@@ -35,11 +35,11 @@ export const StarlinkInfluencerApi = {
 };
 
 /**
- * 省广星媒独家签约达人 API
+ * 星媒独家签约达人 API
  */
 export const StarmediaInfluencerApi = {
   /**
-   * 获取省广星媒独家签约达人列表 - 返回完整响应
+   * 获取星媒独家签约达人列表 - 返回完整响应
    */
   getList(params: { page: number; limit: number }) {
     // 使用 baseRequestClient 不会自动提取 data
@@ -47,21 +47,21 @@ export const StarmediaInfluencerApi = {
   },
 
   /**
-   * 获取单个省广星媒独家签约达人详情
+   * 获取单个星媒独家签约达人详情
    */
   getById: (id: number) => {
     return baseRequestClient.get(`/starmedia-influencers/${id}`);
   },
 
   /**
-   * 更新省广星媒独家签约达人信息
+   * 更新星媒独家签约达人信息
    */
   update: (id: number, data: any) => {
     return baseRequestClient.put(`/starmedia-influencers/${id}`, data);
   },
 
   /**
-   * 删除省广星媒独家签约达人
+   * 删除星媒独家签约达人
    */
   remove: (id: number) => {
     return baseRequestClient.delete(`/starmedia-influencers/${id}`);

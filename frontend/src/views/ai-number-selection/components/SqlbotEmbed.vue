@@ -139,6 +139,9 @@ async function generateJWT(payload: object, secret: string, expiresIn?: number):
   return `${encodedHeader}.${encodedPayload}.${encodedSignature}`;
 }
 
+// 保留旧版 SQLBot 组件以便回滚；当前 AI 选人静态页不再调用该方法。
+void generateJWT;
+
 /**
  * 加载SQLBot嵌入脚本
  */

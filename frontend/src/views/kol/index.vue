@@ -3,7 +3,7 @@
     <!-- 页面标题 -->
     <div class="page-header">
       <div class="header-left">
-        <h2 class="page-title">省广达人库</h2>
+        <h2 class="page-title">达人库</h2>
       </div>
       <!-- 已建联达人的按钮 -->
       <div v-if="activeTab === 'public'" class="header-right">
@@ -22,7 +22,7 @@
           导出选中 ({{ publicSelectedCount }})
         </el-button>
       </div>
-      <!-- 省广达人库的按钮 -->
+      <!-- 达人库的按钮 -->
       <div v-else-if="activeTab === 'private'" class="header-right">
         <el-button @click="navigateToImportHistory" class="action-btn">
           <Icon icon="lucide:clock" class="mr-1" />
@@ -66,11 +66,11 @@
             </div>
           </template>
         </el-tab-pane>
-        <el-tab-pane label="省广达人库" name="private">
+        <el-tab-pane label="达人库" name="private">
           <template #label>
             <div class="tab-label">
               <Icon icon="lucide:database" />
-              <span>省广达人库</span>
+              <span>达人库</span>
             </div>
           </template>
         </el-tab-pane>
@@ -153,7 +153,7 @@
       </div>
     </div>
 
-    <!-- 省广达人库Tab内容 -->
+    <!-- 达人库Tab内容 -->
     <div v-else-if="activeTab === 'private'" class="private-data-content">
       <!-- 智能筛选组件 -->
       <KolQuickFilters :filters="searchForm" @filter-change="handleFilterChange" />
@@ -164,7 +164,7 @@
       <!-- 筛选条件卡片 -->
       <!-- 已移至高级筛选弹窗中，此处删除旧代码 -->
       
-      <!-- 省广达人库显示区域 -->
+      <!-- 达人库显示区域 -->
       <div class="private-display-area">
         <!-- 工具栏 -->
         <div class="display-toolbar">
@@ -221,7 +221,7 @@
 
         <!-- 机构名列插槽 -->
         <template #org_name="{ record }">
-          <span v-if="record.org_name" class="org-name">{{ record.org_name }}</span>
+          <span v-if="record.org_name" class="org-name">{{ sanitizeBrandText(record.org_name) }}</span>
           <span v-else class="text-gray">-</span>
         </template>
 
@@ -438,6 +438,7 @@ import { storeToRefs } from 'pinia'
 import { InfluencerNormalizer } from '../../utils/influencer-normalizer'
 import StandardTable from './components/StandardTable.vue'
 import { useFieldPermissions } from '../../composables/useFieldPermissions'
+import { sanitizeBrandText } from '../../utils/display-text'
 
 const router = useRouter()
 
@@ -460,7 +461,7 @@ const {
   loading: storeLoading
 } = storeToRefs(influencerStore)
 
-// 省广达人库公海数据的独立选中状态（与达人广场隔离）
+// 达人库公海数据的独立选中状态（与达人广场隔离）
 const kolPublicSelectedIds = ref<Set<string>>(new Set())
 const kolPublicSelectedCount = computed(() => kolPublicSelectedIds.value.size)
 
@@ -477,7 +478,7 @@ const publicViewMode = ref<'card' | 'table'>('card')
 const publicCardSize = ref<'compact' | 'standard' | 'detailed'>('standard')
 const publicFilterParams = ref<any>({})
 
-// 使用省广达人库独立的选中数量
+// 使用达人库独立的选中数量
 const publicSelectedCount = computed(() => kolPublicSelectedCount.value)
 const publicRefreshing = ref(false)
 
@@ -515,7 +516,7 @@ const handlePublicExport = async () => {
   try {
     ElMessage.info(`正在获取 ${kolPublicSelectedCount.value} 位达人的完整数据...`)
 
-    // 获取所有选中的 author_id（使用省广达人库独立的选中状态）
+    // 获取所有选中的 author_id（使用达人库独立的选中状态）
     const selectedAuthorIds = Array.from(kolPublicSelectedIds.value)
     log.debug('导出请求 - 选中的author_id:', selectedAuthorIds)
 
@@ -608,8 +609,8 @@ const handleTabChange = async (tabName: string) => {
   log.debug('🔄 切换Tab:', tabName)
 
   if (tabName === 'private') {
-    // 切换到省广达人库，加载原有数据
-    log.debug('🔄 切换到省广达人库 tab')
+    // 切换到达人库，加载原有数据
+    log.debug('🔄 切换到达人库 tab')
     log.debug('🔄 当前 pagination:', pagination)
     log.debug('🔄 当前 searchForm:', searchForm)
     await loadData()
@@ -626,7 +627,7 @@ const handleTabChange = async (tabName: string) => {
 // 加载已建联达人数据
 const loadPublicData = async () => {
   try {
-    log.debug('开始加载省广达人库公海数据...')
+    log.debug('开始加载达人库公海数据...')
     publicLoading.value = true
 
     // 设置筛选条件：抖音平台 + 已建联
@@ -644,17 +645,17 @@ const loadPublicData = async () => {
     // 更新本地总数
     publicTotalCount.value = storeTotalCount.value
     
-    // ⚠️ 关键：覆盖store设置的isSelected，使用省广达人库独立的选中状态
+    // ⚠️ 关键：覆盖store设置的isSelected，使用达人库独立的选中状态
     if (publicInfluencers.value) {
       publicInfluencers.value.forEach(item => {
         item.isSelected = kolPublicSelectedIds.value.has(item.author_id)
       })
     }
 
-    log.debug('省广达人库数据加载完成，总数:', publicTotalCount.value, '（仅已建联）')
+    log.debug('达人库数据加载完成，总数:', publicTotalCount.value, '（仅已建联）')
   } catch (error) {
-    log.error('加载省广达人库数据失败:', error)
-    ElMessage.error('加载省广达人库数据失败')
+    log.error('加载达人库数据失败:', error)
+    ElMessage.error('加载达人库数据失败')
   } finally {
     publicLoading.value = false
   }
@@ -749,9 +750,9 @@ const updatePublicInfluencerData = (data: any) => {
 
 // 已建联达人 - 处理选中状态变化（与达人广场独立）
 const handleKolPublicSelectionChange = (data: any, selected: boolean) => {
-  log.debug('省广达人库公海数据选中状态变化:', data.author_id, selected)
+  log.debug('达人库公海数据选中状态变化:', data.author_id, selected)
   
-  // 只更新省广达人库的选中状态，不影响达人广场store
+  // 只更新达人库的选中状态，不影响达人广场store
   if (selected) {
     kolPublicSelectedIds.value.add(data.author_id)
   } else {

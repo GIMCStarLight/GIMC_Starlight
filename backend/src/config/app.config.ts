@@ -114,7 +114,7 @@ export const getAppConfig = (): AppConfig => {
   const configService = new ConfigService();
   return {
     app: {
-      name: configService.get<string>('APP_NAME', '省广星芒系统'),
+      name: configService.get<string>('APP_NAME', '星芒系统'),
       version: configService.get<string>('APP_VERSION', '1.0.0'),
       environment: configService.get<string>('NODE_ENV', 'development'),
       port: configService.get<number>('PORT', 3000),

@@ -144,7 +144,9 @@
                   <el-table-column prop="account_name" label="账号名称" width="150" />
                   <el-table-column prop="platform" label="平台" width="100" />
                   <el-table-column prop="followers_w" label="粉丝(万)" width="100" />
-                  <el-table-column prop="org_name" label="机构" width="120" />
+                  <el-table-column prop="org_name" label="机构" width="120">
+                    <template #default="{ row }">{{ sanitizeBrandText(row.org_name) }}</template>
+                  </el-table-column>
                   <el-table-column prop="category" label="类型" width="100" />
                   <el-table-column label="状态" width="100">
                     <template #default="{ row }">
@@ -276,6 +278,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import { UploadFilled, Document, Download, Loading, CircleCheck, CircleClose, Warning, Bell } from '@element-plus/icons-vue'
 import type { UploadFile, UploadInstance } from 'element-plus'
 import { log } from '../../../utils/logger'
+import { sanitizeBrandText } from '../../../utils/display-text'
 import { 
   type ImportTask,
   type ImportError,

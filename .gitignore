@@ -228,6 +228,12 @@ pm2-error.log
 
 # whitelist project docs (override md ignore)
 !README.md
+!DEPLOYMENT.md
 !docs/**/*.md
 !.github/**/*.md
 !crawler/docs/**/*.md
+
+# 线上部署的本机配置与敏感文件
+.deploy.env
+nginx/.htpasswd
+db-init/03-parsed.csv

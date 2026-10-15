@@ -75,7 +75,7 @@ export namespace StarlinkInfluencerApi {
   }
 }
 
-// 省广星媒独家签约达人相关接口
+// 星媒独家签约达人相关接口
 export namespace StarmediaInfluencerApi {
   export interface Influencer {
     id: number;

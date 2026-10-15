@@ -27,7 +27,7 @@ export class UserRole {
     name: 'user_id',
     comment: '用户ID',
   })
-  @Index('idx_user_id')
+  @Index('idx_user_roles_user_id')
   userId: string;
 
   @Column({
@@ -36,7 +36,7 @@ export class UserRole {
     name: 'role_id',
     comment: '角色ID',
   })
-  @Index('idx_role_id')
+  @Index('idx_user_roles_role_id')
   roleId: string;
 
   @CreateDateColumn({

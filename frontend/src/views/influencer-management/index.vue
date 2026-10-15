@@ -3,7 +3,7 @@
     <!-- 头部tab切换 -->
     <el-tabs v-model="activeTab" class="management-tabs" @tab-change="handleTabChange">
       <el-tab-pane label="星链计划达人" name="starlink" />
-      <el-tab-pane label="省广星媒独家签约达人" name="starmedia" />
+      <el-tab-pane label="星媒独家签约达人" name="starmedia" />
     </el-tabs>
 
     <!-- 星链计划达人表格 -->
@@ -98,7 +98,7 @@
       />
     </div>
 
-    <!-- 省广星媒独家签约达人表格 -->
+    <!-- 星媒独家签约达人表格 -->
     <div v-else-if="activeTab === 'starmedia'" class="table-container">
       <el-table
         v-loading="starmediaLoading"
@@ -113,7 +113,11 @@
         <el-table-column prop="nickname" label="昵称" width="120" show-overflow-tooltip fixed />
         <el-table-column prop="accountId" label="账号ID" width="150" show-overflow-tooltip />
         <el-table-column prop="influencerOverview" label="达人概况" width="150" show-overflow-tooltip />
-        <el-table-column prop="affiliatedOrganization" label="所属机构" width="120" />
+        <el-table-column prop="affiliatedOrganization" label="所属机构" width="120">
+          <template #default="{ row }">
+            {{ sanitizeBrandText(row.affiliatedOrganization) }}
+          </template>
+        </el-table-column>
         <el-table-column prop="influencerCategory" label="达人类型" width="120" show-overflow-tooltip />
         <el-table-column prop="totalFans" label="主平台粉丝量(万)" width="140" align="right">
           <template #default="{ row }">
@@ -169,7 +173,7 @@
     <!-- 编辑对话框 -->
     <el-dialog
       v-model="editDialogVisible"
-      :title="`编辑${activeTab === 'starlink' ? '星链计划达人' : '省广星媒独家签约达人'}`"
+      :title="`编辑${activeTab === 'starlink' ? '星链计划达人' : '星媒独家签约达人'}`"
       width="70%"
       :close-on-click-modal="false"
     >
@@ -420,7 +424,7 @@
           </el-form-item>
         </template>
 
-        <!-- 省广星媒独家签约达人表单 -->
+        <!-- 星媒独家签约达人表单 -->
         <template v-else>
           <el-divider content-position="left">基本信息</el-divider>
           <el-row :gutter="20">
@@ -450,7 +454,10 @@
           <el-row :gutter="20">
             <el-col :span="12">
               <el-form-item label="所属机构">
-                <el-input v-model="editForm.affiliatedOrganization" />
+                <el-input
+                  v-model="editForm.affiliatedOrganization"
+                  :formatter="(value: string) => sanitizeBrandText(value, '')"
+                />
               </el-form-item>
             </el-col>
             <el-col :span="12">
@@ -532,6 +539,7 @@ import { ref, reactive, onMounted, watch, computed } from 'vue';
 import { ElMessage, ElMessageBox, type FormInstance, type FormRules } from 'element-plus';
 import { Delete, Plus } from '@element-plus/icons-vue';
 import { StarlinkInfluencerApi, StarmediaInfluencerApi } from '#/api/influencer-management-direct-edit';
+import { sanitizeBrandText } from '#/utils/display-text';
 
 // 政策档位类型定义
 interface PolicyTier {
@@ -553,7 +561,7 @@ const starlinkPage = ref(1);
 const starlinkLimit = ref(20);
 const starlinkTotal = ref(0);
 
-// 省广星媒独家签约达人数据
+// 星媒独家签约达人数据
 const starmediaLoading = ref(false);
 const starmediaData = ref<StarmediaInfluencerApi.Influencer[]>([]);
 const starmediaPage = ref(1);
@@ -771,7 +779,7 @@ async function loadStarlinkData() {
   }
 }
 
-// 加载省广星媒独家签约达人数据
+// 加载星媒独家签约达人数据
 async function loadStarmediaData() {
   starmediaLoading.value = true;
   try {

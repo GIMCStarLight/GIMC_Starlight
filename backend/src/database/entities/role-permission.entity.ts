@@ -27,7 +27,7 @@ export class RolePermission {
     name: 'role_id',
     comment: '角色ID',
   })
-  @Index('idx_role_id')
+  @Index('idx_role_permissions_role_id')
   roleId: string;
 
   @Column({
@@ -36,7 +36,7 @@ export class RolePermission {
     name: 'permission_id',
     comment: '权限ID',
   })
-  @Index('idx_permission_id')
+  @Index('idx_role_permissions_permission_id')
   permissionId: string;
 
   @CreateDateColumn({

@@ -170,6 +170,7 @@ import { IconifyIcon as Icon } from '@vben/icons'
 import { getPopularTags, type QuickFilterParams, type AdvancedFilterParams } from '#/api/influencer-filter'
 import { useDebounceFn } from '@vueuse/core'
 import { log } from '#/utils/logger'
+import { sanitizeBrandText } from '#/utils/display-text'
 import DiscreteRangePicker from '../DiscreteRangePicker.vue'
 import PickerInput from '../PickerInput.vue'
 import BasicInfoFilter from './filters/BasicInfoFilter.vue'
@@ -379,7 +380,7 @@ const activeFilterTags = computed(() => {
     tags.push({ key: 'keyword', label: `关键词: ${basicInfo.value.keyword}` })
   }
   if (basicInfo.value.mcnOrOrgName) {
-    tags.push({ key: 'mcnOrOrgName', label: `MCN/机构: ${basicInfo.value.mcnOrOrgName}` })
+    tags.push({ key: 'mcnOrOrgName', label: `MCN/机构: ${sanitizeBrandText(basicInfo.value.mcnOrOrgName, '')}` })
   }
   if (basicInfo.value.gender) {
     const genderLabel = basicInfo.value.gender === 'M' ? '男' : basicInfo.value.gender === 'F' ? '女' : '未知'
@@ -405,7 +406,7 @@ const activeFilterTags = computed(() => {
   
   // 4. 认证类型
   const certLabels = { 
-    shenguangxingmei: '省广星媒',
+    shenguangxingmei: '星媒机构',
     xingliandaren: '星链计划',
     excellentAuthor: '优质达人', 
     risingStart: '新星达人', 

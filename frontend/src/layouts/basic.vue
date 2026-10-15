@@ -58,13 +58,8 @@ const showDot = computed(() =>
 
 const menus = computed(() => []);
 
-const avatar = computed(() => {
-  // 避免在登录页面触发API请求
-  if (!userStore.userInfo) {
-    return preferences.app.defaultAvatar;
-  }
-  return userStore.userInfo.avatar ?? preferences.app.defaultAvatar;
-});
+// 顶栏用户入口与系统品牌使用同一枚 Logo。
+const avatar = computed(() => '/logo.png?v=20261014-2');
 
 async function handleLogout() {
   await authStore.logout(false);

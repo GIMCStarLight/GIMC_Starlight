@@ -255,7 +255,7 @@ export class AdvancedFilterDto extends QuickFilterDto {
 
   @IsOptional()
   @IsString()
-  orgName?: string; // 机构筛选（省广星媒、星链达人等）
+  orgName?: string; // 机构筛选（星媒机构、星链达人等）
 
   @IsOptional()
   @Transform(({ value }) => value === 'true' || value === true)

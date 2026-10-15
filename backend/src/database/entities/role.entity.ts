@@ -43,7 +43,7 @@ export class Role {
     unique: true,
     comment: '角色代码 (如: PROJECT_GROUP, MEDIA_BUYER)',
   })
-  @Index('idx_code')
+  @Index('idx_roles_code')
   code: string;
 
   @Column({

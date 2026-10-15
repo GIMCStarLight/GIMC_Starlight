@@ -52,12 +52,14 @@ export function useFieldPermissions(resource: 'influencer' | 'kol' | 'supplier')
     if (userPermissions.value.includes('*') || userPermissions.value.includes('*:*')) {
       return true
     }
-    // 检查角色
-    return roles.some((r: any) => 
-      r === 'super_admin' || 
-      r?.code === 'super_admin' ||
-      r?.name === '超级管理员'
-    )
+    // 后端返回的角色代码为 SUPER_ADMIN；兼容字符串角色和角色对象，
+    // 并统一按小写比较，避免超级管理员的字段被错误隐藏。
+    return roles.some((r: any) => {
+      const roleCode = typeof r === 'string' ? r : r?.code
+      const roleName = typeof r === 'object' ? r?.name : undefined
+
+      return roleCode?.toLowerCase() === 'super_admin' || roleName === '超级管理员'
+    })
   })
   
   // 获取用户允许查看的字段列表

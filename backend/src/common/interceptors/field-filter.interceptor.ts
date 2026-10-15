@@ -115,11 +115,15 @@ export class FieldFilterInterceptor implements NestInterceptor {
   private isSuperAdmin(user: any, permissions: string[]): boolean {
     // 检查角色
     if (user.roles && Array.isArray(user.roles)) {
-      const isSuperRole = user.roles.some((role: any) => 
-        role.code === 'SUPER_ADMIN' || 
-        role.name === '超级管理员' ||
-        role.id === 1
-      );
+      const isSuperRole = user.roles.some((role: any) => {
+        const roleCode = typeof role === 'string' ? role : role?.code;
+        const roleName = typeof role === 'object' ? role?.name : undefined;
+        const roleId = typeof role === 'object' ? role?.id : undefined;
+
+        return roleCode?.toUpperCase() === 'SUPER_ADMIN' ||
+          roleName === '超级管理员' ||
+          Number(roleId) === 1;
+      });
       if (isSuperRole) return true;
     }
     

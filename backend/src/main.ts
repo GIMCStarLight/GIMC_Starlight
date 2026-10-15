@@ -109,7 +109,7 @@ async function bootstrap() {
   // 启动应用
   await app.listen(port);
 
-  logger.log(`省广星芒系统已启动，监听端口: ${port}`);
+  logger.log(`星芒系统已启动，监听端口: ${port}`);
   logger.log(`健康检查: http://localhost:${port}/api/health`);
   logger.log(`API文档地址: http://localhost:${port}/api/docs`);
 }

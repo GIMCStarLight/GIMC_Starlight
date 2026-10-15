@@ -14,6 +14,7 @@ export interface MenuItem {
     icon?: string;
     requiresAuth?: boolean;
     permissions?: string[];
+    hideInMenu?: boolean;
   };
 }
 
@@ -84,16 +85,16 @@ export class MenuService {
       // },
       {
         id: '5',
-        name: '智能问数',
+        name: 'AI 选人',
         path: '/ai-number-selection',
         component: '/ai-number-selection/index',
         icon: 'lucide:brain-circuit',
         sort: 4,
         meta: {
-          title: '智能问数',
+          title: 'AI 选人',
           icon: 'lucide:brain-circuit',
           requiresAuth: true,
-          permissions: ['ai:number:selection:view'],
+          permissions: ['influencer:filter:quick'],
         },
       },
       {
