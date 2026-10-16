@@ -12,7 +12,7 @@ defineOptions({
 });
 
 withDefaults(defineProps<Props>(), {
-  companyName: '省广星芒开发团队',
+  companyName: '星芒开发团队',
   companySiteLink: 'https://gimcstar.com',
   date: '2024',
   icp: '',

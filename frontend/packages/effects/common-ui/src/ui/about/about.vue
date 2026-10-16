@@ -21,8 +21,8 @@ defineOptions({
 
 withDefaults(defineProps<Props>(), {
   description:
-    '省广星芒系统开发（GIMCStarLightSystem）是一个现代化的企业级管理系统解决方案，采用最新的技术栈，包括 Vue 3.0、Vite、TailwindCSS 和 TypeScript 等前沿技术。系统专为省广集团量身定制，提供完整的业务管理功能，代码规范严谨，架构设计优雅，旨在为企业数字化转型提供强有力的技术支撑。',
-  name: '省广星芒系统开发',
+    '星芒系统（GIMCStarLightSystem）是一个现代化的企业级营销与达人管理解决方案，采用 Vue 3、Vite、TailwindCSS 和 TypeScript 等技术，提供完整的业务管理能力，为企业数字化营销提供技术支撑。',
+  name: '星芒系统',
   title: '关于项目',
 });
 

@@ -2,11 +2,11 @@
   "name": "gimcstar-light-system-frontend",
   "version": "1.0.0",
   "private": true,
-  "description": "省广星芒系统 - 前端应用 (GIMCStarLightSystem Frontend)",
+  "description": "星芒系统 - 前端应用 (GIMCStarLightSystem Frontend)",
   "keywords": [
     "gimcstar",
     "light-system",
-    "省广星芒",
+    "星芒系统",
     "管理系统",
     "vue",
     "vue3",
@@ -17,7 +17,7 @@
   "homepage": "https://gimcstar.com",
   "license": "MIT",
   "author": {
-    "name": "省广星芒开发团队",
+    "name": "星芒开发团队",
     "email": "dev@gimcstar.com",
     "url": "https://gimcstar.com"
   },

@@ -3,7 +3,9 @@ SET search_path = public;
 INSERT INTO permissions (code, name, type, status)
 VALUES
   ('kol:view', 'KOL查看', 'API', 1),
+  ('kol:review:view', '达人评价查看', 'API', 1),
   ('supplier:view', '供应商查看', 'API', 1),
+  ('sqlbot:config:view', 'SQLBot配置查看', 'API', 1),
   ('work-order:view', '工单查看', 'API', 1),
   ('influencer:starlink:view', 'Starlink查看', 'API', 1),
   ('influencer:starmedia:view', 'Starmedia查看', 'API', 1),
@@ -18,7 +20,8 @@ FROM roles r
 CROSS JOIN permissions p
 WHERE r.code = 'SYSTEM_ADMIN'
   AND p.code IN (
-    'kol:view', 'supplier:view', 'work-order:view',
+    'kol:view', 'kol:review:view', 'supplier:view',
+    'sqlbot:config:view', 'work-order:view',
     'influencer:starlink:view', 'influencer:starmedia:view',
     'influencer:filter:quick', 'influencer:filter:advanced',
     'influencer:filter:stats'

@@ -26,7 +26,7 @@ const defaultPreferences: Preferences = {
     layout: 'sidebar-nav',
     locale: 'zh-CN',
     loginExpiredMode: 'modal',
-    name: '省广星芒系统',
+    name: '星芒系统',
     preferencesButtonPosition: 'auto',
     watermark: false,
     zIndex: 200,
@@ -39,7 +39,7 @@ const defaultPreferences: Preferences = {
     styleType: 'normal',
   },
   copyright: {
-    companyName: '省广星芒开发团队',
+    companyName: '星芒开发团队',
     companySiteLink: 'https://gimcstar.com',
     date: '2024',
     enable: true,
