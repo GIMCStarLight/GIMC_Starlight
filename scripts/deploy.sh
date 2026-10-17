@@ -46,7 +46,6 @@ check_target() {
   actual_dir="$(remote "test -d '${DEPLOY_REMOTE_DIR}' && test -f '${DEPLOY_REMOTE_DIR}/compose.yaml' && realpath '${DEPLOY_REMOTE_DIR}'")"
   [[ "${actual_dir}" == "${DEPLOY_REMOTE_DIR}" ]] || fail "服务器目录校验失败：${actual_dir}"
   remote "test -f '${DEPLOY_REMOTE_DIR}/.env'"
-  remote "test -f '${DEPLOY_REMOTE_DIR}/nginx/.htpasswd'"
 }
 
 build_frontend() {
@@ -77,7 +76,7 @@ sync_config() {
     rsync_flags+=(--dry-run --itemize-changes)
   fi
 
-  log '同步 Compose 与 Nginx 配置（保留远端 .env 和 .htpasswd）'
+  log '同步 Compose 与 Nginx 配置（保留远端 .env）'
   if [[ "${DRY_RUN}" == '0' ]]; then
     remote "mkdir -p '${DEPLOY_REMOTE_DIR}/nginx'"
   fi
@@ -103,6 +102,7 @@ deploy_frontend() {
   rsync "${rsync_flags[@]}" -e ssh "${PROJECT_ROOT}/frontend/dist/" "${DEPLOY_HOST}:${DEPLOY_REMOTE_DIR}/frontend/dist/"
 
   if [[ "${DRY_RUN}" == '0' ]]; then
+    remote "find '${DEPLOY_REMOTE_DIR}/frontend/dist' -type d -exec chmod 755 {} + && find '${DEPLOY_REMOTE_DIR}/frontend/dist' -type f -exec chmod 644 {} +"
     remote "${REMOTE_COMPOSE} exec -T nginx nginx -t && ${REMOTE_COMPOSE} exec -T nginx nginx -s reload"
     remote "test -f '${DEPLOY_REMOTE_DIR}/frontend/dist/index.html'"
   fi

@@ -12,17 +12,15 @@ SSH 私钥安装在 `~/.ssh/starlight_deploy`，主机参数位于 `~/.ssh/confi
 
 ## 首次准备
 
-服务器必须已有以下运行时文件，部署脚本不会覆盖它们：
+服务器必须已有以下运行时文件，部署脚本不会覆盖它：
 
 - `/opt/gimc-starlight/.env`：数据库、Redis、JWT 等服务端密钥
-- `/opt/gimc-starlight/nginx/.htpasswd`：演示站 Basic Auth 凭据
 
 新服务器可从 `.env.example` 创建 `.env`，并执行：
 
 ```bash
 mkdir -p /opt/gimc-starlight/nginx
-htpasswd -c /opt/gimc-starlight/nginx/.htpasswd demo
-chmod 600 /opt/gimc-starlight/.env /opt/gimc-starlight/nginx/.htpasswd
+chmod 600 /opt/gimc-starlight/.env
 ```
 
 `db-init/` 只会在 PostgreSQL 数据卷首次创建时运行。为避免误伤线上数据，常规部署脚本不会同步数据库初始化文件，也不会执行 `docker compose down -v`。
@@ -46,16 +44,16 @@ chmod 600 /opt/gimc-starlight/.env /opt/gimc-starlight/nginx/.htpasswd
 ./scripts/deploy.sh --dry-run all
 ```
 
-脚本会先在本机完成对应构建，再备份线上文件、同步变更并做健康检查。它不会传输 `.env`、SSH 密钥、`.htpasswd`、上传文件、日志或数据库数据卷。
+脚本会先在本机完成对应构建，再备份线上文件、同步变更并做健康检查。它不会传输 `.env`、SSH 密钥、上传文件、日志或数据库数据卷。
 
 ## 配置与数据
 
 - `compose.yaml`：四个线上服务；后端和数据库不开放公网端口。
-- `nginx/default.conf`：只暴露 80 端口，API 反向代理至后端，页面启用 Basic Auth。
+- `nginx/default.conf`：只暴露 80 端口，API 反向代理至后端；公网首页不再启用 Basic Auth，仍使用系统自身登录鉴权。
 - `db-init/`：新环境初始化 SQL 与演示数据加载脚本。
 - `deploy/sql/`：需要人工确认后执行的一次性修复 SQL。
 
-生产环境口令只应放在服务器 `.env`。不要提交 `.deploy.env`、`nginx/.htpasswd` 或 `db-init/03-parsed.csv`。
+生产环境口令只应放在服务器 `.env`。不要提交 `.deploy.env` 或 `db-init/03-parsed.csv`。
 
 ## 回滚
 
