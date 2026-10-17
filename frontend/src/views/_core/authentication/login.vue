@@ -25,6 +25,7 @@ const formSchema = computed((): VbenFormSchema[] => {
         placeholder: $t('authentication.mobile'),
         type: 'tel',
       },
+      defaultValue: '13800000000',
       fieldName: 'phone',
       label: $t('authentication.mobile'),
       rules: z.string().min(11, { message: $t('authentication.mobileTip') }).regex(/^1[3-9]\d{9}$/, { message: $t('authentication.mobileErrortip') }),
@@ -34,6 +35,7 @@ const formSchema = computed((): VbenFormSchema[] => {
       componentProps: {
         placeholder: $t('authentication.password'),
       },
+      defaultValue: 'admin123456',
       fieldName: 'password',
       label: $t('authentication.password'),
       rules: z.string().min(1, { message: $t('authentication.passwordTip') }),
@@ -57,11 +59,6 @@ async function handleLogin(values: any) {
     phone: values.phone,
     password: values.password,
   };
-  
-  // 调试：打印实际发送的数据
-  console.log('准备发送登录请求，数据:', loginData);
-  console.log('phone类型:', typeof loginData.phone, '值:', loginData.phone);
-  console.log('password类型:', typeof loginData.password, '值长度:', loginData.password?.length);
   
   // 发送登录请求
   try {
@@ -89,6 +86,13 @@ async function handleLogin(values: any) {
 
 <template>
   <div class="login-container">
+    <section class="interview-account" aria-label="面试演示账号">
+      <div class="interview-account__badge">面试演示账号</div>
+      <p>账号：<strong>13800000000</strong></p>
+      <p>密码：<strong>admin123456</strong></p>
+      <small>账号和密码已自动填充，完成滑块验证后即可登录</small>
+    </section>
+
     <!-- 登录页顶部欢迎文案临时停用 -->
     <!-- <div class="login-header">
       <h1 class="login-title">欢迎回来！</h1>
@@ -123,6 +127,39 @@ async function handleLogin(values: any) {
   max-width: 400px;
   margin: 0 auto;
   padding: 2rem;
+}
+
+.interview-account {
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  color: #1e3a8a;
+  background: linear-gradient(135deg, #eff6ff 0%, #eef2ff 100%);
+  border: 1px solid #93c5fd;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgb(37 99 235 / 12%);
+}
+
+.interview-account__badge {
+  display: inline-flex;
+  margin-bottom: 0.65rem;
+  padding: 0.2rem 0.65rem;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: #2563eb;
+  border-radius: 999px;
+}
+
+.interview-account p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+.interview-account small {
+  display: block;
+  margin-top: 0.65rem;
+  color: #475569;
+  line-height: 1.5;
 }
 
 .login-header {
