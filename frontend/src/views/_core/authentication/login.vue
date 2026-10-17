@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import type { VbenFormSchema } from '@vben/common-ui';
 
-import { computed, markRaw } from 'vue';
+import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { AuthenticationLogin, SliderCaptcha, z } from '@vben/common-ui';
+import { AuthenticationLogin, z } from '@vben/common-ui';
 import { $t } from '@vben/locales';
 
 import { ElMessage } from 'element-plus';
@@ -39,13 +39,6 @@ const formSchema = computed((): VbenFormSchema[] => {
       fieldName: 'password',
       label: $t('authentication.password'),
       rules: z.string().min(1, { message: $t('authentication.passwordTip') }),
-    },
-    {
-      component: markRaw(SliderCaptcha),
-      fieldName: 'captcha',
-      rules: z.boolean().refine((value) => value, {
-        message: $t('authentication.verifyRequiredTip'),
-      }),
     },
   ];
 });
@@ -86,13 +79,6 @@ async function handleLogin(values: any) {
 
 <template>
   <div class="login-container">
-    <section class="interview-account" aria-label="面试演示账号">
-      <div class="interview-account__badge">面试演示账号</div>
-      <p>账号：<strong>13800000000</strong></p>
-      <p>密码：<strong>admin123456</strong></p>
-      <small>账号和密码已自动填充，完成滑块验证后即可登录</small>
-    </section>
-
     <!-- 登录页顶部欢迎文案临时停用 -->
     <!-- <div class="login-header">
       <h1 class="login-title">欢迎回来！</h1>
@@ -112,6 +98,12 @@ async function handleLogin(values: any) {
       sub-title=""
       @submit="handleLogin"
     />
+
+    <section class="demo-account" aria-label="演示账号">
+      <span class="demo-account__title">演示账号</span>
+      <span>账号 <strong>13800000000</strong></span>
+      <span>密码 <strong>admin123456</strong></span>
+    </section>
     
     <!-- 底部提示与其他登录方式临时停用 -->
     <!-- <div class="login-footer">
@@ -129,37 +121,28 @@ async function handleLogin(values: any) {
   padding: 2rem;
 }
 
-.interview-account {
-  margin-bottom: 1.5rem;
-  padding: 1rem 1.25rem;
-  color: #1e3a8a;
-  background: linear-gradient(135deg, #eff6ff 0%, #eef2ff 100%);
-  border: 1px solid #93c5fd;
-  border-radius: 0.75rem;
-  box-shadow: 0 8px 24px rgb(37 99 235 / 12%);
-}
-
-.interview-account__badge {
-  display: inline-flex;
-  margin-bottom: 0.65rem;
-  padding: 0.2rem 0.65rem;
-  color: #fff;
-  font-size: 0.75rem;
-  font-weight: 700;
-  background: #2563eb;
-  border-radius: 999px;
-}
-
-.interview-account p {
-  margin: 0.25rem 0;
-  font-size: 0.95rem;
-}
-
-.interview-account small {
-  display: block;
-  margin-top: 0.65rem;
+.demo-account {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.9rem;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
   color: #475569;
-  line-height: 1.5;
+  font-size: 0.78rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+}
+
+.demo-account__title {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.demo-account strong {
+  color: #1e293b;
+  font-weight: 600;
 }
 
 .login-header {
